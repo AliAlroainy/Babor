@@ -5,8 +5,6 @@
   <div class="layout-container">
 
     
-    
-
 
 
  @include('Dashboard.admin.includes.aside')
@@ -20,21 +18,8 @@
       
 
 
+  @include('Dashboard.admin.includes.navbar')
 
-<!-- Navbar -->
-
-
-
-
-<nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
- 
- <h3>   hello    </h3>  
-      
-  </nav>
-  
-
-  
-<!-- / Navbar -->
 
       
 
@@ -47,7 +32,7 @@
             
             
 <h4 class="fw-bold py-3 mb-4">
-  <span class="text-muted fw-light">User / View /</span> Security
+  <span class="text-muted fw-light">المستخدمين / عرض </span> 
 </h4>
 
 

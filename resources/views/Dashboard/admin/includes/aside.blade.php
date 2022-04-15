@@ -29,28 +29,49 @@
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link ">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
-          <div data-i18n="Dashboards">Dashboards</div>
+          <div data-i18n="لوحة التحكم ">لوحة التحكم </div>
         </a>
      
       </li>
   
       <!-- Layouts -->
+
+      <li class="menu-item active open">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons bx bx-user"></i>
+          <div data-i18n="المستخدمين">المستخدمين</div>
+        </a>
+        <ul class="menu-sub">
+          <li class="menu-item">
+            <a href="users" class="menu-link">
+              <div data-i18n="عرض">عرض </div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="users" class="menu-link">
+              <div data-i18n="تحكم">تحكم</div>
+            </a>
+          </li>
+         
+        </ul>
+      </li>
+
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-layout"></i>
-          <div data-i18n="Companies">Companies</div>
+          <div data-i18n="العروض">العروض</div>
         </a>
   
         <ul class="menu-sub">
   
           <li class="menu-item">
             <a href="layouts-collapsed-menu.html" class="menu-link">
-              <div data-i18n="Add">Add</div>
+              <div data-i18n="اضافة عرض">اضافة عرض</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="layouts-content-navbar.html" class="menu-link">
-              <div data-i18n="View">View</div>
+              <div data-i18n="تصفح العروض">تصفح العروض</div>
             </a>
           </li>
 
@@ -59,61 +80,40 @@
   
       <!-- Apps & Pages -->
       <li class="menu-header small text-uppercase">
-        <span class="menu-header-text">Apps &amp; Pages</span>
+        <span class="menu-header-text">العمليات</span>
       </li>
-      <li class="menu-item">
-        <a href="app-calendar.html" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-calendar"></i>
-          <div data-i18n="Calendar">Calendar</div>
-        </a>
-      </li>
+
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class='menu-icon tf-icons bx bx-food-menu'></i>
-          <div data-i18n="Invoice">Invoice</div>
+          <div data-i18n="العمليات المالية">العمليات المالية</div>
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
             <a href="app-invoice-list.html" class="menu-link">
-              <div data-i18n="List">List</div>
+              <div data-i18n="المزايدين">المزايدين</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="app-invoice-preview.html" class="menu-link">
-              <div data-i18n="Preview">Preview</div>
+              <div data-i18n="الارباح">الارباح</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="app-invoice-edit.html" class="menu-link">
-              <div data-i18n="Edit">Edit</div>
+              <div data-i18n="حسابات العملاء">حسابات العملاء </div>
             </a>
           </li>
+
           <li class="menu-item">
-            <a href="app-invoice-add.html" class="menu-link">
-              <div data-i18n="Add">Add</div>
+            <a href="app-invoice-edit.html" class="menu-link">
+              <div data-i18n=" الحجز">الحجز </div>
             </a>
           </li>
+     
         </ul>
       </li>
-      <li class="menu-item active open">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-user"></i>
-          <div data-i18n="Users">Users</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="users" class="menu-link">
-              <div data-i18n="List">List</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="users" class="menu-link">
-              <div data-i18n="Add">Add</div>
-            </a>
-          </li>
-         
-        </ul>
-      </li>
+     
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class='menu-icon tf-icons bx bx-check-shield'></i>
@@ -135,16 +135,16 @@
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-dock-top"></i>
-          <div data-i18n="Ads">Ads</div>
+          <div data-i18n="الاعلانات">الاعلانات</div>
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link">
-              <div data-i18n="Add">Add</div>
+              <div data-i18n="الاعلانات الحالية">الاعلانات الحالية</div>
             </a>
             <li class="menu-item">
               <a href="pages-profile-user.html" class="menu-link">
-                <div data-i18n="View">View</div>
+                <div data-i18n="التحكم بالاعلانات">التحكم  بالاعلانات</div>
               </a>
             </li>
            
