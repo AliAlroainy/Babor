@@ -1,4 +1,4 @@
-@include('admin.includes.header')
+@include('Dashboard.admin.includes.header')
 
   <!-- Layout wrapper -->
 <div class="layout-wrapper layout-content-navbar  ">
@@ -9,7 +9,7 @@
 
 
 
- @include('admin.includes.aside')
+ @include('Dashboard.admin.includes.aside')
 
 
     
@@ -165,6 +165,6 @@
           <!-- / Content -->
 
           
-@include('admin.includes.footer')
+@include('Dashboard.admin.includes.footer')
         
 

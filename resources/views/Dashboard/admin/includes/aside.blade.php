@@ -13,7 +13,7 @@
   
   
   </span>
-        <span class="app-brand-text demo menu-text fw-bolder ms-2">WorkTime</span>
+        <span class="app-brand-text demo menu-text fw-bolder ms-2">Babor</span>
       </a>
   
       <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
