@@ -78,7 +78,7 @@
         </ul>
       </li>
   
-      <!-- Apps & Pages -->
+      <!--Apps & Pages العمليات -->
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">العمليات</span>
       </li>
