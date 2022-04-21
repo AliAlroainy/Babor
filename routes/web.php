@@ -41,7 +41,7 @@ Route::get('/user/signup',[AuthController::class,'singup'])->name('singup');
 Route::get('/user/login',[AuthController::class,'showLogin'])->name('login');
 Route::post('/do_login',[AuthController::class,'login'])->name('do_login');
 Route::post('/save_user',[AuthController::class,'register'])->name('save_user');
-Route::get('/home',[AuthController::class,'showhome'])->name('home');
+Route::get('/home',[AuthController::class,'showUserDash'])->name('home');
 Route::get('/forget-password',  [ForgotPasswordController::class,'getEmail']);
 Route::post('/forget-password', [ForgotPasswordController::class,'postEmail'])->name('forget-password');
 Route::get('/reset-password/{token}', [ResetPasswordController::class,'getPassword']);

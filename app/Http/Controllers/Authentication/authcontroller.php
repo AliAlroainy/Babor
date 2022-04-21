@@ -20,12 +20,11 @@ class AuthController extends Controller
         return view('admin.dashboard');
 
     }
-    public function showhome(){
-        return view('user.home');
-
-    }
+    // public function showhome(){
+    //     return view('user.dashboard');
+    // }
     public function showUserDash(){
-        return view('user.profile');
+        return view('user.dashboard');
     }
     public function singup(){
         return view('user.singup');
@@ -59,7 +58,7 @@ class AuthController extends Controller
         $token=Str::uuid();
         $u->remember_token=$token;
         if($u->save()){
-            $u->attachRole('Admin');
+            $u->attachRole('user');
             $sendToName = $request->name;
             $sendToeEmail = $request->email;
             $data = array('name'=>$request->name, 'activation_url'=>URL::to('/')."/verify_account/".$token);
@@ -95,9 +94,9 @@ class AuthController extends Controller
 
     }
     public function checkRole(){
-        if(Auth::user()->hasRole('Admin'))
-        return 'adminDash';
-            else
+        if(Auth::user()->hasRole('admin'))
+            return 'adminDash';
+        else
             return 'home';
 
     }
