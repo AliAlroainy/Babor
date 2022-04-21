@@ -69,8 +69,8 @@ class AuthController extends Controller
                 $sendToeEmail = $request->email;
                 $data = array('name'=>$request->name, 'activation_url'=>URL::to('/')."/verify_account/".$token);
 
-            Mail::send('user.email.welcome', $data, function($message) use ($to_name, $sendToeEmail) {
-                $message->to($sendToeEmail, $to_name)
+            Mail::send('user.email.welcome', $data, function($message) use ($sendToName, $sendToeEmail) {
+                $message->to($sendToeEmail,  $sendToName)
                         ->subject('تسجيل عضوية جديدة');
                 $message->from('baborproject2022@gmail.com','بابور');
             });
