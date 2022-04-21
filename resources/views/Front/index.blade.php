@@ -14,8 +14,10 @@
 	<div class="container d-flex flex-column justify-content-center align-items-center mt-5 " >
 		<h1 class="m-3 text-center "> معنا تقدر تبيع وتشتري سيارتك بسهولة </h1>
 		<div class=" "> 
-			<button class="btn btn-dark m-3 shadow-sm "> شراء سيارة </button>
-			<button class="btn btn-light m-1 shadow-sm "> بيع سيارة </button>
+		
+			<button class="btn btn-light m-1 shadow-sm "> بيع سيارتك </button>
+			
+			<button class="btn btn-dark m-3 shadow-sm ">اشتري سيارة </button>
 		</div>
 	  <img src="img/car1.png" class="img-fluid"  />
 	</div>

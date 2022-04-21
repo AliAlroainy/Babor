@@ -38,6 +38,7 @@ Version:1.0
 @import url('fonts/Tajawal-Regular');
 * {
 	font-family: 'Tajawal', sans-serif;
+	
 
 }
 
@@ -239,11 +240,12 @@ Version:1.0
 	background-color: #fff;
 	border-bottom: 1px solid #e2e2e2;
 	padding: 15px 0;
+	height: 60px;
 }
 /* Logo */
 .header .logo {
-	float: right;
-	margin-top: 35px;
+	float: left;
+	margin-top: 30px;
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	transition: all 0.4s ease;

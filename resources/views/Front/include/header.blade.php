@@ -136,7 +136,7 @@
 							<!-- Search Form -->
 							<div class="search-top"  dir="rtl">
 								<form class="search-form" >
-									<input type="text" placeholder="Search here..." name="search">
+									<input type="text" placeholder="ابحث هنا..." name="search">
 									<button value="search" type="submit"><i class="ti-search"></i></button>
 								</form>
 							</div>
@@ -157,7 +157,7 @@
 									<option>تكاسي</option>
 								</select>
 								<form>
-									<input name="search" placeholder="ابحث هنا عن السيارة الي تناسبك...." type="بحث">
+									<input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث">
 									<button class="btnn"><i class="ti-search"></i></button>
 								</form>
 							</div>
@@ -165,10 +165,10 @@
 					</div>
 
           
-					<div class="col-lg-2 col-md-3 col-12">
+					<div class="col-lg-2 col-md-3 col-12 d-flex justify-content-start align-items-center">
 						
               	<!-- Logo -->
-						<div class="logo">
+						<div >
 							<a class="navbar-brand fw-bold" href="/" style="color: #c20e1a"
 							>
               <h2> بابور</h2>
@@ -183,6 +183,47 @@
 				</div>
 			</div>
 		</div>
+
+
+
+
+    	<!-- Header Inner -->
+		<div class="header-inner" dir="rtl">
+			<div class="container">
+				<div class="cat-nav-head">
+					<div class="row">
+					
+						<div class="col-lg-9 col-12">
+							<div class="menu-area">
+								<!-- Main Menu -->
+								<nav class="navbar navbar-expand-lg">
+									<div class="navbar-collapse">	
+										<div class="nav-inner">	
+											<ul class="nav main-menu menu navbar-nav ">
+													<li class="active "><a href="/">الرئيسية</a></li>
+													<li><a href="#">العروض</a></li>												
+													<li><a href="#">الخدمات</a></li>
+													<li><a href="#">شراء سيارة<i class="ti-angle-down"></i><span class="new">جديد</span></a>
+														<ul class="dropdown">
+															<li><a href="#">مستعملة</a></li>
+															<li><a href="#">جديد</a></li>
+														</ul>
+													</li>
+																					
+												
+											
+												</ul>
+										</div>
+									</div>
+								</nav>
+								<!--/ End Main Menu -->	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/ End Header Inner -->
 		</header>
 	<!--/ End Header -->
 
