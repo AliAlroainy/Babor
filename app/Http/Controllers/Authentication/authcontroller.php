@@ -65,12 +65,12 @@ class AuthController extends Controller
             $u->remember_token=$token;
             if($u->save()){
                 $u->attachRole('Admin');
-                $to_name = $request->name;
-                $to_email = $request->email;
-                $data = array('name'=>$request->name, 'activation_url'=>URL::to('/')."/verify_email/".$token);
+                $sendToName = $request->name;
+                $sendToeEmail = $request->email;
+                $data = array('name'=>$request->name, 'activation_url'=>URL::to('/')."/verify_account/".$token);
 
-            Mail::send('user.email.welcome', $data, function($message) use ($to_name, $to_email) {
-                $message->to($to_email, $to_name)
+            Mail::send('user.email.welcome', $data, function($message) use ($to_name, $sendToeEmail) {
+                $message->to($sendToeEmail, $to_name)
                         ->subject('تسجيل عضوية جديدة');
                 $message->from('baborproject2022@gmail.com','بابور');
             });
@@ -81,7 +81,7 @@ class AuthController extends Controller
             return back()->with(['error'=>'can not create user']);
 
         }
-        public function verifyEmail($token){
+        public function verifyAccount($token){
             $user=User::where('remember_token',$token)->first();
             if($user){
             $user->email_verified_at=Carbon::now()->timestamp;
