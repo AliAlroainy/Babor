@@ -17,20 +17,19 @@
 								<a href="/"><img src="images/logo2.png" alt="#"></a>
 							</div>
 							<p class="text">بابور نقدم لك اسهل خدمة لبيع وشراء السيارات في المزاد بشكل رائع وامن وسهل الاستخدام</p>
-							<p class="call">معك سؤال لنا ؟ 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
+							<p class="call">اتصل نصل 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
 						</div>
 						<!-- End Single Widget -->
 					</div>
 					<div class="col-lg-2 col-md-6 col-12">
 						<!-- Single Widget -->
 						<div class="single-footer links">
-							<h4>Information</h4>
+							<h4>معلومات</h4>
 							<ul>
-								<li><a href="#">عننا</a></li>
-								<li><a href="#">اسئلة</a></li>
-								<li><a href="#">السياسات والخصوصية</a></li>
-								<li><a href="#">تواصل معنا</a></li>
-								<li><a href="#">مساعده</a></li>
+								<li><a class="nav-link" href="#">عننا</a></li>
+								<li><a class="nav-link" href="#">ابرز اسئلة</a></li>
+								<li><a class="nav-link" href="#">الخصوصية</a></li>
+								<li><a class="nav-link" href="#">تواصل معنا</a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->
@@ -40,11 +39,10 @@
 						<div class="single-footer links">
 							<h4>خدمة العلاء</h4>
 							<ul>
-								<li><a href="#">طرق الدفع</a></li>
-								<li><a href="#">رجع فلوسك</a></li>
-								<li><a href="#">الارجاع</a></li>
-								<li><a href="#">الشحن</a></li>
-								<li><a href="#">الخصوصية</a></li>
+								<li><a class="nav-link" href="#">طرق الدفع</a></li>
+								<li><a class="nav-link" href="#">رجع فلوسك</a></li>
+								<li><a class="nav-link" href="#">الارجاع</a></li>
+								<li><a class="nav-link" href="#">الشحن</a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->
@@ -59,15 +57,17 @@
 									<li>اليمن - تعز</li>
 									<li>جولة المسبح</li>
 									<li>info@babor.com</li>
-									<li>+967 773 739 473 </li>
+									<li>+967 773 739 473</li>
+                                    <li>.</li>
+
 								</ul>
 							</div>
 							<!-- End Single Widget -->
 							<ul>
-								<li><a href="#"><i class="ti-facebook"></i></a></li>
-								<li><a href="#"><i class="ti-twitter"></i></a></li>
+								<li><a class="nav-link" href="#"><i class="ti-facebook"></i></a></li>
+								<li><a class="nav-link" href="#"><i class="ti-twitter"></i></a></li>
                                 ..
-								<li><a href="#"><i class="ti-instagram"></i></a></li>
+								<li><a class="nav-link" href="#"><i class="ti-instagram"></i></a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->
@@ -129,8 +129,36 @@
 	<script src="js/easing.js"></script>
 	<!-- Active JS -->
 	<script src="js/active.js"></script>
+   
 
     <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.js"></script>
+
+
+
+
+    
+  <!-- Core JS -->
+  <!-- build:js assets/vendor/js/core.js -->
+  <script src="assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="assets/vendor/libs/popper/popper.js"></script>
+  <script src="assets/vendor/js/bootstrap.js"></script>
+  <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  
+  <script src="assets/vendor/libs/hammer/hammer.js"></script>
+  <script src="assets/vendor/libs/i18n/i18n.js"></script>
+  <script src="assets/vendor/libs/typeahead-js/typeahead.js"></script>
+  
+  <script src="assets/vendor/js/menu.js"></script>
+  <!-- endbuild -->
+
+  <!-- Vendors JS -->
+  <script src="assets/vendor/libs/swiper/swiper.js"></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Page JS -->
+  <script src="assets/js/ui-carousel.js"></script>
 
 </body>
 </html>

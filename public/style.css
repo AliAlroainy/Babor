@@ -3654,6 +3654,12 @@ Version:1.0
    End Shop List CSS
 ========================================*/
 
+.default-img{
+	width: 750px;
+	height: 250px;
+
+}
+
 /*=============================
 	Start Cowndown CSS
 ===============================*/
@@ -3746,14 +3752,19 @@ Version:1.0
 .shop-services.section {
 	padding: 80px 0 0px 0;
 	background: #fff;
+	display: flex;
+	flex-direction: column;
 }
 .shop-services.home{
 	padding:60px 0;
 	background:#F6F7FB;
+	display: flex;
+	flex-direction: column;
 }
 .shop-services .single-service {
 	position: relative;
 	padding-left: 65px;
+	
 }
 .shop-services .single-service i {
 	height: 50px;
@@ -3766,7 +3777,7 @@ Version:1.0
 	display: block;
 	font-size: 32px;
 	position: absolute;
-	left: 0;
+	right: 0;
 	top: 0;
 }
 .shop-services .single-service h4 {
@@ -3775,11 +3786,14 @@ Version:1.0
 	text-transform: uppercase;
 	line-height: 22px;
 	color: #333;
+	text-align: center;
+	
 }
 .shop-services .single-service p {
 	color: #898989;
 	line-height: 28px;
 	font-size:14px;
+	text-align: center;
 }
 /*======================================
    End Shop Services CSS

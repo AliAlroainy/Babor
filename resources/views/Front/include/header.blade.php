@@ -52,6 +52,24 @@
 
 <!-- some linkes -->
 
+
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+
+
+
+<!-- Vendors CSS -->
+<link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+<link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css" />
+<link rel="stylesheet" href="assets/vendor/libs/swiper/swiper.css" />
+
+<!-- Page CSS -->
+<link rel="stylesheet" href="assets/vendor/css/pages/ui-carousel.css" />
+
+
  {{-- bootstrap link --}}
  <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css" />
 
@@ -92,9 +110,9 @@
             	<!-- Top left -->
 						<div  class="top-left">
 							<ul class="list-main">
-								<li> <a href="#">عروض يومية</a> <i class="ti-alarm-clock"></i></li>
-								<li> <a href="#">حسابي</a><i class="ti-user"></i></li>
-								<li><a href="login.html#">تسجيل دخول</a><i class="ti-power-off"></i></li>
+								<li> <a class="nav-link" href="#" >اخر العروض  <i class="ti-alarm-clock"></i></a></li>
+							
+								<li><a class="nav-link" href="/"> تسجيل دخول <i class="ti-power-off"></i></a> </li>
 							</ul>
 						</div>
 						<!-- End Top left -->
@@ -121,13 +139,22 @@
 					<div class="col-lg-2 col-md-2 col-12">
 					
             <div class="right-bar">
-							<!-- Search Form -->
+							<!-- noted Form -->
+              <div class="sinlge-bar">
+								<a href="#" class="single-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                  </svg>
+                </a>
+							</div>
+
 							<div class="sinlge-bar">
-								<a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+								<a href="#" class="single-icon "><i class="fa fa-heart-o" aria-hidden="true"></i> </a>
 							</div>
 							<div class="sinlge-bar">
 								<a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
 							</div>
+          
             </div>
 
 						<!-- Search Form -->
@@ -169,7 +196,7 @@
 						
               	<!-- Logo -->
 						<div >
-							<a class="navbar-brand fw-bold" href="/" style="color: #c20e1a"
+							<a class="navbar-brand fw-bold" href="/" style="color: #F7941D"
 							>
               <h2> بابور</h2>
               </a
@@ -200,13 +227,13 @@
 									<div class="navbar-collapse">	
 										<div class="nav-inner">	
 											<ul class="nav main-menu menu navbar-nav ">
-													<li class="active "><a href="/">الرئيسية</a></li>
-													<li><a href="#">العروض</a></li>												
-													<li><a href="#">الخدمات</a></li>
-													<li><a href="#">شراء سيارة<i class="ti-angle-down"></i><span class="new">جديد</span></a>
+													<li class="active "><a class="nav-link" href="/">الرئيسية</a></li>
+													<li><a class="nav-link" href="#">العروض</a></li>												
+													<li><a class="nav-link" href="#">الخدمات</a></li>
+													<li><a class="nav-link" href="#">شراء سيارة<i class="ti-angle-down"></i><!--span class="new">جديد</span--></a>
 														<ul class="dropdown">
-															<li><a href="#">مستعملة</a></li>
-															<li><a href="#">جديد</a></li>
+															<li><a class="nav-link" href="#">مستعملة</a></li>
+															<li><a class="nav-link" href="#">جديد</a></li>
 														</ul>
 													</li>
 																					
