@@ -5,18 +5,19 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Majestic Admin</title>
+  <title>Babor Admin</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{@asset('assets/vendors/mdi/css/materialdesignicons.min.css')}}">
   <link rel="stylesheet" href="{{@asset('assets/vendors/base/vendor.bundle.base.css')}}">
   <!-- endinject -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="{{@asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{@asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{@asset('assets/css/styles.css')}}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{@asset('assets/images/favicon.png')}}" />
 </head>
 
-<body>
+<body >
   <div class="container-scroller">
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex justify-content-center">
@@ -162,71 +163,72 @@
       <!-- partial:'assets/partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item">
+{{--          <li class="nav-item">
             <a class="nav-link" href="index.html">
               <i class="mdi mdi-home menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
-          </li>
+          </li>--}}
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="mdi mdi-circle-outline menu-icon"></i>
               <span class="menu-title">UI Elements</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+           <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="ui-features/buttons.html">Buttons</a></li>
                 <li class="nav-item"> <a class="nav-link" href="assets/pages/ui-features/typography.html">Typography</a></li>
               </ul>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="assets/pages/forms/basic_elements.html">
-              <i class="mdi mdi-view-headline menu-icon"></i>
-              <span class="menu-title">Form elements</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="assets/pages/charts/chartjs.html">
-              <i class="mdi mdi-chart-pie menu-icon"></i>
-              <span class="menu-title">Charts</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
-              <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Tables</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="assets/pages/icons/mdi.html">
-              <i class="mdi mdi-emoticon menu-icon"></i>
-              <span class="menu-title">Icons</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <i class="mdi mdi-account menu-icon"></i>
-              <span class="menu-title">User Pages</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="assets/pages/samples/login.html"> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href="assets/pages/samples/login-2.html"> Login 2 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="assets/pages/samples/register.html"> Register </a></li>
-                <li class="nav-item"> <a class="nav-link" href="assets/pages/samples/register-2.html"> Register 2 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="assets/pages/samples/lock-screen.html"> Lockscreen </a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="assets/documentation/documentation.html">
-              <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-              <span class="menu-title">Documentation</span>
-            </a>
-          </li>
+
+            {{--   <li class="nav-item">
+                <a class="nav-link" href="assets/pages/forms/basic_elements.html">
+                  <i class="mdi mdi-view-headline menu-icon"></i>
+                  <span class="menu-title">Form elements</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="assets/pages/charts/chartjs.html">
+                  <i class="mdi mdi-chart-pie menu-icon"></i>
+                  <span class="menu-title">Charts</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/tables/basic-table.html">
+                  <i class="mdi mdi-grid-large menu-icon"></i>
+                  <span class="menu-title">Tables</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="assets/pages/icons/mdi.html">
+                  <i class="mdi mdi-emoticon menu-icon"></i>
+                  <span class="menu-title">Icons</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                  <i class="mdi mdi-account menu-icon"></i>
+                  <span class="menu-title">User Pages</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="auth">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="assets/pages/samples/login.html"> Login </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="assets/pages/samples/login-2.html"> Login 2 </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="assets/pages/samples/register.html"> Register </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="assets/pages/samples/register-2.html"> Register 2 </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="assets/pages/samples/lock-screen.html"> Lockscreen </a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="assets/documentation/documentation.html">
+                  <i class="mdi mdi-file-document-box-outline menu-icon"></i>
+                  <span class="menu-title">Documentation</span>
+                </a>
+              </li>--}}
         </ul>
       </nav>
       <!-- partial -->

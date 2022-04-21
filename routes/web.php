@@ -21,3 +21,6 @@ Route::get('/admin', function () {
     return view('Admin.carSpecs');
 });
 
+Route::get('/login', function () {
+    return view('auth.forget-password');
+});
