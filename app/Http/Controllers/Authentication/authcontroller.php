@@ -103,8 +103,8 @@ class AuthController extends Controller
     }
     public function login(Request $request){
         Validator::validate($request->all(),[
-            'email'=>['email','required','min:3','max:50'],
-            'password'=>['required','min:5']
+            'email'=>['email','required'],
+            'password'=>['required']
 
 
         ],[
