@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AccountsController extends Controller
 {
     public function index()
     {
-        return view('admin.user.index', ['users' => User::all()]);//paginate(5)
+        return view('admin.accounts.index', ['users' => User::all()]);//paginate(5)
     }
 
     public function create()

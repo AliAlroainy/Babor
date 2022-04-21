@@ -25,7 +25,7 @@
                             delete
                         </button>
                         <form id="delete-user-form-{{ $user->id }}"
-                            action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
+                            action="{{ route('admin.accounts.destroy', $user->id) }}" method="POST">
                             @csrf
                             @method("DELETE")
                         </form>

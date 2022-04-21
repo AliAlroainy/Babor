@@ -1,12 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Password;
+use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Authentication\authcontroller;
-use App\Http\Controllers\Authentication\ForgotPasswordController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
+use App\Http\Controllers\Authentication\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/dashboard',[AuthController::class,'showAdminDash'])->name('adminDash');
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
+        Route::resource('/accounts', AccountsController::class, ['names' => 'admin.accounts']);
     });
     Route::group(['prefix' => 'user', 'middleware'=>'role:user'],function(){
         Route::get('/dashboard',[AuthController::class,'showUserDash'])->name('userDash');
