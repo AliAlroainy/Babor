@@ -5,9 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Chnage Password') }}</div>
+                    <div class="card-header">{{ __('Chnage Password1') }}</div>
 
-                    <form action="{{ route('update-password-user') }}" method="POST">
+                    <form action="{{ route('update-password-admin') }}" method="POST">
                         @csrf
                         <div class="card-body">
                             @if (session('status'))

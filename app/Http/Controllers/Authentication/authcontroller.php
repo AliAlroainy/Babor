@@ -122,6 +122,10 @@ class AuthController extends Controller
             {
               return view('user.change-password');
             }
+            public function changePasswordAdmin()
+            {
+              return view('admin.change-password');
+            }
             public function updatePassword(Request $request)
     {
             # Validation
