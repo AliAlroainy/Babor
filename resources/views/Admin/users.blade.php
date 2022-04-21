@@ -21,6 +21,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        tr td{
+            padding-block: 10px !important;
+        }
+    </style>
+
+
 </head>
 
 <body >
@@ -281,9 +288,6 @@
                           </td>
                           <td>
                               abrar@email.com
-{{--                            <div class="progress">--}}
-{{--                              <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>--}}
-{{--                            </div>--}}
                           </td>
                           <td>
                             تعز / المطار القديم
@@ -291,6 +295,9 @@
                           <td>
                             +967324234123
                           </td>
+                            <td>
+                                <button type="button" class="btn btn-inverse-danger btn-fw btn-rounded">حذف</button>
+                            </td>
                         </tr>
                         <tr>
                           <td class="py-1">
@@ -308,6 +315,9 @@
                           <td>
                               +977234234
                           </td>
+                            <td>
+                                <button type="button" class="btn btn-inverse-danger btn-fw btn-rounded">حذف</button>
+                            </td>
                         </tr>
            </tbody>
                     </table>

@@ -22,5 +22,9 @@ Route::get('/admin/users', function () {
 });
 
 Route::get('/login', function () {
-    return view('auth.forget-password');
+    return view('auth.login');
+});
+
+Route::get('/register', function () {
+    return view('auth.register');
 });
