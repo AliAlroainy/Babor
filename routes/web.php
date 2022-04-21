@@ -55,6 +55,6 @@ Route::get('/forget-password',  [ForgotPasswordController::class,'getEmail']);
 Route::post('/forget-password', [ForgotPasswordController::class,'postEmail'])->name('forget-password');
 Route::get('/reset-password/{token}', [ResetPasswordController::class,'getPassword']);
 Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']);
-Route::get('/verify_email/{token}',[AuthController::class,'verifyEmail'])->name('verify_email');
+Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
 

@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Contracts\Auth\CanResetPassword;
-
+use Illuminate\Support\Facades\URL;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -58,15 +61,16 @@ class AuthController extends Controller
             $u->password=Hash::make($request->password);
             $u->email=$request->email;
 
-
+            $token=Str::uuid();
+            $u->remember_token=$token;
             if($u->save()){
                 $u->attachRole('Admin');
-                $to_name = $request->name;
-                $to_email = $request->email;
-                $data = array('name'=>$request->name, 'activation_url'=>URL::to('/')."/verify_email/".$token);
+                $sendToName = $request->name;
+                $sendToeEmail = $request->email;
+                $data = array('name'=>$request->name, 'activation_url'=>URL::to('/')."/verify_account/".$token);
 
-            Mail::send('email.welcome', $data, function($message) use ($to_name, $to_email) {
-                $message->to($to_email, $to_name)
+            Mail::send('user.email.welcome', $data, function($message) use ($sendToName, $sendToeEmail) {
+                $message->to($sendToeEmail,  $sendToName)
                         ->subject('تسجيل عضوية جديدة');
                 $message->from('baborproject2022@gmail.com','بابور');
             });
@@ -77,7 +81,7 @@ class AuthController extends Controller
             return back()->with(['error'=>'can not create user']);
 
         }
-        public function verifyEmail($token){
+        public function verifyAccount($token){
             $user=User::where('remember_token',$token)->first();
             if($user){
             $user->email_verified_at=Carbon::now()->timestamp;
