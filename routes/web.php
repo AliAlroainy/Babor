@@ -24,12 +24,16 @@ Route::group(['middleware'=>'auth'],function(){
     Route::group(['middleware'=>'role:Admin'],function(){
 
         Route::get('/admin/dashboard',[AuthController::class,'showAdminDash'])->name('adminDash');
+        
 
     });
     Route::group(['middleware'=>'role:User'],function(){
 
         Route::get('/user/dashboard',[AuthController::class,'showUserDash'])->name('userDash');
-        
+        Route::get('/change-password', [AuthController::class, 'changePassword'])->name('change-password');
+        Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password');
+
+
 
     });
 
