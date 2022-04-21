@@ -61,12 +61,32 @@ class AuthController extends Controller
 
             if($u->save()){
                 $u->attachRole('Admin');
+                $to_name = $request->name;
+                $to_email = $request->email;
+                $data = array('name'=>$request->name, 'activation_url'=>URL::to('/')."/verify_email/".$token);
+
+            Mail::send('email.welcome', $data, function($message) use ($to_name, $to_email) {
+                $message->to($to_email, $to_name)
+                        ->subject('تسجيل عضوية جديدة');
+                $message->from('baborproject2022@gmail.com','بابور');
+            });
                 return redirect()->route('login')
                 ->with(['success'=>'user created successful']);
             }
 
             return back()->with(['error'=>'can not create user']);
 
+        }
+        public function verifyEmail($token){
+            $user=User::where('remember_token',$token)->first();
+            if($user){
+            $user->email_verified_at=Carbon::now()->timestamp;
+            $user->save();
+            Auth::login($user);
+            return redirect()->route('home');
+            }
+            else
+            echo "invalid token";
         }
         public function showLogin(){
             if(Auth::check())//redirect user to dashboard if he change the router to login and he still in dashboard
@@ -120,7 +140,7 @@ class AuthController extends Controller
             }
             public function changePasswordUser()
             {
-              return view('user.change-password');
+              return view('user.email.change-password');
             }
             public function changePasswordAdmin()
             {
