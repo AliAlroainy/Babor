@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', function () {
-    return view('Admin.carSpecs');
+Route::get('/admin/users', function () {
+    return view('Admin.users');
 });
 
 Route::get('/login', function () {
