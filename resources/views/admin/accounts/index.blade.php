@@ -18,6 +18,7 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
+                    <td></td>
                     <td>{{ $user->email }}</td>
                     <td>
                         <button type="button"
