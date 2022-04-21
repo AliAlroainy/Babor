@@ -32,7 +32,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::group(['middleware'=>'role:User'],function(){
 
         Route::get('/user/dashboard',[AuthController::class,'showUserDash'])->name('userDash');
-        Route::get('/user/change-password', [AuthController::class, 'changePassword'])->name('change-password-user');
+        Route::get('/user/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/user/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
 
 

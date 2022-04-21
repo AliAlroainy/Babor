@@ -41,10 +41,10 @@ class AuthController extends Controller
 
 
             ],[
-                'name.required'=>'this field is required',
-                'name.min'=>'can not be less than 3 letters',
+                'name.required'=>'this field name is required',
+                'name.min'=>' name can not be less than 3 letters',
                 'email.unique'=>'there is an email in the table',
-                'email.required'=>'this field is required',
+                'email.required'=>'this field email is required',
                 'email.email'=>'incorrect email format',
                 'password.required'=>'password is required',
                 'password.min'=>'password should not be less than 3',
@@ -90,8 +90,8 @@ class AuthController extends Controller
 
 
             ],[
-                'email.required'=>'this field is required',
-                'email.min'=>'can not be less than 3 letters',
+                'email.required'=>'this field email is required',
+                'email.min'=>'email can not be less than 3 letters',
             ]);
             if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
 
@@ -118,7 +118,7 @@ class AuthController extends Controller
                 return redirect()->route('login');
 
             }
-            public function changePassword()
+            public function changePasswordUser()
             {
               return view('user.change-password');
             }
