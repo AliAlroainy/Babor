@@ -105,23 +105,15 @@ class AuthController extends Controller
         Validator::validate($request->all(),[
             'email'=>['email','required'],
             'password'=>['required']
-
-
         ],[
             'email.required'=>'this field email is required',
             'email.min'=>'email can not be less than 3 letters',
         ]);
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
-
-
-            if(Auth::user()->hasRole('Admin'))//if he login and has admin role and he is active=1 redirct him to dashboard route
-
-            return redirect()->route('adminDash');
+            if(Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))//if he login and has admin role and he is active=1 redirct him to dashboard route
+                return redirect()->route('adminDash');
             else
-            return redirect()->route('userDash');
-
-
-
+                return redirect()->route('userDash');
         }
         else {
             return redirect()->route('login')->with(['message'=>'incorerct username or password or your account is not active ']);
