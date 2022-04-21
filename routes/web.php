@@ -23,26 +23,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['middleware'=>'auth'],function(){
-    Route::group(['middleware'=>'role:Admin'],function(){
-
-        Route::get('/admin/dashboard',[AuthController::class,'showAdminDash'])->name('adminDash');
-        Route::get('/admin/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
-        Route::post('/admin/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
-
-
+    Route::group(['prefix' => 'admin', 'middleware'=>'role:super_admin|admin'],function(){
+        Route::get('/dashboard',[AuthController::class,'showAdminDash'])->name('adminDash');
+        Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
+        Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
     });
-    Route::group(['middleware'=>'role:User'],function(){
-
-        Route::get('/user/dashboard',[AuthController::class,'showUserDash'])->name('userDash');
-        Route::get('/user/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
-        Route::post('/user/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
-
-
-
+    Route::group(['prefix' => 'user', 'middleware'=>'role:user'],function(){
+        Route::get('/dashboard',[AuthController::class,'showUserDash'])->name('userDash');
+        Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
+        Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
     });
-
-       Route::get('/logout',[AuthController::class,'logout'])->name('logout');
-
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 });
 // Login and singup Routing
 Route::get('/admin/login',[AuthController::class,'showLogin'])->name('login');
