@@ -1,2 +1,2 @@
-<a  href="{{ route('logout') }}" target="_blank">logout</a>
-<a  href="{{ route('change-password-user') }}">change-password</a>
+<span>{{ $user->name }}</span><br>
+<span>{{ $user->profile->username }}</span><br>
