@@ -1,1 +1,2 @@
-<h1>USELESS PAGE</h1>
+<span>{{ $user->name }}</span><br>
+<span>{{ $user->profile->username }}</span><br>

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Password;
+use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Authentication\authcontroller;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -34,6 +35,8 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/dashboard',[AuthController::class,'showUserDash'])->name('userDash');
         Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
+
+        Route::get('/profile', [ProfilesController::class, 'index'])->name('user.profile');
     });
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 });
