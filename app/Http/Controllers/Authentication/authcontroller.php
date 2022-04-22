@@ -46,15 +46,9 @@ class AuthController extends Controller
             'password.required'=>'password is required',
             'password.min'=>'password should not be less than 3',
             'confirm_pass.same'=>'password dont match',
-
-
         ]);
 
-        $u=new User();
-        $u->name=$request->name;
-        $u->password=Hash::make($request->password);
-        $u->email=$request->email;
-
+        $u= User::create($request->except(['_token']));
         $token=Str::uuid();
         $u->remember_token=$token;
         if($u->save()){
@@ -63,11 +57,11 @@ class AuthController extends Controller
             $sendToeEmail = $request->email;
             $data = array('name'=>$request->name, 'activation_url'=>URL::to('/')."/verify_account/".$token);
 
-        Mail::send('user.email.welcome', $data, function($message) use ($sendToName, $sendToeEmail) {
-            $message->to($sendToeEmail,  $sendToName)
-                    ->subject('تسجيل عضوية جديدة');
-            $message->from('baborproject2022@gmail.com','بابور');
-        });
+            Mail::send('user.email.welcome', $data, function($message) use ($sendToName, $sendToeEmail) {
+                $message->to($sendToeEmail,  $sendToName)
+                        ->subject('تسجيل عضوية جديدة');
+                $message->from('baborproject2022@gmail.com','بابور');
+            });
             return redirect()->route('login')
             ->with(['success'=>'user created successful']);
         }
