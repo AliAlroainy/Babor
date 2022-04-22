@@ -37,6 +37,8 @@ Route::group(['middleware'=>'auth'],function(){
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
 
         Route::get('/profile', [ProfilesController::class, 'index'])->name('user.profile');
+        Route::post('/profile/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
+        Route::post('/profile/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
     });
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 });
