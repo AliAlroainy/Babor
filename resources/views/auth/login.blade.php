@@ -48,7 +48,7 @@
                       تذكرني
                     </label>
                   </div>
-                  <a href="#" class="auth-link text-black"> هل نسيت كلمة مرورك ؟</a>
+                  <a href="{{url('forgetPassword')}}" class="auth-link text-black"> هل نسيت كلمة مرورك ؟</a>
                 </div>
                 <div class="mb-2 ">
                   <button type="button" class=" d-flex align-items-center py-1 btn btn-block btn-facebook auth-form-btn">
