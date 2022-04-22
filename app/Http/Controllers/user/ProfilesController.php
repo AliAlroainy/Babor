@@ -26,18 +26,24 @@ class ProfilesController extends Controller
         else
             return view('user.profile', ['user' => $user]);
     }
+
     public function info_save(ProfileRequest $request){ 
-        $user = User::find(Auth::user()->id);
-        $user->name  = $request->name;
-        $user->update();
+        $current_user_id = Auth::user()->id;
+        User::where('id', $current_user_id)->update(['name' => $request->input('name')]);
 
-        Profile::updateOrCreate([ 'user_id' => Auth::user()->id],
+        Profile::where('user_id', $current_user_id)->update(
             [
-                'username' => $request->username,
-                'phone'    => $request->phone,
-                'address'  => $request->address
-            ]);
-
+                'username' => $request->input('name'),
+                'phone'    =>  $request->input('phone'),
+                'address'  =>  $request->input('address'),
+            ]
+        );
+        return redirect()->route('user.profile')
+            ->with('success','profile updated successfully');
+    }
+    public function avatar_change(ProfileRequest $request){ 
+        $user->update(['id' => Auth::user()->id], [$request->except(['_token'])]);
+        Profile::updateOrCreate(['user_id' => Auth::user()->id], [$request->except(['_token'])]);
         return redirect()->route('user.profile')
             ->with('success','profile updated successfully');
     }
