@@ -42,7 +42,7 @@
 	<!-- Slicknav -->
     <link rel="stylesheet" href="css/slicknav.min.css">
 	
-	<!-- Eshop StyleSheet -->
+	<!--  StyleSheet -->
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -52,6 +52,18 @@
 
 <!-- some linkes -->
 
+
+<!-- Slick -->
+<link type="text/css" rel="stylesheet" href="css/slick.css"/>
+<link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
+
+<!-- nouislider -->
+<link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
+
+  <!-- Custom stlylesheet -->
+  <link type="text/css" rel="stylesheet" href="css/style.css"/>
+
+   <!-- ppp-->
 
 
 <!-- Fonts -->

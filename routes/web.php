@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('Front.index');
 });
+
+Route::get('/details', function () {
+    return view('Front.car');
+});
+

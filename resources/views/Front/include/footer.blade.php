@@ -135,7 +135,6 @@
 
 
 
-
     
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
@@ -159,6 +158,13 @@
 
   <!-- Page JS -->
   <script src="assets/js/ui-carousel.js"></script>
+
+
+  
+	<script src="js/slick.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 </html>
