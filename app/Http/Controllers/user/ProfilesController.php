@@ -4,14 +4,16 @@ namespace App\Http\Controllers\user;
 
 use App\Models\User;
 use App\Models\Profile;
+use App\Trait\ImageTrait;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\ProfileRequest;
-use Illuminate\Support\Facades\Validator;
 
 class ProfilesController extends Controller
 {
+    use ImageTrait;
     public function index(){
         $userProfile = Profile::where('user_id', Auth::user()->id)->first();
         if(!$userProfile){
@@ -21,10 +23,7 @@ class ProfilesController extends Controller
             $profile->save();
         }
         $user = User::find(Auth::user()->id);
-        if($user->hasRole('admin') || $user->hasRole('super_admin'))
-            return view('admin.dashboard');
-        else
-            return view('user.profile', ['user' => $user]);
+        return view('user.profile', ['user' => $user]);
     }
 
     public function info_save(ProfileRequest $request){ 
@@ -42,9 +41,16 @@ class ProfilesController extends Controller
             ->with('success','profile updated successfully');
     }
     public function avatar_change(ProfileRequest $request){ 
-        $user->update(['id' => Auth::user()->id], [$request->except(['_token'])]);
-        Profile::updateOrCreate(['user_id' => Auth::user()->id], [$request->except(['_token'])]);
+        $current_user_id = Auth::user()->id;
+        $this->avatar_remove($current_user_id);  //remove prevoius avatar from server
+        $filename = $this->saveImage($request->avatar, 'images/profiles');
+        Profile::where('user_id', $current_user_id)->update(['avatar' => $filename]);
         return redirect()->route('user.profile')
-            ->with('success','profile updated successfully');
+            ->with('success','avatar profile updated successfully');
+    }
+    public function avatar_remove($current_user_id = null){
+        $user_avatar = Profile::where('user_id', $current_user_id)->first()->avatar;
+        File::delete(public_path("images/profiles/{$user_avatar}"));
+        return redirect()->route('user.profile');
     }
 }

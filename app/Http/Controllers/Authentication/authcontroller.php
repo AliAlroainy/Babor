@@ -48,7 +48,11 @@ class AuthController extends Controller
             'confirm_pass.same'=>'password dont match',
         ]);
 
-        $u= User::create($request->except(['_token']));
+        $u=new User();
+        $u->name=$request->name;
+        $u->password=Hash::make($request->password);
+        $u->email=$request->email;
+        
         $token=Str::uuid();
         $u->remember_token=$token;
         if($u->save()){

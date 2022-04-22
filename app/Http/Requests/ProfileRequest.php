@@ -24,20 +24,17 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'     => 'nullable|string',
-            'email'    => 'nullable|email|unique:users',
-            'username' => 'nullable|string',
+            'name'     => 'nullable|alpha',
+            'username' => 'nullable|alpha_dash',
             'address' => 'nullable|string',
-            'phone' => 'nullable|string',
+            'phone' => 'nullable|numeric|digits:9',
         ];
     }
 
     public function messages(){
         return [
-            'name.string' => 'فضلا، الاسم يتكون من أحرف',
-            'email.email' => 'ادخل إيميل صالح',
-            'email.unique' => 'هذا الإيميل مسجل به من قبل',
-            'name.string' => 'فضلا، الاسم يتكون من أحرف',
+            'name.alpha' => 'فضلا، الاسم لابد أن يكون فقط أحرف',
+            'username.alpha_dash' => 'فضلا، اسم المستخدم يتكون من أحرف وأرقام و _',
         ];
     }
 }

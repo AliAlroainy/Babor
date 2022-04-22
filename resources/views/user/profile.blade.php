@@ -1,5 +1,10 @@
 <span>{{ $user->name }}</span><br>
 <span>{{ $user->profile->username }}</span><br>
+<form action="{{ route('avatar.change') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    Image: <input type="file" name="avatar" id="">
+    <input type="submit" value="حفظ">
+</form>
 <form action="{{ route('info.save') }}" method="POST">
     @csrf
 
