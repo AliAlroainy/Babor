@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('Front.index');
 });
+
+Route::get('/admin/users', function () {
+    return view('Admin.users');
+});
+Route::get('/admin/services', function () {
+    return view('Admin.services');
+});
+
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+Route::get('/register', function () {
+    return view('auth.register');
+});

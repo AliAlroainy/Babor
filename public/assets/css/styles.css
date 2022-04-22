@@ -1,0 +1,8 @@
+body{
+    direction: rtl !important;
+}
+button.add{
+    position:absolute;
+    top: 45px;
+    left: 30px;
+}
