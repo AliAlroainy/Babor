@@ -93,9 +93,7 @@
 
 
 <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
-<link href="assets/css/custom.css" rel="stylesheet" />
-<link href="assets/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
-<link href="assets/css/styles.css" rel="stylesheet" />
+
 
 <script>
 	(function (i, s, o, g, r, a, m) {

@@ -14,10 +14,10 @@
 						<!-- Single Widget -->
 						<div class="single-footer about">
 							<div class="logo">
-								<a href="/"><img src="images/logo2.png" alt="#"></a>
+								{{-- <a href="/"><img src="images/logo2.png" alt="#"></a> --}}
 							</div>
 							<p class="text">بابور نقدم لك اسهل خدمة لبيع وشراء السيارات في المزاد بشكل رائع وامن وسهل الاستخدام</p>
-							<p class="call">اتصل نصل 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
+							<p class="call" >اتصل نصل 24/7<span ><a href="tel:+967773739473" dir="rtl" class="nav-link">00967 7737 39473</a></span></p>
 						</div>
 						<!-- End Single Widget -->
 					</div>
@@ -87,7 +87,7 @@
 						</div>
 						<div class="col-lg-6 col-12">
 							<div class="right">
-								<img src="images/payments.png" alt="#">
+								{{-- <img src="images/payments.png" alt="#"> --}}
 							</div>
 						</div>
 					</div>
@@ -167,8 +167,7 @@
     <script src="js/jquery.zoom.min.js"></script>
     <script src="js/main.js"></script>
 	
-	<script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
-    <script src="assets/js/app.js"></script>
+	
 
 </body>
 </html>
