@@ -22,7 +22,6 @@
 	<!-- StyleSheet -->
 	
 	<!-- Bootstrap -->
-	<link rel="stylesheet" href="css/bootstrap.css">
 	<!-- Magnific Popup -->
     <link rel="stylesheet" href="css/magnific-popup.min.css">
 	<!-- Font Awesome -->
@@ -97,8 +96,7 @@
 	
 	
 </head>
-<body class="js">
-	
+<body>
 	<!-- Preloader -->
 	<div class="preloader">
 		<div class="preloader-inner">
@@ -123,8 +121,12 @@
 						<div  class="top-left">
 							<ul class="list-main">
 								<li> <a class="nav-link" href="#" >اخر العروض  <i class="ti-alarm-clock"></i></a></li>
-							
-								<li><a class="nav-link" href="/"> تسجيل دخول <i class="ti-power-off"></i></a> </li>
+							<!-- Button trigger modal -->
+
+								<li  ><button type="button" style="background-color: transparent ; border:none;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+									
+									تسجيل دخول <i class="ti-power-off"></i>
+								  </button>  </li>
 							</ul>
 						</div>
 						<!-- End Top left -->
@@ -403,3 +405,7 @@
       </nav>
   
     ------------------------  end header ---------------------------->
+	@include('Front.include.modals') 
+
+ 
+	
