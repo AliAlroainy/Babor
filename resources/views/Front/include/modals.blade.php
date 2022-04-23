@@ -5,7 +5,7 @@
       <div class="modal-header">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-        <h3 class="modal-title" id="exampleModalLabel">تسجيل الدخول</h3>
+        <h3 class="modal-title text-center" id="exampleModalLabel">تسجيل الدخول</h3>
       </div>
       <div class="modal-body">
 
