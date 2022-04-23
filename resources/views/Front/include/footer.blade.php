@@ -103,8 +103,7 @@
 	<script src="js/jquery-ui.min.js"></script>
 	<!-- Popper JS -->
 	<script src="js/popper.min.js"></script>
-	<!-- Bootstrap JS -->
-	<script src="js/bootstrap.min.js"></script>
+	
 	<!-- Color JS -->
 	<script src="js/colors.js"></script>
 	<!-- Slicknav JS -->
@@ -131,9 +130,10 @@
 	<script src="js/active.js"></script>
    
 
-    <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.js"></script>
-
-
+   
+	<!-- Bootstrap JS -->
+	<script src="js/bootstrap.min.js"></script>
+	<script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.js"></script>
 
 
     
@@ -159,6 +159,14 @@
 
   <!-- Page JS -->
   <script src="assets/js/ui-carousel.js"></script>
+
+
+  
+	<script src="js/slick.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/main.js"></script>
+	
 
 </body>
 </html>

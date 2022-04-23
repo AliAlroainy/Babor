@@ -31,7 +31,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/c1.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                     </a>
@@ -47,7 +47,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -57,7 +57,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/c1.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                     </a>
@@ -73,7 +73,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -83,7 +83,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/c1.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                     </a>
@@ -99,7 +99,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -109,7 +109,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/c1.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                     </a>
@@ -125,7 +125,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -135,7 +135,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/c1.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                     </a>
@@ -151,7 +151,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -162,7 +162,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/c1.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                         <span class="price-dec">30% Off</span>
@@ -179,7 +179,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -190,7 +190,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/c1.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                         <span class="price-dec">30% Off</span>
@@ -207,7 +207,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -219,7 +219,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/c1.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                         <span class="out-of-stock">Hot</span>
@@ -236,7 +236,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                         <span class="old">$6000.00</span>
@@ -258,7 +258,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -274,7 +274,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Women Hot Collection</a></h3>
+                                                    <h3><a href="/details">Women Hot Collection</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -284,7 +284,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -300,7 +300,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Pink Show</a></h3>
+                                                    <h3><a href="/details">Awesome Pink Show</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -310,7 +310,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -326,7 +326,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+                                                    <h3><a href="/details">Awesome Bags Collection</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -336,7 +336,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <span class="new">New</span>
@@ -353,7 +353,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Women Pant Collectons</a></h3>
+                                                    <h3><a href="/details">Women Pant Collectons</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -363,7 +363,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -379,7 +379,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+                                                    <h3><a href="/details">Awesome Bags Collection</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -389,7 +389,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <span class="price-dec">30% Off</span>
@@ -406,7 +406,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Cap For Women</a></h3>
+                                                    <h3><a href="/details">Awesome Cap For Women</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -416,7 +416,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -432,7 +432,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Polo Dress For Women</a></h3>
+                                                    <h3><a href="/details">Polo Dress For Women</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -442,7 +442,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <span class="out-of-stock">Hot</span>
@@ -459,7 +459,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Black Sunglass For Women</a></h3>
+                                                    <h3><a href="/details">Black Sunglass For Women</a></h3>
                                                     <div class="product-price">
                                                         <span class="old">$60.00</span>
                                                         <span>$50.00</span>
@@ -479,7 +479,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/babor.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                     </a>
@@ -495,7 +495,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -505,7 +505,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/babor.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                     </a>
@@ -521,7 +521,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -531,7 +531,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/babor.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                     </a>
@@ -547,7 +547,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -557,7 +557,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/babor.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                     </a>
@@ -573,7 +573,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -583,7 +583,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/babor.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                     </a>
@@ -599,7 +599,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -610,7 +610,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/babor.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                         <span class="price-dec">30% Off</span>
@@ -627,7 +627,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -638,7 +638,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/babor.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                         <span class="price-dec">30% Off</span>
@@ -655,7 +655,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                     </div>
@@ -667,7 +667,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="img/babor.jpg" alt="#">
                                                         <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
                                                         <span class="out-of-stock">Hot</span>
@@ -684,7 +684,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a  href="product-details.html">لاند كروسر 2020 </a></h3>
+                                                    <h3><a  href="/details">لاند كروسر 2020 </a></h3>
                                                     <div class="product-price">
                                                         <span>$2989.00</span>
                                                         <span class="old">$6000.00</span>
@@ -706,7 +706,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -722,7 +722,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Women Hot Collection</a></h3>
+                                                    <h3><a href="/details">Women Hot Collection</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -732,7 +732,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -748,7 +748,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Pink Show</a></h3>
+                                                    <h3><a href="/details">Awesome Pink Show</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -758,7 +758,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -774,7 +774,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+                                                    <h3><a href="/details">Awesome Bags Collection</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -784,7 +784,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <span class="new">New</span>
@@ -801,7 +801,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Women Pant Collectons</a></h3>
+                                                    <h3><a href="/details">Women Pant Collectons</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -811,7 +811,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -827,7 +827,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+                                                    <h3><a href="/details">Awesome Bags Collection</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -837,7 +837,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <span class="price-dec">30% Off</span>
@@ -854,7 +854,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Cap For Women</a></h3>
+                                                    <h3><a href="/details">Awesome Cap For Women</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -864,7 +864,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -880,7 +880,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Polo Dress For Women</a></h3>
+                                                    <h3><a href="/details">Polo Dress For Women</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -890,7 +890,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <span class="out-of-stock">Hot</span>
@@ -907,7 +907,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Black Sunglass For Women</a></h3>
+                                                    <h3><a href="/details">Black Sunglass For Women</a></h3>
                                                     <div class="product-price">
                                                         <span class="old">$60.00</span>
                                                         <span>$50.00</span>
@@ -927,7 +927,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -943,7 +943,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Women Hot Collection</a></h3>
+                                                    <h3><a href="/details">Women Hot Collection</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -953,7 +953,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -969,7 +969,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Pink Show</a></h3>
+                                                    <h3><a href="/details">Awesome Pink Show</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -979,7 +979,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -995,7 +995,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+                                                    <h3><a href="/details">Awesome Bags Collection</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -1005,7 +1005,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <span class="new">New</span>
@@ -1022,7 +1022,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Women Pant Collectons</a></h3>
+                                                    <h3><a href="/details">Women Pant Collectons</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -1032,7 +1032,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -1048,7 +1048,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+                                                    <h3><a href="/details">Awesome Bags Collection</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -1058,7 +1058,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <span class="price-dec">30% Off</span>
@@ -1075,7 +1075,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Cap For Women</a></h3>
+                                                    <h3><a href="/details">Awesome Cap For Women</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -1085,7 +1085,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -1101,7 +1101,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Polo Dress For Women</a></h3>
+                                                    <h3><a href="/details">Polo Dress For Women</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -1111,7 +1111,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <span class="out-of-stock">Hot</span>
@@ -1128,7 +1128,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Black Sunglass For Women</a></h3>
+                                                    <h3><a href="/details">Black Sunglass For Women</a></h3>
                                                     <div class="product-price">
                                                         <span class="old">$60.00</span>
                                                         <span>$50.00</span>
@@ -1148,7 +1148,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -1164,7 +1164,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Women Hot Collection</a></h3>
+                                                    <h3><a href="/details">Women Hot Collection</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -1174,7 +1174,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -1190,7 +1190,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Pink Show</a></h3>
+                                                    <h3><a href="/details">Awesome Pink Show</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -1200,7 +1200,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -1216,7 +1216,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+                                                    <h3><a href="/details">Awesome Bags Collection</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -1226,7 +1226,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <span class="new">New</span>
@@ -1243,7 +1243,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Women Pant Collectons</a></h3>
+                                                    <h3><a href="/details">Women Pant Collectons</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -1253,7 +1253,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -1269,7 +1269,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+                                                    <h3><a href="/details">Awesome Bags Collection</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -1279,7 +1279,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <span class="price-dec">30% Off</span>
@@ -1296,7 +1296,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Awesome Cap For Women</a></h3>
+                                                    <h3><a href="/details">Awesome Cap For Women</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -1306,7 +1306,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
@@ -1322,7 +1322,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Polo Dress For Women</a></h3>
+                                                    <h3><a href="/details">Polo Dress For Women</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
                                                     </div>
@@ -1332,7 +1332,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="product-details.html">
+                                                    <a href="/details">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <span class="out-of-stock">Hot</span>
@@ -1349,7 +1349,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">Black Sunglass For Women</a></h3>
+                                                    <h3><a href="/details">Black Sunglass For Women</a></h3>
                                                     <div class="product-price">
                                                         <span class="old">$60.00</span>
                                                         <span>$50.00</span>

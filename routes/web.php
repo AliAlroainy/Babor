@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('Front.index');
 });
 
+Route::get('/details', function () {
+    return view('Front.car');
+});
+
 Route::get('/admin/users', function () {
     return view('Admin.users');
 });
