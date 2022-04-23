@@ -52,7 +52,7 @@ class AuthController extends Controller
         $u->name=$request->name;
         $u->password=Hash::make($request->password);
         $u->email=$request->email;
-        
+
         $token=Str::uuid();
         $u->remember_token=$token;
         if($u->save()){
@@ -106,6 +106,9 @@ class AuthController extends Controller
             'email.required'=>'this field email is required',
             'email.min'=>'email can not be less than 3 letters',
         ]);
+        if (empty(Auth::user()->email_verified_at))
+        echo "verfiy your email please";
+        else
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
             if(Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))//if he login and has admin role and he is active=1 redirct him to dashboard route
                 return redirect()->route('adminDash');
