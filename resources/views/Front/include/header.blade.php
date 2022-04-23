@@ -135,7 +135,7 @@
             	<!-- Top left -->
 						<div  class="top-left">
 							<ul class="list-main">
-								<li> <a class="nav-link" href="#" >اخر العروض  <i class="ti-alarm-clock"></i></a></li>
+								<li> <a class="nav-link" href="#offer" >اخر العروض  <i class="ti-alarm-clock"></i></a></li>
 							<!-- Button trigger modal -->
 
 								<li  ><button type="button" style="background-color: transparent ; border:none;"  data-toggle="modal"
