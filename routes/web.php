@@ -9,7 +9,10 @@ use App\Http\Controllers\Authentication\authcontroller;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
-
+use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\Admin\CarCharacteristicsController;
+/*
+|--------------------------------
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,3 +59,10 @@ Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
 
+//////////////service routing
+Route::resource('/service', ServicesController::class);
+
+
+
+//////////////carchrastic routing
+Route::resource('/CarCharacter', CarCharacteristicsController::class);
