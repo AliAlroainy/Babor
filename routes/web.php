@@ -60,3 +60,9 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('auth.register');
 });
+Route::get('/verifyEmail', function () {
+    return view('auth.verifyEmail');
+});
+Route::get('/invalidToken', function () {
+    return view('auth.invalidToken');
+});
