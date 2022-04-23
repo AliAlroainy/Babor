@@ -61,3 +61,8 @@ Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->n
 
 //////////////service routing
 Route::resource('/service', ServicesController::class);
+
+
+
+//////////////carchrastic routing
+Route::resource('/CarCharacter', CarCharacteristicsController::class);
