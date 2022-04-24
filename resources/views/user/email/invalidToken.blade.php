@@ -50,7 +50,7 @@
                                 <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
                                     <table >
                                         <tr>
-                                            <td style="border-radius: 3px;" class="text-center bg-main-color"><a href="/user/login" target="_blank" style="font-size: 20px; text-decoration: none; padding: 15px 25px; border-radius: 2px;  display: inline-block; color: #fff">العودة للخلف</a></td>
+                                            <td style="border-radius: 3px;" class="text-center bg-main-color"><a href="{{ route('login') }}" target="_blank" style="font-size: 20px; text-decoration: none; padding: 15px 25px; border-radius: 2px;  display: inline-block; color: #fff">العودة للخلف</a></td>
                                         </tr>
                                     </table>
                                 </td>
