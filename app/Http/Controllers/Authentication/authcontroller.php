@@ -99,7 +99,8 @@ class AuthController extends Controller
             'email'=> 'email|required',
             'password'=> 'required'
         ],[
-            'email.required'=>'يرجى كتابة الإيميل',
+            'email.required'=>'الرجاءادخال عنوان البريد الالكتروني',
+            'email.email'=>'الرجاءادخال عنوان بريد صالح',
         ]);
         $user=User::where(['email'=>$request->email])->first();
         if (empty($user->email_verified_at))
