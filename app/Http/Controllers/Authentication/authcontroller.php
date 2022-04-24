@@ -31,14 +31,14 @@ class AuthController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'confirm_password'=> 'required|same:password'
         ],[
-            'name.required'=>'this field name is required',
-            'name.min'=>' name can not be less than 3 letters',
-            'email.unique'=>'there is an email in the table',
-            'email.required'=>'this field email is required',
-            'email.email'=>'incorrect email format',
-            'password.required'=>'password is required',
-            'password.min'=>'كلمة السر لا تقل عن 3 أحرف',
-            'confirm_password.same'=>'password dont match',
+            'name.required'=>'الرجاء ادخال الاسم',
+            'name.min'=>'يجب الايقل عدد احرف الاسم عن 3 احرف',
+            'email.unique'=>'هذا البريد موجود مسبقا',
+            'email.required'=>'الرجاءادخال عنوان البريد الالكتروني',
+            'email.email'=>'الرجاءادخال عنوان بريد صالح',
+            'password.required'=>'الرجاءادخال كلمة السر',
+            'password.min'=> 'يجب الايقل عدد احرف كلمة السر عن 3 احرف',
+            'confirm_pass.same'=>'كلمة المرور لا تتطابق',
         ]);
 
         $u=new User();
