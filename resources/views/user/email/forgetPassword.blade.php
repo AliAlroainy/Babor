@@ -7,8 +7,8 @@
                 <h3><i class="fa fa-lock fa-2x my-3"></i></h3>
                 <h2 class="text-center">هل نسيت كلمة المرور ؟</h2>
                 <div class="panel-body my-5">
-                    <form id="register-form" method="{{ route('forget-password') }}" role="form" autocomplete="off"
-                        class="form" method="POST">
+                    <form method="POST" action="/forget-password">
+                      @csrf
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope"></i></span>
                             <input type="email" name="email" class="form-control" placeholder="البريد الالكتروني">

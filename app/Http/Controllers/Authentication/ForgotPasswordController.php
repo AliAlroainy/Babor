@@ -15,7 +15,7 @@ class ForgotPasswordController extends Controller
     public function getEmail()
   {
 
-     return view('user.email.email');
+     return view('user.email.forgetPassword');
   }
 
     public function postEmail(Request $request)
@@ -31,10 +31,14 @@ class ForgotPasswordController extends Controller
       );
 
       Mail::send('user.email.verify', ['token' => $token], function($message) use($request){
-          $message->to($request->email);
-          $message->subject('Reset Password Notification');
+          $message->to($request->email,$request->name);
+          $message->subject('استعاده كلمه المرور');
+          $message->from('baborproject2022@gmail.com','بابور');
       });
 
-      return back()->with('message', 'We have e-mailed your password reset link!');
+
+      return redirect('forget-password')->with('message', 'تم ارسال رابط استعاده كلمه المرور الي ايميلك ،يرجى تفقده!');
+
+
   }
 }

@@ -13,7 +13,7 @@ class ResetPasswordController extends Controller {
 
   public function getPassword($token) {
 
-     return view('user.email.reset', ['token' => $token]);
+     return view('user.email.resetpassword', ['token' => $token]);
   }
 
   public function updatePassword(Request $request)
@@ -36,7 +36,9 @@ class ResetPasswordController extends Controller {
 
         DB::table('password_resets')->where(['email'=> $request->email])->delete();
 
-        return redirect('/user/login')->with('message', 'Your password has been changed!');
+
+        return redirect('login')->with('message', ' تذنبيه! تم تغير كلمه المرور تبعك !');
+
 
       }
     }

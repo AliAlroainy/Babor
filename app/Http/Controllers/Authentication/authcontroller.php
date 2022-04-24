@@ -28,15 +28,17 @@ class AuthController extends Controller
         Validator::validate($request->all(),[
             'name'=>['required','min:3'],
             'email'=>['required','email','unique:users,email'],
+            'password' => 'required|string|min:6|confirmed',
+            'confirm_password'=> 'required|same:password'
         ],[
-            'name.required'=>'this field name is required',
-            'name.min'=>' name can not be less than 3 letters',
-            'email.unique'=>'there is an email in the table',
-            'email.required'=>'this field email is required',
-            'email.email'=>'incorrect email format',
-            'password.required'=>'password is required',
-            'password.min'=>'كلمة السر لا تقل عن 3 أحرف',
-            'confirm_password.same'=>'password dont match',
+            'name.required'=>'الرجاء ادخال الاسم',
+            'name.min'=>'يجب الايقل عدد احرف الاسم عن 3 احرف',
+            'email.unique'=>'هذا البريد موجود مسبقا',
+            'email.required'=>'الرجاءادخال عنوان البريد الالكتروني',
+            'email.email'=>'الرجاءادخال عنوان بريد صالح',
+            'password.required'=>'الرجاءادخال كلمة السر',
+            'password.min'=> 'يجب الايقل عدد احرف كلمة السر عن 3 احرف',
+            'confirm_pass.same'=>'كلمة المرور لا تتطابق',
         ]);
 
         $u=new User();
@@ -72,12 +74,12 @@ class AuthController extends Controller
             Auth::login($user);
             return redirect()->route('user.dashboard')->with(
                 [
-                    'successRegistration' => 'تم إنشاء حسابك بنجاح', 
+                    'successRegistration' => 'تم إنشاء حسابك بنجاح',
                     'tab' => 'profile',
             ]);
         }
         else
-        echo "invalid token";
+        return view('user.email.invalidToken');
     }
     public function showLogin(){
         if(Auth::check())//redirect user to dashboard if he change the router to login and he still in dashboard
@@ -97,12 +99,13 @@ class AuthController extends Controller
             'email'=> 'email|required',
             'password'=> 'required'
         ],[
-            'email.required'=>'يرجى كتابة الإيميل',
+            'email.required'=>'الرجاءادخال عنوان البريد الالكتروني',
+            'email.email'=>'الرجاءادخال عنوان بريد صالح',
         ]);
-        // $user=User::where(['email'=>$request->email,'password'=>$request->password])->first();
-        // if ($user->!=null)
-        //     return view('user.email.verifyEmail');
-
+        $user=User::where(['email'=>$request->email])->first();
+        if (empty($user->email_verified_at))
+        return view('user.email.verifyEmail');
+        else
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
             if(Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))//if he login and has admin role and he is active=1 redirct him to dashboard route
                 return redirect()->route('admin.dashboard');

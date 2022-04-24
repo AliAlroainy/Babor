@@ -30,6 +30,10 @@
                                 <img src="{{ @asset('assets/images/logo.svg') }}" alt="logo">
                             </div>
                             <h4>مرحبا بك</h4>
+                            @if(session()->has('message')){
+                                <p class="alert alert-danger">{{ session()->get('message') }}</p>
+                              }
+                              @endif
                             @if (session()->has('emailVerification'))
                                 <p class="alert alert-warning">{{ session()->get('emailVerification') }}</p>
                             @endif

@@ -47,7 +47,7 @@ Route::get('/user/profile/settings/changePassword', function () {
     return view('auth.changePassword');
 });
 Route::get('forgetPassword', function () {
-    return view('auth.forgetPassword');
+    return view('user.email.forgetPassword');
 });
 
 
