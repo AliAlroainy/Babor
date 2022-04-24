@@ -21,7 +21,7 @@ Route::get('/details', function () {
     return view('Front.car');
 });
 
-Route::get('/con', function () {
+Route::get('/contact', function () {
     return view('Front.contact');
 });
 

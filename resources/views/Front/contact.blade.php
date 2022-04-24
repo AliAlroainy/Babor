@@ -1,79 +1,70 @@
 @include('Front.include.header')
 
 	<!-- Breadcrumbs -->
-	<div class="breadcrumbs">
+	<div class="breadcrumbs" dir="rtl">
 		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="bread-inner">
-						<ul class="bread-list">
-							<li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-							<li class="active"><a href="blog-single.html">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+		<h4> تواصل معنا </h4>
 		</div>
 	</div>
 	<!-- End Breadcrumbs -->
   
 	<!-- Start Contact -->
-	<section id="contact-us" class="contact-us section">
+	<section id="contact-us" class="contact-us section" dir="rtl">
 		<div class="container">
 				<div class="contact-head">
 					<div class="row">
 						<div class="col-lg-8 col-12">
 							<div class="form-main">
 								<div class="title">
-									<h4>Get in touch</h4>
-									<h3>Write us a message</h3>
+									<h4>تواصل</h4>
+									<h3>اكتب لنا رسالة</h3>
 								</div>
 								<form class="form" method="post" action="mail/mail.php">
 									<div class="row">
 										<div class="col-lg-6 col-12">
 											<div class="form-group">
-												<label>Your Name<span>*</span></label>
-												<input name="name" type="text" placeholder="">
+												<label>اسمك<span>*</span></label>
+												<input name="name" type="text" placeholder=" علي عبده">
 											</div>
 										</div>
 										<div class="col-lg-6 col-12">
 											<div class="form-group">
-												<label>Your Subjects<span>*</span></label>
+												<label>عنوان رسالتك<span>*</span></label>
 												<input name="subject" type="text" placeholder="">
 											</div>
 										</div>
 										<div class="col-lg-6 col-12">
 											<div class="form-group">
-												<label>Your Email<span>*</span></label>
-												<input name="email" type="email" placeholder="">
+												<label>عنوان ايميلك<span>*</span></label>
+												<input name="email" type="email" placeholder=" ">
 											</div>	
 										</div>
 										<div class="col-lg-6 col-12">
 											<div class="form-group">
-												<label>Your Phone<span>*</span></label>
-												<input name="company_name" type="text" placeholder="">
+												<label>رقم تلفونك<span>*</span></label>
+												<input name="company_name" type="text" placeholder=" 777 777 777">
 											</div>	
 										</div>
 										<div class="col-12">
 											<div class="form-group message">
-												<label>your message<span>*</span></label>
-												<textarea name="message" placeholder=""></textarea>
+												<label> محتوى رسالتك<span>*</span></label>
+												<textarea name="message" placeholder="اكتب هنا ..."></textarea>
 											</div>
 										</div>
 										<div class="col-12">
 											<div class="form-group button">
-												<button type="submit" class="btn ">Send Message</button>
+												<button type="submit" class="btn ">ارسال الرسالة </button>
 											</div>
 										</div>
 									</div>
 								</form>
 							</div>
 						</div>
-						<div class="col-lg-4 col-12">
-							<div class="single-head">
-								<div class="single-info">
+						<div class="col-lg-4 col-12"  dir="ltr">
+							<div class="single-head" >
+								<div class="single-info "  >
 									<i class="fa fa-phone"></i>
-									<h4 class="title">Call us Now:</h4>
+									<h4 class="title">اتصل بنا:</h4>
 									<ul>
 										<li>+123 456-789-1120</li>
 										<li>+522 672-452-1120</li>
@@ -81,17 +72,17 @@
 								</div>
 								<div class="single-info">
 									<i class="fa fa-envelope-open"></i>
-									<h4 class="title">Email:</h4>
+									<h4 class="title">عنوان بريدنا:</h4>
 									<ul>
-										<li><a href="mailto:info@yourwebsite.com">info@yourwebsite.com</a></li>
-										<li><a href="mailto:info@yourwebsite.com">support@yourwebsite.com</a></li>
+										<li><a href="mailto:info@babor.com">info@babor.com</a></li>
+										<li><a href="mailto:info@babor.com">support@babor.com</a></li>
 									</ul>
 								</div>
 								<div class="single-info">
 									<i class="fa fa-location-arrow"></i>
-									<h4 class="title">Our Address:</h4>
+									<h4 class="title">موقعنا على الخريطة:</h4>
 									<ul>
-										<li>KA-62/1, Travel Agency, 45 Grand Central Terminal, New York.</li>
+										<li>المسبح , تعز - اليمن </li>
 									</ul>
 								</div>
 							</div>
