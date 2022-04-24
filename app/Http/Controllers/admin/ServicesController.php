@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\service;
+use App\Trait\ImageTrait;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use App\Http\Requests\ServiceRequest;
 use Illuminate\Support\Facades\Validator;
+
 class ServicesController extends Controller
 {
-   
+    use ImageTrait;
     public function index()
     {
         $route = \Request::route()->getName();
@@ -24,28 +28,15 @@ class ServicesController extends Controller
     }
 
    
-    public function store(Request $request)
+    public function store(ServiceRequest $request)
     {
-        dd($request);
-        Validator::validate($request->all(),[
-            'title'=>['required','min:6','max:20'],
-            'description'=>['required' ]
-
-        ],[
-            'title.required'=>'الرجاء ادخال عنوان الخدمة',
-            'title.min'=>'يجب الايقل العنوان عن 6 احرف', 
-            'description.min'=>'الرجاء ادخال المحتوى',
-        ]);
-
-        $serv=new service();
-        $serv->pic=$request->hasFile('pic')?$this->uploadFile($request->file('pic')):"default_ser.png";
-        // $serv->pic=$request->pic;
+        $serv = new service();
+        $serv->pic = $request->hasFile('pic')? $this->saveImage($request->pic, 'images/services'):"default_ser.png";
         $serv->title=$request->title;
         $serv->description=$request->description;
         if($serv->save())
-        return redirect()->route('admin.service.index')
-        ->with(['success'=>'user created successful']);
-        return back()->with(['error'=>'can not create user']);
+        return redirect()->route('admin.service.index')->with(['successAdd'=>'تم إضافة الخدمة بنجاح']);
+        return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);
 
     }
 
@@ -65,45 +56,35 @@ class ServicesController extends Controller
     }
 
    
-    public function update(Request $request, $service_id)
+    public function update(ServiceRequest $request, $id)
     {
-        //
-        $services=service::find($service_id);
-        $services->title=$request->title;
-        $services->description=$request->description;
-        $services->pic=$request->pic;
-       
-        $services->is_active=$request->is_active;
-        
-        if($services->save())
-        return redirect()->route('admin.service.index')->with(['success'=>'data updated successful']);
-        return redirect()->back()->with(['error'=>'can not update data ']);
-
-
-
+        $serv = service::findOrFail($id);
+        if(!$serv){
+            return redirect()->back()->with(['errorEditService'=>'لا تستطيع التعديل']);
+        }else{
+            if($request->hasFile('pic')){
+                $this->pic_remove($id); 
+                $serv->pic = $this->saveImage($request->pic, 'images/services');
+            }
+            $serv->update($request->except(['_token', 'pic']));
+            if($serv->save())
+                return redirect()->route('admin.service.index')->with(['successEdit'=>'تم التعديل بنجاح']);
+        }
     }
 
     public function destroy($service_id)
     {
         $service=service::find($service_id);
         $service->is_active*=-1;
-        /*if($cat->is_active==0)
-        $cat->is_active=1;
-        else 
-        $cat->is_active=0;*/
         if($service->save())
-        return back()->with(['success'=>'data updated successful']);
-        return back()->with(['error'=>'can not update data']);
+        return back()->with(['successDelete'=>'تم حذف الخدمة بنجاح']);
+        return back()->with(['errorDelete'=>'حدث خطأ، حاول مرة أخرى']);
     }
 
-    public function uploadFile($file){
-        $dest=public_path()."/images/";
-
-        //$file = $request->file('image');
-        $filename= time()."_".$file->getClientOriginalName();
-        $file->move($dest,$filename);
-        return $filename;
-
+    public function pic_remove($service_id){
+        $serv_pic = service::where('id', $service_id)->first()->pic;
+        File::delete(public_path("images/services/{$serv_pic}"));
+        return;
     }
    
 }

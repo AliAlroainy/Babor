@@ -11,6 +11,27 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">عرض الخدمات</h4>
+                            @if (session()->has('successEdit'))
+                                <p class="alert alert-success">{{ session()->get('successEdit') }}</p>
+                            @endif
+                            @if (session()->has('errorEdit'))
+                                <p class="alert alert-danger">{{ session()->get('errorEdit') }}</p>
+                            @endif
+                            @if (session()->has('successAdd'))
+                                <p class="alert alert-success">{{ session()->get('successAdd') }}</p>
+                            @endif
+                            @if (session()->has('errorAdd'))
+                                <p class="alert alert-success">{{ session()->get('errorAdd') }}</p>
+                            @endif
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div class="table-responsive">
                                 <table class="table table-striped table-hover">
                                     <thead>
@@ -31,7 +52,7 @@
                                             <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <form action="{{ route('admin.service.update', $service->id) }}"
-                                                        method="POST">
+                                                        method="POST" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('PATCH')
                                                         <div class="modal-content">
@@ -46,7 +67,7 @@
                                                                             الخدمة</label>
                                                                         <input type="text" id="editTitle"
                                                                             class="form-control" name="title"
-                                                                            value="{{ old('title') }} {{ $service->title ?? '' }}"
+                                                                            value="{{ $service->title ?? '' }}"
                                                                             placeholder="اسم الخدمة">
                                                                     </div>
                                                                 </div>
@@ -56,7 +77,7 @@
                                                                             class="form-label">الوصف</label>
                                                                         <input type="text" id="editDesc"
                                                                             class="form-control" name="description"
-                                                                            value="{{ old('description') }} {{ $service->description ?? '' }}"
+                                                                            value="{{ $service->description ?? '' }}"
                                                                             placeholder="وصف الخدمة">
                                                                     </div>
                                                                 </div>
@@ -81,8 +102,7 @@
                                             </div>
                                             <tr>
                                                 <td class="py-1">
-                                                    <img src="{{ @asset('assets/images/faces/face2.jpg') }}"
-                                                        alt="image" />
+                                                    <img src="/images/services/{{ $service->pic }}" alt="image" />
                                                 </td>
                                                 <td>
                                                     {{ $service->title }}
