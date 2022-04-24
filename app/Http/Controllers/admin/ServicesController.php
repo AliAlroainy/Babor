@@ -19,14 +19,6 @@ class ServicesController extends Controller
         $services=service::orderBy('id','desc')->get();
         return view('admin.services.service', ['route' => $route])->with('services',$services);
     }
-
-   
-    public function create()
-    {
-        //
-        return view('admin.service.create');
-    }
-
    
     public function store(ServiceRequest $request)
     {
@@ -40,22 +32,6 @@ class ServicesController extends Controller
 
     }
 
-    
-    public function show($id)
-    {
-        //
-    }
-
-   
-    public function edit($service_id)
-    {
-        //
-        $services=service::find($service_id);
-        return view('admin.service.edit')
-        ->with('services',$services);
-    }
-
-   
     public function update(ServiceRequest $request, $id)
     {
         $serv = service::findOrFail($id);
@@ -77,8 +53,7 @@ class ServicesController extends Controller
         $service=service::find($service_id);
         $service->is_active*=-1;
         if($service->save())
-        return back()->with(['successDelete'=>'تم حذف الخدمة بنجاح']);
-        return back()->with(['errorDelete'=>'حدث خطأ، حاول مرة أخرى']);
+            return back();
     }
 
     public function pic_remove($service_id){

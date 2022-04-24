@@ -128,10 +128,15 @@
                 </li>
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                        <img src="{{ @asset('assets/images/faces/face5.jpg') }}" alt="profile" />
+                        @if (isset($user->profile->avatar))
+                            <img src="/images/profiles/{{ $user->profile->avatar }}" alt="profile"
+                                class="img-lg rounded-circle mb-3" />
+                        @else
+                            <img src="/images/profiles/default.jpg" alt="profile" class="img-lg rounded-circle mb-3" />
+                        @endif
                         <span class="nav-profile-name">
                             @if (isset($route))
-                            Admin
+                                Admin
                             @elseif (isset($user))
                                 {{ $user->name }}
                             @endif

@@ -3,7 +3,7 @@
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav " style="padding-inline: 0">
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('admin/users') }}">
+                <a class="nav-link" href="{{ route('admin.dashboard') }}">
                     <i class="fa-solid fa-user menu-icon ms-3 "></i>
                     <span class="menu-title fw-bold fs-5">إدارة المستخدمين</span>
                 </a>

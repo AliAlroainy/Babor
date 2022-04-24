@@ -46,7 +46,7 @@ class ProfilesController extends Controller
             ->with('successEditProfile','تم تعديل بروفايلك بنجاح')
             ->with(['tab' => 'profile']);
     }
-    public function avatar_change(ProfileRequest $request){ 
+    public function avatar_change(Request $request){ 
         $current_user_id = Auth::user()->id;
         $this->avatar_remove($current_user_id);  //remove prevoius avatar from server
         $filename = $this->saveImage($request->avatar, 'images/profiles');

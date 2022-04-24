@@ -60,7 +60,7 @@ Route::get('forgetPassword', function () {
 // });
 Route::group(['middleware'=>'auth'],function(){
     Route::group(['prefix' => 'admin', 'middleware'=>'role:super_admin|admin'],function(){
-        Route::get('/dashboard/accounts', [AccountsController::class, 'index'])->name('admin.dashboard');
+        Route::get('/accounts', [AccountsController::class, 'index'])->name('admin.dashboard');
 
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
         Route::resource('/CarCharacter', CarCharacteristicsController::class);

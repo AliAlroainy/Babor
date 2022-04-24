@@ -11,9 +11,6 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">عرض الخدمات</h4>
-                            @if (session()->has('successEdit'))
-                                <p class="alert alert-success">{{ session()->get('successEdit') }}</p>
-                            @endif
                             @if (session()->has('errorEdit'))
                                 <p class="alert alert-danger">{{ session()->get('errorEdit') }}</p>
                             @endif
@@ -117,20 +114,32 @@
                                                          btn-inverse-secondary
                                                          btn-fw btn-rounded "
                                                         data-bs-target="#editModal" data-bs-toggle="modal">
-
                                                         تعديل
-                                                        <i class="fa-solid fa-edit pe-2 " style="font-size: 12px ;"></i>
+                                                        <i class="fa-solid fa-edit pe-2" style="font-size: 12px ;"></i>
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a href="deleteService" style="width: fit-content"
-                                                        class="
+                                                    <form action="{{ route('admin.service.destroy', $service->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button style="width: fit-content"
+                                                            class="
                                                         btn d-flex align-items-center
                                                          btn-inverse-danger
                                                          btn-fw btn-rounded ">
-                                                        حذف
-                                                        <i class="fa-solid fa-trash pe-2 " style="font-size: 12px ;"></i>
-                                                    </a>
+                                                            @if ($service->is_active == 1)
+                                                                إلغاء التفعيل
+                                                                <i class="fa-solid fa-trash pe-2"
+                                                                    style="font-size: 12px ;"></i>
+                                                            @else
+                                                                تفعيل
+                                                                <i class="fas fa-trash-restore"
+                                                                    style="font-size: 12px ;"></i>
+                                                            @endif
+
+                                                        </button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach
