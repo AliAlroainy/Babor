@@ -91,11 +91,3 @@ Route::get('/reset-password/{token}', [ResetPasswordController::class,'getPasswo
 Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']);
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
-
-//////////////service routing
-Route::resource('/service', ServicesController::class);
-
-
-
-//////////////carchrastic routing
-Route::resource('/CarCharacter', CarCharacteristicsController::class);

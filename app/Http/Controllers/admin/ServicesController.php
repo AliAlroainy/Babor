@@ -26,28 +26,24 @@ class ServicesController extends Controller
    
     public function store(Request $request)
     {
-        //
+        dd($request);
         Validator::validate($request->all(),[
             'title'=>['required','min:6','max:20'],
-            'content'=>['required' ]
+            'description'=>['required' ]
 
         ],[
             'title.required'=>'الرجاء ادخال عنوان الخدمة',
             'title.min'=>'يجب الايقل العنوان عن 6 احرف', 
-            'content.min'=>'الرجاء ادخال المحتوى',
-           
-
-
+            'description.min'=>'الرجاء ادخال المحتوى',
         ]);
 
         $serv=new service();
         $serv->pic=$request->hasFile('pic')?$this->uploadFile($request->file('pic')):"default_ser.png";
         // $serv->pic=$request->pic;
         $serv->title=$request->title;
-        $serv->content=$request->content;
-        $serv->is_active=$request->is_active;
+        $serv->description=$request->description;
         if($serv->save())
-        return redirect()->route('service.index')
+        return redirect()->route('admin.service.index')
         ->with(['success'=>'user created successful']);
         return back()->with(['error'=>'can not create user']);
 
@@ -74,13 +70,13 @@ class ServicesController extends Controller
         //
         $services=service::find($service_id);
         $services->title=$request->title;
-        $services->content=$request->content;
+        $services->description=$request->description;
         $services->pic=$request->pic;
        
         $services->is_active=$request->is_active;
         
         if($services->save())
-        return redirect()->route('service.index')->with(['success'=>'data updated successful']);
+        return redirect()->route('admin.service.index')->with(['success'=>'data updated successful']);
         return redirect()->back()->with(['error'=>'can not update data ']);
 
 

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->string('content');
-            $table->string('pic')->default('serv.png');
+            $table->string('description');
+            $table->string('pic')->default('serv.png')->nullable();
             $table->boolean("is_active")->default(1);
         });
     }
