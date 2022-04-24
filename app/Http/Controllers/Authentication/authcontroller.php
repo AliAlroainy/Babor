@@ -28,6 +28,8 @@ class AuthController extends Controller
         Validator::validate($request->all(),[
             'name'=>['required','min:3'],
             'email'=>['required','email','unique:users,email'],
+
+            'confirm_password'=> 'required|same:password'
         ],[
             'name.required'=>'this field name is required',
             'name.min'=>' name can not be less than 3 letters',
@@ -72,7 +74,7 @@ class AuthController extends Controller
             Auth::login($user);
             return redirect()->route('user.dashboard')->with(
                 [
-                    'successRegistration' => 'تم إنشاء حسابك بنجاح', 
+                    'successRegistration' => 'تم إنشاء حسابك بنجاح',
                     'tab' => 'profile',
             ]);
         }
@@ -100,8 +102,8 @@ class AuthController extends Controller
             'email.required'=>'يرجى كتابة الإيميل',
         ]);
         // $user=User::where(['email'=>$request->email,'password'=>$request->password])->first();
-        // if ($user->!=null)
-        //     return view('user.email.verifyEmail');
+        // if (empty($user->email_verified_at))
+        // echo "confierd your email";
 
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
             if(Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))//if he login and has admin role and he is active=1 redirct him to dashboard route
