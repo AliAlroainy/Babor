@@ -101,7 +101,7 @@ class AuthController extends Controller
         ],[
             'email.required'=>'يرجى كتابة الإيميل',
         ]);
-        $user=User::where(['email'=>$request->email,'password'=>$request->password])->first();
+        $user=User::where(['email'=>$request->email])->first();
         if (empty($user->email_verified_at))
         return view('user.email.verifyEmail');
         else
