@@ -29,7 +29,7 @@
 								<li><a class="nav-link" href="#">عننا</a></li>
 								<li><a class="nav-link" href="#">ابرز اسئلة</a></li>
 								<li><a class="nav-link" href="#">الخصوصية</a></li>
-								<li><a class="nav-link" href="#">تواصل معنا</a></li>
+								<li><a class="nav-link" href="/contact">تواصل معنا</a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->
