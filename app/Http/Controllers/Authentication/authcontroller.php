@@ -28,7 +28,7 @@ class AuthController extends Controller
         Validator::validate($request->all(),[
             'name'=>['required','min:3'],
             'email'=>['required','email','unique:users,email'],
-
+            'password'=>['required','min:5'],
             'confirm_password'=> 'required|same:password'
         ],[
             'name.required'=>'this field name is required',
@@ -72,7 +72,7 @@ class AuthController extends Controller
             $user->email_verified_at=Carbon::now()->timestamp;
             $user->save();
             Auth::login($user);
-            return redirect()->route('user.dashboard')->with(
+            return redirect()->route('user.profile')->with(
                 [
                     'successRegistration' => 'تم إنشاء حسابك بنجاح',
                     'tab' => 'profile',
