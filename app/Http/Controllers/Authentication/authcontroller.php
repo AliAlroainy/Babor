@@ -72,14 +72,14 @@ class AuthController extends Controller
             $user->email_verified_at=Carbon::now()->timestamp;
             $user->save();
             Auth::login($user);
-            return redirect()->route('user.profile')->with(
+            return redirect()->route('user.dashboard')->with(
                 [
                     'successRegistration' => 'تم إنشاء حسابك بنجاح',
                     'tab' => 'profile',
             ]);
         }
         else
-        echo "invalid token";
+        return view('user.email.invalidToken');
     }
     public function showLogin(){
         if(Auth::check())//redirect user to dashboard if he change the router to login and he still in dashboard
