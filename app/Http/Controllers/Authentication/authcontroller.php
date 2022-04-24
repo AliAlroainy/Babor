@@ -28,7 +28,7 @@ class AuthController extends Controller
         Validator::validate($request->all(),[
             'name'=>['required','min:3'],
             'email'=>['required','email','unique:users,email'],
-            'password'=>['required','min:5'],
+            'password' => 'required|string|min:6|confirmed',
             'confirm_password'=> 'required|same:password'
         ],[
             'name.required'=>'this field name is required',

@@ -29,13 +29,16 @@ class ForgotPasswordController extends Controller
       DB::table('password_resets')->insert(
           ['email' => $request->email, 'token' => $token, 'created_at' => Carbon::now()]
       );
-      
+
       Mail::send('user.email.verify', ['token' => $token], function($message) use($request){
           $message->to($request->email,$request->name);
           $message->subject('استعاده كلمه المرور');
           $message->from('baborproject2022@gmail.com','بابور');
       });
 
-      return back()->with('message', 'We have e-mailed your password reset link!');
+
+      return redirect('forget-password')->with('message', 'تم ارسال رابط استعاده كلمه المرور الي ايميلك ،يرجى تفقده!');
+
+
   }
 }
