@@ -92,8 +92,21 @@
 ></script>
 
 
+<link href="assets/css/font-awesome.min.css" rel="stylesheet" />
 
-	
+
+<script>
+	(function (i, s, o, g, r, a, m) {
+	i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+		(i[r].q = i[r].q || []).push(arguments)
+	}, i[r].l = 1 * new Date(); a = s.createElement(o),
+		m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+	ga('create', 'UA-47923629-1', 'gigagit.com');
+	ga('send', 'pageview');
+
+</script>
 	
 </head>
 <body>
@@ -120,10 +133,11 @@
             	<!-- Top left -->
 						<div  class="top-left">
 							<ul class="list-main">
-								<li> <a class="nav-link" href="#" >اخر العروض  <i class="ti-alarm-clock"></i></a></li>
+								<li> <a class="nav-link" href="#offer" >اخر العروض  <i class="ti-alarm-clock"></i></a></li>
 							<!-- Button trigger modal -->
 
-								<li  ><button type="button" style="background-color: transparent ; border:none;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								<li  ><button type="button" style="background-color: transparent ; border:none;"  data-toggle="modal"
+									data-target="#modal_login">
 									
 									تسجيل دخول <i class="ti-power-off"></i>
 								  </button>  </li>
