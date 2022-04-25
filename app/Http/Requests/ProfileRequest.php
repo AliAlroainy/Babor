@@ -19,6 +19,7 @@ class ProfileRequest extends FormRequest
             'address' => 'nullable|string',
             'phone' => 'nullable|regex:/^[1-9][0-9]+/|not_in:0|digits:9|starts_with:77,73,71,70',
             'bio' => 'nullable|min:5|max:100',
+            'avatar'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ];
     }
 
@@ -32,6 +33,9 @@ class ProfileRequest extends FormRequest
             'phone.starts_with'   => 'أرقام الهواتف في اليمن تبدأ بـ (77,73,71,70)',
             'bio.min'             => 'لابد أن يكون الكلام مابين 5-100 حرف',
             'bio.max'             => 'لابد أن يكون الكلام مابين 5-100 حرف',
+            'avatar.image'        => 'ارفع صورة من فضلك',
+            'avatar.mimes'        => 'الامتدادات المسموح بها للصور هي: (jpg, png, jpeg, gif, svg)',
+            'avatar.max'          => 'أعلى حجم للصورة مسموح به هو  2048 بايت',
         ];
     }
 }
