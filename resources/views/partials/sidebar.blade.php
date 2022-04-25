@@ -24,10 +24,10 @@
                 </a>
                 <div class="collapse" id="ui-basic">
                     <ul class="nav flex-column sub-menu">
+                        <li class="nav-item me-5"> <a class="nav-link" href="{{ route('admin.brand.index') }}"
+                                target="_self">الماركات</a></li>
                         <li class="nav-item me-5"> <a class="nav-link"
-                                href="{{ url('admin/carSpecs/brands') }}" target="_self">الماركات</a></li>
-                        <li class="nav-item me-5"> <a class="nav-link"
-                                href="{{ url('admin/carSpecs/types') }}">الانواع</a></li>
+                                href="{{ route('admin.series.index') }}">الانواع</a></li>
                     </ul>
                 </div>
             </li>

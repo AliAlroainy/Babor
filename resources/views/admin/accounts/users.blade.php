@@ -36,8 +36,13 @@
                                             @if (!$loop->first)
                                                 <tr>
                                                     <td class="py-1">
-                                                        <img src="{{ @asset('assets/images/faces/face2.jpg') }}"
-                                                            alt="image" />
+                                                        @if (isset($user->profile->avatar))
+                                                            <img src="/images/profiles/{{ $user->profile->avatar }}"
+                                                                alt="profile" class="img-lg rounded-circle mb-3" />
+                                                        @else
+                                                            <img src="/images/profiles/default.jpg" alt="profile"
+                                                                class="img-lg rounded-circle mb-3" />
+                                                        @endif
                                                     </td>
                                                     <td>
                                                         {{ $user->name }}

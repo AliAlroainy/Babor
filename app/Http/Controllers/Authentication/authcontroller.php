@@ -28,7 +28,7 @@ class AuthController extends Controller
         Validator::validate($request->all(),[
             'name'=>['required','min:3'],
             'email'=>['required','email','unique:users,email'],
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|min:6',
             'confirm_password'=> 'required|same:password'
         ],[
             'name.required'=>'الرجاء ادخال الاسم',
@@ -37,7 +37,7 @@ class AuthController extends Controller
             'email.required'=>'الرجاءادخال عنوان البريد الالكتروني',
             'email.email'=>'الرجاءادخال عنوان بريد صالح',
             'password.required'=>'الرجاءادخال كلمة السر',
-            'password.min'=> 'يجب الايقل عدد احرف كلمة السر عن 3 احرف',
+            'password.min'=> 'يجب الايقل عدد احرف كلمة السر عن 6 احرف',
             'confirm_pass.same'=>'كلمة المرور لا تتطابق',
         ]);
 
@@ -102,10 +102,10 @@ class AuthController extends Controller
             'email.required'=>'الرجاءادخال عنوان البريد الالكتروني',
             'email.email'=>'الرجاءادخال عنوان بريد صالح',
         ]);
-        $user=User::where(['email'=>$request->email])->first();
-        if (empty($user->email_verified_at))
-        return view('user.email.verifyEmail');
-        else
+        // $user=User::where(['email'=>$request->email])->first();
+        // if (empty($user->email_verified_at))
+        // return view('user.email.verifyEmail');
+        // else
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
             if(Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))//if he login and has admin role and he is active=1 redirct him to dashboard route
                 return redirect()->route('admin.dashboard');
