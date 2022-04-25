@@ -61,6 +61,7 @@
                                                                             السلسلة</label>
                                                                         <input type="text" id="editName"
                                                                             class="form-control" name="name"
+                                                                            value="{{ old('name') }}"
                                                                             value="{{ $item->name ?? '' }}"
                                                                             placeholder="اسم السلسلة">
                                                                     </div>
@@ -161,7 +162,7 @@
                                 <div class="col mb-3">
                                     <label for="name" class="form-label">اسم السلسلة</label>
                                     <input type="text" id="name" class="form-control" name="name"
-                                        placeholder="اسم السلسلة">
+                                        value="{{ old('name') }}" placeholder="اسم السلسلة">
                                     @error('name')
                                         {{ $message }}
                                     @enderror

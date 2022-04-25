@@ -61,7 +61,7 @@
                                                                             البراند</label>
                                                                         <input type="text" id="editName"
                                                                             class="form-control" name="name"
-                                                                            value="{{ $brand->name ?? '' }}"
+                                                                            value="{{ old('name') }} {{ $brand->name ?? '' }}"
                                                                             placeholder="اسم البراند">
                                                                     </div>
                                                                 </div>
@@ -147,8 +147,7 @@
             </button>
         </div>
         <!-- Modal -->
-        <div class="modal fade @if ($errors->any()) show @endif" id="addModal" tabindex="-1"
-            aria-hidden="true">
+        <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <form action="{{ route('admin.brand.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -161,7 +160,7 @@
                                 <div class="col mb-3">
                                     <label for="name" class="form-label">اسم البراند</label>
                                     <input type="text" id="name" class="form-control" name="name"
-                                        placeholder="اسم البراند">
+                                        value="{{ old('name') }}" placeholder="اسم البراند">
                                     @error('name')
                                         {{ $message }}
                                     @enderror
