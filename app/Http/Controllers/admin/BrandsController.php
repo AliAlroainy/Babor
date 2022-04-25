@@ -19,9 +19,14 @@ class BrandsController extends Controller
         $brands=brand::orderBy('id','desc')->get();
         return view('admin.cars.brands', ['route' => $route])->with('brands',$brands);
     }
-   
+
     public function store(Request $request)
-    {
+    {  Validator::validate($request->all(),[
+        'name'=>['required','min:5','max:20'],
+        'logo'=>['required','image','mimes:jpeg,png,jpg,gif,svg'.'max:6000'],
+
+    ],
+    );
         $brand = new Brand();
         $brand->logo = $request->hasFile('logo')? $this->saveImage($request->logo, 'images/brands'):"default.png";
         $brand->name=$request->name;
@@ -37,7 +42,7 @@ class BrandsController extends Controller
             return redirect()->back()->with(['errorEdit'=>'لا تستطيع التعديل']);
         }else{
             if($request->hasFile('logo')){
-                $this->logo_remove($id); 
+                $this->logo_remove($id);
                 $brand->logo = $this->saveImage($request->logo, 'images/brands');
             }
             $brand->update($request->except(['_token', 'logo']));
@@ -59,5 +64,5 @@ class BrandsController extends Controller
         File::delete(public_path("images/brands/{$brand_logo}"));
         return;
     }
-   
+
 }
