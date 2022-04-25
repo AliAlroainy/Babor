@@ -22,10 +22,18 @@
 <script>
     $(document).ready(function() {
         $('.previewImage').change(function() {
-            $("#frames").html('');
+            $(".framesAdd").html('');
             for (var i = 0; i < $(this)[0].files.length; i++) {
-                $("#frames").append('<img src="' + window.URL.createObjectURL(this.files[i]) +
-                    '" width="100px" height="100px"/>');
+                $(".previewFrames").append(
+                    `<button type="button" class="btn close" id="btn-${i}"
+                                data-bs-dismiss="alert" style="position: absolute; font-size:30px; padding:0;">&times;</button>`
+                );
+                $(".previewFrames").append('<img src="' + window.URL.createObjectURL(this.files[
+                        i]) +
+                    '" width="100px" height="100px" style="overflow:auto;"/>');
+                $(`#btn-${i}`).click(function() {
+                    $('.previewFrames').val(null);
+                });
             }
         });
     });

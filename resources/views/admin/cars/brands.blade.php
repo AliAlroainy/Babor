@@ -70,8 +70,13 @@
                                                                         <label for="editLogo" class="form-label">أيقونة
                                                                             الخدمة</label>
                                                                         <input type="file" id="editLogo"
-                                                                            class="form-control" name="logo"
-                                                                            placeholder="">
+                                                                            class="form-control previewImage" id="idImg"
+                                                                            name="logo" placeholder="">
+                                                                        <img src="/images/brands/{{ $brand->logo }}"
+                                                                            width="100px" height="100px"
+                                                                            class="mt-2">
+                                                                        <div class="d-inline mx-auto mt-2 previewFrames alert alert-dismissible"
+                                                                            style="position: relative;"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -142,7 +147,8 @@
             </button>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
+        <div class="modal fade @if ($errors->any()) show @endif" id="addModal" tabindex="-1"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <form action="{{ route('admin.brand.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -156,6 +162,9 @@
                                     <label for="name" class="form-label">اسم البراند</label>
                                     <input type="text" id="name" class="form-control" name="name"
                                         placeholder="اسم البراند">
+                                    @error('name')
+                                        {{ $message }}
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row">
@@ -163,7 +172,11 @@
                                     <label for="logo" class="form-label">أيقونة البراند</label>
                                     <input type="file" id="logo" class="form-control previewImage" name="logo"
                                         placeholder="">
-                                    <div class="d-block mx-auto mt-2" id="frames"></div>
+                                    @error('logo')
+                                        {{ $message }}
+                                    @enderror
+                                    <div class="d-inline mx-auto mt-2 previewFrames alert alert-dismissible"
+                                        style="position: relative;"></div>
                                 </div>
                             </div>
                         </div>
