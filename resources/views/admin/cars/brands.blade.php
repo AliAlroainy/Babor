@@ -22,7 +22,7 @@
                             @endif
                             @if ($errors->any())
                                 <div class="alert alert-danger">
-                                    <ul>
+                                    <ul class="m-0">
                                         @foreach ($errors->all() as $error)
                                             <li>{{ $error }}</li>
                                         @endforeach
@@ -161,8 +161,9 @@
                             <div class="row">
                                 <div class="col md-3">
                                     <label for="logo" class="form-label">أيقونة البراند</label>
-                                    <input type="file" id="logo" class="form-control" name="logo" placeholder="">
-                                    <div id="frames"></div>
+                                    <input type="file" id="logo" class="form-control previewImage" name="logo"
+                                        placeholder="">
+                                    <div class="d-block mx-auto mt-2" id="frames"></div>
                                 </div>
                             </div>
                         </div>
