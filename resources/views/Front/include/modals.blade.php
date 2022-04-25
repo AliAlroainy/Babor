@@ -76,7 +76,7 @@
         </div>
   
         <div class="d-flex flex-row ">
-        <input type="number" class="" placeholder="رقم الجوال" name="uname" required />
+        <input type="number" class="form-control " placeholder="رقم الجوال" name="uname" required />
   
         
   
