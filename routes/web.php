@@ -25,3 +25,7 @@ Route::get('/contact', function () {
     return view('Front.contact');
 });
 
+Route::get('/profile', function () {
+    return view('Front.profile');
+});
+
