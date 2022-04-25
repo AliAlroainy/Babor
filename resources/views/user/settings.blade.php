@@ -71,21 +71,24 @@ false @endif">
                                     <div class="form-group">
                                         <label for="phone">رقم الهاتف</label>
                                         <input type="text" class="form-control" id="phone" name="phone"
-                                            value="{{ $user->profile->phone ?? '' }}" placeholder="رقم الهاتف">
+                                            value="{{ old('phone') }} {{ $user->profile->phone ?? '' }}"
+                                            placeholder="رقم الهاتف">
                                         @error('phone')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="bio">نبذة عني</label>
-                                        <textarea class="form-control" id="bio" rows="4" name="bio">{{ $user->profile->bio ?? '' }}</textarea>
+                                        <textarea class="form-control" id="bio" rows="4"
+                                            name="bio">{{ old('bio') }} {{ $user->profile->bio ?? '' }}</textarea>
                                         @error('bio')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="address">العنوان</label>
-                                        <textarea class="form-control" id="address" rows="4" name="address">{{ $user->profile->address ?? '' }}</textarea>
+                                        <textarea class="form-control" id="address" rows="4" name="address">
+                                            {{ old('address') }} {{ $user->profile->address ?? '' }}</textarea>
                                         @error('address')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror

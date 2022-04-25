@@ -28,7 +28,7 @@ class AuthController extends Controller
         Validator::validate($request->all(),[
             'name'=>['required','min:3'],
             'email'=>['required','email','unique:users,email'],
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|min:6',
             'confirm_password'=> 'required|same:password'
         ],[
             'name.required'=>'الرجاء ادخال الاسم',
@@ -37,7 +37,7 @@ class AuthController extends Controller
             'email.required'=>'الرجاءادخال عنوان البريد الالكتروني',
             'email.email'=>'الرجاءادخال عنوان بريد صالح',
             'password.required'=>'الرجاءادخال كلمة السر',
-            'password.min'=> 'يجب الايقل عدد احرف كلمة السر عن 3 احرف',
+            'password.min'=> 'يجب الايقل عدد احرف كلمة السر عن 6 احرف',
             'confirm_pass.same'=>'كلمة المرور لا تتطابق',
         ]);
 

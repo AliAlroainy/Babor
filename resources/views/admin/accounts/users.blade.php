@@ -36,8 +36,7 @@
                                             @if (!$loop->first)
                                                 <tr>
                                                     <td class="py-1">
-                                                        <img src="{{ @asset('assets/images/faces/face2.jpg') }}"
-                                                            alt="image" />
+                                                        <img src="/images/profiles/{{ $user->avatar }}" alt="image" />
                                                     </td>
                                                     <td>
                                                         {{ $user->name }}
