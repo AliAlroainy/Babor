@@ -13,4 +13,9 @@ class Brand extends Model
         'name',
         'logo',
     ];
+
+    public function series(): HasMany
+    {
+        return $this->hasMany(Series::class, 'brand_id');
+    }
 }

@@ -5,15 +5,16 @@ use \Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\admin\BrandsController;
+use App\Http\Controllers\admin\SeriesController;
 use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Authentication\authcontroller;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 /*
 |--------------------------------
 =======
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
 
@@ -65,6 +66,7 @@ Route::group(['middleware'=>'auth'],function(){
 
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
+        Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
 
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');

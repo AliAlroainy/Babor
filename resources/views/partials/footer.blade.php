@@ -22,7 +22,6 @@
 <script>
     $(document).ready(function() {
         $('.previewImage').change(function() {
-            $(".framesAdd").html('');
             for (var i = 0; i < $(this)[0].files.length; i++) {
                 $(".previewFrames").append(
                     `<button type="button" class="btn close" id="btn-${i}"
