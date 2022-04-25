@@ -18,26 +18,27 @@ class CarCharacteristicsController extends Controller
 
     public function create()
     {
-        
+
         return view('admin.car_characteristics.create');//
     }
 
-    
+
     public function store(Request $request)
     {
         //
-        
+
         Validator::validate($request->all(),[
             'brand'=>['required','min:5','max:20'],
             'brand_type'=>['required' ,'min:5','max:20'],
             'JIR'=>['required' ],
-            'cylinder_number'=>['required' ],
+            'cylinder_number'=>['required' ,'regex:/^\d+(\.\d{1,2})?$/|not_regex:/[a-z]/'],
+        
             'fuel_type'=>['required' ],
             'engine_type'=>['required' ]
 
         ],[
             'brand.required'=>'الرجاء ادخال الشركة ',
-            'brand.min'=>'يجب ان لايقل اسم الشركة عن 5 احرف', 
+            'brand.min'=>'يجب ان لايقل اسم الشركة عن 5 احرف',
             'brand_type.required'=>'الرجاء ادخال نوع البراند ',
             'brand_type.min'=>'يجب ان لايقل نوع البراند عن 5 احرف',
             'JIR.required'=>'الرجاء ادخال نوع الجير ',
@@ -49,7 +50,7 @@ class CarCharacteristicsController extends Controller
         ]);
 
         $car_det=new car_characteristics();
-        
+
         $car_det->brand=$request->brand;
         $car_det->brand_type=$request->brand_type;
         $car_det->JIR=$request->JIR;
@@ -73,9 +74,9 @@ class CarCharacteristicsController extends Controller
         $car_dets=car_characteristics::find($id);
         return view('admin.car_characteristics.edit')
         ->with('car_characteristics',$car_dets);
-       
+
     }
-    
+
     public function update(Request $request, $car_det_id)
     {
         $cars=car_characteristics::find($car_det_id);
@@ -98,7 +99,7 @@ class CarCharacteristicsController extends Controller
         //
         $car_det=car_characteristics::find($car_det_id);
         $car_det->is_active*=-1;
-       
+
         if($car_det->save())
         return back()->with(['success'=>'data updated successful']);
         return back()->with(['error'=>'can not update data']);
