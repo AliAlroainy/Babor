@@ -33,4 +33,8 @@ Route::get('/favorite', function () {
     return view('Front.favorite');
 });
 
+Route::get('/buy', function () {
+    return view('Front.buy');
+});
+
 
