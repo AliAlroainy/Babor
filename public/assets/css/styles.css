@@ -122,3 +122,14 @@ div[style*="margin: 16px 0;"] {
 /*==========================================*/
 /*VERIFY EMIAL PAGE STYLE END*/
 /*==========================================*/
+
+
+
+.dark-placeholder::placeholder {
+    color: #666e76;
+}
+
+.dark-placeholder {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
