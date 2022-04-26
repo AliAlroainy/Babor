@@ -23,22 +23,21 @@ Route::view('/', 'Front.index');
 Route::view('/details', 'Front.car');
 Route::view('/soon', 'Front.soon');
 Route::view('/contact', 'Front.contact');
-Route::view('/profile', 'Front.profile');
 Route::view('/favorite', 'Front.favorite');
 Route::view('/buy', 'Front.buy');
 Route::get('/user/profile/settings/changePassword', function () {
     return view('auth.changePassword');
 });
-// Route::get('forgetPassword', function () {
-//     return view('user.email.forgetPassword');
-// });
+Route::get('forgetPassword', function () {
+    return view('user.email.forgetPassword');
+});
 
-// Route::get('/verifyEmail', function () {
-//     return view('auth.verifyEmail');
-// });
-// Route::get('/invalidToken', function () {
-//     return view('auth.invalidToken');
-// });
+Route::get('/verifyEmail', function () {
+    return view('auth.verifyEmail');
+});
+Route::get('/invalidToken', function () {
+    return view('auth.invalidToken');
+});
 
 Route::group(['middleware'=>'auth'],function(){
     Route::group(['prefix' => 'admin', 'middleware'=>'role:super_admin|admin'],function(){

@@ -59,7 +59,8 @@ class BrandsController extends Controller
 
     public function logo_remove($brand_id){
         $brand_logo = Brand::where('id', $brand_id)->first()->logo;
-        File::delete(public_path("images/brands/{$brand_logo}"));
+        if($brand_logo != 'default.png')
+            File::delete(public_path("images/brands/{$brand_logo}"));
         return;
     }
 
