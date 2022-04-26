@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Authentication\authcontroller;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
+// use \Illuminate\Support\Facades\URL;
 /*
 |--------------------------------
 =======
@@ -31,6 +32,34 @@ Route::get('/', function () {
 // Route::get('/admin/services', function () {
 //     return view('Admin.services');
 // });
+Route::get('/details', function () {
+    return view('Front.car');
+});
+
+Route::get('/contact', function () {
+    return view('Front.contact');
+});
+
+Route::get('/profile', function () {
+    return view('Front.profile');
+});
+
+Route::get('/favorite', function () {
+    return view('Front.favorite');
+});
+
+Route::get('/buy', function () {
+    return view('Front.buy');
+});
+
+
+Route::get('/admin/users', function () {
+    return view('Admin.users');
+});
+
+Route::get('/admin/services', function () {
+    return view('Admin.services');
+});
 
 
 Route::get('/admin/carSpecs/brands', function () {
@@ -50,6 +79,29 @@ Route::get('/user/profile/settings/changePassword', function () {
 });
 Route::get('forgetPassword', function () {
     return view('user.email.forgetPassword');
+    return view('auth.forgetPassword');
+});
+
+Route::get('/user/profile/settings', function () {
+    return view('User.profileSettings');
+});
+
+Route::get('/user/profile', function () {
+    return view('User.profile');
+});
+
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+Route::get('/register', function () {
+    return view('auth.register');
+});
+Route::get('/verifyEmail', function () {
+    return view('auth.verifyEmail');
+});
+Route::get('/invalidToken', function () {
+    return view('auth.invalidToken');
 });
 
 

@@ -14,10 +14,17 @@
 						<!-- Single Widget -->
 						<div class="single-footer about">
 							<div class="logo">
+<<<<<<< HEAD
 								<a href="/"><img src="images/logo2.png" alt="#"></a>
 							</div>
 							<p class="text">بابور نقدم لك اسهل خدمة لبيع وشراء السيارات في المزاد بشكل رائع وامن وسهل الاستخدام</p>
 							<p class="call">اتصل نصل 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
+=======
+								{{-- <a href="/"><img src="images/logo2.png" alt="#"></a> --}}
+							</div>
+							<p class="text">بابور نقدم لك اسهل خدمة لبيع وشراء السيارات في المزاد بشكل رائع وامن وسهل الاستخدام</p>
+							<p class="call" >اتصل نصل 24/7<span ><a href="tel:+967773739473" dir="rtl" class="nav-link">00967 7737 39473</a></span></p>
+>>>>>>> Front
 						</div>
 						<!-- End Single Widget -->
 					</div>
@@ -29,7 +36,11 @@
 								<li><a class="nav-link" href="#">عننا</a></li>
 								<li><a class="nav-link" href="#">ابرز اسئلة</a></li>
 								<li><a class="nav-link" href="#">الخصوصية</a></li>
+<<<<<<< HEAD
 								<li><a class="nav-link" href="#">تواصل معنا</a></li>
+=======
+								<li><a class="nav-link" href="/contact">تواصل معنا</a></li>
+>>>>>>> Front
 							</ul>
 						</div>
 						<!-- End Single Widget -->
@@ -87,7 +98,11 @@
 						</div>
 						<div class="col-lg-6 col-12">
 							<div class="right">
+<<<<<<< HEAD
 								<img src="images/payments.png" alt="#">
+=======
+								{{-- <img src="images/payments.png" alt="#"> --}}
+>>>>>>> Front
 							</div>
 						</div>
 					</div>
@@ -103,8 +118,12 @@
 	<script src="js/jquery-ui.min.js"></script>
 	<!-- Popper JS -->
 	<script src="js/popper.min.js"></script>
+<<<<<<< HEAD
 	<!-- Bootstrap JS -->
 	<script src="js/bootstrap.min.js"></script>
+=======
+	
+>>>>>>> Front
 	<!-- Color JS -->
 	<script src="js/colors.js"></script>
 	<!-- Slicknav JS -->
@@ -131,9 +150,16 @@
 	<script src="js/active.js"></script>
    
 
+<<<<<<< HEAD
     <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.js"></script>
 
 
+=======
+   
+	<!-- Bootstrap JS -->
+	<script src="js/bootstrap.min.js"></script>
+	<script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.js"></script>
+>>>>>>> Front
 
 
     
@@ -160,5 +186,20 @@
   <!-- Page JS -->
   <script src="assets/js/ui-carousel.js"></script>
 
+<<<<<<< HEAD
+=======
+	<!-- Google Map JS -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnhgNBg6jrSuqhTeKKEFDWI0_5fZLx0vM"></script>	
+	<script src="js/gmap.min.js"></script>
+	<script src="js/map-script.js"></script>
+  
+	{{-- <script src="js/slick.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/main.js"></script> --}}
+	
+	
+
+>>>>>>> Front
 </body>
 </html>

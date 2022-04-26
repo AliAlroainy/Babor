@@ -10,7 +10,11 @@
 </div>
 
 <!-- plugins:js -->
+<<<<<<< HEAD
 <script src="{{ @asset('assets/vendors/base/vendor.bundle.base.js') }}"></script>
+=======
+<script src="{{@asset('assets/vendors/base/vendor.bundle.base.js')}}"></script>
+>>>>>>> Front
 <!-- endinject -->
 
 <!-- Plugin js for this page-->
@@ -37,6 +41,9 @@
         });
     });
 </script>
+<script src="{{@asset('assets/js/off-canvas.js')}}"></script>
+<script src="{{@asset('assets/js/hoverable-collapse.js')}}"></script>
+<script src="{{@asset('assets/js/template.js')}}"></script>
 <!-- endinject -->
 <!-- Custom js for this page-->
 <!-- End custom js for this page-->
