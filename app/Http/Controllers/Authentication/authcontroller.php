@@ -103,9 +103,9 @@ class AuthController extends Controller
             'email.email'=>'الرجاءادخال عنوان بريد صالح',
         ]);
         $user=User::where(['email'=>$request->email])->first();
-        if($user->hasRole('user') && empty($user->email_verified_at))
-        return view('user.email.verifyEmail');
-        else
+        // if($user->hasRole('user') && empty($user->email_verified_at))
+        // return view('user.email.verifyEmail');
+        // else
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
             if(Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))//if he login and has admin role and he is active=1 redirct him to dashboard route
                 return redirect()->route('admin.dashboard');
@@ -122,24 +122,22 @@ class AuthController extends Controller
         return redirect()->route('login');
 
     }
-    public function changePasswordUser(){
-        return view('user.email.change-password');
-    }
+    // public function changePasswordUser(){
+    //     return view('user.email.change-password');
+    // }
     public function changePasswordAdmin(){
         return view('admin.change-password');
     }
     public function updatePassword(ChangePasswordRequest $request){
         #Match The Old Password
         if(!Hash::check($request->old_password, Auth::user()->password)){
-            return redirect()->route('user.dashboard', 'psw')
-            ->with("errMatch", "كلمة السر القديمة غير صحيحة")
-            ->with('tab', 'psw');
+            return redirect()->route('change-password-user')->with("errMatch", "كلمة السر القديمة غير صحيحة");
         }
         #Update the new Password
         User::whereId(auth()->user()->id)->update([
             'password' => Hash::make($request->new_password)
         ]);
-        return redirect()->back()->with("successChangePSW", "تم تغيير كلمة السر بنجاح")->with('tab', 'psw');;
+        return redirect()->route('change-password-user')->with("successChangePSW", "تم تغيير كلمة السر بنجاح")->with('tab', 'psw');
     }
 }
 

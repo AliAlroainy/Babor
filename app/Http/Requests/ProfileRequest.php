@@ -16,26 +16,22 @@ class ProfileRequest extends FormRequest
         return [
             'name'     => 'required|regex:/^[\pL\s]+$/u',
             'username' => 'nullable|alpha_dash',
-            'address' => 'nullable|string',
-            'phone' => 'nullable|regex:/^[1-9][0-9]+/|not_in:0|digits:9|starts_with:77,73,71,70',
-            'bio' => 'nullable|min:5|max:100',
-            'avatar'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'address'  => 'nullable|string',
+            'phone'    => 'nullable|regex:/^[1-9][0-9]+/|digits:9|starts_with:77,73,71,70',
+            'bio'      => 'nullable|between:5,100',
         ];
     }
 
     public function messages(){
         return [
-            'name.alpha'          => 'فضلا، الاسم لابد أن يكون فقط أحرف',
+            'name.required'       => 'فضلا، هذا الحقل مطلوب',
+            'name.regex'          => 'فضلا، الاسم لابد أن يكون فقط أحرف',
             'username.alpha_dash' => 'فضلا، اسم المستخدم يتكون من أحرف وأرقام و _ و لا يسمح بالفراغات',
             'username.string'     => 'فضلا، العنوان تستطيع كتابته بالأحرف والأرقام إن لزم الأمر',
             'phone.regex'         => 'صيغة غير صحيحة لرقم الهاتف',
             'phone.digits'        => 'أرقام الهواتف لا تزيد عن 9 خانات',
             'phone.starts_with'   => 'أرقام الهواتف في اليمن تبدأ بـ (77,73,71,70)',
-            'bio.min'             => 'لابد أن يكون الكلام مابين 5-100 حرف',
-            'bio.max'             => 'لابد أن يكون الكلام مابين 5-100 حرف',
-            'avatar.image'        => 'ارفع صورة من فضلك',
-            'avatar.mimes'        => 'الامتدادات المسموح بها للصور هي: (jpg, png, jpeg, gif, svg)',
-            'avatar.max'          => 'أعلى حجم للصورة مسموح به هو  2048 بايت',
+            'bio.between'         => 'لابد أن يكون الكلام مابين 5-100 حرف',
         ];
     }
 }

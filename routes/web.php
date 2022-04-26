@@ -57,27 +57,6 @@ Route::get('/buy', function () {
 });
 
 
-Route::get('/admin/users', function () {
-    return view('Admin.users');
-});
-
-Route::get('/admin/services', function () {
-    return view('Admin.services');
-});
-
-
-Route::get('/admin/carSpecs/brands', function () {
-    return view('Admin.brands');
-})->name('carBrands');
-
-
-
-Route::get('/admin/carSpecs/types', function () {
-    return view('Admin.types');
-})->name('carTypes');
-
-
-
 Route::get('/user/profile/settings/changePassword', function () {
     return view('auth.changePassword');
 });
@@ -86,13 +65,9 @@ Route::get('forgetPassword', function () {
     return view('auth.forgetPassword');
 });
 
-Route::get('/user/profile/settings', function () {
-    return view('User.profileSettings');
-});
-
-Route::get('/user/profile', function () {
-    return view('User.profile');
-});
+// Route::get('/user/profile', function () {
+//     return view('User.profile');
+// });
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -128,12 +103,13 @@ Route::group(['middleware'=>'auth'],function(){
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
     });
     Route::group(['prefix' => 'user', 'middleware'=>'role:user'],function(){
-        Route::get('/profile', [ProfilesController::class,'show'])->name('user.profile');
-        Route::get('/dashboard/settings/{id?}',[ProfilesController::class,'index'])->name('user.dashboard');
+        Route::get('/dashboard/profile', [ProfilesController::class,'show'])->name('user.profile');
+        Route::get('/dashboard/settings/info',[ProfilesController::class,'index'])->name('user.dashboard');
+        Route::get('/dashboard/settings/psw', [ProfilesController::class,'index'])->name('change-password-user');
         Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
         Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
 
-        Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
+        // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
     });
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');

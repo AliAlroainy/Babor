@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('bio')->nullable();
             $table->string('avatar')->nullable();
             $table->string('phone')->nullable();
+            $table->string('job')->nullable();
+            $table->string('city')->nullable();
             $table->text('address')->nullable();
             $table->timestamps();
         });
