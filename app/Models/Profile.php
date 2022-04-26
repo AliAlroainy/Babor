@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Enums\Gender;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -14,10 +13,6 @@ class Profile extends Model
         'avatar',
         'phone',
         'address'
-    ];
-
-    protected $casts = [
-        'gender' => Gender::class,
     ];
 
     public function user(): BelongsTo
