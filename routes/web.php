@@ -25,6 +25,10 @@ Route::get('/contact', function () {
     return view('Front.contact');
 });
 
+Route::get('/profile', function () {
+    return view('Front.profile');
+});
+
 Route::get('/admin/users', function () {
     return view('Admin.users');
 });
