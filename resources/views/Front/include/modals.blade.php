@@ -1,5 +1,5 @@
 <!-- Start Login Modal -->
-<form class="modal fade " id="modal_login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" dir="rtl">
+<form class="modal fade " id="modal_login-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" dir="rtl">
   <div class="modal-dialog">
     <div class="modal-content ">
       <div class="modal-header   ">
@@ -47,7 +47,7 @@
       
         
       </div>
-      <button type="button" data-toggle="modal" data-target="#modal_reg" class="btn btn-light">ليس لديك حساب</button>
+      <button type="button" data-toggle="modal" data-dismiss="modal" data-target="#modal_reg-2" class="btn btn-light">ليس لديك حساب</button>
     </div>
   
   </div>
@@ -57,7 +57,7 @@
 
 
 <!-- Regeister  Modal -->
-<form class="modal fade " id="modal_reg" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" dir="rtl">
+<form class="modal fade " id="modal_reg-2" tabindex="-2" aria-labelledby="exampleModalLabel" aria-hidden="true" dir="rtl">
   <div class="modal-dialog">
     <div class="modal-content ">
       <div class="modal-header   ">
@@ -140,7 +140,7 @@
 
         
       </div>
-      <button type="button" data-toggle="modal" data-target="#modal_log" class="btn btn-light"> لديك حساب ؟</button>
+      <button type="button" data-toggle="modal" data-dismiss="modal" data-target="#modal_log-1" class="btn btn-light"> لديك حساب ؟</button>
     </div>
   
   </div>
