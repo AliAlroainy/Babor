@@ -47,7 +47,7 @@
       
         
       </div>
-      <button type="button" data-toggle="modal" data-target="#modal_reg-2" class="btn btn-light">ليس لديك حساب</button>
+      <button type="button" data-toggle="modal" data-dismiss="modal" data-target="#modal_reg-2" class="btn btn-light">ليس لديك حساب</button>
     </div>
   
   </div>
@@ -140,7 +140,7 @@
 
         
       </div>
-      <button type="button" data-toggle="modal" data-target="#modal_log-1" class="btn btn-light"> لديك حساب ؟</button>
+      <button type="button" data-toggle="modal" data-dismiss="modal" data-target="#modal_log-1" class="btn btn-light"> لديك حساب ؟</button>
     </div>
   
   </div>
