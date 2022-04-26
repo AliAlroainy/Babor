@@ -13,7 +13,11 @@ class Profile extends Model
         'username',
         'avatar',
         'phone',
-        'address'
+        'address',
+    //     'job',
+    //     'city'    ,
+
+    //  'bio'     ,
     ];
 
     protected $casts = [

@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Majestic Admin</title>
+    <title>Babor Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ @asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ @asset('assets/vendors/base/vendor.bundle.base.css') }}">
@@ -41,7 +41,7 @@
                             @if (session()->has('errLogin'))
                                 <p class="alert alert-danger">{{ session()->get('errLogin') }}</p>
                             @endif
-                            <h6 class="font-weight-light">سجل الدخول للإنقال للصفحة التالية</h6>
+                            <h6 class="font-weight-light">سجل الدخول للإنتقال للصفحة التالية</h6>
                             <form class="pt-3" action="{{ route('do_login') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
@@ -59,7 +59,7 @@
                                     @enderror
                                 </div>
                                 <div class="mt-3">
-                                    <button type="submit" class="btn btn-inverse-success btn-fw btn-rounded">تسجيل
+                                    <button type="submit" class="btn btn-warning text-nowrap btn-fw btn-rounded">تسجيل
                                         الدخول</button>
                                 </div>
                                 <div class="my-2 d-flex justify-content-between align-items-center">
@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="text-center mt-4 font-weight-light">
                                     ليس لديك حساب ؟
-                                    <a href="{{ route('register') }}" class="text-primary">انشئ حسابك</a>
+                                    <a href="{{ route('register') }}" class=" text-nowrap">انشئ حسابك</a>
                                 </div>
                             </form>
                         </div>

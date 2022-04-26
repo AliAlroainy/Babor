@@ -76,12 +76,12 @@
                                     </div>
                                 </div> --}}
                                 <div class="mt-3">
-                                    <button type="submit"
-                                        class="btn btn-inverse-primary btn-fw btn-rounded fs-5 fw-bold">إنشاء حساب
-                                    </button>
+
+                                    <button type="submit" class="btn btn-warning text-nowrap btn-fw btn-rounded fs-5 fw-bold">انشاء حساب
+                                        </button>
                                 </div>
                                 <div class="text-center mt-4 font-weight-light">
-                                    لديك حساب بالفعل ؟ <a href="{{ route('login') }}" class="text-primary"> سجل
+                                    لديك حساب بالفعل ؟ <a href="{{ route('login') }}" class="text-warning"> سجل
                                         الدخول </a>
                                 </div>
                             </form>
