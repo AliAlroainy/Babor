@@ -18,15 +18,16 @@
                                 @csrf
                                 <div class="form-group">
                                     <input type="text"
-                                        class="form-control form-control-lg @error('name') is-invalid @enderror"
-                                        id="name" name="name" value="{{ old('name') }}" placeholder="أسم المستخدم">
+                                        class="form-control form-control-lg dark-placeholder rounded @error('name') is-invalid @enderror"
+                                        id="name" name="name" value="{{ old('name') }}"
+                                           placeholder="أسم المستخدم">
                                     @error('name')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <input type="text"
-                                        class="form-control form-control-lg @error('email') is-invalid @enderror"
+                                        class="form-control form-control-lg dark-placeholder rounded @error('email') is-invalid @enderror"
                                         id="exampleInputEmail1" name="email" value="{{ old('email') }}"
                                         placeholder="البريد الالكتروني">
                                     @error('email')
@@ -35,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="password"
-                                        class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                        class="form-control form-control-lg dark-placeholder rounded @error('password') is-invalid @enderror"
                                         id="exampleInputPassword1" name="password" placeholder="كلمة المرور">
                                     @error('password')
                                         <p class="text-danger">{{ $message }}</p>
@@ -43,7 +44,7 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="password"
-                                        class="form-control form-control-lg @error('confirm_password') is-invalid @enderror"
+                                        class="form-control form-control-lg dark-placeholder rounded @error('confirm_password') is-invalid @enderror"
                                         id="exampleInputPassword1" name="confirm_password"
                                         value="{{ old('confirm_password') }}" placeholder="تاكيد كلمة المرور">
                                     @error('confirm_password')

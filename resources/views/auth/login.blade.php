@@ -27,14 +27,14 @@
                             <form class="pt-3" action="{{ route('do_login') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="text" name="email" class="form-control form-control-lg"
+                                    <input type="text" name="email" class="dark-placeholder rounded form-control form-control-lg"
                                         id="exampleInputEmail1" placeholder=" بريدك الالكتروني">
                                     @error('email')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" class="form-control form-control-lg"
+                                    <input type="password" name="password" class="dark-placeholder rounded form-control form-control-lg"
                                         id="exampleInputPassword1" placeholder="كلمة المرور">
                                     @error('password')
                                         <p class="text-danger">{{ $message }}</p>
