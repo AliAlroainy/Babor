@@ -11,7 +11,7 @@
     <!-- Title Tag  -->
     <title>Babor</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png" />
     <!-- Web Font -->
     <link
         href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
@@ -133,15 +133,17 @@
                         <!-- Top left -->
                         <div class="top-left">
                             <ul class="list-main">
-                                <li> <a class="nav-link" href="#offer">اخر العروض <i
-                                            class="ti-alarm-clock"></i></a></li>
-                                <!-- Button trigger modal -->
-
-                                <li><button type="button" style="background-color: transparent ; border:none;"
-                                        data-toggle="modal" data-target="#modal_login-1">
-
+                                <li>
+                                    <a class="nav-link" href="#offer">اخر العروض
+                                        <i class="ti-alarm-clock"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('login') }}"
+                                        style="background-color: transparent ; border:none;">
                                         تسجيل دخول <i class="ti-power-off"></i>
-                                    </button> </li>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                         <!-- End Top left -->
@@ -230,7 +232,7 @@
                         <!-- Logo -->
                         <div>
                             <a class="navbar-brand fw-bold" href="/" style="color: #F7941D">
-                                <h2> بابور</h2>
+                                <h2><img src="/assets/images/logo.png" width="150"></h2>
                             </a>
                         </div>
                         <!--/ End Logo -->
