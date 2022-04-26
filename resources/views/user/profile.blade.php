@@ -8,6 +8,25 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+
+                        @if ($errors->any())
+                            <div class="alert alert-dismissible alert-danger fade show" role="alert">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
+                        @if (session()->has('successEdit'))
+                            <div class="alert alert-dismissible alert-success fade show" role="alert">
+                                {{ session()->get('successEdit') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
                         <div class="row">
                             <div class="border-bottom text-center pb-4">
                                 @if (isset($user->profile->avatar))

@@ -35,6 +35,7 @@
                 });
             }
         });
+        // $('#nav-tab a[data-bs-toggle="tab" href="#{{ old('tab') }}"]').tab('show');
     });
 </script>
 <!-- endinject -->

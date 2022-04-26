@@ -15,16 +15,15 @@ use Illuminate\Support\Facades\Validator;
 class ProfilesController extends Controller
 {
     use ImageTrait;
-    public function index($id='profile'){
+    public function index(){
         $userProfile = Profile::where('user_id', Auth::user()->id)->first();
         if(!$userProfile){
             $profile = new Profile();
             $profile->user_id = Auth::user()->id;
-            $profile->username = Auth::user()->name;
             $profile->save();
         }
         $user = User::find(Auth::user()->id);
-        return view('user.settings', ['user' => $user, 'tab' => $id]);
+        return view('user.settings', ['user' => $user]);
     }
     public function show(){
         $user = Auth::user();
@@ -37,23 +36,31 @@ class ProfilesController extends Controller
         Profile::where('user_id', $current_user_id)->update(
             [
                 'username' =>  $request->input('username'),
-                'gender' =>  $request->input('gender'),
+                'gender'   =>  $request->input('gender'),
                 'phone'    =>  $request->input('phone'),
                 'address'  =>  $request->input('address'),
                 'bio'      =>  $request->input('bio'),
             ]
         );
         return redirect()->route('user.dashboard')
-            ->with('successEditProfile','تم تعديل بروفايلك بنجاح')
+            ->with('successEdit','تم التعديل بنجاح')
             ->with(['tab' => 'profile']);
     }
-    public function avatar_change(Request $request){ 
+    public function avatar_change(Request $request){
+        Validator::validate($request->all(), 
+        ['avatar'   => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:100',], 
+        [
+            'avatar.required'     => 'حقل الصورة مطلوب', 
+            'avatar.image'        => 'ارفع صورة من فضلك',
+            'avatar.mimes'        => 'الامتدادات المسموح بها للصور هي: (jpg, png, jpeg, gif, svg)',
+            'avatar.max'          => 'أعلى حجم للصورة مسموح به هو  100 كيلوبايت',
+        ]); 
         $current_user_id = Auth::user()->id;
         $this->avatar_remove($current_user_id);  //remove prevoius avatar from server
         $filename = $this->saveImage($request->avatar, 'images/profiles');
         Profile::where('user_id', $current_user_id)->update(['avatar' => $filename]);
         return redirect()->route('user.profile')
-            ->with('success','avatar profile updated successfully');
+            ->with('successEdit','تم تعديل البروفايل بنجاح');
     }
     public function avatar_remove($current_user_id = null){
         $user_avatar = Profile::where('user_id', $current_user_id)->first()->avatar;

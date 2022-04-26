@@ -122,24 +122,22 @@ class AuthController extends Controller
         return redirect()->route('login');
 
     }
-    public function changePasswordUser(){
-        return view('user.email.change-password');
-    }
+    // public function changePasswordUser(){
+    //     return view('user.email.change-password');
+    // }
     public function changePasswordAdmin(){
         return view('admin.change-password');
     }
     public function updatePassword(ChangePasswordRequest $request){
         #Match The Old Password
         if(!Hash::check($request->old_password, Auth::user()->password)){
-            return redirect()->route('user.dashboard', 'psw')
-            ->with("errMatch", "كلمة السر القديمة غير صحيحة")
-            ->with('tab', 'psw');
+            return redirect()->route('change-password-user')->with("errMatch", "كلمة السر القديمة غير صحيحة");
         }
         #Update the new Password
         User::whereId(auth()->user()->id)->update([
             'password' => Hash::make($request->new_password)
         ]);
-        return redirect()->back()->with("successChangePSW", "تم تغيير كلمة السر بنجاح")->with('tab', 'psw');;
+        return redirect()->route('change-password-user')->with("successChangePSW", "تم تغيير كلمة السر بنجاح")->with('tab', 'psw');
     }
 }
 
