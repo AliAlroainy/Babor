@@ -37,6 +37,7 @@ class ProfilesController extends Controller
         Profile::where('user_id', $current_user_id)->update(
             [
                 'username' =>  $request->input('username'),
+                'gender' =>  $request->input('gender'),
                 'phone'    =>  $request->input('phone'),
                 'address'  =>  $request->input('address'),
                 'bio'      =>  $request->input('bio'),

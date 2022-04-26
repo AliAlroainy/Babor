@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->string('username')->nullable();
+            $table->string('gender')->default('ذكر');
             $table->string('bio')->nullable();
             $table->string('avatar')->nullable();
             $table->string('phone')->nullable();

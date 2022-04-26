@@ -52,30 +52,45 @@ false @endif">
                                 </p>
                                 <form action="{{ route('info.save') }}" method="POST">
                                     @csrf
-                                    <div class="form-group">
-                                        <label for="name">الاسم الكامل</label>
-                                        <input type="text" class="form-control" id="name" name="name"
-                                            value="{{ $user->name ?? '' }}" placeholder="الاسم كاملا">
-                                        @error('name')
-                                            <p class="text-danger">{{ $message }}</p>
-                                        @enderror
+                                    <div class="form-group d-flex justify-content-between">
+                                        <div class="col-md-7">
+                                            <label for="name">الاسم الكامل</label>
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                value="{{ $user->name ?? '' }}" placeholder="الاسم كاملا">
+                                            @error('name')
+                                                <p class="text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="username">اسم المستخدم</label>
+                                            <input type="text" class="form-control" id="username" name="username"
+                                                value="{{ $user->profile->username ?? '' }}"
+                                                placeholder="اسم المستخدم">
+                                            @error('username')
+                                                <p class="text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="username">اسم المستخدم</label>
-                                        <input type="text" class="form-control" id="username" name="username"
-                                            value="{{ $user->profile->username ?? '' }}" placeholder="اسم المستخدم">
-                                        @error('username')
-                                            <p class="text-danger">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="phone">رقم الهاتف</label>
-                                        <input type="text" class="form-control" id="phone" name="phone"
-                                            value="{{ old('phone') }} {{ $user->profile->phone ?? '' }}"
-                                            placeholder="رقم الهاتف">
-                                        @error('phone')
-                                            <p class="text-danger">{{ $message }}</p>
-                                        @enderror
+                                    <div class="form-group d-flex justify-content-between">
+                                        <div class="col-md-5">
+                                            <label for="gender">اختر الجنس</label>
+                                            <select class="form-select" aria-label="Default select example"
+                                                name="gender">
+                                                <option value="{{ \App\Enums\Gender::MALE }}">ذكر</option>
+                                                {{-- @if ($user->profile->gender == 'ذكر') selected @endif --}}
+                                                <option value="{{ \App\Enums\Gender::FEMALE }}">أنثى</option>
+                                                {{-- @if ($user->profile->gender == 'أنثى') selected @endif --}}
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="phone">رقم الهاتف</label>
+                                            <input type="text" class="form-control" id="phone" name="phone"
+                                                value="{{ old('phone') }} {{ $user->profile->phone ?? '' }}"
+                                                placeholder="رقم الهاتف">
+                                            @error('phone')
+                                                <p class="text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="bio">نبذة عني</label>
@@ -134,7 +149,8 @@ false @endif">
                                                     placeholder="كلمة المرور الجديدة">
                                             </div>
                                             @error('new_password')
-                                                <p class="text-danger">{{ $message }}</p>
+                                                <p class="text-danger">
+                                                    {{ $message }}</p>
                                             @enderror
                                             <div class="input-group my-3">
                                                 <span class="input-group-text" id="basic-addon1"><i
@@ -144,7 +160,8 @@ false @endif">
                                                     placeholder="تاكيد كلمة المرور الجديدة">
                                             </div>
                                             @error('confirm_new_password')
-                                                <p class="text-danger">{{ $message }}</p>
+                                                <p class="text-danger">
+                                                    {{ $message }}</p>
                                             @enderror
                                             <input name="recover-submit"
                                                 class="btn btn-sm px-5 py-2 btn-primary text-white btn-block"
