@@ -19,6 +19,8 @@ class ProfileRequest extends FormRequest
             'address'  => 'nullable|string',
             'phone'    => 'nullable|regex:/^[1-9][0-9]+/|digits:9|starts_with:77,73,71,70',
             'bio'      => 'nullable|between:5,100',
+            'job'      => 'nullable|string|between:5,20',
+            'city'     => 'nullable|string|between:2,12',
         ];
     }
 
@@ -32,6 +34,10 @@ class ProfileRequest extends FormRequest
             'phone.digits'        => 'أرقام الهواتف لا تزيد عن 9 خانات',
             'phone.starts_with'   => 'أرقام الهواتف في اليمن تبدأ بـ (77,73,71,70)',
             'bio.between'         => 'لابد أن يكون الكلام مابين 5-100 حرف',
+            'job.between'         => 'لابد أن يكون مدخلك مابين 5-20 حرف',
+            'job.string'          => 'لابد أن تكون المهنة نصا',
+            'city.between'        => 'لابد أن يكون مدخلك مابين 2-12 حرف',
+            'city.string'         => 'لابد أن تكون المدينة نصا',
         ];
     }
 }
