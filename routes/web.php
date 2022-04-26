@@ -29,6 +29,15 @@ Route::get('/profile', function () {
     return view('Front.profile');
 });
 
+Route::get('/favorite', function () {
+    return view('Front.favorite');
+});
+
+Route::get('/buy', function () {
+    return view('Front.buy');
+});
+
+
 Route::get('/admin/users', function () {
     return view('Admin.users');
 });
