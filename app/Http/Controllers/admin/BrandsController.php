@@ -30,7 +30,7 @@ class BrandsController extends Controller
         return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);
     }
 
-    public function update(Request $request, $id)
+    public function update(BrandRequest $request, $id)
     {
         $brand = Brand::findOrFail($id);
         if(!$brand){
