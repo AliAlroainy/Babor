@@ -26,8 +26,9 @@
                 <div class="row w-100 mx-0">
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                          
                             <div class="brand-logo">
-                                <img src="{{ @asset('assets/images/logo.') }}" alt="logo">
+                                <img src="{{ @asset('assets/images/logo.png') }}" alt="logo">
                             </div>
                             <h4>مرحبا بك</h4>
                             @if (session()->has('message'))
@@ -59,7 +60,7 @@
                                     @enderror
                                 </div>
                                 <div class="mt-3">
-                                    <button type="submit" class="btn btn-warning text-nowrap btn-fw btn-rounded">تسجيل
+                                    <button type="submit" class="btn btn-warning text-nowrap btn-fw btn-rounded fs-5 fw-bold">تسجيل
                                         الدخول</button>
                                 </div>
                                 <div class="my-2 d-flex justify-content-between align-items-center">
@@ -82,7 +83,7 @@
                                 </div>
                                 <div class="text-center mt-4 font-weight-light">
                                     ليس لديك حساب ؟
-                                    <a href="{{ route('register') }}" class=" text-nowrap">انشئ حسابك</a>
+                                    <a href="{{ route('register') }}" class=" text-warning">انشئ حسابك</a>
                                 </div>
                             </form>
                         </div>

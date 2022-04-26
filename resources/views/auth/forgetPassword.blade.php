@@ -25,7 +25,7 @@
                         </div>
 
 
-                            <input name="recover-submit" class="btn btn-sm px-5 py-2 btn-primary btn-block" value="تغيير " type="submit">
+                            <input name="recover-submit" class="btn btn-sm px-5 py-2  btn-warning text-nowrap btn-block" value="تغيير " type="submit">
 
                         <input type="hidden" class="hide" name="token" id="token" value="">
                         <a href="{{url('login')}}" class="btn btn-inverse-secondary px-5 py-2">العودة</a>
