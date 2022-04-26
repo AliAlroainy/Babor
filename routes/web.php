@@ -10,6 +10,8 @@ use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Authentication\authcontroller;
+use App\Http\Controllers\Authentication\ForgotPasswordController;
+use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
 // use \Illuminate\Support\Facades\URL;
 /*

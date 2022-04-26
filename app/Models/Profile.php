@@ -12,7 +12,11 @@ class Profile extends Model
         'username',
         'avatar',
         'phone',
-        'address'
+        'address',
+    //     'job',
+    //     'city'    ,
+
+    //  'bio'     ,
     ];
 
     public function user(): BelongsTo

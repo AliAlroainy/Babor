@@ -5,7 +5,7 @@
         <div class="col-sm-6 border m-auto mt-5">
             <div class="text-center">
                 <h3><i class="fa fa-lock fa-2x my-3"></i></h3>
-                <h2 class="text-center">هل نسيت كلمة المرور ؟</h2>
+                <h2 class="text-center">  تريد استعاده كلمة المرور ؟شويه خطوات بس؟</h2>
                 <div class="panel-body my-5">
                     <form id="register-form" role="form" autocomplete="off" class="form" method="post">
 
@@ -25,7 +25,7 @@
                         </div>
 
 
-                            <input name="recover-submit" class="btn btn-sm px-5 py-2 btn-primary btn-block" value="تغيير " type="submit">
+                            <input name="recover-submit" class="btn btn-sm px-5 py-2  btn-warning text-nowrap btn-block" value="تغيير " type="submit">
 
                         <input type="hidden" class="hide" name="token" id="token" value="">
                         <a href="{{url('login')}}" class="btn btn-inverse-secondary px-5 py-2">العودة</a>
