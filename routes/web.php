@@ -29,16 +29,16 @@ Route::view('/buy', 'Front.buy');
 Route::get('/user/profile/settings/changePassword', function () {
     return view('auth.changePassword');
 });
-Route::get('forgetPassword', function () {
-    return view('user.email.forgetPassword');
-});
+// Route::get('forgetPassword', function () {
+//     return view('user.email.forgetPassword');
+// });
 
-Route::get('/verifyEmail', function () {
-    return view('auth.verifyEmail');
-});
-Route::get('/invalidToken', function () {
-    return view('auth.invalidToken');
-});
+// Route::get('/verifyEmail', function () {
+//     return view('auth.verifyEmail');
+// });
+// Route::get('/invalidToken', function () {
+//     return view('auth.invalidToken');
+// });
 
 Route::group(['middleware'=>'auth'],function(){
     Route::group(['prefix' => 'admin', 'middleware'=>'role:super_admin|admin'],function(){
