@@ -33,8 +33,4 @@
 
 </head>
 
-<<<<<<< HEAD
-<body>
-=======
 <body >
->>>>>>> Front

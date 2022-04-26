@@ -22,10 +22,6 @@
 	<!-- StyleSheet -->
 	
 	<!-- Bootstrap -->
-<<<<<<< HEAD
-	<link rel="stylesheet" href="css/bootstrap.css">
-=======
->>>>>>> Front
 	<!-- Magnific Popup -->
     <link rel="stylesheet" href="css/magnific-popup.min.css">
 	<!-- Font Awesome -->
@@ -45,11 +41,7 @@
 	<!-- Slicknav -->
     <link rel="stylesheet" href="css/slicknav.min.css">
 	
-<<<<<<< HEAD
-	<!-- Eshop StyleSheet -->
-=======
 	<!--  StyleSheet -->
->>>>>>> Front
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -60,8 +52,6 @@
 <!-- some linkes -->
 
 
-<<<<<<< HEAD
-=======
 <!-- Slick -->
 <link type="text/css" rel="stylesheet" href="css/slick.css"/>
 <link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
@@ -74,7 +64,6 @@
 
    <!-- ppp-->
 
->>>>>>> Front
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -103,14 +92,6 @@
 ></script>
 
 
-<<<<<<< HEAD
-
-	
-	
-</head>
-<body class="js">
-	
-=======
 <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
 
 
@@ -129,7 +110,6 @@
 	
 </head>
 <body>
->>>>>>> Front
 	<!-- Preloader -->
 	<div class="preloader">
 		<div class="preloader-inner">
@@ -153,11 +133,6 @@
             	<!-- Top left -->
 						<div  class="top-left">
 							<ul class="list-main">
-<<<<<<< HEAD
-								<li> <a class="nav-link" href="#" >اخر العروض  <i class="ti-alarm-clock"></i></a></li>
-							
-								<li><a class="nav-link" href="/"> تسجيل دخول <i class="ti-power-off"></i></a> </li>
-=======
 								<li> <a class="nav-link" href="#offer" >اخر العروض  <i class="ti-alarm-clock"></i></a></li>
 							<!-- Button trigger modal -->
 
@@ -166,7 +141,6 @@
 									
 									تسجيل دخول <i class="ti-power-off"></i>
 								  </button>  </li>
->>>>>>> Front
 							</ul>
 						</div>
 						<!-- End Top left -->
@@ -203,17 +177,10 @@
 							</div>
 
 							<div class="sinlge-bar">
-<<<<<<< HEAD
-								<a href="#" class="single-icon "><i class="fa fa-heart-o" aria-hidden="true"></i> </a>
-							</div>
-							<div class="sinlge-bar">
-								<a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-=======
 								<a href="/favorite" class="single-icon "><i class="fa fa-heart-o" aria-hidden="true"></i> </a>
 							</div>
 							<div class="sinlge-bar">
 								<a href="/profile" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
->>>>>>> Front
 							</div>
           
             </div>
@@ -452,10 +419,7 @@
       </nav>
   
     ------------------------  end header ---------------------------->
-<<<<<<< HEAD
-=======
 	@include('Front.include.modals') 
 
  
 	
->>>>>>> Front

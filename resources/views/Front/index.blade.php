@@ -15,18 +15,12 @@
 		<h1 class="m-3 text-center "> معنا تقدر تبيع وتشتري سيارتك بسهولة </h1>
 		<div class=" "> 
 		
-<<<<<<< HEAD
-			<button class="btn btn-light m-1 shadow-sm "> بيع سيارتك </button>
-
-			<button class="btn btn-dark m-3 shadow-sm ">اشتري سيارة </button>
-=======
 			<a href="/buy" class="btn-link" > 
 				<button class="btn btn-light m-1 shadow-sm "> بيع سيارتك </button>
 			 </a>
 			<a href="/buy" class="btn-link">
 			<button class="btn btn-dark m-3 shadow-sm ">اشتري سيارة </button>
 			</a>
->>>>>>> Front
 		</div>
 	  <img src="img/car1.png" class="img-fluid"  />
 	</div>
@@ -93,12 +87,9 @@
 
 	@include('Front.include.produacts')
 
-<<<<<<< HEAD
-=======
 	
 
 
->>>>>>> Front
 
 
 	<div class="section-title mb-1">
