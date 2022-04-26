@@ -36,6 +36,10 @@ Route::get('/details', function () {
     return view('Front.car');
 });
 
+Route::get('/soon', function () {
+    return view('Front.soon');
+});
+
 Route::get('/contact', function () {
     return view('Front.contact');
 });

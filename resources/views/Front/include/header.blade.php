@@ -256,12 +256,12 @@
 										<div class="nav-inner">	
 											<ul class="nav main-menu menu navbar-nav ">
 													<li class="active "><a class="nav-link" href="/">الرئيسية</a></li>
-													<li><a class="nav-link" href="#">العروض</a></li>												
-													<li><a class="nav-link" href="#">الخدمات</a></li>
-													<li><a class="nav-link" href="#">شراء سيارة<i class="ti-angle-down"></i><!--span class="new">جديد</span--></a>
+													<li><a class="nav-link" href="/soon">العروض</a></li>												
+													<li><a class="nav-link" href="/soon">الخدمات</a></li>
+													<li><a class="nav-link" href="/soon">شراء سيارة<i class="ti-angle-down"></i><!--span class="new">جديد</span--></a>
 														<ul class="dropdown">
-															<li><a class="nav-link" href="#">مستعملة</a></li>
-															<li><a class="nav-link" href="#">جديد</a></li>
+															<li><a class="nav-link" href="/soon">مستعملة</a></li>
+															<li><a class="nav-link" href="/soon">جديد</a></li>
 														</ul>
 													</li>
 																					

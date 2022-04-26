@@ -26,9 +26,9 @@
 						<div class="single-footer links">
 							<h4>معلومات</h4>
 							<ul>
-								<li><a class="nav-link" href="#">عننا</a></li>
-								<li><a class="nav-link" href="#">ابرز اسئلة</a></li>
-								<li><a class="nav-link" href="#">الخصوصية</a></li>
+								<li><a class="nav-link" href="/soon">عننا</a></li>
+								<li><a class="nav-link" href="/soon">ابرز اسئلة</a></li>
+								<li><a class="nav-link" href="/soon">الخصوصية</a></li>
 								<li><a class="nav-link" href="/contact">تواصل معنا</a></li>
 							</ul>
 						</div>
@@ -39,10 +39,10 @@
 						<div class="single-footer links">
 							<h4>خدمة العلاء</h4>
 							<ul>
-								<li><a class="nav-link" href="#">طرق الدفع</a></li>
-								<li><a class="nav-link" href="#">رجع فلوسك</a></li>
-								<li><a class="nav-link" href="#">الارجاع</a></li>
-								<li><a class="nav-link" href="#">الشحن</a></li>
+								<li><a class="nav-link" href="/soon">طرق الدفع</a></li>
+								<li><a class="nav-link" href="/soon">رجع فلوسك</a></li>
+								<li><a class="nav-link" href="/soon">الارجاع</a></li>
+								<li><a class="nav-link" href="/soon">الشحن</a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->
