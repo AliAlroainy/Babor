@@ -16,11 +16,9 @@ use App\Http\Controllers\Admin\CarCharacteristicsController;
 |--------------------------------
 =======
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+*/
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
-
-*/
-
 Route::get('/', function () {
     return view('Front.index');
 });
@@ -94,6 +92,7 @@ Route::get('/invalidToken', function () {
 Route::group(['middleware'=>'auth'],function(){
     Route::group(['prefix' => 'admin', 'middleware'=>'role:super_admin|admin'],function(){
         Route::get('/accounts', [AccountsController::class, 'index'])->name('admin.dashboard');
+        Route::post('/accounts/{id}', [AccountsController::class, 'destroy'])->name('admin.account.destroy');
 
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);

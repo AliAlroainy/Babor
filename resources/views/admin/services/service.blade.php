@@ -123,22 +123,27 @@
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button style="width: fit-content"
-                                                            class="
+                                                        @if ($service->is_active == 1)
+                                                            <button style="width: fit-content"
+                                                                class="
                                                         btn d-flex align-items-center
-                                                         btn-inverse-danger
+                                                         btn-inverse-success
                                                          btn-fw btn-rounded ">
-                                                            @if ($service->is_active == 1)
                                                                 إلغاء التفعيل
                                                                 <i class="fa-solid fa-trash pe-2"
                                                                     style="font-size: 12px ;"></i>
-                                                            @else
+                                                            </button>
+                                                        @else
+                                                            <button style="width: fit-content"
+                                                                class="
+                                                        btn d-flex align-items-center
+                                                         btn-inverse-danger
+                                                         btn-fw btn-rounded ">
                                                                 تفعيل
-                                                                <i class="fas fa-trash-restore"
+                                                                <i class="fas fa-trash-restore pe-2"
                                                                     style="font-size: 12px ;"></i>
-                                                            @endif
-
-                                                        </button>
+                                                            </button>
+                                                        @endif
                                                     </form>
                                                 </td>
                                             </tr>
