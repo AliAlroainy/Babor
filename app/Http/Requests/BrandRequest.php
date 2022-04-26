@@ -14,7 +14,7 @@ class BrandRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required','between:3,10',
+            'name'=>'required|between:3,10',
             'logo'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ];
     }

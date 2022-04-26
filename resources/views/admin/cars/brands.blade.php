@@ -12,21 +12,35 @@
                         <div class="card-body">
                             <h4 class="card-title">عرض البراندات</h4>
                             @if (session()->has('errorEdit'))
-                                <p class="alert alert-danger">{{ session()->get('errorEdit') }}</p>
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    {{ session()->get('errorEdit') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
                             @endif
                             @if (session()->has('successAdd'))
-                                <p class="alert alert-success">{{ session()->get('successAdd') }}</p>
+                                <div class="alert alert-success alert-dismissible fade show">
+                                    {{ session()->get('successAdd') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
                             @endif
                             @if (session()->has('errorAdd'))
-                                <p class="alert alert-success">{{ session()->get('errorAdd') }}</p>
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    {{ session()->get('errorAdd') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
                             @endif
                             @if ($errors->any())
-                                <div class="alert alert-danger">
+                                <div class="alert alert-danger alert-dismissible fade show">
                                     <ul class="m-0">
                                         @foreach ($errors->all() as $error)
                                             <li>{{ $error }}</li>
                                         @endforeach
                                     </ul>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
                                 </div>
                             @endif
                             <div class="table-responsive">
@@ -43,7 +57,8 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($brands as $brand)
-                                            <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+                                            <div class="modal fade" id="editModal-{{ $brand->id }}" tabindex="-1"
+                                                aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <form action="{{ route('admin.brand.update', $brand->id) }}"
                                                         method="POST" enctype="multipart/form-data">
@@ -57,9 +72,10 @@
                                                             <div class="modal-body">
                                                                 <div class="row">
                                                                     <div class="col mb-3">
-                                                                        <label for="editName" class="form-label">إسم
+                                                                        <label for="editName-{{ $brand->id }}"
+                                                                            class="form-label">إسم
                                                                             البراند</label>
-                                                                        <input type="text" id="editName"
+                                                                        <input type="text" id="editName-{{ $brand->id }}"
                                                                             class="form-control" name="name"
                                                                             value="{{ old('name') }} {{ $brand->name ?? '' }}"
                                                                             placeholder="اسم البراند">
@@ -67,11 +83,13 @@
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col md-3">
-                                                                        <label for="editLogo" class="form-label">أيقونة
-                                                                            الخدمة</label>
-                                                                        <input type="file" id="editLogo"
-                                                                            class="form-control previewImage" id="idImg"
-                                                                            name="logo" placeholder="">
+                                                                        <label for="editLogo-{{ $brand->id }}"
+                                                                            class="form-label">أيقونة
+                                                                            البراند</label>
+                                                                        <input type="file"
+                                                                            id="editLogo-{{ $brand->id }}"
+                                                                            class="form-control previewImage" name="logo"
+                                                                            placeholder="">
                                                                         <img src="/images/brands/{{ $brand->logo }}"
                                                                             width="100px" height="100px"
                                                                             class="mt-2">
@@ -92,7 +110,13 @@
                                             </div>
                                             <tr>
                                                 <td class="py-1">
-                                                    <img src="/images/brands/{{ $brand->logo }}" alt="image" />
+                                                    @if (isset($brand->logo))
+                                                        <img src="/images/brands/{{ $brand->logo }}" alt="logo"
+                                                            class="img-lg rounded-circle" />
+                                                    @else
+                                                        <img src="/images/brands/default.png" alt="logo"
+                                                            class="img-lg rounded-circle" />
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     {{ $brand->name }}
@@ -103,7 +127,8 @@
                                                         btn d-flex align-items-center
                                                          btn-inverse-secondary
                                                          btn-fw btn-rounded "
-                                                        data-bs-target="#editModal" data-bs-toggle="modal">
+                                                        data-bs-target="#editModal-{{ $brand->id }}"
+                                                        data-bs-toggle="modal">
                                                         تعديل
                                                         <i class="fa-solid fa-edit pe-2" style="font-size: 12px ;"></i>
                                                     </a>
@@ -113,22 +138,27 @@
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button style="width: fit-content"
-                                                            class="
+                                                        @if ($brand->is_active == 1)
+                                                            <button style="width: fit-content"
+                                                                class="
                                                         btn d-flex align-items-center
-                                                         btn-inverse-danger
+                                                         btn-inverse-success
                                                          btn-fw btn-rounded ">
-                                                            @if ($brand->is_active == 1)
                                                                 إلغاء التفعيل
                                                                 <i class="fa-solid fa-trash pe-2"
                                                                     style="font-size: 12px ;"></i>
-                                                            @else
+                                                            </button>
+                                                        @else
+                                                            <button style="width: fit-content"
+                                                                class="
+                                                        btn d-flex align-items-center
+                                                         btn-inverse-danger
+                                                         btn-fw btn-rounded ">
                                                                 تفعيل
-                                                                <i class="fas fa-trash-restore"
+                                                                <i class="fas fa-trash-restore pe-2"
                                                                     style="font-size: 12px ;"></i>
-                                                            @endif
-
-                                                        </button>
+                                                            </button>
+                                                        @endif
                                                     </form>
                                                 </td>
                                             </tr>

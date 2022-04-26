@@ -23,7 +23,7 @@ class ServicesController extends Controller
     public function store(ServiceRequest $request)
     {
         $serv = new service();
-        $serv->pic = $request->hasFile('pic')? $this->saveImage($request->pic, 'images/services'):"default_ser.png";
+        $serv->pic = $request->hasFile('pic')? $this->saveImage($request->pic, 'images/services'):"default.png";
         $serv->title=$request->title;
         $serv->description=$request->description;
         if($serv->save())
@@ -50,15 +50,16 @@ class ServicesController extends Controller
 
     public function destroy($service_id)
     {
-        $service=service::find($service_id);
-        $service->is_active*=-1;
+        $service = Service::find($service_id);
+        $service->is_active *= -1;
         if($service->save())
             return back();
     }
 
     public function pic_remove($service_id){
         $serv_pic = service::where('id', $service_id)->first()->pic;
-        File::delete(public_path("images/services/{$serv_pic}"));
+        if($serv_pic != 'default.png')
+            File::delete(public_path("images/services/{$serv_pic}"));
         return;
     }
    

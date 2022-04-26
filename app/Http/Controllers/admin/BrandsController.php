@@ -20,18 +20,13 @@ class BrandsController extends Controller
         return view('admin.cars.brands', ['route' => $route])->with('brands',$brands);
     }
 
-    public function store(Request $request)
-    {  Validator::validate($request->all(),[
-        'name'=>['required','min:5','max:20'],
-        'logo'=>['required','image','mimes:jpeg,png,jpg,gif,svg'.'max:6000'],
-
-    ],
-    );
+    public function store(BrandRequest $request)
+    {  
         $brand = new Brand();
         $brand->logo = $request->hasFile('logo')? $this->saveImage($request->logo, 'images/brands'):"default.png";
         $brand->name=$request->name;
         if($brand->save())
-        return redirect()->route('admin.brand.index')->with(['successAdd'=>'تم إضافة البراند بنجاح']);
+        return redirect()->route('admin.brand.index')->with(['successAdd'=>'تمت الإضافة بنجاح']);
         return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);
     }
 
@@ -54,6 +49,9 @@ class BrandsController extends Controller
     public function destroy($brand_id)
     {
         $brand=Brand::find($brand_id);
+        if(!$brand)
+            return abort('404');
+        $brand->series()->update(['is_active'=> -1]);      
         $brand->is_active*=-1;
         if($brand->save())
             return back();
@@ -61,7 +59,8 @@ class BrandsController extends Controller
 
     public function logo_remove($brand_id){
         $brand_logo = Brand::where('id', $brand_id)->first()->logo;
-        File::delete(public_path("images/brands/{$brand_logo}"));
+        if($brand_logo != 'default.png')
+            File::delete(public_path("images/brands/{$brand_logo}"));
         return;
     }
 
