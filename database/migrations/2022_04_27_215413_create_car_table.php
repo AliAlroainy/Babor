@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cars', function (Blueprint $table) {
+        Schema::create('car', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
             $table->integer('sizOfdamage');
             $table->boolean('status')->default(1);
             $table->string('color');
-            $table->timestamps('model');
+            $table->integer('model');
             $table->integer('numberOfKillos');
             $table->string('carPosition');
 
@@ -33,8 +33,6 @@ return new class extends Migration
             $table->foreign('category_id')->constrained()
                   ->references('id')->on('categories')
                   ->onUpdate('cascade')->onDelete('cascade');
-
-
         });
     }
 
@@ -45,6 +43,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cars');
+        Schema::dropIfExists('car');
     }
 };

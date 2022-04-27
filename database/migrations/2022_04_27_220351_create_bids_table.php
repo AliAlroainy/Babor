@@ -15,18 +15,20 @@ return new class extends Migration
     {
         Schema::create('bids', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->integre('currentPrice');
-            
+
+            $table->integer('currentPrice');
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->constrained()
-                  ->references('id')->on('users')
-                  ->onUpdate('cascade')->onDelete('cascade');
+              ->references('id')->on('users')
+              ->onUpdate('cascade')->onDelete('cascade');
+
 
             $table->unsignedBigInteger('auction_id');
             $table->foreign('auction_id')->constrained()
-                  ->references('id')->on('auctions')
-                  ->onUpdate('cascade')->onDelete('cascade');
+            ->references('id')->on('auctions')
+            ->onUpdate('cascade')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
