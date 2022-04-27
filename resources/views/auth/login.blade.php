@@ -44,14 +44,16 @@
                                     <button type="submit" class="btn btn-warning text-nowrap btn-fw btn-rounded fs-5 fw-bold">تسجيل
                                         الدخول</button>
                                 </div>
-                                <div class="my-2 d-flex justify-content-between align-items-center">
-                                    <div class="form-check">
+                                <div class="my-2 d-flex flex-column justify-content-start mb-2 " >
+                                    <div> 
+                                    <div  >
                                         <input type="checkbox" class="form-check-input " id="rememberMe">
-                                        <label class="form-check-label text-muted" style="margin-left: 0.5rem"
+                                        <label class="form-check-label text-muted" style=""
                                             for="rememberMe">
                                             تذكرني
                                         </label>
                                     </div>
+                                </div>
                                     <a href="{{ url('forgetPassword') }}" class="auth-link text-black"> هل نسيت
                                         كلمة
                                         مرورك ؟</a>
