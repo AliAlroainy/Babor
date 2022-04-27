@@ -15,14 +15,15 @@ return new class extends Migration
     {
         Schema::create('auctions', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+
             $table->string('securityDeposit');
             $table->integer('commission');
-            $table->integre('minic');
-            $table->timestamp('closeDate');
-            $table->timestamp('startingDate');
+            $table->integer('minic');
+            $table->date('closeDate');
+            $table->date('startingDate');
             $table->integer('startingPrice');
-            $table->integer('winnerPrice');
+            $table->integer('winnerPrice')->nullable();
+            $table->string('winner')->nullable();
             $table->integer('desc');
             $table->boolean('status')->default(1);
 
@@ -31,10 +32,12 @@ return new class extends Migration
                   ->references('id')->on('users')
                   ->onUpdate('cascade')->onDelete('cascade');
 
+            $table->boolean('is_active')->default(0);
             $table->unsignedBigInteger('car_id');
             $table->foreign('car_id')->constrained()
-                  ->references('id')->on('cars')
+                  ->references('id')->on('car')
                   ->onUpdate('cascade')->onDelete('cascade');
+                  $table->timestamps();
         });
     }
 
