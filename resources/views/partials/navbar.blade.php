@@ -129,12 +129,17 @@
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle d-flex" href="#" data-bs-toggle="dropdown" id="profileDropdown">
                         <div>
-                            @if (isset($user->profile->avatar))
-                                <img src="/images/profiles/{{ $user->profile->avatar }}" alt="profile" width="100"
+                            @if (isset($route))
+                                <img src="/images/profiles/default.png" alt="profile" width="100"
                                     class="d-block h-auto ms-0 rounded user-profile-img" />
-                            @else
-                                <img src="/images/profiles/default.png" alt="profile"
-                                    class="d-block h-auto ms-0 rounded user-profile-img" width="100" />
+                            @elseif (isset($user))
+                                @if (isset($user->profile->avatar))
+                                    <img src="/images/profiles/{{ $user->profile->avatar }}" alt="profile" width="100"
+                                        class="d-block h-auto ms-0 rounded user-profile-img" />
+                                @else
+                                    <img src="/images/profiles/default.png" alt="profile"
+                                        class="d-block h-auto ms-0 rounded user-profile-img" width="100" />
+                                @endif
                             @endif
                         </div>
                         <div>

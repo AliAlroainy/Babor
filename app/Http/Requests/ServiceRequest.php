@@ -28,7 +28,7 @@ class ServiceRequest extends FormRequest
             'description.between'   => 'الوصف لايقل عن 10 أحرف ولا يزيد عن 200 حرف',
             'pic.image'             => 'ارفع صورة من فضلك',
             'pic.mimes'             => 'الامتدادات المسموح بها للصور هي: (jpg, png, jpeg, gif, svg)',
-            'pic.max'               => 'أعلى حجم للصورة مسموح به هو  2048 بايت',
+            'pic.max'               => 'أعلى حجم للصورة مسموح به هو  2048 كيلوبايت',
 
         ];
     }

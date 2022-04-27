@@ -1,95 +1,95 @@
  <!-- Start Footer Area -->
  <footer class="footer" dir="rtl">
- <!-- Footer Top -->
- <div class="footer-top section">
- <div class="container ">
- <div class="row">
- <div class="col-lg-5 col-md-6 col-12">
- <!-- Single Widget -->
- <div class="single-footer about">
- <div class="logo">
- {{-- <a href="/"><img src="images/logo2.png" alt="#"></a> --}}
- </div>
- <p class="text">بابور نقدم لك اسهل خدمة لبيع وشراء السيارات في المزاد بشكل رائع وامن
- وسهل الاستخدام</p>
- <p class="call">اتصل نصل 24/7<span><a href="tel:+967773739473" dir="rtl"
- class="nav-link">00967 7737 39473</a></span></p>
- </div>
- <!-- End Single Widget -->
- </div>
- <div class="col-lg-2 col-md-6 col-12">
- <!-- Single Widget -->
- <div class="single-footer links">
- <h4>معلومات</h4>
- <ul>
- <li><a class="nav-link" href="/soon">عننا</a></li>
- <li><a class="nav-link" href="/soon">ابرز اسئلة</a></li>
- <li><a class="nav-link" href="/soon">الخصوصية</a></li>
- <li><a class="nav-link" href="/contact">تواصل معنا</a></li>
- </ul>
- </div>
- <!-- End Single Widget -->
- </div>
- <div class="col-lg-2 col-md-6 col-12">
- <!-- Single Widget -->
- <div class="single-footer links">
- <h4>خدمة العلاء</h4>
- <ul>
- <li><a class="nav-link" href="/soon">طرق الدفع</a></li>
- <li><a class="nav-link" href="/soon">رجع فلوسك</a></li>
- <li><a class="nav-link" href="/soon">الارجاع</a></li>
- <li><a class="nav-link" href="/soon">الشحن</a></li>
- </ul>
- </div>
- <!-- End Single Widget -->
- </div>
- <div class="col-lg-3 col-md-6 col-12">
- <!-- Single Widget -->
- <div class="single-footer social">
- <h4>تواصل بنا</h4>
- <!-- Single Widget -->
- <div class="contact">
- <ul>
- <li>اليمن - تعز</li>
- <li>جولة المسبح</li>
- <li>info@babor.com</li>
- <li>+967 773 739 473</li>
- <li>.</li>
+     <!-- Footer Top -->
+     <div class="footer-top section">
+         <div class="container ">
+             <div class="row">
+                 <div class="col-lg-5 col-md-6 col-12">
+                     <!-- Single Widget -->
+                     <div class="single-footer about">
+                         <div class="logo">
+                             {{-- <a href="/"><img src="images/logo2.png" alt="#"></a> --}}
+                         </div>
+                         <p class="text">بابور نقدم لك اسهل خدمة لبيع وشراء السيارات في المزاد بشكل رائع وامن
+                             وسهل الاستخدام</p>
+                         <p class="call">اتصل نصل 24/7<span><a href="tel:+967773739473" dir="rtl"
+                                     class="nav-link">00967 7737 39473</a></span></p>
+                     </div>
+                     <!-- End Single Widget -->
+                 </div>
+                 <div class="col-lg-2 col-md-6 col-12">
+                     <!-- Single Widget -->
+                     <div class="single-footer links">
+                         <h4>معلومات</h4>
+                         <ul>
+                             <li><a class="nav-link" href="/soon">عننا</a></li>
+                             <li><a class="nav-link" href="/soon">ابرز اسئلة</a></li>
+                             <li><a class="nav-link" href="/soon">الخصوصية</a></li>
+                             <li><a class="nav-link" href="/contact">تواصل معنا</a></li>
+                         </ul>
+                     </div>
+                     <!-- End Single Widget -->
+                 </div>
+                 <div class="col-lg-2 col-md-6 col-12">
+                     <!-- Single Widget -->
+                     <div class="single-footer links">
+                         <h4>خدمة العلاء</h4>
+                         <ul>
+                             <li><a class="nav-link" href="/soon">طرق الدفع</a></li>
+                             <li><a class="nav-link" href="/soon">رجع فلوسك</a></li>
+                             <li><a class="nav-link" href="/soon">الارجاع</a></li>
+                             <li><a class="nav-link" href="/soon">الشحن</a></li>
+                         </ul>
+                     </div>
+                     <!-- End Single Widget -->
+                 </div>
+                 <div class="col-lg-3 col-md-6 col-12">
+                     <!-- Single Widget -->
+                     <div class="single-footer social">
+                         <h4>تواصل بنا</h4>
+                         <!-- Single Widget -->
+                         <div class="contact">
+                             <ul>
+                                 <li>اليمن - تعز</li>
+                                 <li>جولة المسبح</li>
+                                 <li>info@babor.com</li>
+                                 <li>+967 773 739 473</li>
+                                 <li>.</li>
 
- </ul>
- </div>
- <!-- End Single Widget -->
- <ul>
- <li><a class="nav-link" href="#"><i class="ti-facebook"></i></a></li>
- <li><a class="nav-link" href="#"><i class="ti-twitter"></i></a></li>
- ..
- <li><a class="nav-link" href="#"><i class="ti-instagram"></i></a></li>
- </ul>
- </div>
- <!-- End Single Widget -->
- </div>
- </div>
- </div>
- </div>
- <!-- End Footer Top -->
- <div class="copyright">
- <div class="container">
- <div class="inner">
- <div class="row">
- <div class="col-lg-6 col-12">
- <div class="left">
- <p> © 2020 <a href="#" target="_blank">بابور</a> - جميع الحقوق محفوظة.</p>
- </div>
- </div>
- <div class="col-lg-6 col-12">
- <div class="right">
- {{-- <img src="images/payments.png" alt="#"> --}}
- </div>
- </div>
- </div>
- </div>
- </div>
- </div>
+                             </ul>
+                         </div>
+                         <!-- End Single Widget -->
+                         <ul>
+                             <li><a class="nav-link" href="#"><i class="ti-facebook"></i></a></li>
+                             <li><a class="nav-link" href="#"><i class="ti-twitter"></i></a></li>
+                             ..
+                             <li><a class="nav-link" href="#"><i class="ti-instagram"></i></a></li>
+                         </ul>
+                     </div>
+                     <!-- End Single Widget -->
+                 </div>
+             </div>
+         </div>
+     </div>
+     <!-- End Footer Top -->
+     <div class="copyright">
+         <div class="container">
+             <div class="inner">
+                 <div class="row">
+                     <div class="col-lg-6 col-12">
+                         <div class="left">
+                             <p> © 2020 <a href="#" target="_blank">بابور</a> - جميع الحقوق محفوظة.</p>
+                         </div>
+                     </div>
+                     <div class="col-lg-6 col-12">
+                         <div class="right">
+                             {{-- <img src="images/payments.png" alt="#"> --}}
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
  </footer>
  <!-- /End Footer Area -->
 
