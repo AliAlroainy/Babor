@@ -8,7 +8,7 @@
  <!-- Single Widget -->
  <div class="single-footer about">
  <div class="logo">
- {{-- <a href="/"><img src="images/logo2.png" alt="#"></a> --}}
+  <a href="/"><img src="/assets/images/logo.png" alt="logo" width="100"></a> 
  </div>
  <p class="text">بابور نقدم لك اسهل خدمة لبيع وشراء السيارات في المزاد بشكل رائع وامن
  وسهل الاستخدام</p>
