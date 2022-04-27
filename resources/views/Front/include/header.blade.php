@@ -140,7 +140,7 @@
                                 </li>
                                 <li>
                                     <a href="{{ route('login') }}"
-                                        style="background-color: transparent ; border:none;">
+                                        style="background-color: transparent ; border:none; text-decoration: none">
                                         تسجيل دخول <i class="ti-power-off"></i>
                                     </a>
                                 </li>
