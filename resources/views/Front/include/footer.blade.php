@@ -161,10 +161,10 @@
  <script src="js/gmap.min.js"></script>
  <script src="js/map-script.js"></script>
 
- {{-- <script src="js/slick.min.js"></script>
+ <script src="js/slick.min.js"></script>
     <script src="js/nouislider.min.js"></script>
     <script src="js/jquery.zoom.min.js"></script>
-    <script src="js/main.js"></script> --}}
+    <script src="js/main.js"></script>
 
 
 
