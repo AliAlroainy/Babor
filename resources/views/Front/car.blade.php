@@ -70,6 +70,7 @@
                 <div class="col-md-5" dir="rtl">
                     <div class="product-details">
                         <h2 class="product-name">شفرلية 2020</h2>
+                        ,
                         <div>
                             <div class="product-rating">
                                 <i class="fa fa-star"></i>
@@ -84,25 +85,36 @@
                             <h3 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h3>
                             <span class="product-available">مستخدمة</span>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>
 
-                        <div class="product-options">
-                            <label>
+                            تسارع السيارة من وضع الثبات وحتى 100 كم/ الساعة في حوالي 13.2 ثانية. متوسط استهلاك الوقود يبلغ حوالي 7.3 لتر في مسافة تصل إلى 100 كم. يبلغ طول السيارة 4597 مم، والعرض 1736 مم وارتفاعها 1462 مم، كما تبلغ سعة الحقيبة الخلفية 405 لترات.
+                        </p>
+
+                        <div class=" ">
+                            <div class="d-flex flex-row "> 
+                           
                                 الجير                                       
+                           
                                 <select class="input-select">
                                     <option value="0">3</option>
                                     <option value="0">4</option>
                                     <option value="0">6</option>
                                 </select>
-                            </label>
-                            <label>
+                          
+                            </div>
+                         
+                            <div class="d-flex flex-row ">
+                            
+                            
                                 الالوان                                     
+                           
                                 <select class="input-select">
                                     <option value="0">احمر</option>
                                     <option value="0">اسود</option>
                                 </select>
-                            </label>
-                        </div>
+                            </div>
+
+                            </div>
 
                         <div class="add-to-cart">
                             <div class="qty-label">

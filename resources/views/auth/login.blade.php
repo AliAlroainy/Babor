@@ -1,5 +1,10 @@
 
+
+
 @include('partials.header')
+
+ {{-- @include('Front.include.header')  --}}
+
 <body>
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
