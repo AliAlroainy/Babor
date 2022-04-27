@@ -1,12 +1,12 @@
 
 
 
-@include('partials.header')
+{{-- @include('partials.header') --}}
 
- {{-- @include('Front.include.header')  --}}
+ @include('Front.include.header') 
 
 <body>
-    <div class="container-scroller">
+    <div class="container-scroller" dir="rtl">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div class="content-wrapper d-flex align-items-center auth px-0">
                 <div class="row w-100 mx-0">
@@ -14,7 +14,9 @@
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
 
                             <div class="brand-logo">
-                                <img src="{{ @asset('assets/images/logo.png') }}" alt="logo">
+                                {{-- <img src="{{ @asset('assets/images/logo.png') }}" alt="logo"> --}}
+                                <div > <img src="svg\login.svg" class="" /> </div>
+
                             </div>
                             <h4>مرحبا بك</h4>
                             @if (session()->has('message'))
@@ -91,6 +93,8 @@
     <script src="{{ @asset('assets/js/hoverable-collapse.js') }}"></script>
     <script src="{{ @asset('assets/js/template.js') }}"></script>
     <!-- endinject -->
-</body>
+{{-- </body>
 
-</html>
+</html> --}}
+
+@include('Front.include.footer')
