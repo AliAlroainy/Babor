@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Profile extends Model
 {
@@ -12,7 +12,11 @@ class Profile extends Model
         'username',
         'avatar',
         'phone',
-        'address'
+        'address',
+    //     'job',
+    //     'city'    ,
+
+    //  'bio'     ,
     ];
 
     public function user(): BelongsTo

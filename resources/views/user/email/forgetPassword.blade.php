@@ -13,7 +13,7 @@
                             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope"></i></span>
                             <input type="email" name="email" class="form-control" placeholder="البريد الالكتروني">
                         </div>
-                        <input name="recover-submit" class="btn btn-sm px-5 py-2 btn-primary text-white btn-block"
+                        <input name="recover-submit" class="btn btn-sm px-5 py-2  btn-warning text-nowrap btn-block"
                             value="إرسال لبريدك الإلكتروني لتغيير كلمة السر" type="submit">
                         <input type="hidden" class="hide" name="token" id="token" value="">
                         <a href="{{ route('login') }}" class="btn btn-inverse-secondary px-5 py-2">العودة</a>

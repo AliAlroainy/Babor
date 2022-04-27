@@ -17,8 +17,10 @@ class AccountsController extends Controller
 
     public function destroy($user_id)
     {
-        $user = Series::find($user_id);
-        $user->is_active *= -1;
+        $user=User::find($user_id);
+        if(!$user)
+            return abort('404');     
+        $user->is_active*=-1;
         if($user->save())
             return back();
     }  

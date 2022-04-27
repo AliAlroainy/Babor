@@ -22,7 +22,7 @@ class SeriesController extends Controller
         return view('admin.cars.series', ['route' => $route, 'brands' => $brands, 'series' => $series]);
     }
    
-    public function store(Request $request)
+    public function store(SeriesRequest $request)
     {
         Series::create($request->except(['_token']));
         return redirect()->route('admin.series.index')->with(['successAdd'=>'تمت الإضافة بنجاح']);
@@ -43,6 +43,8 @@ class SeriesController extends Controller
     public function destroy($series_id)
     {
         $series = Series::find($series_id);
+        if(!$series)
+            return abort('404');
         $series->is_active *= -1;
         if($series->save())
             return back();

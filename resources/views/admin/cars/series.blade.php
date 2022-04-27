@@ -12,21 +12,35 @@
                         <div class="card-body">
                             <h4 class="card-title">عرض سلاسل البراند</h4>
                             @if (session()->has('errorEdit'))
-                                <p class="alert alert-danger">{{ session()->get('errorEdit') }}</p>
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    {{ session()->get('errorEdit') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
                             @endif
                             @if (session()->has('successAdd'))
-                                <p class="alert alert-success">{{ session()->get('successAdd') }}</p>
+                                <div class="alert alert-success alert-dismissible fade show">
+                                    {{ session()->get('successAdd') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
                             @endif
                             @if (session()->has('errorAdd'))
-                                <p class="alert alert-success">{{ session()->get('errorAdd') }}</p>
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    {{ session()->get('errorAdd') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
                             @endif
                             @if ($errors->any())
-                                <div class="alert alert-danger">
+                                <div class="alert alert-danger alert-dismissible fade show">
                                     <ul class="m-0">
                                         @foreach ($errors->all() as $error)
                                             <li>{{ $error }}</li>
                                         @endforeach
                                     </ul>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
                                 </div>
                             @endif
                             <div class="table-responsive">
@@ -43,7 +57,8 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($series as $item)
-                                            <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+                                            <div class="modal fade" id="editModal-{{ $item->id }}" tabindex="-1"
+                                                aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <form action="{{ route('admin.series.update', $item->id) }}"
                                                         method="POST">
@@ -61,8 +76,7 @@
                                                                             السلسلة</label>
                                                                         <input type="text" id="editName"
                                                                             class="form-control" name="name"
-                                                                            value="{{ old('name') }}"
-                                                                            value="{{ $item->name ?? '' }}"
+                                                                            value="{{ old('name') }} {{ $item->name ?? '' }}"
                                                                             placeholder="اسم السلسلة">
                                                                     </div>
                                                                     <div class="col mb-3">
@@ -105,7 +119,8 @@
                                                         btn d-flex align-items-center
                                                          btn-inverse-secondary
                                                          btn-fw btn-rounded "
-                                                        data-bs-target="#editModal" data-bs-toggle="modal">
+                                                        data-bs-target="#editModal-{{ $item->id }}"
+                                                        data-bs-toggle="modal">
                                                         تعديل
                                                         <i class="fa-solid fa-edit pe-2" style="font-size: 12px ;"></i>
                                                     </a>
@@ -115,22 +130,27 @@
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button style="width: fit-content"
-                                                            class="
+                                                        @if ($item->is_active == 1)
+                                                            <button style="width: fit-content"
+                                                                class="
                                                         btn d-flex align-items-center
-                                                         btn-inverse-danger
+                                                         btn-inverse-success
                                                          btn-fw btn-rounded ">
-                                                            @if ($item->is_active == 1)
                                                                 إلغاء التفعيل
                                                                 <i class="fa-solid fa-trash pe-2"
                                                                     style="font-size: 12px ;"></i>
-                                                            @else
+                                                            </button>
+                                                        @else
+                                                            <button style="width: fit-content"
+                                                                class="
+                                                        btn d-flex align-items-center
+                                                         btn-inverse-danger
+                                                         btn-fw btn-rounded ">
                                                                 تفعيل
-                                                                <i class="fas fa-trash-restore"
+                                                                <i class="fas fa-trash-restore pe-2"
                                                                     style="font-size: 12px ;"></i>
-                                                            @endif
-
-                                                        </button>
+                                                            </button>
+                                                        @endif
                                                     </form>
                                                 </td>
                                             </tr>

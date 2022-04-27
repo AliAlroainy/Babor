@@ -2,7 +2,7 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex justify-content-center">
             <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="{{ @asset('assets/images/logo.svg') }}"
+                <a class="navbar-brand brand-logo" href="index.html"><img src="{{ @asset('assets/images/logo.png') }}"
                         alt="logo" /></a>
                 <a class="navbar-brand brand-logo-mini" href="index.html"><img
                         src="{{ @asset('assets/images/logo-mini.svg') }}" alt="logo" /></a>
@@ -127,20 +127,25 @@
                     </div>
                 </li>
                 <li class="nav-item nav-profile dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                        @if (isset($user->profile->avatar))
-                            <img src="/images/profiles/{{ $user->profile->avatar }}" alt="profile"
-                                class="img-lg rounded-circle mb-3" />
-                        @else
-                            <img src="/images/profiles/default.jpg" alt="profile" class="img-lg rounded-circle mb-3" />
-                        @endif
-                        <span class="nav-profile-name">
-                            @if (isset($route))
-                                Admin
-                            @elseif (isset($user))
-                                {{ $user->name }}
+                    <a class="nav-link dropdown-toggle d-flex" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+                        <div>
+                            @if (isset($user->profile->avatar))
+                                <img src="/images/profiles/{{ $user->profile->avatar }}" alt="profile" width="100"
+                                    class="d-block h-auto ms-0 rounded user-profile-img" />
+                            @else
+                                <img src="/images/profiles/default.png" alt="profile"
+                                    class="d-block h-auto ms-0 rounded user-profile-img" width="100" />
                             @endif
-                        </span>
+                        </div>
+                        <div>
+                            <span class="nav-profile-name">
+                                @if (isset($route))
+                                    Admin
+                                @elseif (isset($user))
+                                    {{ $user->name }}
+                                @endif
+                            </span>
+                        </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                         <a class="dropdown-item">

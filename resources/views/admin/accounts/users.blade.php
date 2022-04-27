@@ -24,10 +24,16 @@
                                                 البريد الالكتروني
                                             </th>
                                             <th>
-                                                العنوان
+                                                المهنة
                                             </th>
                                             <th>
                                                 الهاتف
+                                            </th>
+                                            <th>
+                                                المدينة
+                                            </th>
+                                            <th>
+                                                العنوان
                                             </th>
                                         </tr>
                                     </thead>
@@ -38,34 +44,44 @@
                                                     <td class="py-1">
                                                         @if (isset($user->profile->avatar))
                                                             <img src="/images/profiles/{{ $user->profile->avatar }}"
-                                                                alt="profile" class="img-lg rounded-circle mb-3" />
+                                                                alt="profile" class="img-lg rounded-circle" />
                                                         @else
-                                                            <img src="/images/profiles/default.jpg" alt="profile"
-                                                                class="img-lg rounded-circle mb-3" />
+                                                            <img src="/images/profiles/default.png" alt="profile"
+                                                                class="img-lg rounded-circle" />
                                                         @endif
                                                     </td>
+                                                    <td>{{ $user->name }}</td>
+                                                    <td>{{ $user->email }}</td>
+                                                    <td>{{ $user->profile->job ?? '' }}</td>
+                                                    <td>{{ $user->profile->phone ?? '' }}</td>
+                                                    <td>{{ $user->profile->city ?? '' }}</td>
+                                                    <td>{{ $user->profile->address ?? '' }}</td>
                                                     <td>
-                                                        {{ $user->name }}
-                                                    </td>
-                                                    <td>
-                                                        {{ $user->email }}
-                                                    </td>
-
-                                                    <td>{{ $user->profile->address }}</td>
-
-                                                    <td>
-                                                        {{ $user->profile->phone }}
-                                                    </td>
-                                                    <td>
-                                                        <a href="deleteService" style="width: fit-content"
-                                                            class="
-                                    btn d-flex align-items-center
-                                     btn-inverse-danger
-                                     btn-fw btn-rounded ">
-                                                            حذف
-                                                            <i class="fa-solid fa-trash pe-2 "
-                                                                style="font-size: 12px ;"></i>
-                                                        </a>
+                                                        <form action="{{ route('admin.account.destroy', $user->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @if ($user->is_active == 1)
+                                                                <button style="width: fit-content"
+                                                                    class="
+                                                            btn d-flex align-items-center
+                                                             btn-inverse-success
+                                                             btn-fw btn-rounded ">
+                                                                    إلغاء التفعيل
+                                                                    <i class="fa-solid fa-trash pe-2"
+                                                                        style="font-size: 12px ;"></i>
+                                                                </button>
+                                                            @else
+                                                                <button style="width: fit-content"
+                                                                    class="
+                                                            btn d-flex align-items-center
+                                                             btn-inverse-danger
+                                                             btn-fw btn-rounded ">
+                                                                    تفعيل
+                                                                    <i class="fas fa-trash-restore pe-2"
+                                                                        style="font-size: 12px ;"></i>
+                                                                </button>
+                                                            @endif
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             @endif
