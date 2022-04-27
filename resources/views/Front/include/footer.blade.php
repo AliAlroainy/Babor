@@ -1,5 +1,6 @@
  <!-- Start Footer Area -->
  <footer class="footer" dir="rtl">
+
  <!-- Footer Top -->
  <div class="footer-top section">
  <div class="container ">
@@ -90,6 +91,7 @@
  </div>
  </div>
  </div>
+
  </footer>
  <!-- /End Footer Area -->
 
