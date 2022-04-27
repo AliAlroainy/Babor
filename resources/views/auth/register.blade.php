@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
-    @include('partials.header')
+    @include('partials.header') --}}
 
-<body>
-    <div class="container-scroller">
+    @include('Front.include.header') 
+
+    <body>
+
+    <div class="container-scroller" dir="rtl">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div class="content-wrapper d-flex align-items-center auth px-0">
                 <div class="row w-100 mx-0">
@@ -13,10 +16,10 @@
                                 <img src="{{ @asset('assets/images/logo.png') }}" alt="logo">
                             </div>
                             <h4>جديد ع الموقع ؟</h4>
-                            <h6 class="font-weight-light">أنشئ حسابك الان, شوي خطوات سهلة</h6>
+                            <h6 class="font-weight-light">أنشئ حسابك الان, شوية خطوات سهلة</h6>
                             <form class="pt-3" action="{{ route('save_user') }}" method="POST">
                                 @csrf
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <input type="text"
                                         class="form-control form-control-lg dark-placeholder rounded @error('name') is-invalid @enderror"
                                         id="name" name="name" value="{{ old('name') }}"
@@ -25,7 +28,7 @@
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <input type="text"
                                         class="form-control form-control-lg dark-placeholder rounded @error('email') is-invalid @enderror"
                                         id="exampleInputEmail1" name="email" value="{{ old('email') }}"
@@ -34,7 +37,7 @@
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <input type="password"
                                         class="form-control form-control-lg dark-placeholder rounded @error('password') is-invalid @enderror"
                                         id="exampleInputPassword1" name="password" placeholder="كلمة المرور">
@@ -42,7 +45,7 @@
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <input type="password"
                                         class="form-control form-control-lg dark-placeholder rounded @error('confirm_password') is-invalid @enderror"
                                         id="exampleInputPassword1" name="confirm_password"
@@ -90,7 +93,9 @@
 
 
 
+     </body>
 
-    </body>
+{{-- </html>  --}}
 
-</html>
+
+@include('Front.include.footer')
