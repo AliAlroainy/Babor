@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->integre('currentPrice');
-        
+            
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->constrained()
                   ->references('id')->on('users')
