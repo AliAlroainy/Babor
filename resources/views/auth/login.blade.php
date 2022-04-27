@@ -33,7 +33,7 @@
                             <h6 class="font-weight-light">سجل الدخول للإنتقال للصفحة التالية</h6>
                             <form class="pt-3" action="{{ route('do_login') }}" method="POST">
                                 @csrf
-                                <div class="form-group">
+                                <div class="form-group mb-2">
                                     <input type="text" name="email" class="dark-placeholder rounded form-control form-control-lg"
                                         id="exampleInputEmail1" placeholder=" بريدك الالكتروني">
                                     @error('email')
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="mb-2 ">
                                     <button type="button"
-                                        class=" d-flex align-items-center py-1 btn btn-block btn-facebook auth-form-btn">
+                                        class=" d-flex align-items-center py-1 btn btn-light btn-facebook auth-form-btn">
                                         <i class="mdi mdi-facebook ms-2"></i>تسجيل الدخول باستخدام فيسبوك
                                     </button>
                                 </div>
