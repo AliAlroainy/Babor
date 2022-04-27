@@ -1,4 +1,4 @@
-$(document).ready(function(){
+git $(document).ready(function(){
 /*====================================
 	Google Map JS
 ======================================*/ 	
@@ -7,13 +7,8 @@ $(document).ready(function(){
 	var map;
 	map = new GMaps({
 		el: '#myMap',
-<<<<<<< HEAD
-		lat: 51.507351,
-		lng: -0.127758,
-=======
 		lat: 13.585192,
 		lng: 44.008593,
->>>>>>> Front
 		scrollwheel:false,
 		zoom: 15,
 		zoomControl : false,

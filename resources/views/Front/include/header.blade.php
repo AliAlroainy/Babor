@@ -140,7 +140,7 @@
                                 </li>
                                 <li>
                                     <a href="{{ route('login') }}"
-                                        style="background-color: transparent ; border:none;">
+                                        style="background-color: transparent ; border:none; text-decoration: none">
                                         تسجيل دخول <i class="ti-power-off"></i>
                                     </a>
                                 </li>
@@ -232,7 +232,7 @@
                         <!-- Logo -->
                         <div>
                             <a class="navbar-brand fw-bold" href="/" style="color: #F7941D">
-                                <h2><img src="/assets/images/logo.png" width="150"></h2>
+                                <h2><img src="/assets/images/logo.png" width="100"></h2>
                             </a>
                         </div>
                         <!--/ End Logo -->
