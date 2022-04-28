@@ -9,6 +9,9 @@ use App\Http\Requests\StoreCategoryRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 
+use App\Models\Category;
+use App\Trait\ImageTrait;
+use Illuminate\Support\Facades\File;
 class CategoriesController extends Controller
 {
     use ImageTrait;
@@ -19,10 +22,11 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+
         $route = \Request::route()->getName();
-        $categories=categories::orderBy('id','desc')->get();
-        return view('admin.cars.categoriess', ['route' => $route])->with('categoriess',$categoriess);
+        $categories=Category::orderBy('id','desc')->get();
+        return view('admin.categories.category', ['route' => $route])->with('categories',$categories);
+
     }
 
 

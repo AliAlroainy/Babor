@@ -19,6 +19,11 @@ use App\Http\Controllers\Admin\CarCharacteristicsController;
 =======
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
+
+/////category
+Route::view('/categories', 'Admin.categories.category');
+
+
 Route::view('/', 'Front.index');
 Route::view('/details', 'Front.car');
 Route::view('/soon', 'Front.soon');
