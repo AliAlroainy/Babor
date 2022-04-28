@@ -8,15 +8,15 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('series', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->boolean("is_active")->default(1);
-            $table->timestamps();
+        Schema::table('auctions', function (Blueprint $table) {
+            $table->foreignId('car_id')->constrained('cars')->onDelete('cascade');
         });
     }
+
     public function down()
     {
-        Schema::dropIfExists('series');
+        Schema::table('auctions', function (Blueprint $table) {
+            //
+        });
     }
 };
