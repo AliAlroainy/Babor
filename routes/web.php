@@ -19,6 +19,17 @@ use App\Http\Controllers\Admin\CarCharacteristicsController;
 =======
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
+Route::get('/notfound', function () {
+    return view('Front.404');
+});
+Route::get('/services', function () {
+    return view('Front.services');
+});
+
+Route::get('/offer', function () {
+    return view('Front.offer');
+});
+
 Route::view('/', 'Front.index');
 Route::view('/details', 'Front.car');
 Route::view('/soon', 'Front.soon');

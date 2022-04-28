@@ -263,7 +263,7 @@
                                             <ul class="nav main-menu menu navbar-nav ">
                                                 <li class="active "><a class="nav-link"
                                                         href="/">الرئيسية</a></li>
-                                                <li><a class="nav-link" href="/soon">العروض</a></li>
+                                                <li><a class="nav-link" href="/offer">العروض</a></li>
                                                 <li><a class="nav-link" href="/soon">الخدمات</a></li>
                                                 <li><a class="nav-link" href="/soon">شراء سيارة<i
                                                             class="ti-angle-down"></i>
