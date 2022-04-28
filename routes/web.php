@@ -9,16 +9,18 @@ use App\Http\Controllers\admin\SeriesController;
 use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\user\UserAuctionController;
 use App\Http\Controllers\Authentication\authcontroller;
-use App\Http\Controllers\Authentication\ForgotPasswordController;
-use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 // use \Illuminate\Support\Facades\URL;
 /*
 |--------------------------------
 =======
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
+use App\Http\Controllers\Authentication\ResetPasswordController;
+use App\Http\Controllers\Authentication\ForgotPasswordController;
+
 Route::view('/', 'Front.index');
 Route::view('/details', 'Front.car');
 Route::view('/soon', 'Front.soon');
@@ -80,4 +82,6 @@ Route::post('/forget-password', [ForgotPasswordController::class,'postEmail'])->
 Route::get('/reset-password/{token}', [ResetPasswordController::class,'getPassword']);
 Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']);
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
+
+Route::Resource('/auctions', UserAuctionController::class);
 

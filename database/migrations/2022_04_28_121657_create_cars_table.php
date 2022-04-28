@@ -10,9 +10,8 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->integer('sizOfdamage');
-            $table->boolean('status')->default(1);
+            $table->enum('status',array_keys(['جديدة'=>'مستعملة']));
             $table->string('color');
             $table->integer('model');
             $table->integer('numberOfKillos');
