@@ -47,6 +47,12 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
+        Route::get('/auctions', function (){
+            return view('Admin.auctions.auctions');
+        },['names'=>'admin.auctions']);
+        Route::get('/bids', function (){
+            return view('Admin.auctions.bids');
+        },['names'=>'admin.auctions']);
 
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');

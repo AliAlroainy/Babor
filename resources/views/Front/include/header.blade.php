@@ -186,7 +186,8 @@
                                         aria-hidden="true"></i> </a>
                             </div>
                             <div class="sinlge-bar">
-                                <a href="/profile" class="single-icon"><i class="fa fa-user-circle-o"
+                                <a href="{{ route('user.profile') }}"
+                                 class="single-icon"><i class="fa fa-user-circle-o"
                                         aria-hidden="true"></i></a>
                             </div>
 

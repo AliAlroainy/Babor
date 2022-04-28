@@ -1,6 +1,11 @@
+:root{
+    --babor: #f79522;
+}
+
 body{
     direction: rtl !important;
     font-family: 'Tajawal', sans-serif !important;
+
 }
 button.add{
     position:absolute;
@@ -132,4 +137,18 @@ div[style*="margin: 16px 0;"] {
 .dark-placeholder {
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+
+.nav-item:hover .menu-title, .nav-item:hover i{
+    color: var(--babor) !important;
+}
+.nav-item.active > .nav-link > span {
+    color: var(--babor) !important;
+}
+.nav-item.active > .nav-link > i{
+    color: black !important;
+}
+.nav-item  i{
+    color: black !important;
 }

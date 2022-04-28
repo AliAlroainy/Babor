@@ -20,7 +20,7 @@
     + Color Functions Mixins
     + Badge Mixins
     + Blockquote Mixins
-    
+
   * Core Styles
     + Reset Styles
     + Fonts
@@ -43,7 +43,7 @@
     + Lists
     + Tables
   * Plugin overrides
-    + Data-tables  
+    + Data-tables
   * Landing screens
     + Auth
   * Layout
@@ -8642,6 +8642,7 @@
   --bs-body-line-height: 1.5;
   --bs-body-color: #000;
   --bs-body-bg: #fff;
+
 }
 
 *,
@@ -22565,10 +22566,10 @@ dl li {
   margin: 0;
 }
 
-.sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link {
-  background: transparent;
-  color: #4d83ff;
-}
+/*.sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link {*/
+/*  background: transparent;*/
+/*  color: #4d83ff;*/
+/*}*/
 
 .sidebar .nav.sub-menu {
   margin-bottom: 0;
