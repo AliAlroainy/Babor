@@ -16,8 +16,16 @@ class AuctionOpreationController extends Controller
     {
         $route = \Request::route()->getName();
         $auctions = auctions::orderBy('id','desc')->get();
-        return view('admin.accounts.auctionss', ['auctionss' => $auctions, 'route' => $route ]);
+        return view('admin.auctions.auctions', ['auctions' => $auctions, 'route' => $route ]);
     }
 
-   
+    public function destroy($auctions_id)
+    {
+        $auctions=auctions::find($auctions_id);
+        if(!$auctions)
+            return abort('404');
+        $auctions->is_active*=-1;
+        if($auctions->save())
+            return back();
+    }
 }
