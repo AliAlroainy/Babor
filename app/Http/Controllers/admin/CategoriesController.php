@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\File;
 
 class CategoriesController extends Controller
 {
+    use ImageTrait;
     /**
      * Display a listing of the resource.
      *
@@ -19,8 +20,13 @@ class CategoriesController extends Controller
     public function index()
     {
         //
-
+        $route = \Request::route()->getName();
+        $categories=categories::orderBy('id','desc')->get();
+        return view('admin.cars.categoriess', ['route' => $route])->with('categoriess',$categoriess);
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.
