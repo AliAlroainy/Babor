@@ -14,6 +14,12 @@
                     <span class="menu-title fw-bold fs-5">إدارة الخدمات</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.service.index') }}">
+                    <i class="fa-solid fa-user menu-icon ms-3 "></i>
+                    <span class="menu-title fw-bold fs-5">إدارة الاقسام</span>
+                </a>
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
