@@ -4,7 +4,7 @@
     <!-- MultiStep Form -->
     <div class="container-fluid" id="grad1">
         <div class="row justify-content-center mt-0">
-            <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+            <div class="col-lg-10 col-md-8 col-sm-12 col text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3 shadow">
                     <h2><strong>أنشئ مزادا جديدا</strong></h2>
 
@@ -13,29 +13,71 @@
                             <form id="msform" action="" method="post">
                                 <!-- progressbar -->
                                 <ul id="progressbar">
-                                    <li class="active" id="account"><strong>المزاد</strong></li>
-                                    <li id="personal"><strong>السيارة</strong></li>
-                                    <li id="payment"><strong>التاكيد</strong></li>
+                                    <li class="active" id="auction"><strong>المزاد</strong></li>
+                                    <li id="car"><strong>السيارة</strong></li>
+                                    <li id="ensure"><strong>التاكيد</strong></li>
                                     <li id="confirm"><strong>تم</strong></li>
                                 </ul> <!-- fieldsets -->
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">بيانات المزاد</h2>
-                                        <input type="email" name="email" class="dark-placeholder form-control mb-2" placeholder="Email Id" />
-                                        <input type="text" name="uname" class="dark-placeholder form-control mb-2" placeholder="UserName" />
-                                        <input type="password" name="pwd" class="dark-placeholder form-control mb-2" placeholder="Password" />
-                                        <input type="password" name="cpwd" class="dark-placeholder form-control mb-2" placeholder="Confirm Password" />
+                                            <div class="end-date">
+                                                <input type="date" name="endDate" class="dark-placeholder form-control  mb-2" placeholder="تاريخ الإنتهاء" />
+                                            </div>
+                                            <input type="number" name="startPrice" class="dark-placeholder form-control mb-2" placeholder="السعر الإبتدائي" />
+                                            <input type="number" name="minInc" class="dark-placeholder form-control mb-2" placeholder="الحد الادنى للمزايدة" />
                                     </div>
                                     <input type="button" name="next" class="next action-button btn btn-warning w-auto fw-bold" value=" التالي" />
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">بيانات السيارة</h2>
-                                        <input type="email" name="email" class="dark-placeholder form-control mb-2" placeholder="Email Id" />
-                                        <input type="email" name="email" class="dark-placeholder form-control mb-2" placeholder="Email Id" />
-                                        <input type="email" name="email" class="dark-placeholder form-control mb-2" placeholder="Email Id" />
-                                        <input type="email" name="email" class="dark-placeholder form-control mb-2" placeholder="Email Id" />
-                                        <input type="email" name="email" class="dark-placeholder form-control mb-2" placeholder="Email Id" />
+                                        <div class="col-12 d-flex justify-content-between flex-wrap gap-1">
+                                            <div class="col-sm-12 col-md-5 col-lg-2  ">
+                                                <select name="carBrand" class="w-100  select dark-placeholder  mb-2" id="">
+                                                    <option value="" disabled selected >الشركة</option>
+                                                    <option value="">Toyota</option>
+                                                    <option value="">Lexus</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-12 col-md-5 col-lg-3 ">
+                                                <select name="brandType" class="w-100  select dark-placeholder  mb-2" id="">
+                                                    <option value="" disabled selected >النوع</option>
+                                                    <option value="">Toyota</option>
+                                                    <option value="">Lexus</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-12 col-md-5 col-lg-3 ">
+                                                <select name="carBrand" class="w-100  select dark-placeholder  mb-2" id="">
+                                                    <option value="" disabled selected >الجير</option>
+                                                    <option value="">Toyota</option>
+                                                    <option value="">Lexus</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-12 col-md-5 col-lg-3 ">
+                                                <select name="cylinder_number" class="w-100  select dark-placeholder  mb-2" id="">
+                                                    <option value="" disabled selected >عدد البستونات</option>
+                                                    <option value="">Toyota</option>
+                                                    <option value="">Lexus</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 d-flex justify-content-evenly flex-wrap gap-1">
+                                           <div class="col-sm-12 col-md-5 col-lg-2 ">
+                                               <select name="fuel_type" class="w-100  select dark-placeholder  mb-2" id="">
+                                                   <option value="" disabled selected >نوع الوقود</option>
+                                                   <option value="">غاز</option>
+                                                   <option value="">بترول</option>
+                                               </select>
+                                           </div>
+                                           <div class="col-sm-12 col-md-5 col-lg-2 ">
+                                               <select name="engine_type" class="w-100  select dark-placeholder  mb-2" id="">
+                                                   <option value="" disabled selected >نوع المحرك</option>
+                                                   <option value="">غاز</option>
+                                                   <option value="">بترول</option>
+                                               </select>
+                                           </div>
+                                       </div>
                                     </div>
                                     <input type="button" name="previous" class="previous action-button-previous btn btn-secondary w-auto ms-3" value="السابق" />
                                     <input type="button" name="next" class="next action-button btn btn-warning w-auto fw-bold" value=" التالي" />

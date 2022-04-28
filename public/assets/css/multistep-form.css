@@ -58,13 +58,13 @@
 
 #msform input:focus,
 #msform textarea:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: none;
-    font-weight: bold;
-    border-bottom: 2px solid var(--babor);
-    outline-width: 0
+    /*-moz-box-shadow: none !important;*/
+    /*-webkit-box-shadow: none !important;*/
+    /*box-shadow: none !important;*/
+    /*border: none;*/
+    /*font-weight: bold;*/
+    /*border-bottom: 2px solid var(--babor);*/
+    /*outline-width: 0*/
 }
 
 #msform .action-button {
@@ -149,19 +149,19 @@ select.list-dt:focus {
     position: relative
 }
 
-#progressbar #account:before {
+#progressbar #auction:before {
     font-family: FontAwesome;
-    content: "\f023"
+    content: "\e0d5"
 }
 
-#progressbar #personal:before {
+#progressbar #car:before {
     font-family: FontAwesome;
-    content: "\f007"
+    content: "\f1b9"
 }
 
-#progressbar #payment:before {
+#progressbar #ensure:before {
     font-family: FontAwesome;
-    content: "\f09d"
+    content: "\e0d5"
 }
 
 #progressbar #confirm:before {
@@ -226,4 +226,22 @@ select.list-dt:focus {
 .fit-image {
     width: 100%;
     object-fit: cover
+}
+
+
+.end-date {
+    position: relative;
+    width: 100%
+}
+.end-date > input{
+    padding-inline-start: 140px;
+}
+.end-date:after{
+    content: 'تاريخ إنتهاء المزاد';
+    /*font-weight: bold;*/
+    color: #ccc;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+
 }
