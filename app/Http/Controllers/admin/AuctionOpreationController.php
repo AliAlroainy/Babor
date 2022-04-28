@@ -12,5 +12,12 @@ use Illuminate\Http\Request;
 class AuctionOpreationController extends Controller
 {
     //
+    public function index()
+    {
+        $route = \Request::route()->getName();
+        $auctions = auctions::orderBy('id','desc')->get();
+        return view('admin.accounts.auctionss', ['auctionss' => $auctions, 'route' => $route ]);
+    }
+
    
 }
