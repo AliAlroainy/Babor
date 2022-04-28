@@ -13,7 +13,7 @@ class StoreCategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class StoreCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'required|between:3,10',
+            'image'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        ];
+    }
+    public function messages(){
+        return [
+            'name.required' => 'حقل البراند مطلوب',
+            'name.between'  => 'مسموح بالإدخال مابين 3 إلى 10 أحرف',
+            'image.image'  => 'ارفع صورة من فضلك',
+            'image.mimes'  => 'الامتدادات المسموح بها للصور هي: (jpg, png, jpeg, gif, svg)',
+            'image.max'  => 'أعلى حجم للصورة مسموح به هو  2048 بايت',
         ];
     }
 }

@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
+use App\Trait\ImageTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCategoryRequest;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 
 class CategoriesController extends Controller
 {
@@ -15,6 +18,7 @@ class CategoriesController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
