@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
+use App\Models\Category;
 use App\Trait\ImageTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -29,6 +30,7 @@ class CategoriesController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -37,9 +39,15 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
         //
+        $categories = new categories();
+        $categories->logo = $request->hasFile('Image')? $this->saveImage($request->logo, 'images/categoriess'):"default.png";
+        $categories->name=$request->name;
+        if($categories->save())
+        return redirect()->route('admin.categories.index')->with(['successAdd'=>'تمت الإضافة بنجاح']);
+        return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);
     }
 
     /**
