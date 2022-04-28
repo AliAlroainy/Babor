@@ -152,3 +152,21 @@ div[style*="margin: 16px 0;"] {
 .nav-item  i{
     color: black !important;
 }
+
+
+.add_auction{
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+}
+
+
+
+
+
+
+
+.select{
+    background-color: transparent;
+    padding-block: 14px;
+}
