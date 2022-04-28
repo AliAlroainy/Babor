@@ -108,5 +108,20 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    
+    public function destroy($categories_id)
+    {
+        $categories=categories::find($categories_id);
+        if(!$categories)
+            return abort('404');
+        $categories->series()->update(['is_active'=> -1]);
+        $categories->is_active*=-1;
+        if($categories->save())
+            return back();
+    }
+    public function Image_remove($categories_id){
+        $categories_Image = categories::where('id', $categories_id)->first()->Image;
+        if($categories_Image != 'default.png')
+            File::delete(public_path("images/categories/{$categories_Image}"));
+        return;
+    }
 }
