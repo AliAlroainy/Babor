@@ -5,6 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Category;
+use App\Trait\ImageTrait;
+use Illuminate\Support\Facades\File;
 class CategoriesController extends Controller
 {
     /**
@@ -15,7 +18,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $route = \Request::route()->getName();
-        $categories=service::orderBy('id','desc')->get();
+        $categories=Category::orderBy('id','desc')->get();
         return view('admin.categories.category', ['route' => $route])->with('categories',$categories);
     }
 
