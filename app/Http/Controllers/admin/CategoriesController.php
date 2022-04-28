@@ -49,7 +49,7 @@ class CategoriesController extends Controller
     {
         //
         $categories = new categories();
-        $categories->logo = $request->hasFile('Image')? $this->saveImage($request->logo, 'images/categoriess'):"default.png";
+        $categories->Image = $request->hasFile('Image')? $this->saveImage($request->Image, 'images/categories'):"default.png";
         $categories->name=$request->name;
         if($categories->save())
         return redirect()->route('admin.categories.index')->with(['successAdd'=>'تمت الإضافة بنجاح']);
@@ -85,9 +85,21 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreCategoryRequest  $request, $id)
     {
         //
+        $categories = categories::findOrFail($id);
+        if(!$categories){
+            return redirect()->back()->with(['errorEdit'=>'لا تستطيع التعديل']);
+        }else{
+            if($request->hasFile('Image')){
+                $this->Image_remove($id);
+                $categories->Image = $this->saveImage($request->Image, 'images/categories');
+            }
+            $categories->update($request->except(['_token', 'Image']));
+            if($categories->save())
+                return redirect()->route('admin.categories.index')->with(['successEdit'=>'تم التعديل بنجاح']);
+        }
     }
 
     /**
@@ -96,8 +108,5 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }
