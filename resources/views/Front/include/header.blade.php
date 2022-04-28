@@ -171,7 +171,7 @@
 
                         <div class="right-bar">
                             <!-- noted Form -->
-                            <div class="sinlge-bar">
+                            <div class="sinlge-bar shopping">
                                 <a href="#" class="single-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
                                         class="bi bi-bell" viewBox="0 0 16 16">
@@ -180,6 +180,36 @@
                                     </svg>
                                     <span class="total-count">2</span>
                                 </a>
+
+                                	<!-- notfications Item -->
+								<div class="shopping-item" >
+									<div class="dropdown-cart-header">
+										<span>2 اشعارات</span>
+										<a href="#">عرض الكل </a>
+									</div>
+									<ul class="shopping-list">
+										<li>
+											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+											<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+											<h4><a href="#">Woman Ring</a></h4>
+											<p class="quantity">1x - <span class="amount">$99.00</span></p>
+										</li>
+										<li>
+											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+											<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+											<h4><a href="#">Woman Necklace</a></h4>
+											<p class="quantity">1x - <span class="amount">$35.00</span></p>
+										</li>
+									</ul>
+									<div class="bottom">
+										<div class="total">
+											<span>Total</span>
+											<span class="total-amount">$134.00</span>
+										</div>
+										<a href="checkout.html" class="btn animate">Checkout</a>
+									</div>
+								</div>
+								<!--/ End notfications Item -->
                             </div>
 
                             <div class="sinlge-bar">
