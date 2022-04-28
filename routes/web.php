@@ -45,6 +45,7 @@ Route::get('/invalidToken', function () {
         Route::post('/accounts/{id}', [AccountsController::class, 'destroy'])->name('admin.account.destroy');
 
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
+        Route::resource('/categories', ServicesController::class, ['names' => 'admin.category']);
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
         Route::get('/auctions', function (){
