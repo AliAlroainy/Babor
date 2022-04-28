@@ -14,7 +14,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $route = \Request::route()->getName();
+        $categories=service::orderBy('id','desc')->get();
+        return view('admin.categories.category', ['route' => $route])->with('categories',$categories);
     }
 
     /**

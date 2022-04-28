@@ -39,13 +39,12 @@ Route::get('/invalidToken', function () {
     return view('auth.invalidToken');
 });
 
-// Route::group(['middleware'=>'auth'],function(){
-    // Route::group(['prefix' => 'admin', 'middleware'=>'role:super_admin|admin'],function(){
+Route::group(['middleware'=>'auth'],function(){
+    Route::group(['prefix' => 'admin', 'middleware'=>'role:super_admin|admin'],function(){
         Route::get('/accounts', [AccountsController::class, 'index'])->name('admin.dashboard');
         Route::post('/accounts/{id}', [AccountsController::class, 'destroy'])->name('admin.account.destroy');
 
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
-        Route::resource('/categories', ServicesController::class, ['names' => 'admin.category']);
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
         Route::get('/auctions', function (){
@@ -57,8 +56,8 @@ Route::get('/invalidToken', function () {
 
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
-    // });
-    // Route::group(['prefix' => 'user', 'middleware'=>'role:user'],function(){
+    });
+    Route::group(['prefix' => 'user', 'middleware'=>'role:user'],function(){
         Route::get('/dashboard/profile', [ProfilesController::class,'show'])->name('user.profile');
         Route::get('/dashboard/settings/info',[ProfilesController::class,'index'])->name('user.dashboard');
         Route::get('/dashboard/settings/psw', [ProfilesController::class,'index'])->name('change-password-user');
@@ -67,9 +66,9 @@ Route::get('/invalidToken', function () {
 
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
-    // });
+    });
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
-// });
+});
 // Login and singup Routing
 Route::get('/admin/login',[AuthController::class,'showLogin'])->name('adminLogin');
 Route::view('/register', 'auth.register')->name('register');
