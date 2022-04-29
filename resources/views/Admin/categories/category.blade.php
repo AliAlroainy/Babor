@@ -18,7 +18,7 @@
                                         aria-label="Close"></button>
                                 </div>
                             @endif
-                            {{-- @if (session()->has('successAdd'))
+                            @if (session()->has('successAdd'))
                                 <div class="alert alert-success alert-dismissible fade show">
                                     {{ session()->get('successAdd') }}
                                     <button type=" button" class="btn-close" data-bs-dismiss="alert"
@@ -151,7 +151,7 @@
                                                     </form>
                                                 </td>
                                             </tr>
-                                        @endforeach --}}
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
