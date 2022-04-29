@@ -108,12 +108,12 @@
                                                         class="form-control dark-placeholder py-13">
                                                 </div>
                                             </div>
-                                            {{-- <div class="col-12 col-md-5 col-lg-3">
+                                            <div class="col-12 col-md-5 col-lg-3">
                                                 <div class="input-group control-group">
                                                     <input type="file" name="car_images[]"
-                                                        class="form-control dark-placeholder py-13">
+                                                        class="form-control dark-placeholder py-13" multiple>
                                                 </div>
-                                            </div> --}}
+                                            </div>
                                         </div>
                                     </div>
                                     <input type="button" name="previous"

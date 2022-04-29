@@ -31,7 +31,7 @@
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item me-5"> <a class="nav-link" href="{{ route('user.auction') }}"
                                 target="_self" style="font-family: Tajawal">عرض المزادات</a></li>
-                        <li class="nav-item me-5"> <a class="nav-link" href="{{ route('user.addAuction') }}"
+                        <li class="nav-item me-5"> <a class="nav-link" href="{{ route('user.add.auction') }}"
                                 style="font-family: Tajawal">إضافة مزاد</a></li>
                     </ul>
                 </div>

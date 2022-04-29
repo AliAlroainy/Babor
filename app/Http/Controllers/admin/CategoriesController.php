@@ -9,9 +9,6 @@ use App\Http\Requests\StoreCategoryRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 
-use App\Models\Category;
-use App\Trait\ImageTrait;
-use Illuminate\Support\Facades\File;
 class CategoriesController extends Controller
 {
     use ImageTrait;
@@ -52,7 +49,7 @@ class CategoriesController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         //
-        $categories = new categories();
+        $categories = new Category();
         $categories->Image = $request->hasFile('Image')? $this->saveImage($request->Image, 'images/categories'):"default.png";
         $categories->name=$request->name;
         if($categories->save())

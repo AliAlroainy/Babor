@@ -16,7 +16,8 @@ class Auction extends Model
         'closeDate',
         'startDate',
         'minInc',  
-        'user_id',  
+        'user_id',
+        'car_id' 
     ];
 
     public function car(): HasOne

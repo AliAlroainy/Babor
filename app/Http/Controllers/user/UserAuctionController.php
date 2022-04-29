@@ -8,6 +8,7 @@ use App\Models\Auction;
 use App\Trait\ImageTrait;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreAuctionRequest;
 
 class UserAuctionController extends Controller
@@ -26,22 +27,33 @@ class UserAuctionController extends Controller
     }
 
     public function store(Request $request){
-        $filename = $request->hasFile('thumbnail')? $this->saveImage($request->thumbnail, 'images/cars'):"default.png";
+        $thumbnail = $request->hasFile('thumbnail')? $this->saveImage($request->thumbnail, 'images/cars'):"default.png";
+        if($request->hasfile('car_images')){
+            foreach($request->file('car_images') as $file)
+            {
+                $images = $this->saveImage($file, 'images/cars/car_images');
+                $data[] = $images;  
+            }
+        }
         $car = Car::create([
-            'brand_id'        => $request->brand_id,
-            'series_id'       => $request->series_id,
-            'model'           => $request->model,
-            'color'           => $request->color,
-            'numberOfKillos'  => $request->numberOfKillos,
-            'carPosition'     => $request->carPosition,
-            'thumbnail'       => $request->thumbnail,
+            'brand_id'        => $request->input('brand_id'),
+            'series_id'       => $request->input('series_id'),
+            'model'           => $request->input('model'),
+            'color'           => $request->input('color'),
+            'numberOfKillos'  => $request->input('numberOfKillos'),
+            'carPosition'     => $request->input('carPosition'),
+            'thumbnail'       => $thumbnail,
+            'car_images'      => json_encode($data),
         ]);
         $auction = Auction::create([
-            'startPrice'      => $request->startPrice,
-            'closeDate'       => $request->closeDate,
+            'startPrice'      => $request->input('startPrice'),
+            'closeDate'       => $request->input('closeDate'),
             'startDate'       => now(),
-            'minInc'          => $request->minInc,  
-            'user_id'         => Auth::user()->id,    
+            'minInc'          => $request->input('minInc'),  
+            'user_id'         => Auth::user()->id, 
+            'car_id'          => $car->id,   
         ]);
+        return redirect()->route('user.add.auction')
+            ->with('successEdit','تم نشر مزادك');
     }
 }

@@ -17,6 +17,7 @@ class Car extends Model
         'numberOfKillos',
         'carPosition',
         'thumbnail',
+        'car_images',
     ];
 
     public function auction(): BelongsTo
