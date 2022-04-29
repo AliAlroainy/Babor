@@ -14,11 +14,16 @@ use App\Http\Requests\StoreAuctionRequest;
 class UserAuctionController extends Controller
 {
     use ImageTrait;
-    public function index(){
+    public function index()
+    {
+        $route = \Request::route()->getName();
+        $auctions= Auction::orderBy('id')->get();
+        return view('Front.Auction.auctions', ['route' => $route])->with('auctions',$auctions);
+    }
+    public function create(){
         $brands = Brand::all();
         return view('Front.Auction.add-auction', ['brands' => $brands]);
     }
-
     public function getSeries(Request $request){
         $series = \DB::table('series')->where('brand_id', $request->brand_id)->get(); 
         if (count($series) > 0) {
@@ -26,7 +31,11 @@ class UserAuctionController extends Controller
         }
     }
 
-    public function store(Request $request){
+    public function show(){
+        
+    }
+
+    public function store(StoreAuctionRequest $request){
         $thumbnail = $request->hasFile('thumbnail')? $this->saveImage($request->thumbnail, 'images/cars'):"default.png";
         if($request->hasfile('car_images')){
             foreach($request->file('car_images') as $file)
@@ -55,5 +64,9 @@ class UserAuctionController extends Controller
         ]);
         return redirect()->route('user.add.auction')
             ->with('successEdit','تم نشر مزادك');
+    }
+
+    public function udpate(Request $request){
+
     }
 }

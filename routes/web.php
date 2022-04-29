@@ -83,9 +83,9 @@ Route::get('/invalidToken', function () {
         Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
         Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
 
-        Route::get('/auctions', function (){
-            return view('user.auction.auctions');
-        })->name('user.auction');
+        // Route::get('/auctions', function (){
+        //     return view('user.auction.auctions');
+        // })->name('user.auction');
 
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
@@ -104,8 +104,8 @@ Route::get('/reset-password/{token}', [ResetPasswordController::class,'getPasswo
 Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']);
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
-
-Route::get('/user/auctions/add_auction', [UserAuctionController::class, 'index'])->name('user.add.auction');
+Route::get('/user/auctions', [UserAuctionController::class, 'index'])->name('user.auctions');
+Route::get('/user/auctions/add_auction', [UserAuctionController::class, 'create'])->name('user.add.auction');
 Route::get('/user/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
 Route::post('/user/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
 

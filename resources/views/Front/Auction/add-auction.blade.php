@@ -7,7 +7,15 @@
             <div class="col-lg-10 col-md-8 col-sm-12 col text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3 shadow">
                     <h2><strong>أنشئ مزادا جديدا</strong></h2>
-
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="row">
                         <div class="col-md-12 mx-0">
                             <form id="msform" action="{{ route('user.save.auction') }}" method="POST"
