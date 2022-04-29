@@ -138,7 +138,7 @@
                 <div class="col-md-8 offset-md-2 col-xs-12">
                     <div class="section-title mb-60">
                         <span class="text-white wow fadeInDown" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">عرووض بابور الحصرية</span>
-                        <h2 class="text-white wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">يمكنك الان الاستفادة من العروض<br> والدخول بمزادات باربور.</h2>
+                        <h2 class="text-white wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">يمكنك الان الاستفادة من العروض<br> والدخول بمزادات بابور.</h2>
                         <p class="text-white wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">يرجى التسجيل بالموقع اولا والاستفاده بميزات المستخدم,<br> ولوحة التحكم الخاصة بك حيث يمكنك ااضافة ومشاركة بالمزادات.</p>
 
                         <div class="button">
@@ -151,13 +151,13 @@
     </section>
 	
 	<!-- Start Shop Home List  -->
-	<section class="shop-home-list section">
-		<div class="container">
+	<section class="shop-home-list section" >
+		<div class="container" dir="rtl">
 			<div class="row">
 				<div class="col-lg-4 col-md-6 col-12">
 					<div class="row">
 						<div class="col-12">
-							<div class="shop-section-title">
+							<div class="shop-section-title" >
 								<h1>المزادات الحالية</h1>
 							</div>
 						</div>
@@ -221,7 +221,7 @@
 					<div class="row">
 						<div class="col-12">
 							<div class="shop-section-title">
-								<h1>Best Seller</h1>
+								<h1>الاكثر مبيعاً</h1>
 							</div>
 						</div>
 					</div>
@@ -284,7 +284,7 @@
 					<div class="row">
 						<div class="col-12">
 							<div class="shop-section-title">
-								<h1>Top viewed</h1>
+								<h1>الاكثر تفضيل</h1>
 							</div>
 						</div>
 					</div>
