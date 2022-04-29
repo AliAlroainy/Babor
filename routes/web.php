@@ -47,8 +47,8 @@ Route::group(['middleware'=>'auth'],function(){
         Route::post('/accounts/{id}', [AccountsController::class, 'destroy'])->name('admin.account.destroy');
 
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
-        Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
-        Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
+        // Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
+        // Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
         Route::get('/auctions', function (){
             return view('Admin.auctions.auctions');
         },['names'=>'admin.auctions']);
@@ -83,5 +83,9 @@ Route::get('/reset-password/{token}', [ResetPasswordController::class,'getPasswo
 Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']);
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
-Route::Resource('/auctions', UserAuctionController::class);
+
+Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
+Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
+Route::get('/user/add_auction', [UserAuctionController::class, 'index']);
+Route::get('/user/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
 
