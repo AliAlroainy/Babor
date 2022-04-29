@@ -13,7 +13,8 @@ use App\Http\Controllers\Authentication\authcontroller;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
-// use \Illuminate\Support\Facades\URL;
+use App\Http\Controllers\Admin\CategoriesController;
+
 /*
 |--------------------------------
 =======
@@ -62,6 +63,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
+        Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
         Route::get('/auctions', function (){
             return view('Admin.auctions.auctions');
         },['names'=>'admin.auctions']);
@@ -103,5 +105,5 @@ Route::get('/reset-password/{token}', [ResetPasswordController::class,'getPasswo
 Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']);
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
-Route::view('/categories', 'Admin.categories.category');
+// Route::view('/categories', 'Admin.categories.category');
 Route::view('/auc', 'Admin.auctions.auctions');
