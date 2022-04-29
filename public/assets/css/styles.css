@@ -197,8 +197,34 @@ a.auction > div{
 }
 
 @media screen and (max-width: 600px) {
-    .auction{
-
+    .auction > div{
+        flex-direction: column-reverse;
+        width: 100%;
+        padding: 0 !important;
     }
+    .auctions{
+        grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
+    }
+    .auction{
+        width: fit-content;
+    }
+    .img-container {
+        max-width: 300px;
+    }
+
+    .auction_brief_info{
+        gap: 30px;
+        /*padding-inline-end: 0px !important;*/
+        padding: 0 !important;
+    }
+    .prices , .info{
+        flex-direction: column;
+    }
+    .group{
+        flex-direction: row !important;
+        justify-content: flex-start;
+        gap: 50px;
+    }
+
 }
 
