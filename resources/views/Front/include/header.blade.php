@@ -182,13 +182,13 @@
                                 </a>
 
                                 	<!-- notfications Item -->
-								<div class="shopping-item" >
+								<div class="shopping-item" dir="rtl" >
 									<div class="dropdown-cart-header">
 										<span>2 اشعارات</span>
-										<a href="#">عرض الكل </a>
+										
 									</div>
-									<ul class="shopping-list">
-										<li>
+									<ul class="shopping-list" >
+										<li >
 											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
 											<a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
 											<h4><a href="#">تبقى يومين </a></h4>
@@ -201,7 +201,7 @@
 											<p class="quantity"> عرض قد يهمك <span class="amount">$3905.00</span></p>
 										</li>
 									</ul>
-								
+								<div class="bottom"><a href="#">عرض الكل </a> </div>
 								</div>
 								<!--/ End notfications Item -->
                             </div>
