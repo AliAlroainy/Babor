@@ -10,6 +10,22 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
+                        <div class="col-lg-12 col-md-7 col-12 " style="direction:ltr ;margin: right 0px;">
+                        <div class="search-bar-top">
+                            <div class="search-bar">
+                            <h4 class="card-title">عرض بحسب</h4>
+                                <select>
+                                    <option selected="selected"> الكل</option>
+                                    <option>اسم السيارة</option>
+                                    <option>تاريخ البدء</option>
+                                    <option>اقل قيمة للمزايدة</option>
+                                    <option>  حالة المزاد</option>
+                                    
+                                </select>
+                               
+                            </div>
+                        </div>
+                    </div>
                             <h4 class="card-title">عرض الخدمات</h4>
                             @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -184,50 +200,11 @@
                 </div>
 
             </div>
-            <button type="button" data-bs-target="#addModal" data-bs-toggle="modal"
-                class="btn btn-primary btn-rounded btn-icon add">
-                <i class="mdi mdi-plus text-white"></i>
-            </button>
+            
+           
+               
+           
         </div>
-        <!-- Modal -->
-        <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <form action="{{ route('admin.service.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel1">أضف خدمة</h5>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <label for="title" class="form-label">إسم الخدمة</label>
-                                    <input type="text" id="title" class="form-control" name="title"
-                                        placeholder="عنوان الخدمة">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <label for="description" class="form-label">الوصف</label>
-                                    <input type="text" id="description" class="form-control" name="description"
-                                        placeholder="الوصف">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col md-3">
-                                    <label for="pic" class="form-label">أيقونة الخدمة</label>
-                                    <input type="file" id="pic" class="form-control" name="pic" placeholder="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">إلغاء</button>
-                            <button type="submit" class="btn btn-primary text-white">إضافة</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
+       
         <!-- container-scroller -->
     @endsection
