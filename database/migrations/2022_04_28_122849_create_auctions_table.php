@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('minic');
             $table->date('closeDate');
             $table->date('startingDate');
-            $table->integer('startingPrice');
+            $table->integer('startingPrice');  
             $table->integer('winnerPrice')->nullable();
             $table->string('winner')->nullable();
             $table->integer('desc');
