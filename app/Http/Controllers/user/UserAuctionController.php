@@ -10,7 +10,7 @@ class UserAuctionController extends Controller
 {
     public function index(){
         $brands = Brand::all();
-        return view('Front.Auction.index', ['brands' => $brands]);
+        return view('Front.Auction.add-auction', ['brands' => $brands]);
     }
 
     public function getSeries(Request $request){

@@ -46,6 +46,25 @@
 <script src="{{ @asset('assets/js/jQuery.min.js') }}"></script>
 <script src="{{ @asset('assets/js/multistep-form.js') }}"></script>
 <script src="{{ @asset('assets/js/bootstrap.bundle.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#brand').on('change', function() {
+            var brandId = this.value;
+            $('#series').html('<option value="">اختر سلسلة للبراند</option>');
+            $.ajax({
+                url: '{{ route('getSeries') }}?brand_id=' + brandId,
+                type: 'get',
+                success: function(res) {
+
+                    $.each(res, function(key, value) {
+                        $('#series').append('<option value="' + value
+                            .id + '">' + value.name + '</option>');
+                    });
+                }
+            });
+        });
+    });
+</script>
 
 <!-- endinject -->
 <!-- Custom js for this page-->

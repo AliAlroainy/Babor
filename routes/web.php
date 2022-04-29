@@ -73,9 +73,6 @@ Route::get('/invalidToken', function () {
         Route::get('/auctions', function (){
             return view('user.auction.auctions');
         })->name('user.auction');
-        Route::get('/auctions/add_auction', function (){
-            return view('user.auction.addAuction');
-        })->name('user.addAuction');
 
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
@@ -95,6 +92,6 @@ Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
 
-Route::get('/user/auctions/add_auction', [UserAuctionController::class, 'index']);
+Route::get('/user/auctions/add_auction', [UserAuctionController::class, 'index'])->name('user.add.auction');
 Route::get('/user/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
 

@@ -30,10 +30,9 @@
         tr td {
             padding-block: 10px !important;
         }
+
     </style>
 
 </head>
 
 <body>
-
-    
