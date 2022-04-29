@@ -21,6 +21,10 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
 
+/////category
+Route::view('/categories', 'Admin.categories.category');
+
+
 Route::view('/', 'Front.index');
 Route::view('/details', 'Front.car');
 Route::view('/soon', 'Front.soon');
@@ -65,6 +69,13 @@ Route::get('/invalidToken', function () {
         Route::get('/dashboard/settings/psw', [ProfilesController::class,'index'])->name('change-password-user');
         Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
         Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
+
+        Route::get('/auctions', function (){
+            return view('user.auction.auctions');
+        })->name('user.auction');
+        Route::get('/auctions/add_auction', function (){
+            return view('user.auction.addAuction');
+        })->name('user.addAuction');
 
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
