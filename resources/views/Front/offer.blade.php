@@ -22,8 +22,8 @@
 						<div class="single-product">
 							<div class="product-img">
 								<a href="/details">
-									<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-									<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+									<img class="default-img" src="img/c1.jpg" alt="#">
+									<img class="hover-img" src="img/c1.jpg" alt="#">
 									<span class="out-of-stock">Hot</span>
 								</a>
 								<div class="button-head">
@@ -50,8 +50,8 @@
 						<div class="single-product">
                             <div class="product-img">
                                 <a href="/details">
-                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+                                    <img class="default-img" src="img/c1.jpg" alt="#">
+                                    <img class="hover-img" src="img/c1.jpg" alt="#">
                                 </a>
 								<div class="button-head">
 									<div class="product-action">
@@ -76,9 +76,9 @@
 						<div class="single-product">
                             <div class="product-img">
                                 <a href="/details">
-                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
-									<span class="new">New</span>
+                                    <img class="default-img" src="img/c1.jpg" alt="#">
+                                    <img class="hover-img" src="img/c1.jpg" alt="#">
+									<span class="new">جديد</span>
                                 </a>
 								<div class="button-head">
 									<div class="product-action">
@@ -87,12 +87,12 @@
 										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
 									</div>
 									<div class="product-action-2">
-										<a title="Add to cart" href="#">Add to cart</a>
+										<a title="Add to cart" href="/details">دخول في المزاد</a>
 									</div>
 								</div>
                             </div>
                             <div class="product-content">
-                                <h3><a href="/details">Awesome Pink Show</a></h3>
+                                <h3><a href="/details">فورد</a></h3>
                                 <div class="product-price">
                                     <span>$50.00</span>
                                 </div>
@@ -103,8 +103,8 @@
 						<div class="single-product">
                             <div class="product-img">
                                 <a href="/details">
-                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+                                    <img class="default-img" src="img/c1.jpg" alt="#">
+                                    <img class="hover-img" src="img/c1.jpg" alt="#">
                                 </a>
 								<div class="button-head">
 									<div class="product-action">
@@ -137,12 +137,12 @@
             <div class="row align-items-center">
                 <div class="col-md-8 offset-md-2 col-xs-12">
                     <div class="section-title mb-60">
-                        <span class="text-white wow fadeInDown" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">Eshop Free Lite version</span>
-                        <h2 class="text-white wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">Currently You are using free<br> lite Version of Eshop.</h2>
-                        <p class="text-white wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">Please, purchase full version of the template to get all pages,<br> features and commercial license.</p>
+                        <span class="text-white wow fadeInDown" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">عرووض بابور الحصرية</span>
+                        <h2 class="text-white wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">يمكنك الان الاستفادة من العروض<br> والدخول بمزادات باربور.</h2>
+                        <p class="text-white wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">يرجى التسجيل بالموقع اولا والاستفاده بميزات المستخدم,<br> ولوحة التحكم الخاصة بك حيث يمكنك ااضافة ومشاركة بالمزادات.</p>
 
                         <div class="button">
-                            <a href="https://wpthemesgrid.com/downloads/eshop-ecommerce-html5-template/" target="_blank" rel="nofollow" class="btn wow fadeInUp" data-wow-delay=".8s">Purchase Now</a>
+                            <a href="/register" target="_blank" rel="nofollow" class="btn wow fadeInUp" data-wow-delay=".8s">سجل الان </a>
                         </div>
                     </div>
                 </div>
@@ -158,7 +158,7 @@
 					<div class="row">
 						<div class="col-12">
 							<div class="shop-section-title">
-								<h1>On sale</h1>
+								<h1>المزادات الحالية</h1>
 							</div>
 						</div>
 					</div>
@@ -167,13 +167,13 @@
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
-									<img src="https://via.placeholder.com/115x140" alt="#">
+									<img src="img/c1.jpg" alt="#">
 									<a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
 								<div class="content">
-									<h4 class="title"><a href="#">Licity jelly leg flat Sandals</a></h4>
+									<h4 class="title"><a href="#">شفرليه 2020</a></h4>
 									<p class="price with-discount">$59</p>
 								</div>
 							</div>
@@ -185,13 +185,13 @@
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
-									<img src="https://via.placeholder.com/115x140" alt="#">
+									<img src="img/c1.jpg" alt="#">
 									<a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
 								<div class="content">
-									<h5 class="title"><a href="#">Licity jelly leg flat Sandals</a></h5>
+									<h5 class="title"><a href="#">شفرليه 2020</a></h5>
 									<p class="price with-discount">$44</p>
 								</div>
 							</div>
@@ -203,13 +203,13 @@
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
-									<img src="https://via.placeholder.com/115x140" alt="#">
+									<img src="img/c1.jpg" alt="#">
 									<a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
 								<div class="content">
-									<h5 class="title"><a href="#">Licity jelly leg flat Sandals</a></h5>
+									<h5 class="title"><a href="#">شفرليه 2020</a></h5>
 									<p class="price with-discount">$89</p>
 								</div>
 							</div>
@@ -230,13 +230,13 @@
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
-									<img src="https://via.placeholder.com/115x140" alt="#">
+									<img src="img/c1.jpg" alt="#">
 									<a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
 								<div class="content">
-									<h5 class="title"><a href="#">Licity jelly leg flat Sandals</a></h5>
+									<h5 class="title"><a href="#">شفرليه 2020</a></h5>
 									<p class="price with-discount">$65</p>
 								</div>
 							</div>
@@ -248,13 +248,13 @@
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
-									<img src="https://via.placeholder.com/115x140" alt="#">
+									<img src="img/c1.jpg" alt="#">
 									<a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
 								<div class="content">
-									<h5 class="title"><a href="#">Licity jelly leg flat Sandals</a></h5>
+									<h5 class="title"><a href="#">شفرليه 2020</a></h5>
 									<p class="price with-discount">$33</p>
 								</div>
 							</div>
@@ -266,13 +266,13 @@
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
-									<img src="https://via.placeholder.com/115x140" alt="#">
+									<img src="img/c1.jpg" alt="#">
 									<a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
 								<div class="content">
-									<h5 class="title"><a href="#">Licity jelly leg flat Sandals</a></h5>
+									<h5 class="title"><a href="#">شفرليه 2020</a></h5>
 									<p class="price with-discount">$77</p>
 								</div>
 							</div>
@@ -293,13 +293,13 @@
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
-									<img src="https://via.placeholder.com/115x140" alt="#">
+									<img src="img/c1.jpg" alt="#">
 									<a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
 								<div class="content">
-									<h5 class="title"><a href="#">Licity jelly leg flat Sandals</a></h5>
+									<h5 class="title"><a href="#">شفرليه 2020</a></h5>
 									<p class="price with-discount">$22</p>
 								</div>
 							</div>
@@ -311,13 +311,13 @@
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
-									<img src="https://via.placeholder.com/115x140" alt="#">
+									<img src="img/c1.jpg" alt="#">
 									<a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
 								<div class="content">
-									<h5 class="title"><a href="#">Licity jelly leg flat Sandals</a></h5>
+									<h5 class="title"><a href="#">شفرليه 2020</a></h5>
 									<p class="price with-discount">$35</p>
 								</div>
 							</div>
@@ -329,13 +329,13 @@
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
-									<img src="https://via.placeholder.com/115x140" alt="#">
+									<img src="img/c1.jpg" alt="#">
 									<a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
 								<div class="content">
-									<h5 class="title"><a href="#">Licity jelly leg flat Sandals</a></h5>
+									<h5 class="title"><a href="#">شفرليه 2020</a></h5>
 									<p class="price with-discount">$99</p>
 								</div>
 							</div>
