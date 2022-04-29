@@ -1,4 +1,4 @@
-:root{
+:root {
     --babor: #f79522;
 }
 
@@ -231,12 +231,14 @@ select.list-dt:focus {
 
 .end-date {
     position: relative;
-    width: 100%
+    /* width: 100% */
 }
-.end-date > input{
+
+.end-date>input {
     padding-inline-start: 140px;
 }
-.end-date:after{
+
+.end-date:after {
     content: 'تاريخ إنتهاء المزاد';
     /*font-weight: bold;*/
     color: #ccc;

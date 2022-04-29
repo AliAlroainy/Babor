@@ -14,6 +14,8 @@ use App\Http\Controllers\Authentication\authcontroller;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 // use \Illuminate\Support\Facades\URL;
+use App\Http\Controllers\Admin\CategoriesController;
+
 /*
 |--------------------------------
 =======
@@ -63,6 +65,7 @@ Route::get('/invalidToken', function () {
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
+        Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
         Route::get('/auctions', function (){
             return view('Admin.auctions.auctions');
         },['names'=>'admin.auctions']);
@@ -108,3 +111,5 @@ Route::post('/user/auctions/save_auction', [UserAuctionController::class, 'store
 
 Route::view('/categories', 'Admin.categories.category');
 // Route::view('/auc', 'Admin.auctions.auctions');
+// Route::view('/categories', 'Admin.categories.category');
+Route::view('/auc', 'Admin.auctions.auctions');

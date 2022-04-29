@@ -21,16 +21,20 @@
                                     <li id="confirm"><strong>تم</strong></li>
                                 </ul> <!-- fieldsets -->
                                 <fieldset>
-                                    <div class="form-card">
+                                    <div class="form-card row">
                                         <h2 class="fs-title">بيانات المزاد</h2>
-                                        <div class="end-date">
+                                        <div class="end-date col-12 col-md-5">
                                             <input type="date" name="closeDate" class="dark-placeholder form-control  mb-2"
                                                 placeholder="تاريخ الإنتهاء" />
                                         </div>
-                                        <input type="number" name="startPrice" class="dark-placeholder form-control mb-2"
-                                            placeholder="السعر الإبتدائي" />
-                                        <input type="number" name="minInc" class="dark-placeholder form-control mb-2"
-                                            placeholder="الحد الادنى للمزايدة" />
+                                        <div class="col-md-5">
+                                            <input type="number" name="startPrice"
+                                                class="dark-placeholder form-control mb-2" placeholder="السعر الإبتدائي" />
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="number" name="minInc" class="dark-placeholder form-control mb-2"
+                                                placeholder="الحد الادنى للمزايدة" />
+                                        </div>
                                     </div>
                                     <input type="button" name="next"
                                         class="next action-button btn btn-warning w-auto fw-bold" value=" التالي" />
