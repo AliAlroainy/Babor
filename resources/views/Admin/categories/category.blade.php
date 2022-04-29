@@ -57,7 +57,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($categories as $category)
+                                      @foreach ($categorie as $category)
                                             <div class="modal fade" id="editModal-{{ $category->id }}" tabindex="-1"
                                                 aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
@@ -127,7 +127,7 @@
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        @if ($category->is_active == 1)
+                                                        @if ($category->status == 1)
                                                             <button style="width: fit-content"
                                                                 class="
                                                         btn d-flex align-items-center

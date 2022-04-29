@@ -22,8 +22,8 @@ class CategoriesController extends Controller
     {
 
         $route = \Request::route()->getName();
-        $categories=Category::orderBy('id','desc')->get();
-        return view('Admin.categories.category', ['route' => $route])->with('categories',$categories);
+        $categorie=Category::orderBy('id','desc')->get();
+        return view('Admin.categories.category', ['route' => $route])->with('categorie',$categorie);
 
     }
 
@@ -124,4 +124,6 @@ class CategoriesController extends Controller
             File::delete(public_path("images/categories/{$categories_Image}"));
         return;
     }
+
+
 }
