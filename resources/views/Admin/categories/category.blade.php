@@ -18,7 +18,7 @@
                                         aria-label="Close"></button>
                                 </div>
                             @endif
-                            @if (session()->has('successAdd'))
+                            {{-- @if (session()->has('successAdd'))
                                 <div class="alert alert-success alert-dismissible fade show">
                                     {{ session()->get('successAdd') }}
                                     <button type=" button" class="btn-close" data-bs-dismiss="alert"
@@ -53,7 +53,7 @@
                                             <th>
                                                 إسم القسم
                                             </th>
-                                           
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -81,7 +81,7 @@
                                                                             placeholder="اسم الخدمة">
                                                                     </div>
                                                                 </div>
-                                                               
+
                                                                 <div class="row">
                                                                     <div class="col md-3">
                                                                         <label for="editPic" class="form-label">أيقونة
@@ -109,7 +109,7 @@
                                                 <td>
                                                     {{ $category->name }}
                                                 </td>
-                                                
+
                                                 <td>
                                                     <a href="editCategory" style="width: fit-content"
                                                         class="
@@ -151,7 +151,7 @@
                                                     </form>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        @endforeach --}}
                                     </tbody>
                                 </table>
                             </div>
@@ -182,7 +182,7 @@
                                         placeholder="عنوان الخدمة">
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col md-3">
                                     <label for="Image" class="form-label">أيقونة القسم</label>
