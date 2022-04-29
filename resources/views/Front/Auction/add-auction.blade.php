@@ -33,15 +33,15 @@
                                         <h2 class="fs-title">بيانات المزاد</h2>
                                         <div class="end-date col-12 col-md-5">
                                             <input type="date" name="closeDate" class="dark-placeholder form-control  mb-2"
-                                                placeholder="تاريخ الإنتهاء" />
+                                            value="{{ old('name') }}"  placeholder="تاريخ الإنتهاء" />
                                         </div>
                                         <div class="col-md-5">
                                             <input type="number" name="startPrice"
-                                                class="dark-placeholder form-control mb-2" placeholder="السعر الإبتدائي" />
+                                            value="{{ old('startPrice') }}" class="dark-placeholder form-control mb-2" placeholder="السعر الإبتدائي" />
                                         </div>
                                         <div class="col-md-5">
                                             <input type="number" name="minInc" class="dark-placeholder form-control mb-2"
-                                                placeholder="الحد الادنى للمزايدة" />
+                                            value="{{ old('minInc') }}"  placeholder="الحد الادنى للمزايدة" />
                                         </div>
                                     </div>
                                     <input type="button" name="next"
@@ -100,30 +100,30 @@
                                             </div> --}}
                                             <div class="col-sm-12 col-md-5 col-lg-2">
                                                 <input type="text" class="form-control dark-placeholder py-10" name="model"
-                                                    placeholder="الموديل">
+                                                value="{{ old('model') }}" placeholder="الموديل">
                                             </div>
                                             <div class="col-sm-12 col-md-5 col-lg-2">
                                                 <input type="text" class="form-control dark-placeholder py-10" name="color"
-                                                    placeholder="اللون">
+                                                value="{{ old('color') }}" placeholder="اللون">
                                             </div>
                                             <div class="col-sm-12 col-md-5 col-lg-2">
                                                 <input type="text" class="form-control dark-placeholder py-10"
-                                                    name="numberOfKillos" placeholder="كم مشت كيلو">
+                                                value="{{ old('numberOfKillos') }}"  name="numberOfKillos" placeholder="كم مشت كيلو">
                                             </div>
                                             <div class="col-sm-12 col-md-8">
                                                 <textarea type="text" class="form-control dark-placeholder" row="20" name="carPosition"
-                                                    placeholder="موقع السيارة"></textarea>
+                                                value="{{ old('carPosition') }}"    placeholder="موقع السيارة"></textarea>
                                             </div>
                                             <div class="col-12 col-md-5 col-lg-3">
                                                 <div class="input-group control-group">
                                                     <input type="file" name="thumbnail"
-                                                        class="form-control dark-placeholder py-13">
+                                                    value="{{ old('thumbnail') }}"  class="form-control dark-placeholder py-13">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-5 col-lg-3">
                                                 <div class="input-group control-group">
                                                     <input type="file" name="car_images[]"
-                                                        class="form-control dark-placeholder py-13" multiple>
+                                                  ض class="form-control dark-placeholder py-13" multiple>
                                                 </div>
                                             </div>
                                         </div>
