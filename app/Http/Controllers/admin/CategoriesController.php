@@ -110,13 +110,13 @@ class CategoriesController extends Controller
      */
     public function destroy($categories_id)
     {
-        $categories=Category::find($categories_id);
-        if(!$categories)
-            return abort('404');
-        $categories->series()->update(['is_active'=> -1]);
-        $categories->is_active*=-1;
-        if($categories->save())
-            return back();
+
+            $Category = Category::find($categories_id);
+            if(!$Category)
+                return abort('404');
+            $Category->status *= -1;
+            if($Category->save())
+                return back();
     }
     public function Image_remove($categories_id){
         $categories_Image = Category::where('id', $categories_id)->first()->Image;

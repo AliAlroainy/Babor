@@ -179,14 +179,14 @@
                                 <div class="col mb-3">
                                     <label for="name" class="form-label">إسم القسم</label>
                                     <input type="text" id="title" class="form-control" name="name"
-                                        placeholder="عنوان الخدمة">
+                                        placeholder="عنوان الخدمة"value="{{ old('name') }}">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col md-3">
                                     <label for="Image" class="form-label">أيقونة القسم</label>
-                                    <input type="file" id="Image" class="form-control" name="Image" placeholder="">
+                                    <input type="file" id="Image" class="form-control" name="Image" placeholder="" value="{{ old('Image') }}">
                                 </div>
                             </div>
                         </div>
