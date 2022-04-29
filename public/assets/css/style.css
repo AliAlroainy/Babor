@@ -14178,7 +14178,7 @@ fieldset:disabled .btn {
 
 .modal {
   position: fixed;
-  top: 0;
+  top: 50px;
   left: 0;
   z-index: 1055;
   display: none;
@@ -14249,9 +14249,9 @@ fieldset:disabled .btn {
 
 .modal-backdrop {
   position: fixed;
-  top: 0;
+  top: 0px;
   left: 0;
-  z-index: 1050;
+  z-index: -1;
   width: 100vw;
   height: 100vh;
   background-color: #000;

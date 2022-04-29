@@ -20,6 +20,11 @@
 <!-- inject:js -->
 <script>
     $(document).ready(function() {
+
+        $('#carColor').click(){
+            $('#color').textContent = $('#carColor').value();
+        }
+
         $('.previewImage').change(function() {
             for (var i = 0; i < $(this)[0].files.length; i++) {
                 $(".previewFrames").append(

@@ -77,6 +77,10 @@
                                                    <option value="">بترول</option>
                                                </select>
                                            </div>
+                                           <div class="col-sm-12 col-md-5 col-lg-2 ">
+                                               <input type="color" name="carColor" id="carColor">
+                                               <span id="color"></span>
+                                           </div>
                                        </div>
                                     </div>
                                     <input type="button" name="previous" class="previous action-button-previous btn btn-secondary w-auto ms-3" value="السابق" />
