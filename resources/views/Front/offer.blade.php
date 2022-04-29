@@ -28,17 +28,16 @@
 								</a>
 								<div class="button-head">
 									<div class="product-action">
-										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>عرض سريع</span></a>
+										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>اضافة للمفضلة</span></a>
 									</div>
 									<div class="product-action-2">
-										<a title="Add to cart" href="#">Add to cart</a>
+										<a title="Add to cart" href="#">دخول المزاد</a>
 									</div>
 								</div>
 							</div>
 							<div class="product-content">
-								<h3><a href="/details">Black Sunglass For Women</a></h3>
+								<h3><a href="/details">فورد</a></h3>
 								<div class="product-price">
 									<span class="old">$60.00</span>
 									<span>$50.00</span>
@@ -55,17 +54,16 @@
                                 </a>
 								<div class="button-head">
 									<div class="product-action">
-										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>عرض سريع</span></a>
+										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>اضافة للمفضلة</span></a>
 									</div>
 									<div class="product-action-2">
-										<a title="Add to cart" href="#">Add to cart</a>
+										<a title="Add to cart" href="#">دخول المزاد</a>
 									</div>
 								</div>
                             </div>
                             <div class="product-content">
-                                <h3><a href="/details">Women Hot Collection</a></h3>
+                                <h3><a href="/details">سنتافي</a></h3>
                                 <div class="product-price">
                                     <span>$50.00</span>
                                 </div>
@@ -82,9 +80,8 @@
                                 </a>
 								<div class="button-head">
 									<div class="product-action">
-										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>عرض سريع</span></a>
+										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>اضافة للمفضلة</span></a>
 									</div>
 									<div class="product-action-2">
 										<a title="Add to cart" href="/details">دخول في المزاد</a>
@@ -108,17 +105,16 @@
                                 </a>
 								<div class="button-head">
 									<div class="product-action">
-										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>عرض سريع</span></a>
+										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>اضافة للمفضلة</span></a>
 									</div>
 									<div class="product-action-2">
-										<a title="Add to cart" href="#">Add to cart</a>
+										<a title="Add to cart" href="#">دخول في المزاد</a>
 									</div>
 								</div>
                             </div>
                             <div class="product-content">
-                                <h3><a href="/details">Awesome Bags Collection</a></h3>
+                                <h3><a href="/details">فورد</a></h3>
                                 <div class="product-price">
                                     <span>$50.00</span>
                                 </div>
