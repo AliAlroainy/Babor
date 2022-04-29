@@ -5,26 +5,26 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.dashboard') }}">
                     <i class="fa-solid fa-user menu-icon ms-3 "></i>
-                    <span class="menu-title fw-bold fs-5" style="font-family: Tajawal">إدارة المستخدمين</span>
+                    <span class="menu-title fw-bold " style="font-family: Tajawal">إدارة المستخدمين</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.service.index') }}">
                     <i class="fa-solid fa-user menu-icon ms-3 "></i>
-                    <span class="menu-title fw-bold fs-5" style="font-family: Tajawal">إدارة الخدمات</span>
+                    <span class="menu-title fw-bold " style="font-family: Tajawal">إدارة الخدمات</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.category.index') }}">
                     <i class="fa-solid fa-user menu-icon ms-3 "></i>
-                    <span class="menu-title fw-bold fs-5">إدارة الاقسام</span>
+                    <span class="menu-title fw-bold " style="font-family: Tajawal">إدارة الاقسام</span>
                 </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                     <i class="mdi mdi-car menu-icon ms-3 "></i>
-                    <span class="menu-title fs-5 fw-bold" style="font-family: Tajawal">إدارة مواصفات السيارات</span>
+                    <span class="menu-title  fw-bold" style="font-family: Tajawal">إدارة مواصفات السيارات</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="ui-basic">
@@ -46,7 +46,7 @@
              <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#auction" aria-expanded="false" aria-controls="auction">
                     <i class="mdi mdi-car menu-icon ms-3 "></i>
-                    <span class="menu-title fw-bold fs-5" style="font-family: Tajawal">إدارة المزادات</span>
+                    <span class="menu-title fw-bold " style="font-family: Tajawal">إدارة المزادات</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="auction">
