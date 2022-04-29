@@ -37,13 +37,12 @@
         // $('#nav-tab a[data-bs-toggle="tab" href="#{{ old('tab') }}"]').tab('show');
     });
 </script>
-<script src="{{ @asset('assets/vendors/base/vendor.bundle.base.js') }}"></script>
-<script src="{{ @asset('assets/js/hoverable-collapse.js') }}"></script>
 <script src="{{ @asset('assets/js/jQuery.min.js') }}"></script>
 <script src="{{ @asset('assets/js/multistep-form.js') }}"></script>
 <script src="{{ @asset('assets/js/template.js') }}"></script>
 <script src="{{ @asset('assets/js/hoverable-collapse.js') }}"></script>
 <script src="{{ @asset('assets/js/off-canvas.js') }}"></script>
+<script src="{{ @asset('assets/vendors/base/vendor.bundle.base.js') }}"></script>
 
 
 </body>
