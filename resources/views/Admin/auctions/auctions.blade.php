@@ -10,148 +10,136 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">عرض الاقسام</h4>
-                            <!-- @if (session()->has('errorEdit')) -->
+                        <div class="col-lg-12 col-md-7 col-12 " style="direction:ltr ;margin: right 0px;">
+                        <div class="search-bar-top">
+                            <div class="search-bar">
+                            <h4 class="card-title">عرض بحسب</h4>
+                                <select>
+                                    <option selected="selected"> الكل</option>
+                                    <option>اسم السيارة</option>
+                                    <option>تاريخ البدء</option>
+                                    <option>اقل قيمة للمزايدة</option>
+                                    <option>  حالة المزاد</option>
+                                    
+                                </select>
+                               
+                            </div>
+                        </div>
+                    </div>
+                            <h4 class="card-title">عرض المزادات</h4>
+                            @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <!-- {{ session()->get('errorEdit') }} -->
+                                    {{ session()->get('errorEdit') }}
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
-                            <!-- @endif
-                            @if (session()->has('successAdd')) -->
+                            @endif
+                            @if (session()->has('successAdd'))
                                 <div class="alert alert-success alert-dismissible fade show">
-                                    <!-- {{ session()->get('successAdd') }} -->
+                                    {{ session()->get('successAdd') }}
                                     <button type=" button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
-                            <!-- @endif
-                            @if (session()->has('errorAdd')) -->
+                            @endif
+                            @if (session()->has('errorAdd'))
                                 <div class="alert alert-success alert-dismissible fade show">
-                                    <!-- {{ session()->get('errorAdd') }} -->
+                                    {{ session()->get('errorAdd') }}
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
-                            <!-- @endif
-                            @if ($errors->any()) -->
+                            @endif
+                            @if ($errors->any())
                                 <div class="alert alert-danger alert-dismissible fade show">
                                     <ul class="m-0">
-                                        <!-- @foreach ($errors->all() as $error)
+                                        @foreach ($errors->all() as $error)
                                             <li>{{ $error }}</li>
-                                        @endforeach -->
+                                        @endforeach
                                     </ul>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
-                            <!-- @endif -->
+                            @endif
                             <div class="table-responsive">
                                 <table class="table table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th>
-                                                الصورة
+                                        <th>
+                                                  الصورة
+                                            </th>  
+                                        <th>
+                                                 اسم السيارة
                                             </th>
                                             <th>
-                                                إسم القسم
+                                                  الموديل
                                             </th>
-                                           
+                                            <th>
+                                                السعر الابتدائي
+                                            </th>
+                                            <th>
+                                                 تاريخ البدء
+                                            </th>
+                                            <th>
+تاريخ الانتهاء                                            </th>
+                                            <th>
+اخر سعر للمزاد                                            </th>
+<th>
+اقل قيمة للمزايدة                                          </th>
+<th>
+الفائز بالمزاد                                              </th>
+<th>
+   نسبة الموقع                                              </th>
+<th>
+مبلغ التأمين
+                                               </th>
+
+<th>
+حالة المزاد                                              </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!-- @foreach () -->
-                                            <div class="modal fade" id="" tabindex="-1"
-                                                aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <form action=""
-                                                        method="POST" enctype="multipart/form-data">
-                                                        <!-- @csrf -->
-                                                        <!-- @method('PATCH') -->
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel1">عدل
-                                                                    القسم</h5>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="row">
-                                                                    <div class="col mb-3">
-                                                                        <label for="editTitle" class="form-label">إسم
-                                                                            القسم</label>
-                                                                        <input type="text" id="editTitle"
-                                                                            class="form-control" name="name"
-                                                                            value=""
-                                                                            placeholder="اسم الخدمة">
-                                                                    </div>
-                                                                </div>
-                                                               
-                                                                <div class="row">
-                                                                    <div class="col md-3">
-                                                                        <label for="editPic" class="form-label">أيقونة
-                                                                            القسم</label>
-                                                                        <input type="file" id="editPic"
-                                                                            class="form-control" name="pic"
-                                                                            placeholder="">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-outline-secondary"
-                                                                    data-bs-dismiss="modal">إلغاء</button>
-                                                                <button type="submit"
-                                                                    class="btn btn-primary text-white">تعديل</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
+                                        @foreach ($auctions as $auction)
+                                           
                                             <tr>
                                                 <td class="py-1">
-                                                    <img src="/images/categories/" alt="image" />
+                                                    <img src="/images/cars/{{ $car->imge }}" alt="image" />
                                                 </td>
                                                 <td>
-                                                   mm
+                                                {{ $car->name }}
+                                                </td>
+                                                <td>
+                                                {{ $car->model }}
+                                                   </td>
+                                                   <td>
+                                                   {{ $auction->startingPrice }} 
+                                                   </td>
+                                                   <td>
+                                                   {{ $auction->startingDate }} 
+                                                   </td>
+                                                   <td>
+                                                   {{ $auction->closeDate }} 
+                                                   </td>
+                                                   <td>
+                                                   {{ $auction->winnerPrice }} 
+                                                   </td>
+                                                   <td>
+                                                   {{ $auction->minic }} 
+                                                   </td>
+                                                   <td>
+                                                   {{ $auction->winner }} 
+                                                   </td>
+                                                   <td>
+                                                   {{ $auction->commission }} 
+                                                   </td>
+                                                   <td>
+                                                   {{ $auction->securityDeposit }} 
+                                                   </td>
+                                                <td>
+                                                {{ $auction->status }} 
                                                 </td>
                                                 
-                                                <td>
-                                                    <a href="editCategory" style="width: fit-content"
-                                                        class="
-                                                        btn d-flex align-items-center
-                                                         btn-inverse-secondary
-                                                         btn-fw btn-rounded "
-                                                        data-bs-target=""
-                                                        data-bs-toggle="modal">
-                                                        تعديل
-                                                        <i class="fa-solid fa-edit pe-2" style="font-size: 12px ;"></i>
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <form action=""
-                                                        method="POST">
-                                                        <!-- @csrf -->
-                                                        <!-- @method('DELETE')
-                                                        @if () -->
-                                                            <button style="width: fit-content"
-                                                                class="
-                                                        btn d-flex align-items-center
-                                                         btn-inverse-success
-                                                         btn-fw btn-rounded ">
-                                                                إلغاء التفعيل
-                                                                <i class="fa-solid fa-trash pe-2"
-                                                                    style="font-size: 12px ;"></i>
-                                                            </button>
-                                                        <!-- @else -->
-                                                            <button style="width: fit-content"
-                                                                class="
-                                                        btn d-flex align-items-center
-                                                         btn-inverse-danger
-                                                         btn-fw btn-rounded ">
-                                                                تفعيل
-                                                                <i class="fas fa-trash-restore pe-2"
-                                                                    style="font-size: 12px ;"></i>
-                                                            </button>
-                                                        <!-- @endif -->
-                                                    </form>
-                                                </td>
+                                               
                                             </tr>
-                                        <!-- @endforeach -->
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -160,44 +148,11 @@
                 </div>
 
             </div>
-            <button type="button" data-bs-target="#addModal" data-bs-toggle="modal"
-                class="btn btn-primary btn-rounded btn-icon add">
-                <i class="mdi mdi-plus text-white"></i>
-            </button>
+            
+           
+               
+           
         </div>
-        <!-- Modal -->
-        <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <form action="" method="POST" enctype="multipart/form-data">
-                   
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel1">أضف قسم</h5>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <label for="name" class="form-label">إسم القسم</label>
-                                    <input type="text" id="title" class="form-control" name="name"
-                                        placeholder="عنوان الخدمة">
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col md-3">
-                                    <label for="Image" class="form-label">أيقونة القسم</label>
-                                    <input type="file" id="Image" class="form-control" name="Image" placeholder="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">إلغاء</button>
-                            <button type="submit" class="btn btn-primary text-white">إضافة</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
+       
         <!-- container-scroller -->
     @endsection

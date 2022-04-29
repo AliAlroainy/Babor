@@ -22,7 +22,8 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /////category
 Route::view('/categories', 'Admin.categories.category');
-Route::view('/auc', 'Admin.auctions.auctions');
+
+
 Route::view('/', 'Front.index');
 Route::view('/details', 'Front.car');
 Route::view('/soon', 'Front.soon');
@@ -45,10 +46,36 @@ Route::get('/invalidToken', function () {
 
 Route::group(['middleware'=>'auth'],function(){
     Route::group(['prefix' => 'admin', 'middleware'=>'role:super_admin|admin'],function(){
-       
+        Route::get('/accounts', [AccountsController::class, 'index'])->name('admin.dashboard');
+        Route::post('/accounts/{id}', [AccountsController::class, 'destroy'])->name('admin.account.destroy');
+
+        Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
+        Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
+        Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
+        Route::get('/auctions', function (){
+            return view('Admin.auctions.auctions');
+        },['names'=>'admin.auctions']);
+        Route::get('/bids', function (){
+            return view('Admin.auctions.bids');
+        },['names'=>'admin.auctions']);
+
+        Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
+        Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
     });
     Route::group(['prefix' => 'user', 'middleware'=>'role:user'],function(){
-        
+        Route::get('/dashboard/profile', [ProfilesController::class,'show'])->name('user.profile');
+        Route::get('/dashboard/settings/info',[ProfilesController::class,'index'])->name('user.dashboard');
+        Route::get('/dashboard/settings/psw', [ProfilesController::class,'index'])->name('change-password-user');
+        Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
+        Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
+
+        Route::get('/auctions', function (){
+            return view('user.auction.auctions');
+        })->name('user.auction');
+        Route::get('/auctions/add_auction', function (){
+            return view('user.auction.addAuction');
+        })->name('user.addAuction');
+
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
     });
@@ -66,34 +93,5 @@ Route::get('/reset-password/{token}', [ResetPasswordController::class,'getPasswo
 Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']);
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
-Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
-Route::get('/dashboard/profile', [ProfilesController::class,'show'])->name('user.profile');
-        Route::get('/dashboard/settings/info',[ProfilesController::class,'index'])->name('user.dashboard');
-        Route::get('/dashboard/settings/psw', [ProfilesController::class,'index'])->name('change-password-user');
-        Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
-        Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
-
-        Route::get('/auctions', function (){
-            return view('user.auction.auctions');
-        })->name('user.auction');
-        Route::get('/auctions/add_auction', function (){
-            return view('user.auction.addAuction');
-        })->name('user.addAuction');
-
-
-
-        Route::get('/accounts', [AccountsController::class, 'index'])->name('admin.dashboard');
-        Route::post('/accounts/{id}', [AccountsController::class, 'destroy'])->name('admin.account.destroy');
-
-       
-        Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
-        Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
-        Route::get('/auctions', function (){
-            return view('Admin.auctions.auctions');
-        },['names'=>'admin.auctions']);
-        Route::get('/bids', function (){
-            return view('Admin.auctions.bids');
-        },['names'=>'admin.auctions']);
-
-        Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
-        Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
+Route::view('/categories', 'Admin.categories.category');
+Route::view('/auc', 'Admin.auctions.auctions');
