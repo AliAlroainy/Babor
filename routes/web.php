@@ -88,6 +88,10 @@ Route::group(['middleware'=>'auth'],function(){
             return view('user.auction.addAuction');
         })->name('user.addAuction');
 
+        Route::get('/auctions/auctions/auctionId', function (){
+            return view('user.auction.');
+        })->name('user.addAuction');
+
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
     });
