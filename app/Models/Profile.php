@@ -13,10 +13,9 @@ class Profile extends Model
         'avatar',
         'phone',
         'address',
-    //     'job',
-    //     'city'    ,
-
-    //  'bio'     ,
+        'job',
+        'city',
+        'bio',
     ];
 
     public function user(): BelongsTo

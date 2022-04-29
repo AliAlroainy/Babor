@@ -16,7 +16,7 @@ class BrandsController extends Controller
     public function index()
     {
         $route = \Request::route()->getName();
-        $brands=brand::orderBy('id','desc')->get();
+        $brands= Brand::orderBy('id','desc')->get();
         return view('admin.cars.brands', ['route' => $route])->with('brands',$brands);
     }
 
