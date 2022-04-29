@@ -15,29 +15,18 @@ return new class extends Migration
     {
         Schema::create('auctions', function (Blueprint $table) {
             $table->id();
-
             $table->string('securityDeposit');
             $table->integer('commission');
             $table->integer('minic');
             $table->date('closeDate');
             $table->date('startingDate');
-            $table->integer('startingPrice');
+            $table->integer('startingPrice');  
             $table->integer('winnerPrice')->nullable();
             $table->string('winner')->nullable();
             $table->integer('desc');
             $table->boolean('status')->default(1);
-
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->constrained()
-                  ->references('id')->on('users')
-                  ->onUpdate('cascade')->onDelete('cascade');
-
             $table->boolean('is_active')->default(0);
-            $table->unsignedBigInteger('car_id');
-            $table->foreign('car_id')->constrained()
-                  ->references('id')->on('car')
-                  ->onUpdate('cascade')->onDelete('cascade');
-                  $table->timestamps();
+            $table->timestamps();
         });
     }
 

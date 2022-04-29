@@ -8,15 +8,15 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('series', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->boolean("is_active")->default(1);
-            $table->timestamps();
+        Schema::table('cars', function (Blueprint $table) {
+            //
         });
     }
+
     public function down()
     {
-        Schema::dropIfExists('series');
+        Schema::table('cars', function (Blueprint $table) {
+            //
+        });
     }
 };

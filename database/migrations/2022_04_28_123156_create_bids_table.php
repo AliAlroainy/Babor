@@ -8,15 +8,15 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('series', function (Blueprint $table) {
+        Schema::create('bids', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->boolean("is_active")->default(1);
+            $table->integer('currentPrice');
             $table->timestamps();
         });
     }
+
     public function down()
     {
-        Schema::dropIfExists('series');
+        Schema::dropIfExists('bids');
     }
 };
