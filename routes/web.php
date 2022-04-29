@@ -57,7 +57,7 @@ Route::get('/invalidToken', function () {
     return view('auth.invalidToken');
 });
 
-// Route::group(['middleware'=>'auth'],function(){
+Route::group(['middleware'=>'auth'],function(){
     Route::group(['prefix' => 'admin', 'middleware'=>'role:super_admin|admin'],function(){
         Route::get('/accounts', [AccountsController::class, 'index'])->name('admin.dashboard');
         Route::post('/accounts/{id}', [AccountsController::class, 'destroy'])->name('admin.account.destroy');
@@ -83,15 +83,16 @@ Route::get('/invalidToken', function () {
         Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
         Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
 
-        // Route::get('/auctions', function (){
-        //     return view('user.auction.auctions');
-        // })->name('user.auction');
+        Route::get('/auctions', [UserAuctionController::class, 'index'])->name('user.auctions');
+        Route::get('/auctions/add_auction', [UserAuctionController::class, 'create'])->name('user.add.auction');
+        Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
+        Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
 
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
     });
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
-// });
+});
 // Login and singup Routing
 Route::get('/admin/login',[AuthController::class,'showLogin'])->name('adminLogin');
 Route::view('/register', 'auth.register')->name('register');
@@ -103,11 +104,6 @@ Route::post('/forget-password', [ForgotPasswordController::class,'postEmail'])->
 Route::get('/reset-password/{token}', [ResetPasswordController::class,'getPassword']);
 Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']);
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
-
-Route::get('/user/auctions', [UserAuctionController::class, 'index'])->name('user.auctions');
-Route::get('/user/auctions/add_auction', [UserAuctionController::class, 'create'])->name('user.add.auction');
-Route::get('/user/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
-Route::post('/user/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
 
 Route::view('/categories', 'Admin.categories.category');
 // Route::view('/auc', 'Admin.auctions.auctions');
