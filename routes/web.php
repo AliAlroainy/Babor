@@ -41,14 +41,14 @@ Route::get('/invalidToken', function () {
     return view('auth.invalidToken');
 });
 
-Route::group(['middleware'=>'auth'],function(){
+// Route::group(['middleware'=>'auth'],function(){
     Route::group(['prefix' => 'admin', 'middleware'=>'role:super_admin|admin'],function(){
         Route::get('/accounts', [AccountsController::class, 'index'])->name('admin.dashboard');
         Route::post('/accounts/{id}', [AccountsController::class, 'destroy'])->name('admin.account.destroy');
 
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
-        // Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
-        // Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
+        Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
+        Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
         Route::get('/auctions', function (){
             return view('Admin.auctions.auctions');
         },['names'=>'admin.auctions']);
@@ -70,7 +70,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
     });
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
-});
+// });
 // Login and singup Routing
 Route::get('/admin/login',[AuthController::class,'showLogin'])->name('adminLogin');
 Route::view('/register', 'auth.register')->name('register');
@@ -84,8 +84,6 @@ Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
 
-Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
-Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
-Route::get('/user/add_auction', [UserAuctionController::class, 'index']);
+Route::get('/user/auctions/add_auction', [UserAuctionController::class, 'index']);
 Route::get('/user/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
 
