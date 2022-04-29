@@ -52,7 +52,7 @@
                 <div class="collapse" id="auction">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item me-5">
-                            <a class="nav-link" href="{{ url('admin/auctions') }}" target="_self">
+                            <a class="nav-link" href="{{ route('admin.auction.index') }}" target="_self">
                                 المزادات
                             </a>
                         </li>

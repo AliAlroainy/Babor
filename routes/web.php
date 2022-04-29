@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\user\UserAuctionController;
 use App\Http\Controllers\Authentication\authcontroller;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
+use App\Http\Controllers\Admin\AcutionController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 // use \Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Admin\CategoriesController;
@@ -66,12 +67,13 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
         Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
-        Route::get('/auctions', function (){
-            return view('Admin.auctions.auctions');
-        },['names'=>'admin.auctions']);
-        Route::get('/bids', function (){
-            return view('Admin.auctions.bids');
-        },['names'=>'admin.auctions']);
+        Route::resource('/auction', AcutionController::class, ['names' => 'admin.auction']);
+        // Route::get('/auctions', function (){
+        //     return view('Admin.auctions.auctions');
+        // },['names'=>'admin.auctions']);
+        // Route::get('/bids', function (){
+        //     return view('Admin.auctions.bids');
+        // },['names'=>'admin.auctions']);
 
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
