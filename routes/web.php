@@ -20,6 +20,16 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
+Route::get('/notfound', function () {
+    return view('Front.404');
+});
+Route::get('/services', function () {
+    return view('Front.services');
+});
+
+Route::get('/offer', function () {
+    return view('Front.offer');
+});
 
 /////category
 Route::view('/categories', 'Admin.categories.category');
@@ -96,3 +106,5 @@ Route::get('/user/auctions/add_auction', [UserAuctionController::class, 'index']
 Route::get('/user/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
 Route::post('/user/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
 
+Route::view('/categories', 'Admin.categories.category');
+// Route::view('/auc', 'Admin.auctions.auctions');
