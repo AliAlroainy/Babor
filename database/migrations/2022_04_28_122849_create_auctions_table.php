@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('startPrice');
             $table->integer('winnerPrice')->nullable();
             $table->string('winner')->nullable();
-            $table->integer('desc')->nullable();;
+            $table->text('desc')->nullable();;
             $table->boolean('status')->default(1);
             $table->boolean('is_active')->default(0);
             $table->timestamps();

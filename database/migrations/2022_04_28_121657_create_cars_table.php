@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('numberOfKillos');
             $table->string('thumbnail');
             $table->string('car_images')->nullable();
-            $table->string('carPosition');
+            $table->text('carPosition');
             $table->timestamps();
         });
     }
