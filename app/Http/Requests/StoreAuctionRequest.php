@@ -6,25 +6,17 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreAuctionRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
-            //
+            'brand_id'      =>'required|exists:brands,id',
+            'car_images'    => 'nullable',
+            'car_images.*'  => 'image|mimes:jpg,png,jpeg,gif,svg|max:200',
         ];
     }
 }

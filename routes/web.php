@@ -94,4 +94,5 @@ Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->n
 
 Route::get('/user/auctions/add_auction', [UserAuctionController::class, 'index'])->name('user.add.auction');
 Route::get('/user/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
+Route::post('/user/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
 

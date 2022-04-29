@@ -1,21 +1,24 @@
-:root{
+:root {
     --babor: #f79522;
 }
 
-body{
+body {
     direction: rtl !important;
     font-family: 'Tajawal', sans-serif !important;
 
 }
-button.add{
-    position:absolute;
+
+button.add {
+    position: absolute;
     top: 45px;
     left: 30px;
 }
-.nav-link{
+
+.nav-link {
     padding-inline-start: 10px !important;
 }
-.setting{
+
+.setting {
     text-decoration: none;
     font-weight: bold;
     color: black;
@@ -119,7 +122,8 @@ a[x-apple-data-detectors] {
 div[style*="margin: 16px 0;"] {
     margin: 0 !important;
 }
-.bg-main-color{
+
+.bg-main-color {
     background-color: #4D83FF;
 }
 
@@ -140,33 +144,41 @@ div[style*="margin: 16px 0;"] {
 }
 
 
-.nav-item:hover .menu-title, .nav-item:hover i{
+.nav-item:hover .menu-title, .nav-item:hover i {
     color: var(--babor) !important;
 }
-.nav-item.active > .nav-link > span {
+
+.nav-item.active>.nav-link>span {
     color: var(--babor) !important;
 }
-.nav-item.active > .nav-link > i{
-    color: black !important;
-}
-.nav-item  i{
+
+.nav-item.active>.nav-link>i {
     color: black !important;
 }
 
+.nav-item i {
+    color: black !important;
+}
 
-.add_auction{
+.add_auction {
     position: absolute;
     top: 5rem;
     left: 5rem;
 }
 
-
-
-
-
-
-
-.select{
+.select {
     background-color: transparent;
-    padding-block: 14px;
+    padding-block: 8px;
+}
+
+.py-13 {
+    padding-block: 13px;
+}
+
+.py-10 {
+    padding-block: 10px;
+}
+
+.carForm {
+    column-gap: 10px;
 }

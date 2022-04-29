@@ -10,7 +10,9 @@
 
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform" action="" method="post">
+                            <form id="msform" action="{{ route('user.save.auction') }}" method="POST"
+                                enctype="multipart/form-data">
+                                @csrf
                                 <!-- progressbar -->
                                 <ul id="progressbar">
                                     <li class="active" id="auction"><strong>المزاد</strong></li>
@@ -22,7 +24,7 @@
                                     <div class="form-card">
                                         <h2 class="fs-title">بيانات المزاد</h2>
                                         <div class="end-date">
-                                            <input type="date" name="endDate" class="dark-placeholder form-control  mb-2"
+                                            <input type="date" name="closeDate" class="dark-placeholder form-control  mb-2"
                                                 placeholder="تاريخ الإنتهاء" />
                                         </div>
                                         <input type="number" name="startPrice" class="dark-placeholder form-control mb-2"
@@ -36,9 +38,9 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">بيانات السيارة</h2>
-                                        <div class="col-12 d-flex justify-content-between flex-wrap gap-1">
+                                        <div class="col-12 d-flex justify-content-between flex-wrap">
                                             <div class="col-sm-12 col-md-5 col-lg-2">
-                                                <select name="brand_id" id="brand"
+                                                <select id="brand" name="brand_id"
                                                     class="w-100 select dark-placeholder mb-2">
                                                     <option selected disabled>اختر البراند</option>
                                                     @if (isset($brands) && $brands->count() > 0)
@@ -49,20 +51,20 @@
                                                     @endif
                                                 </select>
                                             </div>
-                                            <div class="col-sm-12 col-md-5 col-lg-3 ">
+                                            <div class="col-sm-12 col-md-5 col-lg-3">
                                                 <select id="series" name="series_id"
                                                     class="w-100 select dark-placeholder mb-2">
                                                     <option selected disabled>اختر سلسلة للبراند</option>
                                                 </select>
                                             </div>
-                                            <div class="col-sm-12 col-md-5 col-lg-3 ">
-                                                <select name="carBrand" class="w-100 select dark-placeholder mb-2" id="">
+                                            {{-- <div class="col-sm-12 col-md-5 col-lg-3">
+                                                <select name="jear" class="w-100 select dark-placeholder mb-2" id="">
                                                     <option value="" disabled selected>الجير</option>
                                                     <option value="">Toyota</option>
                                                     <option value="">Lexus</option>
                                                 </select>
                                             </div>
-                                            <div class="col-sm-12 col-md-5 col-lg-3 ">
+                                            <div class="col-sm-12 col-md-5 col-lg-3">
                                                 <select name="cylinder_number" class="w-100  select dark-placeholder  mb-2"
                                                     id="">
                                                     <option value="" disabled selected>عدد البستونات</option>
@@ -70,23 +72,48 @@
                                                     <option value="">Lexus</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div class="col-12 d-flex justify-content-evenly flex-wrap gap-1">
-                                            <div class="col-sm-12 col-md-5 col-lg-2 ">
+                                            <div class="col-sm-12 col-md-5 col-lg-2">
                                                 <select name="fuel_type" class="w-100  select dark-placeholder  mb-2" id="">
                                                     <option value="" disabled selected>نوع الوقود</option>
                                                     <option value="">غاز</option>
                                                     <option value="">بترول</option>
                                                 </select>
                                             </div>
-                                            <div class="col-sm-12 col-md-5 col-lg-2 ">
-                                                <select name="engine_type" class="w-100  select dark-placeholder  mb-2"
-                                                    id="">
+                                            <div class="col-sm-12 col-md-5 col-lg-3">
+                                                <select name="engine_type" class="w-100 select dark-placeholder mb-2" id="">
                                                     <option value="" disabled selected>نوع المحرك</option>
                                                     <option value="">غاز</option>
                                                     <option value="">بترول</option>
                                                 </select>
+                                            </div> --}}
+                                            <div class="col-sm-12 col-md-5 col-lg-2">
+                                                <input type="text" class="form-control dark-placeholder py-10" name="model"
+                                                    placeholder="الموديل">
                                             </div>
+                                            <div class="col-sm-12 col-md-5 col-lg-2">
+                                                <input type="text" class="form-control dark-placeholder py-10" name="color"
+                                                    placeholder="اللون">
+                                            </div>
+                                            <div class="col-sm-12 col-md-5 col-lg-2">
+                                                <input type="text" class="form-control dark-placeholder py-10"
+                                                    name="numberOfKillos" placeholder="كم مشت كيلو">
+                                            </div>
+                                            <div class="col-sm-12 col-md-8">
+                                                <textarea type="text" class="form-control dark-placeholder" row="20" name="carPosition"
+                                                    placeholder="موقع السيارة"></textarea>
+                                            </div>
+                                            <div class="col-12 col-md-5 col-lg-3">
+                                                <div class="input-group control-group">
+                                                    <input type="file" name="thumbnail"
+                                                        class="form-control dark-placeholder py-13">
+                                                </div>
+                                            </div>
+                                            {{-- <div class="col-12 col-md-5 col-lg-3">
+                                                <div class="input-group control-group">
+                                                    <input type="file" name="car_images[]"
+                                                        class="form-control dark-placeholder py-13">
+                                                </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                     <input type="button" name="previous"
