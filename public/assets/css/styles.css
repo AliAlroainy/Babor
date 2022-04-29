@@ -161,12 +161,44 @@ div[style*="margin: 16px 0;"] {
 }
 
 
-
-
-
-
-
 .select{
     background-color: transparent;
     padding-block: 14px;
 }
+
+/*=======================================*/
+/*user auction view*/
+
+.auctions{
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(500px , 1fr));
+}
+
+a.auction{
+    text-decoration: none;
+    color: black;
+
+}
+a.auction > div{
+    border: 1px solid #ccc;
+    padding-inline-start: 10px;
+    /*width: 48%*/
+
+}
+.img-container{
+    max-width: 250px;
+}
+.img-container img{
+    max-width: 100%;
+}
+.auction_brief_info{
+    /*min-width: 40%;*/
+
+}
+
+@media screen and (max-width: 600px) {
+    .auction{
+
+    }
+}
+
