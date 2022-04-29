@@ -26,7 +26,7 @@
                             </div>
                         </div>
                     </div>
-                            <h4 class="card-title">عرض الخدمات</h4>
+                            <h4 class="card-title">عرض المزادات</h4>
                             @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     {{ session()->get('errorEdit') }}
@@ -98,95 +98,43 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($services as $service)
-                                            <div class="modal fade" id="editModal-{{ $service->id }}" tabindex="-1"
-                                                aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <form action="{{ route('admin.service.update', $service->id) }}"
-                                                        method="POST" enctype="multipart/form-data">
-                                                        @csrf
-                                                        @method('PATCH')
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel1">عدل
-                                                                    الخدمة</h5>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="row">
-                                                                    <div class="col mb-3">
-                                                                        <label for="editTitle" class="form-label">إسم
-                                                                            الخدمة</label>
-                                                                        <input type="text" id="editTitle"
-                                                                            class="form-control" name="title"
-                                                                            value="{{ $service->title ?? '' }}"
-                                                                            placeholder="اسم الخدمة">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col mb-3">
-                                                                        <label for="editDesc"
-                                                                            class="form-label">الوصف</label>
-                                                                        <input type="text" id="editDesc"
-                                                                            class="form-control" name="description"
-                                                                            value="{{ $service->description ?? '' }}"
-                                                                            placeholder="وصف الخدمة">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col md-3">
-                                                                        <label for="editPic" class="form-label">أيقونة
-                                                                            الخدمة</label>
-                                                                        <input type="file" id="editPic"
-                                                                            class="form-control" name="pic"
-                                                                            placeholder="">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-outline-secondary"
-                                                                    data-bs-dismiss="modal">إلغاء</button>
-                                                                <button type="submit"
-                                                                    class="btn btn-primary text-white">تعديل</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
+                                           
                                             <tr>
                                                 <td class="py-1">
-                                                    <img src="/images/services/{{ $service->pic }}" alt="image" />
+                                                    <img src="/images/cars/{{ $car->imge }}" alt="image" />
                                                 </td>
                                                 <td>
-                                                   
+                                                {{ $car->name }}
                                                 </td>
                                                 <td>
-                                                   
+                                                {{ $car->model }}
                                                    </td>
                                                    <td>
-                                                   
+                                                   {{ $auction->startingPrice }} 
                                                    </td>
                                                    <td>
-                                                   
+                                                   {{ $auction->startingDate }} 
                                                    </td>
                                                    <td>
-                                                   
+                                                   {{ $auction->closeDate }} 
                                                    </td>
                                                    <td>
-                                                   
+                                                   {{ $auction->winnerPrice }} 
                                                    </td>
                                                    <td>
-                                                   
+                                                   {{ $auction->minic }} 
                                                    </td>
                                                    <td>
-                                                   
+                                                   {{ $auction->winner }} 
                                                    </td>
                                                    <td>
-                                                   
+                                                   {{ $auction->commission }} 
                                                    </td>
                                                    <td>
-                                                   
+                                                   {{ $auction->securityDeposit }} 
                                                    </td>
                                                 <td>
-                                                   
+                                                {{ $auction->status }} 
                                                 </td>
                                                 
                                                
