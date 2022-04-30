@@ -18,7 +18,7 @@
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#buses" role="tab">حافلات</a></li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#salon" role="tab">صوالين</a></li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#taxi" role="tab">تكاسي</a></li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#babor" role="tab">بوابير</a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#babor" role="tab">شاحنات</a></li>
                                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#cars" role="tab">سيارات</a></li>
                             </ul>
                             <!--/ End Tab Nav -->
