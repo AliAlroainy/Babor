@@ -8,4 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Auction extends Model
 {
     use HasFactory;
+
+    protected $guarded =[];
+
+    protected $fillable = [
+        'startPrice',
+        'closeDate',
+        'startDate',
+        'minInc',  
+        'user_id',
+        'car_id' 
+    ];
+
+    public function car(): HasOne
+    {
+        return $this->hasOne(Car::class, 'car_id');
+    }
+
 }

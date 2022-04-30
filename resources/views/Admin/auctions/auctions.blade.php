@@ -20,9 +20,9 @@
                                     <option>تاريخ البدء</option>
                                     <option>اقل قيمة للمزايدة</option>
                                     <option>  حالة المزاد</option>
-                                    
+
                                 </select>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                                         <tr>
                                         <th>
                                                   الصورة
-                                            </th>  
+                                            </th>
                                         <th>
                                                  اسم السيارة
                                             </th>
@@ -98,7 +98,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($auctions as $auction)
-                                           
+
                                             <tr>
                                                 <td class="py-1">
                                                     <img src="/images/cars/{{ $car->imge }}" alt="image" />
@@ -110,34 +110,34 @@
                                                 {{ $car->model }}
                                                    </td>
                                                    <td>
-                                                   {{ $auction->startingPrice }} 
+                                                   {{ $auction->startingPrice }}
                                                    </td>
                                                    <td>
-                                                   {{ $auction->startingDate }} 
+                                                   {{ $auction->startingDate }}
                                                    </td>
                                                    <td>
-                                                   {{ $auction->closeDate }} 
+                                                   {{ $auction->closeDate }}
                                                    </td>
                                                    <td>
-                                                   {{ $auction->winnerPrice }} 
+                                                   {{ $auction->winnerPrice }}
                                                    </td>
                                                    <td>
-                                                   {{ $auction->minic }} 
+                                                   {{ $auction->minic }}
                                                    </td>
                                                    <td>
-                                                   {{ $auction->winner }} 
+                                                   {{ $auction->winner }}
                                                    </td>
                                                    <td>
-                                                   {{ $auction->commission }} 
+                                                   {{ $auction->commission }}
                                                    </td>
                                                    <td>
-                                                   {{ $auction->securityDeposit }} 
+                                                   {{ $auction->securityDeposit }}
                                                    </td>
                                                 <td>
-                                                {{ $auction->status }} 
+                                                {{ $auction->status }}
                                                 </td>
-                                                
-                                               
+
+
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -148,11 +148,11 @@
                 </div>
 
             </div>
-            
-           
-               
-           
+
+
+
+
         </div>
-       
+
         <!-- container-scroller -->
     @endsection

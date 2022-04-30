@@ -10,12 +10,13 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('sizOfdamage');
-            $table->boolean('status')->default(1);
+            // $table->enum('sizOfDamage', array_keys(['سطحي', 'متوسط', 'كبير']))->nullable();
+            // $table->enum('status', array_keys(['جديدة','مستعملة']))->nullable();
             $table->string('color');
             $table->integer('model');
             $table->integer('numberOfKillos');
+            $table->string('thumbnail');
+            $table->string('car_images')->nullable();
             $table->string('carPosition');
             $table->timestamps();
         });

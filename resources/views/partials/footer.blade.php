@@ -3,7 +3,8 @@
 <!-- main-panel ends -->
 </div>
 <footer class="footer text-center">
-    <span class="text-muted d-block d-sm-inline-block" style="font-family: Tajawal">جميع الحقوق محفوضة لدى © <a href="" target="_blank"> Babor
+    <span class="text-muted d-block d-sm-inline-block" style="font-family: Tajawal">جميع الحقوق محفوضة لدى © <a href=""
+            target="_blank"> Babor
         </a>2022</span>
 </footer>
 <!-- page-body-wrapper ends -->
@@ -20,6 +21,11 @@
 <!-- inject:js -->
 <script>
     $(document).ready(function() {
+
+        $('#carColor').click(){
+            $('#color').textContent = $('#carColor').value();
+        }
+
         $('.previewImage').change(function() {
             for (var i = 0; i < $(this)[0].files.length; i++) {
                 $(".previewFrames").append(
@@ -34,12 +40,30 @@
                 });
             }
         });
-        // $('#nav-tab a[data-bs-toggle="tab" href="#{{ old('tab') }}"]').tab('show');
     });
 </script>
-<script src="{{ @asset('assets/js/hoverable-collapse.js') }}"></script>
 <script src="{{ @asset('assets/js/jQuery.min.js') }}"></script>
 <script src="{{ @asset('assets/js/multistep-form.js') }}"></script>
+{{-- <script src="{{ @asset('assets/js/bootstrap.bundle.js') }}"></script> --}}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#brand').on('change', function() {
+            var brandId = this.value;
+            $('#series').html('<option value="">اختر سلسلة للبراند</option>');
+            $.ajax({
+                url: '{{ route('getSeries') }}?brand_id=' + brandId,
+                type: 'get',
+                success: function(res) {
+
+                    $.each(res, function(key, value) {
+                        $('#series').append('<option value="' + value
+                            .id + '">' + value.name + '</option>');
+                    });
+                }
+            });
+        });
+    });
+</script>
 <script src="{{ @asset('assets/js/template.js') }}"></script>
 <script src="{{ @asset('assets/js/hoverable-collapse.js') }}"></script>
 <script src="{{ @asset('assets/js/off-canvas.js') }}"></script>

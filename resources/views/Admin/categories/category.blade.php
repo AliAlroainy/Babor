@@ -53,11 +53,12 @@
                                             <th>
                                                 إسم القسم
                                             </th>
-                                           
+
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($categories as $category)
+
+                                      @foreach ($categorie as $category)
                                             <div class="modal fade" id="editModal-{{ $category->id }}" tabindex="-1"
                                                 aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
@@ -81,7 +82,7 @@
                                                                             placeholder="اسم الخدمة">
                                                                     </div>
                                                                 </div>
-                                                               
+
                                                                 <div class="row">
                                                                     <div class="col md-3">
                                                                         <label for="editPic" class="form-label">أيقونة
@@ -93,10 +94,10 @@
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-outline-secondary"
+                                                                <button type="button" class="btn btn-outline-danger"
                                                                     data-bs-dismiss="modal">إلغاء</button>
                                                                 <button type="submit"
-                                                                    class="btn btn-primary text-white">تعديل</button>
+                                                                    class="btn btn-warning text-white">تعديل</button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -109,7 +110,7 @@
                                                 <td>
                                                     {{ $category->name }}
                                                 </td>
-                                                
+
                                                 <td>
                                                     <a href="editCategory" style="width: fit-content"
                                                         class="
@@ -127,7 +128,7 @@
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        @if ($category->is_active == 1)
+                                                        @if ($category->status == 1)
                                                             <button style="width: fit-content"
                                                                 class="
                                                         btn d-flex align-items-center
@@ -161,7 +162,7 @@
 
             </div>
             <button type="button" data-bs-target="#addModal" data-bs-toggle="modal"
-                class="btn btn-primary btn-rounded btn-icon add">
+                class="btn btn-warning btn-rounded btn-icon add">
                 <i class="mdi mdi-plus text-white"></i>
             </button>
         </div>
@@ -179,20 +180,20 @@
                                 <div class="col mb-3">
                                     <label for="name" class="form-label">إسم القسم</label>
                                     <input type="text" id="title" class="form-control" name="name"
-                                        placeholder="عنوان الخدمة">
+                                        placeholder="عنوان الخدمة"value="{{ old('name') }}">
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col md-3">
                                     <label for="Image" class="form-label">أيقونة القسم</label>
-                                    <input type="file" id="Image" class="form-control" name="Image" placeholder="">
+                                    <input type="file" id="Image" class="form-control" name="Image" placeholder="" value="{{ old('Image') }}">
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">إلغاء</button>
-                            <button type="submit" class="btn btn-primary text-white">إضافة</button>
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">إلغاء</button>
+                            <button type="submit" class="btn btn-warning text-white">إضافة</button>
                         </div>
                     </div>
                 </form>

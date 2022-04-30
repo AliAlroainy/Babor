@@ -102,10 +102,10 @@ class AuthController extends Controller
             'email.required'=>'الرجاءادخال عنوان البريد الالكتروني',
             'email.email'=>'الرجاءادخال عنوان بريد صالح',
         ]);
-        $user=User::where(['email'=>$request->email])->first();
-        if($user->hasRole('user') && empty($user->email_verified_at))
-            return view('user.email.verifyEmail');
-        else
+        // $user=User::where(['email'=>$request->email])->first();
+        // if($user->hasRole('user') && empty($user->email_verified_at))
+        //     return view('user.email.verifyEmail');
+        // else
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
             if(Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))//if he login and has admin role and he is active=1 redirct him to dashboard route
                 return redirect()->route('admin.dashboard');

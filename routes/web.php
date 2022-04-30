@@ -9,16 +9,20 @@ use App\Http\Controllers\admin\SeriesController;
 use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\user\UserAuctionController;
 use App\Http\Controllers\Authentication\authcontroller;
-use App\Http\Controllers\Authentication\ForgotPasswordController;
-use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
+use App\Http\Controllers\Admin\AcutionController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 // use \Illuminate\Support\Facades\URL;
+use App\Http\Controllers\Admin\CategoriesController;
+
 /*
 |--------------------------------
 =======
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
+use App\Http\Controllers\Authentication\ResetPasswordController;
+use App\Http\Controllers\Authentication\ForgotPasswordController;
 Route::get('/notfound', function () {
     return view('Front.404');
 });
@@ -62,12 +66,14 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
-        Route::get('/auctions', function (){
-            return view('Admin.auctions.auctions');
-        },['names'=>'admin.auctions']);
-        Route::get('/bids', function (){
-            return view('Admin.auctions.bids');
-        },['names'=>'admin.auctions']);
+        Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
+        Route::resource('/auction', AcutionController::class, ['names' => 'admin.auction']);
+        // Route::get('/auctions', function (){
+        //     return view('Admin.auctions.auctions');
+        // },['names'=>'admin.auctions']);
+        // Route::get('/bids', function (){
+        //     return view('Admin.auctions.bids');
+        // },['names'=>'admin.auctions']);
 
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
@@ -79,12 +85,14 @@ Route::group(['middleware'=>'auth'],function(){
         Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
         Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
 
-        Route::get('/auctions', function (){
-            return view('user.auction.auctions');
-        })->name('user.auction');
-        Route::get('/auctions/add_auction', function (){
-            return view('user.auction.addAuction');
-        })->name('user.addAuction');
+        Route::get('/auctions', [UserAuctionController::class, 'index'])->name('user.auctions');
+        Route::get('/auctions/add_auction', [UserAuctionController::class, 'create'])->name('user.add.auction');
+        Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
+        Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
+
+        Route::get('/auctions/auctionId', function (){
+            return view('user.auction.auctionDetails');
+        })->name('user.auctionDetails');
 
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
@@ -104,4 +112,6 @@ Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
 Route::view('/categories', 'Admin.categories.category');
+// Route::view('/auc', 'Admin.auctions.auctions');
+// Route::view('/categories', 'Admin.categories.category');
 Route::view('/auc', 'Admin.auctions.auctions');

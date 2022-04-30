@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\user;
-
+namespace App\Http\Controllers\admin;
+use App\Models\Auction;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AuctiosController extends Controller
+class AcutionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +15,11 @@ class AuctiosController extends Controller
     public function index()
     {
         //
+        $route = \Request::route()->getName();
+        $auctions = Auction::orderBy('id','desc')->get();
+
+        return view('Admin.auctions.auctions', ['route' => $route])->with('auctions',$auctions);
+
     }
 
     /**
@@ -25,6 +30,7 @@ class AuctiosController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -78,8 +84,14 @@ class AuctiosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($auctions_id)
     {
         //
+        $auctions=Auction::find($auctions_id);
+        if(!$auctions)
+            return abort('404');
+        $auctions->is_active*=-1;
+        if($auctions->save())
+            return back();
     }
 }
