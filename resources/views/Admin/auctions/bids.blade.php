@@ -69,7 +69,32 @@
                                             </th>
                                         </tr>
                                     </thead>
-                                   
+                                    <tbody>
+                                        @foreach ($bids as $bid)
+                                            
+                                            <tr>
+                                                <td class="py-1">
+                                                   
+                                                </td>
+                                                <td>
+                                                    {{ $bid->auctioneer }}
+                                                </td>
+                                                <td>
+                                                    {{ $bid->bidder }}
+                                                </td>
+                                                <td>
+                                                {{ $bid->currentPrice }}
+                                                </td>
+                                                <td>
+                                                {{ $auction->closeDate }}
+                                                </td>
+                                                <td>
+                                                  <!-- some update -->
+                                                {{ $auction->link }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
