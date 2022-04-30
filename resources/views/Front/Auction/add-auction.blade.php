@@ -29,51 +29,54 @@
                                     <li id="confirm"><strong>تم</strong></li>
                                 </ul> <!-- fieldsets -->
                                 <fieldset>
-                                    <div class="form-card row">
-                                        <h2 class="fs-title">بيانات المزاد</h2>
+                                    <div class="form-card text-center row justify-content-center gy-2">
+                                        <h2 class="fs-title mb-4 text-center">بيانات المزاد</h2>
                                         <div class="end-date col-12 col-md-5">
-                                            <input type="date" name="closeDate" class="dark-placeholder form-control  mb-2"
+                                            <input type="date" name="closeDate"
+                                                class="bg-transparent dark-placeholder form-control"
                                                 value="{{ old('name') }}" placeholder="تاريخ الإنتهاء" />
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="number" name="openingBid" value="{{ old('openingBid') }}"
-                                                class="dark-placeholder form-control mb-2" placeholder="السعر الإبتدائي" />
+                                            <input type="text" name="openingBid" value="{{ old('openingBid') }}"
+                                                class="bg-transparent dark-placeholder form-control"
+                                                placeholder="السعر الإبتدائي" />
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="number" name="minInc" class="dark-placeholder form-control mb-2"
+                                            <input type="text" name="minInc"
+                                                class="bg-transparent dark-placeholder form-control"
                                                 value="{{ old('minInc') }}" placeholder="الحد الادنى للمزايدة" />
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="number" name="reservePrice" value="{{ old('reservePrice') }}"
-                                                class="dark-placeholder form-control mb-2" placeholder="السعر الاحتياطي" />
+                                            <input type="text" name="reservePrice" value="{{ old('reservePrice') }}"
+                                                class="bg-transparent dark-placeholder form-control"
+                                                placeholder="السعر الاحتياطي" />
                                         </div>
                                     </div>
                                     <input type="button" name="next"
                                         class="next action-button btn btn-warning w-auto fw-bold" value=" التالي" />
                                 </fieldset>
                                 <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title">بيانات السيارة</h2>
-                                        <div class="col-12 d-flex justify-content-between flex-wrap">
-                                            <div class="col-sm-12 col-md-5 col-lg-2">
-                                                <select id="brand" name="brand_id"
-                                                    class="w-100 select dark-placeholder mb-2">
-                                                    <option selected disabled>اختر البراند</option>
-                                                    @if (isset($brands) && $brands->count() > 0)
-                                                        @foreach ($brands as $brand)
-                                                            <option value="{{ $brand->id }}">{{ $brand->name }}
-                                                            </option>
-                                                        @endforeach
-                                                    @endif
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-12 col-md-5 col-lg-3">
-                                                <select id="series" name="series_id"
-                                                    class="w-100 select dark-placeholder mb-2">
-                                                    <option selected disabled>اختر سلسلة للبراند</option>
-                                                </select>
-                                            </div>
-                                            {{-- <div class="col-sm-12 col-md-5 col-lg-3">
+                                    <div class="form-card text-center row justify-content-center gy-2">
+                                        <h2 class="fs-title  mb-4 text-center">بيانات السيارة</h2>
+                                        <div class="col-sm-12 col-md-5 col-lg-2">
+                                            <select id="brand" name="brand_id"
+                                                class="w-100 bg-transparent dark-placeholder select px-2">
+                                                <option selected disabled>اختر البراند</option>
+                                                @if (isset($brands) && $brands->count() > 0)
+                                                    @foreach ($brands as $brand)
+                                                        <option value="{{ $brand->id }}">{{ $brand->name }}
+                                                        </option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-12 col-md-5 col-lg-3">
+                                            <select id="series" name="series_id"
+                                                class="w-100 bg-transparent dark-placeholder select px-2">
+                                                <option selected disabled>اختر سلسلة للبراند</option>
+                                            </select>
+                                        </div>
+                                        {{-- <div class="col-sm-12 col-md-5 col-lg-3">
                                                 <select name="jear" class="w-100 select dark-placeholder mb-2" id="">
                                                     <option value="" disabled selected>الجير</option>
                                                     <option value="">Toyota</option>
@@ -102,35 +105,34 @@
                                                     <option value="">بترول</option>
                                                 </select>
                                             </div> --}}
-                                            <div class="col-sm-12 col-md-5 col-lg-2">
-                                                <input type="text" class="form-control dark-placeholder py-10" name="model"
-                                                    value="{{ old('model') }}" placeholder="الموديل">
+                                        <div class="col-sm-12 col-md-5 col-lg-2">
+                                            <input type="text" class="bg-transparent dark-placeholder form-control"
+                                                name="model" value="{{ old('model') }}" placeholder="الموديل">
+                                        </div>
+                                        <div class="col-sm-12 col-md-5 col-lg-2">
+                                            <input type="text" class="bg-transparent dark-placeholder form-control"
+                                                name="color" value="{{ old('color') }}" placeholder="اللون">
+                                        </div>
+                                        <div class="col-sm-12 col-md-5 col-lg-2">
+                                            <input type="text" class="bg-transparent dark-placeholder form-control"
+                                                value="{{ old('numberOfKillos') }}" name="numberOfKillos"
+                                                placeholder="كم مشت كيلو">
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+                                            <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="carPosition"
+                                                value="{{ old('carPosition') }}"
+                                                placeholder="موقع السيارة"></textarea>
+                                        </div>
+                                        <div class="col-12 col-md-5 col-lg-3">
+                                            <div class="input-group control-group">
+                                                <input type="file" name="thumbnail" value="{{ old('thumbnail') }}"
+                                                    class="bg-transparent dark-placeholder form-control">
                                             </div>
-                                            <div class="col-sm-12 col-md-5 col-lg-2">
-                                                <input type="text" class="form-control dark-placeholder py-10" name="color"
-                                                    value="{{ old('color') }}" placeholder="اللون">
-                                            </div>
-                                            <div class="col-sm-12 col-md-5 col-lg-2">
-                                                <input type="text" class="form-control dark-placeholder py-10"
-                                                    value="{{ old('numberOfKillos') }}" name="numberOfKillos"
-                                                    placeholder="كم مشت كيلو">
-                                            </div>
-                                            <div class="col-sm-12 col-md-8">
-                                                <textarea type="text" class="form-control dark-placeholder" row="20" name="carPosition"
-                                                    value="{{ old('carPosition') }}"
-                                                    placeholder="موقع السيارة"></textarea>
-                                            </div>
-                                            <div class="col-12 col-md-5 col-lg-3">
-                                                <div class="input-group control-group">
-                                                    <input type="file" name="thumbnail" value="{{ old('thumbnail') }}"
-                                                        class="form-control dark-placeholder py-13">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-5 col-lg-3">
-                                                <div class="input-group control-group">
-                                                    <input type="file" name="car_images[]" ض
-                                                        class="form-control dark-placeholder py-13" multiple>
-                                                </div>
+                                        </div>
+                                        <div class="col-12 col-md-5 col-lg-3">
+                                            <div class="input-group control-group">
+                                                <input type="file" name="car_images[]"
+                                                    class="form-control dark-placeholder py-13" multiple>
                                             </div>
                                         </div>
                                     </div>

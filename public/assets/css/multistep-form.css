@@ -42,18 +42,13 @@
 
 #msform input,
 #msform textarea {
-    /*padding: 0px 8px 4px 8px;*/
-    /*border: none;*/
-    /*border-bottom: 1px solid #ccc;*/
-    /*border-radius: 0px;*/
-    /*margin-bottom: 25px;*/
-    /*margin-top: 2px;*/
     width: 100%;
     box-sizing: border-box;
     font-family: Tajawal;
-    /*color: #2C3E50;*/
-    /*font-size: 16px;*/
-    /*letter-spacing: 1px*/
+}
+
+#msform input.form-control {
+    padding-block: 0.65rem;
 }
 
 #msform input:focus,
