@@ -289,7 +289,7 @@
                                                 <li class="active "><a class="nav-link"
                                                         href="/">الرئيسية</a></li>
                                                 <li><a class="nav-link" href="/offer">العروض</a></li>
-                                                <li><a class="nav-link" href="/soon">الخدمات</a></li>
+                                                <li><a class="nav-link" href="/services">الخدمات</a></li>
                                                 <li><a class="nav-link" href="/soon">شراء سيارة<i
                                                             class="ti-angle-down"></i>
                                                         <!--span class="new">جديد</span-->
