@@ -82,9 +82,11 @@
                                                 تاريخ البدء
                                             </th>
                                             <th>
-                                                تاريخ الانتهاء </th>
+                                                تاريخ الانتهاء
+                                            </th>
                                             <th>
-                                                اخر سعر للمزاد </th>
+                                                السعر الاحتياطي
+                                            </th>
                                             <th>
                                                 اقل قيمة للمزايدة </th>
                                             <th>
@@ -124,10 +126,13 @@
                                                     {{ $auction->closeDate }}
                                                 </td>
                                                 <td>
-                                                    {{ $auction->winnerPrice }}
+                                                    {{ $auction->reservePrice }}
                                                 </td>
                                                 <td>
                                                     {{ $auction->minInc }}
+                                                </td>
+                                                <td>
+                                                    {{ $auction->winnerPrice }}
                                                 </td>
                                                 <td>
                                                     {{ $auction->winner }}
