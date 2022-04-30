@@ -90,6 +90,10 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
         Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
 
+        Route::get('/auctions/auctionId', function (){
+            return view('user.auction.auctionDetails');
+        })->name('user.auctionDetails');
+
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
     });

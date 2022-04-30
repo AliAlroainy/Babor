@@ -127,6 +127,26 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-12 d-flex justify-content-evenly flex-wrap gap-1">
+                                           <div class="col-sm-12 col-md-5 col-lg-2 ">
+                                               <select name="fuel_type" class="w-100  select dark-placeholder  mb-2" id="">
+                                                   <option value="" disabled selected >نوع الوقود</option>
+                                                   <option value="">غاز</option>
+                                                   <option value="">بترول</option>
+                                               </select>
+                                           </div>
+                                           <div class="col-sm-12 col-md-5 col-lg-2 ">
+                                               <select name="engine_type" class="w-100  select dark-placeholder  mb-2" id="">
+                                                   <option value="" disabled selected >نوع المحرك</option>
+                                                   <option value="">غاز</option>
+                                                   <option value="">بترول</option>
+                                               </select>
+                                           </div>
+                                           <div class="col-sm-12 col-md-5 col-lg-2 ">
+                                               <input type="color" name="carColor" id="carColor">
+                                               <span id="color"></span>
+                                           </div>
+                                       </div>
                                     </div>
                                     <input type="button" name="previous"
                                         class="previous action-button-previous btn btn-secondary w-auto ms-3"
