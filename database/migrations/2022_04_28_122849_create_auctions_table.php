@@ -15,8 +15,9 @@ return new class extends Migration
             $table->decimal('minInc', 5, 2);
             $table->date('closeDate');
             $table->date('startDate');
-            $table->integer('startPrice');
-            $table->integer('winnerPrice')->nullable();
+            $table->decimal('openingBid', 5, 2);
+            $table->decimal('reservePrice', 5, 2);
+            $table->decimal('winnerPrice', 5, 2)->nullable();
             $table->string('winner')->nullable();
             $table->text('desc')->nullable();;
             $table->boolean('status')->default(1);
