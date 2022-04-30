@@ -40,6 +40,7 @@ class UserAuctionController extends Controller
         if($request->hasfile('car_images')){
             foreach($request->file('car_images') as $file)
             {
+                // dd(time());
                 $images = $this->saveImage($file, 'images/cars/car_images');
                 $data[] = $images;  
             }
