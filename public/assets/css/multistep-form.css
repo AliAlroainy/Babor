@@ -47,7 +47,7 @@
     font-family: Tajawal;
 }
 
-#msform input.form-control {
+#msform input.form-control:not([type=file]) {
     padding-block: 0.65rem;
 }
 

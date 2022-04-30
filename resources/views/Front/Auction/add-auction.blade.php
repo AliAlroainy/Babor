@@ -1,6 +1,5 @@
 @extends('partials.usermaster')
 @section('body')
-
     <!-- MultiStep Form -->
     <div class="container-fluid" id="grad1">
         <div class="row justify-content-center mt-0">
@@ -26,7 +25,9 @@
                                     <li class="active" id="auction"><strong>المزاد</strong></li>
                                     <li id="car"><strong>السيارة</strong></li>
                                     <li id="ensure"><strong>التاكيد</strong></li>
-                                    <li id="confirm"><strong>تم</strong></li>
+                                    @if (!$errors->any())
+                                        <li id="confirm"><strong>تم</strong></li>
+                                    @endif
                                 </ul> <!-- fieldsets -->
                                 <fieldset>
                                     <div class="form-card text-center row justify-content-center gy-2">
@@ -135,27 +136,28 @@
                                                     class="form-control dark-placeholder py-13" multiple>
                                             </div>
                                         </div>
-                                        <div class="col-12 d-flex justify-content-evenly flex-wrap gap-1">
-                                           <div class="col-sm-12 col-md-5 col-lg-2 ">
-                                               <select name="fuel_type" class="w-100  select dark-placeholder  mb-2" id="">
-                                                   <option value="" disabled selected >نوع الوقود</option>
-                                                   <option value="">غاز</option>
-                                                   <option value="">بترول</option>
-                                               </select>
-                                           </div>
-                                           <div class="col-sm-12 col-md-5 col-lg-2 ">
-                                               <select name="engine_type" class="w-100  select dark-placeholder  mb-2" id="">
-                                                   <option value="" disabled selected >نوع المحرك</option>
-                                                   <option value="">غاز</option>
-                                                   <option value="">بترول</option>
-                                               </select>
-                                           </div>
-                                           <div class="col-sm-12 col-md-5 col-lg-2 ">
-                                               <input type="color" name="carColor" id="carColor">
-                                               <span id="color"></span>
-                                           </div>
-                                       </div>
+                                        <div class="col-sm-12 col-md-5 col-lg-2">
+                                            <select name="fuel_type"
+                                                class="w-100 bg-transparent dark-placeholder select px-2" id="">
+                                                <option value="" disabled selected>نوع الوقود</option>
+                                                <option value="">غاز</option>
+                                                <option value="">بترول</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-12 col-md-5 col-lg-2">
+                                            <select name="engine_type"
+                                                class="w-100 bg-transparent dark-placeholder select px-2" id="">
+                                                <option value="" disabled selected>نوع المحرك</option>
+                                                <option value="">غاز</option>
+                                                <option value="">بترول</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-12 col-md-5 col-lg-2">
+                                            <input type="color" name="carColor" id="carColor">
+                                            <span id="color"></span>
+                                        </div>
                                     </div>
+
                                     <input type="button" name="previous"
                                         class="previous action-button-previous btn btn-secondary w-auto ms-3"
                                         value="السابق" />
@@ -213,21 +215,24 @@
                                         </div>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="make_payment" class="next action-button" value="Confirm" />
                                 </fieldset> --}}
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title text-center">تم بنجاح</h2> <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-3"> <img
-                                                    src="https://img.icons8.com/color/96/000000/ok--v2.png"
-                                                    class="fit-image"> </div>
-                                        </div> <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-7 text-center">
-                                                <h5>لقد انشأت مزادا جديدا</h5>
+                                @if (!$errors->any())
+                                    <fieldset>
+                                        <div class="form-card">
+                                            <h2 class="fs-title text-center">تم بنجاح</h2> <br><br>
+                                            <div class="row justify-content-center">
+                                                <div class="col-3"> <img
+                                                        src="https://img.icons8.com/color/96/000000/ok--v2.png"
+                                                        class="fit-image">
+                                                </div>
+                                            </div> <br><br>
+                                            <div class="row justify-content-center">
+                                                <div class="col-7 text-center">
+                                                    <h5>لقد انشأت مزادا جديدا</h5>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </fieldset>
+                                    </fieldset>
+                                @endif
                             </form>
                         </div>
                     </div>
