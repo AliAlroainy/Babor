@@ -34,6 +34,10 @@ Route::get('/offer', function () {
     return view('Front.offer');
 });
 
+Route::get('/auctions', function () {
+    return view('Front.auctions');
+});
+
 /////category
 Route::view('/categories', 'Admin.categories.category');
 
