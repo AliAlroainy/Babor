@@ -115,7 +115,7 @@
                                                     {{ $auction->car->model }}
                                                 </td>
                                                 <td>
-                                                    {{ $auction->startPrice }}
+                                                    {{ $auction->openingBid }}
                                                 </td>
                                                 <td>
                                                     {{ $auction->startDate }}

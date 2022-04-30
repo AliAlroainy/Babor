@@ -33,15 +33,19 @@
                                         <h2 class="fs-title">بيانات المزاد</h2>
                                         <div class="end-date col-12 col-md-5">
                                             <input type="date" name="closeDate" class="dark-placeholder form-control  mb-2"
-                                            value="{{ old('name') }}"  placeholder="تاريخ الإنتهاء" />
+                                                value="{{ old('name') }}" placeholder="تاريخ الإنتهاء" />
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="number" name="startPrice"
-                                            value="{{ old('startPrice') }}" class="dark-placeholder form-control mb-2" placeholder="السعر الإبتدائي" />
+                                            <input type="number" name="openingBid" value="{{ old('openingBid') }}"
+                                                class="dark-placeholder form-control mb-2" placeholder="السعر الإبتدائي" />
                                         </div>
                                         <div class="col-md-5">
                                             <input type="number" name="minInc" class="dark-placeholder form-control mb-2"
-                                            value="{{ old('minInc') }}"  placeholder="الحد الادنى للمزايدة" />
+                                                value="{{ old('minInc') }}" placeholder="الحد الادنى للمزايدة" />
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="number" name="reservePrice" value="{{ old('reservePrice') }}"
+                                                class="dark-placeholder form-control mb-2" placeholder="السعر الاحتياطي" />
                                         </div>
                                     </div>
                                     <input type="button" name="next"
@@ -100,30 +104,32 @@
                                             </div> --}}
                                             <div class="col-sm-12 col-md-5 col-lg-2">
                                                 <input type="text" class="form-control dark-placeholder py-10" name="model"
-                                                value="{{ old('model') }}" placeholder="الموديل">
+                                                    value="{{ old('model') }}" placeholder="الموديل">
                                             </div>
                                             <div class="col-sm-12 col-md-5 col-lg-2">
                                                 <input type="text" class="form-control dark-placeholder py-10" name="color"
-                                                value="{{ old('color') }}" placeholder="اللون">
+                                                    value="{{ old('color') }}" placeholder="اللون">
                                             </div>
                                             <div class="col-sm-12 col-md-5 col-lg-2">
                                                 <input type="text" class="form-control dark-placeholder py-10"
-                                                value="{{ old('numberOfKillos') }}"  name="numberOfKillos" placeholder="كم مشت كيلو">
+                                                    value="{{ old('numberOfKillos') }}" name="numberOfKillos"
+                                                    placeholder="كم مشت كيلو">
                                             </div>
                                             <div class="col-sm-12 col-md-8">
                                                 <textarea type="text" class="form-control dark-placeholder" row="20" name="carPosition"
-                                                value="{{ old('carPosition') }}"    placeholder="موقع السيارة"></textarea>
+                                                    value="{{ old('carPosition') }}"
+                                                    placeholder="موقع السيارة"></textarea>
                                             </div>
                                             <div class="col-12 col-md-5 col-lg-3">
                                                 <div class="input-group control-group">
-                                                    <input type="file" name="thumbnail"
-                                                    value="{{ old('thumbnail') }}"  class="form-control dark-placeholder py-13">
+                                                    <input type="file" name="thumbnail" value="{{ old('thumbnail') }}"
+                                                        class="form-control dark-placeholder py-13">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-5 col-lg-3">
                                                 <div class="input-group control-group">
-                                                    <input type="file" name="car_images[]"
-                                                  ض class="form-control dark-placeholder py-13" multiple>
+                                                    <input type="file" name="car_images[]" ض
+                                                        class="form-control dark-placeholder py-13" multiple>
                                                 </div>
                                             </div>
                                         </div>

@@ -13,7 +13,8 @@ class Auction extends Model
     protected $guarded =[];
 
     protected $fillable = [
-        'startPrice',
+        'openingBid',
+        'reservePrice',
         'closeDate',
         'startDate',
         'minInc',  

@@ -55,7 +55,8 @@ class UserAuctionController extends Controller
             'car_images'      => json_encode($data),
         ]);
         $auction = Auction::create([
-            'startPrice'      => $request->input('startPrice'),
+            'openingBid'      => $request->input('openingBid'),
+            'reservePrice'    => $request->input('reservePrice'),
             'closeDate'       => $request->input('closeDate'),
             'startDate'       => now(),
             'minInc'          => $request->input('minInc'),  
