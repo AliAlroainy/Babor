@@ -27,7 +27,7 @@ class ServicesController extends Controller
         $serv->title=$request->title;
         $serv->description=$request->description;
         if($serv->save())
-        return redirect()->route('admin.service.index')->with(['successAdd'=>'تم إضافة الخدمة بنجاح']);
+            return redirect()->route('admin.service.index')->with(['successAdd'=>'تم إضافة الخدمة بنجاح']);
         return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);
 
     }

@@ -24,7 +24,7 @@
                             <a href="{{@url('user/auctions/auctionId')}}" class="auction">
                                 <div class="d-flex justify-content-between rounded m-2">
                                     <div class="auction_brief_info p-2 d-flex flex-column justify-content-between">
-                                        <h4 class="mt-1">
+                                        <h4 class="mt-1 car_name">
                                             فاو BESTUNE T77 2020 فل
                                         </h4>
                                         <div class="group d-flex flex-column ">
@@ -39,7 +39,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="d-flex justify-content-between">
+                                            <div class="d-flex justify-content-between info">
                                                 <div class="bidder">
                                                     <h6>
                                                         أعلى مزايد

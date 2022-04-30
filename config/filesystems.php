@@ -51,9 +51,26 @@ return [
             'visibility' => 'public',
             // 'throw' => false,
         ],
+
         'services' => [
             'driver' => 'local',
             'root' => base_path() . 'public/images/services',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+            // 'throw' => false,
+        ],
+
+        'brands' => [
+            'driver' => 'local',
+            'root' => base_path() . 'public/images/brands',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+            // 'throw' => false,
+        ],
+
+        'cars' => [
+            'driver' => 'local',
+            'root' => base_path() . 'public/images/cars',
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
             // 'throw' => false,
