@@ -50,7 +50,25 @@
                             @endif
                             <div class="table-responsive">
                                 <table class="table table-striped table-hover">
-                                    
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                البائع
+                                            </th>
+                                            <th>
+                                                 الفائز بالمزاد
+                                            </th>
+                                            <th>
+                                                السعر الحالي
+                                            </th>
+                                            <th>
+                                                 وقت انتهاء المزاد
+                                            </th>
+                                            <th>
+                                                 رابط  المزاد
+                                            </th>
+                                        </tr>
+                                    </thead>
                                    
                                 </table>
                             </div>
