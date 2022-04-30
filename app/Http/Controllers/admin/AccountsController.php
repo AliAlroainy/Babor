@@ -10,9 +10,8 @@ class AccountsController extends Controller
 {
     public function index()
     {
-        $route = \Request::route()->getName();
         $user = User::with('profile')->get();
-        return view('admin.accounts.users', ['users' => $user, 'route' => $route ]);
+        return view('admin.accounts.users', ['users' => $user]);
     }
 
     public function destroy($user_id)

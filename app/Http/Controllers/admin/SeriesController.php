@@ -16,10 +16,9 @@ class SeriesController extends Controller
     use ImageTrait;
     public function index()
     {
-        $route = \Request::route()->getName();
-        $series= Series::with('brand')->orderBy('id','desc')->get();
+        $series= Series::with('brand')->orderBy('id')->get();
         $brands = Brand::select('id', 'name')->get();
-        return view('admin.cars.series', ['route' => $route, 'brands' => $brands, 'series' => $series]);
+        return view('admin.cars.series', ['brands' => $brands, 'series' => $series]);
     }
    
     public function store(SeriesRequest $request)

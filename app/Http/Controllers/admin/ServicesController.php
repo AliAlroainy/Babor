@@ -15,9 +15,8 @@ class ServicesController extends Controller
     use ImageTrait;
     public function index()
     {
-        $route = \Request::route()->getName();
-        $services=service::orderBy('id','desc')->get();
-        return view('admin.services.service', ['route' => $route])->with('services',$services);
+        $services=service::orderBy('id')->get();
+        return view('admin.services.service')->with('services',$services);
     }
    
     public function store(ServiceRequest $request)

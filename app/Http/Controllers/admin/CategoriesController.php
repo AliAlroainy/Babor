@@ -20,11 +20,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-
-        $route = \Request::route()->getName();
         $categorie=Category::orderBy('id','desc')->get();
-        return view('Admin.categories.category', ['route' => $route])->with('categorie',$categorie);
-
+        return view('Admin.categories.category')->with('categorie',$categorie);
     }
 
 
