@@ -15,9 +15,8 @@ class BrandsController extends Controller
     use ImageTrait;
     public function index()
     {
-        $route = \Request::route()->getName();
-        $brands= Brand::orderBy('id','desc')->get();
-        return view('admin.cars.brands', ['route' => $route])->with('brands',$brands);
+        $brands= Brand::orderBy('id')->get();
+        return view('admin.cars.brands')->with('brands',$brands);
     }
 
     public function store(BrandRequest $request)

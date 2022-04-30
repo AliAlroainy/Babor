@@ -11,14 +11,15 @@ return new class extends Migration
         Schema::create('auctions', function (Blueprint $table) {
             $table->id();
             $table->string('securityDeposit')->nullable();;
-            $table->decimal('commission', 5, 2)->nullable();
-            $table->decimal('minInc', 5, 2);
+            $table->decimal('commission', 10, 2)->nullable();
+            $table->decimal('minInc', 10, 2);
             $table->date('closeDate');
             $table->date('startDate');
-            $table->integer('startPrice');
-            $table->integer('winnerPrice')->nullable();
+            $table->decimal('openingBid', 20, 2);
+            $table->decimal('reservePrice', 20, 2);
+            $table->decimal('winnerPrice', 20, 2)->nullable();
             $table->string('winner')->nullable();
-            $table->integer('desc')->nullable();;
+            $table->text('desc')->nullable();;
             $table->boolean('status')->default(1);
             $table->boolean('is_active')->default(0);
             $table->timestamps();

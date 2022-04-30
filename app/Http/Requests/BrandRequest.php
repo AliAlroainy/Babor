@@ -25,7 +25,7 @@ class BrandRequest extends FormRequest
             'name.between'  => 'مسموح بالإدخال مابين 3 إلى 10 أحرف',
             'logo.image'  => 'ارفع صورة من فضلك',
             'logo.mimes'  => 'الامتدادات المسموح بها للصور هي: (jpg, png, jpeg, gif, svg)',
-            'logo.max'  => 'أعلى حجم للصورة مسموح به هو  2048 بايت',
+            'logo.max'  => 'أقصى حجم للصورة مسموح به هو  2048 كيلوبايت',
         ];
     }
 }

@@ -168,7 +168,7 @@ div[style*="margin: 16px 0;"] {
 
 .select {
     background-color: transparent;
-    padding-block: 8px;
+    padding-block: .7rem;
 }
 
 .py-13 {
@@ -185,7 +185,7 @@ div[style*="margin: 16px 0;"] {
 
 .select {
     background-color: transparent;
-    padding-block: 14px;
+    padding-block: 8px;
 }
 
 /*=======================================*/
