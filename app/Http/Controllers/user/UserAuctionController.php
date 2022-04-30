@@ -60,7 +60,7 @@ class UserAuctionController extends Controller
             'startDate'       => now(),
             'minInc'          => $request->input('minInc'),  
             'user_id'         => Auth::user()->id, 
-            'car_id'          => $car->id,   
+            'car_id'          => $car->id,
         ]);
         return redirect()->route('user.add.auction')
             ->with('successEdit','تم نشر مزادك');
