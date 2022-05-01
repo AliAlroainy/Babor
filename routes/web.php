@@ -76,17 +76,20 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
         Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
         Route::resource('/auction', AcutionController::class, ['names' => 'admin.auction']);
-        Route::get('/auctions', function (){
-            return view('Admin.auctions.auctions');
-        },['names'=>'admin.auctions']);
-        Route::get('/bids', function (){
-            return view('Admin.auctions.bids');
-        },['names'=>'admin.auctions']);
+
+        // Route::get('/auctions', function (){
+        //     return view('Admin.auctions.auctions');
+        // },['names'=>'admin.auctions']);
+        // Route::get('/bids', function (){
+        //     return view('Admin.auctions.bids');
+        // },['names'=>'admin.auctions']);
+
 
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
     });
     Route::group(['prefix' => 'user', 'middleware'=>'role:user'],function(){
+
         Route::get('/dashboard/profile', [ProfilesController::class,'show'])->name('user.profile') ;
         Route::get('/dashboard/settings/info',[ProfilesController::class,'index'])->name('user.dashboard');
         Route::get('/dashboard/settings/psw', [ProfilesController::class,'index'])->name('change-password-user')->middleware(['auth', 'is_verify_email']);;
@@ -97,6 +100,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/auctions/add_auction', [UserAuctionController::class, 'create'])->name('user.add.auction')->middleware(['auth', 'is_verify_email']);
         Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries')->middleware(['auth', 'is_verify_email']);
         Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction')->middleware(['auth', 'is_verify_email']);
+
 
         Route::get('/auctions/auctionId', function (){
             return view('user.auction.auctionDetails');
@@ -132,6 +136,7 @@ Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->n
 Route::view('/categories', 'Admin.categories.category');
 // Route::view('/auc', 'Admin.auctions.auctions');
 // Route::view('/categories', 'Admin.categories.category');
+
 Route::view('/auc', 'Admin.auctions.auctions');
 
 
@@ -173,3 +178,4 @@ Route::view('/auc', 'Admin.auctions.auctions');
 Route::get('/ser', function () {
     return view('Admin.services.service');
 });
+
