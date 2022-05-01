@@ -19,7 +19,7 @@ class IsVerifyEmail
     { $user=User::where(['email'=>$request->email])->first();
     //     if(empty($user->email_verified_at)){
         if (!Auth::user()->email_verified_at) {
-             auth()->logout();
+           //  auth()->logout();
             return redirect()->route('user.dashboard')->with(
                 [
                     'Emailverfication' => 'يرجى تاكيد حسابك    ',

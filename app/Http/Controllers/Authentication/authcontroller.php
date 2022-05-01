@@ -60,21 +60,21 @@ class AuthController extends Controller
                         ->subject('تسجيل عضوية جديدة');
                 $message->from('baborproject2022@gmail.com','بابور');
             });
-            if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
-                if(Auth::user()->hasRole('user') )
-                return redirect()->route('user.dashboard')->with(
-                    [
-                        'Emailverfication' => 'يرجى تاكيد حسابك    ',
-                    'tab' => 'profile',
-                ]);
+            // if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
+            //     if(Auth::user()->hasRole('user') )
+            //     return redirect()->route('user.dashboard')->with(
+            //         [
+            //             'Emailverfication' => 'يرجى تاكيد حسابك    ',
+            //         'tab' => 'profile',
+            //     ]);
 
-            // return redirect()->route('login')
-            // ->with(['emailVerification'=>'يرجى تأكيد إيميلك']);
+            return redirect()->route('login');
+            // ->with(['emailVerification'=>'  اهلا بك سجل دخولك']);
         }
 
         return back()->with(['errRegistration'=>'فشل في عملية إنشاء الحساب']);
 
-    }}
+    }
     public function verifyAccount($token){
         $user=User::where('remember_token',$token)->first();
         if($user){
@@ -119,7 +119,19 @@ class AuthController extends Controller
             if(Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))//if he login and has admin role and he is active=1 redirct him to dashboard route
                 return redirect()->route('admin.dashboard');
             else
-                return redirect()->route('user.dashboard')->with('tab', 'profile');
+            if (!Auth::user()->email_verified_at) {
+
+                 return redirect()->route('user.dashboard')->with(
+                     [
+                         'Emailverfication' => 'يرجى تاكيد حسابك    ',
+                     'tab' => 'profile',
+                 ]);
+                     }
+                return redirect()->route('user.dashboard')->with(
+                    [
+                        'successRegistration' => ' اهلا بعودتك مره اخرى     ',
+                    'tab' => 'profile',
+                ]);
         }
         else {
             return redirect()->route('login')->with(['errLogin'=>'يرحى التأكد من الإيميل أو كلمة السر، أو قم بتفعيل حساب']);
