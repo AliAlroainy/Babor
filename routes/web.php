@@ -92,22 +92,23 @@ Route::group(['middleware'=>'auth'],function(){
 
         Route::get('/dashboard/profile', [ProfilesController::class,'show'])->name('user.profile') ;
         Route::get('/dashboard/settings/info',[ProfilesController::class,'index'])->name('user.dashboard');
-        Route::get('/dashboard/settings/psw', [ProfilesController::class,'index'])->name('change-password-user')->middleware(['auth', 'is_verify_email']);;
-        Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save')->middleware(['auth', 'is_verify_email']);;
-        Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change')->middleware(['auth', 'is_verify_email']);
-
-        Route::get('/auctions', [UserAuctionController::class, 'index'])->name('user.auctions')->middleware(['auth', 'is_verify_email']);
-        Route::get('/auctions/add_auction', [UserAuctionController::class, 'create'])->name('user.add.auction')->middleware(['auth', 'is_verify_email']);
-        Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries')->middleware(['auth', 'is_verify_email']);
-        Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction')->middleware(['auth', 'is_verify_email']);
-
-
         Route::get('/auctions/auctionId', function (){
             return view('user.auction.auctionDetails');
         })->name('user.auctionDetails');
 
+
+    Route::group([ 'middleware'=>'is_verify_email'],function(){
+            Route::get('/dashboard/settings/psw', [ProfilesController::class,'index'])->name('change-password-user');
+            Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
+            Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
+            Route::get('/auctions', [UserAuctionController::class, 'index'])->name('user.auctions');
+            Route::get('/auctions/add_auction', [UserAuctionController::class, 'create'])->name('user.add.auction');
+            Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
+            Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
+        });
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
+
     });
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 });
@@ -134,8 +135,7 @@ Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
 Route::view('/categories', 'Admin.categories.category');
-// Route::view('/auc', 'Admin.auctions.auctions');
-// Route::view('/categories', 'Admin.categories.category');
+
 
 Route::view('/auc', 'Admin.auctions.auctions');
 
