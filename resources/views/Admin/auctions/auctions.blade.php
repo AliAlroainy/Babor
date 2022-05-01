@@ -14,7 +14,7 @@
                                 <div class="search-bar-top">
                                     <div class="search-bar">
                                         <h4 class="card-title">عرض بحسب</h4>
-                                        <select>
+                                        <select id="filter-company" class="filter form-select">
                                             <option selected="selected"> الكل</option>
                                             <option>اسم السيارة</option>
                                             <option>تاريخ البدء</option>
