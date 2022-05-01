@@ -20,7 +20,7 @@ return new class extends Migration
             $table->decimal('winnerPrice', 20, 2)->nullable();
             $table->string('winner')->nullable();
             $table->text('desc')->nullable();;
-            $table->boolean('status')->default(1);
+            $table->text('status')->default('in-progress');
             $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
