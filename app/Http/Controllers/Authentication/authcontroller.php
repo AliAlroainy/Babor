@@ -46,7 +46,8 @@ class AuthController extends Controller
         $u->password=Hash::make($request->password);
         $u->email=$request->email;
 
-        $token=Str::uuid();
+        // $token=Str::uuid();
+        $token = Str::random(64);
         $u->remember_token=$token;
         if($u->save()){
             $u->attachRole('user');
@@ -59,8 +60,16 @@ class AuthController extends Controller
                         ->subject('تسجيل عضوية جديدة');
                 $message->from('baborproject2022@gmail.com','بابور');
             });
-            return redirect()->route('login')
-            ->with(['emailVerification'=>'يرجى تأكيد إيميلك']);
+            // if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
+            //     if(Auth::user()->hasRole('user') )
+            //     return redirect()->route('user.dashboard')->with(
+            //         [
+            //             'Emailverfication' => 'يرجى تاكيد حسابك    ',
+            //         'tab' => 'profile',
+            //     ]);
+
+            return redirect()->route('login');
+            // ->with(['emailVerification'=>'  اهلا بك سجل دخولك']);
         }
 
         return back()->with(['errRegistration'=>'فشل في عملية إنشاء الحساب']);
@@ -74,8 +83,8 @@ class AuthController extends Controller
             Auth::login($user);
             return redirect()->route('user.dashboard')->with(
                 [
-                    'successRegistration' => 'تم إنشاء حسابك بنجاح',
-                    'tab' => 'profile',
+                    'successRegistration' => 'تم تاكيد حسابك بنجاح',
+                'tab' => 'profile',
             ]);
         }
         else
@@ -110,7 +119,19 @@ class AuthController extends Controller
             if(Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))//if he login and has admin role and he is active=1 redirct him to dashboard route
                 return redirect()->route('admin.dashboard');
             else
-                return redirect()->route('user.dashboard')->with('tab', 'profile');
+            if (!Auth::user()->email_verified_at) {
+
+                 return redirect()->route('user.dashboard')->with(
+                     [
+                         'Emailverfication' => 'يرجى تاكيد حسابك    ',
+                     'tab' => 'profile',
+                 ]);
+                     }
+                return redirect()->route('user.dashboard')->with(
+                    [
+                        'successRegistration' => ' اهلا بعودتك مره اخرى     ',
+                    'tab' => 'profile',
+                ]);
         }
         else {
             return redirect()->route('login')->with(['errLogin'=>'يرحى التأكد من الإيميل أو كلمة السر، أو قم بتفعيل حساب']);
