@@ -95,7 +95,7 @@ function filter_function1(){
 //////////////// filtering
 $('.filter2').change(function(){
 
-  filter_function1();
+  filter_function2();
   
   //calling filter function each select box value change
   
@@ -103,7 +103,7 @@ $('.filter2').change(function(){
 
 $('.Auction_card .status_filed ').show(); //intially all rows will be shown
 
-function filter_function1(){
+function filter_function2(){
   $('.Auction_card .status_filed ').hide(); //hide all rows
   
   var companyFlag = 0;
