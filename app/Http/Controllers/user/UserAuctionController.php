@@ -20,6 +20,7 @@ class UserAuctionController extends Controller
         $auctions= Auction::orderBy('id')->get();
         return view('Front.Auction.auctions', ['is_user' => $is_user])->with('auctions',$auctions);
     }
+    
     public function create(){
         $brands = Brand::all();
         return view('Front.Auction.add-auction', ['brands' => $brands]);
