@@ -19,4 +19,23 @@ function filter_function(){
   //setting intial values and flags needed
   
  //traversing each row one by one
+  $('.Auction_filed').each(function() {  
   
+    if(companyValue == 0){   //if no value then display row
+    companyFlag = 1;
+    }
+    else if(companyValue == $(this).find('td.name').data('name')){ 
+      companyFlag = 1;       //if value is same display row
+    }
+    else{
+      companyFlag = 0;
+    }
+    
+    
+
+   if(companyFlag ){
+     $(this).show();  //displaying row which satisfies all conditions
+   }
+
+});   
+}
