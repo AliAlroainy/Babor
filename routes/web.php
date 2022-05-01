@@ -80,9 +80,9 @@ Route::group(['middleware'=>'auth'],function(){
         // Route::get('/auctions', function (){
         //     return view('Admin.auctions.auctions');
         // },['names'=>'admin.auctions']);
-        // Route::get('/bids', function (){
-        //     return view('Admin.auctions.bids');
-        // },['names'=>'admin.auctions']);
+        Route::get('/bids', function (){
+            return view('Admin.auctions.bids');
+        },['names'=>'admin.auctions']);
 
 
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
