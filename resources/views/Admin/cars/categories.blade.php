@@ -187,8 +187,8 @@
                             <div class="row">
                                 <div class="col md-3">
                                     <label for="Image" class="form-label">أيقونة التصنيف</label>
-                                    <input type="file" id="Image" class="form-control" name="Image" placeholder=""
-                                        value="{{ old('Image') }}">
+                                    <input type="file" id="image" class="form-control" name="image" placeholder=""
+                                        value="{{ old('image') }}">
                                 </div>
                             </div>
                         </div>
