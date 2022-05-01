@@ -48,7 +48,7 @@ function filter_function(){
 //////////////// filtering
 $('.filter1').change(function(){
 
-  filter_function();
+  filter_function1();
   
   //calling filter function each select box value change
   
@@ -56,7 +56,7 @@ $('.filter1').change(function(){
 
 $('.Auction_card .brand_filed ').show(); //intially all rows will be shown
 
-function filter_function(){
+function filter_function1(){
   $('.Auction_card .brand_filed ').hide(); //hide all rows
   
   var companyFlag = 0;
@@ -86,3 +86,10 @@ function filter_function(){
 });   
 }
 
+
+
+
+/////////////////////////filter status
+
+
+//////////////// filtering
