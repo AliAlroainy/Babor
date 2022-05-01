@@ -17,6 +17,7 @@ class UserAuctionController extends Controller
     public function index()
     {
         $auctions= Auction::orderBy('id')->get();
+        
         return view('Front.Auction.auctions')->with('auctions',$auctions);
     }
 
@@ -40,7 +41,6 @@ class UserAuctionController extends Controller
         if($request->hasfile('car_images')){
             foreach($request->file('car_images') as $file)
             {
-                // dd(time());
                 $images = $this->saveImage($file, 'images/cars/car_images');
                 $data[] = $images;  
             }
