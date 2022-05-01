@@ -60,6 +60,59 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($services as $service)
+                                        <div class="modal fade" id="editModal-{{ $service->id }}" tabindex="-1"
+                                            aria-hidden="true">
+                                           <div class="modal-dialog" role="document">
+                                               <form action="{{ route('admin.service.update', $service->id) }}"
+                                                     method="POST" enctype="multipart/form-data">
+                                                   @csrf
+                                                   @method('PATCH')
+                                                   <div class="modal-content">
+                                                       <div class="modal-header">
+                                                           <h5 class="modal-title" id="exampleModalLabel1">عدل
+                                                               الخدمة</h5>
+                                                       </div>
+                                                       <div class="modal-body">
+                                                           <div class="row">
+                                                               <div class="col mb-3">
+                                                                   <label for="editTitle" class="form-label">إسم
+                                                                       الخدمة</label>
+                                                                   <input type="text" id="editTitle"
+                                                                          class="form-control" name="title"
+                                                                          value="{{ $service->title ?? '' }}"
+                                                                          placeholder="اسم الخدمة">
+                                                               </div>
+                                                           </div>
+                                                           <div class="row">
+                                                               <div class="col mb-3">
+                                                                   <label for="editDesc"
+                                                                          class="form-label">الوصف</label>
+                                                                   <input type="text" id="editDesc"
+                                                                          class="form-control" name="description"
+                                                                          value="{{ $service->description ?? '' }}"
+                                                                          placeholder="وصف الخدمة">
+                                                               </div>
+                                                           </div>
+                                                           <div class="row">
+                                                               <div class="col md-3">
+                                                                   <label for="editPic" class="form-label">أيقونة
+                                                                       الخدمة</label>
+                                                                   <input type="file" id="editPic"
+                                                                          class="form-control" name="pic"
+                                                                          placeholder="">
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                       <div class="modal-footer">
+                                                           <button type="button" class="btn btn-outline-secondary"
+                                                                   data-bs-dismiss="modal">إلغاء</button>
+                                                           <button type="submit"
+                                                                   class="btn btn-primary text-white">تعديل</button>
+                                                       </div>
+                                                   </div>
+                                               </form>
+                                           </div>
+                                       </div>
                                             <tr>
                                                 <td class="py-1">
                                                     <img src="/images/services/{{ $service->pic }}" alt="image" />
@@ -107,6 +160,7 @@
                                                                 <i class="fas fa-trash-restore pe-2"
                                                                     style="font-size: 12px ;"></i>
                                                             </button>
+
                                                         @endif
                                                     </form>
                                                 </td>
@@ -130,7 +184,7 @@
 
         <!-- Modal -->
 
-        <div class="modal fade" id="editModal-{{ $service->id }}" tabindex="-1"
+        {{-- <div class="modal fade" id="editModal-{{ $service->id }}" tabindex="-1"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <form action="{{ route('admin.service.update', $service->id) }}"
@@ -182,7 +236,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> --}}
 
 
         <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
