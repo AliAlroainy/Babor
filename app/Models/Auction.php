@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Auction extends Model
 {
@@ -12,7 +13,8 @@ class Auction extends Model
     protected $guarded =[];
 
     protected $fillable = [
-        'startPrice',
+        'openingBid',
+        'reservePrice',
         'closeDate',
         'startDate',
         'minInc',  
@@ -20,9 +22,8 @@ class Auction extends Model
         'car_id' 
     ];
 
-    public function car(): HasOne
+    public function car(): BelongsTo
     {
-        return $this->hasOne(Car::class, 'car_id');
+        return $this->belongsTo(Car::class, 'car_id');
     }
-
 }

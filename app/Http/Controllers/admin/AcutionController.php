@@ -14,11 +14,8 @@ class AcutionController extends Controller
      */
     public function index()
     {
-        //
-        $route = \Request::route()->getName();
-        $auctions = Auction::orderBy('id','desc')->get();
-
-        return view('Admin.auctions.auctions', ['route' => $route])->with('auctions',$auctions);
+        $auctions = Auction::orderBy('id')->get();
+        return view('Admin.auctions.auctions')->with('auctions',$auctions);
 
     }
 
