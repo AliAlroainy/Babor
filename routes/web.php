@@ -135,8 +135,7 @@ Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
 Route::view('/categories', 'Admin.categories.category');
-// Route::view('/auc', 'Admin.auctions.auctions');
-// Route::view('/categories', 'Admin.categories.category');
+
 
 Route::view('/auc', 'Admin.auctions.auctions');
 
