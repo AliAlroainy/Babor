@@ -26,20 +26,24 @@
                                         <div class="end-date col-12 col-md-5 mb-4">
                                             <input type="date" name="closeDate"
                                                 class="bg-transparent dark-placeholder form-control"
-                                                value="{{ old('name') }}" placeholder="تاريخ الإنتهاء" />
+                                                value="{{ old('closeDate', $car->closeDate ?? null) }}"
+                                                placeholder="تاريخ الإنتهاء" />
                                         </div>
                                         <div class="col-md-5 mb-4">
-                                            <input type="text" name="openingBid" value="{{ old('openingBid') }}"
+                                            <input type="text" name="openingBid"
+                                                value="{{ old('openingBid', $car->openingBid ?? null) }}"
                                                 class="bg-transparent dark-placeholder form-control"
                                                 placeholder="السعر الإبتدائي" />
                                         </div>
                                         <div class="col-md-5 mb-4">
                                             <input type="text" name="minInc"
                                                 class="bg-transparent dark-placeholder form-control"
-                                                value="{{ old('minInc') }}" placeholder="الحد الادنى للمزايدة" />
+                                                value="{{ old('minInc', $car->minInc ?? null) }}"
+                                                placeholder="الحد الادنى للمزايدة" />
                                         </div>
                                         <div class="col-md-5 mb-4">
-                                            <input type="text" name="reservePrice" value="{{ old('reservePrice') }}"
+                                            <input type="text" name="reservePrice"
+                                                value="{{ old('reservePrice', $car->reservePrice ?? null) }}"
                                                 class="bg-transparent dark-placeholder form-control"
                                                 placeholder="السعر الاحتياطي" />
                                         </div>
@@ -55,7 +59,9 @@
                                                 <option selected disabled>اختر البراند</option>
                                                 @if (isset($brands) && $brands->count() > 0)
                                                     @foreach ($brands as $brand)
-                                                        <option value="{{ $brand->id }}">{{ $brand->name }}
+                                                        <option value="{{ $brand->id }}"
+                                                            {{ old('brand_id') == $brand->id ? 'selected' : '' }}>
+                                                            {{ $brand->name }}
                                                         </option>
                                                     @endforeach
                                                 @endif
@@ -69,21 +75,22 @@
                                         </div>
                                         <div class="col-sm-12 col-md-5 col-lg-4 mb-4">
                                             <input type="text" class="bg-transparent dark-placeholder form-control"
-                                                name="model" value="{{ old('model') }}" placeholder="الموديل">
-                                        </div>
-                                        <div class="col-sm-12 col-md-5 col-lg-2 mb-4">
-                                            <input type="color" class="bg-transparent dark-placeholder form-control"
-                                                name="color" value="{{ old('color') }}" placeholder="اللون">
+                                                name="model" value="{{ old('model', $car->model ?? null) }}"
+                                                placeholder="الموديل">
                                         </div>
                                         <div class="col-sm-12 col-md-5 col-lg-2 mb-4">
                                             <input type="text" class="bg-transparent dark-placeholder form-control"
-                                                value="{{ old('numberOfKillos') }}" name="numberOfKillos"
-                                                placeholder="كم مشت كيلو">
+                                                name="color" value="{{ old('color', $car->color ?? null) }}"
+                                                placeholder="اللون">
+                                        </div>
+                                        <div class="col-sm-12 col-md-5 col-lg-2 mb-4">
+                                            <input type="text" class="bg-transparent dark-placeholder form-control"
+                                                value="{{ old('numberOfKillos', $car->numberOfKillos ?? null) }}"
+                                                name="numberOfKillos" placeholder="كم مشت كيلو">
                                         </div>
                                         <div class="col-sm-12 col-md-8 mb-4">
                                             <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="carPosition"
-                                                value="{{ old('carPosition') }}"
-                                                placeholder="موقع السيارة"></textarea>
+                                                placeholder="موقع السيارة">{{ old('carPosition', $car->carPosition ?? null) }}</textarea>
                                         </div>
                                         <div class="col-12 col-md-5 col-lg-3 mb-4">
                                             <div class="input-group control-group">
