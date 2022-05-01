@@ -46,7 +46,8 @@ class AuthController extends Controller
         $u->password=Hash::make($request->password);
         $u->email=$request->email;
 
-        $token=Str::uuid();
+        // $token=Str::uuid();
+        $token = Str::random(64);
         $u->remember_token=$token;
         if($u->save()){
             $u->attachRole('user');
@@ -59,13 +60,21 @@ class AuthController extends Controller
                         ->subject('تسجيل عضوية جديدة');
                 $message->from('baborproject2022@gmail.com','بابور');
             });
-            return redirect()->route('login')
-            ->with(['emailVerification'=>'يرجى تأكيد إيميلك']);
+            if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
+                if(Auth::user()->hasRole('user') )
+                return redirect()->route('user.dashboard')->with(
+                    [
+                        'Emailverfication' => 'يرجى تاكيد حسابك    ',
+                    'tab' => 'profile',
+                ]);
+
+            // return redirect()->route('login')
+            // ->with(['emailVerification'=>'يرجى تأكيد إيميلك']);
         }
 
         return back()->with(['errRegistration'=>'فشل في عملية إنشاء الحساب']);
 
-    }
+    }}
     public function verifyAccount($token){
         $user=User::where('remember_token',$token)->first();
         if($user){
@@ -74,8 +83,8 @@ class AuthController extends Controller
             Auth::login($user);
             return redirect()->route('user.dashboard')->with(
                 [
-                    'successRegistration' => 'تم إنشاء حسابك بنجاح',
-                    'tab' => 'profile',
+                    'successRegistration' => 'تم تاكيد حسابك بنجاح',
+                'tab' => 'profile',
             ]);
         }
         else

@@ -10,6 +10,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
+        @if (session()->has('Emailverfication'))
+        <div class="alert alert-dismissible alert-danger fade show" role="alert">
+            {{ session()->get('Emailverfication') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
         <div class="row">
             <div class="col-12">
                 <div class="card">
