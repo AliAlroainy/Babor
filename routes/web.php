@@ -100,7 +100,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/auctions/add_auction', [UserAuctionController::class, 'create'])->name('user.add.auction')->middleware(['auth', 'is_verify_email']);
         Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries')->middleware(['auth', 'is_verify_email']);
         Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction')->middleware(['auth', 'is_verify_email']);
-
+        // Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction')->middleware(['auth', 'is_
 
         Route::get('/auctions/auctionId', function (){
             return view('user.auction.auctionDetails');

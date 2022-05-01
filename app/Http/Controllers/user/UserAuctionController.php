@@ -16,11 +16,10 @@ class UserAuctionController extends Controller
     use ImageTrait;
     public function index()
     {
-        $is_user = true;
         $auctions= Auction::orderBy('id')->get();
-        return view('Front.Auction.auctions', ['is_user' => $is_user])->with('auctions',$auctions);
+        return view('Front.Auction.auctions')->with('auctions',$auctions);
     }
-    
+
     public function create(){
         $brands = Brand::all();
         return view('Front.Auction.add-auction', ['brands' => $brands]);
