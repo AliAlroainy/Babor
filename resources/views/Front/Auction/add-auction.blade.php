@@ -15,6 +15,12 @@
                             </ul>
                         </div>
                     @endif
+                    @if (session()->has('successSubmit'))
+                        <div class="alert alert-warning alert-dismissible fade show">
+                            {{ session()->get('successSubmit') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="row">
                         <div class="col-md-12 mx-0">
                             <form class="msform" action="{{ route('user.save.auction') }}" method="POST"
@@ -56,6 +62,20 @@
                                         <div class="col-sm-12 col-md-5 col-lg-3 mb-4">
                                             <select id="brand" name="brand_id"
                                                 class="w-100 bg-transparent dark-placeholder select px-2">
+                                                <option selected disabled>اختر التصنيف</option>
+                                                @if (isset($categories) && $categories->count() > 0)
+                                                    @foreach ($categories as $category)
+                                                        <option value="{{ $category->id }}"
+                                                            {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                                            {{ $category->name }}
+                                                        </option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-12 col-md-5 col-lg-3 mb-4">
+                                            <select id="brand" name="brand_id"
+                                                class="w-100 bg-transparent dark-placeholder select px-2">
                                                 <option selected disabled>اختر البراند</option>
                                                 @if (isset($brands) && $brands->count() > 0)
                                                     @foreach ($brands as $brand)
@@ -88,9 +108,43 @@
                                                 value="{{ old('numberOfKillos', $car->numberOfKillos ?? null) }}"
                                                 name="numberOfKillos" placeholder="كم مشت كيلو">
                                         </div>
-                                        <div class="col-sm-12 col-md-8 mb-4">
+                                        <div class="col-sm-12 col-md-6 mb-4">
+                                            <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="description"
+                                                placeholder="وصف السيارة">{{ old('description', $car->description ?? null) }}</textarea>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6 mb-4">
                                             <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="carPosition"
                                                 placeholder="موقع السيارة">{{ old('carPosition', $car->carPosition ?? null) }}</textarea>
+                                        </div>
+                                        <div class="col-12 col-md-5 col-lg-3 mb-4">
+                                            <select id="sizOfDamage" name="sizOfDamage"
+                                                class="w-100 bg-transparent dark-placeholder select px-2">
+                                                <option selected disabled>اختر حجم الضرر</option>
+                                                @foreach ($damages as $key => $value)
+                                                    <option value="{{ $key }}"
+                                                        {{ old('sizOfDamage') == $key ? 'selected' : '' }}>
+                                                        {{ $value }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-12 col-md-5 col-lg-3 mb-4">
+                                            <p class="text-end">حالة السيارة</p>
+                                            <div class="d-flex">
+                                                <div class="form-check">
+                                                    <input type="radio" name="status" id="used" value="0">
+                                                    <label class="form-check-label" for="used">
+                                                        مستعملة
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="radio" name="status" id="new" value="1" checked>
+                                                    <label class="form-check-label" for="new">
+                                                        جديدة
+                                                    </label>
+                                                </div>
+                                            </div>
+
                                         </div>
                                         <div class="col-12 col-md-5 col-lg-3 mb-4">
                                             <div class="input-group control-group">

@@ -21,6 +21,12 @@ class Car extends Model
         'car_images',
     ];
 
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+    
     public function brand(): BelongsTo
     {
         return $this->belongsTo(Brand::class, 'brand_id');
