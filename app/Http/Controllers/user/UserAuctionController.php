@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Models\Car;
 use App\Models\Brand;
 use App\Models\Auction;
+use App\Models\Category;
 use App\Trait\ImageTrait;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,15 +17,19 @@ class UserAuctionController extends Controller
     use ImageTrait;
     public function index()
     {
-        $auctions= Auction::orderBy('id')->get();
-        
+        $auctions= Auction::orderBy('id')->get();   
         return view('Front.Auction.auctions')->with('auctions',$auctions);
     }
 
     public function create(){
-        $brands = Brand::all();
-        return view('Front.Auction.add-auction', ['brands' => $brands]);
+        $brands = Brand::where('is_active', 1)->select('id', 'name')->get();
+        $categories = Category::where('is_active', 1)->select('id', 'name')->get();
+        return view('Front.Auction.add-auction', [
+            'brands'     => $brands, 
+            'categories' => $categories,
+        ]);
     }
+    
     public function getSeries(Request $request){
         $series = \DB::table('series')->where('brand_id', $request->brand_id)->get(); 
         if (count($series) > 0) {
@@ -46,12 +51,16 @@ class UserAuctionController extends Controller
             }
         }
         $car = Car::create([
+            'category_id'     => $request->input('category_id'),
             'brand_id'        => $request->input('brand_id'),
             'series_id'       => $request->input('series_id'),
             'model'           => $request->input('model'),
             'color'           => $request->input('color'),
             'numberOfKillos'  => $request->input('numberOfKillos'),
+            'description'     => $request->input('description'),
             'carPosition'     => $request->input('carPosition'),
+            'sizOfDamage'     => $request->input('sizOfDamage'),
+            'status'          => $request->input('status'),
             'thumbnail'       => $thumbnail,
             'car_images'      => json_encode($data),
         ]);
@@ -65,7 +74,7 @@ class UserAuctionController extends Controller
             'car_id'          => $car->id,
         ]);
         return redirect()->route('user.add.auction')
-            ->with('successEdit','تم نشر مزادك');
+            ->with('successSubmit','مزادك في انتظار موافقة المسؤول');
     }
 
     public function udpate(Request $request){

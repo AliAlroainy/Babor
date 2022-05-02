@@ -10,14 +10,16 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            // $table->enum('sizOfDamage', array_keys(['سطحي', 'متوسط', 'كبير']))->nullable();
-            // $table->enum('status', array_keys(['جديدة','مستعملة']))->nullable();
+            $table->enum('sizOfDamage', array_keys(['لا يوجد', 'سطحي', 'متوسط', 'كبير']))->nullable();
+            $table->enum('status', array_keys(['جديدة','مستعملة']))->nullable();
             $table->string('color');
             $table->integer('model');
             $table->integer('numberOfKillos');
             $table->string('thumbnail');
             $table->string('car_images')->nullable();
             $table->text('carPosition');
+            $table->longText('description')->nullable();
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

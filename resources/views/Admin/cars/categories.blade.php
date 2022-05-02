@@ -10,7 +10,7 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">عرض الاقسام</h4>
+                            <h4 class="card-title">عرض الأقسام</h4>
                             @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     {{ session()->get('errorEdit') }}
@@ -51,14 +51,14 @@
                                                 الصورة
                                             </th>
                                             <th>
-                                                إسم القسم
+                                                اسم التصنيف
                                             </th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                      @foreach ($categorie as $category)
+                                        @foreach ($categorie as $category)
                                             <div class="modal fade" id="editModal-{{ $category->id }}" tabindex="-1"
                                                 aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
@@ -69,24 +69,24 @@
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title" id="exampleModalLabel1">عدل
-                                                                    القسم</h5>
+                                                                    التصنيف</h5>
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class="row">
                                                                     <div class="col mb-3">
                                                                         <label for="editTitle" class="form-label">إسم
-                                                                            القسم</label>
+                                                                            التصنيف</label>
                                                                         <input type="text" id="editTitle"
                                                                             class="form-control" name="name"
                                                                             value="{{ $category->name ?? '' }}"
-                                                                            placeholder="اسم الخدمة">
+                                                                            placeholder="اسم التصنيف">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row">
                                                                     <div class="col md-3">
                                                                         <label for="editPic" class="form-label">أيقونة
-                                                                            القسم</label>
+                                                                            التصنيف</label>
                                                                         <input type="file" id="editPic"
                                                                             class="form-control" name="pic"
                                                                             placeholder="">
@@ -105,7 +105,7 @@
                                             </div>
                                             <tr>
                                                 <td class="py-1">
-                                                    <img src="/images/categories/{{ $category->Image }}" alt="image" />
+                                                    <img src="/images/categories/{{ $category->image }}" alt="image" />
                                                 </td>
                                                 <td>
                                                     {{ $category->name }}
@@ -173,21 +173,22 @@
                     @csrf
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel1">أضف قسم</h5>
+                            <h5 class="modal-title" id="exampleModalLabel1">أضف تصنيف</h5>
                         </div>
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col mb-3">
-                                    <label for="name" class="form-label">إسم القسم</label>
+                                    <label for="name" class="form-label">إسم التصنيف</label>
                                     <input type="text" id="title" class="form-control" name="name"
-                                        placeholder="عنوان الخدمة"value="{{ old('name') }}">
+                                        placeholder="عنوان التصنيف" value="{{ old('name') }}">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col md-3">
-                                    <label for="Image" class="form-label">أيقونة القسم</label>
-                                    <input type="file" id="Image" class="form-control" name="Image" placeholder="" value="{{ old('Image') }}">
+                                    <label for="Image" class="form-label">أيقونة التصنيف</label>
+                                    <input type="file" id="image" class="form-control" name="image" placeholder=""
+                                        value="{{ old('image') }}">
                                 </div>
                             </div>
                         </div>
