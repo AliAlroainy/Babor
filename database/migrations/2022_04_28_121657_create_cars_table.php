@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('car_images')->nullable();
             $table->text('carPosition');
             $table->longText('description')->nullable();
-            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }
