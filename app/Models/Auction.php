@@ -26,4 +26,8 @@ class Auction extends Model
     {
         return $this->belongsTo(Car::class, 'car_id');
     }
+
+    public static function getAuctionStatusValues(){
+        return ['معلق','جارية', 'ملغاة', 'مكتملة'];
+    }
 }

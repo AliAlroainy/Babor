@@ -17,23 +17,19 @@ class UserAuctionController extends Controller
     use ImageTrait;
     public function index()
     {
-        $auctions= Auction::orderBy('id')->get();
-        
+        $auctions= Auction::orderBy('id')->get();   
         return view('Front.Auction.auctions')->with('auctions',$auctions);
     }
 
     public function create(){
-        $brands = Brand::all();
-        $categories = Category::all();
-        $damages = ['لا يوجد', 'سطحي', 'متوسط', 'كبير'];
-        $status = ['جديدة','مستعملة'];
+        $brands = Brand::where('is_active', 1)->select('id', 'name')->get();
+        $categories = Category::where('is_active', 1)->select('id', 'name')->get();
         return view('Front.Auction.add-auction', [
             'brands'     => $brands, 
-            'categories' => $categories, 
-            'damages'    => $damages, 
-            'status'     => $status,
+            'categories' => $categories,
         ]);
     }
+    
     public function getSeries(Request $request){
         $series = \DB::table('series')->where('brand_id', $request->brand_id)->get(); 
         if (count($series) > 0) {

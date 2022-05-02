@@ -60,13 +60,12 @@
                                     <div class="form-card text-center row">
                                         <h2 class="fs-title text-end text-muted">بيانات السيارة</h2>
                                         <div class="col-sm-12 col-md-5 col-lg-3 mb-4">
-                                            <select id="brand" name="brand_id"
+                                            <select id="category" name="category_id"
                                                 class="w-100 bg-transparent dark-placeholder select px-2">
                                                 <option selected disabled>اختر التصنيف</option>
                                                 @if (isset($categories) && $categories->count() > 0)
                                                     @foreach ($categories as $category)
-                                                        <option value="{{ $category->id }}"
-                                                            {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                                        <option value="{{ $category->id }}">
                                                             {{ $category->name }}
                                                         </option>
                                                     @endforeach
@@ -120,7 +119,7 @@
                                             <select id="sizOfDamage" name="sizOfDamage"
                                                 class="w-100 bg-transparent dark-placeholder select px-2">
                                                 <option selected disabled>اختر حجم الضرر</option>
-                                                @foreach ($damages as $key => $value)
+                                                @foreach (App\Models\Car::getSizOfDamageValues() as $key => $value)
                                                     <option value="{{ $key }}"
                                                         {{ old('sizOfDamage') == $key ? 'selected' : '' }}>
                                                         {{ $value }}
@@ -134,13 +133,13 @@
                                                 <div class="form-check">
                                                     <input type="radio" name="status" id="used" value="0">
                                                     <label class="form-check-label" for="used">
-                                                        مستعملة
+                                                        {{ App\Models\Car::getStatusAttribute(0) }}
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input type="radio" name="status" id="new" value="1" checked>
                                                     <label class="form-check-label" for="new">
-                                                        جديدة
+                                                        {{ App\Models\Car::getStatusAttribute(1) }}
                                                     </label>
                                                 </div>
                                             </div>

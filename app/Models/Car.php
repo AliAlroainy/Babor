@@ -11,6 +11,7 @@ class Car extends Model
     use HasFactory;
 
     protected $fillable = [
+        'category_id',
         'brand_id',
         'series_id',
         'model',
@@ -40,5 +41,13 @@ class Car extends Model
     public function auction(): HasOne
     {
         return $this->hasOne(Auction::class, 'car_id');
+    }
+
+    public static function getStatusAttribute($key){
+        return $key == 0 ? 'جديدة' : 'مستعملة';
+    }
+
+    public static function getSizOfDamageValues(){
+        return ['لا يوجد', 'سطحي', 'متوسط', 'كبير'];
     }
 }
