@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
-            $table->boolean('status')->default(1);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
 
         });

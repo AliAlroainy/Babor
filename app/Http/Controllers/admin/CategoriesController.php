@@ -63,11 +63,11 @@ class CategoriesController extends Controller
 
     public function destroy($categories_id)
     {
-        $Category = Category::find($categories_id);
-        if(!$Category)
+        $category = Category::find($categories_id);
+        if(!$category)
             return abort('404');
-        $Category->status *= -1;
-        if($Category->save())
+        $category->is_active *= -1;
+        if($category->save())
             return back();
     }
 

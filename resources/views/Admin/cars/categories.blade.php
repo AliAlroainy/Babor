@@ -128,7 +128,7 @@
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        @if ($category->status == 1)
+                                                        @if ($category->is_active == 1)
                                                             <button style="width: fit-content"
                                                                 class="
                                                         btn d-flex align-items-center
