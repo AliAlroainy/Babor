@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             BrandSeeder::class,
             SeriesSeeder::class,
             CarSeeder::class,
+            ServiceSeeder::class,
 
         ]);
 
