@@ -21,7 +21,7 @@ class BrandSeeder extends Seeder
         foreach (range(1,5) as $index) {
           DB::table('brands')->insert([
               'name' => $faker->word(),
-              'logo' => $faker->image('public/images/categories',640,480, null, false),
+              'logo' => $faker->image('public/images/brands',640,480, null, false),
               'is_active' => $faker->numberBetween(1,0),
               'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
               'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
