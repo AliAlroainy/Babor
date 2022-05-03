@@ -21,9 +21,10 @@ class DatabaseSeeder extends Seeder
         // $this->call(CarSeeder::class);
 
         $this->call([
-            UserSeeder::class,
             RoleSeeder::class,
+            UserSeeder::class,
             CategorySeeder::class,
+            BrandSeeder::class,
             CarSeeder::class,
         ]);
 
