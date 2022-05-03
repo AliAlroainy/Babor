@@ -13,75 +13,37 @@ use Illuminate\Support\Facades\File;
 class CategoriesController extends Controller
 {
     use ImageTrait;
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $categorie=Category::orderBy('id','desc')->get();
-        return view('Admin.categories.category')->with('categorie',$categorie);
+        return view('Admin.cars.categories')->with('categorie',$categorie);
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreCategoryRequest $request)
     {
-        //
         $categories = new Category();
-        $categories->Image = $request->hasFile('Image')? $this->saveImage($request->Image, 'images/categories'):"default.png";
+        $categories->image = $request->hasFile('image')? $this->saveImage($request->image, 'images/categories'):"default.png";
         $categories->name=$request->name;
         if($categories->save())
-        return redirect()->route('admin.category.index')->with(['successAdd'=>'تمت الإضافة بنجاح']);
+            return redirect()->route('admin.category.index')->with(['successAdd'=>'تمت الإضافة بنجاح']);
         return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(StoreCategoryRequest  $request, $id)
     {
         //
@@ -89,38 +51,30 @@ class CategoriesController extends Controller
         if(!$categories){
             return redirect()->back()->with(['errorEdit'=>'لا تستطيع التعديل']);
         }else{
-            if($request->hasFile('Image')){
-                $this->Image_remove($id);
-                $categories->Image = $this->saveImage($request->Image, 'images/categories');
+            if($request->hasFile('image')){
+                $this->image_remove($id);
+                $categories->image = $this->saveImage($request->image, 'images/categories');
             }
-            $categories->update($request->except(['_token', 'Image']));
+            $categories->update($request->except(['_token', 'image']));
             if($categories->save())
                 return redirect()->route('admin.category.index')->with(['successEdit'=>'تم التعديل بنجاح']);
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($categories_id)
     {
-
-            $Category = Category::find($categories_id);
-            if(!$Category)
-                return abort('404');
-            $Category->status *= -1;
-            if($Category->save())
-                return back();
+        $category = Category::find($categories_id);
+        if(!$category)
+            return abort('404');
+        $category->is_active *= -1;
+        if($category->save())
+            return back();
     }
-    public function Image_remove($categories_id){
-        $categories_Image = Category::where('id', $categories_id)->first()->Image;
-        if($categories_Image != 'default.png')
-            File::delete(public_path("images/categories/{$categories_Image}"));
+
+    public function image_remove($categories_id){
+        $categories_image = Category::where('id', $categories_id)->first()->image;
+        if($categories_image != 'default.png')
+            File::delete(public_path("images/categories/{$categories_image}"));
         return;
     }
-
-
 }

@@ -19,18 +19,13 @@ return new class extends Migration
             $table->decimal('reservePrice', 20, 2);
             $table->decimal('winnerPrice', 20, 2)->nullable();
             $table->string('winner')->nullable();
-            $table->text('desc')->nullable();;
-            $table->boolean('status')->default(1);
+            $table->text('desc')->nullable();
+            $table->enum('status', array_keys(['معلقة','جارية', 'ملغاة', 'مكتملة']))->default(0);
             $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('auctions');

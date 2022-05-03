@@ -14,17 +14,18 @@ class StoreAuctionRequest extends FormRequest
     public function rules()
     {
         return [
+            'category_id'   => 'required|exists:categories,id',
             'brand_id'      => 'required|exists:brands,id',
             'series_id'     => 'required|exists:series,id',
             'thumbnail'     => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:800',
             'car_images.*'  => 'image|mimes:jpg,png,jpeg,gif,svg|max:800',
             // 'model'         => 'required|digits:4|date|min:1900|max:'.date('Y'),
+            'numberOfKillos'=> 'integer',
             'openingBid'    => 'required|regex:/^\d+(\.\d{1,2})?$/',
             'minInc'        => 'required|regex:/^\d+(\.\d{1,2})?$/',
             'carPosition'   => 'required|string|between: 5,100',
-            'color'         => 'required|regex:/^[\pL\s]+$/u',
+            // 'color'         => 'required|regex:/^[\pL\s]+$/u',
             'closeDate'     => 'required|date|after:now',
-            'numberOfKillos'=> 'integer',
         ];
     }
 
@@ -33,6 +34,8 @@ class StoreAuctionRequest extends FormRequest
         return [
             'brand_id.required'       => 'حقل الماركة مطلوب',
             'brand_id.exists'         => 'لابد أن يكون هذا الحقل موجودا بالفعل في جدول الماركات بقاعدة البيانات',
+            'category_id.required'    => 'حقل التصنيف مطلوب',
+            'category_id.exists'      => 'لابد أن يكون هذا الحقل موجودا بالفعل في جدول التصنيفات بقاعدة البيانات',
             'series_id.required'      => 'حقل نوع السيارة مطلوب',
             'series_id.exists'        => 'لابد أن يكون هذا الحقل موجودا بالفعل في جدول الأنواع بقاعدة البيانات',
             'thumbnail.image'         => 'ارفع صورة من فضلك',
@@ -47,6 +50,7 @@ class StoreAuctionRequest extends FormRequest
             'model.date'              => 'هذا الحقل سنة تاريخ',
             // 'model.min'               => 'لا ندخل في مزادنا موديلات ما قبل عام 1900',
             'model.max'               => 'تأكد من سنة الموديل',
+            'numberOfKillos.integer'  => 'هذا الحقل يكون أرقاماا فقط',
             'openingBid.required'     => 'حقل السعر الذي يبدأ به المزاد مطلوب',
             'openingBid.regex'        => 'حقل السعر الذي يبدأ به المزاد يكون أرقاما فقط',
             'minInc.required'         => 'حقل أقل سعر للمزايدة مطلوب',
@@ -54,12 +58,11 @@ class StoreAuctionRequest extends FormRequest
             'carPosition.required'    => 'حقل موقع السيارة مطلوب',
             'carPosition.string'      => 'وصف موقع السيارة مطلوب',
             'carPosition.between'     => 'يجب أن يكون الوصف مابين 5-50 حرف',
-            'color.required'          => 'حدد لون السيارة',
-            'color.not_regex'         => 'حقل لون السيارة حروف فقط',
+            // 'color.required'          => 'حدد لون السيارة',
+            // 'color.not_regex'         => 'حقل لون السيارة حروف فقط',
             'closeDate.required'      => 'تحديد تاريخ انتهاء المزاد مطلوب',
             'closeDate.date'          => 'هذا الحقل يجب أن يكون تاريخا',
             'closeDate.after'         => 'تاريخ انتهاء المزاد لا يكون تاريخا قديما',
-            'numberOfKillos.integer'  => 'هذا الحقل يكون أرقاماا فقط',
         ];
     }
 }

@@ -2,13 +2,13 @@
     --babor: #f79522;
 }
 
-#msform {
+.msform {
     text-align: center;
     position: relative;
     margin-top: 20px
 }
 
-#msform fieldset .form-card {
+.msform fieldset .form-card {
     background: white;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -20,7 +20,7 @@
     position: relative;
 }
 
-#msform fieldset {
+.msform fieldset {
     background: white;
     border: 0 none;
     border-radius: 0.5rem;
@@ -31,28 +31,28 @@
     position: relative
 }
 
-#msform fieldset:not(:first-of-type) {
+.msform fieldset:not(:first-of-type) {
     display: none
 }
 
-#msform fieldset .form-card {
+.msform fieldset .form-card {
     text-align: left;
     color: #9E9E9E
 }
 
-#msform input,
-#msform textarea {
+.msform input:not(type=radio),
+.msform textarea {
     width: 100%;
     box-sizing: border-box;
     font-family: Tajawal;
 }
 
-#msform input.form-control:not([type=file]) {
+.msform input.form-control:not([type=file]) {
     padding-block: 0.65rem;
 }
 
-#msform input:focus,
-#msform textarea:focus {
+.msform input:focus,
+.msform textarea:focus {
     /*-moz-box-shadow: none !important;*/
     /*-webkit-box-shadow: none !important;*/
     /*box-shadow: none !important;*/
@@ -62,7 +62,7 @@
     /*outline-width: 0*/
 }
 
-#msform .action-button {
+.msform .action-button {
     /*width: 100px;*/
     /*background: var(--babor);*/
     /*font-weight: bold;*/
@@ -76,13 +76,13 @@
     /*border-radius: 5px;*/
 }
 
-#msform .action-button:hover,
-#msform .action-button:focus {
+.msform .action-button:hover,
+.msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px var(--babor);
 
 }
 
-/*#msform .action-button-previous {*/
+/*.msform .action-button-previous {*/
 /*    width: 100px;*/
 /*    background: #616161;*/
 /*    font-weight: bold;*/
@@ -94,8 +94,8 @@
 /*    margin: 10px 5px*/
 /*}*/
 
-#msform .action-button-previous:hover,
-#msform .action-button-previous:focus {
+.msform .action-button-previous:hover,
+.msform .action-button-previous:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
 }
 
@@ -119,11 +119,17 @@ select.list-dt:focus {
 }
 
 .fs-title {
-    font-size: 25px;
+    font-size: 1.3rem;
     color: #2C3E50;
     margin-bottom: 10px;
     font-weight: bold;
     text-align: left
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #c4c4c4;
+    margin-bottom: 2rem;
 }
 
 #progressbar {

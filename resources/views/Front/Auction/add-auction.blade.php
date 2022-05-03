@@ -4,7 +4,7 @@
     <div class="container-fluid" id="grad1">
         <div class="row justify-content-center mt-0">
             <div class="col-lg-10 col-md-8 col-sm-12 col text-center p-0 mt-3 mb-2">
-                <div class="card px-0 pt-4 pb-0 mt-3 mb-3 shadow">
+                <div class="card p-4 p-lg-5 mt-3 mb-3 shadow">
                     <h2><strong>أنشئ مزادا جديدا</strong></h2>
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -15,224 +15,151 @@
                             </ul>
                         </div>
                     @endif
+                    @if (session()->has('successSubmit'))
+                        <div class="alert alert-warning alert-dismissible fade show">
+                            {{ session()->get('successSubmit') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform" action="{{ route('user.save.auction') }}" method="POST"
+                            <form class="msform" action="{{ route('user.save.auction') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
-                                <!-- progressbar -->
-                                <ul id="progressbar">
-                                    <li class="active" id="auction"><strong>المزاد</strong></li>
-                                    <li id="car"><strong>السيارة</strong></li>
-                                    <li id="ensure"><strong>التاكيد</strong></li>
-                                    @if (!$errors->any())
-                                        <li id="confirm"><strong>تم</strong></li>
-                                    @endif
-                                </ul> <!-- fieldsets -->
-                                <fieldset>
-                                    <div class="form-card text-center row justify-content-center gy-2">
-                                        <h2 class="fs-title mb-4 text-center">بيانات المزاد</h2>
-                                        <div class="end-date col-12 col-md-5">
+                                <div>
+                                    <div class="form-card text-center row">
+                                        <h2 class="fs-title mb-2 text-end text-muted">بيانات المزاد</h2>
+                                        <div class="end-date col-12 col-md-5 mb-4">
                                             <input type="date" name="closeDate"
                                                 class="bg-transparent dark-placeholder form-control"
-                                                value="{{ old('name') }}" placeholder="تاريخ الإنتهاء" />
+                                                value="{{ old('closeDate', $car->closeDate ?? null) }}"
+                                                placeholder="تاريخ الإنتهاء" />
                                         </div>
-                                        <div class="col-md-5">
-                                            <input type="text" name="openingBid" value="{{ old('openingBid') }}"
+                                        <div class="col-md-5 mb-4">
+                                            <input type="text" name="openingBid"
+                                                value="{{ old('openingBid', $car->openingBid ?? null) }}"
                                                 class="bg-transparent dark-placeholder form-control"
                                                 placeholder="السعر الإبتدائي" />
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-5 mb-4">
                                             <input type="text" name="minInc"
                                                 class="bg-transparent dark-placeholder form-control"
-                                                value="{{ old('minInc') }}" placeholder="الحد الادنى للمزايدة" />
+                                                value="{{ old('minInc', $car->minInc ?? null) }}"
+                                                placeholder="الحد الادنى للمزايدة" />
                                         </div>
-                                        <div class="col-md-5">
-                                            <input type="text" name="reservePrice" value="{{ old('reservePrice') }}"
+                                        <div class="col-md-5 mb-4">
+                                            <input type="text" name="reservePrice"
+                                                value="{{ old('reservePrice', $car->reservePrice ?? null) }}"
                                                 class="bg-transparent dark-placeholder form-control"
                                                 placeholder="السعر الاحتياطي" />
                                         </div>
                                     </div>
-                                    <input type="button" name="next"
-                                        class="next action-button btn btn-warning w-auto fw-bold" value=" التالي" />
-                                </fieldset>
-                                <fieldset>
-                                    <div class="form-card text-center row justify-content-center gy-2">
-                                        <h2 class="fs-title  mb-4 text-center">بيانات السيارة</h2>
-                                        <div class="col-sm-12 col-md-5 col-lg-2">
-                                            <select id="brand" name="brand_id"
+                                </div>
+                                <div class="divider"></div>
+                                <div>
+                                    <div class="form-card text-center row">
+                                        <h2 class="fs-title text-end text-muted">بيانات السيارة</h2>
+                                        <div class="col-sm-12 col-md-5 col-lg-3 mb-4">
+                                            <select id="category" name="category_id"
                                                 class="w-100 bg-transparent dark-placeholder select px-2">
-                                                <option selected disabled>اختر البراند</option>
-                                                @if (isset($brands) && $brands->count() > 0)
-                                                    @foreach ($brands as $brand)
-                                                        <option value="{{ $brand->id }}">{{ $brand->name }}
+                                                <option selected disabled>اختر التصنيف</option>
+                                                @if (isset($categories) && $categories->count() > 0)
+                                                    @foreach ($categories as $category)
+                                                        <option value="{{ $category->id }}">
+                                                            {{ $category->name }}
                                                         </option>
                                                     @endforeach
                                                 @endif
                                             </select>
                                         </div>
-                                        <div class="col-sm-12 col-md-5 col-lg-3">
+                                        <div class="col-sm-12 col-md-5 col-lg-3 mb-4">
+                                            <select id="brand" name="brand_id"
+                                                class="w-100 bg-transparent dark-placeholder select px-2">
+                                                <option selected disabled>اختر البراند</option>
+                                                @if (isset($brands) && $brands->count() > 0)
+                                                    @foreach ($brands as $brand)
+                                                        <option value="{{ $brand->id }}"
+                                                            {{ old('brand_id') == $brand->id ? 'selected' : '' }}>
+                                                            {{ $brand->name }}
+                                                        </option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-12 col-md-5 col-lg-4 mb-4">
                                             <select id="series" name="series_id"
                                                 class="w-100 bg-transparent dark-placeholder select px-2">
                                                 <option selected disabled>اختر سلسلة للبراند</option>
                                             </select>
                                         </div>
-                                        {{-- <div class="col-sm-12 col-md-5 col-lg-3">
-                                                <select name="jear" class="w-100 select dark-placeholder mb-2" id="">
-                                                    <option value="" disabled selected>الجير</option>
-                                                    <option value="">Toyota</option>
-                                                    <option value="">Lexus</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-12 col-md-5 col-lg-3">
-                                                <select name="cylinder_number" class="w-100  select dark-placeholder  mb-2"
-                                                    id="">
-                                                    <option value="" disabled selected>عدد البستونات</option>
-                                                    <option value="">Toyota</option>
-                                                    <option value="">Lexus</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-12 col-md-5 col-lg-2">
-                                                <select name="fuel_type" class="w-100  select dark-placeholder  mb-2" id="">
-                                                    <option value="" disabled selected>نوع الوقود</option>
-                                                    <option value="">غاز</option>
-                                                    <option value="">بترول</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-12 col-md-5 col-lg-3">
-                                                <select name="engine_type" class="w-100 select dark-placeholder mb-2" id="">
-                                                    <option value="" disabled selected>نوع المحرك</option>
-                                                    <option value="">غاز</option>
-                                                    <option value="">بترول</option>
-                                                </select>
-                                            </div> --}}
-                                        <div class="col-sm-12 col-md-5 col-lg-2">
+                                        <div class="col-sm-12 col-md-5 col-lg-4 mb-4">
                                             <input type="text" class="bg-transparent dark-placeholder form-control"
-                                                name="model" value="{{ old('model') }}" placeholder="الموديل">
+                                                name="model" value="{{ old('model', $car->model ?? null) }}"
+                                                placeholder="الموديل">
                                         </div>
-                                        <div class="col-sm-12 col-md-5 col-lg-2">
+                                        <div class="col-sm-12 col-md-5 col-lg-2 mb-4">
                                             <input type="text" class="bg-transparent dark-placeholder form-control"
-                                                name="color" value="{{ old('color') }}" placeholder="اللون">
+                                                name="color" value="{{ old('color', $car->color ?? null) }}"
+                                                placeholder="اللون">
                                         </div>
-                                        <div class="col-sm-12 col-md-5 col-lg-2">
+                                        <div class="col-sm-12 col-md-5 col-lg-2 mb-4">
                                             <input type="text" class="bg-transparent dark-placeholder form-control"
-                                                value="{{ old('numberOfKillos') }}" name="numberOfKillos"
-                                                placeholder="كم مشت كيلو">
+                                                value="{{ old('numberOfKillos', $car->numberOfKillos ?? null) }}"
+                                                name="numberOfKillos" placeholder="كم مشت كيلو">
                                         </div>
-                                        <div class="col-sm-12 col-md-8">
+                                        <div class="col-sm-12 col-md-6 mb-4">
+                                            <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="description"
+                                                placeholder="وصف السيارة">{{ old('description', $car->description ?? null) }}</textarea>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6 mb-4">
                                             <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="carPosition"
-                                                value="{{ old('carPosition') }}"
-                                                placeholder="موقع السيارة"></textarea>
+                                                placeholder="موقع السيارة">{{ old('carPosition', $car->carPosition ?? null) }}</textarea>
                                         </div>
-                                        <div class="col-12 col-md-5 col-lg-3">
+                                        <div class="col-12 col-md-5 col-lg-3 mb-4">
+                                            <select id="sizOfDamage" name="sizOfDamage"
+                                                class="w-100 bg-transparent dark-placeholder select px-2">
+                                                <option selected disabled>اختر حجم الضرر</option>
+                                                @foreach (App\Models\Car::getSizOfDamageValues() as $key => $value)
+                                                    <option value="{{ $key }}"
+                                                        {{ old('sizOfDamage') == $key ? 'selected' : '' }}>
+                                                        {{ $value }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-12 col-md-5 col-lg-3 mb-4">
+                                            <p class="text-end">حالة السيارة</p>
+                                            <div class="d-flex">
+                                                <div class="form-check">
+                                                    <input type="radio" name="status" id="used" value="0">
+                                                    <label class="form-check-label" for="used">
+                                                        {{ App\Models\Car::getStatusAttribute(0) }}
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="radio" name="status" id="new" value="1" checked>
+                                                    <label class="form-check-label" for="new">
+                                                        {{ App\Models\Car::getStatusAttribute(1) }}
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-12 col-md-5 col-lg-3 mb-4">
                                             <div class="input-group control-group">
                                                 <input type="file" name="thumbnail" value="{{ old('thumbnail') }}"
                                                     class="bg-transparent dark-placeholder form-control">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-5 col-lg-3">
+                                        <div class="col-12 col-md-5 col-lg-3 mb-4">
                                             <div class="input-group control-group">
                                                 <input type="file" name="car_images[]"
                                                     class="form-control dark-placeholder py-13" multiple>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-md-5 col-lg-2">
-                                            <select name="fuel_type"
-                                                class="w-100 bg-transparent dark-placeholder select px-2" id="">
-                                                <option value="" disabled selected>نوع الوقود</option>
-                                                <option value="">غاز</option>
-                                                <option value="">بترول</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-12 col-md-5 col-lg-2">
-                                            <select name="engine_type"
-                                                class="w-100 bg-transparent dark-placeholder select px-2" id="">
-                                                <option value="" disabled selected>نوع المحرك</option>
-                                                <option value="">غاز</option>
-                                                <option value="">بترول</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-12 col-md-5 col-lg-2">
-                                            <input type="color" name="carColor" id="carColor">
-                                            <span id="color"></span>
-                                        </div>
                                     </div>
-
-                                    <input type="button" name="previous"
-                                        class="previous action-button-previous btn btn-secondary w-auto ms-3"
-                                        value="السابق" />
-                                    <input type="button" name="next"
-                                        class="next action-button btn btn-warning w-auto fw-bold" value=" التالي" />
-                                </fieldset>
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title text-center">تأكيد صحة المدخلات</h2>
-                                        <p class="text-center">هل انت متأكد من جميع البيانات المدخلة للمزاد</p>
-                                    </div>
-                                    <input type="button" name="previous"
-                                        class="previous action-button-previous btn btn-secondary w-auto ms-3"
-                                        value="السابق" />
-                                    <input type="submit" name="next"
-                                        class="next action-button btn btn-warning w-auto fw-bold" value=" التالي" />
-                                </fieldset>
-                                {{-- <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title">Payment Information</h2>
-                                        <div class="radio-group">
-                                            <div class='radio' data-value="credit">
-                                                <img src="https://i.imgur.com/XzOzVHZ.jpg" width="200px" height="100px">
-                                            </div>
-                                            <div class='radio' data-value="paypal">
-                                                <img src="https://i.imgur.com/jXjwZlj.jpg" width="200px" height="100px">
-                                            </div>
-                                            <br>
-                                        </div>
-                                        <label class="pay">Card Holder Name*</label>
-                                        <input type="text" name="holdername" placeholder="" />
-                                        <div class="row">
-                                            <div class="col-9"> <label class="pay">Card Number*</label> <input type="text" name="cardno" placeholder="" /> </div>
-                                            <div class="col-3"> <label class="pay">CVC*</label> <input type="password" name="cvcpwd" placeholder="***" /> </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-3"> <label class="pay">Expiry Date*</label> </div>
-                                            <div class="col-9"> <select class="list-dt" id="month" name="expmonth">
-                                                    <option selected>Month</option>
-                                                    <option>January</option>
-                                                    <option>February</option>
-                                                    <option>March</option>
-                                                    <option>April</option>
-                                                    <option>May</option>
-                                                    <option>June</option>
-                                                    <option>July</option>
-                                                    <option>August</option>
-                                                    <option>September</option>
-                                                    <option>October</option>
-                                                    <option>November</option>
-                                                    <option>December</option>
-                                                </select> <select class="list-dt" id="year" name="expyear">
-                                                    <option selected>Year</option>
-                                                </select> </div>
-                                        </div>
-                                    </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="make_payment" class="next action-button" value="Confirm" />
-                                </fieldset> --}}
-                                @if (!$errors->any())
-                                    <fieldset>
-                                        <div class="form-card">
-                                            <h2 class="fs-title text-center">تم بنجاح</h2> <br><br>
-                                            <div class="row justify-content-center">
-                                                <div class="col-3"> <img
-                                                        src="https://img.icons8.com/color/96/000000/ok--v2.png"
-                                                        class="fit-image">
-                                                </div>
-                                            </div> <br><br>
-                                            <div class="row justify-content-center">
-                                                <div class="col-7 text-center">
-                                                    <h5>لقد انشأت مزادا جديدا</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                @endif
+                                    <input type="submit" class="btn btn-warning w-auto fw-bold" value="حفظ" />
+                                </div>
                             </form>
                         </div>
                     </div>
