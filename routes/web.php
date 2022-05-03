@@ -3,29 +3,23 @@
 use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
+use App\Http\Controllers\Admin\AcutionController;
 use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\user\UserAuctionController;
 use App\Http\Controllers\Authentication\authcontroller;
-use App\Http\Controllers\Admin\CarCharacteristicsController;
-use App\Http\Controllers\Admin\AcutionController;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 // use \Illuminate\Support\Facades\URL;
-use App\Http\Controllers\Admin\CategoriesController;
-
-/*
-|--------------------------------
-=======
-*/
+use App\Http\Controllers\Admin\CarCharacteristicsController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
-Route::get('/notfound', function () {
-    return view('Front.404');
-});
+
 
 Route::get('/FAQ', function () {
     return view('Front.FAQ');
@@ -46,7 +40,8 @@ Route::get('/auctions', function () {
 Route::view('/categories', 'Admin.categories.category');
 
 
-Route::view('/', 'Front.index');
+Route::get('/', [SiteController::class, 'home'])->name('/');
+Route::get('/auctions', [SiteController::class, 'auction'])->name('site.auction');
 Route::view('/details', 'Front.car');
 Route::view('/soon', 'Front.soon');
 Route::view('/contact', 'Front.contact');
@@ -174,8 +169,13 @@ Route::view('/auc', 'Admin.auctions.auctions');
 // Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
 // Route::resource('/auction', AcutionController::class, ['names' => 'admin.auction']);
 
+// Route::get('/ser', function () {
+//     return view('Admin.services.service');
+// });
 
-Route::get('/ser', function () {
-    return view('Admin.services.service');
+//fallback route
+Route::fallback(function () {
+    return view('Front.404');
 });
+
 
