@@ -55,21 +55,26 @@
             <!-- Product thumb imgs -->
             <div class="col-md-2  col-md-pull-5">
                 <div id="product-imgs">
-                    <div class="product-preview">
+                    @foreach ($images as $img)
+                        <div class="product-preview">
+                            <img src="/images/cars/car_images/{{ $img }}" alt="">
+                        </div>
+                    @endforeach
+                    {{-- <div class="product-preview">
                         <img src="/img/c4.jpg" alt="">
                     </div>
 
                     <div class="product-preview">
                         <img src="/img/c3.jpg" alt="">
-                    </div>
+                    </div> --}}
 
                     <div class="product-preview">
                         <img src="/images/cars/{{ $auction->car->thumbnail }}" alt="thumbnail pic">
                     </div>
 
-                    <div class="product-preview">
+                    {{-- <div class="product-preview">
                         <img src="/img/c5.jpg" alt="">
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <!-- /Product thumb imgs -->
