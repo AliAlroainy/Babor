@@ -22,7 +22,7 @@ class ServiceSeeder extends Seeder
         DB::table('services')->insert([
             'title' => 'عروض حصرية',
             'description' => $faker->sentence(8),
-            'pic' => $faker->image('public/images/service',640,480, null, false),
+            'pic' => $faker->image('public/images/services',640,480, null, false),
             'is_active' => '1',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
@@ -67,7 +67,7 @@ class ServiceSeeder extends Seeder
         DB::table('services')->insert([
             'title' => '  تجربة مستخدم ممتعه ',
             'description' => $faker->sentence(8),
-            'pic' => $faker->image('public/images/categories',640,480, null, false),
+            'pic' => $faker->image('public/images/services',640,480, null, false),
             'is_active' => '1',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
