@@ -6,8 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
-
-class CategorySeeder extends Seeder
+class BrandSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,12 +18,14 @@ class CategorySeeder extends Seeder
         //
         $faker = Faker::create();
         foreach (range(1,5) as $index) {
-          DB::table('categories')->insert([
+          DB::table('brands')->insert([
               'name' => $faker->word(),
-              'image' => $faker->image('public/images/categories',640,480, null, false),
+              'logo' => $faker->image('public/images/categories',640,480, null, false),
               'is_active' => $faker->numberBetween(1,3),
+              'created_at'=> $faker->now(),
+              'updated_at' => $faker->now(),
 
           ]);
-  }
     }
+}
 }
