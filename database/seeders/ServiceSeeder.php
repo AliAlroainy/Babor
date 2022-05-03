@@ -17,6 +17,7 @@ class ServiceSeeder extends Seeder
     public function run()
     {
         //
+        $faker = Faker::create();
         DB::table('services')->insert([
             'title' => 'عروض حصرية',
             'description' => $faker->sentence(8),
