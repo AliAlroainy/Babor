@@ -18,13 +18,40 @@ class SeriesSeeder extends Seeder
     {
         //
         $faker = Faker::create();
-        foreach (range(1,5) as $index) {
+        $unixTimestamp = '1461067200';
+
           DB::table('series')->insert([
-              'name' => $faker->word(),
-              'brand_id' => $faker->$faker->numberBetween(1,5),
-              'is_active' => $faker->numberBetween(0,1),
+              'name' => 'نافارا',
+              'brand_id' => $faker->numberBetween(1,2),
+              'is_active' => $faker->shuffle([1, -1]),
+              'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+              'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
 
           ]);
-    }
+          DB::table('series')->insert([
+            'name' => 'تورس',
+            'brand_id' => $faker->numberBetween(2,3),
+            'is_active' => $faker->shuffle([1, -1]),
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+        DB::table('series')->insert([
+            'name' => 'النترا',
+            'brand_id' => $faker->numberBetween(3,4),
+            'is_active' => $faker->shuffle([1, -1]),
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+        DB::table('series')->insert([
+            'name' => 'باترول',//النوع
+            'brand_id' => $faker->numberBetween(3,5),
+            'is_active' => $faker->shuffle([1, -1]),
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+
 }
 }
