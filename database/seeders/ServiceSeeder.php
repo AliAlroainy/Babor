@@ -17,6 +17,7 @@ class ServiceSeeder extends Seeder
     public function run()
     {
         //
+        $unixTimestamp = '1461067200';
         $faker = Faker::create();
         DB::table('services')->insert([
             'title' => 'عروض حصرية',
