@@ -1,58 +1,5 @@
 <style>
 
-    
-/*
-Template Name: Electro - HTML Ecommerce Template
-Author: yaminncco
-
-Colors:
-	Body 		: #333
-	Headers 	: #2B2D42
-	Primary 	: #F7941D
-	Dark 		: #15161D ##1E1F29
-	Grey 		: #E4E7ED #FBFBFC #8D99AE #B9BABC
-
-Fonts: Montserrat
-
-Table OF Contents
-------------------------------------
-1 > GENERAL
------- Typography
------- Buttons
------- Inputs
------- Sections
------- Breadcrumb
-2 > HEADER
------- Top header
------- Logo
------- Search
------- Cart
-3 > NAVIGATION
------- Main nav
------- Responsive Nav
-4 > CATEGORY SHOP
-5 > HOT DEAL
-6 > PRODUCT
------- Product
------- Widget product
------- Product slick
-7 > STORE PAGE
------- Aside
------- Store
-8 > PRODUCT DETAILS PAGE
------- Product view
------- Product details
------- Product tab
-9 > CHECKOUT PAGE
-10 > NEWSLETTER
-11 > FOOTER
-11 > SLICK STYLE
-12 > RESPONSIVE
-------------------------------------*/
-
-/*=========================================================
-	01 -> GENERAL
-===========================================================*/
 
 /*----------------------------*\
 	Typography
@@ -133,16 +80,16 @@ textarea.input {
 
 /*-- Number input --*/
 
-.input-number {
+.input-n {
   position: relative;
 }
 
-.input-number input[type="number"]::-webkit-inner-spin-button, .input-number input[type="number"]::-webkit-outer-spin-button {
+.input-n input[type="number"]::-webkit-inner-spin-button, .input-n input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.input-number input[type="number"] {
+.input-n input[type="number"] {
   -moz-appearance: textfield;
   height: 40px;
   width: 100%;
@@ -151,7 +98,7 @@ textarea.input {
   padding: 0px 35px 0px 15px;
 }
 
-.input-number .qty-up, .input-number .qty-down {
+.input-n .qty-up, .input-n .qty-down {
   position: absolute;
   display: block;
   width: 20px;
@@ -167,18 +114,18 @@ textarea.input {
   user-select: none;
 }
 
-.input-number .qty-up {
+.input-n .qty-up {
   right: 0;
   top: 0;
   border-bottom: 0px;
 }
 
-.input-number .qty-down {
+.input-n .qty-down {
   right: 0;
   bottom: 0;
 }
 
-.input-number .qty-up:hover, .input-number .qty-down:hover {
+.input-n .qty-up:hover, .input-n .qty-down:hover {
   background-color: #E4E7ED;
   color: #F7941D;
 }
