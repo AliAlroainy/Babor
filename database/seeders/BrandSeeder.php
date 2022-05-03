@@ -18,15 +18,47 @@ class BrandSeeder extends Seeder
         //
         $unixTimestamp = '1461067200';
         $faker = Faker::create();
-        foreach (range(1,5) as $index) {
+
           DB::table('brands')->insert([
-              'name' => $faker->word(),
+              'name' =>'فورد',
               'logo' => $faker->image('public/images/brands',640,480, null, false),
               'is_active' => $faker->numberBetween(1,0),
               'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
               'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
 
           ]);
-    }
+          DB::table('brands')->insert([
+            'name' =>'تويوتا',
+            'logo' => $faker->image('public/images/brands',640,480, null, false),
+            'is_active' => $faker->numberBetween(1,0),
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+        DB::table('brands')->insert([
+            'name' =>'GMC',
+            'logo' => $faker->image('public/images/brands',640,480, null, false),
+            'is_active' => $faker->numberBetween(0,1),
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+        DB::table('brands')->insert([
+            'name' =>'هونداي',
+            'logo' => $faker->image('public/images/brands',640,480, null, false),
+            'is_active' => $faker->numberBetween(0,1),
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+        DB::table('brands')->insert([
+            'name' =>'نيسان',
+            'logo' => $faker->image('public/images/brands',640,480, null, false),
+            'is_active' => $faker->numberBetween(0,1),
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+
     }
 }
