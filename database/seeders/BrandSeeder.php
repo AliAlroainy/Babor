@@ -22,7 +22,7 @@ class BrandSeeder extends Seeder
           DB::table('brands')->insert([
               'name' =>'فورد',
               'logo' => $faker->image('public/images/brands',640,480, null, false),
-              'is_active' => $faker->numberBetween(1,0),
+              'is_active' => $faker->numberBetween(0,1),
               'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
               'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
 
@@ -30,7 +30,7 @@ class BrandSeeder extends Seeder
           DB::table('brands')->insert([
             'name' =>'تويوتا',
             'logo' => $faker->image('public/images/brands',640,480, null, false),
-            'is_active' => $faker->numberBetween(1,0),
+            'is_active' => $faker->numberBetween(0,1),
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
 
