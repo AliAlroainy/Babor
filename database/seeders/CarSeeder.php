@@ -28,8 +28,9 @@ class CarSeeder extends Seeder
               'description' => 'نص فل',
               'carPosition'=> $faker->sentence(8),
               'brand_id' => $faker->numberBetween(1,5),
-              'category_id' => $faker->numberBetween(1,5),
               'series_id' => $faker->numberBetween(1,5),
+              'category_id' => $faker->numberBetween(1,5),
+
           ]);
   }
 
