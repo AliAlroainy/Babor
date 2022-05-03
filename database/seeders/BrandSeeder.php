@@ -22,7 +22,7 @@ class BrandSeeder extends Seeder
           DB::table('brands')->insert([
               'name' =>'فورد',
               'logo' => $faker->image('public/images/brands',640,480, null, false),
-              'is_active' => $faker->shuffle([1, -1]),
+              'is_active' => '1',
               'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
               'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
 
@@ -30,7 +30,7 @@ class BrandSeeder extends Seeder
           DB::table('brands')->insert([
             'name' =>'تويوتا',
             'logo' => $faker->image('public/images/brands',640,480, null, false),
-            'is_active' => $faker->shuffle([1, -1]),
+            'is_active' => '1',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
 
@@ -38,7 +38,7 @@ class BrandSeeder extends Seeder
         DB::table('brands')->insert([
             'name' =>'GMC',
             'logo' => $faker->image('public/images/brands',640,480, null, false),
-            'is_active' => $faker->shuffle([1, -1]),
+            'is_active' => '1',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
 
@@ -46,7 +46,7 @@ class BrandSeeder extends Seeder
         DB::table('brands')->insert([
             'name' =>'هونداي',
             'logo' => $faker->image('public/images/brands',640,480, null, false),
-            'is_active' => $faker->shuffle([1, -1]),
+            'is_active' => '1',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
 
@@ -54,7 +54,7 @@ class BrandSeeder extends Seeder
         DB::table('brands')->insert([
             'name' =>'نيسان',
             'logo' => $faker->image('public/images/brands',640,480, null, false),
-            'is_active' => $faker->shuffle([1, -1]),
+            'is_active' => '1',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
 

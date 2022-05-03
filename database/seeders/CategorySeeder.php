@@ -22,8 +22,7 @@ class CategorySeeder extends Seeder
           DB::table('categories')->insert([
               'name' => $faker->word(),
               'image' => $faker->image('public/images/categories',640,480, null, false),
-              'is_active' => $faker->shuffle([1, -1]),
-
+              'is_active' => '1',
           ]);
   }
     }
