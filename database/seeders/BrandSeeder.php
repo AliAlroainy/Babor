@@ -22,8 +22,8 @@ class BrandSeeder extends Seeder
               'name' => $faker->word(),
               'logo' => $faker->image('public/images/categories',640,480, null, false),
               'is_active' => $faker->numberBetween(1,3),
-              'created_at'=> $faker->now(),
-              'updated_at' => $faker->now(),
+              'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+              'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
 
           ]);
     }
