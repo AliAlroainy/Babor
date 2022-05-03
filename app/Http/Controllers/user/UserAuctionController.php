@@ -70,7 +70,7 @@ class UserAuctionController extends Controller
             'closeDate'       => $request->input('closeDate'),
             'startDate'       => now(),
             'minInc'          => $request->input('minInc'),  
-            'user_id'         => Auth::user()->id, 
+            'auctioneer_id'   => Auth::user()->id, 
             'car_id'          => $car->id,
         ]);
         return redirect()->route('user.add.auction')

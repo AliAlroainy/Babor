@@ -9,7 +9,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('auctions', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('auctioneer_id')->constrained('users')->onDelete('cascade');
         });
     }
 

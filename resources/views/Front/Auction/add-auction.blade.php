@@ -133,13 +133,13 @@
                                                 <div class="form-check">
                                                     <input type="radio" name="status" id="used" value="0">
                                                     <label class="form-check-label" for="used">
-                                                        {{ App\Models\Car::getStatusAttribute(0) }}
+                                                        {{ App\Models\Car::getStatus('0') }}
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="radio" name="status" id="new" value="1" checked>
+                                                    <input type="radio" name="status" id="new" value="1">
                                                     <label class="form-check-label" for="new">
-                                                        {{ App\Models\Car::getStatusAttribute(1) }}
+                                                        {{ App\Models\Car::getStatus('1') }}
                                                     </label>
                                                 </div>
                                             </div>

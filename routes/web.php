@@ -7,14 +7,15 @@ use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
+use App\Http\Controllers\user\UserBidController;
 use App\Http\Controllers\Admin\AcutionController;
 use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\user\UserAuctionController;
-use App\Http\Controllers\Authentication\authcontroller;
 // use \Illuminate\Support\Facades\URL;
+use App\Http\Controllers\Authentication\authcontroller;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
@@ -32,17 +33,18 @@ Route::get('/offer', function () {
     return view('Front.offer');
 });
 
-Route::get('/auctions', function () {
-    return view('Front.auctions');
-});
+// Route::get('/auctions', function () {
+//     return view('Front.auctions');
+// });
 
 /////category
 Route::view('/categories', 'Admin.categories.category');
 
 
 Route::get('/', [SiteController::class, 'home'])->name('/');
-Route::get('/auctions', [SiteController::class, 'auction'])->name('site.auction');
-Route::view('/details', 'Front.car');
+Route::get('/auction', [SiteController::class, 'auctionsList'])->name('site.auction');
+Route::get('/auction/{id}', [SiteController::class, 'auctionShow'])->name('site.auction.details');
+// Route::view('/details', 'Front.car');
 Route::view('/soon', 'Front.soon');
 Route::view('/contact', 'Front.contact');
 Route::view('/favorite', 'Front.favorite');
@@ -96,10 +98,13 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/dashboard/settings/psw', [ProfilesController::class,'index'])->name('change-password-user');
             Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
             Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
+
             Route::get('/auctions', [UserAuctionController::class, 'index'])->name('user.auctions');
             Route::get('/auctions/add_auction', [UserAuctionController::class, 'create'])->name('user.add.auction');
             Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
             Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
+
+            Route::post('/bid/{id}', UserBidController::class)->name('user.place.bid');
         });
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
