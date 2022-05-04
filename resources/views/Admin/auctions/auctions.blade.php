@@ -25,7 +25,14 @@
 
                                         </select>
 </div> <div class="col-lg-3">
-                                      
+                                        <select id="filter-brand" class=" col-lg-4 filter1 form-select" style="display:flex;flex-direction:column">
+                                            <option selected="selected" value="0"> ماركة السيارة</option>
+                                            <option value="تويوتا"> تويوتا</option>
+                                            <option value="هونداي"> هونداي</option>
+                                            <option value="كيا">  كيا</option>
+                                            <option value="مرسديس">  مرسديس</option>
+
+                                        </select>
 </div></div>
                                     </div>
                                     
@@ -109,10 +116,7 @@
                                     <tbody  class=" Auction_card ">
                                         @foreach ($auctions as $auction)
                                             <tr>
-                                                <td >
-                                                    <img src="/images/cars/{{ $auction->car->thumbnail }}" alt="image" />
-                                                </td>
-                                                
+                                               
                                                 <td>
                                                     {{ $auction->car->model }}
                                                 </td>
@@ -143,7 +147,7 @@
                                                 <td>
                                                     {{ $auction->securityDeposit }}
                                                 </td>
-                                                
+                                               
                                             </tr>
                                         @endforeach
                                     </tbody>
