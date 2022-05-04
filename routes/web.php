@@ -100,13 +100,14 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::group([ 'middleware'=>'is_verify_email'],function(){
             Route::get('/dashboard/settings/psw', [ProfilesController::class,'index'])->name('change-password-user');
-            Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
 
+            Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
             Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
             Route::get('/auctions', [UserAuctionController::class, 'index'])->name('user.auctions');
             Route::get('/auctions/add_auction', [UserAuctionController::class, 'create'])->name('user.add.auction');
             Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
             Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
+            Route::get('/auctions/current_auction', [UserAuctionController::class, 'CurrentAuction'])->name('user.show.current.auction');
         });
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');

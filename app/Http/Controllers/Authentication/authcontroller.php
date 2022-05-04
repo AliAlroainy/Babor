@@ -26,6 +26,7 @@ class AuthController extends Controller
         return view('admin.dashboard');
 
     }
+    
     public function register(RegisterRequest $request){
 
         $u=new User();
@@ -54,7 +55,7 @@ class AuthController extends Controller
             //             'Emailverfication' => 'يرجى تاكيد حسابك    ',
             //         'tab' => 'profile',
             //     ]);
-           
+
             return redirect()->route('login');
 
         }
