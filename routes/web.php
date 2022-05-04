@@ -88,7 +88,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::group(['prefix' => 'user', 'middleware'=>'role:user'],function(){
 
         Route::get('/dashboard/profile', [ProfilesController::class,'show'])->name('user.profile') ;
-        Route::get('/dashboard/settings/info',[ProfilesController::class,'index'])->name('user.dashboard');
+
         Route::get('/auctions/auctionId', function (){
             return view('user.auction.auctionDetails');
         })->name('user.auctionDetails');
@@ -97,6 +97,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::group([ 'middleware'=>'is_verify_email'],function(){
             Route::get('/dashboard/settings/psw', [ProfilesController::class,'index'])->name('change-password-user');
             Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
+            Route::get('/dashboard/settings/info',[ProfilesController::class,'index'])->name('user.dashboard');
             Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
 
             Route::get('/auctions', [UserAuctionController::class, 'index'])->name('user.auctions');
