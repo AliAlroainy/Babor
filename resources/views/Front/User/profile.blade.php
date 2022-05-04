@@ -6,6 +6,12 @@
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
         <!-- Modal -->
+        @if (session()->has('Emailverfication'))
+        <div class="alert alert-dismissible alert-danger fade show" role="alert">
+            {{ session()->get('Emailverfication') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
         <div class="modal fade" id="profile_pic" tabindex="-1"
             aria-labelledby="profile_pic_label" aria-hidden="true">
             <div class="modal-dialog">
@@ -44,7 +50,7 @@
                         <div class="flex-shrink-0 mt-n2 mx-sm-0 mx-auto pt-3 pe-3" style="position: relative">
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#profile_pic" style="position: absolute; bottom:0; left:-37px;">
                                     <i class="fas fa-camera"></i>
-                            </button>    
+                            </button>
                             @if (isset($user->profile->avatar))
                                 <img src="/images/profiles/{{ $user->profile->avatar }}" alt="profile" width="100"
                                     class="d-block h-auto ms-0 rounded user-profile-img" />
@@ -52,7 +58,7 @@
                                 <img src="/images/profiles/default.png" alt="profile"
                                     class="d-block h-auto ms-0 rounded user-profile-img" width="100"/>
                             @endif
-                        
+
                         </div>
                         <div class="flex-grow-1 mt-3 mt-sm-5">
                             <div
@@ -116,7 +122,7 @@
                                     class="fw-semibold mx-2"><i class="fa-solid fa-suitcase"></i> المهنة: </span> <span>{{ $user->profile->job }}</span>
                             </li>
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-flag"></i><span
-                                    class="fw-semibold mx-2"><i class="fa-solid fa-location-dot"></i> العنوان: </span> <span>{{ $user->profile->city }} - 
+                                    class="fw-semibold mx-2"><i class="fa-solid fa-location-dot"></i> العنوان: </span> <span>{{ $user->profile->city }} -
                                     {{ $user->profile->address }}</span>
                             </li>
                         </ul>
