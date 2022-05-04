@@ -130,7 +130,9 @@
                                                 <td  class=" brand_filed ">
                                                     <div class="brand"  data-car="{{ $auction->car->brand->name }}">{{ $auction->car->brand->name }}</div>
                                                 </td>
-                                               
+                                                <td class=" car_filed " > 
+                                                   <span class="car"  data-car="{{ $$auction->car->series->name }}"> {{ $auction->car->series->name }}</span>
+                                                </td>
                                                 <td>
                                                     {{ $auction->car->model }}
                                                 </td>
