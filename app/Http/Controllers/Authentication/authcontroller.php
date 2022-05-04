@@ -54,7 +54,7 @@ class AuthController extends Controller
             //             'Emailverfication' => 'يرجى تاكيد حسابك    ',
             //         'tab' => 'profile',
             //     ]);
-
+           
             return redirect()->route('login');
 
         }
