@@ -3,10 +3,10 @@
     <h1 class="m-3 text-center "> معنا تقدر تبيع وتشتري سيارتك بسهولة </h1>
     <div class=" ">
 
-        <a href="/auctions" class="btn-link">
+        <a href="/buy"  class="btn-link">
             <button class="btn btn-light m-1 shadow-sm "> بيع سيارتك </button>
         </a>
-        <a href="/buy" class="btn-link">
+        <a href="/auctions" class="btn-link">
             <button class="btn btn-dark m-3 shadow-sm ">اشتري سيارة </button>
         </a>
     </div>

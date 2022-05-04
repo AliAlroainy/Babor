@@ -26,19 +26,19 @@
                 <div class="col-md-5 col-md-push-2">
                     <div id="product-main-img">
                         <div class="product-preview">
-                            <img src="img/c4.jpg" alt="">
+                            <img  class="img-fluid" src="img/c4.jpg" alt="">
                         </div>
 
                         <div class="product-preview">
-                            <img src="img/c3.jpg" alt="">
+                            <img class="img-fluid" src="img/c3.jpg" alt="">
                         </div>
 
                         <div class="product-preview">
-                            <img src="img/c1.jpg" alt="">
+                            <img class="img-fluid" src="img/c1.jpg" alt="">
                         </div>
 
                         <div class="product-preview">
-                            <img src="img/c5.jpg" alt="">
+                            <img class="img-fluid" src="img/c5.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -48,19 +48,19 @@
                 <div class="col-md-2  col-md-pull-5">
                     <div id="product-imgs">
                         <div class="product-preview">
-                            <img src="img/c4.jpg" alt="">
+                            <img class="img-fluid" src="img/c4.jpg" alt="">
                         </div>
 
                         <div class="product-preview">
-                            <img src="img/c3.jpg" alt="">
+                            <img class="img-fluid" src="img/c3.jpg" alt="">
                         </div>
 
                         <div class="product-preview">
-                            <img src="img/c1.jpg" alt="">
+                            <img class="img-fluid" src="img/c1.jpg" alt="">
                         </div>
 
                         <div class="product-preview">
-                            <img src="img/c5.jpg" alt="">
+                            <img class="img-fluid" src="img/c5.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -689,7 +689,7 @@
             <!-- product tab content -->
             <div class="tab-content">
                 <!-- tab1  -->
-                <div id="tab1" class="tab-pane fade show active" role="tabpanel">
+                <div id="tab1" class="tab-pane fade " role="tabpanel">
                     <div class="row">
                         <div class="col-md-12">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -848,13 +848,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <ul class="reviews-pagination">
-                                    <li class="active">1</li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                </ul>
+                            
                             </div>
                         </div>
                         <!-- /Reviews -->
