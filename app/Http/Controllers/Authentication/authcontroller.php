@@ -56,7 +56,7 @@ class AuthController extends Controller
             //     ]);
 
             return redirect()->route('login');
-            // ->with(['emailVerification'=>'  اهلا بك سجل دخولك']);
+            
         }
 
         return back()->with(['errRegistration'=>'فشل في عملية إنشاء الحساب']);
