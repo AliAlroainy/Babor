@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Bid extends Model
 {
@@ -26,12 +27,12 @@ class Bid extends Model
         return $this->belongsTo(User::class, 'bidder_id');
     }
 
-    public function setAuctioneerIdAttribute(){
-        $this->attributes['auctioneer_id'] = Auth::user()->id;
-    }
+    // public function setAuctioneerIdAttribute(){
+    //     $this->attributes['auctioneer_id'] = Auth::user()->id;
+    // }
 
-    public function setCurrentPriceAttribute(){
+    // public function setCurrentPriceAttribute(){
         
-        $this->attributes['currentPrice'] = $this->auction->openingBid;
-    }
+    //     $this->attributes['currentPrice'] = $this->auction->openingBid;
+    // }
 }

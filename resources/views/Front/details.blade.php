@@ -138,11 +138,12 @@
                     </div>
                     @if (Auth::user())
                         <form action="{{ route('user.place.bid', $auction->id) }}" method="POST">
+                            @csrf
                             <div class="add-to-cart">
                                 <div class="qty-label">
                                     سعر المزايدة
                                     <div class="input-n">
-                                        <input type="number">
+                                        <input type="number" name="bidPrice">
                                         <span class="qty-up">+</span>
                                         <span class="qty-down">-</span>
                                     </div>

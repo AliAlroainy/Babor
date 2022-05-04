@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('bids', function (Blueprint $table) {
             $table->id();
-            $table->decimal('currentPrice', 10, 2);
+            $table->decimal('currentPrice', 20, 2);
             $table->decimal('bidPrice', 10, 2);
             $table->timestamps();
         });
