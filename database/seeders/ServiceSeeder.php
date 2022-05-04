@@ -9,11 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 class ServiceSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+   
     public function run()
     {
         //
