@@ -83,89 +83,64 @@
                                 <table class="table table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th>
-                                                الصورة
-                                            </th>
+                                           
                                             <th>
                                                 ماركة السيارة
                                             </th>
                                             <th>
                                                 اسم السيارة
                                             </th>
-                                            <th>
-                                                الموديل
-                                            </th>
-                                            <th>
-                                                السعر الابتدائي
-                                            </th>
+                                            
                                             <th>
                                                 تاريخ البدء
                                             </th>
                                             <th>
                                                 تاريخ الانتهاء
                                             </th>
-                                            <th>
-                                                السعر الاحتياطي
-                                            </th>
-                                            <th>
-                                                اقل قيمة للمزايدة </th>
+                                           
                                             <th>
                                                 الفائز بالمزاد </th>
-                                            <th>
-                                                نسبة الموقع </th>
-                                            <th>
-                                                مبلغ التأمين
-                                            </th>
+                                            
 
                                             <th>
                                                 حالة المزاد </th>
+                                                <th>
+                                                  </th>
+                                                
                                         </tr>
                                     </thead>
                                     <tbody  class=" Auction_card ">
                                         @foreach ($auctions as $auction)
                                             <tr>
-                                                <td >
-                                                    <img src="/images/cars/{{ $auction->car->thumbnail }}" alt="image" />
-                                                </td>
+                                               
                                                 <td  class=" brand_filed ">
                                                     <div class="brand"  data-car="{{ $auction->car->brand->name }}">{{ $auction->car->brand->name }}</div>
                                                 </td>
                                                 <td class=" car_filed " > 
                                                    <span class="car"  data-car="{{ $$auction->car->series->name }}"> {{ $auction->car->series->name }}</span>
                                                 </td>
-                                                <td>
-                                                    {{ $auction->car->model }}
-                                                </td>
-                                                <td>
-                                                    {{ $auction->openingBid }}
-                                                </td>
+                                               
+                                               
                                                 <td>
                                                     {{ $auction->startDate }}
                                                 </td>
                                                 <td>
                                                     {{ $auction->closeDate }}
                                                 </td>
-                                                <td>
-                                                    {{ $auction->reservePrice }}
-                                                </td>
-                                                <td>
-                                                    {{ $auction->minInc }}
-                                                </td>
-                                                <td>
-                                                    {{ $auction->winnerPrice }}
-                                                </td>
+                                                
+                                               
+                                               
                                                 <td>
                                                     {{ $auction->winner }}
                                                 </td>
-                                                <td>
-                                                    {{ $auction->commission }}
-                                                </td>
-                                                <td>
-                                                    {{ $auction->securityDeposit }}
-                                                </td>
+                                                
+                                                
                                                 <td class="status_filed "  >
                                                     <h4 class="status"  data-status="{{ $auction->status}}">{{ $auction->status }}</h4>
                                                 </td>
+                                                <td>
+                                                <button type="submit" class="btn btn-warning text-white"> عرض مزيد من التفاصيل </button>
+ </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
