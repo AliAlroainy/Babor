@@ -124,6 +124,12 @@
                                     <tbody  class=" Auction_card ">
                                         @foreach ($auctions as $auction)
                                             <tr>
+                                                <td >
+                                                    <img src="/images/cars/{{ $auction->car->thumbnail }}" alt="image" />
+                                                </td>
+                                                <td  class=" brand_filed ">
+                                                    <div class="brand"  data-car="{{ $auction->car->brand->name }}">{{ $auction->car->brand->name }}</div>
+                                                </td>
                                                
                                                 <td>
                                                     {{ $auction->car->model }}
@@ -155,7 +161,7 @@
                                                 <td>
                                                     {{ $auction->securityDeposit }}
                                                 </td>
-                                                
+                                               
                                             </tr>
                                         @endforeach
                                     </tbody>
