@@ -30,6 +30,7 @@
 
                             <div class="auctions">
                                 {{-- @if (isset($auctions) && $auctions->count() > 0) --}}
+                                @if (isset($auctions) && $auctions->count() > 0)
                                 @foreach ($auctions as $auction)
 
 
@@ -77,7 +78,8 @@
                             </a>
 
                             @endforeach
-                            {{-- @endif --}}
+
+                            @endif
 
                             </div>
 

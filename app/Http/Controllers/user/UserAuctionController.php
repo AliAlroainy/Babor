@@ -77,28 +77,27 @@ class UserAuctionController extends Controller
             ->with('successSubmit','مزادك في انتظار موافقة المسؤول');
     }
 
-    public function validDiscount() {
-        return $this->startDate <= now()->toDateTimeString()
-            && $this->closeDate >= now()->toDateTimeString();
-    }
-
     public function CurrentAuction(Request $request)
     {
         $currentDate = date('Y-m-d');
         $currentDate = date('Y-m-d', strtotime($currentDate));
+        $auctions= Auction::orderBy('id')->get();
 
         $items = DB::table('auctions')
         ->select('id', 'closeDate','winner')
         ->first();
+        if(!$items)
+        return abort('404');
 //if (!empty($items->winner)) when bid table is done we will add it
-       if($items->closeDate != $currentDate ){
-       $auctions= Auction::orderBy('id')->get();
+       if($items->closeDate != $currentDate  ){
+
        return view('Front.Auction.auctions')->with('auctions',$auctions);
+      }
+      else
+      {
+          echo"sorry";
+      }
 
-
-    }
-    else
-            echo "sorry";
     }
     public function udpate(Request $request){
 
