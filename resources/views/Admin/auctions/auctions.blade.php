@@ -163,7 +163,9 @@
                                                 <td>
                                                     {{ $auction->securityDeposit }}
                                                 </td>
-                                               
+                                                <td class="status_filed "  >
+                                                    <h4 class="status"  data-status="{{ $auction->status}}">{{ $auction->status }}</h4>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
