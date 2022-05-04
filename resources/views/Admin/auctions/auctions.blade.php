@@ -14,7 +14,9 @@
                                 <div class="search-bar-top">
                                     <div class="search-bar">
                                         <h4 class="card-title">عرض بحسب</h4>
-                                        <select id="filter-auction" class="filter form-select">
+                                        <div style="display:flex;flex-direction:row ;padding:1%">
+                                        <div class="col-lg-3">
+                                        <select id="filter-auction" class=" filter form-select">
                                             <option selected="selected" value="0">  اسم السيارة</option>
                                             <option value="سنتافي">سنتافي </option>
                                             <option value="برادو">برادو </option>
@@ -22,21 +24,9 @@
                                             <option value="كامري">  كامري</option>
 
                                         </select>
-                                       
-                                        <select id="filter-brand" class="filter1 form-select">
-                                            <option selected="selected" value="0"> ماركة السيارة</option>
-                                            <option value="تويوتا"> تويوتا</option>
-                                            <option value="هونداي"> هونداي</option>
-                                            <option value="كيا">  كيا</option>
-                                            <option value="مرسديس">  مرسديس</option>
-
-                                        </select>
-                                        <select id="filter-status" class="filter2 form-select">
-                                            <option selected="selected" value="0">  حالة المزاد</option>
-                                            <option value="مفعل">مفعل </option>
-                                            <option value="غيرمفعل"> غيرمفعل</option>
-
-                                        </select>
+</div> <div class="col-lg-3">
+                                      
+</div></div>
                                     </div>
                                     
                                 </div>
@@ -122,12 +112,7 @@
                                                 <td >
                                                     <img src="/images/cars/{{ $auction->car->thumbnail }}" alt="image" />
                                                 </td>
-                                                <td class="brand brand_filed ">
-                                                    {{ $auction->car->brand->name }}
-                                                </td>
-                                                <td class="name Auction_filed ">
-                                                    {{ $auction->car->series->name }}
-                                                </td>
+                                                
                                                 <td>
                                                     {{ $auction->car->model }}
                                                 </td>
@@ -158,9 +143,7 @@
                                                 <td>
                                                     {{ $auction->securityDeposit }}
                                                 </td>
-                                                <td class="status status_filed "  >
-                                                    {{ $auction->status }}
-                                                </td>
+                                                
                                             </tr>
                                         @endforeach
                                     </tbody>
