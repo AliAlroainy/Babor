@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\ChangePasswordRequest;
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Contracts\Auth\CanResetPassword;
 
 class AuthController extends Controller
@@ -24,22 +25,7 @@ class AuthController extends Controller
         return view('admin.dashboard');
 
     }
-    public function register(Request $request){
-        Validator::validate($request->all(),[
-            'name'=>['required','min:3'],
-            'email'=>['required','email','unique:users,email'],
-            'password' => 'required|min:6',
-            'confirm_password'=> 'required|same:password'
-        ],[
-            'name.required'=>'الرجاء ادخال الاسم',
-            'name.min'=>'يجب الايقل عدد احرف الاسم عن 3 احرف',
-            'email.unique'=>'هذا البريد موجود مسبقا',
-            'email.required'=>'الرجاءادخال عنوان البريد الالكتروني',
-            'email.email'=>'الرجاءادخال عنوان بريد صالح',
-            'password.required'=>'الرجاءادخال كلمة السر',
-            'password.min'=> 'يجب الايقل عدد احرف كلمة السر عن 6 احرف',
-            'confirm_pass.same'=>'كلمة المرور لا تتطابق',
-        ]);
+    public function register(RegisterRequest $request){
 
         $u=new User();
         $u->name=$request->name;
