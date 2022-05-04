@@ -180,3 +180,4 @@ Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.bran
 Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
 Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
 Route::resource('/auction', AcutionController::class, ['names' => 'admin.auction']);
+Route::view('/aucd', 'Admin.auctions.auctiondetials');
