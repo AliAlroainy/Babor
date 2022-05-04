@@ -43,7 +43,7 @@ Route::get('/auctions', function () {
 });
 
 /////category
-Route::view('/categories', 'Admin.categories.category');
+// Route::view('/categories', 'Admin.categories.category');
 
 
 Route::view('/', 'Front.index');
@@ -84,7 +84,6 @@ Route::group(['middleware'=>'auth'],function(){
             return view('Admin.auctions.bids');
         },['names'=>'admin.auctions']);
 
-
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
     });
@@ -108,6 +107,7 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
             Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
             Route::get('/auctions/current_auction', [UserAuctionController::class, 'CurrentAuction'])->name('user.show.current.auction');
+            Route::get('/auctions/ended_auction', [UserAuctionController::class, 'EndedAuction'])->name('user.show.ended.auction');
         });
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
@@ -137,10 +137,10 @@ Route::get('/reset-password/{token}', [ResetPasswordController::class,'getPasswo
 Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']);
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
-Route::view('/categories', 'Admin.categories.category');
+// Route::view('/categories', 'Admin.categories.category');
 
 
-Route::view('/auc', 'Admin.auctions.auctions');
+// Route::view('/auc', 'Admin.auctions.auctions');
 
 
 
@@ -178,7 +178,7 @@ Route::view('/auc', 'Admin.auctions.auctions');
 // Route::resource('/auction', AcutionController::class, ['names' => 'admin.auction']);
 
 
-Route::get('/ser', function () {
-    return view('Admin.services.service');
-});
+// Route::get('/ser', function () {
+//     return view('Admin.services.service');
+// });
 

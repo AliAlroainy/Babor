@@ -18,7 +18,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="sales-tab" data-bs-toggle="tab" href="#sales" role="tab" aria-controls="sales" aria-selected="false">المزادات المنتهية</a>
+                            <a class=" nav-link {{ request()->is('user/auctions/ended_auction') ? 'active' : null }}"
+                                id="{{ route('user.show.ended.auction') }}-tab" href="{{ route('user.show.ended.auction') }}"
+                                role="tab">
+
+                                    المزادات المنتهيه
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="purchases-tab" data-bs-toggle="tab" href="#purchases" role="tab" aria-controls="purchases" aria-selected="false">مزادات اشتركت فيها</a>
