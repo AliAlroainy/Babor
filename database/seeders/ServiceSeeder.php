@@ -72,6 +72,6 @@ class ServiceSeeder extends Seeder
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
 
-        ]);
+       ]);
     }
 }
