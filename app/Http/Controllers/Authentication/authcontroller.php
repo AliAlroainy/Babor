@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Contracts\Auth\CanResetPassword;
 
 class AuthController extends Controller
@@ -89,14 +90,8 @@ class AuthController extends Controller
             return 'user.dashboard';
 
     }
-    public function login(Request $request){
-        Validator::validate($request->all(),[
-            'email'=> 'email|required',
-            'password'=> 'required'
-        ],[
-            'email.required'=>'الرجاءادخال عنوان البريد الالكتروني',
-            'email.email'=>'الرجاءادخال عنوان بريد صالح',
-        ]);
+    public function login(LoginRequest $request){
+
         // $user=User::where(['email'=>$request->email])->first();
         // if($user->hasRole('user') && empty($user->email_verified_at))
         //     return view('user.email.verifyEmail');
