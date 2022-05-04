@@ -33,6 +33,14 @@
                                             <option value="مرسديس">  مرسديس</option>
 
                                         </select>
+</div>
+                                        <div class="col-lg-3 " >
+                                        <select id="filter-status" class="col-lg-4 filter2 form-select">
+                                            <option selected="selected" value="0">  حالة المزاد</option>
+                                            <option value="مفعل">مفعل </option>
+                                            <option value="غيرمفعل"> غيرمفعل</option>
+
+                                        </select>
 </div></div>
                                     </div>
                                     
@@ -147,7 +155,7 @@
                                                 <td>
                                                     {{ $auction->securityDeposit }}
                                                 </td>
-                                               
+                                                
                                             </tr>
                                         @endforeach
                                     </tbody>
