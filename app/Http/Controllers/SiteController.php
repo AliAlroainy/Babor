@@ -15,14 +15,18 @@ class SiteController extends Controller
     }
 
     public function auctionsList(){
-        $auctions = Auction::where('status', '2')->with('car')->get();
+        $auctions = Auction::where('status', '2')->get();
         return view('Front.auctions', ['auctions' => $auctions]);
     }
 
     public function auctionShow($id){
-        $auction = Auction::find($id);
-        if(!$auction)
-            return response()->view('Front.404', []);
-        return view('Front.details')->with('auction', $auction);
+        $found = Auction::find($id);
+        if($found){
+            $auction = Auction::where(['id' => $id, 'status' => '2'])->first();
+            if($auction){
+                return view('Front.details')->with('auction', $auction);
+            }
+        }     
+        return response()->view('Front.404', []);
     }
 }

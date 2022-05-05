@@ -162,27 +162,22 @@
                                                     <form action="{{ route('admin.auction.action', $auction->id) }}"
                                                         method="POST">
                                                         @csrf
-                                                        @if ($auction->status == '0')
-                                                            <button style="width: fit-content"
-                                                                class="
+                                                        <input type="submit" name="approve" style="width: fit-content"
+                                                            class="
                                                             btn d-flex align-items-center
                                                              btn-inverse-success
-                                                             btn-fw btn-rounded ">
-                                                                رفض
-                                                                <i class="fa-solid fa-trash pe-2"
-                                                                    style="font-size: 12px ;"></i>
-                                                            </button>
-                                                        @else
-                                                            <button style="width: fit-content"
-                                                                class="
+                                                             btn-fw btn-rounded"
+                                                            value="موافقة">
+
+                                                        <i class="fa-solid fa-trash pe-2" style="font-size: 12px ;"></i>
+
+                                                        <input type="submit" name="disapprove" style="width: fit-content"
+                                                            class="
                                                             btn d-flex align-items-center
                                                              btn-inverse-danger
-                                                             btn-fw btn-rounded ">
-                                                                موافقة
-                                                                <i class="fas fa-trash-restore pe-2"
-                                                                    style="font-size: 12px ;"></i>
-                                                            </button>
-                                                        @endif
+                                                             btn-fw btn-rounded"
+                                                            value="رفض">
+                                                        <i class="fas fa-times pe-2" style="font-size: 12px ;"></i>
                                                     </form>
                                                 </td>
                                             </tr>

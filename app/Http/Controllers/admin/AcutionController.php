@@ -19,12 +19,13 @@ class AcutionController extends Controller
     {
         $auction = Auction::find($id);
         if(!$auction)
-        return abort('404');
+            return abort('404');
         if ($request->input('approve')){
-            $project = Auction::where('id', $id)->update(['status' => '2']);
+            $action = Auction::where('id', $id)->update(['status' => '2']);
         }
         elseif ($request->input('disapprove')) {
-            $project = Auction::where('id', $request->offer_id)->update(['status' => '1']);
+            $action = Auction::where('id', $id)->update(['status' => '1']);
         }
+        return redirect()->back();
     }
 }
