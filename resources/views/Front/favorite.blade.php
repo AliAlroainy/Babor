@@ -45,7 +45,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h3><a href="{{ route('site.auction.details') }}">لاند كروسر 2020 </a>
+                                                <h3><a href="#">لاند كروسر 2020 </a>
                                                 </h3>
                                                 <div class="product-price">
                                                     <span>$2989.00</span>
@@ -78,7 +78,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h3><a href="{{ route('site.auction.details') }}">لاند كروسر 2020 </a>
+                                                <h3><a href="#">لاند كروسر 2020 </a>
                                                 </h3>
                                                 <div class="product-price">
                                                     <span>$2989.00</span>
@@ -111,7 +111,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h3><a href="{{ route('site.auction.details') }}">لاند كروسر 2020 </a>
+                                                <h3><a href="#">لاند كروسر 2020 </a>
                                                 </h3>
                                                 <div class="product-price">
                                                     <span>$2989.00</span>
@@ -144,7 +144,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h3><a href="{{ route('site.auction.details') }}">لاند كروسر 2020 </a>
+                                                <h3><a href="#">لاند كروسر 2020 </a>
                                                 </h3>
                                                 <div class="product-price">
                                                     <span>$2989.00</span>
@@ -177,42 +177,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h3><a href="{{ route('site.auction.details') }}">لاند كروسر 2020 </a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <span>$2989.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
-                                        <div class="single-product">
-                                            <div class="product-img">
-                                                <a href="/details">
-                                                    <img class="default-img" src="img/c1.jpg" alt="#">
-                                                    <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
-                                                    <span class="price-dec">30% Off</span>
-                                                </a>
-                                                <div class="button-head">
-                                                    <div class="product-action">
-                                                        <a data-toggle="modal" data-target="#exampleModal"
-                                                            title="Quick View" href="#"><i
-                                                                class=" ti-eye"></i><span>Quick Shop</span></a>
-                                                        <a title="Wishlist" href="#"><i
-                                                                class=" ti-heart "></i><span>اضافة
-                                                                للتفضيلات</span></a>
-                                                        <a title="Compare" href="#"><i
-                                                                class="ti-bar-chart-alt"></i><span>مشاركة
-                                                                المزاد</span></a>
-                                                    </div>
-                                                    <div class="product-action-2">
-                                                        <a title="Add to cart" href="#">شراء</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="{{ route('site.auction.details') }}">لاند كروسر 2020 </a>
+                                                <h3><a href="#">لاند كروسر 2020 </a>
                                                 </h3>
                                                 <div class="product-price">
                                                     <span>$2989.00</span>
@@ -247,7 +212,42 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h3><a href="{{ route('site.auction.details') }}">لاند كروسر 2020 </a>
+                                                <h3><a href="#">لاند كروسر 2020 </a>
+                                                </h3>
+                                                <div class="product-price">
+                                                    <span>$2989.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                        <div class="single-product">
+                                            <div class="product-img">
+                                                <a href="/details">
+                                                    <img class="default-img" src="img/c1.jpg" alt="#">
+                                                    <!--img class="hover-img" src="img/c2.jpg" alt="#"-->
+                                                    <span class="price-dec">30% Off</span>
+                                                </a>
+                                                <div class="button-head">
+                                                    <div class="product-action">
+                                                        <a data-toggle="modal" data-target="#exampleModal"
+                                                            title="Quick View" href="#"><i
+                                                                class=" ti-eye"></i><span>Quick Shop</span></a>
+                                                        <a title="Wishlist" href="#"><i
+                                                                class=" ti-heart "></i><span>اضافة
+                                                                للتفضيلات</span></a>
+                                                        <a title="Compare" href="#"><i
+                                                                class="ti-bar-chart-alt"></i><span>مشاركة
+                                                                المزاد</span></a>
+                                                    </div>
+                                                    <div class="product-action-2">
+                                                        <a title="Add to cart" href="#">شراء</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content">
+                                                <h3><a href="#">لاند كروسر 2020 </a>
                                                 </h3>
                                                 <div class="product-price">
                                                     <span>$2989.00</span>
@@ -283,7 +283,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h3><a href="{{ route('site.auction.details') }}">لاند كروسر 2020 </a>
+                                                <h3><a href="#">لاند كروسر 2020 </a>
                                                 </h3>
                                                 <div class="product-price">
                                                     <span>$2989.00</span>

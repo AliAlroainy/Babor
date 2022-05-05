@@ -65,7 +65,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
         Route::get('/auction', [AcutionController::class, 'index'])->name('admin.auction.index');
         Route::post('/auction/action/{id}', [AcutionController::class, 'action'])->name('admin.auction.action');
-        Route::view('/aucd', 'Admin.auctions.auctiondetials');
+        Route::get('/auction/details/{id}', [AcutionController::class, 'showDetails'])->name('admin.auction.details');
         
         Route::get('/bids', function (){
             return view('Admin.auctions.bids');
