@@ -28,17 +28,17 @@ class AcutionController extends Controller
         return redirect()->back();
     }
 
-    public function show(Request $request, $id)
+    public function showDetails(Request $request, $id)
     {
-        $auction = Auction::find($id);
-        if(!$auction)
-            return abort('404');
-        if ($request->input('approve')){
-            $action = Auction::where('id', $id)->update(['status' => '2']);
-        }
-        elseif ($request->input('disapprove')) {
-            $action = Auction::where('id', $id)->update(['status' => '1']);
-        }
+        $found = Auction::find($id);
+        if($found){
+            $auction = Auction::with(['car', 'bids'])->where(['id' => $id])->first();
+            // dd($auction);
+            if($auction){
+                return view('Admin.auctions.auctionDetails')->with('auction', $auction);
+            }
+        }     
+        return response()->view('Front.404', []);
         return redirect()->back();
     }
 }

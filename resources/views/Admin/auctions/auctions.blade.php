@@ -139,8 +139,9 @@
                                                     </h4>
                                                 </td>
                                                 <td>
-                                                    <button type="submit" class="btn btn-warning text-white"> عرض مزيد من
-                                                        التفاصيل </button>
+                                                    <a href="{{ route('admin.auction.details', $auction->id) }}"
+                                                        class="btn btn-warning text-white"> عرض مزيد من
+                                                        التفاصيل </a>
                                                 </td>
                                                 <td class="status status_filed">
                                                     <form action="{{ route('admin.auction.action', $auction->id) }}"
