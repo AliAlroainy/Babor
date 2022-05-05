@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreAuctionRequest;
+use Carbon\Carbon;
 
 class UserAuctionController extends Controller
 {
@@ -81,6 +82,7 @@ class UserAuctionController extends Controller
     {
         $currentDate = date('Y-m-d');
         $currentDate = date('Y-m-d', strtotime($currentDate));
+
         $auctions= Auction::orderBy('id')->get();
 
         $items = DB::table('auctions')
@@ -89,18 +91,21 @@ class UserAuctionController extends Controller
         if(!$items)
         return abort('404');
 
+
        if($items->closeDate != $currentDate  && empty($items->winner)){
 
        return view('Front.Auction.auctions')->with('auctions',$auctions);
-      }
-      else
-      {
+       }
+       else
+       {
           echo"sorry";
-      }
+       }
 
     }
     public function EndedAuction(Request $request)
     {
+
+        // eq()
         $currentDate = date('Y-m-d');
         $currentDate = date('Y-m-d', strtotime($currentDate));
         $auctions= Auction::orderBy('id')->get();
@@ -111,14 +116,17 @@ class UserAuctionController extends Controller
         if(!$items)
         return abort('404');
  //if (!empty($items->winner)) when bid table is done we will add it
-       if($items->closeDate = $currentDate  ){
+//
+        if($items->closeDate == $currentDate  && empty($items->winner)){
 
-       return view('Front.Auction.auctions')->with('auctions',$auctions);
-      }
-      else
-      {
-          echo"sorry";
-      }
+        return view('Front.Auction.auctions')->with('auctions',$auctions);
+        }
+        else
+        {
+        echo"sorry";
+        }
+
+
 
     }
     public function udpate(Request $request){
