@@ -33,6 +33,10 @@ Route::get('/offer', function () {
     return view('Front.offer');
 });
 
+Route::get('/findcar', function () {
+    return view('Front.findcar');
+});
+
 Route::get('/', [SiteController::class, 'home'])->name('/');
 Route::get('/auction', [SiteController::class, 'auctionsList'])->name('site.auction');
 Route::get('/auction/{id}', [SiteController::class, 'auctionShow'])->name('site.auction.details');
