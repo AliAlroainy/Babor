@@ -95,8 +95,8 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
             Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
             Route::post('/bid/{id}', BidController::class)->name('user.place.bid');
-            Route::get('/auctions/current_auction', [UserAuctionController::class, 'CurrentAuction'])->name('user.show.current.auction');
-            Route::get('/auctions/ended_auction', [UserAuctionController::class, 'EndedAuction'])->name('user.show.ended.auction');
+            Route::get('/auctions/in-progress', [UserAuctionController::class, 'currentAuctions'])->name('user.show.progress.auction');
+            Route::get('/auctions/exprired', [UserAuctionController::class, 'expiredAuctions'])->name('user.show.expired.auction');
             Route::get('/auctions/subscribed_auction', [UserAuctionController::class, 'subscribedAuctions'])->name('user.show.subscribed.auction');
         });
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');

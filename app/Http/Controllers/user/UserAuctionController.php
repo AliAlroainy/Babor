@@ -78,7 +78,7 @@ class UserAuctionController extends Controller
             ->with('successSubmit','مزادك في انتظار موافقة المسؤول');
     }
 
-    public function CurrentAuction(Request $request)
+    public function currentAuctions(Request $request)
     {
         $currentDate = date('Y-m-d');
         $currentDate = date('Y-m-d', strtotime($currentDate));
@@ -93,8 +93,7 @@ class UserAuctionController extends Controller
 
 
        if($items->closeDate != $currentDate  && empty($items->winner)){
-
-       return view('Front.Auction.auctions')->with('auctions',$auctions);
+            return view('Front.Auction.auctions')->with('auctions',$auctions);
        }
        else
        {
@@ -102,7 +101,7 @@ class UserAuctionController extends Controller
        }
 
     }
-    public function EndedAuction(Request $request)
+    public function expiredAuctions(Request $request)
     {
 
 
