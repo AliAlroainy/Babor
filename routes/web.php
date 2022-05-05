@@ -72,7 +72,8 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
         Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
-        Route::resource('/auction', AcutionController::class, ['names' => 'admin.auction']);
+        Route::get('/auction', [AcutionController::class, 'index'])->name('admin.auction.index');
+        Route::post('/auction/action/{id}', [AcutionController::class, 'action'])->name('admin.auction.action');
 
         // Route::get('/auctions', function (){
         //     return view('Admin.auctions.auctions');

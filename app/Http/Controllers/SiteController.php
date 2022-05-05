@@ -15,7 +15,7 @@ class SiteController extends Controller
     }
 
     public function auctionsList(){
-        $auctions = Auction::where('status', '1')->with('car')->get();
+        $auctions = Auction::where('status', '2')->with('car')->get();
         return view('Front.auctions', ['auctions' => $auctions]);
     }
 

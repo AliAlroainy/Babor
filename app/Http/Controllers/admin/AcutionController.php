@@ -11,43 +11,20 @@ class AcutionController extends Controller
     public function index()
     {
         $auctions = Auction::orderBy('id')->get();
-        return view('Admin.auctions.auctions')->with('auctions',$auctions);
+        return view('Admin.auctions.auctions')->with('auctions', $auctions);
 
     }
 
-    public function create()
+    public function action(Request $request, $id)
     {
-        //
-
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($auctions_id)
-    {
-        $auctions=Auction::find($auctions_id);
-        if(!$auctions)
-            return abort('404');
-        $auctions->is_active*=-1;
-        if($auctions->save())
-            return back();
+        $auction = Auction::find($id);
+        if(!$auction)
+        return abort('404');
+        if ($request->input('approve')){
+            $project = Auction::where('id', $id)->update(['status' => '2']);
+        }
+        elseif ($request->input('disapprove')) {
+            $project = Auction::where('id', $request->offer_id)->update(['status' => '1']);
+        }
     }
 }

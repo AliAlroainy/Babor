@@ -33,7 +33,7 @@ class BidController extends Controller
             return redirect()->route('site.auction.details', $id)->with('warningBid','لا تستطيع المزايدة على مزادك!');
 
         $status = $current_auction->status;
-        if($status != '1'){ // auction is not in progress
+        if($status != '2'){ // auction is not in progress
             return redirect()->route('site.auction.details', $id)->with('errorBid','هذا المزاد ليس جاريا');
         }
 
