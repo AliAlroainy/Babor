@@ -45,6 +45,10 @@ class Auction extends Model
         return ['معلقة','جارية', 'ملغاة', 'مكتملة'];
     }
 
+    public static function matchAuctionStatus($status){
+        return Auction::getAuctionStatusValues()[$status];
+    }
+
     public function type_and_model(){
         return $this->car->series->name.'  '. $this->car->model;
     }

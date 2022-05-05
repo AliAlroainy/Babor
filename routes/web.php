@@ -7,7 +7,7 @@ use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
-use App\Http\Controllers\user\UserBidController;
+use App\Http\Controllers\user\BidController;
 use App\Http\Controllers\Admin\AcutionController;
 use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
@@ -105,7 +105,7 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
             Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
 
-            Route::post('/bid/{id}', UserBidController::class)->name('user.place.bid');
+            Route::post('/bid/{id}', BidController::class)->name('user.place.bid');
         });
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');

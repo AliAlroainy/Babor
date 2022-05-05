@@ -142,11 +142,31 @@
                             <div class="add-to-cart">
                                 <div class="qty-label">
                                     سعر المزايدة
+                                    @if (session()->has('errorBid'))
+                                        <div class="alert alert-danger alert-dismissible fade show">
+                                            {{ session()->get('errorBid') }}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+                                    @endif
+                                    @if (session()->has('warningBid'))
+                                        <div class="alert alert-warning alert-dismissible fade show">
+                                            {{ session()->get('warningBid') }}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+                                    @endif
                                     <div class="input-n">
-                                        <input type="number" name="bidPrice">
+                                        <input type="number" name="bidPrice"
+                                            class="@error('bidPrice') is-invalid @enderror">
                                         <span class="qty-up">+</span>
                                         <span class="qty-down">-</span>
                                     </div>
+                                    @error('bidPrice')
+                                        <p style="color: red;">
+                                            {{ $message }}
+                                        </p>
+                                    @enderror
                                 </div>
                                 <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> دخول
                                     بالمزاد</button>
