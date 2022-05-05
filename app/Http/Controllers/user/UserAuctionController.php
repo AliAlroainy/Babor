@@ -128,10 +128,7 @@ class UserAuctionController extends Controller
     {
 
         $id=Auth::id();
-        $items = DB::table('auctions')
-        ->select('id','winner')
-        ->where('auctions.user_id',$id)
-        ->get();
+        $auctions=Auction::with(['car'])->where('auctions.user_id',$id)->get();
         return view('Front.Auction.auctions')->with('auctions',$auctions);
 
     }
