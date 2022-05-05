@@ -8,10 +8,10 @@ $('.filter').change(function(){
   
 });
 
-$('.Auction_card .Auction_filed ').show(); //intially all rows will be shown
+$('.Auction_card .car_filed ').show(); //intially all rows will be shown
 
 function filter_function(){
-  $('.Auction_card .Auction_filed ').hide(); //hide all rows
+  $(' .car_filed ').hide(); //hide all rows
   
   var companyFlag = 0;
   var companyValue = $('#filter-auction').val();
@@ -19,12 +19,12 @@ function filter_function(){
   //setting intial values and flags needed
   
  //traversing each row one by one
-  $('.Auction_filed').each(function() {  
+  $('.car_filed').each(function() {  
   
     if(companyValue == 0){   //if no value then display row
     companyFlag = 1;
     }
-    else if(companyValue == $(this).find('td.name').data('name')){ 
+    else if(companyValue == $(this).find('span.car').data('car')){ 
       companyFlag = 1;       //if value is same display row
     }
     else{
@@ -57,7 +57,7 @@ $('.filter1').change(function(){
 $('.Auction_card .brand_filed ').show(); //intially all rows will be shown
 
 function filter_function1(){
-  $('.Auction_card .brand_filed ').hide(); //hide all rows
+  $(' .brand_filed ').hide(); //hide all rows
   
   var companyFlag = 0;
   var companyValue = $('#filter-brand').val();
@@ -70,7 +70,7 @@ function filter_function1(){
     if(companyValue == 0){   //if no value then display row
     companyFlag = 1;
     }
-    else if(companyValue == $(this).find('td.brand').data('brand')){ 
+    else if(companyValue == $(this).find('div.brand').data('brand')){ 
       companyFlag = 1;       //if value is same display row
     }
     else{
@@ -104,7 +104,7 @@ $('.filter2').change(function(){
 $('.Auction_card .status_filed ').show(); //intially all rows will be shown
 
 function filter_function2(){
-  $('.Auction_card .status_filed ').hide(); //hide all rows
+  $(' .status_filed ').hide(); //hide all rows
   
   var companyFlag = 0;
   var companyValue = $('#filter-status').val();
@@ -117,7 +117,7 @@ function filter_function2(){
     if(companyValue == 0){   //if no value then display row
     companyFlag = 1;
     }
-    else if(companyValue == $(this).find('td.status').data('status')){ 
+    else if(companyValue == $(this).find('h4.status').data('status')){ 
       companyFlag = 1;       //if value is same display row
     }
     else{

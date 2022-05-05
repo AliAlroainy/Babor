@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Authentication;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -19,16 +18,16 @@ class ResetPasswordController extends Controller {
   public function updatePassword(Request $request)
   {
 
-  $request->validate([
+      $request->validate([
       'email' => 'required|email|exists:users',
       'password' => 'required|string|min:6|confirmed',
       'password_confirmation' => 'required', ]);
 
-      $updatePassword = DB::table('password_resets')
+       $updatePassword = DB::table('password_resets')
                           ->where(['email' => $request->email, 'token' => $request->token])
                           ->first();
 
-      if(!$updatePassword)
+     if(!$updatePassword)
           return back()->withInput()->with('error', 'Invalid token!');
 
         $user = User::where('email', $request->email)

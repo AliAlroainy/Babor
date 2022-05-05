@@ -36,6 +36,16 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class, 'user_id');
     }
 
+    public function auctions(): HasMany
+    {
+        return $this->hasMany(Auction::class, 'auctioneer_id');
+    }
+
+    public function bids(): HasMany
+    {
+        return $this->hasMany(Bid::class, 'bidder_id');
+    }
+
     // public const PASSWORD_VALIDATION_RULES  = [
     //     'password'        => 'required|min:5',
     //     'confirm_password'=> 'same:password'

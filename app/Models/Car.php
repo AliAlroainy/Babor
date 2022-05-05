@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,6 +21,8 @@ class Car extends Model
         'carPosition',
         'thumbnail',
         'car_images',
+        'status',
+        'description'
     ];
 
 
@@ -43,8 +46,8 @@ class Car extends Model
         return $this->hasOne(Auction::class, 'car_id');
     }
 
-    public static function getStatusAttribute($key){
-        return $key == 0 ? 'جديدة' : 'مستعملة';
+    public static function getStatus($key){
+        return $key ===  '1' ? 'جديدة' : 'مستعملة';
     }
 
     public static function getSizOfDamageValues(){

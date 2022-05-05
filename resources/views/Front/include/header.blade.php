@@ -28,38 +28,38 @@
 
     <!-- Bootstrap -->
     <!-- Magnific Popup -->
-    <link rel="stylesheet" href="css/magnific-popup.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
     <!-- Fancybox -->
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
     <!-- Themify Icons -->
-    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="/css/themify-icons.css">
     <!-- Nice Select CSS -->
-    <link rel="stylesheet" href="css/niceselect.css">
+    <link rel="stylesheet" href="/css/niceselect.css">
     <!-- Animate CSS -->
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="/css/animate.css">
     <!-- Flex Slider CSS -->
-    <link rel="stylesheet" href="css/flex-slider.min.css">
+    <link rel="stylesheet" href="/css/flex-slider.min.css">
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="css/owl-carousel.css">
+    <link rel="stylesheet" href="/css/owl-carousel.css">
     <!-- Slicknav -->
-    <link rel="stylesheet" href="css/slicknav.min.css">
+    <link rel="stylesheet" href="/css/slicknav.min.css">
 
     <!--  StyleSheet -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
     <!-- some linkes -->
     <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="css/slick.css" />
-    <link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+    <link type="text/css" rel="stylesheet" href="/css/slick.css" />
+    <link type="text/css" rel="stylesheet" href="/css/slick-theme.css" />
 
     <!-- nouislider -->
-    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/nouislider.min.css" />
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
 
     <!-- ppp-->
     <!-- Fonts -->
@@ -72,23 +72,23 @@
 
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css" />
-    <link rel="stylesheet" href="assets/vendor/libs/swiper/swiper.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/swiper/swiper.css" />
 
     <!-- Page CSS -->
-    <link rel="stylesheet" href="assets/vendor/css/pages/ui-carousel.css" />
+    <link rel="stylesheet" href="/assets/vendor/css/pages/ui-carousel.css" />
 
 
     {{-- bootstrap link --}}
-    <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/bootstrap-5.1.3-dist/css/bootstrap.css" />
 
     {{-- jQuery link --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
 
 
     <script>
@@ -181,29 +181,33 @@
                                     <span class="total-count">2</span>
                                 </a>
 
-                                	<!-- notfications Item -->
-								<div class="shopping-item" dir="rtl" >
-									<div class="dropdown-cart-header">
-										<span>2 اشعارات</span>
-										
-									</div>
-									<ul class="shopping-list" >
-										<li >
-											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-											<a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
-											<h4><a href="#">تبقى يومين </a></h4>
-											<p class="quantity">مزاد سيارة لاندكروسر <span class="amount">$9990.00</span></p>
-										</li>
-										<li>
-											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-											<a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
-											<h4><a href="#">  سيارة شفرليه </a></h4>
-											<p class="quantity"> عرض قد يهمك <span class="amount">$3905.00</span></p>
-										</li>
-									</ul>
-								<div class="bottom"><a href="#">عرض الكل </a> </div>
-								</div>
-								<!--/ End notfications Item -->
+                                <!-- notfications Item -->
+                                <div class="shopping-item" dir="rtl">
+                                    <div class="dropdown-cart-header">
+                                        <span>2 اشعارات</span>
+
+                                    </div>
+                                    <ul class="shopping-list">
+                                        <li>
+                                            <a href="#" class="remove" title="Remove this item"><i
+                                                    class="fa fa-remove"></i></a>
+                                            <a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
+                                            <h4><a href="#">تبقى يومين </a></h4>
+                                            <p class="quantity">مزاد سيارة لاندكروسر <span
+                                                    class="amount">$9990.00</span></p>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="remove" title="Remove this item"><i
+                                                    class="fa fa-remove"></i></a>
+                                            <a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
+                                            <h4><a href="#"> سيارة شفرليه </a></h4>
+                                            <p class="quantity"> عرض قد يهمك <span
+                                                    class="amount">$3905.00</span></p>
+                                        </li>
+                                    </ul>
+                                    <div class="bottom"><a href="#">عرض الكل </a> </div>
+                                </div>
+                                <!--/ End notfications Item -->
                             </div>
 
                             <div class="sinlge-bar">
@@ -211,9 +215,8 @@
                                         aria-hidden="true"></i> </a>
                             </div>
                             <div class="sinlge-bar">
-                                <a href="{{ route('user.profile') }}"
-                                 class="single-icon"><i class="fa fa-user-circle-o"
-                                        aria-hidden="true"></i> </a>
+                                <a href="{{ route('user.profile') }}" class="single-icon"><i
+                                        class="fa fa-user-circle-o" aria-hidden="true"></i> </a>
                             </div>
 
                         </div>

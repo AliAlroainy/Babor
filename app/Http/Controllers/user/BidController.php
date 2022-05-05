@@ -2,85 +2,51 @@
 
 namespace App\Http\Controllers\user;
 
-use App\Http\Controllers\Controller;
-use App\Models\bid;
+use App\Models\Bid;
+use App\Models\User;
+use App\Models\Auction;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class BidController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+    public function __invoke(Request $request, $id){
+        $current_user = Auth::id();
+        $current_auction = Auction::find($id);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        Validator::validate($request->all(), [
+            'bidPrice' => 'required|numeric|min:'.$current_auction->minInc,
+        ], [
+            'bidPrice.required' => 'هذا الحقل مطلوب',
+            'bidPrice.numerice' => 'هذاالحقل يجب أن يكون رقما',
+            'bidPrice.min' => 'أقل سعر تستطيع المزايدة به هو : '.$current_auction->minInc,
+        ]);
+        //constraints
+        if(!$current_auction ){ // auction is not found
+            return redirect()->route('site.auction.details', $id)->with('errorBid','لا يوجد لدينا هذا المزاد');
+        }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $is_auctioneer = $current_auction->where('auctioneer_id', $current_user)->first();
+        if($is_auctioneer)
+            return redirect()->route('site.auction.details', $id)->with('warningBid','لا تستطيع المزايدة على مزادك!');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\bid  $bid
-     * @return \Illuminate\Http\Response
-     */
-    public function show(bid $bid)
-    {
-        //
-    }
+        $status = $current_auction->status;
+        if($status != '2'){ // auction is not in progress
+            return redirect()->route('site.auction.details', $id)->with('errorBid','هذا المزاد ليس جاريا');
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\bid  $bid
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(bid $bid)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\bid  $bid
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, bid $bid)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\bid  $bid
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(bid $bid)
-    {
-        //
+        $bid = new Bid();
+        $start_before = Bid::where('auction_id', $id)->first();
+        $bid->auction_id = $id;
+        $bid->bidder_id = $current_user;
+        $bid->bidPrice =  $request->input('bidPrice');
+        if(!$start_before)
+            $bid->currentPrice = $bid->bidPrice + Auction::where('id', $id)->first()->openingBid;
+        else
+            $bid->currentPrice = $bid->bidPrice + Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->currentPrice;
+        $bid->save();
+        return redirect('/');
     }
 }

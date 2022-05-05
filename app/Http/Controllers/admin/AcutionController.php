@@ -7,88 +7,25 @@ use Illuminate\Http\Request;
 
 class AcutionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $auctions = Auction::orderBy('id')->get();
-        return view('Admin.auctions.auctions')->with('auctions',$auctions);
+        return view('Admin.auctions.auctions')->with('auctions', $auctions);
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function action(Request $request, $id)
     {
-        //
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($auctions_id)
-    {
-        //
-        $auctions=Auction::find($auctions_id);
-        if(!$auctions)
+        $auction = Auction::find($id);
+        if(!$auction)
             return abort('404');
-        $auctions->is_active*=-1;
-        if($auctions->save())
-            return back();
+        if ($request->input('approve')){
+            $action = Auction::where('id', $id)->update(['status' => '2']);
+        }
+        elseif ($request->input('disapprove')) {
+            $action = Auction::where('id', $id)->update(['status' => '1']);
+        }
+        return redirect()->back();
     }
 }

@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\ChangePasswordRequest;
+use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Contracts\Auth\CanResetPassword;
 
 class AuthController extends Controller
@@ -24,22 +26,8 @@ class AuthController extends Controller
         return view('admin.dashboard');
 
     }
-    public function register(Request $request){
-        Validator::validate($request->all(),[
-            'name'=>['required','min:3'],
-            'email'=>['required','email','unique:users,email'],
-            'password' => 'required|min:6',
-            'confirm_password'=> 'required|same:password'
-        ],[
-            'name.required'=>'الرجاء ادخال الاسم',
-            'name.min'=>'يجب الايقل عدد احرف الاسم عن 3 احرف',
-            'email.unique'=>'هذا البريد موجود مسبقا',
-            'email.required'=>'الرجاءادخال عنوان البريد الالكتروني',
-            'email.email'=>'الرجاءادخال عنوان بريد صالح',
-            'password.required'=>'الرجاءادخال كلمة السر',
-            'password.min'=> 'يجب الايقل عدد احرف كلمة السر عن 6 احرف',
-            'confirm_pass.same'=>'كلمة المرور لا تتطابق',
-        ]);
+    
+    public function register(RegisterRequest $request){
 
         $u=new User();
         $u->name=$request->name;
@@ -69,7 +57,7 @@ class AuthController extends Controller
             //     ]);
 
             return redirect()->route('login');
-            // ->with(['emailVerification'=>'  اهلا بك سجل دخولك']);
+
         }
 
         return back()->with(['errRegistration'=>'فشل في عملية إنشاء الحساب']);
@@ -103,19 +91,14 @@ class AuthController extends Controller
             return 'user.dashboard';
 
     }
-    public function login(Request $request){
-        Validator::validate($request->all(),[
-            'email'=> 'email|required',
-            'password'=> 'required'
-        ],[
-            'email.required'=>'الرجاءادخال عنوان البريد الالكتروني',
-            'email.email'=>'الرجاءادخال عنوان بريد صالح',
-        ]);
+    public function login(LoginRequest $request){
+
         // $user=User::where(['email'=>$request->email])->first();
         // if($user->hasRole('user') && empty($user->email_verified_at))
         //     return view('user.email.verifyEmail');
         // else
-        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
+        $remember = $request->has('remember_me') ? true : false;
+        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'is_active' => 1], $remember)){
             if(Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))//if he login and has admin role and he is active=1 redirct him to dashboard route
                 return redirect()->route('admin.dashboard');
             else

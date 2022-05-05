@@ -18,12 +18,32 @@ class CategorySeeder extends Seeder
     {
         //
         $faker = Faker::create();
-        foreach (range(1,5) as $index) {
+
           DB::table('categories')->insert([
-              'name' => $faker->word(),
+              'name' => 'سيارات',
               'image' => $faker->image('public/images/categories',640,480, null, false),
               'is_active' => '1',
           ]);
-  }
+          DB::table('categories')->insert([
+            'name' => 'صوالين',
+            'image' => $faker->image('public/images/categories',640,480, null, false),
+            'is_active' => '1',
+          ]);
+          DB::table('categories')->insert([
+            'name' => 'تاكسي',
+            'image' => $faker->image('public/images/categories',640,480, null, false),
+            'is_active' => '1',
+          ]);
+          DB::table('categories')->insert([
+            'name' => 'شاحنات',
+            'image' => $faker->image('public/images/categories',640,480, null, false),
+            'is_active' => '1',
+          ]);
+          DB::table('categories')->insert([
+            'name' => 'حافلات',
+            'image' => $faker->image('public/images/categories',640,480, null, false),
+            'is_active' => '1',
+          ]);
+
     }
 }
