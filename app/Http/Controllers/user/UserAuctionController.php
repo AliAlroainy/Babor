@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreAuctionRequest;
+use Carbon\Carbon;
 
 class UserAuctionController extends Controller
 {
@@ -77,28 +78,59 @@ class UserAuctionController extends Controller
             ->with('successSubmit','مزادك في انتظار موافقة المسؤول');
     }
 
-    public function validDiscount() {
-        return $this->startDate <= now()->toDateTimeString()
-            && $this->closeDate >= now()->toDateTimeString();
-    }
-
     public function CurrentAuction(Request $request)
     {
         $currentDate = date('Y-m-d');
         $currentDate = date('Y-m-d', strtotime($currentDate));
 
+        $auctions= Auction::orderBy('id')->get();
+
         $items = DB::table('auctions')
         ->select('id', 'closeDate','winner')
         ->first();
-//if (!empty($items->winner)) when bid table is done we will add it
-       if($items->closeDate != $currentDate ){
-       $auctions= Auction::orderBy('id')->get();
-       return view('Front.Auction.auctions')->with('auctions',$auctions);
+        if(!$items)
+        return abort('404');
 
+
+       if($items->closeDate != $currentDate  && empty($items->winner)){
+
+       return view('Front.Auction.auctions')->with('auctions',$auctions);
+       }
+       else
+       {
+          echo"sorry";
+       }
 
     }
-    else
-            echo "sorry";
+    public function EndedAuction(Request $request)
+    {
+
+
+        $currentDate = date('Y-m-d');
+        $currentDate = date('Y-m-d', strtotime($currentDate));
+        $auctions= Auction::orderBy('id')->get();
+        $items = DB::table('auctions')
+        ->select('id', 'closeDate','winner')
+        ->first();
+        if(!$items)
+        return abort('404');
+        if($items->closeDate == $currentDate  && !empty($items->winner)){
+
+        return view('Front.Auction.auctions')->with('auctions',$auctions);
+        }
+        else
+        {
+        echo"sorry";
+        }
+
+    }
+    public function subscribedAuctions (Request $request)
+    {
+
+        $id=Auth::id();
+        $auctions=Auction::with(['car'])->where('auctions.user_id',$id)->get();
+        return view('Front.Auction.auctions')->with('auctions',$auctions);
+
     }
     public function udpate(Request $request){
 
