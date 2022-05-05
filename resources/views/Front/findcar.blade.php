@@ -21,15 +21,15 @@
      <div>
           <div class="input-group rounded" dir="rtl">
                <input type="search" class="form-control rounded" placeholder="بحث" aria-label="Search" aria-describedby="search-addon" />
-               <span class="input-group-text border-0" id="search-addon">
+               {{-- <span class="input-group-text border-0" id="search-addon">
                <i class="fas fa-search"></i>
-               </span>
+               </span> --}}
           </div>
      
      </div>
 
      <div>
-          <h6 class="p-1 border-bottom">بحث بحسب </h6>
+          <h6 class="p-1 border-bottom  mt-3">بحث بحسب </h6>
           <p class="mb-2">اللون</p>
           <ul class="list-group">
               <li class="list-group-item list-group-item-action mb-2 rounded"><a href="#">
@@ -72,9 +72,9 @@
 
       <div class="input-group rounded" dir="rtl">
           <input type="search" class="form-control rounded" placeholder="بحث" aria-label="Search" aria-describedby="search-addon" />
-          <span class="input-group-text border-0" id="search-addon">
+          {{-- <span class="input-group-text border-0" id="search-addon">
           <i class="fas fa-search"></i>
-          </span>
+          </span> --}}
      </div>
 
 
@@ -82,7 +82,7 @@
      </div>
 
      <div>
-         <h6 class="p-1 border-bottom">بحث بحسب </h6>
+         <h6 class="p-1 border-bottom mt-3">بحث بحسب </h6>
          <p class="mb-2">اللون</p>
          <ul class="list-group">
              <li class="list-group-item list-group-item-action mb-2 rounded"><a href="#">
