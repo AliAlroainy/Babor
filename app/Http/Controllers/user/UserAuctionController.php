@@ -105,19 +105,16 @@ class UserAuctionController extends Controller
     public function EndedAuction(Request $request)
     {
 
-        // eq()
+
         $currentDate = date('Y-m-d');
         $currentDate = date('Y-m-d', strtotime($currentDate));
         $auctions= Auction::orderBy('id')->get();
-
         $items = DB::table('auctions')
         ->select('id', 'closeDate','winner')
         ->first();
         if(!$items)
         return abort('404');
- //if (!empty($items->winner)) when bid table is done we will add it
-//
-        if($items->closeDate == $currentDate  && empty($items->winner)){
+        if($items->closeDate == $currentDate  && !empty($items->winner)){
 
         return view('Front.Auction.auctions')->with('auctions',$auctions);
         }
@@ -126,7 +123,16 @@ class UserAuctionController extends Controller
         echo"sorry";
         }
 
+    }
+    public function subscribedAuctions (Request $request)
+    {
 
+        $id=Auth::id();
+        $items = DB::table('auctions')
+        ->select('id','winner')
+        ->where('auctions.user_id',$id)
+        ->get();
+        return view('Front.Auction.auctions')->with('auctions',$auctions);
 
     }
     public function udpate(Request $request){
