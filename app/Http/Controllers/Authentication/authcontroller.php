@@ -26,6 +26,7 @@ class AuthController extends Controller
         return view('admin.dashboard');
 
     }
+    
     public function register(RegisterRequest $request){
 
         $u=new User();

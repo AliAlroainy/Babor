@@ -14,29 +14,37 @@
                                 <div class="search-bar-top">
                                     <div class="search-bar">
                                         <h4 class="card-title">عرض بحسب</h4>
-                                        <select id="filter-auction" class="filter form-select">
-                                            <option selected="selected" value="0"> اسم السيارة</option>
-                                            <option value="سنتافي">سنتافي </option>
-                                            <option value="برادو">برادو </option>
-                                            <option value="توسان"> توسان</option>
-                                            <option value="كامري"> كامري</option>
+                                        <div style="display:flex;flex-direction:row ;padding:1%">
+                                            <div class="col-lg-3">
+                                                <select id="filter-auction" class=" filter form-select">
+                                                    <option selected="selected" value="0"> اسم السيارة</option>
+                                                    <option value="سنتافي">سنتافي </option>
+                                                    <option value="برادو">برادو </option>
+                                                    <option value="توسان"> توسان</option>
+                                                    <option value="كامري"> كامري</option>
 
-                                        </select>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <select id="filter-brand" class=" col-lg-4 filter1 form-select"
+                                                    style="display:flex;flex-direction:column">
+                                                    <option selected="selected" value="0"> ماركة السيارة</option>
+                                                    <option value="تويوتا"> تويوتا</option>
+                                                    <option value="هونداي"> هونداي</option>
+                                                    <option value="كيا"> كيا</option>
+                                                    <option value="مرسديس"> مرسديس</option>
 
-                                        <select id="filter-brand" class="filter1 form-select">
-                                            <option selected="selected" value="0"> ماركة السيارة</option>
-                                            <option value="تويوتا"> تويوتا</option>
-                                            <option value="هونداي"> هونداي</option>
-                                            <option value="كيا"> كيا</option>
-                                            <option value="مرسديس"> مرسديس</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-3 ">
+                                                <select id="filter-status" class="col-lg-4 filter2 form-select">
+                                                    <option selected="selected" value="0"> حالة المزاد</option>
+                                                    <option value="1">مفعل </option>
+                                                    <option value="-1"> غيرمفعل</option>
 
-                                        </select>
-                                        <select id="filter-status" class="filter2 form-select">
-                                            <option selected="selected" value="0"> حالة المزاد</option>
-                                            <option value="مفعل">مفعل </option>
-                                            <option value="غيرمفعل"> غيرمفعل</option>
-
-                                        </select>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -78,107 +86,67 @@
                                 <table class="table table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th>
-                                                الصورة
-                                            </th>
+
                                             <th>
                                                 ماركة السيارة
                                             </th>
                                             <th>
                                                 اسم السيارة
                                             </th>
-                                            <th>
-                                                الموديل
-                                            </th>
-                                            <th>
-                                                السعر الابتدائي
-                                            </th>
+
                                             <th>
                                                 تاريخ البدء
                                             </th>
                                             <th>
                                                 تاريخ الانتهاء
                                             </th>
-                                            <th>
-                                                السعر الاحتياطي
-                                            </th>
-                                            <th>
-                                                اقل قيمة للمزايدة </th>
+
                                             <th>
                                                 الفائز بالمزاد </th>
-                                            <th>
-                                                نسبة الموقع </th>
-                                            <th>
-                                                مبلغ التأمين
-                                            </th>
+
 
                                             <th>
                                                 حالة المزاد </th>
+                                            <th>
+                                            </th>
+
                                         </tr>
                                     </thead>
                                     <tbody class="Auction_card">
                                         @foreach ($auctions as $auction)
                                             <tr>
-                                                <td>
-                                                    <img src="/images/cars/{{ $auction->car->thumbnail }}" alt="image" />
+
+                                                <td class=" brand_filed ">
+                                                    <div class="brand"
+                                                        data-car="{{ $auction->car->brand->name }}">
+                                                        {{ $auction->car->brand->name }}</div>
                                                 </td>
-                                                <td class="brand brand_filed ">
-                                                    {{ $auction->car->brand->name }}
+                                                <td class=" car_filed ">
+                                                    <span class="car"
+                                                        data-car="{{ $$auction->car->series->name }}">
+                                                        {{ $auction->car->series->name }}</span>
                                                 </td>
-                                                <td class="name Auction_filed ">
-                                                    {{ $auction->car->series->name }}
-                                                </td>
-                                                <td>
-                                                    {{ $auction->car->model }}
-                                                </td>
-                                                <td>
-                                                    {{ $auction->openingBid }}
-                                                </td>
+
+
                                                 <td>
                                                     {{ $auction->startDate }}
                                                 </td>
                                                 <td>
                                                     {{ $auction->closeDate }}
                                                 </td>
-                                                <td>
-                                                    {{ $auction->reservePrice }}
-                                                </td>
-                                                <td>
-                                                    {{ $auction->minInc }}
-                                                </td>
-                                                <td>
-                                                    {{ $auction->winnerPrice }}
-                                                </td>
+
                                                 <td>
                                                     {{ $auction->winner }}
                                                 </td>
-                                                <td>
-                                                    {{ $auction->commission }}
+
+
+                                                <td class="status_filed ">
+                                                    <h4 class="status" data-status="{{ $auction->status }}">
+                                                        {{ $auction->status }}</h4>
                                                 </td>
                                                 <td>
-                                                    {{ $auction->securityDeposit }}
-                                                </td>
-                                                <td class="status status_filed">
-                                                    <form action="{{ route('admin.auction.action', $auction->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        <input type="submit" name="approve" style="width: fit-content"
-                                                            class="
-                                                            btn d-flex align-items-center
-                                                             btn-inverse-success
-                                                             btn-fw btn-rounded"
-                                                            value="موافقة">
-
-                                                        <i class="fa-solid fa-trash pe-2" style="font-size: 12px ;"></i>
-
-                                                        <input type="submit" name="disapprove" style="width: fit-content"
-                                                            class="
-                                                            btn d-flex align-items-center
-                                                             btn-inverse-danger
-                                                             btn-fw btn-rounded"
-                                                            value="رفض">
-                                                        <i class="fas fa-times pe-2" style="font-size: 12px ;"></i>
-                                                    </form>
+                                                    <button type="submit" class="btn btn-warning text-white"> عرض مزيد من
+                                                        التفاصيل </button>
                                                 </td>
                                             </tr>
                                         @endforeach

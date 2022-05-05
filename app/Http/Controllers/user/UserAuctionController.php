@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\user;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\Car;
 use App\Models\Brand;
 use App\Models\Auction;
@@ -11,13 +11,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreAuctionRequest;
+use Carbon\Carbon;
 
 class UserAuctionController extends Controller
 {
     use ImageTrait;
     public function index()
     {
-        $auctions= Auction::orderBy('id')->get();   
+        $auctions= Auction::orderBy('id')->get();
         return view('Front.Auction.auctions')->with('auctions',$auctions);
     }
 
@@ -25,20 +26,20 @@ class UserAuctionController extends Controller
         $brands = Brand::where('is_active', 1)->select('id', 'name')->get();
         $categories = Category::where('is_active', 1)->select('id', 'name')->get();
         return view('Front.Auction.add-auction', [
-            'brands'     => $brands, 
+            'brands'     => $brands,
             'categories' => $categories,
         ]);
     }
-    
+
     public function getSeries(Request $request){
-        $series = \DB::table('series')->where('brand_id', $request->brand_id)->get(); 
+        $series = \DB::table('series')->where('brand_id', $request->brand_id)->get();
         if (count($series) > 0) {
             return response()->json($series);
         }
     }
 
     public function show(){
-        
+
     }
 
     public function store(StoreAuctionRequest $request){
@@ -47,7 +48,7 @@ class UserAuctionController extends Controller
             foreach($request->file('car_images') as $file)
             {
                 $images = $this->saveImage($file, 'images/cars/car_images');
-                $data[] = $images;  
+                $data[] = $images;
             }
         }
         $car = Car::create([
@@ -77,6 +78,60 @@ class UserAuctionController extends Controller
             ->with('successSubmit','مزادك في انتظار موافقة المسؤول');
     }
 
+    public function CurrentAuction(Request $request)
+    {
+        $currentDate = date('Y-m-d');
+        $currentDate = date('Y-m-d', strtotime($currentDate));
+
+        $auctions= Auction::orderBy('id')->get();
+
+        $items = DB::table('auctions')
+        ->select('id', 'closeDate','winner')
+        ->first();
+        if(!$items)
+        return abort('404');
+
+
+       if($items->closeDate != $currentDate  && empty($items->winner)){
+
+       return view('Front.Auction.auctions')->with('auctions',$auctions);
+       }
+       else
+       {
+          echo"sorry";
+       }
+
+    }
+    public function EndedAuction(Request $request)
+    {
+
+
+        $currentDate = date('Y-m-d');
+        $currentDate = date('Y-m-d', strtotime($currentDate));
+        $auctions= Auction::orderBy('id')->get();
+        $items = DB::table('auctions')
+        ->select('id', 'closeDate','winner')
+        ->first();
+        if(!$items)
+        return abort('404');
+        if($items->closeDate == $currentDate  && !empty($items->winner)){
+
+        return view('Front.Auction.auctions')->with('auctions',$auctions);
+        }
+        else
+        {
+        echo"sorry";
+        }
+
+    }
+    public function subscribedAuctions (Request $request)
+    {
+
+        $id=Auth::id();
+        $auctions=Auction::with(['car'])->where('auctions.user_id',$id)->get();
+        return view('Front.Auction.auctions')->with('auctions',$auctions);
+
+    }
     public function udpate(Request $request){
 
     }
