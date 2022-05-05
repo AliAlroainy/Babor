@@ -14,6 +14,7 @@ class AccountsController extends Controller
         return view('admin.accounts.users', ['users' => $user]);
     }
 
+    // Block user
     public function destroy($user_id)
     {
         $user=User::find($user_id);

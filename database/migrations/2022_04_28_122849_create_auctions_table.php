@@ -15,13 +15,12 @@ return new class extends Migration
             $table->decimal('minInc', 10, 2);
             $table->date('closeDate');
             $table->date('startDate');
-            $table->decimal('openingBid', 20, 2);
+            $table->decimal('openingBid', 10, 2);
             $table->decimal('reservePrice', 20, 2);
             $table->decimal('winnerPrice', 20, 2)->nullable();
             $table->string('winner')->nullable();
             $table->text('desc')->nullable();
-            $table->enum('status', array_keys(['معلقة','جارية', 'ملغاة', 'مكتملة']))->default(0);
-            $table->boolean('is_active')->default(0);
+            $table->enum('status', array_keys(['معلقة', 'مرفوضة', 'جارية', 'ملغاة', 'مكتملة']))->default(0);
             $table->timestamps();
         });
     }

@@ -15,35 +15,40 @@
                                     <div class="search-bar">
                                         <h4 class="card-title">عرض بحسب</h4>
                                         <div style="display:flex;flex-direction:row ;padding:1%">
-                                        <div class="col-lg-3">
-                                        <select id="filter-auction" class=" filter form-select">
-                                            <option selected="selected" value="0">  اسم السيارة</option>
-                                            <option value="سنتافي">سنتافي </option>
-                                            <option value="برادو">برادو </option>
-                                            <option value="توسان">  توسان</option>
-                                            <option value="كامري">  كامري</option>
+                                            <div class="col-lg-3">
+                                                <select id="filter-auction" class=" filter form-select">
+                                                    <option selected="selected" value="0"> اسم السيارة</option>
+                                                    <option value="سنتافي">سنتافي </option>
+                                                    <option value="برادو">برادو </option>
+                                                    <option value="توسان"> توسان</option>
+                                                    <option value="كامري"> كامري</option>
 
-                                        </select>
-</div> <div class="col-lg-3">
-                                        <select id="filter-brand" class=" col-lg-4 filter1 form-select" style="display:flex;flex-direction:column">
-                                            <option selected="selected" value="0"> ماركة السيارة</option>
-                                            <option value="تويوتا"> تويوتا</option>
-                                            <option value="هونداي"> هونداي</option>
-                                            <option value="كيا">  كيا</option>
-                                            <option value="مرسديس">  مرسديس</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <select id="filter-brand" class=" col-lg-4 filter1 form-select"
+                                                    style="display:flex;flex-direction:column">
+                                                    <option selected="selected" value="0"> ماركة السيارة</option>
+                                                    <option value="تويوتا"> تويوتا</option>
+                                                    <option value="هونداي"> هونداي</option>
+                                                    <option value="كيا"> كيا</option>
+                                                    <option value="مرسديس"> مرسديس</option>
 
-                                        </select>
-</div>
-                                        <div class="col-lg-3 " >
-                                        <select id="filter-status" class="col-lg-4 filter2 form-select">
-                                            <option selected="selected" value="0">  حالة المزاد</option>
-                                            <option value="1">مفعل </option>
-                                            <option value="-1"> غيرمفعل</option>
-
-                                        </select>
-</div></div>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-3 ">
+                                                <select id="filter-status" class="col-lg-4 filter2 form-select">
+                                                    <option selected="selected" value="-1"> حالة المزاد</option>
+                                                    @foreach (\App\Models\Auction::getAuctionStatusValues() as $key => $value)
+                                                        <option value="{{ $key }}">
+                                                            {{ $value }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <h4 class="card-title">عرض المزادات</h4>
@@ -83,64 +88,96 @@
                                 <table class="table table-striped table-hover">
                                     <thead>
                                         <tr>
-                                           
+
                                             <th>
                                                 ماركة السيارة
                                             </th>
                                             <th>
                                                 اسم السيارة
                                             </th>
-                                            
-                                            <th>
-                                                تاريخ البدء
-                                            </th>
                                             <th>
                                                 تاريخ الانتهاء
                                             </th>
-                                           
-                                            <th>
-                                                الفائز بالمزاد </th>
-                                            
 
                                             <th>
-                                                حالة المزاد </th>
-                                                <th>
-                                                  </th>
-                                                
+                                                الفائز بالمزاد
+                                            </th>
+                                            <th>
+                                                حالة المزاد
+                                            </th>
+                                            <th>
+                                                تفاصيل
+                                            </th>
+                                            <th>
+                                                عمليات
+                                            </th>
+
                                         </tr>
                                     </thead>
-                                    <tbody  class=" Auction_card ">
+                                    <tbody class="Auction_card">
                                         @foreach ($auctions as $auction)
                                             <tr>
-                                               
-                                                <td  class=" brand_filed ">
-                                                    <div class="brand"  data-car="{{ $auction->car->brand->name }}">{{ $auction->car->brand->name }}</div>
+                                                <td class=" brand_filed ">
+                                                    <div class="brand"
+                                                        data-car="{{ $auction->car->brand->name }}">
+                                                        {{ $auction->car->brand->name }}</div>
                                                 </td>
-                                                <td class=" car_filed " > 
-                                                   <span class="car"  data-car="{{ $$auction->car->series->name }}"> {{ $auction->car->series->name }}</span>
-                                                </td>
-                                               
-                                               
-                                                <td>
-                                                    {{ $auction->startDate }}
+                                                <td class=" car_filed ">
+                                                    <span class="car"
+                                                        data-car="{{ $auction->car->series->name }}">
+                                                        {{ $auction->car->series->name }}</span>
                                                 </td>
                                                 <td>
                                                     {{ $auction->closeDate }}
                                                 </td>
-                                                
-                                               
-                                               
                                                 <td>
                                                     {{ $auction->winner }}
                                                 </td>
-                                                
-                                                
-                                                <td class="status_filed "  >
-                                                    <h4 class="status"  data-status="{{ $auction->status}}">{{ $auction->status }}</h4>
+                                                <td class="status_filed ">
+                                                    <h4 class="status" data-status="{{ $auction->status }}">
+                                                        {{ \App\Models\Auction::matchAuctionStatus($auction->status) }}
+                                                    </h4>
                                                 </td>
                                                 <td>
-                                                <button type="submit" class="btn btn-warning text-white"> عرض مزيد من التفاصيل </button>
- </td>
+                                                    <button type="submit" class="btn btn-warning text-white"> عرض مزيد من
+                                                        التفاصيل </button>
+                                                </td>
+                                                <td class="status status_filed">
+                                                    <form action="{{ route('admin.auction.action', $auction->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @if ($auction->status == '0')
+                                                            <input type="submit" name="approve" style="width: fit-content"
+                                                                class="
+                                                            btn d-flex align-items-center
+                                                             btn-inverse-success
+                                                             btn-fw btn-rounded"
+                                                                value="موافقة">
+                                                            <input type="submit" name="disapprove"
+                                                                style="width: fit-content"
+                                                                class="
+                                                            btn d-flex align-items-center
+                                                             btn-inverse-danger
+                                                             btn-fw btn-rounded"
+                                                                value="رفض">
+                                                        @elseif($auction->status == '1')
+                                                            <input type="submit" name="approve" style="width: fit-content"
+                                                                class="
+                                                                btn d-flex align-items-center
+                                                                 btn-inverse-danger
+                                                                 btn-fw btn-rounded"
+                                                                value="قبول">
+                                                        @elseif($auction->status == '2')
+                                                            <input type="submit" name="disapprove"
+                                                                style="width: fit-content"
+                                                                class="
+                                                            btn d-flex align-items-center
+                                                             btn-inverse-danger
+                                                             btn-fw btn-rounded"
+                                                                value="توقيف">
+                                                        @endif
+                                                    </form>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
