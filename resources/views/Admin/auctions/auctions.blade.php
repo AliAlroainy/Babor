@@ -113,7 +113,7 @@
                                     </thead>
                                     <tbody class="Auction_card">
                                         @foreach ($auctions as $auction)
-                                            <tr >
+                                            <tr class="series {{ $auction->car->series->name }}  brand {{ $auction->car->brand->name }} state  {{ \App\Models\Auction::matchAuctionStatus($auction->status) }} ">
                                                 <div class="  ">
                                                 <td >
                                                    
