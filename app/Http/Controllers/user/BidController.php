@@ -28,9 +28,9 @@ class BidController extends Controller
             return redirect()->route('site.auction.details', $id)->with('errorBid','لا يوجد لدينا هذا المزاد');
         }
 
-        $is_auctioneer = $current_auction->where('auctioneer_id', $current_user)->first();
-        if($is_auctioneer)
-            return redirect()->route('site.auction.details', $id)->with('warningBid','لا تستطيع المزايدة على مزادك!');
+        // $is_auctioneer = $current_auction->where('auctioneer_id', $current_user)->first();
+        // if($is_auctioneer)
+        //     return redirect()->route('site.auction.details', $id)->with('warningBid','لا تستطيع المزايدة على مزادك!');
 
         $status = $current_auction->status;
         if($status != '2'){ // auction is not in progress
@@ -45,6 +45,7 @@ class BidController extends Controller
         if(!$start_before)
             $bid->currentPrice = $bid->bidPrice + Auction::where('id', $id)->first()->openingBid;
         else
+            // to get last bid of an auction
             $bid->currentPrice = $bid->bidPrice + Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->currentPrice;
         $bid->save();
         return redirect('/');

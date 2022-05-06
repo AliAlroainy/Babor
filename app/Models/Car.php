@@ -53,4 +53,8 @@ class Car extends Model
     public static function getSizOfDamageValues(){
         return ['لا يوجد', 'سطحي', 'متوسط', 'كبير'];
     }
+
+    public static function matchSizOfDamageValue($val){
+        return Car::getSizOfDamageValues()[$val];
+    }
 }
