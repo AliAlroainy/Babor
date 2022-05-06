@@ -32,8 +32,10 @@ class AcutionController extends Controller
     {
         $found = Auction::find($id);
         if($found){
-            $auction = Auction::with(['car', 'bids'])->where(['id' => $id])->first();
-            // dd($auction);
+            $auction = Auction::where('id',$id)->with('bids', function ($q){
+                //get last bid of this auction
+                $q -> orderBy('id', 'desc')->first();
+            })->first();
             if($auction){
                 return view('Admin.auctions.auctionDetails')->with('auction', $auction);
             }
