@@ -23,15 +23,15 @@ class BidController extends Controller
             'bidPrice.numerice' => 'هذاالحقل يجب أن يكون رقما',
             'bidPrice.min' => 'أقل سعر تستطيع المزايدة به هو : '.$current_auction->minInc,
         ]);
-        
+
         //constraints
         if(!$current_auction ){ // auction is not found
             return redirect()->route('site.auction.details', $id)->with('errorBid','لا يوجد لدينا هذا المزاد');
         }
 
-        // $is_auctioneer = $current_auction->where('auctioneer_id', $current_user)->first();
-        // if($is_auctioneer)
-        //     return redirect()->route('site.auction.details', $id)->with('warningBid','لا تستطيع المزايدة على مزادك!');
+        $is_auctioneer = $current_auction->where('auctioneer_id', $current_user)->first();
+        if($is_auctioneer)
+            return redirect()->route('site.auction.details', $id)->with('warningBid','لا تستطيع المزايدة على مزادك!');
 
         $status = $current_auction->status;
         if($status != '2'){ // auction is not in progress
