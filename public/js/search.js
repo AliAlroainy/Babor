@@ -1,5 +1,5 @@
 
-
+/////////////////////////////////filter car serise
     var searchFilter = () => {
       let selectedCar = document.getElementById("filterByCar").value;
       console.log(selectedCar);
