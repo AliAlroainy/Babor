@@ -124,7 +124,7 @@
                                                        <h5> {{ $auction->car->series->name }} </h4> 
                                                 </td>
                                                 <td>
-                                                 
+                                                  <h5>  {{ $auction->closeDate }}</h4>
                                                 </td>
                                                 <td>
                                                 
