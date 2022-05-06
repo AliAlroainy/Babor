@@ -21,8 +21,9 @@ class Car extends Model
         'carPosition',
         'thumbnail',
         'car_images',
+        'sizOfDamage',
         'status',
-        'description'
+        'description',     
     ];
 
 
