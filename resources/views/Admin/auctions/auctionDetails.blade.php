@@ -67,18 +67,19 @@
                                                                     <h4 class="card-title">
                                                                         {{ $auction->openingBid }}
                                                                     </h4>
-                                                                    <h4 class="card-title">
-                                                                        @if ($auction->bids->first())
+                                                                    <h4 class="card-title text-success">
+                                                                        @if ($auction->bids->count() > 0)
                                                                             {{ $auction->bids->first()->currentPrice }}
                                                                         @else
                                                                             {{ $auction->openingBid }}
                                                                         @endif
                                                                     </h4>
                                                                     <h4 class="card-title">
-                                                                        @if ($auction->bids->first())
+                                                                        @if ($auction->bids->count() > 0)
                                                                             {{ $auction->bids->first()->user->name }}
                                                                         @else
-                                                                            لا يوجد مزايدين إلى الآن
+                                                                            <span class="text-danger">لا يوجد مزايدين إلى
+                                                                                الآن</span>
                                                                         @endif
                                                                     </h4>
                                                                     <h4 class="card-title">

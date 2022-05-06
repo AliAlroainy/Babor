@@ -41,6 +41,5 @@ class AcutionController extends Controller
             }
         }     
         return response()->view('Front.404', []);
-        return redirect()->back();
     }
 }

@@ -1,18 +1,19 @@
 <?php
 
 namespace App\Http\Controllers\user;
-use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use App\Models\Bid;
 use App\Models\Car;
 use App\Models\Brand;
 use App\Models\Auction;
-use App\Models\Bid;
 use App\Models\Category;
 use App\Trait\ImageTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Requests\StoreAuctionRequest;
-use Carbon\Carbon;
 
 class UserAuctionController extends Controller
 {
@@ -79,56 +80,23 @@ class UserAuctionController extends Controller
             ->with('successSubmit','مزادك في انتظار موافقة المسؤول');
     }
 
-    public function currentAuctions(Request $request)
-    {
-    //     $currentDate = date('Y-m-d');
-    //     $currentDate = date('Y-m-d', strtotime($currentDate));
-
-    //     $auctions= Auction::orderBy('id')->get();
-
-    //     $items = DB::table('auctions')
-    //     ->select('id', 'closeDate','winner')
-    //     ->first();
-    //     if(!$items)
-    //     return abort('404');
-    //    if($items->closeDate != $currentDate  && empty($items->winner)){
-    //         return view('Front.Auction.auctions')->with('auctions',$auctions);
-    //    }
-    $status='2';
-    $auctions=Auction::with(['user','car'])->orderBy('id','desc')->where('status',$status)->get();
-    return view('Front.Auction.auctions')->with('auctions',$auctions);
-
-
-
-
+    public function showMyAuctions(Request $request){
+        $route = Route::current()->getName();
+        if($route == 'user.show.progress.auction'){
+            $status='2';
+        }
+        elseif($route == 'user.show.expired.auction'){
+            $status='4';
+        }     
+        $current_user = Auth::id();
+        $auctions = Auction::where(['auctioneer_id' => $current_user, 'status' => $status])
+                            ->with('bids', function ($q){ 
+                                $q -> orderBy('id', 'desc')->get();
+                            })->get();
+        if($auctions)
+            return view('Front.Auction.auctions')->with('auctions',$auctions);  
     }
-    public function expiredAuctions(Request $request)
-    {
-        // $currentDate = date('Y-m-d');
-        // $currentDate = date('Y-m-d', strtotime($currentDate));
-        // $auctions= Auction::orderBy('id')->get();
-        // $items = DB::table('auctions')
-        // ->select('id', 'closeDate','winner')
-        // ->first();
-        // if(!$items)
-        // return abort('404');
-        // // if($items->closeDate == $currentDate  && !empty($items->winner)){
 
-        // return view('Front.Auction.auctions')->with('auctions',$auctions);
-        // }
-        // $items = DB::table('auctions')
-        // ->select('id', 'closeDate','winner','status')
-        // ->first();
-        // $auctions= Auction::orderBy('id')->get();
-        // $status= Auction::matchAuctionStatus($auctions->status[2]);
-        // echo" $status";
-        $status='4';
-        $auctions=Auction::with(['user','car'])->where('status',$status)->get();
-        return view('Front.Auction.auctions')->with('auctions',$auctions);
-
-
-
-    }
     public function subscribedAuctions (Request $request)
     {
 

@@ -62,17 +62,40 @@
                                                                 <div>
                                                                     <p class="text-success fw-bold">السعر الحالي<i
                                                                             class="mdi mdi-arrow-up"></i></p>
-                                                                    <p class="new_price text-success fw-bold">10000$ </p>
+                                                                    <p class="new_price text-success fw-bold">
+                                                                        @if ($auction->bids->count() > 0)
+                                                                            {{ $auction->bids->first()->currentPrice }}
+                                                                        @else
+                                                                            {{ $auction->openingBid }}
+                                                                        @endif
+                                                                    </p>
                                                                 </div>
                                                             </div>
-
+                                                            <div class="d-flex justify-content-between info">
+                                                                <div class="bidder">
+                                                                    <h6>
+                                                                        عدد المزايدين
+                                                                    </h6>
+                                                                    <p class="top_bidder text-danger">
+                                                                        @if ($auction->bids->count() > 0)
+                                                                            {{ $auction->bids->count() }}
+                                                                        @else
+                                                                            لا يوجد مزايدين إلى الآن
+                                                                        @endif
+                                                                    </p>
+                                                                </div>
+                                                            </div>
                                                             <div class="d-flex justify-content-between info">
                                                                 <div class="bidder">
                                                                     <h6>
                                                                         أعلى مزايد
                                                                     </h6>
                                                                     <p class="top_bidder">
-                                                                        حمد بكيل
+                                                                        @if ($auction->bids->count() > 0)
+                                                                            {{ $auction->bids->first()->user->name }}
+                                                                        @else
+                                                                            لا يوجد مزايدين إلى الآن
+                                                                        @endif
                                                                     </p>
                                                                 </div>
                                                                 <div class="end_date ">
@@ -85,7 +108,6 @@
                                                         </div>
                                                     </div>
                                                     <div class="img-container">
-
                                                         <img src="/images/cars/{{ $auction->car->thumbnail }}"
                                                             alt="image" />
                                                     </div>
@@ -103,7 +125,6 @@
                                 <div class="auctions">
                                     {{-- @if (isset($auctions) && $auctions->count() > 0) --}}
                                     @if (isset($auctions) && $auctions->count() > 0)
-
                                         @foreach ($auctions as $auction)
                                             <a href="{{ @url('user/auctions/auctionId') }}" class="auction">
                                                 <div class="d-flex justify-content-between rounded m-2">
@@ -124,14 +145,15 @@
                                                                 <div>
                                                                     <p class="text-success fw-bold"><i
                                                                             class="mdi mdi-arrow-up">السعر الفائز</i> </p>
-                                                                    <p class="new_price text-success fw-bold">{{ $auction->winnerPrice }} </p>
+                                                                    <p class="new_price text-success fw-bold">
+                                                                        {{ $auction->winnerPrice }} </p>
                                                                 </div>
                                                             </div>
 
                                                             <div class="d-flex justify-content-between info">
                                                                 <div class="bidder">
                                                                     <h6>
-                                                                      الفائز
+                                                                        الفائز
                                                                     </h6>
                                                                     <p class="top_bidder">
                                                                         {{ $auction->winner }}
@@ -164,22 +186,22 @@
                                 <div class="auctions">
                                     {{-- @if (isset($auctions) && $auctions->count() > 0) --}}
                                     @if (isset($auctions) && $auctions->count() > 0)
-                                    {{-- @foreach ($bids as $bid) --}}
-                                    @foreach ($auctions as $auction)
+                                        {{-- @foreach ($bids as $bid) --}}
+                                        @foreach ($auctions as $auction)
                                             <a href="{{ @url('user/auctions/auctionId') }}" class="auction">
                                                 <div class="d-flex justify-content-between rounded m-2">
                                                     <div
                                                         class="auction_brief_info p-2 d-flex flex-column justify-content-between">
                                                         <h4 class="mt-1 car_name">
-                                                            {{$auction->car->brand->name }}
-                                                            {{$auction->car->series->name }}
-                                                            {{$auction->car->model }}
+                                                            {{ $auction->car->brand->name }}
+                                                            {{ $auction->car->series->name }}
+                                                            {{ $auction->car->model }}
                                                         </h4>
                                                         <div class="group d-flex flex-column ">
                                                             <div class="prices d-flex justify-content-between">
                                                                 <div>
                                                                     <p> السعر الإبتدائي <i class="mdi mdi-cash"></i></p>
-                                                                    <p class="old_price"> {{$auction->openingBid }}
+                                                                    <p class="old_price"> {{ $auction->openingBid }}
                                                                     </p>
                                                                 </div>
                                                                 <div>
@@ -201,7 +223,7 @@
                                                                 <div class="end_date ">
                                                                     <h6>ناريخ الإنتهاء</h6>
                                                                     <p>
-                                                                        {{$auction->closeDate }}
+                                                                        {{ $auction->closeDate }}
                                                                     </p>
                                                                 </div>
                                                             </div>
