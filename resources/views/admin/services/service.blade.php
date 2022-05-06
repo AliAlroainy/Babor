@@ -107,7 +107,7 @@
                                                            <button type="button" class="btn btn-outline-secondary"
                                                                    data-bs-dismiss="modal">إلغاء</button>
                                                            <button type="submit"
-                                                                   class="btn btn-primary text-white">تعديل</button>
+                                                                   class="btn btn-warning text-white">تعديل</button>
                                                        </div>
                                                    </div>
                                                </form>
@@ -175,7 +175,7 @@
 
             </div>
             <button type="button" data-bs-target="#addModal" data-bs-toggle="modal"
-                class="btn btn-primary btn-rounded btn-icon add">
+                class="btn btn-warning btn-rounded btn-icon add">
                 <i class="mdi mdi-plus text-white"></i>
             </button>
         </div>
@@ -231,7 +231,7 @@
                             <button type="button" class="btn btn-outline-secondary"
                                     data-bs-dismiss="modal">إلغاء</button>
                             <button type="submit"
-                                    class="btn btn-primary text-white">تعديل</button>
+                                    class="btn btn-warning text-white">تعديل</button>
                         </div>
                     </div>
                 </form>
@@ -271,7 +271,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">إلغاء</button>
-                            <button type="submit" class="btn btn-primary text-white">إضافة</button>
+                            <button type="submit" class="btn btn-warning text-white">إضافة</button>
                         </div>
                     </div>
                 </form>

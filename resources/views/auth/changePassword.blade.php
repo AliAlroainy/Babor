@@ -26,7 +26,7 @@
                             <input type="password" name="newPassword" class="form-control" placeholder=" تاكيد كلمة المرور الجديدة" >
                         </div>
 
-                            <input name="recover-submit" class="btn btn-sm px-5 py-2 btn-primary btn-block" value="تغيير " type="submit">
+                            <input name="recover-submit" class="btn btn-sm px-5 py-2 btn-warning btn-block" value="تغيير " type="submit">
 
                         <input type="hidden" class="hide" name="token" id="token" value="">
                     </form>
