@@ -150,7 +150,7 @@
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('admin.auction.details', $auction->id) }}"
-                                                        class="btn btn-warning text-white" style="font-size:10px"> عرض المزيد 
+                                                        class="btn btn-inverse-warning btn-fw btn-rounded text-inverse-white" style="font-size:14px"> عرض المزيد 
                                                          </a>
                                                 </td>
                                                 <td class="status status_filed">
