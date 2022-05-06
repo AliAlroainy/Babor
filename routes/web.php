@@ -48,7 +48,7 @@ Route::get('forgetPassword', function () {
 });
 
 Route::get('/verifyEmail', function () {
-    return view('auth.verifyEmail');
+    return view('user.email.welcome');
 });
 Route::get('/invalidToken', function () {
     return view('auth.invalidToken');
