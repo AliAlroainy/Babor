@@ -100,26 +100,26 @@
                                     <thead>
                                         <tr>
 
-                                            <th>
+                                            <th style="text-align:center">
                                                 ماركة السيارة
                                             </th>
-                                            <th>
+                                            <th style="text-align:center">
                                                 اسم السيارة
                                             </th>
-                                            <th>
+                                            <th style="text-align:center">
                                                 تاريخ الانتهاء
                                             </th>
 
-                                            <th>
+                                            <th style="text-align:center">
                                                 الفائز بالمزاد
                                             </th>
-                                            <th>
+                                            <th style="text-align:center">
                                                 حالة المزاد
                                             </th>
-                                            <th>
+                                            <th style="text-align:center">
                                                 تفاصيل
                                             </th>
-                                            <th>
+                                            <th style="text-align:center">
                                                 عمليات
                                             </th>
 
@@ -129,28 +129,28 @@
                                         @foreach ($auctions as $auction)
                                             <tr class="series {{ $auction->car->series->name }}  brand {{ $auction->car->brand->name }} state  {{ \App\Models\Auction::matchAuctionStatus($auction->status) }} ">
                                                 <div class="  ">
-                                                <td >
+                                                <td style="text-align:center">
 
                                                        <h5> {{ $auction->car->brand->name }}</h5>
                                                 </td>
-                                                <td class="">
+                                                <td style="text-align:center">
 
                                                        <h5> {{ $auction->car->series->name }} </h5>
                                                 </td>
-                                                <td>
+                                                <td style="text-align:center">
                                                   <h5>  {{ $auction->closeDate }}</h5>
                                                 </td>
-                                                <td>
-                                                  <h5>  {{ $auction->winner }}</h5>
+                                                <td  style="text-align:center">
+                                                  <h5 >  {{ $auction->winner }}</h5>
                                                 </td>
-                                                <td >
+                                                <td style="text-align:center" >
                                                     <h5 >
                                                         {{ \App\Models\Auction::matchAuctionStatus($auction->status) }}
                                                     </h5>
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('admin.auction.details', $auction->id) }}"
-                                                        class="btn btn-inverse-warning btn-fw btn-rounded text-inverse-white" style="font-size:14px"> عرض المزيد 
+                                                        class="btn btn-inverse-warning btn-fw btn-rounded text-inverse-white" style="font-size:12px"> عرض المزيد 
                                                          </a>
                                                 </td>
                                                 <td class="status status_filed">
