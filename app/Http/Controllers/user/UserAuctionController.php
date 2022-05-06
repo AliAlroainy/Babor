@@ -95,7 +95,7 @@ class UserAuctionController extends Controller
     //         return view('Front.Auction.auctions')->with('auctions',$auctions);
     //    }
     $status='2';
-    $auctions=Auction::with(['user','car'])->where('status',$status)->get();
+    $auctions=Auction::with(['user','car'])->orderBy('id','desc')->where('status',$status)->get();
     return view('Front.Auction.auctions')->with('auctions',$auctions);
 
 
