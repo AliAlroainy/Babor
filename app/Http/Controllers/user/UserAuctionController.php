@@ -71,7 +71,6 @@ class UserAuctionController extends Controller
             'openingBid'      => $request->input('openingBid'),
             'reservePrice'    => $request->input('reservePrice'),
             'closeDate'       => $request->input('closeDate'),
-            'startDate'       => now(),
             'minInc'          => $request->input('minInc'),
             'auctioneer_id'   => Auth::user()->id,
             'car_id'          => $car->id,

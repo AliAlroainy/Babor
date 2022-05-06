@@ -14,7 +14,7 @@ return new class extends Migration
             $table->decimal('commission', 10, 2)->nullable();
             $table->decimal('minInc', 10, 2);
             $table->date('closeDate');
-            $table->date('startDate');
+            $table->date('startDate')->nullable();
             $table->decimal('openingBid', 10, 2);
             $table->decimal('reservePrice', 20, 2);
             $table->decimal('winnerPrice', 20, 2)->nullable();
