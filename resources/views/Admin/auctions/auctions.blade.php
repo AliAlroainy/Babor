@@ -25,7 +25,13 @@
                 </select>
                                             </div>
                                             <div class="col-lg-3">
-                      
+                                            <select class="form-select" id="filterByBrand" onchange="searchFilterBrand()">
+                    <option value="" selected>ماركة السيارة</option>
+                    <option value= "هوانداي"> هوانداي</option>
+                    <option value="تويوتا">تويوتا</option>
+                    <option value="مرسيدس">مرسيدس</option>
+                    <option value="كيا">كيا</option>
+                </select>
                                             </div>
                                             <div class="col-lg-3 ">
                                             
