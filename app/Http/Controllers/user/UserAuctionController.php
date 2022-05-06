@@ -116,8 +116,9 @@ class UserAuctionController extends Controller
     {
 
         $id=Auth::id();
-        $auctions=Bid::with(['user','auction'])->where('bidder_id',$id)->get();
-        return view('Front.Auction.auctions')->with('auctions',$auctions);
+        $bid=Bid::with(['user','auction'])->where('bidder_id',$id)->get();
+        $auctions= Auction::orderBy('id')->get();
+        return view('Front.Auction.auctions')->with(['auctions'=>$auctions,'bids'=>$bid]);
 
     }
     public function udpate(Request $request){
