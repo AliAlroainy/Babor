@@ -103,6 +103,7 @@
                                 <div class="auctions">
                                     {{-- @if (isset($auctions) && $auctions->count() > 0) --}}
                                     @if (isset($auctions) && $auctions->count() > 0)
+
                                         @foreach ($auctions as $auction)
                                             <a href="{{ @url('user/auctions/auctionId') }}" class="auction">
                                                 <div class="d-flex justify-content-between rounded m-2">
@@ -163,27 +164,28 @@
                                 <div class="auctions">
                                     {{-- @if (isset($auctions) && $auctions->count() > 0) --}}
                                     @if (isset($auctions) && $auctions->count() > 0)
-                                        @foreach ($auctions as $auction)
+                                    {{-- @foreach ($bids as $bid) --}}
+                                    @foreach ($auctions as $auction)
                                             <a href="{{ @url('user/auctions/auctionId') }}" class="auction">
                                                 <div class="d-flex justify-content-between rounded m-2">
                                                     <div
                                                         class="auction_brief_info p-2 d-flex flex-column justify-content-between">
                                                         <h4 class="mt-1 car_name">
-                                                            {{ $auction->car->brand->name }}
-                                                            {{ $auction->car->series->name }}
-                                                            {{ $auction->car->model }}
+                                                            {{$auction->car->brand->name }}
+                                                            {{$auction->car->series->name }}
+                                                            {{$auction->car->model }}
                                                         </h4>
                                                         <div class="group d-flex flex-column ">
                                                             <div class="prices d-flex justify-content-between">
                                                                 <div>
                                                                     <p> السعر الإبتدائي <i class="mdi mdi-cash"></i></p>
-                                                                    <p class="old_price"> {{ $auction->openingBid }}
+                                                                    <p class="old_price"> {{$auction->openingBid }}
                                                                     </p>
                                                                 </div>
                                                                 <div>
                                                                     <p class="text-success fw-bold">السعر الحالي<i
                                                                             class="mdi mdi-arrow-up"></i></p>
-                                                                    <p class="new_price text-success fw-bold">10000$ </p>
+                                                                    {{-- <p class="new_price text-success fw-bold"> {{$bid->currentPrice }}</p> --}}
                                                                 </div>
                                                             </div>
 
@@ -199,7 +201,7 @@
                                                                 <div class="end_date ">
                                                                     <h6>ناريخ الإنتهاء</h6>
                                                                     <p>
-                                                                        {{ $auction->closeDate }}
+                                                                        {{$auction->closeDate }}
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -213,6 +215,7 @@
                                                 </div>
                                             </a>
                                         @endforeach
+                                        {{-- @endforeach --}}
                                     @endif
                                 </div>
                             </div>
