@@ -148,12 +148,12 @@
                                                         {{ \App\Models\Auction::matchAuctionStatus($auction->status) }}
                                                     </h5>
                                                 </td>
-                                                <td>
+                                                <td style="text-align:center">
                                                     <a href="{{ route('admin.auction.details', $auction->id) }}"
                                                         class="btn btn-inverse-warning btn-fw btn-rounded text-inverse-white" style="font-size:12px"> عرض المزيد 
                                                          </a>
                                                 </td>
-                                                <td class="status status_filed">
+                                                <td class="status status_filed" style="text-align:center">
                                                     <form action="{{ route('admin.auction.action', $auction->id) }}"
                                                         method="POST">
                                                         @csrf
