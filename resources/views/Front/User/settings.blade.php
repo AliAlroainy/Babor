@@ -126,7 +126,7 @@
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
-                                    <button type="submit" class="btn btn-primary text-white me-2">حفظ</button>
+                                    <button type="submit" class="btn btn-warning text-white me-2">حفظ</button>
                                 </form>
                             </div>
                         </div>
@@ -192,7 +192,7 @@
                                                     {{ $message }}</p>
                                             @enderror
                                             <input name="recover-submit"
-                                                class="btn btn-sm px-5 py-2 btn-primary text-white btn-block"
+                                                class="btn btn-sm px-5 py-2 btn-warning text-white btn-block"
                                                 value="تغيير " type="submit">
                                         </form>
 
