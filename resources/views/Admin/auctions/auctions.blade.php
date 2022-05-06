@@ -34,7 +34,14 @@
                 </select>
                                             </div>
                                             <div class="col-lg-3 ">
-                                            
+                                            <select class="form-select" id="filterByState" onchange="searchFilterState()">
+                                                    <option value="" selected="selected" > حالة المزاد</option>
+                                                    @foreach (\App\Models\Auction::getAuctionStatusValues() as $key => $value)
+                                                        <option value="{{ $value }}">
+                                                            {{ $value }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
