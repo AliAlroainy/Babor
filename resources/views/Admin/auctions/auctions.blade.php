@@ -136,8 +136,8 @@
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('admin.auction.details', $auction->id) }}"
-                                                        class="btn btn-warning text-white"> عرض مزيد من
-                                                        التفاصيل </a>
+                                                        class="btn btn-warning text-white" style="font-size:10px"> عرض المزيد 
+                                                         </a>
                                                 </td>
                                                 <td class="status status_filed">
                                                     <form action="{{ route('admin.auction.action', $auction->id) }}"
