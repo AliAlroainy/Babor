@@ -64,7 +64,7 @@
                             <div
                                 class="d-flex align-items-md-end align-items-sm-start align-items-center justify-content-md-between justify-content-start mx-4 flex-md-row flex-column gap-4">
                                 <div class="user-profile-info text-md-end">
-                                    <h4>{{ $user->profile->username }}</h4>
+                                    <h4> @if(@isset($user->profile->username )) {{ $user->profile->username }} - @endif</h4>
                                     <ul
                                         class="p-0 list-inline mb-0 d-flex align-items-center flex-wrap justify-content-sm-start justify-content-center gap-2">
                                         <li class="list-inline-item fw-semibold">
@@ -76,6 +76,10 @@
                                         <li class="list-inline-item fw-semibold">
                                             <i class='bx bx-calendar-alt'></i> انضم بتاريخ
                                             {{ date_format($user->profile->created_at, 'm-Y') }}
+                                            {{-- <?php if(@isset(date_format($user->profile->created_at, 'm-Y'))): ?> <?php echo (date_format($user->profile->created_at, 'm-Y')); ?> - <?php endif; ?> --}}
+
+
+
                                         </li>
                                     </ul>
                                 </div>
