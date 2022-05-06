@@ -22,7 +22,13 @@
                     <option value="سنتافي">سنتافي</option>
                     <option value="برايد">برايد</option>
                     <option value="كامري">كامري</option>
-                    
+                    <option value="نافارا">نافارا</option>
+                    <option value="تورس">تورس</option>
+                    <option value="النترا">النترا</option>
+                    <option value="باترول">باترول</option>
+                    <option value="رافور">رافور</option>
+                    <option value="اكسنت">اكسنت</option>
+                    <option value="سوناتا">سوناتا</option>
 
                 </select>
                                             </div>
