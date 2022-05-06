@@ -19,6 +19,7 @@ class AcutionController extends Controller
         $auction = Auction::find($id);
         if(!$auction)
             return abort('404');
+ 
         if ($request->input('approve')){
             $action = Auction::where('id', $id)->update(['status' => '2']);
         }

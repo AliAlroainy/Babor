@@ -18,9 +18,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class=" nav-link {{ request()->is('user/auctions/expired') ? 'active' : null }}"
-                                    id="{{ route('user.show.expired.auction') }}-tab"
-                                    href="{{ route('user.show.expired.auction') }}" role="tab">
+                                <a class=" nav-link {{ request()->is('user/auctions/complete') ? 'active' : null }}"
+                                    id="{{ route('user.show.complete.auction') }}-tab"
+                                    href="{{ route('user.show.complete.auction') }}" role="tab">
 
                                     المزادات المنتهيه
                                 </a>
@@ -119,8 +119,8 @@
                             </div>
 
                             <div class="tab-pane fade {{ request()->is('user/auctions/exprired') ? 'show active' : null }}"
-                                id="{{ route('user.show.expired.auction') }}" role="tabpanel"
-                                aria-labelledby="{{ route('user.show.expired.auction') }}-tab">
+                                id="{{ route('user.show.complete.auction') }}" role="tabpanel"
+                                aria-labelledby="{{ route('user.show.complete.auction') }}-tab">
 
                                 <div class="auctions">
                                     {{-- @if (isset($auctions) && $auctions->count() > 0) --}}

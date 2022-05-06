@@ -85,7 +85,7 @@ class UserAuctionController extends Controller
         if($route == 'user.show.progress.auction'){
             $status='2';
         }
-        elseif($route == 'user.show.expired.auction'){
+        elseif($route == 'user.show.complete.auction'){
             $status='4';
         }     
         $current_user = Auth::id();
