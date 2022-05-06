@@ -39,7 +39,11 @@
                     <option value="تويوتا">تويوتا</option>
                     <option value="مرسيدس">مرسيدس</option>
                     <option value="كيا">كيا</option>
-                   
+                    <option value="فورد">فورد</option>
+                    <option value="GMC">GMC</option>
+                    <option value="نيسان">نيسان</option>
+                    <option value="BMW">BMW</option>
+                    <option value="سوزوكي">سوزوكي</option>
 
                 </select>
                                             </div>
