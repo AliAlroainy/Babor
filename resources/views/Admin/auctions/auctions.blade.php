@@ -16,28 +16,31 @@
                                         <h4 class="card-title">عرض بحسب</h4>
                                         <div style="display:flex;flex-direction:row ;padding:1%">
                                             <div class="col-lg-3">
-                                            <select class="form-select" id="filterByCar" onchange="searchFilter()">
-                    <option value="" selected>اسم السيارة</option>
-                    <option value="توسان">توسان</option>
-                    <option value="سنتافي">سنتافي</option>
-                    <option value="برايد">برايد</option>
-                    <option value="كامري">كامري</option>
-                </select>
+                                                <select id="filter-auction" class=" filter form-select">
+                                                    <option selected="selected" value="0"> اسم السيارة</option>
+                                                    <option value="سنتافي">سنتافي </option>
+                                                    <option value="برادو">برادو </option>
+                                                    <option value="توسان"> توسان</option>
+                                                    <option value="كامري"> كامري</option>
+
+                                                </select>
                                             </div>
                                             <div class="col-lg-3">
-                                            <select class="form-select" id="filterByBrand" onchange="searchFilterBrand()">
-                    <option value="" selected>ماركة السيارة</option>
-                    <option value= "هوانداي"> هوانداي</option>
-                    <option value="تويوتا">تويوتا</option>
-                    <option value="مرسيدس">مرسيدس</option>
-                    <option value="كيا">كيا</option>
-                </select>
+                                                <select id="filter-brand" class=" col-lg-4 filter1 form-select"
+                                                    style="display:flex;flex-direction:column">
+                                                    <option selected="selected" value="0"> ماركة السيارة</option>
+                                                    <option value="تويوتا"> تويوتا</option>
+                                                    <option value="هونداي"> هونداي</option>
+                                                    <option value="كيا"> كيا</option>
+                                                    <option value="مرسديس"> مرسديس</option>
+
+                                                </select>
                                             </div>
                                             <div class="col-lg-3 ">
-                                            <select class="form-select" id="filterByState" onchange="searchFilterState()">
-                                                    <option value="" selected="selected" > حالة المزاد</option>
+                                                <select id="filter-status" class="col-lg-4 filter2 form-select">
+                                                    <option selected="selected" value="-1"> حالة المزاد</option>
                                                     @foreach (\App\Models\Auction::getAuctionStatusValues() as $key => $value)
-                                                        <option value="{{ $value }}">
+                                                        <option value="{{ $key }}">
                                                             {{ $value }}
                                                         </option>
                                                     @endforeach
@@ -113,26 +116,27 @@
                                     </thead>
                                     <tbody class="Auction_card">
                                         @foreach ($auctions as $auction)
-                                            <tr class="series {{ $auction->car->series->name }}  brand {{ $auction->car->brand->name }} state  {{ \App\Models\Auction::matchAuctionStatus($auction->status) }} ">
-                                                <div class="  ">
-                                                <td >
-                                                   
-                                                       <h5> {{ $auction->car->brand->name }}</h4>
+                                            <tr>
+                                                <td class=" brand_filed ">
+                                                    <div class="brand"
+                                                        data-car="{{ $auction->car->brand->name }}">
+                                                        {{ $auction->car->brand->name }}</div>
                                                 </td>
-                                                <td class="">
-                                                    
-                                                       <h5> {{ $auction->car->series->name }} </h4> 
-                                                </td>
-                                                <td>
-                                                  <h5>  {{ $auction->closeDate }}</h4>
+                                                <td class=" car_filed ">
+                                                    <span class="car"
+                                                        data-car="{{ $auction->car->series->name }}">
+                                                        {{ $auction->car->series->name }}</span>
                                                 </td>
                                                 <td>
-                                                  <h5>  {{ $auction->winner }}</h4>
+                                                    {{ $auction->closeDate }}
                                                 </td>
-                                                <td >
-                                                    <h5 >
+                                                <td>
+                                                    {{ $auction->winner }}
+                                                </td>
+                                                <td class="status_filed ">
+                                                    <h4 class="status" data-status="{{ $auction->status }}">
                                                         {{ \App\Models\Auction::matchAuctionStatus($auction->status) }}
-                                                    </h5>
+                                                    </h4>
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('admin.auction.details', $auction->id) }}"
@@ -175,7 +179,6 @@
                                                         @endif
                                                     </form>
                                                 </td>
-</div>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -191,6 +194,6 @@
 
 
         </div>
-        
+
         <!-- container-scroller -->
     @endsection
