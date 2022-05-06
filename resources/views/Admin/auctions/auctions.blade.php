@@ -147,8 +147,13 @@
                                                          <h5> {{ $auction->winner }}</h5>
                                                      </td>
                                                      <td style="text-align:center">
+
                                                          <h5>
-                                                             {{ \App\Models\Auction::matchAuctionStatus($auction->status) }}
+                                                             @if ($auction->closeDate <= now() && $auction->status == '0')
+                                                                 <span class="text-danger">منتهية، لم يتم قبولها</span>
+                                                             @else
+                                                                 {{ \App\Models\Auction::matchAuctionStatus($auction->status) }}
+                                                             @endif
                                                          </h5>
                                                      </td>
                                                      <td style="text-align:center">

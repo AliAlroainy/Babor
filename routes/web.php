@@ -34,7 +34,7 @@ Route::get('/offer', function () {
 });
 
 Route::get('/', [SiteController::class, 'home'])->name('/');
-Route::get('/auction', [SiteController::class, 'auctionsList'])->name('site.auction');
+Route::get('/auctions/available', [SiteController::class, 'availableAuctions'])->name('site.available.auction');
 Route::get('/auction/{id}', [SiteController::class, 'auctionShow'])->name('site.auction.details');
 Route::view('/soon', 'Front.soon');
 Route::view('/contact', 'Front.contact');
