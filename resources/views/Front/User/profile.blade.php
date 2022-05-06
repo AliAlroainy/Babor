@@ -35,7 +35,7 @@
                     @enderror
                     <div class="modal-footer">
                         <button type="submit" form="profileForm"
-                            class="btn btn-primary text-white">حفظ</button>
+                            class="btn btn-warning text-white">حفظ</button>
                         <button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Close</button>
                     </div>
