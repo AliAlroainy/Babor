@@ -116,12 +116,12 @@
                                             <tr class="series {{ $auction->car->series->name }}  brand {{ $auction->car->brand->name }} state  {{ \App\Models\Auction::matchAuctionStatus($auction->status) }} ">
                                                 <div class="  ">
                                                 <td >
-                                                   
+
                                                        <h5> {{ $auction->car->brand->name }}</h5>
                                                 </td>
                                                 <td class="">
-                                                    
-                                                       <h5> {{ $auction->car->series->name }} </h5> 
+
+                                                       <h5> {{ $auction->car->series->name }} </h5>
                                                 </td>
                                                 <td>
                                                   <h5>  {{ $auction->closeDate }}</h5>
@@ -191,6 +191,6 @@
 
 
         </div>
-        
+
         <!-- container-scroller -->
     @endsection

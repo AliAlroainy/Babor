@@ -110,6 +110,17 @@ class UserAuctionController extends Controller
 
         // return view('Front.Auction.auctions')->with('auctions',$auctions);
         // }
+        // $items = DB::table('auctions')
+        // ->select('id', 'closeDate','winner','status')
+        // ->first();
+        // $auctions= Auction::orderBy('id')->get();
+        // $status= Auction::matchAuctionStatus($auctions->status[2]);
+        // echo" $status";
+        $status=4;
+        $auctions=Auction::with(['user','car'])->where('status',$status)->get();
+        return view('Front.Auction.auctions')->with('auctions',$auctions);
+
+
 
     }
     public function subscribedAuctions (Request $request)
