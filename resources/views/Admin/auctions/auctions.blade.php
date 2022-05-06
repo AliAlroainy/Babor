@@ -117,7 +117,7 @@
                                                 <div class="  ">
                                                 <td >
                                                    
-                                                    
+                                                       <h5> {{ $auction->car->brand->name }}</h4>
                                                 </td>
                                                 <td class="">
                                                     
