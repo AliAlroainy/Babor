@@ -94,6 +94,12 @@ class UserAuctionController extends Controller
     //    if($items->closeDate != $currentDate  && empty($items->winner)){
     //         return view('Front.Auction.auctions')->with('auctions',$auctions);
     //    }
+    $status='2';
+    $auctions=Auction::with(['user','car'])->where('status',$status)->get();
+    return view('Front.Auction.auctions')->with('auctions',$auctions);
+
+
+
 
     }
     public function expiredAuctions(Request $request)
@@ -110,14 +116,27 @@ class UserAuctionController extends Controller
 
         // return view('Front.Auction.auctions')->with('auctions',$auctions);
         // }
+        // $items = DB::table('auctions')
+        // ->select('id', 'closeDate','winner','status')
+        // ->first();
+        // $auctions= Auction::orderBy('id')->get();
+        // $status= Auction::matchAuctionStatus($auctions->status[2]);
+        // echo" $status";
+        $status='4';
+        $auctions=Auction::with(['user','car'])->where('status',$status)->get();
+        return view('Front.Auction.auctions')->with('auctions',$auctions);
+
+
 
     }
     public function subscribedAuctions (Request $request)
     {
 
         $id=Auth::id();
-        $auctions=Bid::with(['user','auction'])->where('bidder_id',$id)->get();
-        return view('Front.Auction.auctions')->with('auctions',$auctions);
+        $bids=Bid::with(['user','auction'])->where('bidder_id',$id)->orderBy('bidder_id', 'desc')->first();
+        $auctions= Auction::orderBy('id')->get();
+        return view('Front.Auction.auctions')->with(['auctions'=>$auctions,'bids'=>$bids]);
+
 
     }
     public function udpate(Request $request){
