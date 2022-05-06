@@ -121,7 +121,7 @@
                                                 </td>
                                                 <td class="">
                                                     
-                                                      
+                                                       <h5> {{ $auction->car->series->name }} </h4> 
                                                 </td>
                                                 <td>
                                                  
