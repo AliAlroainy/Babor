@@ -57,63 +57,76 @@
                                                                 <div class="col-lg-3">
                                                                     <img style="direction:ltr ;width:100%;left:0px"
                                                                         class="col-lg-4 grid-margin right 0px"
-                                                                        src="/images/profiles/1651016298.png" alt="image" />
+                                                                        src="/images/cars/{{ $auction->car->thumbnail }}"
+                                                                        alt="image" />
                                                                 </div>
                                                                 <div class="col-lg-3 " style="margin:4%;direction:rtl">
-                                                                    <h4 class="card-title">{{ $auction->car->model }}
+                                                                    <h4 class="card-title">
+                                                                        {{ $auction->car->model }}
                                                                     </h4>
                                                                     <h4 class="card-title">
-                                                                        @if ($auction->bids)
-                                                                            {{ $auction->bids->currentPrice }}$
+                                                                        {{ $auction->openingBid }}
+                                                                    </h4>
+                                                                    <h4 class="card-title">
+                                                                        @if ($auction->bids->first())
+                                                                            {{ $auction->bids->first()->currentPrice }}
                                                                         @else
                                                                             {{ $auction->openingBid }}
                                                                         @endif
                                                                     </h4>
-                                                                    <h4 class="card-title">2700$ </h4>
-                                                                    <h4 class="card-title">200$ </h4>
-                                                                    <h4 class="card-title">200$ </h4>
-                                                                    <h4 class="card-title">اسود </h4>
-                                                                    <h4 class="card-title"> 3000 كيلو </h4>
-                                                                    <h4 class="card-title">اليمن-تعز </h4>
-                                                                    <h4 class="card-title">متوسط </h4>
+                                                                    <h4 class="card-title">
+                                                                        @if ($auction->bids->first())
+                                                                            {{ $auction->bids->first()->user->name }}
+                                                                        @else
+                                                                            لا يوجد مزايدين إلى الآن
+                                                                        @endif
+                                                                    </h4>
+                                                                    <h4 class="card-title">
+                                                                        {{ $auction->minInc }}
+                                                                    </h4>
+                                                                    <h4 class="card-title">
+                                                                        {{ $auction->reservePrice }}
+                                                                    </h4>
+                                                                    <h4 class="card-title">
+                                                                        {{ $auction->car->color }}
+                                                                    </h4>
+                                                                    <h4 class="card-title">
+                                                                        {{ $auction->car->numberOfKillos }} كيلو </h4>
+                                                                    <h4 class="card-title">
+                                                                        {{ $auction->car->carPosition }}
+                                                                    </h4>
+                                                                    <h4 class="card-title">
+                                                                        {{ \App\Models\Car::matchSizOfDamageValue($auction->car->sizOfDamage) }}
+                                                                    </h4>
                                                                 </div>
                                                                 <div class="col-lg-3" style="margin:4%;direction:rtl">
                                                                     <h4 class="card-title  warning"> الموديل:</h4>
                                                                     <h4 class="card-title warning"> السعرالإبتدائي:</h4>
                                                                     <h4 class="card-title warning"> السعرالحالي:</h4>
-                                                                    <h4 class="card-title warning">"الحد الادنى للمزايدة :
+                                                                    <h4 class="card-title warning"> أعلى مزايد:</h4>
+                                                                    <h4 class="card-title warning">الحد الادنى للمزايدة :
                                                                     </h4>
                                                                     <h4 class="card-title warning"> السعر الاحتياطي:</h4>
                                                                     <h4 class="card-title warning"> اللون:</h4>
                                                                     <h4 class="card-title warning"> كم كيلو تم قطعه:</h4>
                                                                     <h4 class="card-title warning"> موقع السيارة:</h4>
                                                                     <h4 class="card-title warning"> حجم الضرر:</h4>
-
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="">
                                                             <div style="display:flex;flex-direction:row ;padding:1%">
-                                                                <div class="col-lg-3">
-                                                                    <img style="direction:ltr ;width:100%;left:0px"
-                                                                        class="col-lg-4 grid-margin right 0px"
-                                                                        src="/images/profiles/1651016298.png" alt="image" />
-                                                                </div>
-                                                                <div class="col-lg-3">
-                                                                    <img style="direction:ltr ;width:100%;left:0px"
-                                                                        class="col-lg-4 grid-margin right 0px"
-                                                                        src="/images/profiles/1651016298.png" alt="image" />
-                                                                </div>
-                                                                <div class="col-lg-3">
-                                                                    <img style="direction:ltr ;width:100%;left:0px"
-                                                                        class="col-lg-4 grid-margin right 0px"
-                                                                        src="/images/profiles/1651016298.png" alt="image" />
-                                                                </div>
-                                                                <div class="col-lg-3">
-                                                                    <img style="direction:ltr ;width:100%;left:0px"
-                                                                        class="col-lg-4 grid-margin right 0px"
-                                                                        src="/images/profiles/1651016298.png" alt="image" />
-                                                                </div>
+                                                                @php
+                                                                    $images = json_decode($auction->car->car_images, true);
+                                                                @endphp
+                                                                @foreach ($images as $img)
+                                                                    <div class="col-lg-3">
+                                                                        <img style="direction:ltr ;width:100%;left:0px"
+                                                                            class="col-lg-4 grid-margin right 0px"
+                                                                            src="/images/cars/car_images/{{ $img }}"
+                                                                            alt="image" />
+                                                                    </div>
+                                                                @endforeach
                                                             </div>
                                                         </div>
 

@@ -21,8 +21,9 @@ class Car extends Model
         'carPosition',
         'thumbnail',
         'car_images',
+        'sizOfDamage',
         'status',
-        'description'
+        'description',     
     ];
 
 
@@ -52,5 +53,9 @@ class Car extends Model
 
     public static function getSizOfDamageValues(){
         return ['لا يوجد', 'سطحي', 'متوسط', 'كبير'];
+    }
+
+    public static function matchSizOfDamageValue($val){
+        return Car::getSizOfDamageValues()[$val];
     }
 }
