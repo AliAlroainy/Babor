@@ -121,19 +121,19 @@
                                                                     </p>
                                                                 </div>
                                                                 <div>
-                                                                    <p class="text-success fw-bold">السعر الحالي<i
-                                                                            class="mdi mdi-arrow-up"></i></p>
-                                                                    <p class="new_price text-success fw-bold">10000$ </p>
+                                                                    <p class="text-success fw-bold"><i
+                                                                            class="mdi mdi-arrow-up">السعر الفائز</i> </p>
+                                                                    <p class="new_price text-success fw-bold">{{ $auction->winnerPrice }} </p>
                                                                 </div>
                                                             </div>
 
                                                             <div class="d-flex justify-content-between info">
                                                                 <div class="bidder">
                                                                     <h6>
-                                                                        أعلى مزايد
+                                                                      الفائز
                                                                     </h6>
                                                                     <p class="top_bidder">
-                                                                        حمد بكيل
+                                                                        {{ $auction->winner }}
                                                                     </p>
                                                                 </div>
                                                                 <div class="end_date ">

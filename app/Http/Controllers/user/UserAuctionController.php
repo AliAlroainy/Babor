@@ -118,8 +118,7 @@ class UserAuctionController extends Controller
         // echo" $status";
         $status=4;
         $auctions=Auction::with(['user','car'])->where('status',$status)->get();
-        $Bid= Bid::orderBy('id')->get();
-        return view('Front.Auction.auctions')->with(['auctions'=>$auctions,'bids'=>$bid]);
+        return view('Front.Auction.auctions')->with('auctions',$auctions);
 
 
 
