@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Car;
 use App\Models\Brand;
 use App\Models\Auction;
+use App\Models\Bid;
 use App\Models\Category;
 use App\Trait\ImageTrait;
 use Illuminate\Http\Request;
@@ -70,8 +71,8 @@ class UserAuctionController extends Controller
             'reservePrice'    => $request->input('reservePrice'),
             'closeDate'       => $request->input('closeDate'),
             'startDate'       => now(),
-            'minInc'          => $request->input('minInc'),  
-            'auctioneer_id'   => Auth::user()->id, 
+            'minInc'          => $request->input('minInc'),
+            'auctioneer_id'   => Auth::user()->id,
             'car_id'          => $car->id,
         ]);
         return redirect()->route('user.add.auction')
@@ -80,54 +81,42 @@ class UserAuctionController extends Controller
 
     public function currentAuctions(Request $request)
     {
-        $currentDate = date('Y-m-d');
-        $currentDate = date('Y-m-d', strtotime($currentDate));
+    //     $currentDate = date('Y-m-d');
+    //     $currentDate = date('Y-m-d', strtotime($currentDate));
 
-        $auctions= Auction::orderBy('id')->get();
+    //     $auctions= Auction::orderBy('id')->get();
 
-        $items = DB::table('auctions')
-        ->select('id', 'closeDate','winner')
-        ->first();
-        if(!$items)
-        return abort('404');
-
-
-       if($items->closeDate != $currentDate  && empty($items->winner)){
-            return view('Front.Auction.auctions')->with('auctions',$auctions);
-       }
-       else
-       {
-          echo"sorry";
-       }
+    //     $items = DB::table('auctions')
+    //     ->select('id', 'closeDate','winner')
+    //     ->first();
+    //     if(!$items)
+    //     return abort('404');
+    //    if($items->closeDate != $currentDate  && empty($items->winner)){
+    //         return view('Front.Auction.auctions')->with('auctions',$auctions);
+    //    }
 
     }
     public function expiredAuctions(Request $request)
     {
+        // $currentDate = date('Y-m-d');
+        // $currentDate = date('Y-m-d', strtotime($currentDate));
+        // $auctions= Auction::orderBy('id')->get();
+        // $items = DB::table('auctions')
+        // ->select('id', 'closeDate','winner')
+        // ->first();
+        // if(!$items)
+        // return abort('404');
+        // // if($items->closeDate == $currentDate  && !empty($items->winner)){
 
-
-        $currentDate = date('Y-m-d');
-        $currentDate = date('Y-m-d', strtotime($currentDate));
-        $auctions= Auction::orderBy('id')->get();
-        $items = DB::table('auctions')
-        ->select('id', 'closeDate','winner')
-        ->first();
-        if(!$items)
-        return abort('404');
-        if($items->closeDate == $currentDate  && !empty($items->winner)){
-
-        return view('Front.Auction.auctions')->with('auctions',$auctions);
-        }
-        else
-        {
-        echo"sorry";
-        }
+        // return view('Front.Auction.auctions')->with('auctions',$auctions);
+        // }
 
     }
     public function subscribedAuctions (Request $request)
     {
 
         $id=Auth::id();
-        $auctions=Auction::with(['car'])->where('auctions.user_id',$id)->get();
+        $auctions=Bid::with(['user','auction'])->where('bidder_id',$id)->get();
         return view('Front.Auction.auctions')->with('auctions',$auctions);
 
     }

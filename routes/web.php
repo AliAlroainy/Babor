@@ -66,7 +66,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/auction', [AcutionController::class, 'index'])->name('admin.auction.index');
         Route::post('/auction/action/{id}', [AcutionController::class, 'action'])->name('admin.auction.action');
         Route::get('/auction/details/{id}', [AcutionController::class, 'showDetails'])->name('admin.auction.details');
-        
+
         Route::get('/bids', function (){
             return view('Admin.auctions.bids');
         },['names'=>'admin.auctions']);
@@ -78,7 +78,6 @@ Route::group(['middleware'=>'auth'],function(){
 
         Route::get('/dashboard/profile', [ProfilesController::class,'show'])->name('user.profile') ;
 
-        Route::get('/dashboard/settings/info',[ProfilesController::class,'index'])->name('user.dashboard');
         Route::get('/auctions/auctionId', function (){
             return view('user.auction.auctionDetails');
         })->name('user.auctionDetails');
@@ -90,6 +89,7 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
             Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
 
+            Route::get('/dashboard/settings/info',[ProfilesController::class,'index'])->name('user.dashboard');
             Route::get('/auctions', [UserAuctionController::class, 'index'])->name('user.auctions');
             Route::get('/auctions/add_auction', [UserAuctionController::class, 'create'])->name('user.add.auction');
             Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
