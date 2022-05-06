@@ -127,7 +127,7 @@
                                                   <h5>  {{ $auction->closeDate }}</h4>
                                                 </td>
                                                 <td>
-                                                
+                                                  <h5>  {{ $auction->winner }}</h4>
                                                 </td>
                                                 <td >
                                                     <h5 >
