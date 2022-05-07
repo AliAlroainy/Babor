@@ -185,7 +185,7 @@
                                                             <button type="submit" name="disapprove"
                                                             style="width: fit-content; font-size: 30px ;color:#71c016;align:center"
                                                         class="btn d-flex align-items-center
-                                                                    font-weight-inverse-success
+                                                               font-weight-inverse-success
                                                               btn-rounded  fa-solid  fa-circle-check pe-2" value="قبول"></button>
                                                         @endif
                                                     </form>
