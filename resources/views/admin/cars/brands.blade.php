@@ -123,9 +123,7 @@
                                                 </td>
                                                 <td>
                                                     <a href="editBrand" style="width: fit-content; font-size: 25px ;color:#686868"
-                                                        class="fa-solid fa-edit pe-2
-                                                        
-                                                         btn-fw btn-rounded "
+                                                        class="fa-solid fa-edit pe-2  btn-fw btn-rounded "
                                                         data-bs-target="#editModal-{{ $brand->id }}"
                                                         data-bs-toggle="modal">
 
