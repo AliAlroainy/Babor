@@ -29,33 +29,33 @@
                                 <div>
                                     <div class="form-card text-center row">
                                         <h2 class="fs-title mb-2 text-end text-muted">بيانات المزاد</h2>
-                                        <div class=" col-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
+                                        <div class=" col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label">تاريخ إنتهاء المزاد</label>
                                             <input type="date" name="closeDate"
                                                 class="bg-transparent input dark-placeholder form-control"
                                                 value="{{ old('closeDate', $car->closeDate ?? null) }}"
                                                  />
                                         </div>
-                                        <div class="col-md-6 mb-4 d-flex justify-content-center align-items-center">
+                                        <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label">السعر الإبتدائي</label>
                                             <input type="text"  name="openingBid"
                                                 value="{{ old('openingBid', $car->openingBid ?? null) }}"
                                                 class="bg-transparent input dark-placeholder form-control"
-                                                placeholder="السعر الإبتدائي" />
+                                                placeholder="" />
                                         </div>
-                                        <div class="col-md-6 mb-4 d-flex justify-content-center align-items-center">
+                                        <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label">الحد الادنى للمزايدة</label>
                                             <input type="text" name="minInc"
                                                 class="bg-transparent input dark-placeholder form-control"
                                                 value="{{ old('minInc', $car->minInc ?? null) }}"
                                                 placeholder="" />
                                         </div>
-                                        <div class="col-md-6 mb-4 d-flex justify-content-center align-items-center">
+                                        <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label">السعر الإحتياطي</label>
                                             <input type="text" name="reservePrice"
                                                 value="{{ old('reservePrice', $car->reservePrice ?? null) }}"
                                                 class="bg-transparent input dark-placeholder form-control"
-                                                placeholder="السعر الاحتياطي" />
+                                                placeholder="" />
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                 <div>
                                     <div class="form-card text-center row">
                                         <h2 class="fs-title text-end text-muted">بيانات السيارة</h2>
-                                        <div class="col-sm-12 col-md-5 col-lg-3 mb-4 d-flex justify-content-center align-items-center">
+                                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center align-items-center">
                                                 <label for="" class="label">التصنيف</label>
                                             <select id="category" name="category_id"
                                                 class="w-100 input dark-placeholder select px-2">
@@ -77,7 +77,7 @@
                                                 @endif
                                             </select>
                                         </div>
-                                        <div class="col-sm-12 col-md-5 col-lg-3 mb-4  d-flex justify-content-center align-items-center">
+                                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4  d-flex justify-content-center align-items-center">
                                             <label for="" class="label">البراند</label>
                                             <select id="brand" name="brand_id"
                                                 class="w-100 dark-placeholder input select px-2">
@@ -105,7 +105,7 @@
                                                 name="model" value="{{ old('model', $car->model ?? null) }}"
                                                 placeholder="مثال 2013">
                                         </div>
-                                        <div class="col-sm-12 col-md-5 col-lg-3 mb-4 d-flex justify-content-center align-items-center">
+                                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label">اللون</label>
                                             <input type="text" class="bg-transparent dark-placeholder form-control input"
                                                 name="color" value="{{ old('color', $car->color ?? null) }}"
@@ -118,7 +118,7 @@
                                                 name="numberOfKillos" placeholder="كم مشت كيلو">
                                         </div>
 
-                                        <div class="col-12 col-md-5 col-lg-4 mb-4 d-flex justify-content-center align-items-center">
+                                        <div class="col-12 col-md-4 col-lg-4 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label">حجم الضرر</label>
                                             <select id="sizOfDamage" name="sizOfDamage"
                                                 class="w-100 bg-transparent dark-placeholder input select px-2">
@@ -136,7 +136,7 @@
                                                 placeholder="موقع السيارة">{{ old('carPosition', $car->carPosition ?? null) }}</textarea>
                                         </div>
 
-                                        <div class="col-12 col-md-5 col-lg-4 mb-4 gap-2 d-flex justify-content-center align-items-center ">
+                                        <div class="col-12 col-md-4 col-lg-4 mb-4 gap-2 d-flex justify-content-center align-items-center ">
                                             <p class="label">حالة السيارة</p>
                                             <div class="d-flex gap-2 input select">
                                                 <div class="form-check ">
@@ -164,7 +164,7 @@
                                             <label class="label image">Thumbnail</label>
                                             <input type="file" name="thumbnail" value="{{ old('thumbnail') }}" class=" input  dark-placeholder form-control">
                                         </div>
-                                        <div class="col-12 col-md-5 col-lg-6 mb-4 d-flex justify-content-center align-items-center">
+                                        <div class="col-12 col-md-12 col-lg-6 mb-4 d-flex justify-content-center align-items-center">
                                             <label class="label image">صور السيارة</label>
                                             <input type="file" name="car_images[]" class="form-control  dark-placeholder input" multiple>
                                         </div>
