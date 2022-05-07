@@ -101,7 +101,7 @@ class UserAuctionController extends Controller
         }   
         $current_user = Auth::id();
         $auctions = Auction::where(['auctioneer_id' => $current_user, 'status' => $status])
-                    ->when($status == '2', function ($s) use ($status) {
+                    ->when($status == '2', function ($s){
                             return $s->whereDate('closeDate', '>', now());
                     })
                     ->with('bids', function ($q){ $q -> orderBy('id', 'desc')->get();})->get();
