@@ -111,14 +111,15 @@ class UserAuctionController extends Controller
     }
 
     public function action(Request $request, $id){
-        // // '3': canceled, '4': uncomplete,
-        // $auctions = Auction::where('id', $id)
-        //             ->when($request->input('cancel'), function ($q){
-        //                     return $q->update(['status' => '3');
-        //             })
-        //             ->when($request->input('stop'), function ($q){
-        //                 return $q->update('status', '4');
-        //         });
+        // '3': canceled, '4': uncomplete,
+        $query = Auction::where('id', $id);
+        $query->when($request->has('cancel'), function ($q){
+            $q->update(['status' => '3']);
+        });
+        $query->when($request->has('timeExtension'), function ($q){
+                        $q->update(['status' => '4']);
+                    });
+        return redirect()->back();          
     }
     public function subscribedAuctions (Request $request)
     {
