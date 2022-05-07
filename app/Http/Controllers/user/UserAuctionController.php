@@ -101,8 +101,7 @@ class UserAuctionController extends Controller
         }   
         $current_user = Auth::id();
         $auctions = Auction::where(['auctioneer_id' => $current_user, 'status' => $status])
-                    ->when(function ($s) use ($status) {
-                        if($status == '2')
+                    ->when($status == '2', function ($s) use ($status) {
                             return $s->whereDate('closeDate', '>', now());
                     })
                     ->with('bids', function ($q){ $q -> orderBy('id', 'desc')->get();})->get();
@@ -112,13 +111,14 @@ class UserAuctionController extends Controller
     }
 
     public function action(Request $request, $id){
-        $action = $request->input('action');
-        $auctions = Auction::where(['id' => $id, 'status' => $status])
-                    ->when(function ($s) use ($status) {
-                        if($status == '2')
-                            return $s->whereDate('closeDate', '>', now());
-                    })
-                    ->with('bids', function ($q){ $q -> orderBy('id', 'desc')->get();})->get();
+        // // '3': canceled, '4': uncomplete,
+        // $auctions = Auction::where('id', $id)
+        //             ->when($request->input('cancel'), function ($q){
+        //                     return $q->update(['status' => '3');
+        //             })
+        //             ->when($request->input('stop'), function ($q){
+        //                 return $q->update('status', '4');
+        //         });
     }
     public function subscribedAuctions (Request $request)
     {

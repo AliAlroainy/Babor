@@ -133,9 +133,22 @@
                                                             alt="image" />
                                                     </div>
                                                     <div>
-                                                        <form action="{{ route('') }}"></form>
-                                                        <input>
-
+                                                        <form
+                                                            action="{{ route('user.progress.action.auction', $auction->id) }}">
+                                                            <div>
+                                                                <input type="submit" name="cancel" value="إلغاء المزاد">
+                                                            </div>
+                                                            @if ($auction->bids->count() > 0)
+                                                                <div>
+                                                                    <input type="submit" name="stop" value="توقيف بإرساء">
+                                                                </div>
+                                                            @else
+                                                                <div>
+                                                                    <input type="submit" name="timeExtension"
+                                                                        value="تمديد الوقت">
+                                                                </div>
+                                                            @endif
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </a>
