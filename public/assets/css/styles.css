@@ -202,7 +202,10 @@ div[style*="margin: 16px 0;"] {
 .label.image{
     padding: 11px;
 }
-
+.label.long{
+    font-size: .8rem !important;
+    padding-block: 12px;
+}
 
 
 
