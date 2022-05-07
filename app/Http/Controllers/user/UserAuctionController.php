@@ -18,11 +18,11 @@ use App\Http\Requests\StoreAuctionRequest;
 class UserAuctionController extends Controller
 {
     use ImageTrait;
-    public function index()
-    {
-        $auctions= Auction::orderBy('id')->get();
-        return view('Front.Auction.auctions')->with('auctions',$auctions);
-    }
+    // public function index()
+    // {
+    //     $auctions= Auction::orderBy('id')->get();
+    //     return view('Front.Auction.auctions')->with('auctions',$auctions);
+    // }
 
     public function create(){
         $brands = Brand::where('is_active', 1)->select('id', 'name')->get();
@@ -81,21 +81,45 @@ class UserAuctionController extends Controller
 
     public function showMyAuctions(Request $request){
         $route = Route::current()->getName();
+        if($route == 'user.show.pending.auction'){
+            $status='0';
+        }
+        if($route == 'user.show.disapproved.auction'){
+            $status='1';
+        }
         if($route == 'user.show.progress.auction'){
             $status='2';
         }
-        elseif($route == 'user.show.complete.auction'){
+        elseif($route == 'user.show.canceled.auction'){
+            $status='3';
+        } 
+        elseif($route == 'user.show.uncompleted.auction'){
             $status='4';
-        }     
+        }   
+        elseif($route == 'user.show.completed.auction'){
+            $status='5';
+        }   
         $current_user = Auth::id();
         $auctions = Auction::where(['auctioneer_id' => $current_user, 'status' => $status])
-                            ->with('bids', function ($q){ 
-                                $q -> orderBy('id', 'desc')->get();
-                            })->get();
+                    ->when(function ($s) use ($status) {
+                        if($status == '2')
+                            return $s->whereDate('closeDate', '>', now());
+                    })
+                    ->with('bids', function ($q){ $q -> orderBy('id', 'desc')->get();})->get();
+
         if($auctions)
             return view('Front.Auction.auctions')->with('auctions',$auctions);  
     }
 
+    public function action(Request $request, $id){
+        $action = $request->input('action');
+        $auctions = Auction::where(['id' => $id, 'status' => $status])
+                    ->when(function ($s) use ($status) {
+                        if($status == '2')
+                            return $s->whereDate('closeDate', '>', now());
+                    })
+                    ->with('bids', function ($q){ $q -> orderBy('id', 'desc')->get();})->get();
+    }
     public function subscribedAuctions (Request $request)
     {
 
