@@ -150,44 +150,48 @@
                                                 </td>
                                                 <td style="text-align:center">
                                                     <a href="{{ route('admin.auction.details', $auction->id) }}"
-                                                        class="btn btn-inverse-warning btn-fw btn-rounded text-inverse-white" style="font-size:12px"> عرض المزيد 
+                                                        class="btn     " style="font-size:12px;
+                                                        width: fit-content; font-size: 25px ;color:#f79522 "
+                                                        >                                                                 
+  <h5>  المزيد   ..<i class="fa-solid fa-angles-left">   </i></h5>
                                                          </a>
+                                                        
                                                 </td>
                                                 <td class="status status_filed" style="text-align:center">
                                                     <form action="{{ route('admin.auction.action', $auction->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @if ($auction->status == '0')
-                                                            <input type="submit" name="approve" style="width: fit-content"
+                                                        <div style="display:flex;flex-direction:row">
+                                                            <button type="submit" name="approve" style="width: fit-content"
                                                                 class="
                                                             btn d-flex align-items-center
                                                              btn-inverse-success
                                                              btn-fw btn-rounded"
-                                                                value="موافقة">
-                                                            <input type="submit" name="disapprove"
-                                                                style="width: fit-content"
-                                                                class="
-                                                            btn d-flex align-items-center
-                                                             btn-inverse-danger
-                                                             btn-fw btn-rounded"
-                                                                value="رفض">
+                                                                value="موافقة"></button>
+                                                            <button type="submit" name="disapprove"
+                                                            style="width: fit-content; font-size: 30px ;color:#ff4747;align:center"
+                                                        class="btn d-flex align-items-center
+                                                                    font-weight-inverse-success
+                                                              btn-rounded  fa-solid fa-circle-xmark  pe-2"
+                                                                value="رفض"></button>
+</div>
                                                         @elseif($auction->status == '1')
-                                                            <input type="submit" name="approve" style="width: fit-content"
-                                                                class="
-                                                                btn d-flex align-items-center
-                                                                 btn-inverse-danger
-                                                                 btn-fw btn-rounded"
-                                                                value="قبول">
+                                                              <button type="submit" name="approve" style="width: fit-content; font-size: 30px ;color:#ff4747;align:center"
+                                                        class="btn d-flex align-items-center
+                                                                    font-weight-inverse-success
+                                                              btn-rounded  fa-solid fa-ban  pe-2" value="توقيف"
+                                                              
+                                                                > </button>
                                                         @elseif($auction->status == '2')
-                                                            <input type="submit" name="disapprove"
-                                                                style="width: fit-content"
-                                                                class="
-                                                            btn d-flex align-items-center
-                                                             btn-inverse-danger
-                                                             btn-fw btn-rounded"
-                                                                value="توقيف">
+                                                            <button type="submit" name="disapprove"
+                                                            style="width: fit-content; font-size: 30px ;color:#71c016;align:center"
+                                                        class="btn d-flex align-items-center
+                                                                    font-weight-inverse-success
+                                                              btn-rounded  fa-solid  fa-circle-check pe-2" value="قبول"></button>
                                                         @endif
                                                     </form>
+                                                    <!-- fa-circle-ellipsis -->
                                                 </td>
 </div>
                                             </tr>

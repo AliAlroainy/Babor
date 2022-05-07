@@ -112,15 +112,13 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="editCategory" style="width: fit-content"
-                                                        class="
-                                                        btn d-flex align-items-center
-                                                         btn-inverse-secondary
+                                                    <a href="editCategory" style="width: fit-content; font-size: 25px ;color:#686868"
+                                                        class="fa-solid fa-edit pe-2
+                                                        
                                                          btn-fw btn-rounded "
                                                         data-bs-target="#editModal-{{ $category->id }}"
                                                         data-bs-toggle="modal">
-                                                        تعديل
-                                                        <i class="fa-solid fa-edit pe-2" style="font-size: 12px ;"></i>
+                                                        
                                                     </a>
                                                 </td>
                                                 <td>
@@ -129,25 +127,23 @@
                                                         @csrf
                                                         @method('DELETE')
                                                         @if ($category->is_active == 1)
-                                                            <button style="width: fit-content"
-                                                                class="
-                                                        btn d-flex align-items-center
-                                                         btn-inverse-success
-                                                         btn-fw btn-rounded ">
-                                                                إلغاء التفعيل
-                                                                <i class="fa-solid fa-trash pe-2"
-                                                                    style="font-size: 12px ;"></i>
-                                                            </button>
-                                                        @else
-                                                            <button style="width: fit-content"
-                                                                class="
-                                                        btn d-flex align-items-center
-                                                         btn-inverse-danger
-                                                         btn-fw btn-rounded ">
-                                                                تفعيل
-                                                                <i class="fas fa-trash-restore pe-2"
-                                                                    style="font-size: 12px ;"></i>
-                                                            </button>
+                                                        <button 
+                                                                    class=" btn d-flex align-items-center
+                                                                    font-weight-inverse-success
+                                                              btn-rounded  fa-solid fa-trash pe-2
+                                                           " style="color:#71c016;font-size: 25px ;">
+                                                                      
+                                                                   
+                                                                </button>
+                                                               
+                                                            @else
+                                                                <button style="color:#ff4747;font-size: 25px ;"
+                                                                    class="
+                                                            btn d-flex align-items-center fas fa-trash-restore pe-2
+                                                             ">
+                                                                    
+                                                                    
+                                                                </button>
                                                         @endif
                                                     </form>
                                                 </td>
