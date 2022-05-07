@@ -163,8 +163,7 @@
                                                         @csrf
                                                         @if ($auction->status == '0')
                                                         <div style="display:flex;flex-direction:row">
-                                                            <button type="submit" name="approve" style="width: fit-content"
-                                                                class="
+                                                            <button type="submit" name="approve" style="width: fit-content" class="
                                                             btn d-flex align-items-center
                                                              btn-inverse-success
                                                              btn-fw btn-rounded"
