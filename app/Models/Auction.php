@@ -42,7 +42,7 @@ class Auction extends Model
     }
 
     public static function getAuctionStatusValues(){
-        return ['معلقة', 'مرفوضة', 'جارية', 'ملغاة', 'مكتملة'];
+        return ['معلقة', 'مرفوضة', 'جارية', 'ملغاة', 'غير مكتملة', 'مكتملة'];
     }
 
     public static function matchAuctionStatus($status){

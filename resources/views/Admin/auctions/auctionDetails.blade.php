@@ -62,6 +62,9 @@
                                                                 </div>
                                                                 <div class="col-lg-3 " style="margin:4%;direction:rtl">
                                                                     <h4 class="card-title">
+                                                                        {{ $auction->user->name }}
+                                                                    </h4>
+                                                                    <h4 class="card-title">
                                                                         {{ $auction->car->model }}
                                                                     </h4>
                                                                     <h4 class="card-title">
@@ -101,7 +104,8 @@
                                                                     </h4>
                                                                 </div>
                                                                 <div class="col-lg-3" style="margin:4%;direction:rtl">
-                                                                    <h4 class="card-title  warning"> الموديل:</h4>
+                                                                    <h4 class="card-title warning"> صاحب المزاد:</h4>
+                                                                    <h4 class="card-title warning"> الموديل:</h4>
                                                                     <h4 class="card-title warning"> السعرالإبتدائي:</h4>
                                                                     <h4 class="card-title warning"> السعرالحالي:</h4>
                                                                     <h4 class="card-title warning"> أعلى مزايد:</h4>

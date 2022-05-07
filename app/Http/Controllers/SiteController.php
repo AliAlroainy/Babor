@@ -14,8 +14,9 @@ class SiteController extends Controller
         return view('Front.index')->with('auctions', $auctions);
     }
 
-    public function auctionsList(){
-        $auctions = Auction::where('status', '2')->get();
+    public function availableAuctions(){
+        // available = not-expired + progress
+        $auctions = Auction::whereDate('closeDate', '>', now())->where('status', '2')->get();
         return view('Front.auctions', ['auctions' => $auctions]);
     }
 
