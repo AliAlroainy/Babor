@@ -153,7 +153,7 @@
                                                         class="btn     " style="font-size:12px;
                                                         width: fit-content; font-size: 25px ;color:#f79522 "
                                                         >                                                                 
-  <h5>  المزيد   ..<i class="fa-solid fa-angles-left">   </i></h5>
+  <h5>  المزيد   ..<i class="fa-solid fa-angles-left"></i></h5>
                                                          </a>
                                                         
                                                 </td>
