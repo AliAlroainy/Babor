@@ -95,8 +95,8 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
             Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
             Route::get('/auctions/in-progress', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.progress.auction');
-            Route::get('/auctions/complete', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.completed.auction');
-            Route::get('/auctions/uncomplete', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.uncompleted.auction');
+            Route::get('/auctions/completed', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.completed.auction');
+            Route::get('/auctions/uncompleted', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.uncompleted.auction');
             Route::get('/auctions/pending', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.pending.auction');
             Route::get('/auctions/disapproved', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.disapproved.auction');
             Route::get('/auctions/canceled', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.canceled.auction');
