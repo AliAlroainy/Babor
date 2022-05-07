@@ -166,10 +166,10 @@ div[style*="margin: 16px 0;"] {
     left: 5rem;
 }
 
-.select {
-    background-color: transparent;
-    padding-block: .7rem;
-}
+/*.select {*/
+/*    background-color: transparent;*/
+/*    padding-block: .7rem;*/
+/*}*/
 
 .py-13 {
     padding-block: 13px;
@@ -187,6 +187,28 @@ div[style*="margin: 16px 0;"] {
     background-color: transparent;
     padding-block: 8px;
 }
+.input{
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+.label{
+    background: #888;
+    padding: 10px 6px;
+    border-bottom-right-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+    width: 60%;
+    color: white
+}
+.label.image{
+    padding: 11px;
+}
+.label.long{
+    font-size: .8rem !important;
+    padding-block: 12px;
+}
+
+
+
 
 /*=======================================*/
 /*user auction view*/
