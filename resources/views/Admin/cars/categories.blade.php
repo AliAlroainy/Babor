@@ -129,7 +129,6 @@
                                                                     font-weight-inverse-success
                                                               btn-rounded  fa-solid fa-trash pe-2
                                                            " style="color:#71c016;font-size: 25px ;">
-                                                                   
                                                                 </button>
                                                             @else
                                                                 <button style="color:#ff4747;font-size: 25px ;"
