@@ -135,13 +135,11 @@
                                                         @csrf
                                                         @method('DELETE')
                                                         @if ($brand->is_active == 1)
-                                                        <button 
-                                                                    class=" btn d-flex align-items-center
+                                                        <button  class=" btn d-flex align-items-center
                                                                     font-weight-inverse-success
                                                               btn-rounded  fa-solid fa-trash pe-2
                                                            " style="color:#71c016;font-size:25px ;">
-                                                                      
-                                                                   
+                                                                  
                                                                 </button>
                                                                
                                                             @else
