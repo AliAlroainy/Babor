@@ -111,16 +111,20 @@ class UserAuctionController extends Controller
     }
 
     public function action(Request $request, $id){
-        // '3': canceled
-        $auction = Auction::find($id);
-        if(!$auction)
+        // '3': canceled, '4': uncomplete
+        $found = Auction::find($id);
+        if(!$found)
             return abort('404');
-
+            
+        $auction = Auction::where('id', $id);
         $auction->when($request->has('cancel'), function ($q){
             $q->update(['status' => '3']);
         });
         $auction->when($request->has('timeExtension'), function ($q) use ($auction){
                         $q->update(['closeDate' => Carbon::parse($auction->closeDate)->addDays(2)]);
+                    });
+        $auction->when($request->has('stop'), function ($q) use ($auction){
+                        $q->update(['status' => '4']);
                     });
         return redirect()->back();          
     }
