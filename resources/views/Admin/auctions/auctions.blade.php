@@ -16,7 +16,8 @@
                                         <h4 class="card-title">عرض بحسب</h4>
                                         <div style="display:flex;flex-direction:row ;padding:1%">
                                             <div class="col-lg-3">
-                                            <select class="form-select" id="filterByCar" onchange="searchFilter()">
+                                            <select class="form-select progLang" id="filterByCar" onchange="searchFilter()" 
+           >
                     <option value="" selected>اسم السيارة</option>
                     <option value="توسان">توسان</option>
                     <option value="سنتافي">سنتافي</option>
