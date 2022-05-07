@@ -171,8 +171,7 @@
                                                             <button type="submit" name="disapprove"
                                                             style="width: fit-content; font-size: 30px ;color:#ff4747;align:center"
                                                         class="btn d-flex align-items-center
-                                                                    font-weight-inverse-success
-                                                              btn-rounded  fa-solid fa-circle-xmark  pe-2"
+                                                          font-weight-inverse-success  btn-rounded  fa-solid fa-circle-xmark  pe-2"
                                                                 value="رفض"></button>
 </div>
                                                         @elseif($auction->status == '1')
