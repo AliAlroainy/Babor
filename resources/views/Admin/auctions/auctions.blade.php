@@ -177,8 +177,8 @@
                                                         @elseif($auction->status == '1')
                                                               <button type="submit" name="approve" style="width: fit-content; font-size: 30px ;color:#ff4747;align:center"
                                                         class="btn d-flex align-items-center
-                                                                    font-weight-inverse-success
-                                                              btn-rounded  fa-solid fa-ban  pe-2" value="توقيف"
+                                                         font-weight-inverse-success
+                                                          btn-rounded  fa-solid fa-ban  pe-2" value="توقيف"
                                                               
                                                                 > </button>
                                                         @elseif($auction->status == '2')
