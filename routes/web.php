@@ -34,7 +34,7 @@ Route::get('/offer', function () {
 });
 
 Route::get('/', [SiteController::class, 'home'])->name('/');
-Route::get('/auction', [SiteController::class, 'auctionsList'])->name('site.auction');
+Route::get('/auctions/available', [SiteController::class, 'availableAuctions'])->name('site.available.auction');
 Route::get('/auction/{id}', [SiteController::class, 'auctionShow'])->name('site.auction.details');
 Route::view('/soon', 'Front.soon');
 Route::view('/contact', 'Front.contact');
@@ -90,13 +90,19 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
 
             Route::get('/dashboard/settings/info',[ProfilesController::class,'index'])->name('user.dashboard');
-            Route::get('/auctions', [UserAuctionController::class, 'index'])->name('user.auctions');
+            // Route::get('/auctions', [UserAuctionController::class, 'index'])->name('user.auctions');
             Route::get('/auctions/add_auction', [UserAuctionController::class, 'create'])->name('user.add.auction');
             Route::get('/get_series', [UserAuctionController::class, 'getSeries'])->name('getSeries');
             Route::post('/auctions/save_auction', [UserAuctionController::class, 'store'])->name('user.save.auction');
-            Route::post('/bid/{id}', BidController::class)->name('user.place.bid');
             Route::get('/auctions/in-progress', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.progress.auction');
-            Route::get('/auctions/exprired', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.expired.auction');
+            Route::get('/auctions/complete', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.completed.auction');
+            Route::get('/auctions/uncomplete', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.uncompleted.auction');
+            Route::get('/auctions/pending', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.pending.auction');
+            Route::get('/auctions/disapproved', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.disapproved.auction');
+            Route::get('/auctions/canceled', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.canceled.auction');
+
+            Route::post('/auctions/in-progress/action/{id}', [UserAuctionController::class, 'action'])->name('user.progress.action.auction');
+            Route::post('/bid/{id}', BidController::class)->name('user.place.bid');
             Route::get('/auctions/subscribed_auction', [UserAuctionController::class, 'subscribedAuctions'])->name('user.show.subscribed.auction');
         });
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');

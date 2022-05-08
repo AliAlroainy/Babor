@@ -18,11 +18,11 @@ use App\Http\Requests\StoreAuctionRequest;
 class UserAuctionController extends Controller
 {
     use ImageTrait;
-    public function index()
-    {
-        $auctions= Auction::orderBy('id')->get();
-        return view('Front.Auction.auctions')->with('auctions',$auctions);
-    }
+    // public function index()
+    // {
+    //     $auctions= Auction::orderBy('id')->get();
+    //     return view('Front.Auction.auctions')->with('auctions',$auctions);
+    // }
 
     public function create(){
         $brands = Brand::where('is_active', 1)->select('id', 'name')->get();
@@ -71,7 +71,6 @@ class UserAuctionController extends Controller
             'openingBid'      => $request->input('openingBid'),
             'reservePrice'    => $request->input('reservePrice'),
             'closeDate'       => $request->input('closeDate'),
-            'startDate'       => now(),
             'minInc'          => $request->input('minInc'),
             'auctioneer_id'   => Auth::user()->id,
             'car_id'          => $car->id,
@@ -82,19 +81,48 @@ class UserAuctionController extends Controller
 
     public function showMyAuctions(Request $request){
         $route = Route::current()->getName();
+        if($route == 'user.show.pending.auction'){
+            $status='0';
+        }
+        if($route == 'user.show.disapproved.auction'){
+            $status='1';
+        }
         if($route == 'user.show.progress.auction'){
             $status='2';
         }
-        elseif($route == 'user.show.expired.auction'){
+        elseif($route == 'user.show.canceled.auction'){
+            $status='3';
+        } 
+        elseif($route == 'user.show.uncompleted.auction'){
             $status='4';
-        }     
+        }   
+        elseif($route == 'user.show.completed.auction'){
+            $status='5';
+        }   
         $current_user = Auth::id();
         $auctions = Auction::where(['auctioneer_id' => $current_user, 'status' => $status])
-                            ->with('bids', function ($q){ 
-                                $q -> orderBy('id', 'desc')->get();
-                            })->get();
+                    ->when($status == '2', function ($s){
+                            return $s->whereDate('closeDate', '>', now());
+                    })
+                    ->with('bids', function ($q){ $q -> orderBy('id', 'desc')->get();})->get();
+
         if($auctions)
             return view('Front.Auction.auctions')->with('auctions',$auctions);  
+    }
+
+    public function action(Request $request, $id){
+        // '3': canceled
+        $auction = Auction::find($id);
+        if(!$auction)
+            return abort('404');
+
+        $auction->when($request->has('cancel'), function ($q){
+            $q->update(['status' => '3']);
+        });
+        $auction->when($request->has('timeExtension'), function ($q) use ($auction){
+                        $q->update(['closeDate' => Carbon::parse($auction->closeDate)->addDays(2)]);
+                    });
+        return redirect()->back();          
     }
 
     public function subscribedAuctions (Request $request)
