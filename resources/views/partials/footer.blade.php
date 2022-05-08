@@ -68,6 +68,25 @@
 <script src="{{ @asset('assets/js/hoverable-collapse.js') }}"></script>
 <script src="{{ @asset('assets/js/off-canvas.js') }}"></script>
 <script src="{{ @asset('assets/vendors/base/vendor.bundle.base.js') }}"></script>
+<!-- Add plugin scripts -->
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script>
+    // register the plugins with FilePond
+FilePond.registerPlugin(
+  FilePondPluginImagePreview,
+  FilePondPluginImageResize,
+  FilePondPluginImageTransform
+);
+
+// const inputElement = document.querySelector('input[type="file"]');
+// const pond = FilePond.create(inputElement);
+
+    const inputElement = document.querySelector('input[type="file"]');
+    const pond = FilePond.create(inputElement);
+    </script>
 
 
 </body>
