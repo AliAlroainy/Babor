@@ -102,6 +102,9 @@
                                                                     <h4 class="card-title">
                                                                         {{ \App\Models\Car::matchSizOfDamageValue($auction->car->sizOfDamage) }}
                                                                     </h4>
+                                                                    <h4 class="card-title">
+                                                                        {!! $auction->car->description !!}
+                                                                    </h4>
                                                                 </div>
                                                                 <div class="col-lg-3" style="margin:4%;direction:rtl">
                                                                     <h4 class="card-title warning"> صاحب المزاد:</h4>
@@ -116,6 +119,7 @@
                                                                     <h4 class="card-title warning"> كم كيلو تم قطعه:</h4>
                                                                     <h4 class="card-title warning"> موقع السيارة:</h4>
                                                                     <h4 class="card-title warning"> حجم الضرر:</h4>
+                                                                    <h4 class="card-title warning"> الوصف :</h4>
                                                                 </div>
                                                             </div>
                                                         </div>

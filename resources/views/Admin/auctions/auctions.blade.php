@@ -201,7 +201,7 @@
                         </div>
                     </div>
                 </div>
-/////////////
+
  {{-- @section('body')
      <!-- partial -->
 

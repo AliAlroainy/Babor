@@ -112,7 +112,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="bio" class="text-muted">نبذة عني</label>
-                                        <textarea class="form-control" id="bio" rows="4"
+                                        <textarea class="form-control" id="myTextarea" rows="4"
                                             name="bio">{{ old('bio') }} {{ $user->profile->bio ?? '' }}</textarea>
                                         @error('bio')
                                             <p class="text-danger">{{ $message }}</p>

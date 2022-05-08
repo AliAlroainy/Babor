@@ -133,9 +133,13 @@
                                         </div>
                                         <div class="col-sm-12 col-md-8 mb-4 d-flex justify-content-center align-items-center">
                                             <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="carPosition"
-                                                placeholder="موقع السيارة">{{ old('carPosition', $car->carPosition ?? null) }}</textarea>
+                                               placeholder="موقع السيارة">{{ old('carPosition', $car->carPosition ?? null) }}</textarea>
                                         </div>
-
+<br>
+<div class="col-sm-12 col-md-8  mb-4 d-flex justify-content-center align-items-center">
+                                            <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="description"
+                                            id="myTextarea"       placeholder="وصف السيارة">{{ old('description', $car->description ?? null) }}</textarea>
+                                        </div>
                                         <div class="col-12 col-md-4 col-lg-4 mb-4 gap-2 d-flex justify-content-center align-items-center ">
                                             <p class="label">حالة السيارة</p>
                                             <div class="d-flex gap-2 input select">
@@ -154,10 +158,7 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-sm-12 col-md-8  mb-4 d-flex justify-content-center align-items-center">
-                                            <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="description"
-                                                      placeholder="وصف السيارة">{{ old('description', $car->description ?? null) }}</textarea>
-                                        </div>
+                                        
 
 
                                         <div class="col-12 col-md-12 col-lg-6 mb-4 d-flex justify-content-center align-items-center">
