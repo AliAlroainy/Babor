@@ -116,6 +116,7 @@
                                                                     <h4 class="card-title warning"> كم كيلو تم قطعه:</h4>
                                                                     <h4 class="card-title warning"> موقع السيارة:</h4>
                                                                     <h4 class="card-title warning"> حجم الضرر:</h4>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
