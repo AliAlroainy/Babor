@@ -22,7 +22,7 @@
 <script>
     $(document).ready(function() {
 
-        $('#carColor').click(){
+        $('#carColor').click() {
             $('#color').textContent = $('#carColor').value();
         }
 
