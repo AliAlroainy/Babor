@@ -17,7 +17,7 @@
                                         <h4 class="card-title">عرض بحسب</h4>
                                         <div style="display:flex;flex-direction:row ;padding:1%">
                                             <div class="col-lg-3">
-                                            <select class="form-select progLang" id="filterByCar" onchange="searchFilter()" 
+                                            <select class="form-select progLang" id="filterByCar" onchange="searchFilter()"
            >
                     <option value="" selected>اسم السيارة</option>
                     <option value="توسان">توسان</option>
@@ -154,10 +154,10 @@
                                                     <a href="{{ route('admin.auction.details', $auction->id) }}"
                                                         class="btn     " style="font-size:12px;
                                                         width: fit-content; font-size: 25px ;color:#f79522 "
-                                                        >                                                                 
+                                                        >
   <h5>  المزيد   ..<i class="fa-solid fa-angles-left"></i></h5>
                                                          </a>
-                                                        
+
                                                 </td>
                                                 <td class="status status_filed" style="text-align:center">
                                                     <form action="{{ route('admin.auction.action', $auction->id) }}"
@@ -180,7 +180,7 @@
                                                         class="btn d-flex align-items-center
                                                          font-weight-inverse-success
                                                           btn-rounded  fa-solid fa-ban  pe-2" value="توقيف"
-                                                              
+
                                                                 > </button>
                                                         @elseif($auction->status == '2')
                                                             <button type="submit" name="disapprove"
@@ -202,7 +202,7 @@
                     </div>
                 </div>
 /////////////
- @section('body')
+ {{-- @section('body')
      <!-- partial -->
 
      <!-- partial -->
@@ -422,7 +422,7 @@
 
 
 
-         </div>
+         </div> --}}
 
          <!-- container-scroller -->
      @endsection
