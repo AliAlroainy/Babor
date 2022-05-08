@@ -30,6 +30,12 @@ class ProfilesController extends Controller
         $user = Auth::user();
         return view('Front.User.profile')->with('user', $user);
     }
+
+    public function visit($id){
+        $user = User::whereId($id)->with('profile')->first();
+        return view('Front.User.profile')->with(['user' => $user]);
+    }
+
     public function info_save(ProfileRequest $request){
         $current_user_id = Auth::user()->id;
         User::where('id', $current_user_id)->update(['name' => $request->input('name')]);
