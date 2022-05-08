@@ -117,7 +117,7 @@ class UserAuctionController extends Controller
         if(!$found)
             return abort('404');
             
-        $auction = Auction::where('id', $id);
+        $auction = Auction::whereId($id);
         $auction->when($request->has('cancel'), function ($q){
             $q->update(['status' => '3']);
         });

@@ -7,37 +7,34 @@
     <div class="container-xxl flex-grow-1 container-p-y">
         <!-- Modal -->
         @if (session()->has('Emailverfication'))
-        <div class="alert alert-dismissible alert-danger fade show" role="alert">
-            {{ session()->get('Emailverfication') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-        <div class="modal fade" id="profile_pic" tabindex="-1"
-            aria-labelledby="profile_pic_label" aria-hidden="true">
+            <div class="alert alert-dismissible alert-danger fade show" role="alert">
+                {{ session()->get('Emailverfication') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+        <div class="modal fade" id="profile_pic" tabindex="-1" aria-labelledby="profile_pic_label"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="profile_pic_label">اختر صورة</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ route('avatar.change') }}" method="POST"
-                            enctype="multipart/form-data" id="profileForm">
+                        <form action="{{ route('avatar.change') }}" method="POST" enctype="multipart/form-data"
+                            id="profileForm">
                             @csrf
                             <input type="file" name="avatar" class="form-control previewImage">
                             <div class="d-inline mx-auto mt-2 previewFrames alert alert-dismissible"
-                                                                            style="position: relative;"></div>
+                                style="position: relative;"></div>
                         </form>
                     </div>
                     @error('avatar')
                         {{ $message }}
                     @enderror
                     <div class="modal-footer">
-                        <button type="submit" form="profileForm"
-                            class="btn btn-warning text-white">حفظ</button>
-                        <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">Close</button>
+                        <button type="submit" form="profileForm" class="btn btn-warning text-white">حفظ</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -48,15 +45,16 @@
                 <div class="card mb-4">
                     <div class="user-profile-header d-flex flex-column flex-sm-row text-sm-start text-center mb-4">
                         <div class="flex-shrink-0 mt-n2 mx-sm-0 mx-auto pt-3 pe-3" style="position: relative">
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#profile_pic" style="position: absolute; bottom:0; left:-37px;">
-                                    <i class="fas fa-camera"></i>
+                            <button type="button" class="btn" data-bs-toggle="modal"
+                                data-bs-target="#profile_pic" style="position: absolute; bottom:0; left:-37px;">
+                                <i class="fas fa-camera"></i>
                             </button>
                             @if (isset($user->profile->avatar))
                                 <img src="/images/profiles/{{ $user->profile->avatar }}" alt="profile" width="100"
                                     class="d-block h-auto ms-0 rounded user-profile-img" />
                             @else
                                 <img src="/images/profiles/default.png" alt="profile"
-                                    class="d-block h-auto ms-0 rounded user-profile-img" width="100"/>
+                                    class="d-block h-auto ms-0 rounded user-profile-img" width="100" />
                             @endif
 
                         </div>
@@ -64,22 +62,28 @@
                             <div
                                 class="d-flex align-items-md-end align-items-sm-start align-items-center justify-content-md-between justify-content-start mx-4 flex-md-row flex-column gap-4">
                                 <div class="user-profile-info text-md-end">
-                                    <h4> @if(@isset($user->profile->username )) {{ $user->profile->username }} - @endif</h4>
+                                    <h4>
+                                        @if (@isset($user->profile->username))
+                                            {{ $user->profile->username }} -
+                                        @endif
+                                    </h4>
                                     <ul
                                         class="p-0 list-inline mb-0 d-flex align-items-center flex-wrap justify-content-sm-start justify-content-center gap-2">
                                         <li class="list-inline-item fw-semibold">
-                                            <i class='bx bx-pen'></i> @if(@isset($user->profile->job )) {{ $user->profile->job }} - @endif
+                                            <i class='bx bx-pen'></i>
+                                            @if (@isset($user->profile->job))
+                                                {{ $user->profile->job }} -
+                                            @endif
                                         </li>
                                         <li class="list-inline-item fw-semibold">
-                                            <i class='bx bx-map'></i> @if(@isset($user->profile->city )) {{ $user->profile->city }} - @endif
+                                            <i class='bx bx-map'></i>
+                                            @if (@isset($user->profile->city))
+                                                {{ $user->profile->city }} -
+                                            @endif
                                         </li>
                                         <li class="list-inline-item fw-semibold">
                                             <i class='bx bx-calendar-alt'></i> انضم بتاريخ
                                             {{ date_format($user->profile->created_at, 'm-Y') }}
-                                            {{-- <?php if(@isset(date_format($user->profile->created_at, 'm-Y'))): ?> <?php echo (date_format($user->profile->created_at, 'm-Y')); ?> - <?php endif; ?> --}}
-
-
-
                                         </li>
                                     </ul>
                                 </div>
@@ -120,23 +124,29 @@
                         <small class="text-muted text-uppercase">نبذة</small>
                         <ul class="list-unstyled mb-4 mt-3">
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-user"></i><span
-                                    class="fw-semibold mx-2"><i class="fa-solid fa-user-large"></i> الاسم: </span> <span>{{ $user->name }}</span>
+                                    class="fw-semibold mx-2"><i class="fa-solid fa-user-large"></i> الاسم: </span>
+                                <span>{{ $user->name }}</span>
                             </li>
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-star"></i><span
-                                    class="fw-semibold mx-2"><i class="fa-solid fa-suitcase"></i> المهنة: </span> <span>{{ $user->profile->job }}</span>
+                                    class="fw-semibold mx-2"><i class="fa-solid fa-suitcase"></i> المهنة: </span>
+                                {{-- <span>{{ $user->profile->job }}</span> --}}
                             </li>
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-flag"></i><span
-                                    class="fw-semibold mx-2"><i class="fa-solid fa-location-dot"></i> العنوان: </span> <span>{{ $user->profile->city }} -
-                                    {{ $user->profile->address }}</span>
+                                    class="fw-semibold mx-2"><i class="fa-solid fa-location-dot"></i> العنوان: </span>
+                                {{-- <span>{{ $user->profile->city }} - --}}
+                                {{-- {{ $user->profile->address }}</span> --}}
                             </li>
                         </ul>
                         <small class="text-muted text-uppercase">معلومات التواصل</small>
                         <ul class="list-unstyled mb-4 mt-3">
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-phone"></i><span
-                                    class="fw-semibold mx-2"><i class="fa-solid fa-phone"></i> الهاتف: </span> <span>{{ $user->profile->phone }}</span>
+                                    class="fw-semibold mx-2"><i class="fa-solid fa-phone"></i> الهاتف: </span>
+                                {{-- <span>{{ $user->profile->phone }}</span> --}}
                             </li>
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-envelope"></i><span
-                                    class="fw-semibold mx-2"><i class="fa-solid fa-envelope"></i> ايميل: </span> <span>{{ $user->email }}</span></li>
+                                    class="fw-semibold mx-2"><i class="fa-solid fa-envelope"></i> ايميل: </span>
+                                <span>{{ $user->email }}</span>
+                            </li>
                         </ul>
 
                     </div>

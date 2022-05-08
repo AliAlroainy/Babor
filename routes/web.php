@@ -77,6 +77,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::group(['prefix' => 'user', 'middleware'=>'role:user'],function(){
 
         Route::get('/dashboard/profile', [ProfilesController::class,'show'])->name('user.profile') ;
+        Route::get('/dashboard/profile/{id}', [ProfilesController::class,'visit'])->name('user.visit.profile') ;
 
         Route::get('/auctions/auctionId', function (){
             return view('user.auction.auctionDetails');
