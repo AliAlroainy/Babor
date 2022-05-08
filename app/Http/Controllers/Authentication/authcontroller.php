@@ -26,7 +26,7 @@ class AuthController extends Controller
         return view('admin.dashboard');
 
     }
-    
+
     public function register(RegisterRequest $request){
 
         $u=new User();
@@ -69,7 +69,7 @@ class AuthController extends Controller
             $user->email_verified_at=Carbon::now()->timestamp;
             $user->save();
             Auth::login($user);
-            return redirect()->route('user.dashboard')->with(
+            return redirect()->route('user.profile')->with(
                 [
                     'successRegistration' => 'تم تاكيد حسابك بنجاح',
                 'tab' => 'profile',

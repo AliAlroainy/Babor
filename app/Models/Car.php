@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Car extends Model
@@ -23,7 +24,7 @@ class Car extends Model
         'car_images',
         'sizOfDamage',
         'status',
-        'description',     
+        'description',
     ];
 
 
@@ -31,7 +32,7 @@ class Car extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
-    
+
     public function brand(): BelongsTo
     {
         return $this->belongsTo(Brand::class, 'brand_id');
