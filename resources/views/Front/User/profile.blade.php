@@ -129,19 +129,19 @@
                             </li>
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-star"></i><span
                                     class="fw-semibold mx-2"><i class="fa-solid fa-suitcase"></i> المهنة: </span>
-                                {{-- <span>{{ $user->profile->job }}</span> --}}
+                                <span>{{ $user->profile->job }}</span>
                             </li>
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-flag"></i><span
                                     class="fw-semibold mx-2"><i class="fa-solid fa-location-dot"></i> العنوان: </span>
-                                {{-- <span>{{ $user->profile->city }} - --}}
-                                {{-- {{ $user->profile->address }}</span> --}}
+                                <span>{{ $user->profile->city }} -
+                                    {{ $user->profile->address }}</span>
                             </li>
                         </ul>
                         <small class="text-muted text-uppercase">معلومات التواصل</small>
                         <ul class="list-unstyled mb-4 mt-3">
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-phone"></i><span
                                     class="fw-semibold mx-2"><i class="fa-solid fa-phone"></i> الهاتف: </span>
-                                {{-- <span>{{ $user->profile->phone }}</span> --}}
+                                <span>{{ $user->profile->phone }}</span>
                             </li>
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-envelope"></i><span
                                     class="fw-semibold mx-2"><i class="fa-solid fa-envelope"></i> ايميل: </span>

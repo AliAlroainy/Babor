@@ -33,7 +33,6 @@ class ProfilesController extends Controller
 
     public function visit($id){
         $user = User::whereId($id)->with('profile')->first();
-        // return response($user);
         return view('Front.User.profile')->with(['user' => $user]);
     }
 
