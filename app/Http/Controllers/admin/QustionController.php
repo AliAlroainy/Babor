@@ -88,5 +88,12 @@ class QustionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    
+    public function destroy($id)
+    {
+        
+        $qes = question::find($id);
+        $qes->is_active *= -1;
+        if($qes->save())
+            return back();
+    }
 }
