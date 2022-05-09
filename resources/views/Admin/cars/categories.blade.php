@@ -137,8 +137,6 @@
                                                                 class="
                                                             btn d-flex align-items-center fas fa-trash-restore pe-2
                                                              ">
-
-
                                                             </button>
                                                         @endif
                                                     </form>
@@ -179,7 +177,7 @@
                             <div class="row">
                                 <div class="col md-3">
                                     <label for="Image" class="form-label">أيقونة التصنيف</label>
-                                    <input type="file" id="image" class="form-control" name="image" placeholder=""
+                                    <input type="file" id="image" class="dropify" name="image" placeholder=""
                                         value="{{ old('image') }}">
                                 </div>
                             </div>

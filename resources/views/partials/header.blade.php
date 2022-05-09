@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    {{-- <!-- Add plugin styles -->
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+    <!-- Required meta tags --> --}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -13,7 +16,15 @@
     <link rel="stylesheet" href="{{ @asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ @asset('assets/vendors/base/vendor.bundle.base.css') }}">
     <!-- endinject -->
-    <!-- inject:css -->
+    <!-- dropfiy:css -->
+    <link rel="stylesheet" href="{{ @asset('assets/css/maps/dropfiy.css') }}">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/fonts/dropify.eot">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/fonts/dropify.svg">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/fonts/dropify.ttf">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/fonts/dropify.woff">
+    <!-- inject:css --> --}}
     <link rel="stylesheet" href="{{ @asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ @asset('assets/css/styles.css') }}">
     <link rel="stylesheet" href="{{ @asset('assets/css/multistep-form.css') }}">
@@ -29,6 +40,7 @@
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
     <script src="{{ @asset('assets/js/ajax.js') }}"></script>
     <script src="/js/search.js"></script>
+    {{-- tiny editor --}}
     <script type="text/javascript"
         src="https://cdn.tiny.cloud/1/q6t3hc09adutz0zx8yu3y7y69c75wwfeg3ux14tbrxthyd8g/tinymce/5/tinymce.min.js"
         referrerpolicy="origin">
@@ -56,7 +68,7 @@
             content_css: 'css/content.css'
         });
     </script>
-
+    {{-- end --}}
     <style>
         tr td {
             padding-block: 10px !important;

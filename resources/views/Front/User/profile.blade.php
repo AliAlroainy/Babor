@@ -24,7 +24,7 @@
                         <form action="{{ route('avatar.change') }}" method="POST" enctype="multipart/form-data"
                             id="profileForm">
                             @csrf
-                            <input type="file" name="avatar" class="form-control previewImage">
+                            <input type="file" name="avatar" class="dropify">
                             <div class="d-inline mx-auto mt-2 previewFrames alert alert-dismissible"
                                 style="position: relative;"></div>
                         </form>
