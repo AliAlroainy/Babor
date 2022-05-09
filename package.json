@@ -16,6 +16,7 @@
         "postcss": "^8.1.14"
     },
     "dependencies": {
+        "dropify": "^0.2.2",
         "filepond": "^4.30.3"
     }
 }

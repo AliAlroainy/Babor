@@ -98,7 +98,7 @@
                                                                    <label for="editPic" class="form-label">أيقونة
                                                                        الخدمة</label>
                                                                    <input type="file" id="editPic"
-                                                                          class="form-control" name="pic"
+                                                                   class="dropify" name="pic"
                                                                           placeholder="">
                                                                </div>
                                                            </div>
@@ -128,8 +128,8 @@
                                                         class="fa-solid fa-edit pe-2 btn-fw btn-rounded "
                                                         data-bs-target="#editModal-{{ $service->id }}"
                                                         data-bs-toggle="modal">
-                                                        
-                                                       
+
+
                                                     </a>
                                                 </td>
                                                 <td>
@@ -148,7 +148,7 @@
                                                                     font-weight-inverse-danger
                                                               btn-rounded  fa-solid fa-trash-restore pe-2
                                                            " style="color:#ff4747;font-size: 25px ;">
-                                                                
+
                                                             </button>
 
                                                         @endif
