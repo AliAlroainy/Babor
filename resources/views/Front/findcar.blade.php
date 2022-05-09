@@ -118,6 +118,10 @@
 
  <div id="products" class="h-100  ">
  <div class="container">
+
+
+
+
      <div class="row">
 
          <div class="col-lg-3 col-sm-4 col-11 offset-sm-0 offset-1">
@@ -466,8 +470,13 @@
 
 
 
+ </div>
+</div>
 
 
 
 
-@include('Front.include.footer')
+
+
+
+  @include('Front.include.footer')
