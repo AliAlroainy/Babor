@@ -118,8 +118,8 @@
                                                 name="numberOfKillos" placeholder="كم مشت كيلو">
                                         </div>
 
-                                        <div class="col-12 col-md-4 col-lg-4 mb-4 d-flex justify-content-center align-items-center">
-                                            <label for="" class="label">حجم الضرر</label>
+                                        <div class="col-12 col-md-3 mb-4 d-flex justify-content-center align-items-center">
+                                            <label for="" class="label"> الضرر</label>
                                             <select id="sizOfDamage" name="sizOfDamage"
                                                 class="w-100 bg-transparent dark-placeholder input select px-2">
 {{--                                                <option selected disabled>اختر حجم الضرر</option>--}}
@@ -131,16 +131,14 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-sm-12 col-md-8 mb-4 d-flex justify-content-center align-items-center">
-                                            <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="carPosition"
-                                               placeholder="موقع السيارة">{{ old('carPosition', $car->carPosition ?? null) }}</textarea>
+                                        <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
+                                            <label for="" class="label"> موقع السيارة</label>
+                                            <input type="text" class="bg-transparent dark-placeholder form-control input" row="15" name="carPosition"
+                                               placeholder="" {{ old('carPosition', $car->carPosition ?? null) }}>
                                         </div>
+
 <br>
-<div class="col-sm-12 col-md-8  mb-4 d-flex justify-content-center align-items-center">
-                                            <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="description"
-                                            id="myTextarea"       placeholder="وصف السيارة">{{ old('description', $car->description ?? null) }}</textarea>
-                                        </div>
-                                        <div class="col-12 col-md-4 col-lg-4 mb-4 gap-2 d-flex justify-content-center align-items-center ">
+                                        <div class="col-12 col-md-3 mb-4 gap-2 d-flex justify-content-center align-items-center ">
                                             <p class="label">حالة السيارة</p>
                                             <div class="d-flex gap-2 input select">
                                                 <div class="form-check ">
@@ -156,21 +154,28 @@
                                                     </label>
                                                 </div>
                                             </div>
+                                        </div>
+
+
+                                        <div class="col-md-12 col-lg-6 mb-4 d-flex justify-content-center align-items-center flex-column ">
+                                            <label class="label image w-100">Thumbnail</label>
+                                            <input type="file" name="thumbnail" value="{{ old('thumbnail') }}" class="dropify"  data-height="200" data-show-errors="true">
+                                        </div>
+
+                                        <div class="col-md-12 col-lg-6 mb-4 d-flex justify-content-center flex-column align-items-center">
+                                            <label class="label image w-100 border-0">صور السيارة</label>
+                                            <input type="file" name="car_images[]" class="dropify" multiple>
 
                                         </div>
 
 
+                                        <div class="col-12 w-100  mb-4 d-flex justify-content-center align-items-center">
+                                            <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="description"
+                                                      id="myTextarea"       placeholder="وصف السيارة"{{ old('description', $car->description ?? null) }}></textarea>
+                                        </div>
 
-                                        <div class="col-12 col-md-12 col-lg-6 mb-4 d-flex justify-content-center align-items-center">
-                                            <label class="label image">Thumbnail</label>
-                                            <input type="file" name="thumbnail" value="{{ old('thumbnail') }}" class="dropify"  data-height="200" data-show-errors="true"
-                                            >
-                                        </div>
-                                        <div class="col-12 col-md-12 col-lg-6 mb-4 d-flex justify-content-center align-items-center">
-                                            <label class="label image">صور السيارة</label>
-                                            <input type="file" name="car_images[]" class="dropify"  data-allowed-file-extensions=" png  jpg jpeg gif svg webp"
-                                             multiple>
-                                        </div>
+
+
                                     </div>
                                     <input type="submit" class="btn btn-warning w-auto fw-bold" value="حفظ" />
                                 </div>

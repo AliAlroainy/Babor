@@ -14,6 +14,6 @@ class AuctionSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

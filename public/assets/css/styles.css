@@ -200,7 +200,7 @@ div[style*="margin: 16px 0;"] {
     color: white
 }
 .label.image{
-    padding: 11px;
+    border-radius: 0 !important;
 }
 .label.long{
     font-size: .8rem !important;
