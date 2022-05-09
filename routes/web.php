@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
 use App\Http\Controllers\user\BidController;
+use App\Http\Controllers\admin\BidsController;
 use App\Http\Controllers\Admin\AcutionController;
 use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
@@ -66,10 +67,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/auction', [AcutionController::class, 'index'])->name('admin.auction.index');
         Route::post('/auction/action/{id}', [AcutionController::class, 'action'])->name('admin.auction.action');
         Route::get('/auction/details/{id}', [AcutionController::class, 'showDetails'])->name('admin.auction.details');
-
-        Route::get('/bids', function (){
-            return view('Admin.auctions.bids');
-        },['names'=>'admin.auctions']);
+        Route::get('/bids', [BidsController::class, 'index'])->name('admin.bid.index');
 
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
