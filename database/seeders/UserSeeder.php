@@ -28,11 +28,12 @@ class UserSeeder extends Seeder
         $admin->save();
         $admin->attachRole('super_admin');
         $admin->remember_token =Str::random(30);
+        $admin->email_verified_at=now();
 
 
         $Jehad = new User;
         $Jehad->name        = "Jehad";
-        $Jehad->email       = "Jehad@gmail.com";
+        $Jehad->email       = "deeppp901@gmail.com";
         $Jehad->password    = Hash::make('123');
         $Jehad->is_active   = 1;
         $Jehad->created_at  = now();
@@ -40,10 +41,11 @@ class UserSeeder extends Seeder
         $Jehad->save();
         $Jehad->attachRole('user');
         $Jehad->remember_token =Str::random(30);
+        $Jehad->email_verified_at=now();
 
         $Abrar = new User;
         $Abrar->name        = "Abrar";
-        $Abrar->email       = "Abrar@gmail.com";
+        $Abrar->email       = "abrar.abdulwahed@gmail.com";
         $Abrar->password    = Hash::make('123');
         $Abrar->is_active   = 1;
         $Abrar->created_at  = now();
@@ -51,6 +53,7 @@ class UserSeeder extends Seeder
         $Abrar->save();
         $Abrar->attachRole('user');
         $Abrar->remember_token =Str::random(30);
+        $Abrar->email_verified_at=now();
 
         $Reem = new User;
         $Reem->name        = "Reem";
@@ -62,6 +65,7 @@ class UserSeeder extends Seeder
         $Reem->save();
         $Reem->attachRole('user');
         $Reem->remember_token =Str::random(30);
+        $Reem->email_verified_at=now();
 
         $Ali = new User;
         $Ali->name        = "Ali";
@@ -73,6 +77,7 @@ class UserSeeder extends Seeder
         $Ali->save();
         $Ali->attachRole('user');
         $Ali->remember_token =Str::random(30);
+        $Ali->email_verified_at=now();
 
         $Hamad = new User;
         $Hamad->name        = "Hamad";
@@ -84,6 +89,7 @@ class UserSeeder extends Seeder
         $Hamad->save();
         $Hamad->attachRole('user');
         $Hamad->remember_token =Str::random(30);
+        $Hamad->email_verified_at=now();
 
         $Erada = new User;
         $Erada->name        = "Erada";
@@ -95,6 +101,7 @@ class UserSeeder extends Seeder
         $Erada->save();
         $Erada->attachRole('user');
         $Erada->remember_token =Str::random(30);
+        $Erada->email_verified_at=now();
 
         $Nashwan = new User;
         $Nashwan->name        = "Nashwan";
@@ -106,6 +113,7 @@ class UserSeeder extends Seeder
         $Nashwan->save();
         $Nashwan->attachRole('user');
         $Nashwan->remember_token =Str::random(30);
+        $Nashwan->email_verified_at=now();
 
         $Mokhtar = new User;
         $Mokhtar->name        = "Mokhtar";
@@ -117,6 +125,7 @@ class UserSeeder extends Seeder
         $Mokhtar->save();
         $Mokhtar->attachRole('user');
         $Mokhtar->remember_token =Str::random(30);
+        $Mokhtar->email_verified_at=now();
 
         $Haitham = new User;
         $Haitham->name        = "Haitham";
@@ -128,6 +137,7 @@ class UserSeeder extends Seeder
         $Haitham->save();
         $Haitham->attachRole('user');
         $Haitham->remember_token =Str::random(30);
+        $Haitham->email_verified_at=now();
 
 
 
