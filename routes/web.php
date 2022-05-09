@@ -23,9 +23,6 @@ use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
 
 
-Route::get('/FAQ', function () {
-    return view('Front.FAQ');
-});
 Route::get('/services', function () {
     return view('Front.services');
 });
@@ -43,6 +40,7 @@ Route::get('/findcar', function () {
 });
 
 Route::get('/', [SiteController::class, 'home'])->name('/');
+Route::get('/FAQ', [SiteController::class, 'questionShow']);
 Route::get('/auctions/available', [SiteController::class, 'availableAuctions'])->name('site.available.auction');
 Route::get('/auction/{id}', [SiteController::class, 'auctionShow'])->name('site.auction.details');
 Route::view('/soon', 'Front.soon');
