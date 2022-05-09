@@ -5,58 +5,6 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body dashboard-tabs p-0">
-                        <ul class="nav nav-tabs px-4" role="tablist">
-                            <li class="nav-item">
-                                <a class=" nav-link {{ request()->is('user/auctions/in-progress') ? 'active' : null }}"
-                                    id="{{ route('user.show.progress.auction') }}-tab"
-                                    href="{{ route('user.show.progress.auction') }}" role="tab">
-                                    المزادات الجارية
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class=" nav-link {{ request()->is('user/auctions/completed') ? 'active' : null }}"
-                                    id="{{ route('user.show.completed.auction') }}-tab"
-                                    href="{{ route('user.show.completed.auction') }}" role="tab">
-                                    المزادات المكتملة
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class=" nav-link {{ request()->is('user/auctions/uncompleted') ? 'active' : null }}"
-                                    id="{{ route('user.show.uncompleted.auction') }}-tab"
-                                    href="{{ route('user.show.uncompleted.auction') }}" role="tab">
-                                    المزادات الغير مكتملة
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class=" nav-link {{ request()->is('user/auctions/pending') ? 'active' : null }}"
-                                    id="{{ route('user.show.pending.auction') }}-tab"
-                                    href="{{ route('user.show.pending.auction') }}" role="tab">
-                                    المزادات التي في انتظار المسئول
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class=" nav-link {{ request()->is('user/auctions/disapproved') ? 'active' : null }}"
-                                    id="{{ route('user.show.disapproved.auction') }}-tab"
-                                    href="{{ route('user.show.disapproved.auction') }}" role="tab">
-                                    المزادات المرفوضة
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class=" nav-link {{ request()->is('user/auctions/canceled') ? 'active' : null }}"
-                                    id="{{ route('user.show.canceled.auction') }}-tab"
-                                    href="{{ route('user.show.canceled.auction') }}" role="tab">
-                                    المزادات الملغاة
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class=" nav-link {{ request()->is('user/auctions/subscribed_auction') ? 'active' : null }}"
-                                    id="{{ route('user.show.subscribed.auction') }}-tab"
-                                    href="{{ route('user.show.subscribed.auction') }}" role="tab">
-
-                                    مزادات اشتركت فيها
-                                </a>
-                            </li>
-                        </ul>
                         <div class="tab-content py-0 px-0">
                             <div class="tab-pane fade {{ request()->is('user/auctions/in-progress') ? 'show active' : null }}"
                                 id="{{ route('user.show.progress.auction') }}" role="tabpanel"
@@ -285,6 +233,8 @@
 
                                                 </div>
                                             @endforeach
+                                        @else
+                                            <h2 class="text-center">لا توجد مزادات جارية </h2>
                                         @endif
                                     </div>
                                 </div>
@@ -517,6 +467,9 @@
 
                                                 </div>
                                             @endforeach
+
+                                        @else
+                                            <h2 class="text-center">لا توجد مزادات منتهية </h2>
                                         @endif
                                     </div>
                                 </div>
@@ -525,7 +478,7 @@
 
                             <div class="tab-pane fade {{ request()->is('user/auctions/uncompleted') ? 'show active' : null }}"
                                 id="{{ route('user.show.uncompleted.auction') }}" role="tabpanel"
-                                aria-labelledby="{{ route('user.show.uncompleted.auction') }}-tab">
+                                aria-labelledbyh2="{{ route('user.show.uncompleted.auction') }}-tab">
                                 <div class="container my-5">
                                     <div class="row">
                                         @if (isset($auctions) && $auctions->count() > 0)
@@ -677,6 +630,8 @@
 
                                                 </div>
                                             @endforeach
+                                        @else
+                                            <h2 class="text-center">لا توجد مزادات غير مكتملة </h2>
                                         @endif
                                     </div>
                                 </div>
@@ -909,6 +864,8 @@
 
                                                 </div>
                                             @endforeach
+                                        @else
+                                            <h2 class="text-center w-100">لا يوجد مزادات متوقفه</h2>
                                         @endif
                                     </div>
                                 </div>
@@ -920,8 +877,7 @@
                                     <div class="row auction-list ">
                                         @if (isset($auctions) && $auctions->count() > 0)
                                             @foreach ($auctions as $auction)
-                                                <div
-                                                    class=" p-2 bg-white d-flex flex-column shadow rounded">
+                                                <div class=" p-2 bg-white d-flex flex-column shadow rounded">
                                                     <div class="mt-1 text-center">
                                                         <img class="img-fluid img-responsive rounded product-image"
                                                              src="/images/cars/{{ $auction->car->thumbnail }}"
@@ -1037,16 +993,17 @@
                                                                         <div class="modal-body">
                                                                             <span>هل أنت متأكد من رغبتك في إلغاء
                                                                                 هذا المزاد؟</span>
-                                                                            <span class="text-danger fw-bold">لا
-                                                                                يمكنك
-                                                                                التراجع</span>
+                                                                            <span class="text-danger fw-bold">
+                                                                                لا يمكنك التراجع
+                                                                            </span>
                                                                         </div>
                                                                         <div class="modal-footer">
-                                                                            <button type="button"
-                                                                                    class="btn btn-outline-secondary"
-                                                                                    data-bs-dismiss="modal">إلغاء</button>
-                                                                            <button type="submit" name="cancel"
-                                                                                    class="btn btn-warning text-white">نعم</button>
+                                                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                                                                إلغاء
+                                                                            </button>
+                                                                            <button type="submit" name="cancel" class="btn btn-warning text-white">
+                                                                                نعم
+                                                                            </button>
                                                                         </div>
                                                                     </div>
                                                                 </form>
@@ -1140,6 +1097,8 @@
 
                                                 </div>
                                             @endforeach
+                                        @else
+                                            <h2 class="text-center">لا يوجد مزادات مرفوظة من قبل مشرفي الموقع</h2>
                                         @endif
                                     </div>
                                 </div>
@@ -1373,6 +1332,8 @@
 
                                                 </div>
                                             @endforeach
+                                        @else
+                                            <h2 class="text-center">لا يوجد مزادات تم الغائها</h2>
                                         @endif
                                     </div>
                                 </div>
@@ -1435,6 +1396,8 @@
                                                 </div>
                                             </a>
                                         @endforeach
+                                    @else
+                                        <h2 class="text-center">لم تقم بالمشاركة في اي مزادات حاليا</h2>
                                     @endif
                                 </div>
                             </div>
