@@ -27,6 +27,11 @@
                 </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item d-flex ">
+                <a href="{{url('/')}}">
+                    <i class="fa-solid fa-home btn-light fs-5 mb-2 ms-3"></i>
+                </a>
+            </li>
                 <li class="nav-item dropdown me-1">
                     <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
                         id="messageDropdown" href="#" data-bs-toggle="dropdown">
