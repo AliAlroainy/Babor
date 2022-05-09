@@ -1,8 +1,16 @@
 @include('Front.include.header')
 
 
-<div class="container" >
-    <div class="main-timeline">
+<div class="">
+    <div class="col-12">
+        <div class="section-title mt-4" >
+          <div style="font-size: 50px">  &#128640; </div> 
+            <h2 > خطوات بسيطة يجب ان تعلمها </h2>
+        </div>
+    </div>
+
+<div class="container "  >
+    <div class="main-timeline" >
     
                             <!-- start experience section-->
                             <div class="timeline">
@@ -10,16 +18,16 @@
                                 <div class="date-content">
                                     <div class="date-outer">
                                         <span class="date">
-                                                <span class="month">1</span>
                                         <span class="year">اولاً</span>
                                         </span>
                                     </div>
                                 </div>
-                                <div class="timeline-content">
-                                    <h5 class="title">قم بالتسجيل بالموقع</h5>
+                                <div class="timeline-content" >
+                                    <h5 class="title">  قم بالتسجيل بالموقع</h5>
                                     <p class="description">
                                         من خلال صفحة التسجيل بالموقع ستقوم بخطوات بسيطة 
                                     </p>
+                                    <img src="img/Reg.png" width="300" height="300" alt="first" >
                                 </div>
                             </div>
                             <!-- end experience section-->
