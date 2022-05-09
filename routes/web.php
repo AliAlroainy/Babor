@@ -13,6 +13,7 @@ use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\QustionController;
 use App\Http\Controllers\user\UserAuctionController;
 // use \Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Authentication\authcontroller;
@@ -22,9 +23,6 @@ use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
 
 
-Route::get('/FAQ', function () {
-    return view('Front.FAQ');
-});
 Route::get('/services', function () {
     return view('Front.services');
 });
@@ -40,8 +38,9 @@ Route::get('/about', function () {
 Route::get('/findcar', function () {
     return view('Front.findcar');
 });
-
+Route::get('/services', [SiteController::class, 'ServicesShow']);
 Route::get('/', [SiteController::class, 'home'])->name('/');
+Route::get('/FAQ', [SiteController::class, 'questionShow']);
 Route::get('/auctions/available', [SiteController::class, 'availableAuctions'])->name('site.available.auction');
 Route::get('/auction/{id}', [SiteController::class, 'auctionShow'])->name('site.auction.details');
 Route::view('/soon', 'Front.soon');
@@ -70,6 +69,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
+        Route::resource('/question', QustionController::class, ['names' => 'admin.question']);
         Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
         Route::get('/auction', [AcutionController::class, 'index'])->name('admin.auction.index');
         Route::post('/auction/action/{id}', [AcutionController::class, 'action'])->name('admin.auction.action');
