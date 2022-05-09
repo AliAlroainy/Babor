@@ -75,7 +75,6 @@
     <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/swiper/swiper.css" />
-
     <!-- Page CSS -->
     <link rel="stylesheet" href="/assets/vendor/css/pages/ui-carousel.css" />
 

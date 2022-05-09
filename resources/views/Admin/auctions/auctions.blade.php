@@ -8,57 +8,43 @@
                           <div class="card-body">
                               <div class="col-lg-12 col-md-7 col-12 " style="direction:ltr ;margin: right 0px;">
                                   <div class="search-bar-top">
-                                      <div class="search-bar">
-                                          <h4 class="card-title">عرض بحسب</h4>
-                                          <div style="display:flex;flex-direction:row ;padding:1%">
-                                              <div class="col-lg-3">
-                                                  <select class="form-select progLang" id="filterByCar"
-                                                      onchange="searchFilter()">
-                                                      <option value="" selected>اسم السيارة</option>
-                                                      <option value="توسان">توسان</option>
-                                                      <option value="سنتافي">سنتافي</option>
-                                                      <option value="برايد">برايد</option>
-                                                      <option value="كامري">كامري</option>
-                                                      <option value="نافارا">نافارا</option>
-                                                      <option value="تورس">تورس</option>
-                                                      <option value="النترا">النترا</option>
-                                                      <option value="باترول">باترول</option>
-                                                      <option value="رافور">رافور</option>
-                                                      <option value="اكسنت">اكسنت</option>
-                                                      <option value="سوناتا">سوناتا</option>
-
-                                                  </select>
-                                              </div>
-                                              <div class="col-lg-3">
-                                                  <select class="form-select" id="filterByBrand"
-                                                      onchange="searchFilterBrand()">
-                                                      <option value="" selected>ماركة السيارة</option>
-                                                      <option value="هوانداي"> هوانداي</option>
-                                                      <option value="تويوتا">تويوتا</option>
-                                                      <option value="مرسيدس">مرسيدس</option>
-                                                      <option value="كيا">كيا</option>
-                                                      <option value="فورد">فورد</option>
-                                                      <option value="GMC">GMC</option>
-                                                      <option value="نيسان">نيسان</option>
-                                                      <option value="BMW">BMW</option>
-                                                      <option value="سوزوكي">سوزوكي</option>
-
-                                                  </select>
-                                              </div>
-                                              <div class="col-lg-3 ">
-                                                  <select class="form-select" id="filterByState"
-                                                      onchange="searchFilterState()">
-                                                      <option value="" selected="selected"> حالة المزاد</option>
-                                                      @foreach (\App\Models\Auction::getAuctionStatusValues() as $key => $value)
-                                                          <option value="{{ $value }}">
-                                                              {{ $value }}
-                                                          </option>
-                                                      @endforeach
-                                                  </select>
+                                      <form action="{{ route('admin.auction.indexFilter') }}" method="POST">
+                                          @csrf
+                                          <div class="search-bar">
+                                              <h4 class="card-title">عرض بحسب</h4>
+                                              <div style="display:flex;flex-direction:row ;padding:1%">
+                                                  <div class="col-lg-3">
+                                                      <select class="form-select progLang" name="brand" id="filterByBrand">
+                                                          <option disabled>ماركة السيارة</option>
+                                                          @foreach ($brands as $brand)
+                                                              <option value="{{ $brand->id }}">{{ $brand->name }}
+                                                              </option>
+                                                          @endforeach
+                                                      </select>
+                                                  </div>
+                                                  <div class="col-lg-3">
+                                                      <select class="form-select" name="series" id="filterBySeries">
+                                                          <option disabled>All</option>
+                                                          @foreach ($series as $item)
+                                                              <option value="{{ $item->id }}">{{ $item->name }}
+                                                              </option>
+                                                          @endforeach
+                                                      </select>
+                                                  </div>
+                                                  <div class="col-lg-3">
+                                                      <select class="form-select" name="status" id="filterByStatus">
+                                                          <option value="">Alle</option>
+                                                          @foreach (\App\Models\Auction::getAuctionStatusValues() as $key => $value)
+                                                              <option value="{{ $key }}">
+                                                                  {{ $value }}
+                                                              </option>
+                                                          @endforeach
+                                                      </select>
+                                                  </div>
                                               </div>
                                           </div>
-                                      </div>
-
+                                          <input type="submit" value="filter">
+                                      </form>
                                   </div>
                               </div>
                               <h4 class="card-title">عرض المزادات</h4>
@@ -94,7 +80,7 @@
                                           aria-label="Close"></button>
                                   </div>
                               @endif
-                              <div class="table-responsive">
+                              <div class="table-responsive" id="filteredSection">
                                   <table class="table table-striped table-hover">
                                       <thead>
                                           <tr>
@@ -209,5 +195,4 @@
                   </div>
               </div>
           </div>
-      </div>
-  @endsection
+      @endsection
