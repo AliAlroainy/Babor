@@ -506,14 +506,14 @@
 .header .shopping-list li {
 	overflow: hidden;
 	border-bottom: 1px solid #e6e6e6;
-	padding-bottom: 15px;
-	margin-bottom: 15px;
+	padding-bottom: 1px;
+	margin-bottom: 1px;
 	position:relative;
 }
 .header .shopping-list li .remove {
 	position: absolute;
 	left: 0;
-	bottom: 16px;
+	top: 18px;
 	margin-top: -20px;
 	height: 20px;
 	width: 20px;
@@ -534,6 +534,7 @@
 	float: right;
 	border: 1px solid #ededed;
 	overflow:hidden;
+	margin: 5px;
 }
 .header .shopping-list .cart-img img {
 	width: 70px;
