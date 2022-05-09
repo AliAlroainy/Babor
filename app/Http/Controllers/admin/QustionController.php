@@ -25,5 +25,21 @@ class QustionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+    public function create()
+    {
+
+    }
+
+    public function store(Request $request)
+    {
+        
+        
+        $qes = new question();
+        $qes->question=$request->title;
+        $qes->answer=$request->description;
+        if($qes->save())
+            return redirect()->route('admin.question.index')->with(['successAdd'=>'تم إضافة السؤال بنجاح']);
+        return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);
+    }
+
 }
