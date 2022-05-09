@@ -25,6 +25,10 @@ use App\Http\Controllers\Authentication\ForgotPasswordController;
 Route::get('/FAQ', function () {
     return view('Front.FAQ');
 });
+
+Route::get('/sell', function () {
+    return view('Front.sell');
+});
 Route::get('/services', function () {
     return view('Front.services');
 });
