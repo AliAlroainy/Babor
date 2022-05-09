@@ -62,11 +62,11 @@
                                 id="{{ route('user.show.progress.auction') }}" role="tabpanel"
                                 aria-labelledby="{{ route('user.show.progress.auction') }}-tab">
                                 <div class="container my-5">
-                                    <div class="row">
+                                    <div class="row auction-list ">
                                         @if (isset($auctions) && $auctions->count() > 0)
                                             @foreach ($auctions as $auction)
                                                 <div
-                                                    class="col-md-6 col-lg-4 col-xl-4 p-5 bg-white d-flex flex-column  shadow rounded">
+                                                    class=" p-2 bg-white d-flex flex-column shadow rounded">
                                                     <div class="mt-1 text-center">
                                                         <img class="img-fluid img-responsive rounded product-image"
                                                             src="/images/cars/{{ $auction->car->thumbnail }}"
