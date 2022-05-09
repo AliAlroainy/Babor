@@ -1,7 +1,7 @@
 @include('Front.include.header')
 
 
-<div class="container">
+<div class="container" >
     <div class="main-timeline">
     
                             <!-- start experience section-->
@@ -10,15 +10,15 @@
                                 <div class="date-content">
                                     <div class="date-outer">
                                         <span class="date">
-                                                <span class="month">2 Years</span>
-                                        <span class="year">2013</span>
+                                                <span class="month">1</span>
+                                        <span class="year">اولاً</span>
                                         </span>
                                     </div>
                                 </div>
                                 <div class="timeline-content">
-                                    <h5 class="title">Visual Art &amp; Design</h5>
+                                    <h5 class="title">قم بالتسجيل بالموقع</h5>
                                     <p class="description">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit molestie.
+                                        من خلال صفحة التسجيل بالموقع ستقوم بخطوات بسيطة 
                                     </p>
                                 </div>
                             </div>
