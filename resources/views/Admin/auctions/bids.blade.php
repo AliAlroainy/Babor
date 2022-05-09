@@ -6,26 +6,22 @@
     <div class="main-panel">
         <div class="content-wrapper" style="position: relative">
             <div class="row">
-
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                        <div class="col-lg-12 col-md-7 col-12 " style="direction:ltr ;margin: right 0px;">
-                        <div class="search-bar-top">
-                            <div class="search-bar">
-                            <h4 class="card-title">عرض بحسب</h4>
-                                <select>
-                                    <option selected="selected"> الكل</option>
-                                    <option>اسم البائع</option>
-                                    <option>تاريخ الانتهاء</option>
-                                    <option> سعر المزايدة</option>
-
-
-                                </select>
-
+                            <div class="col-lg-12 col-md-7 col-12 " style="direction:ltr ;margin: right 0px;">
+                                <div class="search-bar-top">
+                                    <div class="search-bar">
+                                        <h4 class="card-title">عرض بحسب</h4>
+                                        <select>
+                                            <option selected="selected"> الكل</option>
+                                            <option>اسم البائع</option>
+                                            <option>تاريخ الانتهاء</option>
+                                            <option> سعر المزايدة</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
                             <h4 class="card-title">عرض المزايدات</h4>
                             @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -67,13 +63,13 @@
                                                 البائع
                                             </th>
                                             <th>
-                                                 الفائز بالمزاد
+                                                أعلى مزايد
                                             </th>
                                             <th>
                                                 السعر الحالي
                                             </th>
                                             <th>
-                                                 وقت انتهاء المزاد
+                                                وقت انتهاء المزاد
                                             </th>
                                             {{-- <th>
                                                  رابط  المزاد
@@ -82,38 +78,37 @@
                                     </thead>
                                     <tbody>
                                         @if (isset($auctions) && $auctions->count() > 0)
-                                        @foreach ($auctions as $auction)
+                                            @foreach ($auctions as $auction)
+                                                <tr>
+                                                    <td class="py-1">
+                                                        {{ $auction->user->name }}
+                                                    </td>
 
-                                            <tr>
-                                                <td class="py-1">
-                                                    {{ $auction->user->name }}
-                                                </td>
+                                                    <td>
+                                                        {{ $auction->winner }}
+                                                    </td>
 
-                                                <td>
-                                                    {{ $auction->winner }}
-                                                </td>
+                                                    <td>
+                                                        @if ($auction->bids_count > 0)
+                                                            {{ $auction->bids->first()->currentPrice }}
+                                                        @else
+                                                            {{ $auction->openingBid }}
+                                                        @endif
+                                                    </td>
 
-                                                <td>
-                                                    @if ($auction->bids_count > 0)
-                                                    {{ $auction->bids->first()->currentPrice }}
-                                                @else
-                                                    {{ $auction->openingBid }}
-                                                @endif
-                                                </td>
+                                                    <td>
+                                                        {{ $auction->closeDate }}
+                                                    </td>
 
-                                                <td>
-                                                    {{ $auction->closeDate}}
-                                                </td>
-
-                                                <td>
-
-                                                </td>
-                                                {{-- <td> --}}
-                                                  {{-- <!-- some update -->
+                                                    <td>
+                                                        {{ $auction->bids->user->name }}
+                                                    </td>
+                                                    {{-- <td> --}}
+                                                    {{-- <!-- some update -->
                                                 {{ $auction->link }} --}}
-                                                {{-- </td> --}}
-                                            </tr>
-                                        @endforeach
+                                                    {{-- </td> --}}
+                                                </tr>
+                                            @endforeach
                                         @endif
                                     </tbody>
                                 </table>
