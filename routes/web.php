@@ -38,7 +38,7 @@ Route::get('/about', function () {
 Route::get('/findcar', function () {
     return view('Front.findcar');
 });
-
+Route::get('/services', [SiteController::class, 'ServicesShow']);
 Route::get('/', [SiteController::class, 'home'])->name('/');
 Route::get('/FAQ', [SiteController::class, 'questionShow']);
 Route::get('/auctions/available', [SiteController::class, 'availableAuctions'])->name('site.available.auction');
