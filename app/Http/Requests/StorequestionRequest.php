@@ -21,10 +21,24 @@ class StorequestionRequest extends FormRequest
      *
      * @return array
      */
+   
     public function rules()
     {
         return [
-            //
+            'question'         => 'required|between:10,40',
+            'answer'   => 'required|between:10, 200',
+           
         ];
     }
+    public function messages(){
+        return [
+            'question.required'        => 'هذا الحقل مطلوب',
+            'question.between'         => 'العنوان لايقل عن 10 أحرف ولا يزيد عن 20 حرف',
+            'answer.required'  => 'هذا الحقل مطلوب',
+            'answer.between'   => 'الاجابة لايقل عن 10 أحرف ولا يزيد عن 200 حرف',
+            
+
+        ];
+    }
+
 }
