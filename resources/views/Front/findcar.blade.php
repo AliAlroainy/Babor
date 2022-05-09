@@ -11,7 +11,7 @@
  </div>
 
 
-<div class="container  h-100" dir="rtl"> 
+<div class="container " style="height:100%;" dir="rtl"> 
 
  <div class="filter">
      <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#mobile-filter" aria-expanded="false" aria-controls="mobile-filter">فلتر<span class="fa fa-filter pl-1"></span></button>
@@ -118,6 +118,10 @@
 
  <div id="products" class="h-100  ">
  <div class="container">
+
+
+
+
      <div class="row">
 
          <div class="col-lg-3 col-sm-4 col-11 offset-sm-0 offset-1">
@@ -460,18 +464,19 @@
 
   </div>
 
+
+
+
+
+
+
+ </div>
 </div>
 
-<!-- end product -->
-</div>
 
 
 
 
 
 
-
-
-
-
-@include('Front.include.footer')
+  @include('Front.include.footer')

@@ -161,9 +161,11 @@
                                             <label class="label image w-100">Thumbnail</label>
                                             <input type="file" name="thumbnail" value="{{ old('thumbnail') }}" class="dropify"  data-height="200" data-show-errors="true">
                                         </div>
+
                                         <div class="col-md-12 col-lg-6 mb-4 d-flex justify-content-center flex-column align-items-center">
                                             <label class="label image w-100 border-0">صور السيارة</label>
                                             <input type="file" name="car_images[]" class="dropify" multiple>
+
                                         </div>
 
 
