@@ -214,7 +214,7 @@ div[style*="margin: 16px 0;"] {
     display: grid;
     grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
     flex-direction: row;
-    gap: 40px;
+    gap: 30px;
 }
 
 
