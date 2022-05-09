@@ -27,16 +27,16 @@ class AcutionController extends Controller
         $brands = Brand::where('is_active', 1)->select('id', 'name')->get();
         $series = Series::where('is_active', 1)->select('id', 'name')->get();
 
-        $auctions = Auction::with('car')
-        ->when($request->has('status'), function ($q) use ($request){
-            return $q->where('status', $request->status);
-        })
-        ->when($request->has('brand'), function ($q) use ($request){
-            $q->with('brand', function($q){
-                dd($q);
-                return $q->where('brand_id', $request->brand);
-            });
-        })->get();
+        $q = DB::table('auctions');
+        if($request->has('status')) 
+             $q->where('status', $request->status);
+     
+        if($request->has('brand'))
+             $q->where('id', $request->brand);    
+ 
+        if($request->has('series'))
+            $q->where('id', $request->series);
+        $auctions = $q->get();
         return view('Admin.auctions.auctions')->with([
             'auctions'=> $auctions,
             'brands'  => $brands,

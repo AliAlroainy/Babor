@@ -76,25 +76,25 @@
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
         alert(selectedFilterByStatus);
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
-        // $.ajax({
-        //     url: "{{ route('admin.auction.indexFilter') }}",
-        //     type: "GET",
-        //     data: {
-        //         _token: $('meta[name="csrf-token"]').attr('content'),
-        //         status: selectedFilterByStatus
-        //     },
-        //     success: function(data) {
-        //         $('#filteredSection').html(data);
-        //     },
-        //     error: function(response) {
-        //         alert(response.status);
-        //     }
-        // });
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: "{{ route('admin.auction.indexFilter') }}",
+            type: "GET",
+            data: {
+                _token: $('meta[name="csrf-token"]').attr('content'),
+                status: selectedFilterByStatus
+            },
+            success: function(data) {
+                $('#filteredSection').html(data);
+            },
+            error: function(response) {
+                alert(response.status);
+            }
+        });
     }
 </script>
 <script src="{{ @asset('assets/js/template.js') }}"></script>

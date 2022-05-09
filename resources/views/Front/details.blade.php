@@ -84,11 +84,12 @@
             <!-- Product details -->
             <div class="col-md-5" dir="rtl">
                 <div class="product-details">
-                    <h2 class="product-name">شفرلية 2020</h2>
+                    <h2 class="product-name">{{ $auction->type_and_model() }}</h2>
                     <div>
-                        البائع
+                        البائع:
+                        <span>{{ $auction->user->name }}</span>
                     </div>
-                    <div>
+                    {{-- <div>
                         <div class="product-rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -102,40 +103,20 @@
                             @endif
                         </a>
 
-                    </div>
+                    </div> --}}
                     <div>
-                        <h3 class="product-price">{{ $auction->openingBid }}</h3>
+                        <h3 class="product-price">
+                            @if ($auction->bids_count > 0)
+                                {{ $auction->bids->first()->currentPrice }}
+                            @else
+                                {{ $auction->openingBid }}
+                            @endif
+                        </h3>
                         <span class="product-available">{{ App\Models\Car::getStatus($auction->car->status) }}</span>
                     </div>
                     <p>
-                        {{ $auction->car->description }}
+                        {!! $auction->car->description !!}
                     </p>
-
-                    <div class=" d-flex ">
-                        <div class="d-flex flex-row p-3">
-
-                            الجير
-
-                            <select class="input-select">
-                                <option value="0">3</option>
-                                <option value="0">4</option>
-                                <option value="0">6</option>
-                            </select>
-
-                        </div>
-
-                        <div class="d-flex flex-row  p-3">
-
-
-                            الالوان
-
-                            <select class="input-select">
-                                <option value="0">احمر</option>
-                                <option value="0">اسود</option>
-                            </select>
-                        </div>
-
-                    </div>
                     @if (Auth::user())
                         <form action="{{ route('user.place.bid', $auction->id) }}" method="POST">
                             @csrf
@@ -178,9 +159,11 @@
                     </ul>
 
                     <ul class="product-links">
-                        <li>الاقسام:</li>
-                        <li class="badge bg-secondary"><a style="text-decoration: none" href="#">سيارات</a></li>
-                        <li class="badge bg-secondary"><a style="text-decoration: none" href="#">سيارات مستعملة</a></li>
+                        <li class="fs-25px">الاقسام:</li>
+                        <li class="badge bg-secondary"><a style="text-decoration: none"
+                                href="#">{{ $auction->car->category->name }}</a></li>
+                        <li class="badge bg-secondary"><a style="text-decoration: none"
+                                href="#">{{ App\Models\Car::getStatus($auction->car->status) }}</a></li>
                     </ul>
 
                     <ul class="product-links">

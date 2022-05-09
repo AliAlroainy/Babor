@@ -23,7 +23,7 @@ class SiteController extends Controller
     public function auctionShow($id){
         $found = Auction::find($id);
         if($found){
-            $auction = Auction::where('id', $id)->whereNotIn('status', ['0','1'])->first();
+            $auction = Auction::where('id', $id)->whereNotIn('status', ['0','1'])->withCount('bids')->first();
             if($auction){
                 return view('Front.details')->with('auction', $auction);
             }

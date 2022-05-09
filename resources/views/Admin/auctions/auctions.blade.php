@@ -8,43 +8,39 @@
                           <div class="card-body">
                               <div class="col-lg-12 col-md-7 col-12 " style="direction:ltr ;margin: right 0px;">
                                   <div class="search-bar-top">
-                                      <form action="{{ route('admin.auction.indexFilter') }}" method="POST">
-                                          @csrf
-                                          <div class="search-bar">
-                                              <h4 class="card-title">عرض بحسب</h4>
-                                              <div style="display:flex;flex-direction:row ;padding:1%">
-                                                  <div class="col-lg-3">
-                                                      <select class="form-select progLang" name="brand" id="filterByBrand">
-                                                          <option disabled>ماركة السيارة</option>
-                                                          @foreach ($brands as $brand)
-                                                              <option value="{{ $brand->id }}">{{ $brand->name }}
-                                                              </option>
-                                                          @endforeach
-                                                      </select>
-                                                  </div>
-                                                  <div class="col-lg-3">
-                                                      <select class="form-select" name="series" id="filterBySeries">
-                                                          <option disabled>All</option>
-                                                          @foreach ($series as $item)
-                                                              <option value="{{ $item->id }}">{{ $item->name }}
-                                                              </option>
-                                                          @endforeach
-                                                      </select>
-                                                  </div>
-                                                  <div class="col-lg-3">
-                                                      <select class="form-select" name="status" id="filterByStatus">
-                                                          <option value="">Alle</option>
-                                                          @foreach (\App\Models\Auction::getAuctionStatusValues() as $key => $value)
-                                                              <option value="{{ $key }}">
-                                                                  {{ $value }}
-                                                              </option>
-                                                          @endforeach
-                                                      </select>
-                                                  </div>
+                                      <div class="search-bar">
+                                          <h4 class="card-title">عرض بحسب</h4>
+                                          <div style="display:flex;flex-direction:row ;padding:1%">
+                                              <div class="col-lg-3">
+                                                  <select class="form-select progLang" name="brand" id="filterByBrand">
+                                                      <option disabled selected>ماركة السيارة</option>
+                                                      @foreach ($brands as $brand)
+                                                          <option value="{{ $brand->id }}">{{ $brand->name }}
+                                                          </option>
+                                                      @endforeach
+                                                  </select>
+                                              </div>
+                                              <div class="col-lg-3">
+                                                  <select class="form-select" name="series" id="filterBySeries">
+                                                      <option disabled selected>All</option>
+                                                      @foreach ($series as $item)
+                                                          <option value="{{ $item->id }}">{{ $item->name }}
+                                                          </option>
+                                                      @endforeach
+                                                  </select>
+                                              </div>
+                                              <div class="col-lg-3">
+                                                  <select class="form-select" name="status" id="filterByStatus">
+                                                      <option disabled selected>Alle</option>
+                                                      @foreach (\App\Models\Auction::getAuctionStatusValues() as $key => $value)
+                                                          <option value="{{ $key }}">
+                                                              {{ $value }}
+                                                          </option>
+                                                      @endforeach
+                                                  </select>
                                               </div>
                                           </div>
-                                          <input type="submit" value="filter">
-                                      </form>
+                                      </div>
                                   </div>
                               </div>
                               <h4 class="card-title">عرض المزادات</h4>
