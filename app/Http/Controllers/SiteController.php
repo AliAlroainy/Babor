@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Auction;
+use App\Models\question;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
