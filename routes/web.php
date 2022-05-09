@@ -13,6 +13,7 @@ use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\QustionController;
 use App\Http\Controllers\user\UserAuctionController;
 // use \Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Authentication\authcontroller;
@@ -70,6 +71,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
+        Route::resource('/question', QustionController::class, ['names' => 'admin.question']);
         Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
         Route::get('/auction', [AcutionController::class, 'index'])->name('admin.auction.index');
         Route::post('/auction/action/{id}', [AcutionController::class, 'action'])->name('admin.auction.action');
