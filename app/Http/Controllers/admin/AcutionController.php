@@ -70,7 +70,7 @@ class AcutionController extends Controller
             if($auction){
                 return view('Admin.auctions.auctionDetails')->with('auction', $auction);
             }
-        }     
+        }
         return response()->view('Front.404', []);
     }
 }
