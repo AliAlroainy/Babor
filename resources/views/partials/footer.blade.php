@@ -68,6 +68,68 @@
 <script src="{{ @asset('assets/js/hoverable-collapse.js') }}"></script>
 <script src="{{ @asset('assets/js/off-canvas.js') }}"></script>
 <script src="{{ @asset('assets/vendors/base/vendor.bundle.base.js') }}"></script>
+<script src="{{ @asset('assets/js/dropfiy.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.js"></script>
+<!-- Add plugin scripts -->
+{{-- <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script> --}}
+<script>
+//     // register the plugins with FilePond
+// FilePond.registerPlugin(
+//   FilePondPluginImagePreview,
+//   FilePondPluginImageResize,
+//   FilePondPluginImageTransform,
+
+// );
+
+
+
+                // Basic
+                $('.dropify').dropify();
+
+                // Translated
+
+$('.dropify').dropify({
+    messages: {
+        'default': 'قم بسحب وإسقاط ملف هنا أو انقر',
+        'replace': 'قم بسحب وإسقاط ملف هنا أو انقر لاستبداله',
+        'remove':  'احذف',
+        'error':   'خطا، حاول مره اخري'
+    }
+
+});
+
+// // const inputElement = document.querySelector('input[type="file"]');
+// // const pond = FilePond.create(inputElement);
+
+//     const inputElement = document.querySelector('input[type="file"]');
+//     const pond = FilePond.create(inputElement, {
+//   imageResizeTargetWidth:256,
+//   // set contain resize mode
+// //   imageResizeMode: 'contain',
+
+//   // add onaddfile callback
+//   onaddfile: (err, fileItem) => {
+//     console.log(err, fileItem.getMetadata('resize'));
+//   },
+
+//   // add onpreparefile callback
+//   onpreparefile: (fileItem, output) => {
+//     // create a new image object
+//     const img = new Image();
+
+//     // set the image source to the output of the Image Transform plugin
+//     img.src = URL.createObjectURL(output);
+
+//     // add it to the DOM so we can see the result
+//     document.body.appendChild(img);
+//   }
+
+// });
+     </script>
 
 
 </body>

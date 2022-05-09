@@ -139,16 +139,16 @@
                                                                     font-weight-inverse-success
                                                               btn-rounded  fa-solid fa-trash pe-2
                                                            " style="color:#71c016;font-size:25px ;">
-                                                                  
+
                                                                 </button>
-                                                               
+
                                                             @else
                                                                 <button style="color:#ff4747;font-size: 25px ;"
                                                                     class="
                                                             btn d-flex align-items-center fas fa-trash-restore pe-2
                                                              ">
-                                                                    
-                                                                    
+
+
                                                                 </button>
                                                         @endif
                                                     </form>
@@ -191,7 +191,7 @@
                             <div class="row">
                                 <div class="col md-3">
                                     <label for="logo" class="form-label">أيقونة البراند</label>
-                                    <input type="file" id="logo" class="form-control previewImage" name="logo"
+                                    <input type="file" id="logo" class="dropify" name="logo"
                                         placeholder="">
                                     @error('logo')
                                         {{ $message }}
