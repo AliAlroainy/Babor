@@ -57,7 +57,7 @@
                             </a>
                         </li>
                         <li class="nav-item me-5">
-                            <a class="nav-link" href="{{ url('admin/bids') }}" style="font-family: Tajawal">
+                            <a class="nav-link" href="{{ route('admin.bid.index') }}" style="font-family: Tajawal">
                                 عمليات المزايدة
                             </a>
                         </li>

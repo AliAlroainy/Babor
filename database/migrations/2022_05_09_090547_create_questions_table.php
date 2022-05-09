@@ -13,19 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('car_carctrastics', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('brand');
-            $table->string('brand_type'); 
-            $table->string('JIR');
-            $table->integer('cylinder_number');
-            $table->string('fuel_type');
-            $table->string('engine_type');
+            $table->string('question');
+            $table->string('answer');
             $table->boolean("is_active")->default(1);
         });
     }
 
+  
+       
+   
     /**
      * Reverse the migrations.
      *
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('car_carctrastics');
+        Schema::dropIfExists('questions');
     }
 };
