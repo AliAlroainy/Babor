@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Auction;
-use App\Models\question;
-use Illuminate\Http\Request;
 
+use App\Models\Auction;
+use Illuminate\Http\Request;
+use App\Models\service;
+use App\Models\Category;
+use App\Models\question;
 class SiteController extends Controller
 {
     public function home(){
@@ -30,7 +32,16 @@ class SiteController extends Controller
         }     
         return response()->view('Front.404', []);
     }
-
+    public function ServicesShow(){
+        // available = not-expired + progress
+        $services = service::where('is_active', '1')->get();
+        return view('Front.services', ['services' => $services]);
+    }
+    public function categoriesShow(){
+        // available = not-expired + progress
+        $categories = Category::where('is_active', '1')->get();
+        return view('Front.include.produacts', ['Categories' => $categories]);
+    }
     public function questionShow(){
         // available = not-expired + progress
         $questions = question::where('is_active', '1')->get();
