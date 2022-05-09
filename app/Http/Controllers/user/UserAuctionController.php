@@ -79,27 +79,40 @@ class UserAuctionController extends Controller
             ->with('successSubmit','مزادك في انتظار موافقة المسؤول');
     }
 
-    public function showMyAuctions(Request $request){
+    public function showMyAuctions(Request $request, $id=null){
         $route = Route::current()->getName();
-        if($route == 'user.show.pending.auction'){
-            $status='0';
-        }
-        if($route == 'user.show.disapproved.auction'){
-            $status='1';
-        }
-        if($route == 'user.show.progress.auction'){
-            $status='2';
-        }
-        elseif($route == 'user.show.canceled.auction'){
-            $status='3';
-        } 
-        elseif($route == 'user.show.uncompleted.auction'){
-            $status='4';
-        }   
-        elseif($route == 'user.show.completed.auction'){
-            $status='5';
-        }   
         $current_user = Auth::id();
+        if($route == 'user.delete.pending.auction'){
+            $found = Auction::find($id);
+            if(!$found)
+                return redirect()->back()->with('notFound', 'هذا العنصر غير موجود');
+            $is_deleted = Auction::whereId($id)->delete();
+            if($is_deleted){
+                return redirect()->back()->with('successDelete', 'تم الحذف بنجاح');
+            }
+            return redirect()->back()->with('errorDelete', 'حدث خطأ!');    
+        }
+        else{
+            if($route == 'user.show.pending.auction'){
+                $status='0';
+            }
+            elseif($route == 'user.show.disapproved.auction'){
+                $status='1';
+            }
+            elseif($route == 'user.show.progress.auction'){
+                $status='2';
+            }
+            elseif($route == 'user.show.canceled.auction'){
+                $status='3';
+            } 
+            elseif($route == 'user.show.uncompleted.auction'){
+                $status='4';
+            }   
+            elseif($route == 'user.show.completed.auction'){
+                $status='5';
+            }
+        }
+       
         $auctions = Auction::where(['auctioneer_id' => $current_user, 'status' => $status])
                     ->when($status == '2', function ($s){
                             return $s->whereDate('closeDate', '>', now());

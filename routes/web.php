@@ -113,6 +113,7 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/auctions/completed', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.completed.auction');
             Route::get('/auctions/uncompleted', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.uncompleted.auction');
             Route::get('/auctions/pending', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.pending.auction');
+            Route::post('/auctions/pending/delete/{id}', [UserAuctionController::class, 'showMyAuctions'])->name('user.delete.pending.auction');
             Route::get('/auctions/disapproved', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.disapproved.auction');
             Route::get('/auctions/canceled', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.canceled.auction');
 
