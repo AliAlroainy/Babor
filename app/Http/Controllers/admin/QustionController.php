@@ -42,4 +42,51 @@ class QustionController extends Controller
         return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(StorequestionRequest $request, $id)
+    {
+        $qes = question::findOrFail($id);
+        if(!$qes){
+            return redirect()->back()->with(['errorEdit'=>'لا تستطيع التعديل']);
+        }else{
+            $qes->update($request->except(['_token']));
+            return redirect()->route('admin.questions.index')->with(['successEdit'=>'تم التعديل بنجاح']);
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    
 }
