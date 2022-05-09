@@ -23,66 +23,25 @@
                 <div class="col-md-offset-1 col-sm-12 col-md-12 col-md-10">
                     <div class="services-list">
                         <div class="row">
+                        @foreach ($services as $service)
                             <div class="col-sm-6 col-md-4 col-md-4">
                                 <div class="service-block" style="visibility: visible;">
                                     <div class="ico fa fa-magic highlight"></div>
                                     <div class="text-block">
-                                        <div class="name">عروض حصرية </div>
-                                        <div class="info"> لمختلف انواع السيارات </div>
-                                        <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames </div>
+                                        <div class="name">{{ $service->	title }}</div>
+                                        <div class="product-img"> <img class="default-img" style="width:50%;height:40%;border-radius: 40px"
+                                        src="/images/services/{{ $service->pic }}" alt="#">
+</div>
+                                        <div class="info">{{ $service->	description }}</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-md-4">
-                                <div class="service-block" style="visibility: visible;">
-                                    <div class="ico fa fa-code highlight"></div>
-                                    <div class="text-block">
-                                        <div class="name">امان وتشفير</div>
-                                        <div class="info">Quality code that lasts</div>
-                                        <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-md-4">
-                                <div class="service-block" style="visibility: visible;">
-                                    <div class="ico fa fa-pencil highlight"></div>
-                                    <div class="text-block">
-                                        <div class="name"> اليه للبيع والشراء</div>
-                                        <div class="info">Words that tell your story</div>
-                                        <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-md-4">
-                                <div class="service-block" style="visibility: visible;">
-                                    <div class="ico fa fa-bullhorn highlight"></div>
-                                    <div class="text-block">
-                                        <div class="name">امكانية عرض سياراتك</div>
-                                        <div class="info">Converting users to customers</div>
-                                        <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-md-4">
-                                <div class="service-block" style="visibility: visible;">
-                                    <div class="ico fa fa-eye highlight"></div>
-                                    <div class="text-block">
-                                        <div class="name">تجربة مستخدم ممتعه</div>
-                                        <div class="info">Leave a lasting impression</div>
-                                        <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-md-4">
-                                <div class="service-block" style="visibility: visible;">
-                                    <div class="ico fa fa-umbrella highlight"></div>
-                                    <div class="text-block">
-                                        <div class="name">مزادات متنوعه</div>
-                                        <div class="info">Thinking beyond tomorrow</div>
-                                        <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
+                            
+                            
+                            
+                            
+                            @endforeach
                         </div>
                     </div>
                 </div>
