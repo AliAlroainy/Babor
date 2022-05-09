@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
         "mcamara/laravel-localization": "^1.7",
+        "rahulhaque/laravel-filepond": "^1.7",
         "santigarcor/laratrust": "^7.1"
     },
     "require-dev": {
