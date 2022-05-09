@@ -168,7 +168,7 @@
                                         </div>
                                         <div class="col-12 col-md-12 col-lg-6 mb-4 d-flex justify-content-center align-items-center">
                                             <label class="label image">صور السيارة</label>
-                                            <input type="file" name="car_images[]" class="dropify"
+                                            <input type="file" name="car_images[]" class="dropify"  data-allowed-file-extensions=" png  jpg jpeg gif svg webp"
                                              multiple>
                                         </div>
                                     </div>
