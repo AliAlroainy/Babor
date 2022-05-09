@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('question');
             $table->string('answer');
-            $table->string('idText');
+            // $table->string('idText');
             $table->boolean("is_active")->default(1);
         });
     }
