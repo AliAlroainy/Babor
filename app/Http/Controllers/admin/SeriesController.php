@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SeriesRequest;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
-
+use App\Models\question;
 class SeriesController extends Controller
 {
     use ImageTrait;

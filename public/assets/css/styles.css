@@ -230,20 +230,21 @@ div[style*="margin: 16px 0;"] {
 }
 
 .label.image {
-    padding: 11px;
+    border-radius: 0 !important;
 }
 
 .label.long {
     font-size: .8rem !important;
     padding-block: 12px;
 }
-.sidebar .nav.sub-menu{
+
+.sidebar .nav.sub-menu {
     padding: 0.25rem 0 0.6rem 0rem !important;
 }
 
-.auction-list{
+.auction-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     flex-direction: row;
     gap: 30px;
 }

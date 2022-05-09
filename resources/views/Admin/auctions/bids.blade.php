@@ -19,10 +19,10 @@
                                     <option>اسم البائع</option>
                                     <option>تاريخ الانتهاء</option>
                                     <option> سعر المزايدة</option>
-                                    
-                                    
+
+
                                 </select>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -75,36 +75,46 @@
                                             <th>
                                                  وقت انتهاء المزاد
                                             </th>
-                                            <th>
+                                            {{-- <th>
                                                  رابط  المزاد
-                                            </th>
+                                            </th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($bids as $bid)
-                                            
+                                        @if (isset($auctions) && $auctions->count() > 0)
+                                        @foreach ($auctions as $auction)
+
                                             <tr>
                                                 <td class="py-1">
-                                                   
+                                                    {{ $auction->user->name }}
                                                 </td>
+
                                                 <td>
-                                                    {{ $bid->auctioneer }}
+                                                    {{ $auction->winner }}
                                                 </td>
+
                                                 <td>
-                                                    {{ $bid->bidder }}
+                                                    @if ($auction->bids_count > 0)
+                                                    {{ $auction->bids->first()->currentPrice }}
+                                                @else
+                                                    {{ $auction->openingBid }}
+                                                @endif
                                                 </td>
+
                                                 <td>
-                                                {{ $bid->currentPrice }}
+                                                    {{ $auction->closeDate}}
                                                 </td>
+
                                                 <td>
-                                                {{ $auction->closeDate }}
+
                                                 </td>
-                                                <td>
-                                                  <!-- some update -->
-                                                {{ $auction->link }}
-                                                </td>
+                                                {{-- <td> --}}
+                                                  {{-- <!-- some update -->
+                                                {{ $auction->link }} --}}
+                                                {{-- </td> --}}
                                             </tr>
                                         @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>
@@ -113,10 +123,10 @@
                 </div>
 
             </div>
-          
+
         </div>
         <!-- Modal -->
-       
+
 
         <!-- container-scroller -->
     @endsection

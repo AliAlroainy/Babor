@@ -42,7 +42,6 @@ class SeriesSeeder extends Seeder
             'is_active' => '1',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
-
         ]);
         DB::table('series')->insert([
             'name' => 'باترول',//النوع
