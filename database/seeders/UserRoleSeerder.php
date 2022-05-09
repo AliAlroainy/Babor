@@ -24,7 +24,7 @@ class UserRoleSeerder extends Seeder
 
               'role_id' => '1',
               'user_id' => $faker->numberBetween(1,20),
-              'user_type' => 'App\Models\User'
+              'user_type' => 'App\Models\User',
 
 
           ]);
