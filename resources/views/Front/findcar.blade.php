@@ -11,7 +11,7 @@
  </div>
 
 
-<div class="container  h-100" dir="rtl"> 
+<div class="container " style="height:100%;" dir="rtl"> 
 
  <div class="filter">
      <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#mobile-filter" aria-expanded="false" aria-controls="mobile-filter">فلتر<span class="fa fa-filter pl-1"></span></button>
@@ -460,10 +460,6 @@
 
   </div>
 
-</div>
-
-<!-- end product -->
-</div>
 
 
 
