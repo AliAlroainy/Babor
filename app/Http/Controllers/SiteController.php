@@ -30,4 +30,10 @@ class SiteController extends Controller
         }     
         return response()->view('Front.404', []);
     }
+
+    public function questionShow(){
+        // available = not-expired + progress
+        $questions = question::where('is_active', '1')->get();
+        return view('Front.FAQ', ['questions' => $questions]);
+    }
 }
