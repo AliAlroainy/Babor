@@ -100,7 +100,7 @@
                                                                         {{ $auction->car->carPosition }}
                                                                     </h4>
                                                                     <h4 class="card-title">
-                                                                        {{ \App\Models\Car::matchSizOfDamageValue($auction->car->sizOfDamage) }}
+                                                                        {{ $auction->car->sizOfDamage }}
                                                                     </h4>
                                                                     <h4 class="card-title">
                                                                         {!! $auction->car->description !!}
