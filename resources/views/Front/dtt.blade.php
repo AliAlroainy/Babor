@@ -112,7 +112,7 @@
                         </div>
 
                     </div>
-                        <form action="#" method="POST">
+                        <div  >
                             <div class="add-to-cart">
                                 <div class="qty-label">
                                     سعر المزايدة
@@ -126,10 +126,10 @@
                                     </div>
                                
                                 </div>
-                                <button class="add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-shopping-cart"></i> دخول
+                                <button class="add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#alarm"><i class="fa fa-shopping-cart"></i> دخول
                                     بالمزاد</button>
                             </div>
-                        </form>
+                        </div>
 
                     
 
@@ -187,19 +187,20 @@
 
 
             <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
+<div class="modal fade"  id="alarm" action="post" tabindex="-1" dir="rtl" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog " >
+      <div class="modal-content alert alert-warning" role="alert">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          ...
+        <div class="alert alert-warning" role="alert" dir="rtl">
+            <i class="bi bi-shield-fill-exclamation"></i>
+            <br/>
+          تنبية سيتم خصم مبلغ 500$ من حسابك قيمة الدخول للمزاد
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">تاكيد</button>
+          <button type="button" class="btn btn-warning">الغاء الامر </button>
         </div>
       </div>
     </div>
