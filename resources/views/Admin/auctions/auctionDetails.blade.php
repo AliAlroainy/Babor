@@ -44,6 +44,8 @@
                                     <div class="col-lg-12 grid-margin stretch-card">
                                         <div class="card">
                                             <div class="card-body">
+                                                	
+
                                                 <div class="col-lg-10 col-md-7 col-12 "
                                                     style="direction:ltr ;margin: right 0px;">
                                                     <div class="search-bar-top">
