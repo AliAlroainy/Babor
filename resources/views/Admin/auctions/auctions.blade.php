@@ -176,7 +176,7 @@
                                                               </div>
                                                           @elseif($auction->status == '2')
                                                               <button type="submit" name="disapprove" style="color:#71c016;"
-                                                                  class="fs-25px btn btn-rounded fa-solid fa-circle-xmark"
+                                                                  class="fs-25px btn btn-rounded fa-solid fa-circle-check"
                                                                   value="قبول"></button>
                                                           @endif
                                                       </form>

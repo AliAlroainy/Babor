@@ -107,19 +107,19 @@
                                                                     </h4>
                                                                 </div>
                                                                 <div class="col-lg-3" style="margin:4%;direction:rtl">
-                                                                    <h4 class="card-title warning"> صاحب المزاد:</h4>
-                                                                    <h4 class="card-title warning"> الموديل:</h4>
-                                                                    <h4 class="card-title warning"> السعرالإبتدائي:</h4>
-                                                                    <h4 class="card-title warning"> السعرالحالي:</h4>
-                                                                    <h4 class="card-title warning"> أعلى مزايد:</h4>
-                                                                    <h4 class="card-title warning">الحد الادنى للمزايدة :
+                                                                    <h4 class="card-title"  style="color:#eb9023"> صاحب المزاد:</h4>
+                                                                    <h4 class="card-title warning"  style="color:#eb9023"> الموديل:</h4>
+                                                                    <h4 class="card-title warning"  style="color:#eb9023"> السعرالإبتدائي:</h4>
+                                                                    <h4 class="card-title warning"  style="color:#eb9023"> السعرالحالي:</h4>
+                                                                    <h4 class="card-title warning"  style="color:#eb9023"> أعلى مزايد:</h4>
+                                                                    <h4 class="card-title warning" style="color:#eb9023">الحد الادنى للمزايدة :
                                                                     </h4>
-                                                                    <h4 class="card-title warning"> السعر الاحتياطي:</h4>
-                                                                    <h4 class="card-title warning"> اللون:</h4>
-                                                                    <h4 class="card-title warning"> كم كيلو تم قطعه:</h4>
-                                                                    <h4 class="card-title warning"> موقع السيارة:</h4>
-                                                                    <h4 class="card-title warning"> حجم الضرر:</h4>
-                                                                    <h4 class="card-title warning"> الوصف :</h4>
+                                                                    <h4 class="card-title warning" style="color:#eb9023"> السعر الاحتياطي:</h4>
+                                                                    <h4 class="card-title warning"style="color:#eb9023"> اللون:</h4>
+                                                                    <h4 class="card-title warning"style="color:#eb9023"> كم كيلو تم قطعه:</h4>
+                                                                    <h4 class="card-title warning"style="color:#eb9023"> موقع السيارة:</h4>
+                                                                    <h4 class="card-title warning"style="color:#eb9023"> حجم الضرر:</h4>
+                                                                    <h4 class="card-title warning"style="color:#eb9023"> الوصف :</h4>
                                                                 </div>
                                                             </div>
                                                         </div>
