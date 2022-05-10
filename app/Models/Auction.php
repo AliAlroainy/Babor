@@ -58,8 +58,24 @@ class Auction extends Model
         return $this->hasMany(Bid::class, 'auction_id');
     }
 
-        // public function setOpeningBid(){
-    //     $this->attributes['openingBid'] = $this->openingBid;
-    // }
+    public static function getAuctions($status) {
+        $auctions = DB::table('auctions');
+        // Filter By Brand
+        // if($brand) {
+        //     $auctions = $auctions->where('auctions.car.brand', $brand);
+        // }
+
+        // // Filter By Series
+        // if($series_item) {
+        //     $auctions = $auctions->where('auctions.car.series', $series_item);
+        // }
+
+        // Filter By status
+        if ($status && $status != 'All') {
+            $auctions = $auctions->where('auctions.status', $status);
+        }
+        
+        return $auctions->get();
+    }
 
 }

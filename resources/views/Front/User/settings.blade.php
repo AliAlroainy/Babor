@@ -11,11 +11,11 @@
             </div>
         @endif
         @if (session()->has('Emailverfication'))
-        <div class="alert alert-dismissible alert-danger fade show" role="alert">
-            {{ session()->get('Emailverfication') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
+            <div class="alert alert-dismissible alert-danger fade show" role="alert">
+                {{ session()->get('Emailverfication') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -111,9 +111,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="bio" class="text-muted">نبذة عني</label>
-                                        <textarea class="form-control" id="myTextarea" rows="4"
-                                            name="bio">{{ old('bio') }} {{ $user->profile->bio ?? '' }}</textarea>
+                                        <label for="bio" class="text-muted myTextarea">نبذة عني</label>
+                                        <textarea class="form-control" rows="4" name="bio">{{ old('bio') }} {{ $user->profile->bio ?? '' }}</textarea>
                                         @error('bio')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror

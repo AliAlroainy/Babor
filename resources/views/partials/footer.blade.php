@@ -22,7 +22,7 @@
 <script>
     $(document).ready(function() {
 
-        $('#carColor').click(){
+        $('#carColor').click() {
             $('#color').textContent = $('#carColor').value();
         }
 
@@ -63,6 +63,39 @@
             });
         });
     });
+</script>
+<script>
+    // $(document).ready(function() {
+    //     $('#filterByStatus').on('change', function(e) {
+    //         indexWithFilter();
+    //     });
+    // });
+
+    function indexWithFilter() {
+        var selectedFilterByStatus = $("#filterByStatus option:selected").val();
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+        alert(selectedFilterByStatus);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: "{{ route('admin.auction.indexFilter') }}",
+            type: "GET",
+            data: {
+                _token: $('meta[name="csrf-token"]').attr('content'),
+                status: selectedFilterByStatus
+            },
+            success: function(data) {
+                $('#filteredSection').html(data);
+            },
+            error: function(response) {
+                alert(response.status);
+            }
+        });
+    }
 </script>
 <script src="{{ @asset('assets/js/template.js') }}"></script>
 <script src="{{ @asset('assets/js/hoverable-collapse.js') }}"></script>

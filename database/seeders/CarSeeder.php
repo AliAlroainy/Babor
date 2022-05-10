@@ -24,7 +24,7 @@ class CarSeeder extends Seeder
               'model' => $faker->numberBetween(1900,2017),
               'numberOfKillos' => $faker->numberBetween(30,100),
               'thumbnail' =>    $faker->image('public/images/cars',640,480, null, false),
-              'car_images' =>  $faker->image('public/images/cars',640,480, null, false),
+              'car_images' =>  json_encode((array)$faker->image('public/images/cars/car_images',640,480, null, false)),
               'description' => 'نص فل',
               'carPosition'=> $faker->sentence(8),
               'brand_id' => $faker->numberBetween(1,5),

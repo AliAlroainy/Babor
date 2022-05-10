@@ -2,10 +2,29 @@
     --babor: #f79522;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     direction: rtl !important;
     font-family: 'Tajawal', sans-serif !important;
+}
 
+.bg-main-color {
+    background-color: var(--babor);
+}
+
+.main-color {
+    color: var(--babor);
+}
+
+.fs-12px {
+    font-size: 12px;
+}
+
+.fs-25px {
+    font-size: 25px;
 }
 
 button.add {
@@ -100,6 +119,14 @@ body {
     background-color: #f4f4f4;
 }
 
+th {
+    font-weight: 600 !important;
+}
+
+th, td {
+    text-align: center;
+}
+
 /* iOS BLUE LINKS */
 a[x-apple-data-detectors] {
     color: inherit !important;
@@ -123,7 +150,7 @@ div[style*="margin: 16px 0;"] {
     margin: 0 !important;
 }
 
-.bg-main-color {
+.bg-secondary-color {
     background-color: #4D83FF;
 }
 
@@ -187,11 +214,13 @@ div[style*="margin: 16px 0;"] {
     background-color: transparent;
     padding-block: 8px;
 }
-.input{
+
+.input {
     border-bottom-right-radius: 0 !important;
     border-top-right-radius: 0 !important;
 }
-.label{
+
+.label {
     background: #888;
     padding: 10px 6px;
     border-bottom-right-radius: 5px !important;
@@ -199,20 +228,23 @@ div[style*="margin: 16px 0;"] {
     width: 60%;
     color: white
 }
-.label.image{
+
+.label.image {
     border-radius: 0 !important;
 }
-.label.long{
+
+.label.long {
     font-size: .8rem !important;
     padding-block: 12px;
 }
-.sidebar .nav.sub-menu{
+
+.sidebar .nav.sub-menu {
     padding: 0.25rem 0 0.6rem 0rem !important;
 }
 
-.auction-list{
+.auction-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     flex-direction: row;
     gap: 30px;
 }
