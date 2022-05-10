@@ -196,11 +196,11 @@
         <div class="alert alert-warning" role="alert" dir="rtl">
             <i class="bi bi-shield-fill-exclamation"></i>
             <br/>
-          تنبية سيتم خصم مبلغ 500$ من حسابك قيمة الدخول للمزاد
+          تنبية سيتم خصم مبلغ 500$  من حسابك قيمة الدخول للمزاد
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">تاكيد</button>
-          <button type="button" class="btn btn-warning">الغاء الامر </button>
+          <button type="button" class="btn btn-dark" >تاكيد</button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">الغاء الامر </button>
         </div>
       </div>
     </div>
