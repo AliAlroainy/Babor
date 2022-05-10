@@ -17,15 +17,15 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('question');
-            $table->string('answer');
+            $table->longText('answer');
             // $table->string('idText');
             $table->boolean("is_active")->default(1);
         });
     }
 
-  
-       
-   
+
+
+
     /**
      * Reverse the migrations.
      *
