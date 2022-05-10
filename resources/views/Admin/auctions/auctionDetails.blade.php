@@ -41,42 +41,102 @@
                             @endif
                             <div class="table-responsive">
                                 <div class="row">
-                                    <div class="col-lg-12 grid-margin stretch-card">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="col-lg-10 col-md-7 col-12 "
-                                                    style="direction:ltr ;margin: right 0px;">
-                                                    <div class="search-bar-top">
-                                                        <div class="">
-                                                            <div style="display:flex;flex-direction:row ;padding:1%">
-                                                                <div class="col-lg-3">
-                                                                    <img style="direction:ltr ;width:100%;left:0px"
-                                                                        class="col-lg-4 grid-margin right 0px"
-                                                                        src="/images/cars/{{ $auction->car->thumbnail }}"
-                                                                        alt="image" />
-                                                                </div>
-                                                                <div class="col-lg-3 " style="margin:4%;direction:rtl">
-                                                                    <h4 class="card-title">
-                                                                        {{ $auction->user->name }}
-                                                                    </h4>
-                                                                    <h4 class="card-title">
-                                                                        {{ $auction->closeDate }}
-                                                                    </h4>
-                                                                    <h4 class="card-title">
-                                                                        {{ $auction->car->model }}
-                                                                    </h4>
-                                                                    <h4 class="card-title">
-                                                                        {{ $auction->openingBid }}
-                                                                    </h4>
-                                                                    <h4 class="card-title text-success">
-                                                                        @if ($auction->bids->count() > 0)
+                                    <div class="col-lg-10 grid-margin stretch-card">
+                                        <div class=" row">
+
+                                            <div class="col-lg-8">
+                                            
+                                            <div class="col-lg-12 table-responsive" id="filteredSection">
+                                  <table class=" col-lg-10 table table-striped table-hover">
+                                      <thead>
+                                          <tr>
+                                              <th>
+                                                   التفاصيل
+                                              </th>
+                                              <th>
+                                                   البيانات
+                                              </th>
+</tr>  
+                                              
+                                              
+                                              
+                                             
+                                         
+                                      </thead>
+                                      <tbody >
+                                         
+                                              <tr>
+                                                  
+                                                 
+                                                  <td>
+                                                  <h4 class="card-title warning"style="color:#eb9023">
+                                                  صاحب المزاد:
+         
+                                                  </h4>              
+                                                  </td>
+                                                  <td>
+                                                  {{ $auction->user->name }}
+                                                  </td>
+                                                 
+</tr>
+
+<tr>
+                                                  
+                                                  <td>
+                                               <h4 class="card-title warning"style="color:#eb9023"> تاريخ الانتهاء:</h4>
+                                                                   
+                                                  </td>
+                                                  <td>
+                                                  {{ $auction->closeDate }}
+                                                  </td>
+</tr>
+<tr>
+                                                  
+                                                  <td>
+                                                  <h4 class="card-title warning"style="color:#eb9023"> الموديل:</h4>
+                                                                    
+                                                  </td>
+                                                  <td>
+                                                  {{ $auction->car->model }}
+                                                  </td>
+</tr>
+<tr>
+                                                  
+                                                  <td>
+                                                  <h4 class="card-title warning"style="color:#eb9023"> السعرالإبتدائي:</h4>
+                                                                   
+                                                  </td>
+                                                  <td>
+                                                  {{ $auction->openingBid }}
+                                                  </td>
+</tr>
+<tr>
+                                                  
+                                                  <td>
+                                                  <h4 class="card-title warning"style="color:#eb9023"> السعرالحالي:</h4>
+                                                                   
+                                                  </td>
+                                                  <td>
+                                                  @if ($auction->bids->count() > 0)
                                                                             {{ $auction->bids->first()->currentPrice }}
                                                                         @else
                                                                             {{ $auction->openingBid }}
                                                                         @endif
-                                                                    </h4>
-                                                                    <h4 class="card-title">
+                                                  </td>
+</tr>
+<tr>
+                                                  
+                                                  <td>
+                                                  <h4 class="card-title warning"style="color:#eb9023">
                                                                         @if ($auction->status == '1')
+                                                                            <span class="text-danger"> سبب الرفض </span>
+                                                                        @elseif($auction->status == '2')
+                                                                            أعلى مزايد:
+                                                                        @endif
+                                                                    </h4>
+                                                  </td>
+                                                  <td>
+                                                  @if ($auction->status == '1')
                                                                             <span
                                                                                 class="text-danger">{!! $auction->rejectReason !!}</span>
                                                                         @elseif($auction->status == '2' && $auction->bids->count() > 0)
@@ -84,62 +144,102 @@
                                                                         @elseif($auction->status == '2' && $auction->bids->count() == 0)
                                                                             -
                                                                         @endif
+                                                  </td>
+</tr>
+<tr>
+                                                  
+                                                  <td>
+                                                  <h4 class="card-title warning" style="color:#eb9023">الحد الادنى للمزايدة :
                                                                     </h4>
-                                                                    <h4 class="card-title">
-                                                                        {{ $auction->minInc }}
-                                                                    </h4>
-                                                                    <h4 class="card-title">
-                                                                        {{ $auction->reservePrice }}
-                                                                    </h4>
-                                                                    <h4 class="card-title">
-                                                                        {{ $auction->car->color }}
-                                                                    </h4>
-                                                                    <h4 class="card-title">
-                                                                        {{ $auction->car->numberOfKillos }} كيلو </h4>
-                                                                    <h4 class="card-title">
-                                                                        {{ $auction->car->carPosition }}
-                                                                    </h4>
-                                                                    <h4 class="card-title">
-                                                                        {{ $auction->car->sizOfDamage }}
-                                                                    </h4>
-                                                                    <h4 class="card-title">
-                                                                        {!! $auction->car->description !!}
-                                                                    </h4>
-                                                                </div>
-                                                                <div class="col-lg-3" style="margin:4%;direction:rtl">
-                                                                    <h4 class="card-title warning"> صاحب المزاد:</h4>
-                                                                    <h4 class="card-title warning"> تاريخ الانتهاء:</h4>
-                                                                    <h4 class="card-title warning"> الموديل:</h4>
-                                                                    <h4 class="card-title warning"> السعرالإبتدائي:</h4>
-                                                                    <h4 class="card-title warning"> السعرالحالي:</h4>
-                                                                    <h4 class="card-title warning">
-                                                                        @if ($auction->status == '1')
-                                                                            <span class="text-danger"> سبب الرفض </span>
-                                                                        @elseif($auction->status == '2')
-                                                                            أعلى مزايد:
-                                                                        @endif
-                                                                    </h4>
-                                                                    <h4 class="card-title warning">الحد الادنى للمزايدة :
-                                                                    </h4>
-                                                                    <h4 class="card-title warning" style="color:#eb9023">
+                                                  </td>
+                                                  <td>
+                                                  {{ $auction->minInc }}
+                                                  </td>
+</tr>
+<tr>
+                                                  
+                                                  <td>
+                                                  <h4 class="card-title warning" style="color:#eb9023">
                                                                         السعر الاحتياطي:</h4>
-                                                                    <h4 class="card-title warning" style="color:#eb9023">
+                                                  </td>
+                                                  <td>
+                                                  {{ $auction->reservePrice }}
+                                                  </td>
+</tr>
+<tr>
+                                                  
+                                                  <td>
+                                                  <h4 class="card-title warning" style="color:#eb9023">
                                                                         اللون:</h4>
-                                                                    <h4 class="card-title warning" style="color:#eb9023"> كم
+                                                  </td>
+                                                  <td>
+                                                  {{ $auction->car->color }}
+                                                  </td>
+</tr>
+<tr>
+                                                  
+                                                  <td>
+                                                  <h4 class="card-title warning" style="color:#eb9023"> كم
                                                                         كيلو تم قطعه:</h4>
-                                                                    <h4 class="card-title warning" style="color:#eb9023">
+                                                  </td>
+                                                  <td>
+                                                  {{ $auction->car->numberOfKillos }} كيلو 
+                                                  </td>
+</tr>
+<tr>
+                                                  
+                                                  <td>
+                                                  <h4 class="card-title warning" style="color:#eb9023">
                                                                         موقع السيارة:</h4>
-                                                                    <h4 class="card-title warning" style="color:#eb9023">
+                                                  </td>
+                                                  <td>
+                                                  {{ $auction->car->carPosition }}
+                                                  </td>
+</tr>
+<tr>
+                                                  
+                                                  <td>
+                                                  <h4 class="card-title warning" style="color:#eb9023">
                                                                         حجم الضرر:</h4>
-                                                                    <h4 class="card-title warning" style="color:#eb9023">
+                                                  </td>
+                                                  <td>
+                                                  {{ $auction->car->sizOfDamage }}
+                                                  </td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td>
+                                                  <h4 class="card-title warning" style="color:#eb9023">
                                                                         الوصف :</h4>
+                                                  </td>
+                                                  <td>
+                                                  {!! $auction->car->description !!}
+                                                  </td>
+</tr>
+                                        
+                                      </tbody>
+                                  </table>
+                              </div>
+                             
+</div>
+<br><br>
+                                                        <div class="col-lg-4">
+                                                                    <img style="direction:ltr ;width:100%;left:0px;border-raduis:1%"
+                                                                        class="col-lg-4 grid-margin right 0px"
+                                                                        src="/images/cars/{{ $auction->car->thumbnail }}"
+                                                                        alt="image" />
                                                                 </div>
-                                                            </div>
                                                         </div>
+                                                       
                                                         <div class="">
+                                                           
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="">
                                                             <div style="display:flex;flex-direction:row ;padding:1%">
                                                                 @php
-                                                                    $images = json_decode($auction->car->car_images, false);
+                                                                    $images = json_decode($auction->car->car_images, true);
                                                                 @endphp
                                                                 @foreach ($images as $img)
                                                                     <div class="col-lg-3">
@@ -151,14 +251,13 @@
                                                                 @endforeach
                                                             </div>
                                                         </div>
-
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                              
                             </div>
+                           
                         </div>
                         <!-- container-scroller -->
                     @endsection

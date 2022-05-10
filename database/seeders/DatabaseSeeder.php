@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             SeriesSeeder::class,
             CarSeeder::class,
             AuctionSeeder::class,
+            QuestionSeeder::class,
         ]);
 
     }
