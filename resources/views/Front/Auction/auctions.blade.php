@@ -150,7 +150,7 @@
                                                                 </form>
                                                             </div>
                                                         </div>
-                                                        @if ($auction->bids_count > 0)
+                                                        @if ($auction->bids->count() > 0)
                                                             <button style="width: fit-content"
                                                                 class="mt-3 btn btn-inverse-info btn-rounded"
                                                                 data-bs-target="#stop-{{ $auction->id }}"
@@ -568,7 +568,7 @@
                                                                 <span class="fw-bold">عددالمزايدين</span>
                                                                 <br>
                                                                 <span class="text-danger ps-1 pe-3">
-                                                                    @if ($auction->bids_count > 0)
+                                                                    @if ($auction->bids->count() > 0)
                                                                         {{ $auction->bids_count }}
                                                                     @else
                                                                         -
@@ -582,7 +582,7 @@
                                                                 <span class="fw-bold">أعلى مزايد</span>
                                                                 <br>
                                                                 <span class="text-danger ps-1 pe-3">
-                                                                    @if ($auction->bids_count > 0)
+                                                                    @if ($auction->bids->count() > 0)
                                                                         {{ $auction->bids->first()->user->name }}
                                                                     @else
                                                                         -
@@ -632,8 +632,7 @@
                                                                 </form>
                                                             </div>
                                                         </div>
-                                                        @if ($auction->bids_count > 0)
-                                                            {{-- {{ $auction->bids->first()->user->profile }} --}}
+                                                        @if ($auction->bids->count() > 0)
                                                             <a style="width: fit-content"
                                                                 href="{{ route('user.visit.profile', $auction->bids->first()->user->id) }}"
                                                                 class="mt-3 btn btn-inverse-info btn-rounded">

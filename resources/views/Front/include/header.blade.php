@@ -141,10 +141,15 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('login') }}"
-                                        style="background-color: transparent ; border:none; text-decoration: none">
-                                        تسجيل دخول <i class="ti-power-off"></i>
-                                    </a>
+                                    @if (!Auth::user())
+                                        <a href="{{ route('login') }}"
+                                            style="background-color: transparent ; border:none; text-decoration: none">
+                                            تسجيل دخول <i class="ti-power-off"></i>
+                                        </a>
+                                    @else
+                                        {{ ucfirst(Auth::user()->name) }}
+                                    @endif
+
                                 </li>
                             </ul>
                         </div>
@@ -199,14 +204,14 @@
                                                     class="amount">$9990.00</span></p>
                                         </li>
                                         <li>
-                                           
+
                                             <a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
                                             <h4><a class="nav-link" href="#"> سيارة شفرليه </a></h4>
                                             <p class="quantity"> عرض قد يهمك <span
                                                     class="amount">$3905.00</span></p>
 
-                                          <a href="#" class="remove" title="Remove this item"><i
-                                                        class="fa fa-remove"></i></a>
+                                            <a href="#" class="remove" title="Remove this item"><i
+                                                    class="fa fa-remove"></i></a>
                                         </li>
                                     </ul>
                                     <div class="bottom"><a class="nav-link" href="#">عرض الكل </a> </div>
