@@ -29,33 +29,33 @@
                                 <div>
                                     <div class="form-card text-center row">
                                         <h2 class="fs-title mb-2 text-end text-muted">بيانات المزاد</h2>
-                                        <div class=" col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
+                                        <div
+                                            class=" col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label">تاريخ إنتهاء المزاد</label>
                                             <input type="date" name="closeDate"
                                                 class="bg-transparent input dark-placeholder form-control"
-                                                value="{{ old('closeDate', $car->closeDate ?? null) }}"
-                                                 />
+                                                value="{{ old('closeDate', $car->closeDate ?? null) }}" />
                                         </div>
-                                        <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
+                                        <div
+                                            class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label">السعر الإبتدائي</label>
-                                            <input type="text"  name="openingBid"
+                                            <input type="text" name="openingBid"
                                                 value="{{ old('openingBid', $car->openingBid ?? null) }}"
-                                                class="bg-transparent input dark-placeholder form-control"
-                                                placeholder="" />
+                                                class="bg-transparent input dark-placeholder form-control" placeholder="" />
                                         </div>
-                                        <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
+                                        <div
+                                            class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label">الحد الادنى للمزايدة</label>
                                             <input type="text" name="minInc"
                                                 class="bg-transparent input dark-placeholder form-control"
-                                                value="{{ old('minInc', $car->minInc ?? null) }}"
-                                                placeholder="" />
+                                                value="{{ old('minInc', $car->minInc ?? null) }}" placeholder="" />
                                         </div>
-                                        <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
+                                        <div
+                                            class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label">السعر الإحتياطي</label>
                                             <input type="text" name="reservePrice"
                                                 value="{{ old('reservePrice', $car->reservePrice ?? null) }}"
-                                                class="bg-transparent input dark-placeholder form-control"
-                                                placeholder="" />
+                                                class="bg-transparent input dark-placeholder form-control" placeholder="" />
                                         </div>
                                     </div>
                                 </div>
@@ -63,8 +63,9 @@
                                 <div>
                                     <div class="form-card text-center row">
                                         <h2 class="fs-title text-end text-muted">بيانات السيارة</h2>
-                                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center align-items-center">
-                                                <label for="" class="label">التصنيف</label>
+                                        <div
+                                            class="col-sm-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center align-items-center">
+                                            <label for="" class="label">التصنيف</label>
                                             <select id="category" name="category_id"
                                                 class="w-100 input dark-placeholder select px-2">
                                                 <option selected disabled>اختر التصنيف</option>
@@ -77,7 +78,8 @@
                                                 @endif
                                             </select>
                                         </div>
-                                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4  d-flex justify-content-center align-items-center">
+                                        <div
+                                            class="col-sm-12 col-md-6 col-lg-3 mb-4  d-flex justify-content-center align-items-center">
                                             <label for="" class="label">البراند</label>
                                             <select id="brand" name="brand_id"
                                                 class="w-100 dark-placeholder input select px-2">
@@ -92,26 +94,30 @@
                                                 @endif
                                             </select>
                                         </div>
-                                        <div class="col-sm-12 col-md-6  mb-4  d-flex justify-content-center align-items-center">
+                                        <div
+                                            class="col-sm-12 col-md-6  mb-4  d-flex justify-content-center align-items-center">
                                             <label for="" class="label">سلسلة البراند</label>
                                             <select id="series" name="series_id"
                                                 class="w-100  dark-placeholder input select ">
                                                 <option selected disabled>اختر سلسلة للبراند</option>
                                             </select>
                                         </div>
-                                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center align-items-center">
+                                        <div
+                                            class="col-sm-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label ">الموديل</label>
                                             <input type="text" class="bg-transparent input dark-placeholder form-control"
                                                 name="model" value="{{ old('model', $car->model ?? null) }}"
                                                 placeholder="مثال 2013">
                                         </div>
-                                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center align-items-center">
+                                        <div
+                                            class="col-sm-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label">اللون</label>
                                             <input type="text" class="bg-transparent dark-placeholder form-control input"
                                                 name="color" value="{{ old('color', $car->color ?? null) }}"
                                                 placeholder="">
                                         </div>
-                                        <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
+                                        <div
+                                            class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label long">المسافة المقطوعة</label>
                                             <input type="text" class="bg-transparent input dark-placeholder form-control"
                                                 value="{{ old('numberOfKillos', $car->numberOfKillos ?? null) }}"
@@ -122,7 +128,7 @@
                                             <label for="" class="label"> الضرر</label>
                                             <select id="sizOfDamage" name="sizOfDamage"
                                                 class="w-100 bg-transparent dark-placeholder input select px-2">
-{{--                                                <option selected disabled>اختر حجم الضرر</option>--}}
+                                                {{-- <option selected disabled>اختر حجم الضرر</option> --}}
                                                 @foreach (App\Models\Car::getSizOfDamageValues() as $key => $value)
                                                     <option value="{{ $key }}"
                                                         {{ old('sizOfDamage') == $key ? 'selected' : '' }}>
@@ -131,14 +137,17 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
+                                        <div
+                                            class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center align-items-center">
                                             <label for="" class="label"> موقع السيارة</label>
-                                            <input type="text" class="bg-transparent dark-placeholder form-control input" row="15" name="carPosition"
-                                               placeholder="" {{ old('carPosition', $car->carPosition ?? null) }}>
+                                            <input type="text" class="bg-transparent dark-placeholder form-control input"
+                                                row="15" name="carPosition" placeholder=""
+                                                {{ old('carPosition', $car->carPosition ?? null) }}>
                                         </div>
 
-<br>
-                                        <div class="col-12 col-md-3 mb-4 gap-2 d-flex justify-content-center align-items-center ">
+                                        <br>
+                                        <div
+                                            class="col-12 col-md-3 mb-4 gap-2 d-flex justify-content-center align-items-center ">
                                             <p class="label">حالة السيارة</p>
                                             <div class="d-flex gap-2 input select">
                                                 <div class="form-check ">
@@ -157,25 +166,22 @@
                                         </div>
 
 
-                                        <div class="col-md-12 col-lg-6 mb-4 d-flex justify-content-center align-items-center flex-column ">
+                                        <div
+                                            class="col-md-12 col-lg-6 mb-4 d-flex justify-content-center align-items-center flex-column ">
                                             <label class="label image w-100">Thumbnail</label>
-                                            <input type="file" name="thumbnail" value="{{ old('thumbnail') }}" class="dropify"  data-height="200" data-show-errors="true">
+                                            <input type="file" name="thumbnail" value="{{ old('thumbnail') }}"
+                                                class="dropify" data-height="200" data-show-errors="true">
                                         </div>
-
-                                        <div class="col-md-12 col-lg-6 mb-4 d-flex justify-content-center flex-column align-items-center">
+                                        <div
+                                            class="col-md-12 col-lg-6 mb-4 d-flex justify-content-center flex-column align-items-center">
                                             <label class="label image w-100 border-0">صور السيارة</label>
                                             <input type="file" name="car_images[]" class="dropify" multiple>
-
                                         </div>
-
-
                                         <div class="col-12 w-100  mb-4 d-flex justify-content-center align-items-center">
-                                            <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="description"
-                                                      id="myTextarea"       placeholder="وصف السيارة"{{ old('description', $car->description ?? null) }}></textarea>
+                                            <textarea type="text" class="bg-transparent dark-placeholder form-control myTextarea" row="20" name="description"
+                                                placeholder="وصف السيارة"
+                                                {{ old('description', $car->description ?? null) }}></textarea>
                                         </div>
-
-
-
                                     </div>
                                     <input type="submit" class="btn btn-warning w-auto fw-bold" value="حفظ" />
                                 </div>

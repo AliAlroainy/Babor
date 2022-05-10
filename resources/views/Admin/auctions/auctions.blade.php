@@ -143,7 +143,8 @@
                                                                   <div class="modal fade"
                                                                       id="rejectReason-{{ $auction->id }}" tabindex="-1"
                                                                       aria-hidden="true">
-                                                                      <div class="modal-dialog" role="document">
+                                                                      <div class="modal-dialog" style="max-width: 800px;"
+                                                                          role="document">
                                                                           <div class="modal-content">
                                                                               <div class="modal-header">
                                                                                   <h5 class="modal-title"
@@ -159,7 +160,14 @@
                                                                                           </label>
                                                                                           <input type="hidden"
                                                                                               name="disapprove">
-                                                                                          <textarea name="reject_reason" class="form-control" cols="30" rows="10"></textarea>
+                                                                                          <div
+                                                                                              class="col-12 w-100  mb-4 d-flex justify-content-center align-items-center">
+                                                                                              <textarea style="width: 100%;" name="reject_reason" class="form-control myTextarea" cols="30"
+                                                                                                  rows="10">{!! old('reject_reason') !!}</textarea>
+                                                                                              @error('reject_reason')
+                                                                                                  {{ $message }}
+                                                                                              @enderror
+                                                                                          </div>
                                                                                       </div>
                                                                                   </div>
                                                                               </div>
@@ -175,9 +183,52 @@
                                                                   </div>
                                                               </div>
                                                           @elseif($auction->status == '2')
-                                                              <button type="submit" name="disapprove" style="color:#71c016;"
-                                                                  class="fs-25px btn btn-rounded fa-solid fa-circle-check"
-                                                                  value="قبول"></button>
+                                                              <span style="color:#ff4747;"
+                                                                  class="fs-25px btn btn-rounded fa-solid fa-circle-xmark"
+                                                                  data-bs-target="#rejectReason-{{ $auction->id }}"
+                                                                  data-bs-toggle="modal">
+                                                              </span>
+                                                              <div class="modal fade"
+                                                                  id="rejectReason-{{ $auction->id }}" tabindex="-1"
+                                                                  aria-hidden="true">
+                                                                  <div class="modal-dialog" style="max-width: 800px;"
+                                                                      role="document">
+                                                                      <div class="modal-content">
+                                                                          <div class="modal-header">
+                                                                              <h5 class="modal-title"
+                                                                                  id="exampleModalLabel1">بيان سبب
+                                                                                  الرفض</h5>
+                                                                          </div>
+                                                                          <div class="modal-body">
+                                                                              <div class="row">
+                                                                                  <div class="col mb-3">
+                                                                                      <label for="editTitle"
+                                                                                          class="form-label"> اكتب
+                                                                                          السبب من فضلك
+                                                                                      </label>
+                                                                                      <input type="hidden"
+                                                                                          name="disapprove">
+                                                                                      <div
+                                                                                          class="col-12 w-100  mb-4 d-flex justify-content-center align-items-center">
+                                                                                          <textarea style="width: 100%;" name="reject_reason" class="form-control " cols="30"
+                                                                                              rows="10">{!! old('reject_reason') !!}</textarea>
+                                                                                          @error('reject_reason')
+                                                                                              {{ $message }}
+                                                                                          @enderror
+                                                                                      </div>
+                                                                                  </div>
+                                                                              </div>
+                                                                          </div>
+                                                                          <div class="modal-footer">
+                                                                              <button type="button"
+                                                                                  class="btn btn-outline-danger"
+                                                                                  data-bs-dismiss="modal">إلغاء</button>
+                                                                              <button type="submit"
+                                                                                  class="btn btn-warning text-white">حفظ</button>
+                                                                          </div>
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
                                                           @endif
                                                       </form>
                                                   </td>

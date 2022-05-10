@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->decimal('currentPrice', 20, 2);
             $table->decimal('bidPrice', 10, 2);
+            $table->string('securityDeposit')->nullable();
             $table->timestamps();
         });
     }
