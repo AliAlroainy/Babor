@@ -162,6 +162,10 @@
                             <i class="mdi mdi-settings text-primary ps-1"></i>
                             الإعدادات
                         </a>
+                        <a class="dropdown-item" href="{{ route('/') }}">
+                            <i class="fa fa-car ps-1"></i>
+                            العودة للموقع
+                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}">
                             <i class="mdi mdi-logout text-primary ps-1"></i>
                             تسجيل الخروج
