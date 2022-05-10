@@ -236,6 +236,21 @@
 
                                                     </div>
                                                 </div>
+                                                <div class="">
+                                                            <div style="display:flex;flex-direction:row ;padding:1%">
+                                                                @php
+                                                                    $images = json_decode($auction->car->car_images, true);
+                                                                @endphp
+                                                                @foreach ($images as $img)
+                                                                    <div class="col-lg-3">
+                                                                        <img style="direction:ltr ;width:100%;left:0px"
+                                                                            class="col-lg-4 grid-margin right 0px"
+                                                                            src="/images/cars/car_images/{{ $img }}"
+                                                                            alt="image" />
+                                                                    </div>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
                                             </div>
                                         </div>
                                     </div>
