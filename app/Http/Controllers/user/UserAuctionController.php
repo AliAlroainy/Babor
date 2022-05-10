@@ -126,7 +126,7 @@ class UserAuctionController extends Controller
     {
         $found = Auction::find($id);
         if($found){
-            $auction = Auction::where('id',$id)->with('bids', function ($q){
+            $auction = Auction::whereId($id)->with('bids', function ($q){
                 //get last bid of this auction
                 $q -> orderBy('id', 'desc')->first();
             })->first();

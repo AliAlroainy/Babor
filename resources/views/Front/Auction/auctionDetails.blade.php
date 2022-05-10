@@ -45,7 +45,7 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="col-lg-10 col-md-7 col-12 "
-                                                    style="direction:ltr ;margin: right 0px;">
+                                                    style="direction:ltr; margin:right 0px;">
                                                     <div class="search-bar-top">
                                                         <div class="">
                                                             <div style="display:flex;flex-direction:row ;padding:1%">

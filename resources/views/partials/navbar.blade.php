@@ -139,8 +139,8 @@
                                     class="d-block h-auto ms-0 rounded user-profile-img" />
                             @else
                                 @if (isset(Auth::user()->profile->avatar))
-                                    <img src="/images/profiles/{{ $user->profile->avatar }}" alt="profile" width="100"
-                                        class="d-block h-auto ms-0 rounded user-profile-img" />
+                                    <img src="/images/profiles/{{ Auth::user()->profile->avatar }}" alt="profile"
+                                        width="100" class="d-block h-auto ms-0 rounded user-profile-img" />
                                 @else
                                     <img src="/images/profiles/default.png" alt="profile"
                                         class="d-block h-auto ms-0 rounded user-profile-img" width="100" />
