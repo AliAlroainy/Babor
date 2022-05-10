@@ -27,11 +27,11 @@
                 </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item d-flex ">
-                <a href="{{url('/')}}">
-                    <i class="fa-solid fa-home btn-light fs-5 mb-2 ms-3"></i>
-                </a>
-            </li>
+                <li class="nav-item d-flex ">
+                    <a href="{{ url('/') }}">
+                        <i class="fa-solid fa-home btn-light fs-5 mb-2 ms-3"></i>
+                    </a>
+                </li>
                 <li class="nav-item dropdown me-1">
                     <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
                         id="messageDropdown" href="#" data-bs-toggle="dropdown">
@@ -134,11 +134,11 @@
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle d-flex" href="#" data-bs-toggle="dropdown" id="profileDropdown">
                         <div>
-                            @if (isset($route))
+                            @if (Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))
                                 <img src="/images/profiles/default.png" alt="profile" width="100"
                                     class="d-block h-auto ms-0 rounded user-profile-img" />
-                            @elseif (isset($user))
-                                @if (isset($user->profile->avatar))
+                            @else
+                                @if (isset(Auth::user()->profile->avatar))
                                     <img src="/images/profiles/{{ $user->profile->avatar }}" alt="profile" width="100"
                                         class="d-block h-auto ms-0 rounded user-profile-img" />
                                 @else
@@ -149,7 +149,7 @@
                         </div>
                         <div>
                             <span class="nav-profile-name">
-                                @if (Auth::user()->hasRole('admin'))
+                                @if (Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))
                                     Admin
                                 @else
                                     {{ Auth::user()->name }}

@@ -259,12 +259,17 @@
                                                             src="/images/cars/{{ $auction->car->thumbnail }}"
                                                             alt="car image" width="100">
                                                     </div>
-                                                    <div class="mt-1">
-                                                        <h4 class="mt-1 car_name">
+                                                    <div class="d-flex align-items-baseline mt-1">
+                                                        <span class="mt-1 car_name">
                                                             {{ $auction->car->brand->name }}
                                                             {{ $auction->car->series->name }}
                                                             {{ $auction->car->model }}
-                                                        </h4>
+                                                        </span>
+                                                        <a href="{{ route('user.auction.details', $auction->id) }}"
+                                                            class="main-color p-2">
+                                                            <span> المزيد ..<i class="fa-solid fa-angles-left"></i>
+                                                            </span>
+                                                        </a>
                                                     </div>
                                                     <div class="mt-3 row align-items-baseline justify-content-evenly">
                                                         <div class="col-12 col-sm-5">
@@ -496,12 +501,17 @@
                                                             src="/images/cars/{{ $auction->car->thumbnail }}"
                                                             alt="car image" width="100">
                                                     </div>
-                                                    <div class="mt-1">
-                                                        <h4 class="mt-1 car_name">
+                                                    <div class="d-flex align-items-baseline mt-1">
+                                                        <span class="mt-1 car_name">
                                                             {{ $auction->car->brand->name }}
                                                             {{ $auction->car->series->name }}
                                                             {{ $auction->car->model }}
-                                                        </h4>
+                                                        </span>
+                                                        <a href="{{ route('user.auction.details', $auction->id) }}"
+                                                            class="main-color p-2">
+                                                            <span> المزيد ..<i class="fa-solid fa-angles-left"></i>
+                                                            </span>
+                                                        </a>
                                                     </div>
                                                     <div class="mt-3 row align-items-baseline justify-content-evenly">
                                                         <div class="col-12 col-sm-5">
@@ -676,12 +686,17 @@
                                                             src="/images/cars/{{ $auction->car->thumbnail }}"
                                                             alt="car image" width="100">
                                                     </div>
-                                                    <div class="mt-1">
-                                                        <h4 class="mt-1 car_name text-center">
+                                                    <div class="d-flex align-items-baseline mt-1">
+                                                        <span class="mt-1 car_name">
                                                             {{ $auction->car->brand->name }}
                                                             {{ $auction->car->series->name }}
                                                             {{ $auction->car->model }}
-                                                        </h4>
+                                                        </span>
+                                                        <a href="{{ route('user.auction.details', $auction->id) }}"
+                                                            class="main-color p-2">
+                                                            <span> المزيد ..<i class="fa-solid fa-angles-left"></i>
+                                                            </span>
+                                                        </a>
                                                     </div>
                                                     <div class="mt-3 row align-items-baseline justify-content-evenly">
                                                         <div class="col-12 col-sm-5">
@@ -781,12 +796,17 @@
                                                             src="/images/cars/{{ $auction->car->thumbnail }}"
                                                             alt="car image" width="100">
                                                     </div>
-                                                    <div class="mt-1">
-                                                        <h4 class="mt-1 car_name">
+                                                    <div class="d-flex align-items-baseline mt-1">
+                                                        <span class="mt-1 car_name">
                                                             {{ $auction->car->brand->name }}
                                                             {{ $auction->car->series->name }}
                                                             {{ $auction->car->model }}
-                                                        </h4>
+                                                        </span>
+                                                        <a href="{{ route('user.auction.details', $auction->id) }}"
+                                                            class="main-color p-2">
+                                                            <span> المزيد ..<i class="fa-solid fa-angles-left"></i>
+                                                            </span>
+                                                        </a>
                                                     </div>
                                                     <div class="mt-3 row align-items-baseline justify-content-evenly">
                                                         <div class="col-12 col-sm-5">
@@ -1021,12 +1041,17 @@
                                                             src="/images/cars/{{ $auction->car->thumbnail }}"
                                                             alt="car image" width="100">
                                                     </div>
-                                                    <div class="mt-1">
-                                                        <h4 class="mt-1 car_name">
+                                                    <div class="d-flex align-items-baseline mt-1">
+                                                        <span class="mt-1 car_name">
                                                             {{ $auction->car->brand->name }}
                                                             {{ $auction->car->series->name }}
                                                             {{ $auction->car->model }}
-                                                        </h4>
+                                                        </span>
+                                                        <a href="{{ route('user.auction.details', $auction->id) }}"
+                                                            class="main-color p-2">
+                                                            <span> المزيد ..<i class="fa-solid fa-angles-left"></i>
+                                                            </span>
+                                                        </a>
                                                     </div>
                                                     <div class="mt-3 row align-items-baseline justify-content-evenly">
                                                         <div class="col-12 col-sm-5">
@@ -1129,12 +1154,17 @@
                                                             src="/images/cars/{{ $auction->car->thumbnail }}"
                                                             alt="car image" width="100">
                                                     </div>
-                                                    <div class="mt-1">
-                                                        <h4 class="mt-1 car_name">
+                                                    <div class="d-flex align-items-baseline mt-1">
+                                                        <span class="mt-1 car_name">
                                                             {{ $auction->car->brand->name }}
                                                             {{ $auction->car->series->name }}
                                                             {{ $auction->car->model }}
-                                                        </h4>
+                                                        </span>
+                                                        <a href="{{ route('user.auction.details', $auction->id) }}"
+                                                            class="main-color p-2">
+                                                            <span> المزيد ..<i class="fa-solid fa-angles-left"></i>
+                                                            </span>
+                                                        </a>
                                                     </div>
                                                     <div class="mt-3 row align-items-baseline justify-content-evenly">
                                                         <div class="col-12 col-sm-5">
