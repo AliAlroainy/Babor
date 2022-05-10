@@ -60,16 +60,19 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                                البائع
+                                                صاحب المزاد
                                             </th>
                                             <th>
-                                                أعلى مزايد
+                                                المزايد
                                             </th>
                                             <th>
-                                                السعر الحالي
+                                                أعلى مزايد؟
                                             </th>
                                             <th>
-                                                وقت انتهاء المزاد
+                                                سعر المزايدة
+                                            </th>
+                                            <th>
+                                                وقت المزايدة
                                             </th>
                                             {{-- <th>
                                                  رابط  المزاد
@@ -77,32 +80,30 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (isset($auctions) && $auctions->count() > 0)
-                                            @foreach ($auctions as $auction)
+                                        @if (isset($bids) && $bids->count() > 0)
+                                            @foreach ($bids as $bid)
                                                 <tr>
                                                     <td class="py-1">
-                                                        {{ $auction->user->name }}
+                                                        {{ $bid->auction->user->name }}
+                                                    </td>
+                                                    <td class="py-1">
+                                                        {{ $bid->user->name }}
+                                                    </td>
+                                                    {{-- <td>
+                                                        {{ $bid->winner }}
+                                                    </td> --}}
+
+                                                    <td>
+                                                        {{ $bid->bidPrice }}
                                                     </td>
 
                                                     <td>
-                                                        {{ $auction->winner }}
+                                                        {{ $bid->created_at }}
                                                     </td>
 
-                                                    <td>
-                                                        @if ($auction->bids_count > 0)
-                                                            {{ $auction->bids->first()->currentPrice }}
-                                                        @else
-                                                            {{ $auction->openingBid }}
-                                                        @endif
-                                                    </td>
-
-                                                    <td>
-                                                        {{ $auction->closeDate }}
-                                                    </td>
-
-                                                    <td>
+                                                    {{-- <td>
                                                         {{ $auction->bids->user->name }}
-                                                    </td>
+                                                    </td> --}}
                                                     {{-- <td> --}}
                                                     {{-- <!-- some update -->
                                                 {{ $auction->link }} --}}
