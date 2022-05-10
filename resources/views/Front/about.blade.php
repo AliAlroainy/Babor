@@ -78,7 +78,7 @@
              </div><!-- /.col-lg-4 -->
 
              <div class="col-lg-4 d-flex flex-column align-items-center justify-content-center">
-               <img class="bd-placeholder-img rounded-circle" src="img/ali.jpg" width="140" height="140" />
+               <img class="bd-placeholder-img rounded-circle" src="img/reem.jpg" width="140" height="140" />
        
                <h2> ريم الشاذلي</h2>
                <p>مطور الباك</p>
@@ -90,7 +90,7 @@
 
 
              <div class="col-lg-4 d-flex flex-column align-items-center justify-content-center">
-               <img class="bd-placeholder-img rounded-circle" src="img/ali.jpg" width="140" height="140" />
+               <img class="bd-placeholder-img rounded-circle" src="img/abrar.jpg" width="140" height="140" />
        
                <h2> ابرار الخرساني</h2>
                <p>   مطور الباك</p>
@@ -102,7 +102,7 @@
 
 
              <div class="col-lg-4 d-flex flex-column align-items-center justify-content-center">
-               <img class="bd-placeholder-img rounded-circle" src="img/ali.jpg" width="140" height="140" />
+               <img class="bd-placeholder-img rounded-circle" src="img/jihad.jpg" width="140" height="140" />
        
                <h2> جهاد المليكي</h2>
                <p>   مطور الباك</p>
