@@ -7,6 +7,7 @@ use App\Models\Auction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class AcutionController extends Controller
 {
@@ -53,9 +54,19 @@ class AcutionController extends Controller
         $auction->when($request->has('approve'), function ($q){
             $q->update(['status' => '2', 'startDate' => now()]);
         });
-        $auction->when($request->has('disapprove'), function ($q){
-                        $q->update(['status' => '1']);
-                    });
+        $auction->when($request->has('disapprove'), function ($q) use ($id, $request){
+            Validator::validate($request->all(), [
+                'reject_reason' => 'required|string',
+            ], [
+                'reject_reason.required' => 'حقل السبب مطلوب',
+                'reject_reason.string'   => 'هذاالحقل يجب أن يكون نصا',
+            ]);
+            $q->update(['status' => '1']);
+
+            $auc = Auction::find($id);
+            $auc->rejectReason = $request->reject_reason;
+            $auc->save();
+        });
         return redirect()->back();
     }
 

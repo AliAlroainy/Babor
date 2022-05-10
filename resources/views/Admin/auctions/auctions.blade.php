@@ -143,7 +143,8 @@
                                                                   <div class="modal fade"
                                                                       id="rejectReason-{{ $auction->id }}" tabindex="-1"
                                                                       aria-hidden="true">
-                                                                      <div class="modal-dialog" role="document">
+                                                                      <div class="modal-dialog" style="max-width: 800px;"
+                                                                          role="document">
                                                                           <div class="modal-content">
                                                                               <div class="modal-header">
                                                                                   <h5 class="modal-title"
@@ -159,7 +160,14 @@
                                                                                           </label>
                                                                                           <input type="hidden"
                                                                                               name="disapprove">
-                                                                                          <textarea name="reject_reason" class="form-control" cols="30" rows="10"></textarea>
+                                                                                          <div
+                                                                                              class="col-12 w-100  mb-4 d-flex justify-content-center align-items-center">
+                                                                                              <textarea id="myTextarea" style="width: 100%;" name="reject_reason" class="form-control" cols="30"
+                                                                                                  rows="10">{!! old('reject_reason') !!}</textarea>
+                                                                                              @error('reject_reason')
+                                                                                                  {{ $message }}
+                                                                                              @enderror
+                                                                                          </div>
                                                                                       </div>
                                                                                   </div>
                                                                               </div>
