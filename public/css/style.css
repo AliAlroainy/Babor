@@ -13,11 +13,11 @@ label.error {
     z-index: 5;
 }
 
-    label.error:before {
-        content: "";
-        border: 4px solid transparent;
-        border-top: 4px solid #ee0101;
-        border-top: 4px solid rgba(238, 1, 1, 0.80);
-        position: absolute;
-        bottom: -8px;
-    }
+label.error:before {
+    content: "";
+    border: 4px solid transparent;
+    border-top: 4px solid #ee0101;
+    border-top: 4px solid rgba(238, 1, 1, 0.80);
+    position: absolute;
+    bottom: -8px;
+}

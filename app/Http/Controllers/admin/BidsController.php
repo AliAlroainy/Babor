@@ -8,10 +8,9 @@ use Illuminate\Http\Request;
 
 class BidsController extends Controller
 {
-    // $bids=Bid::with(['user','auction'])->where('bidder_id',$id)->orderBy('bidder_id', 'desc')->first();
     public function index()
     {
-        $bids = Bid::with('auction')->get();
+        $bids = Bid::get();
         return view('Admin.auctions.bids')->with(['bids'=>$bids]);
     }
 }
