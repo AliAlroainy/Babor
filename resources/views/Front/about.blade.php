@@ -59,7 +59,7 @@
               <img class="bd-placeholder-img rounded-circle" src="img/hamad.jpg" width="140" height="140" />
       
               <h2> حمد بكيل</h2>
-              <p>مطور واجهات</p>
+              <p>مطور الواجهات</p>
               <p class="d-flex justify-content-around align-items-center w-25"><a  href="#"><i class="bi bi-github"></i></a>
                <a class="nav-link color-dark"  href="#"><i class="bi bi-twitter"></i></a>
                <a  href="#"><i class="bi bi-dribbble"></i></a>
@@ -70,7 +70,7 @@
                <img class="bd-placeholder-img rounded-circle" src="img/ali.jpg" width="140" height="140" />
        
                <h2>علي الرعيني</h2>
-               <p>مصمم واجهات وتجربة المستخدم</p>
+               <p>مطور الواجهات وتجربة المستخدم</p>
                <p class="d-flex justify-content-around align-items-center w-25"><a  href="#"><i class="bi bi-github"></i></a>
                 <a class="nav-link color-dark"  href="#"><i class="bi bi-twitter"></i></a>
                 <a  href="#"><i class="bi bi-dribbble"></i></a>
@@ -80,20 +80,8 @@
              <div class="col-lg-4 d-flex flex-column align-items-center justify-content-center">
                <img class="bd-placeholder-img rounded-circle" src="img/ali.jpg" width="140" height="140" />
        
-               <h2>علي الرعيني</h2>
-               <p>مصمم واجهات وتجربة المستخدم</p>
-               <p class="d-flex justify-content-around align-items-center w-25"><a  href="#"><i class="bi bi-github"></i></a>
-                <a class="nav-link color-dark"  href="#"><i class="bi bi-twitter"></i></a>
-                <a  href="#"><i class="bi bi-dribbble"></i></a>
-           </p>
-             </div><!-- /.col-lg-4 -->
-
-
-             <div class="col-lg-4 d-flex flex-column align-items-center justify-content-center">
-               <img class="bd-placeholder-img rounded-circle" src="img/ali.jpg" width="140" height="140" />
-       
-               <h2>علي الرعيني</h2>
-               <p>مصمم واجهات وتجربة المستخدم</p>
+               <h2> ريم الشاذلي</h2>
+               <p>مطور الباك</p>
                <p class="d-flex justify-content-around align-items-center w-25"><a  href="#"><i class="bi bi-github"></i></a>
                 <a class="nav-link color-dark"  href="#"><i class="bi bi-twitter"></i></a>
                 <a  href="#"><i class="bi bi-dribbble"></i></a>
@@ -104,8 +92,20 @@
              <div class="col-lg-4 d-flex flex-column align-items-center justify-content-center">
                <img class="bd-placeholder-img rounded-circle" src="img/ali.jpg" width="140" height="140" />
        
-               <h2>علي الرعيني</h2>
-               <p>مصمم واجهات وتجربة المستخدم</p>
+               <h2> ابرار الخرساني</h2>
+               <p>   مطور الباك</p>
+               <p class="d-flex justify-content-around align-items-center w-25"><a  href="#"><i class="bi bi-github"></i></a>
+                <a class="nav-link color-dark"  href="#"><i class="bi bi-twitter"></i></a>
+                <a  href="#"><i class="bi bi-dribbble"></i></a>
+           </p>
+             </div><!-- /.col-lg-4 -->
+
+
+             <div class="col-lg-4 d-flex flex-column align-items-center justify-content-center">
+               <img class="bd-placeholder-img rounded-circle" src="img/ali.jpg" width="140" height="140" />
+       
+               <h2> جهاد المليكي</h2>
+               <p>   مطور الباك</p>
                <p class="d-flex justify-content-around align-items-center w-25"><a  href="#"><i class="bi bi-github"></i></a>
                 <a class="nav-link color-dark"  href="#"><i class="bi bi-twitter"></i></a>
                 <a  href="#"><i class="bi bi-dribbble"></i></a>
