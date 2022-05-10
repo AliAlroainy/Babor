@@ -23,8 +23,8 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
 
-Route::get('/details', function () {
-    return view('Front.details');
+Route::get('/dtt', function () {
+    return view('Front.dtt');
 });
 
 Route::get('/FAQ', function () {
