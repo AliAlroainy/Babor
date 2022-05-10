@@ -195,7 +195,7 @@
         </div>
         <div class="alert alert-warning" role="alert" dir="rtl">
             <i class="bi bi-shield-fill-exclamation"></i>
-            <br/>
+          
           تنبية سيتم خصم مبلغ 500$  من حسابك قيمة الدخول للمزاد
         </div>
         <div class="modal-footer">
