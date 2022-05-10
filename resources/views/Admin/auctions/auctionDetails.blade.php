@@ -117,12 +117,18 @@
                                                                     </h4>
                                                                     <h4 class="card-title warning">الحد الادنى للمزايدة :
                                                                     </h4>
-                                                                    <h4 class="card-title warning"> السعر الاحتياطي:</h4>
-                                                                    <h4 class="card-title warning"> اللون:</h4>
-                                                                    <h4 class="card-title warning"> كم كيلو تم قطعه:</h4>
-                                                                    <h4 class="card-title warning"> موقع السيارة:</h4>
-                                                                    <h4 class="card-title warning"> حجم الضرر:</h4>
-                                                                    <h4 class="card-title warning"> الوصف :</h4>
+                                                                    <h4 class="card-title warning" style="color:#eb9023">
+                                                                        السعر الاحتياطي:</h4>
+                                                                    <h4 class="card-title warning" style="color:#eb9023">
+                                                                        اللون:</h4>
+                                                                    <h4 class="card-title warning" style="color:#eb9023"> كم
+                                                                        كيلو تم قطعه:</h4>
+                                                                    <h4 class="card-title warning" style="color:#eb9023">
+                                                                        موقع السيارة:</h4>
+                                                                    <h4 class="card-title warning" style="color:#eb9023">
+                                                                        حجم الضرر:</h4>
+                                                                    <h4 class="card-title warning" style="color:#eb9023">
+                                                                        الوصف :</h4>
                                                                 </div>
                                                             </div>
                                                         </div>

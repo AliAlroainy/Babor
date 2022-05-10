@@ -24,14 +24,17 @@
                     <div class="services-list">
                         <div class="row">
                         @foreach ($services as $service)
+                           
                             <div class="col-sm-6 col-md-4 col-md-4">
                                 <div class="service-block" style="visibility: visible;">
-                                    <div class="ico fa fa-magic highlight"></div>
+                                    <div style="display:flex;flex-direction:row"><img class="default-img"
+                                     
+                                        src="/images/services/serv.png" alt="#" style="width:10%;height:15%;border-radius: 48%;" >
+                                        <div class="text-block">  <div class="name " style="padding-right:10px">{{ $service->	title }}</div>
+                                    </div></div>
                                     <div class="text-block">
-                                        <div class="name">{{ $service->	title }}</div>
-                                        <div class="product-img"> <img class="default-img" style="width:50%;height:40%;border-radius: 40px"
-                                        src="/images/services/{{ $service->pic }}" alt="#">
-</div>
+                                       
+                                        
                                         <div class="info">{{ $service->	description }}</div>
                                     </div>
                                 </div>
