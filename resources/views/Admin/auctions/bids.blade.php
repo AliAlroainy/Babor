@@ -66,10 +66,13 @@
                                                 المزايد
                                             </th>
                                             <th>
-                                                أعلى مزايد؟
+                                                سعر المزايدة
                                             </th>
                                             <th>
-                                                سعر المزايدة
+                                                السعر الذي وصل إليه
+                                            </th>
+                                            <th>
+                                                أعلى مزايد؟
                                             </th>
                                             <th>
                                                 وقت المزايدة
@@ -89,14 +92,15 @@
                                                     <td class="py-1">
                                                         {{ $bid->user->name }}
                                                     </td>
-                                                    {{-- <td>
-                                                        {{ $bid->winner }}
-                                                    </td> --}}
-
                                                     <td>
                                                         {{ $bid->bidPrice }}
                                                     </td>
-
+                                                    <td>
+                                                        {{ $bid->currentPrice }}
+                                                    </td>
+                                                    <td>
+                                                        {{-- {{ $bid->currentPrice }} --}}
+                                                    </td>
                                                     <td>
                                                         {{ $bid->created_at }}
                                                     </td>

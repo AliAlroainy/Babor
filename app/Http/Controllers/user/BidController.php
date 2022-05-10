@@ -14,26 +14,27 @@ class BidController extends Controller
 {
     public function __invoke(Request $request, $id){
         $current_user = Auth::id();
-        $current_auction = Auction::find($id);
+        $found = Auction::find($id);
+        $current_auction = Auction::whereId($id);
 
         Validator::validate($request->all(), [
-            'bidPrice' => 'required|numeric|min:'.$current_auction->minInc,
+            'bidPrice' => 'required|numeric|min:'.$found->minInc,
         ], [
             'bidPrice.required' => 'هذا الحقل مطلوب',
             'bidPrice.numerice' => 'هذاالحقل يجب أن يكون رقما',
-            'bidPrice.min' => 'أقل سعر تستطيع المزايدة به هو : '.$current_auction->minInc,
+            'bidPrice.min' => 'أقل سعر تستطيع المزايدة به هو : '.$found->minInc,
         ]);
 
         //constraints
-        if(!$current_auction ){ // auction is not found
+        if(!$found ){ // auction is not found
             return redirect()->route('site.auction.details', $id)->with('errorBid','لا يوجد لدينا هذا المزاد');
         }
 
-        // $is_auctioneer = $current_auction->where('auctioneer_id', $current_user)->first();
-        // if($is_auctioneer)
-        //     return redirect()->route('site.auction.details', $id)->with('warningBid','لا تستطيع المزايدة على مزادك!');
+        $is_auctioneer = $current_auction->where('auctioneer_id', $current_user)->first();
+        if($is_auctioneer)
+            return redirect()->route('site.auction.details', $id)->with('warningBid','لا تستطيع المزايدة على مزادك!');
 
-        $status = $current_auction->status;
+        $status = $found->status;
         if($status != '2'){ // auction is not in progress
             return redirect()->route('site.auction.details', $id)->with('errorBid','هذا المزاد ليس جاريا');
         }
@@ -44,11 +45,11 @@ class BidController extends Controller
         $bid->bidder_id = $current_user;
         $bid->bidPrice =  $request->input('bidPrice');
         if(!$start_before)
-            $bid->currentPrice = $bid->bidPrice + Auction::where('id', $id)->first()->openingBid;
+            $bid->currentPrice = $bid->bidPrice + Auction::whereId($id)->first()->openingBid;
         else
             // to get last bid of an auction
             $bid->currentPrice = $bid->bidPrice + Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->currentPrice;
         $bid->save();
-        return redirect('/');
+        return redirect()->back()->with('successBid', 'تمت المزايدة بنجاح');
     }
 }

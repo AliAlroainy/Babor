@@ -67,6 +67,6 @@ class QuestionSeeder extends Seeder
             ببوليصة الشحن بالتاريخ المتوقع لاستلام السيارة.',
             'is_active' => '1',
         ]);
-       
+
     }
 }
