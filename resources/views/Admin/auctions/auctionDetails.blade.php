@@ -41,10 +41,10 @@
                             @endif
                             <div class="table-responsive">
                                 <div class="row">
-                                    <div class="col-lg-10 grid-margin stretch-card">
+                                    <div class="col-lg-12 grid-margin stretch-card">
                                         <div class=" row">
 
-                                            <div class="col-lg-8">
+                                            <div class="col-lg-7">
                                             
                                             <div class="col-lg-12 table-responsive" id="filteredSection">
                                   <table class=" col-lg-10 table table-striped table-hover">
@@ -222,8 +222,8 @@
                              
 </div>
 <br><br>
-                                                        <div class="col-lg-4">
-                                                                    <img style="direction:ltr ;width:100%;left:0px;border-raduis:1%"
+                                                        <div class="col-lg-5"style="direction:ltr ;">
+                                                                    <img style="direction:rtl ;width:100%;left:0px;border-raduis:1%"
                                                                         class="col-lg-4 grid-margin right 0px"
                                                                         src="/images/cars/{{ $auction->car->thumbnail }}"
                                                                         alt="image" />
@@ -243,7 +243,7 @@
                                                                 @endphp
                                                                 @foreach ($images as $img)
                                                                     <div class="col-lg-3">
-                                                                        <img style="direction:ltr ;width:100%;left:0px"
+                                                                        <img style="direction:rtl ;width:100%;left:0px"
                                                                             class="col-lg-4 grid-margin right 0px"
                                                                             src="/images/cars/car_images/{{ $img }}"
                                                                             alt="image" />
