@@ -3,13 +3,9 @@
     <div class="main-panel">
         <div class="content-wrapper" style="position: relative">
             <div class="row">
-
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <div class="col-lg-12 col-md-7 col-12 " style="direction:ltr ;margin: right 0px;">
-
-                            </div>
                             <h4 class="card-title">عرض تفاصيل المزاد</h4>
                             @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -45,7 +41,6 @@
                             @endif
                             <div class="table-responsive">
                                 <div class="row">
-
                                     <div class="col-lg-12 grid-margin stretch-card">
                                         <div class="card">
                                             <div class="card-body">
@@ -78,11 +73,13 @@
                                                                         @endif
                                                                     </h4>
                                                                     <h4 class="card-title">
-                                                                        @if ($auction->bids->count() > 0)
+                                                                        @if ($auction->status == '1')
+                                                                            <span
+                                                                                class="text-danger">{!! $auction->rejectReason !!}</span>
+                                                                        @elseif($auction->status == '2' && $auction->bids->count() > 0)
                                                                             {{ $auction->bids->first()->user->name }}
-                                                                        @else
-                                                                            <span class="text-danger">لا يوجد مزايدين إلى
-                                                                                الآن</span>
+                                                                        @elseif($auction->status == '2' && $auction->bids->count() == 0)
+                                                                            -
                                                                         @endif
                                                                     </h4>
                                                                     <h4 class="card-title">
@@ -111,7 +108,13 @@
                                                                     <h4 class="card-title warning"> الموديل:</h4>
                                                                     <h4 class="card-title warning"> السعرالإبتدائي:</h4>
                                                                     <h4 class="card-title warning"> السعرالحالي:</h4>
-                                                                    <h4 class="card-title warning"> أعلى مزايد:</h4>
+                                                                    <h4 class="card-title warning">
+                                                                        @if ($auction->status == '1')
+                                                                            <span class="text-danger"> سبب الرفض </span>
+                                                                        @elseif($auction->status == '2')
+                                                                            أعلى مزايد:
+                                                                        @endif
+                                                                    </h4>
                                                                     <h4 class="card-title warning">الحد الادنى للمزايدة :
                                                                     </h4>
                                                                     <h4 class="card-title warning"> السعر الاحتياطي:</h4>
@@ -126,7 +129,7 @@
                                                         <div class="">
                                                             <div style="display:flex;flex-direction:row ;padding:1%">
                                                                 @php
-                                                                    $images = json_decode($auction->car->car_images, true);
+                                                                    $images = json_decode($auction->car->car_images, false);
                                                                 @endphp
                                                                 @foreach ($images as $img)
                                                                     <div class="col-lg-3">
@@ -141,19 +144,11 @@
 
                                                     </div>
                                                 </div>
-
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
-
-
-
                         </div>
-
                         <!-- container-scroller -->
                     @endsection

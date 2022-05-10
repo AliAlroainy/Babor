@@ -172,23 +172,16 @@
                                             <input type="file" name="thumbnail" value="{{ old('thumbnail') }}"
                                                 class="dropify" data-height="200" data-show-errors="true">
                                         </div>
-
                                         <div
                                             class="col-md-12 col-lg-6 mb-4 d-flex justify-content-center flex-column align-items-center">
                                             <label class="label image w-100 border-0">صور السيارة</label>
                                             <input type="file" name="car_images[]" class="dropify" multiple>
-
                                         </div>
-
-
                                         <div class="col-12 w-100  mb-4 d-flex justify-content-center align-items-center">
-                                            <textarea type="text" class="bg-transparent dark-placeholder form-control" row="20" name="description" id="myTextarea"
+                                            <textarea type="text" class="bg-transparent dark-placeholder form-control myTextarea" row="20" name="description"
                                                 placeholder="وصف السيارة"
                                                 {{ old('description', $car->description ?? null) }}></textarea>
                                         </div>
-
-
-
                                     </div>
                                     <input type="submit" class="btn btn-warning w-auto fw-bold" value="حفظ" />
                                 </div>

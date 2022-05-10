@@ -122,6 +122,21 @@ class UserAuctionController extends Controller
             return view('Front.Auction.auctions')->with('auctions',$auctions);  
     }
 
+    public function showDetails(Request $request, $id)
+    {
+        $found = Auction::find($id);
+        if($found){
+            $auction = Auction::where('id',$id)->with('bids', function ($q){
+                //get last bid of this auction
+                $q -> orderBy('id', 'desc')->first();
+            })->first();
+            if($auction){
+                return view('Front.Auction.auctionDetails')->with('auction', $auction);
+            }
+        }
+        return response()->view('Front.404', []);
+    }
+
     public function action(Request $request, $id){
         // '3': canceled, '4': uncomplete
         $found = Auction::find($id);

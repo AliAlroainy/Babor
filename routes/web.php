@@ -92,12 +92,6 @@ Route::group(['middleware'=>'auth'],function(){
 
         Route::get('/dashboard/profile', [ProfilesController::class,'show'])->name('user.profile') ;
         Route::get('/dashboard/profile/{id}', [ProfilesController::class,'visit'])->name('user.visit.profile') ;
-
-        Route::get('/auctions/auctionId', function (){
-            return view('user.auction.auctionDetails');
-        })->name('user.auctionDetails');
-
-
         Route::group(['middleware'=>'is_verify_email'],function(){
             Route::get('/dashboard/settings/psw', [ProfilesController::class,'index'])->name('change-password-user');
 
@@ -116,7 +110,7 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/auctions/pending/delete/{id}', [UserAuctionController::class, 'showMyAuctions'])->name('user.delete.pending.auction');
             Route::get('/auctions/disapproved', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.disapproved.auction');
             Route::get('/auctions/canceled', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.canceled.auction');
-
+            Route::get('/auction/details/{id}', [UserAuctionController::class, 'showDetails'])->name('user.auction.details');
             Route::post('/auctions/in-progress/action/{id}', [UserAuctionController::class, 'action'])->name('user.progress.action.auction');
             Route::post('/bid/{id}', BidController::class)->name('user.place.bid');
             Route::get('/auctions/subscribed_auction', [UserAuctionController::class, 'subscribedAuctions'])->name('user.show.subscribed.auction');
