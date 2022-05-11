@@ -12,32 +12,47 @@
                                           <h4 class="card-title">عرض بحسب</h4>
                                           <div style="display:flex;flex-direction:row ;padding:1%">
                                               <div class="col-lg-3">
-                                                  <select class="form-select progLang" name="brand" id="filterByBrand">
-                                                      <option disabled selected>ماركة السيارة</option>
+                                              <select class="form-select progLang" id="filterByCar" onchange="searchFilter()" 
+           >
+                    <option value="" selected>اسم السيارة</option>
+                    @foreach ($series as $item)
+                                                          <option value="{{ $item->id }}">{{ $item->name }}
+                                                          </option>
+                                                      @endforeach
+
+                </select>
+                                            </div>
+                                            <div class="col-lg-3">
+                                            <select class="form-select" id="filterByBrand" onchange="searchFilterBrand()">
+                    <option value="" selected>ماركة السيارة</option>
                                                       @foreach ($brands as $brand)
                                                           <option value="{{ $brand->id }}">{{ $brand->name }}
                                                           </option>
                                                       @endforeach
-                                                  </select>
-                                              </div>
-                                              <div class="col-lg-3">
-                                                  <select class="form-select" name="series" id="filterBySeries">
-                                                      <option disabled selected>All</option>
-                                                      @foreach ($series as $item)
-                                                          <option value="{{ $item->id }}">{{ $item->name }}
-                                                          </option>
-                                                      @endforeach
-                                                  </select>
-                                              </div>
-                                              <div class="col-lg-3">
-                                                  <select class="form-select" name="status" id="filterByStatus">
-                                                      <option disabled selected>Alle</option>
-                                                      @foreach (\App\Models\Auction::getAuctionStatusValues() as $key => $value)
-                                                          <option value="{{ $key }}">
-                                                              {{ $value }}
-                                                          </option>
-                                                      @endforeach
-                                                  </select>
+
+                </select>
+                                            </div>
+                                            <div class="col-lg-3 ">
+                                            <select class="form-select" id="filterByState" onchange="searchFilterState()">
+                                                    <option value="" selected="selected" > حالة المزاد</option>
+                                                    @foreach (\App\Models\Auction::getAuctionStatusValues() as $key => $value)
+                                                        <option value="{{ $value }}">
+                                                            {{ $value }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+
+
+
+
+
+
+
+
+
+
+
+
                                               </div>
                                           </div>
                                       </div>
@@ -104,7 +119,7 @@
                                           @foreach ($auctions as $auction)
                                               <tr
                                                   class="series {{ $auction->car->series->name }}  brand {{ $auction->car->brand->name }} state  {{ \App\Models\Auction::matchAuctionStatus($auction->status) }} ">
-                                                  <td>
+                                                  <td  > 
                                                       <h5> {{ $auction->car->brand->name }}</h5>
                                                   </td>
                                                   <td>
