@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\admin;
+use App\Http\Controllers\Notifications\NotificationController;
 use App\Models\Brand;
 use App\Models\Series;
 use App\Models\Auction;
+use App\Http\Controllers\Controller;
+use App\Models\Bid;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Pusher\Pusher;
 
 class AcutionController extends Controller
 {
@@ -18,23 +22,23 @@ class AcutionController extends Controller
         $brands = Brand::where('is_active', 1)->select('id', 'name')->get();
         $series = Series::where('is_active', 1)->select('id', 'name')->get();
         return view('Admin.auctions.auctions')->with([
-            'auctions'=> $auctions, 
+            'auctions'=> $auctions,
             'brands'  => $brands,
             'series'  => $series
         ]);
     }
 
-    public function indexWithFilter(Request $request){ 
+    public function indexWithFilter(Request $request){
         $brands = Brand::where('is_active', 1)->select('id', 'name')->get();
         $series = Series::where('is_active', 1)->select('id', 'name')->get();
 
         $q = DB::table('auctions');
-        if($request->has('status')) 
+        if($request->has('status'))
              $q->where('status', $request->status);
-     
+
         if($request->has('brand'))
-             $q->where('id', $request->brand);    
- 
+             $q->where('id', $request->brand);
+
         if($request->has('series'))
             $q->where('id', $request->series);
         $auctions = $q->get();

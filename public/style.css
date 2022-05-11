@@ -1,7 +1,7 @@
 @import url('fonts/Tajawal-Regular');
 * {
-	font-family: 'Tajawal', sans-serif;
-	
+	font-family: 'Tajawal', sans-serif !important;
+
 
 }
 
@@ -11,20 +11,20 @@
 ::-webkit-scrollbar {
 	width: 10px;
   }
-  
+
   /* Track */
   ::-webkit-scrollbar-track {
-	background: #f1f1f1; 
+	background: #f1f1f1;
   }
-   
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
-	background: #888; 
+	background: #888;
   }
-  
+
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-	background: #F7941D; 
+	background: #F7941D;
   }
 
 /* end scroll style */
@@ -540,7 +540,7 @@
 	width: 70px;
 	height: 70px;
 	border-radius:0;
-	
+
 }
 .header .shopping-list .cart-img:hover img{
 	transform:scale(1.09);
@@ -1138,7 +1138,7 @@
 .header.sticky .all-category{}
 .header.sticky .all-category h3{
 	cursor:pointer;
-	
+
 }
 .header.sticky .all-category .main-category{
 	opacity:0;
@@ -1201,7 +1201,7 @@
 
 /*======================================
    Hero Area CSS
-========================================*/ 
+========================================*/
 .hero-slider {
 	background: #fff;
 	overflow: hidden;
@@ -1215,7 +1215,7 @@
     height: 510px;
 }
 .hero-slider .text-inner {
-	
+
 }
 .hero-slider .hero-text {
 	padding: 0 30px;
@@ -1448,7 +1448,7 @@
 }
 /* Hero Area 4 */
 .hero-area4 .big-content{
-	
+
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -1517,11 +1517,11 @@
 
 /*======================================
    End Hero Area CSS
-========================================*/ 
+========================================*/
 
 /*======================================
    Start Small Banner CSS
-========================================*/ 
+========================================*/
 .small-banner{
 	padding:30px 0;
 	padding-bottom:0;
@@ -1576,11 +1576,11 @@
 }
 /*======================================
    End Small Banner CSS
-========================================*/ 
+========================================*/
 
 /*======================================
    Start Mid Banner CSS
-========================================*/ 
+========================================*/
 .midium-banner{
 	padding:0;
 }
@@ -1642,7 +1642,7 @@
 }
 /*======================================
    End Mid Banner CSS
-========================================*/ 
+========================================*/
   /*=============================
 	statr services CSS
 ===============================*/
@@ -1682,7 +1682,7 @@
 .highlight {
     color: #F7941D;
     font-weight:bold;
-}  
+}
 
 /*======================================
    Start Most Popular CSS
@@ -1768,7 +1768,7 @@
 }
 .product-area .nav-tabs li:last-child a{
 	border-color:transparent;
-} 
+}
 .product-area .nav-tabs li a i{
 	margin-right:10px;
 }
@@ -2159,7 +2159,7 @@
 	margin-top: 10px;
 }
 .shop-sidebar .categor-list li{
-	
+
 }
 .shop-sidebar .categor-list li {
 	margin-bottom: 10px;
@@ -2630,7 +2630,7 @@
 	border-color:transparent;
 }
 .shop.single .tab-single {
-	
+
 }
 .shop.single .single-des {
 	margin-top:35px;
@@ -2639,7 +2639,7 @@
 	margin-bottom:15px;
 	font-weight:500;
 	font-size:22px;
-	
+
 }
 .shop.single .single-des ul{}
 .shop.single .single-des ul li {
@@ -3010,7 +3010,7 @@
 	transform:rotate(360deg);
 }
 .shopping-cart .border{
-	
+
 }
 .shopping-cart .table .remove-icon{
 	font-size:16px;
@@ -3167,7 +3167,7 @@
 	padding-left: 100px;
 }
 .shopping-cart .total-amount .right ul{
-	
+
 }
 .shopping-cart .total-amount .right ul li {
 	font-size: 15px;
@@ -3253,7 +3253,7 @@
 	background: #F6F7FB;
 }
 .shop.checkout .form .form-group input:hover{
-	
+
 }
 .shop.checkout .nice-select {
 	width: 100%;
@@ -3748,7 +3748,7 @@
 	margin-top:40px;
 	width: 80px;
 	display:inline-block;
-	
+
 }
 .cown-down .content .cdown {
 	text-align: center;
@@ -3789,7 +3789,7 @@
 .shop-services .single-service {
 	position: relative;
 	padding-left: 65px;
-	
+
 }
 .shop-services .single-service i {
 	height: 50px;
@@ -3812,7 +3812,7 @@
 	line-height: 22px;
 	color: #333;
 	text-align: center;
-	
+
 }
 .shop-services .single-service p {
 	color: #898989;
@@ -4015,7 +4015,7 @@
 .about-us .about-img img{
 	height:100%;
 	width:100%;
-	
+
 }
 /*=============================
 	End About US CSS
@@ -4023,7 +4023,7 @@
 
 /*======================================
   10. Start Team CSS
-========================================*/  
+========================================*/
 .team{
 	background:#F6F7FB;
 }
@@ -4086,7 +4086,7 @@
 }
 /*======================================
   End Team CSS
-========================================*/ 
+========================================*/
 
 /*======================================
    Start Shop Blog CSS
@@ -4231,7 +4231,7 @@
 	margin-top: 15px;
 }
 .main-sidebar .categor-list li{
-	
+
 }
 .main-sidebar .categor-list li {
 	margin-bottom: 10px;
@@ -4277,7 +4277,7 @@
 	border:none;
 }
 .main-sidebar .single-post .image {
-	
+
 }
 .main-sidebar .single-post .image img{
 	float: left;
@@ -4345,7 +4345,7 @@
 }
 /* Blog Newslatter CSS */
 .main-sidebar .newsletter{
-	
+
 }
 .main-sidebar .newsletter .letter-inner {
 	position:relative;
@@ -4544,7 +4544,7 @@
 	background:#F7941D;
 }
 .blog-single .comments{
-	
+
 }
 .blog-single .comments .single-comment {
 	position: relative;
@@ -4563,7 +4563,7 @@
 	left: 0;
 }
 .blog-single .single-comment .content {
-	
+
 }
 .blog-single .single-comment .content h4 {
 	color: #333;
@@ -5012,7 +5012,7 @@
 }
 /* Copyright */
 .footer .copyright{
-	
+
 }
 .footer .copyright .inner{
 	border-top:1px solid #eeeeee3d;

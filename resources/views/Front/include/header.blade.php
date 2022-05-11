@@ -10,6 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title Tag  -->
     <title>Babor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+    </style>
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png" />
     <!-- Web Font -->
@@ -91,7 +95,6 @@
 
 
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
-    @livewireStyles
 
 
     <script>
@@ -110,7 +113,7 @@
         ga('create', 'UA-47923629-1', 'gigagit.com');
         ga('send', 'pageview');
     </script>
-    
+
 </head>
 
 <body>
@@ -196,7 +199,7 @@
                                         <span>2 اشعارات</span>
 
                                     </div>
-                                    <ul class="shopping-list">
+                                    <ul class="shopping-list" id="shopping-list">
                                         <li>
                                             <a href="#" class="remove" title="Remove this item"><i
                                                     class="fa fa-remove"></i></a>
@@ -253,7 +256,7 @@
                         <div class="search-bar-top">
                             <div class="search-bar">
                                 <select>
-                                    <option selected="selected">كل الانواع</option>
+                                    <option selected="selected" style="font-family: Tajawal">كل الانواع</option>
                                     <option>دايوها</option>
                                     <option>سنتافي</option>
                                     <option>تكاسي</option>
@@ -349,7 +352,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <title>Babor</title>
 
     {{-- bootstrap link --}}
@@ -379,7 +382,7 @@
 
 </head>
 <body>
-<livewire:counter /> 
+<livewire:counter />
 @livewireScripts
 
       <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mb-5">
@@ -415,14 +418,14 @@
                 <li class="nav-item">
                   <a class="nav-link" href="/about">تواصل معنا</a>
                 </li>
-          
+
                 <li class="nav-item">
                   <i class="bi bi-translate nav-link"></i>
                 </li>
               </ul>
-              
+
             </div>
-  
+
             <div class="container">
               <form class="d-flex" style="position: relative">
                 <input
@@ -449,8 +452,8 @@
                 </button>
               </form>
             </div>
-           
-            
+
+
             <div class="nav-item m-3">
               <a
                 class="nav-link btn"
@@ -459,9 +462,9 @@
                 >تسجيل </a
               >
             </div>
-           
+
           </div>
         </div>
       </nav>
-  
+
     @include('Front.include.modals')

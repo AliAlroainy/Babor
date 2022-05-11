@@ -164,6 +164,33 @@ $('.dropify').dropify({
 // });
      </script>
 
+<script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+<script>
+
+    var pusher = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
+        cluster: '{{env("PUSHER_APP_CLUSTER")}}',
+        encrypted: true
+    });
+
+    var channel = pusher.subscribe('notify-channel');
+    channel.bind('App\\Events\\Notify', function(data) {
+        alert(data.message + data.link);
+        var channel = pusher.subscribe('notify-channel');
+        channel.bind('App\\Events\\Notify', function(data) {
+            alert(data.carName );
+            var node = document.createElement('li') ;
+            node.textContent = `
+                <li>
+                    <a href="#" class="remove" title="Remove this item"><iclass="fa fa-remove"></i></a>
+                    <a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
+                    <h4><a class="nav-link" href="#">${data.endDate}</a></h4>
+                    <p class="quantity">${data.carName} <span class="amount">$${data.price}</span></p>
+                </li>
+`;
+
+            document.getElementById('shopping-list').prepend(node);
+    });
+</script>
 
 </body>
 

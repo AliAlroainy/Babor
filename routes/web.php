@@ -22,7 +22,7 @@ use App\Http\Controllers\Admin\CarCharacteristicsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
-
+use App\Http\Controllers\Notifications\NotificationController;
 Route::get('/FAQ', function () {
     return view('Front.FAQ');
 });
@@ -138,3 +138,6 @@ Route::fallback(function () {
 });
 
 
+
+
+Route::get('send',[NotificationController::class, 'notification'])->name('new.auction.notification');

@@ -168,7 +168,33 @@
  <script src="/js/jquery.zoom.min.js"></script>
  <script src="/js/main.js"></script>
 
+ <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+ <script>
 
+     var pusher = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
+         cluster: '{{env("PUSHER_APP_CLUSTER")}}',
+         encrypted: true
+     });
+
+     var channel = pusher.subscribe('notify-channel');
+     channel.bind('App\\Events\\Notify', function(data) {
+         alert(data);
+         var node = document.createElement('li');
+         node.innerHTML =`
+            <li>
+                <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
+                <div class="quantity text-dark">
+                    <h4 class="fw-bold"> ${data.carName}</h4>
+                    <span class="amount">$ ${data.price}</span>
+                    <p class="d-block mb-0">تبقى ${data.endDate} </p>
+                </div>
+            </li>
+`;
+         document.getElementById('shopping-list').prepend(node);
+     });
+    // pusher.disconnect();
+ </script>
 
  </body>
 
