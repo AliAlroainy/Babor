@@ -96,4 +96,32 @@
     </div>
 
 
+    
+<section class="section free-version-banner ">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 offset-md-2 col-xs-12">
+                <div class="section-title mb-60">
+                    <span class="text-white wow fadeInDown" data-wow-delay=".2s"
+                        style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">عرووض بابور
+                        الحصرية</span>
+                    <h2 class="text-white wow fadeInUp" data-wow-delay=".4s"
+                        style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">يمكنك الان
+                        الاستفادة من العروض<br> والدخول بمزادات بابور.</h2>
+                    <p class="text-white wow fadeInUp" data-wow-delay=".6s"
+                        style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">يرجى التسجيل
+                        بالموقع اولا والاستفاده بميزات المستخدم,<br> ولوحة التحكم الخاصة بك حيث يمكنك ااضافة ومشاركة
+                        بالمزادات.</p>
+
+                    <div class="button">
+                        <a href="/register" target="_blank" rel="nofollow" class="btn wow fadeInUp"
+                            data-wow-delay=".8s">سجل الان </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
     @include('Front.include.footer')
