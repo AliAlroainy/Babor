@@ -18,9 +18,7 @@
         rel="stylesheet">
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
-        integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -29,9 +27,6 @@
     <!-- StyleSheet -->
 
     <!-- Bootstrap -->
-
-    <!-- icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <!-- Magnific Popup -->
     <link rel="stylesheet" href="/css/magnific-popup.min.css">
     <!-- Font Awesome -->
@@ -80,6 +75,7 @@
     <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/swiper/swiper.css" />
+
     <!-- Page CSS -->
     <link rel="stylesheet" href="/assets/vendor/css/pages/ui-carousel.css" />
 
@@ -93,7 +89,6 @@
 
 
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
-    {{-- @livewireStyles --}}
 
 
     <script>
@@ -112,7 +107,6 @@
         ga('create', 'UA-47923629-1', 'gigagit.com');
         ga('send', 'pageview');
     </script>
-
 </head>
 
 <body>
@@ -145,17 +139,10 @@
                                     </a>
                                 </li>
                                 <li>
-                                    @if (!Auth::user())
-                                        <a href="{{ route('login') }}"
-                                            style="background-color: transparent ; border:none; text-decoration: none">
-                                            تسجيل دخول <i class="ti-power-off"></i>
-                                        </a>
-                                    @else
-                                        <a href="{{ route('logout') }}"
-                                            style="background-color: transparent ; border:none; text-decoration: none">
-                                            تسجيل خروج <i class="ti-power-on"></i>
-                                        </a>
-                                    @endif
+                                    <a href="{{ route('login') }}"
+                                        style="background-color: transparent ; border:none; text-decoration: none">
+                                        تسجيل دخول <i class="ti-power-off"></i>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -205,22 +192,20 @@
                                             <a href="#" class="remove" title="Remove this item"><i
                                                     class="fa fa-remove"></i></a>
                                             <a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
-                                            <h4><a class="nav-link" href="#">تبقى يومين </a></h4>
+                                            <h4><a href="#">تبقى يومين </a></h4>
                                             <p class="quantity">مزاد سيارة لاندكروسر <span
                                                     class="amount">$9990.00</span></p>
                                         </li>
                                         <li>
-
-                                            <a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
-                                            <h4><a class="nav-link" href="#"> سيارة شفرليه </a></h4>
-                                            <p class="quantity"> عرض قد يهمك <span
-                                                    class="amount">$3905.00</span></p>
-
                                             <a href="#" class="remove" title="Remove this item"><i
                                                     class="fa fa-remove"></i></a>
+                                            <a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
+                                            <h4><a href="#"> سيارة شفرليه </a></h4>
+                                            <p class="quantity"> عرض قد يهمك <span
+                                                    class="amount">$3905.00</span></p>
                                         </li>
                                     </ul>
-                                    <div class="bottom"><a class="nav-link" href="#">عرض الكل </a> </div>
+                                    <div class="bottom"><a href="#">عرض الكل </a> </div>
                                 </div>
                                 <!--/ End notfications Item -->
                             </div>
@@ -383,8 +368,8 @@
 
 </head>
 <body>
-<livewire:counter />
-@livewireScripts
+
+      ------------------------  start header --------------------------
 
       <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mb-5">
         <div class="container">
@@ -468,4 +453,5 @@
         </div>
       </nav>
   
+    ------------------------  end header ---------------------------->
     @include('Front.include.modals')
