@@ -28,27 +28,94 @@
             </div>
             <!-- end experience section-->
 
-            <!-- start experience section-->
-            <div class="timeline">
-                <div class="icon"></div>
-                <div class="date-content">
-                    <div class="date-outer">
-                        <span class="date">
-                            <span class="month">1 Years</span>
-                            <span class="year">2015</span>
-                        </span>
+            <div class="container ">
+                <div class="main-timeline">
+
+                    <!-- start experience section-->
+                    <div class="timeline">
+                        <div class="icon"></div>
+                        <div class="date-content">
+                            <div class="date-outer">
+                                <span class="date">
+                                    <span class="year">اولاً</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <h5 class="title"> قم بالتسجيل بالموقع</h5>
+                            <p class="description">
+                                من خلال صفحة التسجيل بالموقع ستقوم بخطوات بسيطة
+                            </p>
+                            <img src="img/Reg.png" width="300" height="300" alt="first">
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-content">
-                    <h5 class="title">Product Designer</h5>
-                    <p class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa
-                        scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent
-                        dapibus dolor felis, eu ultrices elit molestie.
-                    </p>
+                    <!-- end experience section-->
+
+                    <!-- start experience section-->
+                    <div class="timeline">
+                        <div class="icon"></div>
+                        <div class="date-content">
+                            <div class="date-outer">
+                                <span class="date">
+                                    <span class="month"></span>
+                                    <span class="year">ثانياً</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <h5 class="title"> قم بالتسجيل بالموقع</h5>
+                            <p class="description">
+                                من خلال صفحة التسجيل بالموقع ستقوم بخطوات بسيطة
+                            </p>
+                            <img src="img/Reg.png" width="300" height="300" alt="first">
+                        </div>
+                    </div>
+                    <!-- end experience section-->
+
+                    <!-- start experience section-->
+                    <div class="timeline">
+                        <div class="icon"></div>
+                        <div class="date-content">
+                            <div class="date-outer">
+                                <span class="date">
+                                    <span class="month"></span>
+                                    <span class="year">ثالثاً</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <h5 class="title"> قم بالتسجيل بالموقع</h5>
+                            <p class="description">
+                                من خلال صفحة التسجيل بالموقع ستقوم بخطوات بسيطة
+                            </p>
+                            <img src="img/Reg.png" width="300" height="300" alt="first">
+                        </div>
+                    </div>
+                    <!-- end experience section-->
+
+                    <!-- start experience section-->
+                    <div class="timeline">
+                        <div class="icon"></div>
+                        <div class="date-content">
+                            <div class="date-outer">
+                                <span class="date">
+                                    <span class="month"></span>
+                                    <span class="year">رابعاً</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <h5 class="title"> قم بالتسجيل بالموقع</h5>
+                            <p class="description">
+                                من خلال صفحة التسجيل بالموقع ستقوم بخطوات بسيطة
+                            </p>
+                            <img src="img/Reg.png" width="300" height="300" alt="first">
+                        </div>
+                    </div>
+                    <!-- end experience section-->
+
                 </div>
             </div>
-            <!-- end experience section-->
 
             <!-- start experience section-->
             <div class="timeline">
@@ -94,20 +161,39 @@
             </div>
             <!-- end experience section-->
         </div>
-        @if (Auth::user())
-            <div class="col-12 d-inline-flex justify-content-center my-3">
-                <div class="form-group button" style="background-color: #F7941D;">
-                    <a href="{{ route('user.add.auction') }}" class="btn"
-                        style="background-color: #F7941D; color: white;">ابدأ الآن</a>
-                </div>
-            </div>
-        @else
-            <div class="col-12 d-inline-flex justify-content-center my-3">
-                <div class="form-group button" style="background-color: #F7941D;">
-                    <a href="{{ route('login') }}" class="btn"
-                        style="background-color: #F7941D; color: white;">قم بتسجيل الدخول لتبدأ</a>
-                </div>
-            </div>
-        @endif
     </div>
+
+    <section class="section free-version-banner mb-0 ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8 offset-md-2 col-xs-12">
+                    <div class="section-title mb-60">
+                        @if (!Auth::user())
+                            <div class="col-12 d-inline-flex justify-content-center my-3">
+                                <div class="form-group" style="background-color: #F7941D;">
+                                    <a href="{{ route('login') }}" class="btn"
+                                        style="background-color: #F7941D; color: white;">
+                                        <h2 class="text-white wow fadeInUp" data-wow-delay=".4s"
+                                            style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                                            سجل الدخول
+                                            في
+                                            الموقع لاضافة مزاد </h2>
+                                    </a>
+                                </div>
+                            </div>
+                        @else
+                            <div class="col-12 d-inline-flex justify-content-center my-3">
+                                <div class="form-group" style="background-color: #F7941D;">
+                                    <a href="{{ route('user.add.auction') }}" class="btn"
+                                        style="background-color: #F7941D; color: white;">ابدأ الآن</a>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     @include('Front.include.footer')
