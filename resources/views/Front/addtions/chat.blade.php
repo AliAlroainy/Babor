@@ -30,6 +30,13 @@
             <div class="chat">
                 <div class="chat-header clearfix">
                     <div class="row">
+                        <div class="col-lg-6 hidden-sm text-left">
+                            <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
+                        </div>
+                        
                         <div class="col-lg-6">
                             <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
                                 <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
@@ -39,12 +46,7 @@
                                 <small>متصل   </small>
                             </div>
                         </div>
-                        <div class="col-lg-6 hidden-sm text-right">
-                            <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
-                            <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
-                            <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
-                            <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
-                        </div>
+                       
                     </div>
                 </div>
                 <div class="chat-history">
@@ -54,7 +56,7 @@
                                 <span class="message-data-time">10:10 AM, اليوم</span>
                                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
                             </div>
-                            <div class="message other-message float-right"> اهلا ياصديق مبروك فوزك بالمزاد ! </div>
+                            <div class="message other-message float-right"> اهلا ياصديق مبروك فوزك بالمزاد  </div>
                         </li>
                         <li class="clearfix">
                             <div class="message-data">

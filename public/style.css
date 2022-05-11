@@ -5458,15 +5458,15 @@ li a:hover{
 .chat-app .people-list {
     width: 280px;
     position: absolute;
-    left: 0;
+    right: 0;
     top: 0;
     padding: 20px;
     z-index: 7
 }
 
 .chat-app .chat {
-    margin-left: 280px;
-    border-left: 1px solid #eaeaea
+    margin-right: 280px;
+    border-right: 1px solid #eaeaea
 }
 
 .people-list {
@@ -5501,13 +5501,13 @@ li a:hover{
 }
 
 .people-list img {
-    float: left;
+    float: right;
     border-radius: 50%
 }
 
 .people-list .about {
-    float: left;
-    padding-left: 8px
+    float: right;
+    padding-right: 8px
 }
 
 .people-list .status {
@@ -5521,14 +5521,14 @@ li a:hover{
 }
 
 .chat .chat-header img {
-    float: left;
+    float: right;
     border-radius: 40px;
     width: 40px
 }
 
 .chat .chat-header .chat-about {
-    float: left;
-    padding-left: 10px
+    float: right;
+    padding-right: 10px
 }
 
 .chat .chat-history {
@@ -5560,7 +5560,7 @@ li a:hover{
 
 .chat .chat-history .message-data-time {
     color: #434651;
-    padding-left: 6px
+    padding-right: 6px
 }
 
 .chat .chat-history .message {
@@ -5602,17 +5602,17 @@ li a:hover{
     pointer-events: none;
     border-bottom-color: #efefef;
     border-width: 10px;
-    margin-left: -10px
+    margin-right: -10px
 }
 
 .chat .chat-history .other-message {
     background: #e8f1f3;
-    text-align: right
+    text-align: right;
 }
 
 .chat .chat-history .other-message:after {
     border-bottom-color: #e8f1f3;
-    left: 93%
+    right: 93%
 }
 
 .chat .chat-message {
@@ -5622,7 +5622,7 @@ li a:hover{
 .online,
 .offline,
 .me {
-    margin-right: 2px;
+    margin-left: 2px;
     font-size: 8px;
     vertical-align: middle
 }
@@ -5640,7 +5640,7 @@ li a:hover{
 }
 
 .float-right {
-    float: right
+    float: left;
 }
 
 .clearfix:after {
@@ -5658,11 +5658,11 @@ li a:hover{
         width: 100%;
         overflow-x: auto;
         background: #fff;
-        left: -400px;
+        right: -400px;
         display: none
     }
     .chat-app .people-list.open {
-        left: 0
+        right: 0
     }
     .chat-app .chat {
         margin: 0
