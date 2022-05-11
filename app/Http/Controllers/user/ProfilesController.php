@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Models\User;
+use App\Models\Wallet;
 use App\Models\Profile;
 use App\Trait\ImageTrait;
 use Illuminate\Http\Request;
@@ -22,10 +23,15 @@ class ProfilesController extends Controller
     }
     public function show(){
         $userProfile = Profile::where('user_id', Auth::user()->id)->first();
+        $userWallet = Wallet::where('holder_id', Auth::user()->id)->first();
         if(!$userProfile){
             $profile = new Profile();
             $profile->user_id = Auth::user()->id;
             $profile->save();
+        }
+        if(!$userWallet){
+            $user = User::find(Auth::user()->id);
+            $user->deposit(100000000);
         }
         $user = Auth::user();
         return view('Front.User.profile')->with('user', $user);

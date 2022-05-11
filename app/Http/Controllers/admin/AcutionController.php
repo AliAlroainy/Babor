@@ -52,8 +52,9 @@ class AcutionController extends Controller
         if(!$found)
             return abort('404');
         $auction = Auction::whereId($id);
-        if($request->has('approve'))
+        if($request->has('approve')){
             $auction->update(['status' => '2', 'startDate' => now()]);
+        }
 
         if($request->has('disapprove')){
             Validator::validate($request->all(), [
