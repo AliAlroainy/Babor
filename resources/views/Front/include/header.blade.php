@@ -91,6 +91,7 @@
 
 
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
+    @livewireStyles
 
 
     <script>
@@ -109,6 +110,7 @@
         ga('create', 'UA-47923629-1', 'gigagit.com');
         ga('send', 'pageview');
     </script>
+    
 </head>
 
 <body>
@@ -379,8 +381,8 @@
 
 </head>
 <body>
-
-      ------------------------  start header --------------------------
+<livewire:counter /> 
+@livewireScripts
 
       <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mb-5">
         <div class="container">
@@ -464,5 +466,4 @@
         </div>
       </nav>
   
-    ------------------------  end header ---------------------------->
     @include('Front.include.modals')
