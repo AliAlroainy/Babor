@@ -36,8 +36,8 @@
                          <h4>خدمة العلاء</h4>
                          <ul>
                             <li><a class="nav-link" href="/contact">تواصل معنا</a></li>
+                          <li><a class="nav-link" href="/soon">الشحن</a></li>
                              <li><a class="nav-link" href="/soon">طرق الدفع</a></li>
-\                             <li><a class="nav-link" href="/soon">الشحن</a></li>
                          </ul>
                      </div>
                      <!-- End Single Widget -->
