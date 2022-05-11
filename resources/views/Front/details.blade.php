@@ -181,7 +181,7 @@
                                 <div class="qty-label">
                                     سعر المزايدة
                                     <div class="input-n">
-                                        <input type="text" name="bidPrice">
+                                        <input type="number" name="bidPrice">
                                         <span class="qty-up">+</span>
                                         <span class="qty-down">-</span>
                                     </div>
@@ -211,7 +211,7 @@
 
 
 <!-- Start related cars -->
-<div class="product-area most-popular section">
+{{-- <div class="product-area most-popular section">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -338,7 +338,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- End related cars -->
 
 

@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 class QuestionSeeder extends Seeder
 {
     /**
@@ -14,7 +15,6 @@ class QuestionSeeder extends Seeder
      */
     public function run()
     {
-       
         $faker = Faker::create();
 
         DB::table('questions')->insert([
@@ -67,6 +67,6 @@ class QuestionSeeder extends Seeder
             ببوليصة الشحن بالتاريخ المتوقع لاستلام السيارة.',
             'is_active' => '1',
         ]);
-       
+
     }
 }

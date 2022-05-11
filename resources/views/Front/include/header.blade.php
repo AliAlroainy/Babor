@@ -18,7 +18,9 @@
         rel="stylesheet">
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
+        integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -91,6 +93,7 @@
 
 
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
+    {{-- @livewireStyles --}}
 
 
     <script>
@@ -109,6 +112,7 @@
         ga('create', 'UA-47923629-1', 'gigagit.com');
         ga('send', 'pageview');
     </script>
+
 </head>
 
 <body>
@@ -147,9 +151,11 @@
                                             تسجيل دخول <i class="ti-power-off"></i>
                                         </a>
                                     @else
-                                        {{ ucfirst(Auth::user()->name) }}
+                                        <a href="{{ route('logout') }}"
+                                            style="background-color: transparent ; border:none; text-decoration: none">
+                                            تسجيل خروج <i class="ti-power-on"></i>
+                                        </a>
                                     @endif
-
                                 </li>
                             </ul>
                         </div>
@@ -377,8 +383,8 @@
 
 </head>
 <body>
-
-      ------------------------  start header --------------------------
+<livewire:counter />
+@livewireScripts
 
       <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mb-5">
         <div class="container">
@@ -462,5 +468,4 @@
         </div>
       </nav>
   
-    ------------------------  end header ---------------------------->
     @include('Front.include.modals')
