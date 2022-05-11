@@ -1,8 +1,16 @@
 @include('Front.include.header')
 
-<div class="container" >
 
-<div style="background-color: powderblue; padding-right: 30px;">
+<div class="">
+    <div class="col-12">
+        <div class="section-title mt-4" >
+            <h2 > السياسات والخصوصية</h2>
+        </div>
+    </div>
+
+<div class="container " dir="rtl" >
+
+<div style=" padding-right: 30px;">
     <p><strong>أ</strong><strong> – مقدمة</strong></p>
     <ol>
     <li>إننا نهتم بشكل كبير بخصوصية زوار موقعنا، ونتعهد بحمايتها. تشرح هذه السياسة كيفية التصرف في معلوماتك الشخصية.</li>
@@ -172,7 +180,6 @@
     </ol>
     </li>
     </ol>
-    <p><em>موقع Website Planet لا يتحمل أي مسؤولية وينصحك باستشارة خبراء قانونيين إذا استخدمت القالب أعلاه على الموقع الإلكتروني الخاص بك.</em></p>
     </div>
 
 </div>
