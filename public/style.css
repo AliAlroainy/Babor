@@ -5560,7 +5560,7 @@ li a:hover{
 
 .chat .chat-history .message-data-time {
     color: #434651;
-    padding-right: 6px
+    padding-left: 6px
 }
 
 .chat .chat-history .message {
@@ -5584,7 +5584,7 @@ li a:hover{
     pointer-events: none;
     border-bottom-color: #fff;
     border-width: 10px;
-    margin-left: -10px
+    margin-right: -10px
 }
 
 .chat .chat-history .my-message {
@@ -5593,7 +5593,7 @@ li a:hover{
 
 .chat .chat-history .my-message:after {
     bottom: 100%;
-    left: 30px;
+    right: 30px;
     border: solid transparent;
     content: " ";
     height: 0;
@@ -5622,7 +5622,7 @@ li a:hover{
 .online,
 .offline,
 .me {
-    margin-left: 2px;
+    margin-right: 2px;
     font-size: 8px;
     vertical-align: middle
 }
@@ -5640,7 +5640,7 @@ li a:hover{
 }
 
 .float-right {
-    float: left;
+    float: right;
 }
 
 .clearfix:after {

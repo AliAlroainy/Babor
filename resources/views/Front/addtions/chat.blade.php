@@ -10,14 +10,15 @@
             <div id="plist" class="people-list">
             
                 <ul class="list-unstyled chat-list mt-2 mb-0">
-                    <li class="clearfix">
+                    <li class="clearfix ">
                         <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
-                        <div class="about">
-                            <div class="name">الادمن</div>
+                        <div class="about float-right" dir="rtl">
+                            <div class="name float-end" >الادمن</div>
+                            <br/>
                             <div class="status"> <i class="fa fa-circle offline"></i> اخر ظهور منذ 2 دقيقة </div>                                            
                         </div>
                     </li>
-                    <li class="clearfix active">
+                    <li class="clearfix active" dir="rtl">
                         <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
                         <div class="about">
                             <div class="name">المشتري  </div>
@@ -36,7 +37,7 @@
                             <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
                             <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
                         </div>
-                        
+
                         <div class="col-lg-6">
                             <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
                                 <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
@@ -49,14 +50,14 @@
                        
                     </div>
                 </div>
-                <div class="chat-history">
+                <div class="chat-history float-end" dir="rtl">
                     <ul class="m-b-0">
                         <li class="clearfix">
-                            <div class="message-data text-right">
+                            <div class="message-data text-left">
                                 <span class="message-data-time">10:10 AM, اليوم</span>
                                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
                             </div>
-                            <div class="message other-message float-right"> اهلا ياصديق مبروك فوزك بالمزاد  </div>
+                            <div class="message other-message float-left"> اهلا ياصديق مبروك فوزك بالمزاد  </div>
                         </li>
                         <li class="clearfix">
                             <div class="message-data">
@@ -74,8 +75,8 @@
                 </div>
                 <div class="chat-message clearfix">
                     <div class="input-group mb-0">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-send"></i></span>
+                        <div class="input-group-prepend ">
+                            <span class="input-group-text btn btn-warning"><i class="fa fa-send"></i></span>
                         </div>
                         <input type="text" class="form-control" placeholder="اكتب رسالتك هنا ..">                                    
                     </div>
