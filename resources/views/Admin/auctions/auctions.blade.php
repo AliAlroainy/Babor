@@ -116,30 +116,37 @@
                                           </tr>
                                       </thead>
                                       <tbody class="Auction_card">
-                                          @foreach ($auctions as $auction)
-                                              <tr
-                                                  class="series {{ $auction->car->series->name }}  brand {{ $auction->car->brand->name }} state  {{ \App\Models\Auction::matchAuctionStatus($auction->status) }} ">
-                                                  <td  > 
-                                                      <h5> {{ $auction->car->brand->name }}</h5>
-                                                  </td>
-                                                  <td>
-                                                      <h5> {{ $auction->car->series->name }} </h5>
-                                                  </td>
-                                                  <td>
-                                                      <h5> {{ $auction->closeDate }}</h5>
-                                                  </td>
-                                                  <td>
-                                                      <h5>
-                                                          {{ \App\Models\Auction::matchAuctionStatus($auction->status) }}
-                                                      </h5>
-                                                  </td>
-                                                  <td>
-                                                      <a href="{{ route('admin.auction.details', $auction->id) }}"
-                                                          class="main-color">
-                                                          <h5> المزيد ..<i class="fa-solid fa-angles-left"></i>
-                                                          </h5>
-                                                      </a>
-                                                  </td>
+                                        @foreach ($auctions as $auction)
+                                            <tr class="series {{ $auction->car->series->name }}   state  {{ \App\Models\Auction::matchAuctionStatus($auction->status) }} ">
+                                                <div class=" brand {{ $auction->car->brand->name }} ">
+                                                <td style="text-align:center">
+
+                                                       <h5> {{ $auction->car->brand->name }}</h5>
+                                                </td>
+                                                <td style="text-align:center">
+
+                                                       <h5> {{ $auction->car->series->name }} </h5>
+                                                </td>
+                                                <td style="text-align:center">
+                                                  <h5>  {{ $auction->closeDate }}</h5>
+                                                </td>
+                                                <td  style="text-align:center">
+                                                  <h5 >  {{ $auction->winner }}</h5>
+                                                </td>
+                                                <td style="text-align:center" >
+                                                    <h5 >
+                                                        {{ \App\Models\Auction::matchAuctionStatus($auction->status) }}
+                                                    </h5>
+                                                </td>
+                                                <td style="text-align:center">
+                                                    <a href="{{ route('admin.auction.details', $auction->id) }}"
+                                                        class="btn     " style="font-size:12px;
+                                                        width: fit-content; font-size: 25px ;color:#f79522 "
+                                                        >                                                                 
+  <h5>  المزيد   ..<i class="fa-solid fa-angles-left"></i></h5>
+                                                         </a>
+                                                        
+                                                </td>
                                                   <td class="status status_filed">
                                                       <form action="{{ route('admin.auction.action', $auction->id) }}"
                                                           method="POST" class="d-flex justify-content-center">
@@ -247,6 +254,7 @@
                                                           @endif
                                                       </form>
                                                   </td>
+</div>
                                               </tr>
                                           @endforeach
                                       </tbody>
