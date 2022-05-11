@@ -13,7 +13,21 @@ class SiteController extends Controller
         $auctions = Auction::with(['car' => function ($q) {
             $q->select('brand_id', 'series_id', 'model', );
         }]);
-        return view('Front.index')->with('auctions', $auctions);
+        $last_cars = Auction::with(['car' => function ($q){
+            return $q->where('category_id', 1)->get();
+        }])->orderBy('id', 'desc')->get();
+        $last_babors = Auction::with(['car' => function ($q){
+            return $q->where('category_id', 2)->get();
+        }])->orderBy('id', 'desc')->get();
+        $last_daios = Auction::with(['car' => function ($q){
+            return $q->where('category_id', 3)->get();
+        }])->orderBy('id', 'desc')->get();
+        return view('Front.index')->with([
+            'auctions'=> $auctions, 
+            'last_cars' => $last_cars,
+            'last_daios' => $last_daios,
+            'last_babors'=> $last_babors,
+        ]);
     }
 
     public function availableAuctions(){

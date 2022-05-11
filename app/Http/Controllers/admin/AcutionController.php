@@ -15,7 +15,7 @@ class AcutionController extends Controller
 
     public function index()
     {
-        $auctions = Auction::orderBy('id')->get();
+        $auctions = Auction::orderBy('id', 'desc')->get();
         $brands = Brand::where('is_active', 1)->select('id', 'name')->get();
         $series = Series::where('is_active', 1)->select('id', 'name')->get();
         return view('Admin.auctions.auctions')->with([

@@ -147,9 +147,11 @@
                                             تسجيل دخول <i class="ti-power-off"></i>
                                         </a>
                                     @else
-                                        {{ ucfirst(Auth::user()->name) }}
+                                        <a href="{{ route('logout') }}"
+                                            style="background-color: transparent ; border:none; text-decoration: none">
+                                            تسجيل خروج <i class="ti-power-on"></i>
+                                        </a>
                                     @endif
-
                                 </li>
                             </ul>
                         </div>
