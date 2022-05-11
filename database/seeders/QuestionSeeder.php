@@ -15,7 +15,6 @@ class QuestionSeeder extends Seeder
      */
     public function run()
     {
-
         $faker = Faker::create();
 
         DB::table('questions')->insert([
