@@ -124,7 +124,7 @@
                         <li><a href="#"><i class="fa fa-heart-o"></i> اضافة للمفضلة</a></li>
                     </ul>
 
-                    <p style="font-size: 14px"> البائع</p>
+                    <h6> البائع</h6>
                     <div class="d-flex align-items-center justify-content-start ">
                         <img src="/images/profiles/{{ $auction->user->profile->avatar }}" class="rounded-circle mb-3"
                             style="width: 40px; margin-left: 10px" alt="Avatar" />
