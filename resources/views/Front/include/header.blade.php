@@ -91,7 +91,7 @@
 
 
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
-    @livewireStyles
+    {{-- @livewireStyles --}}
 
 
     <script>
@@ -110,7 +110,7 @@
         ga('create', 'UA-47923629-1', 'gigagit.com');
         ga('send', 'pageview');
     </script>
-    
+
 </head>
 
 <body>
@@ -381,7 +381,7 @@
 
 </head>
 <body>
-<livewire:counter /> 
+<livewire:counter />
 @livewireScripts
 
       <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mb-5">
