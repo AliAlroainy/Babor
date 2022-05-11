@@ -28,7 +28,7 @@
                              <li><a class="nav-link" href="/privcey">الخصوصية</a></li>
                          </ul>
                      </div>
-                     <!-- End Single Widget -->
+                     <!-- End Single Widget  -->
                  </div>
                  <div class="col-lg-2 col-md-6 col-12">
                      <!-- Single Widget -->
