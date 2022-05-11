@@ -25,7 +25,7 @@
                          <ul>
                              <li><a class="nav-link" href="/about">عننا</a></li>
                              <li><a class="nav-link" href="/FAQ">ابرز اسئلة</a></li>
-                             <li><a class="nav-link" href="/soon">الخصوصية</a></li>
+                             <li><a class="nav-link" href="/privcey">الخصوصية</a></li>
                              <li><a class="nav-link" href="/contact">تواصل معنا</a></li>
                          </ul>
                      </div>

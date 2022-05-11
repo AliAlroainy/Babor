@@ -23,6 +23,10 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
 
+Route::get('/privcey', function () {
+    return view('Front.privcey');
+});
+
 Route::get('/FAQ', function () {
     return view('Front.FAQ');
 });
