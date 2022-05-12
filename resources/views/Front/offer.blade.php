@@ -355,7 +355,7 @@
 </section>
 
 
-@include('Front.include.produacts')
+
 
 
 @include('Front.include.footer')
