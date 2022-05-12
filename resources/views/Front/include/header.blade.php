@@ -18,9 +18,7 @@
         rel="stylesheet">
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
-        integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -29,9 +27,6 @@
     <!-- StyleSheet -->
 
     <!-- Bootstrap -->
-
-    <!-- icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <!-- Magnific Popup -->
     <link rel="stylesheet" href="/css/magnific-popup.min.css">
     <!-- Font Awesome -->
@@ -80,6 +75,7 @@
     <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/swiper/swiper.css" />
+
     <!-- Page CSS -->
     <link rel="stylesheet" href="/assets/vendor/css/pages/ui-carousel.css" />
 
@@ -93,7 +89,6 @@
 
 
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
-    {{-- @livewireStyles --}}
 
 
     <script>
@@ -149,17 +144,10 @@
                                     </a>
                                 </li>
                                 <li>
-                                    @if (!Auth::user())
-                                        <a href="{{ route('login') }}"
-                                            style="background-color: transparent ; border:none; text-decoration: none">
-                                            تسجيل دخول <i class="ti-power-off"></i>
-                                        </a>
-                                    @else
-                                        <a href="{{ route('logout') }}"
-                                            style="background-color: transparent ; border:none; text-decoration: none">
-                                            تسجيل خروج <i class="ti-power-on"></i>
-                                        </a>
-                                    @endif
+                                    <a href="{{ route('login') }}"
+                                        style="background-color: transparent ; border:none; text-decoration: none">
+                                        تسجيل دخول <i class="ti-power-off"></i>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -209,22 +197,20 @@
                                             <a href="#" class="remove" title="Remove this item"><i
                                                     class="fa fa-remove"></i></a>
                                             <a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
-                                            <h4><a class="nav-link" href="#">تبقى يومين </a></h4>
+                                            <h4><a href="#">تبقى يومين </a></h4>
                                             <p class="quantity">مزاد سيارة لاندكروسر <span
                                                     class="amount">$9990.00</span></p>
                                         </li>
                                         <li>
-
-                                            <a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
-                                            <h4><a class="nav-link" href="#"> سيارة شفرليه </a></h4>
-                                            <p class="quantity"> عرض قد يهمك <span
-                                                    class="amount">$3905.00</span></p>
-
                                             <a href="#" class="remove" title="Remove this item"><i
                                                     class="fa fa-remove"></i></a>
+                                            <a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
+                                            <h4><a href="#"> سيارة شفرليه </a></h4>
+                                            <p class="quantity"> عرض قد يهمك <span
+                                                    class="amount">$3905.00</span></p>
                                         </li>
                                     </ul>
-                                    <div class="bottom"><a class="nav-link" href="#">عرض الكل </a> </div>
+                                    <div class="bottom"><a href="#">عرض الكل </a> </div>
                                 </div>
                                 <!--/ End notfications Item -->
                             </div>
@@ -347,3 +333,133 @@
 
 
 
+<<<<<<< HEAD
+
+
+
+
+    <!--DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Babor</title>
+
+    {{-- bootstrap link --}}
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css" />
+
+    {{-- jQuery link --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+
+
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+/>
+ Google Fonts
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+/>
+
+</head>
+<body>
+
+      ------------------------  start header --------------------------
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mb-5">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="index.html" style="color: #c20e1a"
+            >بابور</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="container">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/"
+                    >الرئيسية</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="/jobs">الخدمات</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="/hire">من نحن</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">تواصل معنا</a>
+                </li>
+          
+                <li class="nav-item">
+                  <i class="bi bi-translate nav-link"></i>
+                </li>
+              </ul>
+              
+            </div>
+  
+            <div class="container">
+              <form class="d-flex" style="position: relative">
+                <input
+                  style="color: #939392"
+                  class="form-control bg-white rounded-pill w-100"
+                  type="search"
+                  placeholder="بحث"
+                  aria-label="بحث"
+                />
+                <button
+                  style="
+                    position: absolute;
+                    left: 10px;
+                    width: 30px;
+                    height: 35px;
+                    top: 1.4px;
+                    background-color: transparent;
+                    border: none;
+                  "
+                  class="rounded-pill"
+                  type="submit"
+                >
+                  <i style="color: #ffeba7" class="fa fa-search"></i>
+                </button>
+              </form>
+            </div>
+           
+            
+            <div class="nav-item m-3">
+              <a
+                class="nav-link btn"
+                href="/singin"
+                style="text-decoration: none"
+                >تسجيل </a
+              >
+            </div>
+           
+          </div>
+        </div>
+      </nav>
+  
+    ------------------------  end header ---------------------------->
+    @include('Front.include.modals')
+=======
+>>>>>>> upstream/v4
