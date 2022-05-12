@@ -31,6 +31,7 @@ class AuctionSeeder extends Seeder
               'startDate' => $date->format('Y-m-d H:i:s'),
               'openingBid' =>   $faker->numberBetween(40000,68017),
               'reservePrice' => $faker->numberBetween(40000,68017),
+              'commission' => 10,
               'auctioneer_id' => $faker->numberBetween(1,10),
               'car_id' => $faker->numberBetween(1,5),
               'created_at'=> $faker->date('Y-m-d', $unixTimestamp),

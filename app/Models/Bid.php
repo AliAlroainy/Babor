@@ -14,6 +14,7 @@ class Bid extends Model
         'bidPrice',
         'bidder_id',
         'auction_id',
+        'securityDeposit',
     ];
 
 
@@ -27,6 +28,13 @@ class Bid extends Model
         return $this->belongsTo(User::class, 'bidder_id');
     }
 
+    // public function setSecurityDepositAttribute(){
+    //     $this->attributes['securityDeposit'] = 10;
+    // }
+
+    public function getDeduction(){
+        return ($this->bidPrice / $this->securityDeposit);
+    }
     // public function setAuctioneerIdAttribute(){
     //     $this->attributes['auctioneer_id'] = Auth::user()->id;
     // }

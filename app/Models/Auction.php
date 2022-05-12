@@ -22,12 +22,13 @@ class Auction extends Model
         'auctioneer_id',
         'car_id' 
     ];
-
     public function car(): BelongsTo
     {
         return $this->belongsTo(Car::class, 'car_id');
     }
-
+    // public function setCommissionAttribute(){
+    //     $this->attributes['commission'] = 10;
+    // }
     // public function setAuctioneerIdAttribute(){
     //     $this->attributes['auctioneer_id'] = Auth::user()->id;
     // }

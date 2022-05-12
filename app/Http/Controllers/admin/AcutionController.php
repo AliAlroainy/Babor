@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
+use App\Models\User;
 use App\Models\Brand;
 use App\Models\Series;
 use App\Models\Auction;
@@ -49,6 +50,7 @@ class AcutionController extends Controller
     public function action(Request $request, $id)
     {
         $found = Auction::find($id);
+        $admin = User::whereId(1)->first();
         if(!$found)
             return abort('404');
         $auction = Auction::whereId($id);
