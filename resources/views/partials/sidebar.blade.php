@@ -2,6 +2,12 @@
     <!-- partial:'assets/partials/_sidebar.html -->
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav " style="padding-inline: 0">
+        <li class="nav-item">
+                <a class="nav-link" href="/admin">
+                    <i class="fa-solid fa-user menu-icon ms-3 "></i>
+                    <span class="menu-title fw-bold " style="font-family: Tajawal"> الاحصائيات</span>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.dashboard') }}">
                     <i class="fa-solid fa-user menu-icon ms-3 "></i>
