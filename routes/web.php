@@ -27,6 +27,10 @@ Route::get('/failed', function () {
     return view('Front.addtions.failed');
 });
 
+Route::get('/nomoney', function () {
+    return view('Front.addtions.nomoney');
+});
+
 Route::get('/success', function () {
     return view('Front.addtions.success');
 });
