@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use phpDocumentor\Reflection\Types\String_;
 use Pusher\Pusher;
 
 class AcutionController extends Controller
@@ -77,23 +78,24 @@ class AcutionController extends Controller
 //            $auction = Auction::whereId('id');
                 $user=User::where('id',$found->auctioneer_id)->first();
 //            $users = User::all()->except(Auth::id());
-//                foreach($users as $user) {
                     $notification = Notification::create([
                             'message' => "تمت إضافة مزاد جديد",
                         'user_id' => $user->id ,
                         'state' => 0,
                         'link' => $found->id
                     ]);
-                    $data['id'] = $notification->id;
-                    $data['massage'] ="تم اضافه مزاد جديد ";
-                    $data['link'] = 'link';
+//                    $data['id'] = $notification->id;
+                    $brand = $found->car->brand->name;
+                    $series = $found->car->series->name;
+                    $model = $found->car->model;
+                    $info = array('brand'=>$brand,'series'=>$series,'model'=>$model);
+                    $data['message'] = implode("," , $info);
+                    $data['link'] = $found->id;
                     $data['price'] = $found->openingBid;
                     $data['endDate'] = $found->closeDate;
                     $data['user_id'] = $user->id;
 
                     $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
-
-//            exit();
 
         }
 

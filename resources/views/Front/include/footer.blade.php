@@ -183,12 +183,14 @@
              node.innerHTML =`
             <li>
                 <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
-                <div class="quantity text-dark">
-                    <h4 class="fw-bold"> ${data.message}</h4>
-                    <span class="amount">$ ${data.price}</span>
-                    <p class="d-block mb-0">تبقى ${data.endDate} </p>
-                </div>
+                <a href="auction/${data.link}">
+                    <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
+                    <div class="quantity text-dark">
+                        <h4 class="fw-bold"> ${data.message}</h4>
+                        <span class="amount">$ ${data.price}</span>
+                        <p class="d-block mb-0">ينتهي بتاريخ ${data.endDate} </p>
+                    </div>
+                </a>
             </li>
 `;
 {{--         var data = {!! json_encode($data, JSON_HEX_TAG) !!};--}}
