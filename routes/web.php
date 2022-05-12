@@ -23,6 +23,10 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
 
+Route::get('/failed', function () {
+    return view('Front.addtions.failed');
+});
+
 Route::get('/success', function () {
     return view('Front.addtions.success');
 });
