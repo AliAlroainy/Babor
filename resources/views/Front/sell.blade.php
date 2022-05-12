@@ -141,9 +141,9 @@
                             </div>
                         @else
                             <div class="col-12 d-inline-flex justify-content-center ">
-                                <div class="form-group" style="background-color: #d9d6d2;">
-                                    <a href="{{ route('user.add.auction') }}" class="btn"
-                                        style="background-color: #F7941D; color: #F7941D;">ابدأ الآن</a>
+                                <div class="form-group" style="background-color: #F7941D;">
+                                    <a href="{{ route('user.add.auction') }}" class="btn p-3"
+                                    style="background-color: #1a1a19; color: #F7941D;">ابدأ الآن</a>
                                 </div>
                             </div>
                         @endif
