@@ -1,29 +1,35 @@
 @include('Front.include.header')
 
+
+
 <div class="text-center">
 	<!-- Button HTML (to Trigger Modal) -->
-	<a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Confirm Modal</a>
+	<a href="#myModal" class="trigger-btn" data-toggle="modal">اضغط لتاكيد الدفع</a>
 </div>
 
 <!-- Modal HTML -->
 <div id="myModal" class="modal fade">
 	<div class="modal-dialog modal-confirm">
 		<div class="modal-content">
-			<div class="modal-header">
-				<div class="icon-box">
-					<i class="material-icons">&#xE876;</i>
+			<div class="modal-header w-100 d-flex align-items-center justify-content-center text-center" style="top:-100px; " >
+				<div >
+					<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_ya4ycrti.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
+
 				</div>				
-				<h4 class="modal-title w-100">Awesome!</h4>	
 			</div>
 			<div class="modal-body">
-				<p class="text-center">Your booking has been confirmed. Check your email for detials.</p>
+                <h4 class=" w-90 m-3 mt-5"> تمت العملية بنجاح</h4>	
+
+				<p class="text-center">تم تاكيد اكمال الدفع </p>
 			</div>
-			<div class="modal-footer">
-				<button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
-			</div>
+            <button class="btn btn-success btn-block" data-dismiss="modal">حسناً</button>
+
+			
 		</div>
 	</div>
-</div> 
+</div>   
+
 
 
 @include('Front.include.footer')

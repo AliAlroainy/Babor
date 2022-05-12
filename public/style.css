@@ -5740,9 +5740,7 @@ li a:hover{
 .modal-confirm .icon-box {
 	color: #fff;		
 	position: absolute;
-	margin: 0 auto;
-	left: 0;
-	right: 0;
+	left: 50%;
 	top: -70px;
 	width: 95px;
 	height: 95px;
