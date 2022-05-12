@@ -25,19 +25,21 @@
                          <ul>
                              <li><a class="nav-link" href="/about">عننا</a></li>
                              <li><a class="nav-link" href="/FAQ">ابرز اسئلة</a></li>
-                             <li><a class="nav-link" href="/privcey">الخصوصية</a></li>
+                             <li><a class="nav-link" href="/soon">الخصوصية</a></li>
+                             <li><a class="nav-link" href="/contact">تواصل معنا</a></li>
                          </ul>
                      </div>
-                     <!-- End Single Widget  -->
-        
+                     <!-- End Single Widget -->
+                 </div>
                  <div class="col-lg-2 col-md-6 col-12">
                      <!-- Single Widget -->
                      <div class="single-footer links">
                          <h4>خدمة العلاء</h4>
                          <ul>
-                            <li><a class="nav-link" href="/contact">تواصل معنا</a></li>
-                          <li><a class="nav-link" href="/soon">الشحن</a></li>
                              <li><a class="nav-link" href="/soon">طرق الدفع</a></li>
+                             <li><a class="nav-link" href="/soon">رجع فلوسك</a></li>
+                             <li><a class="nav-link" href="/soon">الارجاع</a></li>
+                             <li><a class="nav-link" href="/soon">الشحن</a></li>
                          </ul>
                      </div>
                      <!-- End Single Widget -->
