@@ -1,22 +1,26 @@
 <?php
 
+use App\Models\Bid;
+use App\Models\User;
+use App\Models\Auction;
 use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Password;
-use App\Http\Controllers\admin\BrandsController;
-use App\Http\Controllers\admin\SeriesController;
 use App\Http\Controllers\user\BidController;
 use App\Http\Controllers\admin\BidsController;
+use App\Http\Controllers\admin\BrandsController;
+use App\Http\Controllers\admin\SeriesController;
 use App\Http\Controllers\Admin\AcutionController;
+use App\Http\Controllers\Admin\QustionController;
 use App\Http\Controllers\user\ProfilesController;
+// use \Illuminate\Support\Facades\URL;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\CategoriesController;
-use App\Http\Controllers\Admin\QustionController;
 use App\Http\Controllers\user\UserAuctionController;
-// use \Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Authentication\authcontroller;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -157,3 +161,48 @@ Route::get('/admin',function () {
     return view('Admin.index');
 });
 
+Route::get('/wallet', function (){
+    $admin = User::find(1);
+    $auctioneer_abrar = User::find(2);
+    $bidder_ali = User::find(3);
+    $auction = Auction::where('id', 1)->get();
+    $bid = Bid::where('id', 1)->get();
+    // dd($bid);
+    $admin->deposit(1200);
+    $auctioneer_abrar->deposit(600);
+    $bidder_ali->deposit(700);
+    return $admin->balance;
+
+});
+
+
+Route::get('/api', function(){
+    // URL
+    $apiURL = 'https://waslpayment.com/api/test/merchant/payment_order';
+
+    $dataMeta = ["Customer name" => "somename", "order id"=> 0];
+    // Data
+    $data = [
+        "order_reference" => "123412",
+        "products"=> [["Customer name" => "somename", "order id"=> 0]],
+        "total_amount" => 1400,
+        "currency" => "YER",
+        "success_url" => "https://company.com/success",
+        "cancel_url"=> "https://company.com/cancel",
+        "metadata"=> (object)$dataMeta,
+    ];
+
+    // Headers
+    $headers = [
+        'private-key' => 'rRQ26GcsZzoEhbrP2HZvLYDbn9C9et',
+        'public-key' => 'HGvTMLDssJghr9tlN9gr4DVYt0qyBy',
+        'Content-Type' => 'application/x-www-form-urlencoded'
+    ];
+
+    $response = Http::withHeaders($headers)->post($apiURL, $data);
+    // $statusCode = $response->status();
+    // $responseBody = json_decode($response->getBody(), true);
+    // echo $statusCode;  // status code
+    // return response($responseBody); // body response
+    return $response->json($key = null);
+});
