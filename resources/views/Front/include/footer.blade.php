@@ -192,7 +192,7 @@
             </li>
 `;
 {{--         var data = {!! json_encode($data, JSON_HEX_TAG) !!};--}}
-        if(data.user_id.toString() =="{!! Auth::id() !!}")
+        if( data.user_id.toString() !="{!! Auth::id() !!}")
          document.getElementById('shopping-list').prepend(node);
      });
     // pusher.disconnect();
