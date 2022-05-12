@@ -1,3 +1,5 @@
+@include('Front.include.header')
+
 <div class="text-center">
 	<!-- Button HTML (to Trigger Modal) -->
 	<a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Confirm Modal</a>
@@ -22,3 +24,6 @@
 		</div>
 	</div>
 </div> 
+
+
+@include('Front.include.footer')
