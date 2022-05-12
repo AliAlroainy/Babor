@@ -149,9 +149,8 @@ Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
 //fallback route
-Route::fallback(function () {
-    return view('Front.404');
+Route::get('/adminindex',function () {
+    return view('Admin.index');
 });
-
 
 
