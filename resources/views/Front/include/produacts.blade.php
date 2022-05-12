@@ -1,4 +1,5 @@
- <!-- Start Product Area -->
+
+<!-- Start Product Area -->
  <div class="product-area section" id="offer">
      <div class="container">
          <div class="row">

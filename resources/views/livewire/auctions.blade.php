@@ -33,6 +33,7 @@
                          <div class="tab-pane fade show active" id="cars" role="tabpanel">
                              <div class="tab-single">
                                  <div class="row">
+                                
                                      @foreach ($last_cars as $auction)
                                          @if ($auction->car != null)
                                              <div class="col-xl-3 col-lg-4 col-md-4 col-12">
@@ -78,10 +79,19 @@
                                                  </div>
                                              </div>
                                          @endif
+                                       
                                      @endforeach
+                                   
+           
                                  </div>
+                                
+
                              </div>
+                             
+
                          </div>
+
+                         
                          <!--/ End cars Single Tab -->
 
                          <!-- Start Salons Single Tab -->
@@ -132,11 +142,17 @@
                                                      </div>
                                                  </div>
                                              </div>
+
                                          @endif
+                                       
                                      @endforeach
+                                     
                                  </div>
+                                 
                              </div>
+                            
                          </div>
+                         
                          <!--/ End Daion Single Tab -->
 
                          <!-- Start taxis Single Tab -->
@@ -189,6 +205,7 @@
                                              </div>
                                          @endif
                                      @endforeach
+                                 
                                  </div>
                              </div>
                          </div>
@@ -359,11 +376,22 @@
                          </div>
                          <!--/ End buses Single Tab -->
                      </div>
+                     <button wire:click ="load" type="button" class=" items-center px-2.5 py-1.5 border "style="position: relative;
+    border: 2px solid transparent;
+    height: 40px;
+    padding: 0 30px;
+    background-color: #F7941D;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 40px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;">
+                                   عرض المزيد
+</button> 
                  </div>
              </div>
          </div>
      </div>
  </div>
  <!-- End Product Area -->
-
-</div>
