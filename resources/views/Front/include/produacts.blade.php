@@ -23,7 +23,7 @@
                                      role="tab">تكاسي</a></li>
                              <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#salons"
                                      role="tab">صوالين</a></li>
-                             <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#cars"
+                             <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#cars"
                                      role="tab">سيارات</a></li>
                          </ul>
                          <!--/ End Tab Nav -->
@@ -63,7 +63,7 @@
                                                      </div>
                                                      <div class="product-content">
                                                          <h3><a
-                                                                 href="{{ route('user.auction.details', $auction->id) }}">{{ $auction->type_and_model() }}
+                                                                 href="{{ route('site.auction.details', $auction->id) }}">{{ $auction->type_and_model() }}
                                                              </a></h3>
                                                          <div class="product-price">
                                                              <span>
@@ -118,7 +118,7 @@
                                                      </div>
                                                      <div class="product-content">
                                                          <h3><a
-                                                                 href="{{ route('user.auction.details', $auction->id) }}">{{ $auction->type_and_model() }}
+                                                                 href="{{ route('site.auction.details', $auction->id) }}">{{ $auction->type_and_model() }}
                                                              </a></h3>
                                                          <div class="product-price">
                                                              <span>
@@ -140,7 +140,7 @@
                          <!--/ End Daion Single Tab -->
 
                          <!-- Start taxis Single Tab -->
-                         <div class="tab-pane fade show active" id="taxis" role="tabpanel">
+                         <div class="tab-pane fade show" id="taxis" role="tabpanel">
                              <div class="tab-single">
                                  <div class="row">
                                      @foreach ($last_taxis as $auction)
@@ -173,7 +173,7 @@
                                                      </div>
                                                      <div class="product-content">
                                                          <h3><a
-                                                                 href="{{ route('user.auction.details', $auction->id) }}">{{ $auction->type_and_model() }}
+                                                                 href="{{ route('site.auction.details', $auction->id) }}">{{ $auction->type_and_model() }}
                                                              </a></h3>
                                                          <div class="product-price">
                                                              <span>
@@ -195,7 +195,7 @@
                          <!--/ End babor Single Tab -->
 
                          <!-- Start salon Single Tab -->
-                         <div class="tab-pane fade show active" id="babors" role="tabpanel">
+                         <div class="tab-pane fade show" id="babors" role="tabpanel">
                              <div class="tab-single">
                                  <div class="row">
                                      @foreach ($last_babors as $auction)
@@ -228,7 +228,7 @@
                                                      </div>
                                                      <div class="product-content">
                                                          <h3><a
-                                                                 href="{{ route('user.auction.details', $auction->id) }}">{{ $auction->type_and_model() }}
+                                                                 href="{{ route('site.auction.details', $auction->id) }}">{{ $auction->type_and_model() }}
                                                              </a></h3>
                                                          <div class="product-price">
                                                              <span>
@@ -250,7 +250,7 @@
                          <!--/ End salon Single Tab -->
 
                          <!-- Start taxi Single Tab -->
-                         <div class="tab-pane fade show active" id="taxis" role="tabpanel">
+                         <div class="tab-pane fade show" id="taxis" role="tabpanel">
                              <div class="tab-single">
                                  <div class="row">
                                      @foreach ($last_taxis as $auction)
@@ -283,7 +283,7 @@
                                                      </div>
                                                      <div class="product-content">
                                                          <h3><a
-                                                                 href="{{ route('user.auction.details', $auction->id) }}">{{ $auction->type_and_model() }}
+                                                                 href="{{ route('site.auction.details', $auction->id) }}">{{ $auction->type_and_model() }}
                                                              </a></h3>
                                                          <div class="product-price">
                                                              <span>
@@ -305,7 +305,7 @@
                          <!--/ End taxi Single Tab -->
 
                          <!-- Start buses Single Tab -->
-                         <div class="tab-pane fade show active" id="buses" role="tabpanel">
+                         <div class="tab-pane fade show" id="buses" role="tabpanel">
                              <div class="tab-single">
                                  <div class="row">
                                      @foreach ($last_buses as $auction)
@@ -338,7 +338,7 @@
                                                      </div>
                                                      <div class="product-content">
                                                          <h3><a
-                                                                 href="{{ route('user.auction.details', $auction->id) }}">{{ $auction->type_and_model() }}
+                                                                 href="{{ route('site.auction.details', $auction->id) }}">{{ $auction->type_and_model() }}
                                                              </a></h3>
                                                          <div class="product-price">
                                                              <span>
