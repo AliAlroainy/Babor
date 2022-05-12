@@ -44,8 +44,7 @@
 
                                         <div class=" row">
 
-                                            <div class="col-lg-8">
-                                                <h4 class="card-title" style="direction:rtl">عرض تفاصيل المزاد</h4>
+                                            <div class="col-lg-7">
 
                                                 <div class="col-lg-12 table-responsive" id="filteredSection">
                                                     <table class=" col-lg-10 table table-striped table-hover">
@@ -227,7 +226,7 @@
 
                                             </div>
                                             <br><br><br><br>
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-5 mt-5">
                                                 <img style="direction:ltr ;width:600px;border-raduis:1%"
                                                     class="col-lg-12 "
                                                     src="/images/cars/{{ $auction->car->thumbnail }}" alt="image" />
