@@ -141,7 +141,6 @@ class UserAuctionController extends Controller
     }
 
     public function action(Request $request, $id){
-        dd($id);
         // '3': canceled, '4': uncomplete
         $found = Auction::find($id);
         if(!$found)
@@ -166,8 +165,7 @@ class UserAuctionController extends Controller
     public function refundBidders($id){
         $admin = User::first();
         $bidders = Auction::find($id)->bids;
-        foreach(range (1, count($bidders)-1) as $i){
-            print_r($i, $bidders[$i]);
+        foreach(range (0, count($bidders)-1) as $i){
             $admin->transfer($bidders[$i]->user, $bidders[$i]->getDeduction());       
         }
     }
