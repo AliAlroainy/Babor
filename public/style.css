@@ -4893,8 +4893,9 @@
   position: relative;
   background: #333;
   text-align: center;
-  background-color: #F7941D;
-  margin-bottom:100px;
+  background-color: #3c3b3b28;
+  margin-bottom:30px;
+  height: 100px;
 }
 
 .free-version-banner .section-title span {
