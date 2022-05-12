@@ -13,9 +13,8 @@
 		<div class="modal-content">
 			<div class="modal-header w-100 d-flex align-items-center justify-content-center text-center" style="top:-100px; " >
 				<div >
-					<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_ya4ycrti.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
-
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets8.lottiefiles.com/temp/lf20_xG4aYa.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
 				</div>				
 			</div>
 			<div class="modal-body">

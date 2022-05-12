@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-5 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer about">
+                    <div class="single-footer about text-end" dir="rtl" >
                         <div class="logo">
                             <a href="/"><img src="/assets/images/logo.png" alt="logo" width="150"></a>
                         </div>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-lg-2 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer links">
+                    <div class="single-footer links text-end">
                         <h4>معلومات</h4>
                         <ul>
                             <li><a class="nav-link" href="/about">عننا</a></li>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-lg-2 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer links">
+                    <div class="single-footer links text-end">
                         <h4>خدمة العلاء</h4>
                         <ul>
                             <li><a class="nav-link" href="/contact">تواصل معنا</a></li>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer social">
+                    <div class="single-footer social text-end">
                         <h4>تواصل بنا</h4>
                         <!-- Single Widget -->
                         <div class="contact">
@@ -53,7 +53,8 @@
                                 <li>جولة المسبح</li>
                                 <li>info@babor.com</li>
                                 <li>+967 773 739 473</li>
-                                <li>.</li>
+                                <li>  </li>
+
 
                             </ul>
                         </div>
@@ -71,20 +72,16 @@
         </div>
     </div>
     <!-- End Footer Top -->
-    <div class="copyright">
+    <div class="copyright text-center">
         <div class="container">
             <div class="inner">
-                <div class="row">
-                    <div class="col-lg-6 col-12">
-                        <div class="left">
-                            <p> © 2020 <a href="#" target="_blank">بابور</a> - جميع الحقوق محفوظة.</p>
+                <div class="row text-center">
+                    <div class="col-lg-12 col-12">
+                        <div class="w-90 text-center">
+                            <p> © 2020 <a href="#" target="_blank">بابور</a> - جميع الحقوق محفوظة</p>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-12">
-                        <div class="right">
-                            {{-- <img src="images/payments.png" alt="#"> --}}
-                        </div>
-                    </div>
+                
                 </div>
             </div>
         </div>
