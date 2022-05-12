@@ -27,6 +27,18 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
 
+Route::get('/success', function () {
+    return view('Front.addtions.success');
+});
+
+Route::get('/chat', function () {
+    return view('Front.addtions.chat');
+});
+
+Route::get('/privcey', function () {
+    return view('Front.privcey');
+});
+
 Route::get('/FAQ', function () {
     return view('Front.FAQ');
 });

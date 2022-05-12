@@ -117,49 +117,7 @@
                 </div>
             </div>
 
-            <!-- start experience section-->
-            <div class="timeline">
-                <div class="icon"></div>
-                <div class="date-content">
-                    <div class="date-outer">
-                        <span class="date">
-                            <span class="month">2 Years</span>
-                            <span class="year">2016</span>
-                        </span>
-                    </div>
-                </div>
-                <div class="timeline-content">
-                    <h5 class="title">Web Designer</h5>
-                    <p class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa
-                        scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent
-                        dapibus dolor felis, eu ultrices elit molestie.
-                    </p>
-                </div>
-            </div>
-            <!-- end experience section-->
-
-            <!-- start experience section-->
-            <div class="timeline">
-                <div class="icon"></div>
-                <div class="date-content">
-                    <div class="date-outer">
-                        <span class="date">
-                            <span class="month">2 Years</span>
-                            <span class="year">2018</span>
-                        </span>
-                    </div>
-                </div>
-                <div class="timeline-content">
-                    <h5 class="title">Graphic Designer</h5>
-                    <p class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa
-                        scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent
-                        dapibus dolor felis, eu ultrices elit molestie.
-                    </p>
-                </div>
-            </div>
-            <!-- end experience section-->
+   
         </div>
     </div>
 
@@ -171,21 +129,21 @@
                         @if (!Auth::user())
                             <div class="col-12 d-inline-flex justify-content-center my-3">
                                 <div class="form-group" style="background-color: #F7941D;">
-                                    <a href="{{ route('login') }}" class="btn"
-                                        style="background-color: #F7941D; color: white;">
-                                        <h2 class="text-white wow fadeInUp" data-wow-delay=".4s"
+                                    <a href="{{ route('login') }}" class="btn p-3"
+                                        style="background-color: #1a1a19; color: #F7941D;">
+                                        <h6 class="text-white wow fadeInUp" data-wow-delay=".4s"
                                             style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
                                             سجل الدخول
                                             في
-                                            الموقع لاضافة مزاد </h2>
+                                            الموقع لاضافة مزاد </h6>
                                     </a>
                                 </div>
                             </div>
                         @else
-                            <div class="col-12 d-inline-flex justify-content-center my-3">
+                            <div class="col-12 d-inline-flex justify-content-center ">
                                 <div class="form-group" style="background-color: #F7941D;">
-                                    <a href="{{ route('user.add.auction') }}" class="btn"
-                                        style="background-color: #F7941D; color: white;">ابدأ الآن</a>
+                                    <a href="{{ route('user.add.auction') }}" class="btn p-3"
+                                    style="background-color: #1a1a19; color: #F7941D;">ابدأ الآن</a>
                                 </div>
                             </div>
                         @endif
