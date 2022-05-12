@@ -160,15 +160,16 @@ Route::get('/api', function(){
     // URL
     $apiURL = 'https://waslpayment.com/api/test/merchant/payment_order';
 
+    $dataMeta = ["Customer name" => "somename", "order id"=> 0];
     // Data
     $data = [
         "order_reference" => "123412",
-        "products"=> '{ "id":1, "product_name": "sumsung s5", "quantity": 1, "unit_amount": 100 }',
+        "products"=> [["Customer name" => "somename", "order id"=> 0]],
         "total_amount" => 1400,
         "currency" => "YER",
         "success_url" => "https://company.com/success",
         "cancel_url"=> "https://company.com/cancel",
-        "metadata"=> '{ "Customer name" => "somename", "order id": 0}'
+        "metadata"=> (object)$dataMeta,
     ];
 
     // Headers
@@ -179,8 +180,9 @@ Route::get('/api', function(){
     ];
 
     $response = Http::withHeaders($headers)->post($apiURL, $data);
-    $statusCode = $response->status();
-    $responseBody = json_decode($response->getBody(), true);
-    echo $statusCode;  // status code
-    return response($responseBody); // body response
+    // $statusCode = $response->status();
+    // $responseBody = json_decode($response->getBody(), true);
+    // echo $statusCode;  // status code
+    // return response($responseBody); // body response
+    return $response->json($key = null);
 });
