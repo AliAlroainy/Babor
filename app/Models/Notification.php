@@ -11,9 +11,11 @@ class Notification extends Model
     use HasFactory;
 
     protected $fillable = [
-        'bidder_id',
+        'user_id',
         'auction_id',
         'state',
+        'message',
+        'link',
     ];
 
 

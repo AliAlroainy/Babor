@@ -8,7 +8,10 @@ use App\Models\Auction;
 use App\Http\Controllers\Controller;
 use App\Models\Bid;
 use App\Models\Notification;
+use App\Models\User;
+use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Pusher\Pusher;
@@ -55,8 +58,44 @@ class AcutionController extends Controller
         if(!$found)
             return abort('404');
         $auction = Auction::whereId($id);
-        if($request->has('approve'))
+        if($request->has('approve')){
             $auction->update(['status' => '2', 'startDate' => now()]);
+
+
+            $options = array(
+                'cluster' => env('PUSHER_APP_CLUSTER'),
+                'encrypted' => true
+            );
+            $pusher = new Pusher(
+                env('PUSHER_APP_KEY'),
+                env('PUSHER_APP_SECRET'),
+                env('PUSHER_APP_ID'),
+                $options
+            );
+
+            $notification = new Notification();
+//            $auction = Auction::whereId('id');
+                $user=User::where('id',$found->auctioneer_id)->first();
+//            $users = User::all()->except(Auth::id());
+//                foreach($users as $user) {
+                    $notification = Notification::create([
+                            'message' => "تمت إضافة مزاد جديد",
+                        'user_id' => $user->id ,
+                        'state' => 0,
+                        'link' => $found->id
+                    ]);
+                    $data['id'] = $notification->id;
+                    $data['massage'] ="تم اضافه مزاد جديد ";
+                    $data['link'] = 'link';
+                    $data['price'] = $found->openingBid;
+                    $data['endDate'] = $found->closeDate;
+                    $data['user_id'] = $user->id;
+
+                    $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
+
+//            exit();
+
+        }
 
         if($request->has('disapprove')){
             Validator::validate($request->all(), [
@@ -71,6 +110,9 @@ class AcutionController extends Controller
             $auc->rejectReason = $request->reject_reason;
             $auc->save();
         }
+
+
+
         return redirect()->back();
     }
 
