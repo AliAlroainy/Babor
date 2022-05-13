@@ -26,6 +26,8 @@
     "dependencies": {
         "dropify": "^0.2.2",
         "filepond": "^4.30.3",
+        "laravel-echo": "^1.11.7",
+        "pusher-js": "^7.1.0-beta",
         "vue": "^3.2.33",
         "vuetify": "^2.6.5"
     }

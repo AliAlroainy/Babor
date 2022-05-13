@@ -1,86 +1,79 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
 use App\Models\Message;
+use App\Events\PrivateMessageSent;
+use App\Events\MessageSent;
 
 class MessageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware('auth');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function fetchMessages()
     {
-        //
+        return Message::with('user')->get();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreMessageRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreMessageRequest $request)
+    public function privateMessages(User $user)
     {
-        //
+        $privateCommunication= Message::with('user')
+        ->where(['user_id'=> auth()->id(), 'receiver_id'=> $user->id])
+        ->orWhere(function($query) use($user){
+            $query->where(['user_id' => $user->id, 'receiver_id' => auth()->id()]);
+        })
+        ->get();
+
+        return $privateCommunication;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Message $message)
+    public function sendMessage(Request $request)
     {
-        //
+
+
+        if(request()->has('file')){
+            $filename = request('file')->store('chat');
+            $message=Message::create([
+                'user_id' => request()->user()->id,
+                'image' => $filename,
+                'receiver_id' => request('receiver_id')
+            ]);
+        }else{
+            $message = auth()->user()->messages()->create(['message' => $request->message]);
+
+        }
+
+
+        broadcast(new MessageSent(auth()->user(),$message->load('user')))->toOthers();
+
+        return response(['status'=>'Message sent successfully','message'=>$message]);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Message $message)
+    public function sendPrivateMessage(Request $request,User $user)
     {
-        //
-    }
+        if(request()->has('file')){
+            $filename = request('file')->store('chat');
+            $message=Message::create([
+                'user_id' => request()->user()->id,
+                'image' => $filename,
+                'receiver_id' => $user->id
+            ]);
+        }else{
+            $input=$request->all();
+            $input['receiver_id']=$user->id;
+            $message=auth()->user()->messages()->create($input);
+        }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateMessageRequest  $request
-     * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateMessageRequest $request, Message $message)
-    {
-        //
-    }
+        broadcast(new PrivateMessageSent($message->load('user')))->toOthers();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Message $message)
-    {
-        //
+        return response(['status'=>'Message private sent successfully','message'=>$message]);
+
     }
+   
 }

@@ -68,5 +68,5 @@ class SiteController extends Controller
         $questions = question::where('is_active', '1')->get();
         return view('Front.FAQ', ['questions' => $questions]);
     }
-    
+
 }
