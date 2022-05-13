@@ -152,9 +152,9 @@ class UserAuctionController extends Controller
             $this->refundBidders($id);
         });
         $auction->when($request->has('timeExtension'), function ($q) use ($auction){
-                        $q->update(['closeDate' => Carbon::parse($auction->closeDate)->addDays(2)]);
+                        $q->update(['closeDate' => Carbon::parse($auction->first()->closeDate)->addDays(2)]);
                     });
-        $auction->when($request->has('stop'), function ($q) use ($id, $auction){
+        $auction->when($request->has('stop'), function ($q) use ($id){
                         $q->update(['status' => '4']);
                         $this->refundBidders($id);
                     });
@@ -168,18 +168,5 @@ class UserAuctionController extends Controller
         foreach(range (0, count($bidders)-1) as $i){
             $admin->transfer($bidders[$i]->user, $bidders[$i]->getDeduction());       
         }
-    }
-    public function subscribedAuctions (Request $request)
-    {
-
-        $id=Auth::id();
-        $bids=Bid::with(['user','auction'])->where('bidder_id',$id)->orderBy('bidder_id', 'desc')->first();
-        $auctions= Auction::orderBy('id')->get();
-        return view('Front.Auction.auctions')->with(['auctions'=>$auctions,'bids'=>$bids]);
-
-
-    }
-    public function udpate(Request $request){
-
     }
 }

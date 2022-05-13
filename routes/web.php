@@ -39,9 +39,7 @@ Route::get('/chat', function () {
     return view('Front.addtions.chat');
 });
 
-Route::get('/privcey', function () {
-    return view('Front.privcey');
-});
+
 
 Route::get('/FAQ', function () {
     return view('Front.FAQ');
@@ -70,10 +68,13 @@ Route::get('/', [SiteController::class, 'home'])->name('/');
 Route::get('/FAQ', [SiteController::class, 'questionShow']);
 Route::get('/auctions/available', [SiteController::class, 'availableAuctions'])->name('site.available.auction');
 Route::get('/auction/{id}', [SiteController::class, 'auctionShow'])->name('site.auction.details');
+
 Route::view('/soon', 'Front.soon');
 Route::view('/contact', 'Front.contact');
 Route::view('/favorite', 'Front.favorite');
 Route::view('/buy', 'Front.buy');
+Route::view('/privacy', 'Front.privcey');
+
 Route::get('/user/profile/settings/changePassword', function () {
     return view('auth.changePassword');
 });
@@ -131,8 +132,8 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/auctions/canceled', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.canceled.auction');
             Route::get('/auction/details/{id}', [UserAuctionController::class, 'showDetails'])->name('user.auction.details');
             Route::post('/auctions/in-progress/action/{id}', [UserAuctionController::class, 'action'])->name('user.progress.action.auction');
-            Route::post('/bid/{id}', BidController::class)->name('user.place.bid');
-            Route::get('/auctions/subscribed_auction', [UserAuctionController::class, 'subscribedAuctions'])->name('user.show.subscribed.auction');
+            Route::get('/bids', [BidController::class, 'index'])->name('user.show.bids');
+            Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
         });
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');

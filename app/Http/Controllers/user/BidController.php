@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\Validator;
 
 class BidController extends Controller
 {
-    public function __invoke(Request $request, $id){
+    public function index(){
+        $bids = Bid::where('bidder_id', Auth::id())->get();
+        return view('Front.Auction.bids')->with('bids',$bids);  
+    }
+    public function create(Request $request, $id){
         $current_user = Auth::id();
         $found = Auction::find($id);
         $current_auction = Auction::whereId($id);
@@ -48,6 +52,13 @@ class BidController extends Controller
         
         // $found->user->transfer(User::first(), $deduction);
         
+        $start_before = Bid::where('auction_id', $id)->first();
+        if(!$start_before)
+            $bid->currentPrice = $bid->bidPrice + Auction::whereId($id)->first()->openingBid;
+        else
+            // to get last bid of an auction
+            $bid->currentPrice = $bid->bidPrice + Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->currentPrice;
+       
         //check balance
         if($bid->user->balance >= $bid->bidPrice){
             $deduction = $bid->getDeduction();
@@ -55,13 +66,7 @@ class BidController extends Controller
         }
         else
             return redirect()->route('site.auction.details', $id)->with('errorBid','رصيدك غير كافٍ لإجراء هذه المزايدة');
- 
-        $start_before = Bid::where('auction_id', $id)->first();
-        if(!$start_before)
-            $bid->currentPrice = $bid->bidPrice + Auction::whereId($id)->first()->openingBid;
-        else
-            // to get last bid of an auction
-            $bid->currentPrice = $bid->bidPrice + Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->currentPrice;
+         
         $bid->save();
 
         // $deduction = $bid->getDeduction();

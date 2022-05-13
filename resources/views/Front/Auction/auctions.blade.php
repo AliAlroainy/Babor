@@ -9,9 +9,9 @@
                             <div class="tab-pane fade {{ request()->is('user/auctions/in-progress') ? 'show active' : null }}"
                                 id="{{ route('user.show.progress.auction') }}" role="tabpanel"
                                 aria-labelledby="{{ route('user.show.progress.auction') }}-tab">
-                                <h2 class="text-center mt-3 ">المزادات الجارية</h2>
+                                <h2 class="text-center mt-3">المزادات الجارية</h2>
                                 <div class="container my-5">
-                                    <div class="row auction-list ">
+                                    <div class="row auction-list">
                                         @if (isset($auctions) && $auctions->count() > 0)
                                             @foreach ($auctions as $auction)
                                                 <div class=" p-2 bg-white d-flex flex-column shadow rounded">
@@ -491,11 +491,10 @@
                                 aria-labelledbyh2="{{ route('user.show.uncompleted.auction') }}-tab">
                                 <h2 class="text-center mt-3 ">المزادات الغير مكتملة</h2>
                                 <div class="container my-5">
-                                    <div class="row">
+                                    <div class="row auction-list">
                                         @if (isset($auctions) && $auctions->count() > 0)
                                             @foreach ($auctions as $auction)
-                                                <div
-                                                    class="col-md-6 col-lg-4 col-xl-4 p-5 bg-white d-flex flex-column  shadow rounded">
+                                                <div class=" p-2 bg-white d-flex flex-column shadow rounded">
                                                     <div class="mt-1 text-center">
                                                         <img class="img-fluid img-responsive rounded product-image"
                                                             src="/images/cars/{{ $auction->car->thumbnail }}"
@@ -552,40 +551,10 @@
                                                                 <span class="fw-bold">السعر الحالي</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">
-                                                                    @if ($auction->bids_count > 0)
+                                                                    @if ($auction->bids->count() > 0)
                                                                         {{ $auction->bids->first()->currentPrice }}
                                                                     @else
                                                                         {{ $auction->openingBid }}
-                                                                    @endif
-                                                                </span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mt-3 row align-items-baseline justify-content-evenly">
-                                                        <div class="col-sm-5">
-                                                            <p>
-                                                                <i class="fas fa-users"></i>
-                                                                <span class="fw-bold">عددالمزايدين</span>
-                                                                <br>
-                                                                <span class="text-danger ps-1 pe-3">
-                                                                    @if ($auction->bids->count() > 0)
-                                                                        {{ $auction->bids_count }}
-                                                                    @else
-                                                                        -
-                                                                    @endif
-                                                                </span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="mt-3 col-sm-5">
-                                                            <p>
-                                                                <i class="fas fa-user-clock"></i>
-                                                                <span class="fw-bold">أعلى مزايد</span>
-                                                                <br>
-                                                                <span class="text-danger ps-1 pe-3">
-                                                                    @if ($auction->bids->count() > 0)
-                                                                        {{ $auction->bids->first()->user->name }}
-                                                                    @else
-                                                                        -
                                                                     @endif
                                                                 </span>
                                                             </p>
@@ -642,7 +611,6 @@
                                                             </a>
                                                         @endif
                                                     </div>
-
                                                 </div>
                                             @endforeach
                                         @else
@@ -676,7 +644,7 @@
                                     </div>
                                 @endif
                                 <div class="container my-5">
-                                    <div class="row auction-list ">
+                                    <div class="row auction-list">
                                         @if (isset($auctions) && $auctions->count() > 0)
                                             @foreach ($auctions as $auction)
                                                 <div class=" p-2 bg-white d-flex flex-column shadow rounded">
