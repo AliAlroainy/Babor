@@ -77,21 +77,25 @@
                                                         {{ $bid->bidPrice }}
                                                     </td>
                                                     <td>
-                                                        @if ($bid->auction->status == '4' || $bid->auction->status == '5')
+                                                        @if ($bid->auction->status == '2')
+                                                            <span class="text-success">ليس بعد</span>
+                                                        @elseif($bid->auction->status == '3')
+                                                            <span class="text-success">أُلغي المزاد</span>
+                                                        @elseif ($bid->auction->status == '4' || $bid->auction->status == '5')
                                                             <span class="text-success">نعم</span>
-                                                        @else
-                                                            <span class="text-success">لا</span>
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        @if ($bid->auction->status == '4' || $bid->auction->status == '5')
-                                                            {{-- @if ($bid->acution->winner == Auth::id())
+                                                        @if ($bid->auction->status == '2')
+                                                            <span class="text-success">ليس بعد</span>
+                                                        @elseif($bid->auction->status == '3')
+                                                            <span class="text-success">أُلغي المزاد</span>
+                                                        @elseif ($bid->auction->status == '4' || $bid->auction->status == '5')
+                                                            @if ($bid->acution->winner_id == Auth::id())
                                                                 <span class="text-success">نعم</span>
                                                             @else
                                                                 <span class="text-success">لا</span>
-                                                            @endif --}}
-                                                        @else
-                                                            <span class="text-success">لا</span>
+                                                            @endif
                                                         @endif
                                                     </td>
                                                     <td>
