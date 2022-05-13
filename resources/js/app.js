@@ -5,11 +5,13 @@
  */
 
 require('./bootstrap');
-import Vue from 'vue'
-import Vuetify from 'vuetify/lib'
+
+window.Vue = require('vue').default;
+
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify)
-window.Vue = require('vue').default;
 
 /**
  * The following block of code may be used to automatically register your
