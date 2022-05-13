@@ -29,7 +29,7 @@ use App\Http\Controllers\Authentication\ForgotPasswordController;
 
 
 Route::get('/confirm', function () {
-    return view('Front.addtions.confirm');
+    return view('Front.addtions.confirmBuy');
 });
 
 Route::get('/failed', function () {

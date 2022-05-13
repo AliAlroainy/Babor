@@ -1,13 +1,14 @@
 @include('Front.include.header')
 
 
-<div class="container" >
+<div class="container" dir="rtl" >
 
-    <div>
+    <div class="d-flex justify-content-center">
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_cyn8dgwy.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
     </div>
 
+    <div class="text-center">
     <div>
         <h1> تاكيد عملية الشراء بين الطرفين </h1>
     </div>
@@ -16,6 +17,7 @@
         <h4>  في حال تم التاكيد على البيع من قبل الطرفين سيقوم الموقع بتحويل المبلغ الى البائع</h4>
     </div>
 
+    </div>
     <div>
         <p> تعليمات هامة  </p>
         <ul>
