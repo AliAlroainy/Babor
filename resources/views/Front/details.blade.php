@@ -188,7 +188,7 @@
                                 </div>
                                 <div class="alert alert-warning mt-4" role="alert" dir="rtl">
                                     <i class="bi bi-shield-fill-exclamation"></i>
-                                    تنبية سيتم خصم مبلغ 500$ من حسابك قيمة الدخول للمزاد
+                                    تنبية سيتم خصم نسبة 10% من حسابك قيمة الدخول للمزاد
                                 </div>
                             </div>
                             <div class="modal-footer">

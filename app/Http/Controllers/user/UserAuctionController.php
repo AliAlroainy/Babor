@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 use Carbon\Carbon;
 use App\Models\Bid;
 use App\Models\Car;
+use App\Models\User;
 use App\Models\Brand;
 use App\Models\Auction;
 use App\Models\Category;
@@ -82,6 +83,8 @@ class UserAuctionController extends Controller
     public function showMyAuctions(Request $request, $id=null){
         $route = Route::current()->getName();
         $current_user = Auth::id();
+
+        //Delete by user his/her auction before approved by admin
         if($route == 'user.delete.pending.auction'){
             $found = Auction::find($id);
             if(!$found)
@@ -144,18 +147,28 @@ class UserAuctionController extends Controller
             return abort('404');
             
         $auction = Auction::whereId($id);
-        $auction->when($request->has('cancel'), function ($q){
+        $auction->when($request->has('cancel'), function ($q) use ($id){
             $q->update(['status' => '3']);
+            $this->refundBidders($id);
         });
         $auction->when($request->has('timeExtension'), function ($q) use ($auction){
                         $q->update(['closeDate' => Carbon::parse($auction->closeDate)->addDays(2)]);
                     });
-        $auction->when($request->has('stop'), function ($q) use ($auction){
+        $auction->when($request->has('stop'), function ($q) use ($id, $auction){
                         $q->update(['status' => '4']);
+                        $this->refundBidders($id);
                     });
         return redirect()->back();          
     }
 
+    //Refunds to previous bidders
+    public function refundBidders($id){
+        $admin = User::first();
+        $bidders = Auction::find($id)->bids;
+        foreach(range (0, count($bidders)-1) as $i){
+            $admin->transfer($bidders[$i]->user, $bidders[$i]->getDeduction());       
+        }
+    }
     public function subscribedAuctions (Request $request)
     {
 

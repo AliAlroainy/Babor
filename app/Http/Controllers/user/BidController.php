@@ -40,16 +40,34 @@ class BidController extends Controller
         }
 
         $bid = new Bid();
-        $start_before = Bid::where('auction_id', $id)->first();
         $bid->auction_id = $id;
         $bid->bidder_id = $current_user;
         $bid->bidPrice =  $request->input('bidPrice');
+        $bid->securityDeposit = 10;
+
+        
+        // $found->user->transfer(User::first(), $deduction);
+        
+        //check balance
+        if($bid->user->balance >= $bid->bidPrice){
+            $deduction = $bid->getDeduction();
+            $bid->user->transfer(User::first(), $deduction);
+        }
+        else
+            return redirect()->route('site.auction.details', $id)->with('errorBid','رصيدك غير كافٍ لإجراء هذه المزايدة');
+ 
+        $start_before = Bid::where('auction_id', $id)->first();
         if(!$start_before)
             $bid->currentPrice = $bid->bidPrice + Auction::whereId($id)->first()->openingBid;
         else
             // to get last bid of an auction
             $bid->currentPrice = $bid->bidPrice + Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->currentPrice;
         $bid->save();
+
+        // $deduction = $bid->getDeduction();
+        // dd($deduction);
+        // $found->user->transfer(User::first(), 5000);
+        
         return redirect()->back()->with('successBid', 'تمت المزايدة بنجاح');
     }
 }

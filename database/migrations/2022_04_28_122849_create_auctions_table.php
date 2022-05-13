@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('auctions', function (Blueprint $table) {
             $table->id();
-            $table->decimal('commission', 10, 2)->nullable();
+            $table->integer('commission')->nullable();
             $table->decimal('minInc', 10, 2);
             $table->date('closeDate');
             $table->date('startDate')->nullable();

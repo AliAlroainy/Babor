@@ -114,7 +114,7 @@ class ProfileSeeder extends Seeder
             'username' => 'Nashwan',
             'city' => 'Sanaa',
             'address' => $faker->sentence(4),
-            'avatar' =>    $faker->image('public/images/profiles',640,480, null, false),
+            'avatar' =>  $faker->image('public/images/profiles',640,480, null, false),
             'phone' => $faker->numerify('###-###-###'),
             'bio'=> $faker->sentence(10),
             'job' => 'Projet Manager',
