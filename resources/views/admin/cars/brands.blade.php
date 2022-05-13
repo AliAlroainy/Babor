@@ -176,6 +176,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel1">اضف براند</h5>
+               
                         </div>
                         <div class="modal-body">
                             <div class="row">

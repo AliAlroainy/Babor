@@ -69,6 +69,9 @@ Route::get('/about', function () {
 Route::get('/findcar', function () {
     return view('Front.findcar');
 });
+Route::get('/chata', function () {
+    return view('chat.chat');
+});
 Route::get('/services', [SiteController::class, 'ServicesShow']);
 Route::get('/', [SiteController::class, 'home'])->name('/');
 Route::get('/FAQ', [SiteController::class, 'questionShow']);
@@ -206,3 +209,7 @@ Route::get('/api', function(){
     // return response($responseBody); // body response
     return $response->json($key = null);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
