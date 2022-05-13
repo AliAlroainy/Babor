@@ -250,6 +250,8 @@
 	margin-left: 6px;
 	font-size: 10px;
 }
+
+
 /* Dropdown Menu */
 .header .nav li .dropdown {
 	background: #fff;
@@ -298,6 +300,8 @@
 	color:#fff;
 	background:#F7941D;
 }
+
+
 .header .nav li .dropdown li a:hover{
 	border-color:transparent;
 }
@@ -957,10 +961,11 @@
 	color:#F7941D;
 	background:transparent;
 }
-.header.shop .nav li.active a{
+.active {
 	color:#fff;
 	background:#F7941D;
 }
+
 .header.shop.v2 .nav li.active a{
 	color:#333 !important;
 	background:transparent !important;
