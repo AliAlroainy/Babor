@@ -1,7 +1,7 @@
 @include('Front.include.header')
 
 
-<div class="container" dir="rtl" >
+<div class="container mb-5" dir="rtl" >
 
     <div class="d-flex justify-content-center">
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -34,6 +34,19 @@
                 في حال تم التراجع على البيع من قبل احد الطرفين بدون مبرر سيتم خصم عقوبة
             </li>
         </ul>
+    </div>
+
+    <div class="d-flex justify-content-around">
+        <div>
+        <button>تاكيد البائع </button>
+        تراجع
+        </div>
+
+        <div>
+            <button>تاكيد المشتري </button>
+            تراجع
+            </div>
+        
     </div>
 
 </div>
