@@ -961,7 +961,7 @@
 	color:#F7941D;
 	background:transparent;
 }
-.active {
+.header.shop .nav li.active a{
 	color:#fff;
 	background:#F7941D;
 }
