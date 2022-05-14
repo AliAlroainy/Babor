@@ -11,5 +11,25 @@ use Livewire\Component;
 
 class Taxis extends Component
 {
-    
+    public $pe_taxi =14;
+
+    public function load2()
+    {
+      
+       $this->pe_taxi += 4;
+     
+        
+    }
+    public function render()
+    { $last_taxis = Auction::with(['car' => function ($q){
+        return $q->where('category_id', 3)->get();
+
+    }])->where('status', '2')->orderBy('id', 'desc')->paginate($this->pe_taxi);
+        return view('livewire.taxis')->with([
+           
+           
+            'last_taxis'=> $last_taxis,
+           
+        ]);
+}
 }
