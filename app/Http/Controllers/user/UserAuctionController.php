@@ -155,7 +155,9 @@ class UserAuctionController extends Controller
                         $q->update(['closeDate' => Carbon::parse($auction->first()->closeDate)->addDays(2)]);
                     });
         $auction->when($request->has('stop'), function ($q) use ($id){
-                        $q->update(['status' => '4']);
+                        $q->update([
+                            'status' => '4', 
+                            'winner_id' => Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->bidder_id]);
                         $this->refundBidders($id);
                     });
         return redirect()->back();          

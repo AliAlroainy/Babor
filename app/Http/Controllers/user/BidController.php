@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 class BidController extends Controller
 {
     public function index(){
-        $bids = Bid::where('bidder_id', Auth::id())->get();
+        $bids = Bid::where('bidder_id', Auth::id())->with('auction')->get();
         return view('Front.Auction.bids')->with('bids',$bids);  
     }
     public function create(Request $request, $id){
@@ -50,8 +50,6 @@ class BidController extends Controller
         $bid->securityDeposit = 10;
 
         
-        // $found->user->transfer(User::first(), $deduction);
-        
         $start_before = Bid::where('auction_id', $id)->first();
         if(!$start_before)
             $bid->currentPrice = $bid->bidPrice + Auction::whereId($id)->first()->openingBid;
@@ -68,10 +66,6 @@ class BidController extends Controller
             return redirect()->route('site.auction.details', $id)->with('errorBid','رصيدك غير كافٍ لإجراء هذه المزايدة');
          
         $bid->save();
-
-        // $deduction = $bid->getDeduction();
-        // dd($deduction);
-        // $found->user->transfer(User::first(), 5000);
         
         return redirect()->back()->with('successBid', 'تمت المزايدة بنجاح');
     }

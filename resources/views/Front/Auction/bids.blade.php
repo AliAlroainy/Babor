@@ -20,23 +20,23 @@
                                 </div>
                             </div>
                             <h4 class="card-title">عرض المزايدات</h4>
-                            @if (session()->has('errorEdit'))
+                            @if (session()->has('notFound'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{ session()->get('errorEdit') }}
+                                    {{ session()->get('notFound') }}
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
                             @endif
-                            @if (session()->has('successAdd'))
+                            @if (session()->has('sendMoney'))
                                 <div class="alert alert-success alert-dismissible fade show">
-                                    {{ session()->get('successAdd') }}
+                                    {{ session()->get('sendMoney') }}
                                     <button type=" button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
                             @endif
-                            @if (session()->has('errorAdd'))
-                                <div class="alert alert-success alert-dismissible fade show">
-                                    {{ session()->get('errorAdd') }}
+                            @if (session()->has('errorPayment'))
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    {{ session()->get('errorPayment') }}
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
@@ -91,8 +91,18 @@
                                                         @elseif($bid->auction->status == '3')
                                                             <span class="text-success">أُلغي المزاد</span>
                                                         @elseif ($bid->auction->status == '4' || $bid->auction->status == '5')
-                                                            @if ($bid->acution->winner_id == Auth::id())
-                                                                <span class="text-success">نعم</span>
+                                                            @if ($bid->auction->winner_id == Auth::id())
+                                                                <div class="d-flex justify-content-center">
+                                                                    <form
+                                                                        action="{{ route('user.buy.auction', $bid->auction->id) }}"
+                                                                        method="POST">
+                                                                        @csrf
+                                                                        {{-- <span class="text-success">نعم، </span> --}}
+                                                                        <input type="submit"
+                                                                            class="btn bg-main-color text-white"
+                                                                            value="شراء السيارة">
+                                                                    </form>
+                                                                </div>
                                                             @else
                                                                 <span class="text-success">لا</span>
                                                             @endif
