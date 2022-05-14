@@ -121,16 +121,17 @@
         </div>
     </div>
 
-    <section class="section free-version-banner mb-0 ">
+    <section class="section free-version-banner mb-0  ">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center fixed-bottom" >
                 <div class="col-md-8 offset-md-2 col-xs-12">
                     <div class="section-title mb-60">
                         @if (!Auth::user())
-                            <div class="col-12 d-inline-flex justify-content-center my-3">
+                            <div class="col-12 d-inline-flex justify-content-center my-3" >
                                 <div class="form-group" style="background-color: #F7941D;">
-                                    <a href="{{ route('login') }}" class="btn p-3"
-                                        style="background-color: #1a1a19; color: #F7941D;">
+                                    <a  href="{{ route('login') }}" class="btn p-3 "
+
+                                        style="background-color: #1a1a19; color: #F7941D; box-shadow: 0px 0px 15px #F7941D">
                                         <h6 class="text-white wow fadeInUp" data-wow-delay=".4s"
                                             style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
                                             سجل الدخول
@@ -140,8 +141,8 @@
                                 </div>
                             </div>
                         @else
-                            <div class="col-12 d-inline-flex justify-content-center ">
-                                <div class="form-group" style="background-color: #F7941D;">
+                            <div class="col-12 d-inline-flex justify-content-center fixed-bottom">
+                                <div class="form-group" style="background-color: #F7941D;  box-shadow: 0px 0px 15px #F7941D">
                                     <a href="{{ route('user.add.auction') }}" class="btn p-3"
                                     style="background-color: #1a1a19; color: #F7941D;">ابدأ الآن</a>
                                 </div>
