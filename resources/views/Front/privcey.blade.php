@@ -7,6 +7,7 @@
             <h2 > السياسات والخصوصية</h2>
         </div>
     </div>
+</div>
 
 <div class="container " dir="rtl" >
 
