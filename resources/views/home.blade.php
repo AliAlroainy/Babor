@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-<chat></chat>
+<Chat :user="{{auth()->user()}}"></Chat>
 @endsection

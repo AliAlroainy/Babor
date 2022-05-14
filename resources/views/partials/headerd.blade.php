@@ -116,13 +116,7 @@
     height: 100%;
   }
   </style>
- {{-- vue --}}
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <link rel="stylesheet" href="{{ @asset('resource/css/app.css') }}">
-<script src="{{ @asset('resource/js/app.js') }}">
-</script>
-<script src="{{ @asset('resource/js/bootstrap.js') }}">
-</script>
+
 </head>
 
 <body>

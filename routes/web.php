@@ -210,13 +210,13 @@ Route::get('/api', function(){
     return $response->json($key = null);
 });
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('/private', 'HomeController@private')->name('private');
-// Route::get('/users', 'HomeController@users')->name('users');
+Route::get('/private',[ App\Http\Controllers\HomeController::class, 'private'])->name('private');
+Route::get('/users', [App\Http\Controllers\HomeController::class, 'users'])->name('users');
 
-Route::get('messages', 'MessageController@fetchMessages');
-Route::post('messages', 'MessageController@sendMessage');
-// Route::get('/private-messages/{user}', 'MessageController@privateMessages')->name('privateMessages');
-// Route::post('/private-messages/{user}', 'MessageController@sendPrivateMessage')->name('privateMessages.store');
+Route::get('messages', [App\Http\Controllers\MessageController::class, 'fetchMessages']);
+Route::post('messages', [App\Http\Controllers\MessageController::class, 'sendMessage']);
+Route::get('/private-messages/{user}', [App\Http\Controllers\MessageController::class, 'privateMessages'])->name('privateMessages');
+Route::post('/private-messages/{user}',  [App\Http\Controllers\MessageController::class, 'sendPrivateMessage'])->name('privateMessages.store');
