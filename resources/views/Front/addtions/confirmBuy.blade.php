@@ -10,7 +10,7 @@
 
     <div class="text-center">
     <div>
-        <h1> تاكيد عملية الشراء بين الطرفين </h1>
+        <h1> تاكيد عملية الشراء  </h1>
     </div>
 
     <div>
@@ -18,33 +18,36 @@
     </div>
 
     </div>
-    <div>
-        <p> تعليمات هامة  </p>
-        <ul>
+    <div class="d-flex flex-column align-items-center justify-content-center mt-3  ">
+        <ol >
+           <div style=" background-color: rgba(255, 166, 0, 0.555); height: 6px; width: 100px; position: relative;">
+             <p style="position: absolute; top: -15px" > تعليمات هامة  </p> </div> 
+
             <li>
-                يخلي الموقع كامل مسؤليته بعد عملية التاكيد
+                يخلي الموقع كامل مسؤوليته بعد عملية التاكيد.
             </li>
             <li>
-                يجب التاكد بشكل كامل من قبل المشتري على استلام السيارة
+                يجب التاكد بشكل كامل من قبل المشتري على استلام السيارة.
             </li>
             <li>
-                في حال كان هناك عدم اتفاك او تراجع بالبيع يرجى  ضغط زر التراجع مع ذكر السبب
+                في حال كان هناك عدم اتفاق او تراجع بالبيع يرجى  ضغط زر التراجع مع ذكر السبب.
             </li>
             <li>
-                في حال تم التراجع على البيع من قبل احد الطرفين بدون مبرر سيتم خصم عقوبة
+                في حال تم التراجع على البيع من قبل احد الطرفين بدون مبرر سيتم خصم عقوبة.
             </li>
-        </ul>
+        </ol>
     </div>
 
     <div class="d-flex justify-content-around">
-        <div>
-        <button>تاكيد البائع </button>
-        تراجع
+        <div class="d-flex flex-column align-items-center">
+        <button class="btn btn-warning">تاكيد المشتري </button>
+        <button class="btn  mt-2">تراجع  </button>
+
         </div>
 
-        <div>
-            <button>تاكيد المشتري </button>
-            تراجع
+            <div class="d-flex flex-column align-items-center">
+            <button class="btn btn-warning">تاكيد البائع </button>
+            <button class="btn btn-defult mt-2">تراجع  </button>
             </div>
         
     </div>
