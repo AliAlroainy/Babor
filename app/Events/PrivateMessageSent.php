@@ -20,7 +20,7 @@ class PrivateMessageSent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Message $message)
     {
         //
         $this->message = $message;

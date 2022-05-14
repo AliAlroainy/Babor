@@ -11,9 +11,6 @@
               </v-flex>
 
 
-
-
-
               <div v-if="message.message" class="text-message-container">
                   <v-chip :color="(user.id===message.user_id)?'green':'red'" text-color="white">
                       {{message.message}}

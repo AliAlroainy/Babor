@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
 use App\Models\Message;
+use Illuminate\Http\Request;
 use App\Events\PrivateMessageSent;
 use App\Events\MessageSent;
 
@@ -75,5 +76,5 @@ class MessageController extends Controller
         return response(['status'=>'Message private sent successfully','message'=>$message]);
 
     }
-   
+
 }

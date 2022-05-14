@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('messages', function (Blueprint $table) {
             //
-            $table->integer('receiver_id')->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
         });
     }
 
@@ -28,7 +28,6 @@ return new class extends Migration
     {
         Schema::table('messages', function (Blueprint $table) {
             //
-            $table->dropColumn('receiver_id');
         });
     }
 };

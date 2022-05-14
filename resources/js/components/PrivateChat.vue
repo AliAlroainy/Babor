@@ -2,24 +2,24 @@
   <v-layout row>
     <v-flex class="online-users" xs3>
       <v-list>
-          <v-list-tile
+          <v-list-item
             v-for="friend in friends"
             :color="(friend.id==activeFriend)?'green':''"
             :key="friend.id"
             @click="activeFriend=friend.id"
           >
-            <v-list-tile-action>
+            <v-list-item-action>
               <v-icon :color="(onlineFriends.find(user=>user.id===friend.id))?'green':'red'">account_circle</v-icon>
-            </v-list-tile-action>
+            </v-list-item-action>
 
-            <v-list-tile-content>
-              <v-list-tile-title>{{friend.name}}</v-list-tile-title>
-            </v-list-tile-content>
+            <v-list-item-content>
+              <v-list-item-title>{{friend.name}}</v-list-item-title>
+            </v-list-item-content>
 
-            <!-- <v-list-tile-avatar>
+            <!-- <v-list-item-avatar>
               <img :src="item.avatar">
-            </v-list-tile-avatar> -->
-          </v-list-tile>
+            </v-list-item-avatar> -->
+          </v-list-item>
 
 
         </v-list>

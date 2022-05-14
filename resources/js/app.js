@@ -6,8 +6,8 @@
  */
 
 require('./bootstrap');
-
 window.Vue = require('vue');
+import Vue from 'vue'
 
 import Vuetify from 'vuetify'
 
@@ -23,11 +23,15 @@ import 'vuetify/dist/vuetify.min.css'
 
 const VueUploadComponent = require('vue-upload-component')
 Vue.component('file-upload', VueUploadComponent)
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('Chat', require('./components/Chat.vue'));
- Vue.component('PrivateChat', require('./components/PrivateChat.vue'));
+Vue.component('Chat', require('./components/Chat.vue').default);
+Vue.component('PrivateChat', require('./components/PrivateChat.vue').default);
 
+// const app = new Vue({
+//     el: '#app'
+// });
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+   vuetify: new Vuetify(),
 });
