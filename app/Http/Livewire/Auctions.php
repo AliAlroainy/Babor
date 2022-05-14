@@ -10,7 +10,11 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Http;
 class Auctions extends Component
 {
-    public $pe_page = 6;
+    public $pe_car =12;
+    public $pe_salons =4;
+    public $pe_taxis =4;
+    public $pe_babors=2;
+    public $pe_buses=2;
     public function mount()
     {
         // Auction::loginUsingId(1);
@@ -18,7 +22,11 @@ class Auctions extends Component
     }
     public function load()
     {
-      $this->pe_page +=6;
+      $this->pe_car +=3;
+      $this->pe_salons +=3;
+      $this->pe_taxis +=3;
+      $this->pe_babors+=3;
+      $this->pe_buses+=3;
         
     }
     public function render()
@@ -27,19 +35,19 @@ class Auctions extends Component
     }]);
     $last_cars = Auction::with(['car' => function ($q){
         return $q->where('category_id', 1)->get();
-    }])->where('status', '2')->orderBy('id', 'desc')->paginate($this->pe_page);
+    }])->where('status', '2')->orderBy('id', 'desc')->paginate($this->pe_car);
     $last_salons = Auction::with(['car' => function ($q){
         return $q->where('category_id', 2)->get();
-    }])->where('status', '2')->orderBy('id', 'desc')->paginate($this->pe_page);
+    }])->where('status', '2')->orderBy('id', 'desc')->paginate($this->pe_salons);
     $last_taxis = Auction::with(['car' => function ($q){
         return $q->where('category_id', 3)->get();
-    }])->where('status', '2')->orderBy('id', 'desc')->paginate($this->pe_page);
+    }])->where('status', '2')->orderBy('id', 'desc')->paginate($this->pe_taxis);
     $last_babors = Auction::with(['car' => function ($q){
         return $q->where('category_id', 4)->get();
-    }])->where('status', '2')->orderBy('id', 'desc')->paginate($this->pe_page);
+    }])->where('status', '2')->orderBy('id', 'desc')->paginate($this->pe_babors);
     $last_buses = Auction::with(['car' => function ($q){
         return $q->where('category_id', 5)->get();
-    }])->where('status', '2')->orderBy('id', 'desc')->paginate($this->pe_page);
+    }])->where('status', '2')->orderBy('id', 'desc')->paginate($this->pe_buses);
     return view('livewire.auctions')->with([
         'auctions'=> $auctions,
         'last_cars' => $last_cars,

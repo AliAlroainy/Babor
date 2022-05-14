@@ -1,4 +1,16 @@
-
+<button wire:click ="load" type="button" class=" items-center px-2.5 py-1.5 border "style="position: relative;
+    border: 2px solid transparent;
+    height: 40px;
+    padding: 0 30px;
+    background-color: #F7941D;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 40px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;">
+                                   عرض المزيد
+</button> 
 <!-- Start Product Area -->
  <div class="product-area section" id="offer">
      <div class="container">
