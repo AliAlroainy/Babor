@@ -25,4 +25,13 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function private()
+    {
+        return view('private');
+    }
+
+    public function users()
+    {
+        return User::all();
+    }
 }
