@@ -109,6 +109,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
         Route::resource('/question', QustionController::class, ['names' => 'admin.question']);
+        Route::resource('/contactus', ContactUsController::class, ['names' => 'admin.contactus.index']);
         Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
         Route::get('/auction', [AcutionController::class, 'index'])->name('admin.auction.index');
         Route::post('/auction/filter', [AcutionController::class, 'indexWithFilter'])->name('admin.auction.indexFilter');
@@ -229,6 +230,3 @@ Route::get('messages', [App\Http\Controllers\MessageController::class, 'fetchMes
 Route::post('messages', [App\Http\Controllers\MessageController::class, 'sendMessage']);
 Route::get('/private-messages/{user}', [App\Http\Controllers\MessageController::class, 'privateMessages'])->name('privateMessages');
 Route::post('/private-messages/{user}',  [App\Http\Controllers\MessageController::class, 'sendPrivateMessage'])->name('privateMessages.store');
-Route::get('/contact', function () {
-    return view('Admin.contactus');
-});

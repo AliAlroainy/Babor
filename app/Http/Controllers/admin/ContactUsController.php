@@ -19,7 +19,8 @@ class ContactUsController extends Controller
     {
        
         $contactus=contactUs::orderBy('id','desc')->get();
-        return view('Admin.contactus')->with('contactus',$contactus);
+        // return view('Admin.contactus')->with('cont',$contactus);
+        return view('Admin.contactus', ['cont' => $contactus]);
     }
 
     /**
@@ -40,7 +41,7 @@ class ContactUsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

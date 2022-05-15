@@ -62,7 +62,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($contactuses as $contactus)
+                                        @foreach ($cont as $contactus)
                                         
                                             <tr>
                                                 

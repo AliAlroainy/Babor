@@ -76,6 +76,12 @@
                     <span class="menu-title fw-bold " style="font-family: Tajawal">إدارة الاسئلة الشائعة</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.contactus.index.index') }}">
+                    <i class="fa-solid fa-user menu-icon ms-3 "></i>
+                    <span class="menu-title fw-bold " style="font-family: Tajawal">  رسائل الزوار</span>
+                </a>
+            </li>
 
 
         </ul>
