@@ -73,6 +73,9 @@ Route::get('/about', function () {
 Route::get('/findcar', function () {
     return view('Front.findcar');
 });
+Route::get('/chata', function () {
+    return view('chat.chat');
+});
 Route::get('/services', [SiteController::class, 'ServicesShow']);
 Route::get('/', [SiteController::class, 'home'])->name('/');
 Route::get('/FAQ', [SiteController::class, 'questionShow']);
@@ -185,3 +188,15 @@ Route::get('/wallet', function (){
 
 Route::view('/payment/success', 'Front.addtions.success')->name('payment.success');
 Route::view('/payment/failed', 'Front.addtions.failed')->name('payment.failed');
+
+
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/private',[ App\Http\Controllers\HomeController::class, 'private'])->name('private');
+Route::get('/users', [App\Http\Controllers\HomeController::class, 'users'])->name('users');
+
+Route::get('messages', [App\Http\Controllers\MessageController::class, 'fetchMessages']);
+Route::post('messages', [App\Http\Controllers\MessageController::class, 'sendMessage']);
+Route::get('/private-messages/{user}', [App\Http\Controllers\MessageController::class, 'privateMessages'])->name('privateMessages');
+Route::post('/private-messages/{user}',  [App\Http\Controllers\MessageController::class, 'sendPrivateMessage'])->name('privateMessages.store');
