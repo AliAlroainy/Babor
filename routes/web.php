@@ -27,6 +27,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
 use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\adminIndexController;
 
 Route::get('/confirm', function () {
     return view('Front.addtions.confirmBuy');
@@ -104,8 +105,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::group(['prefix' => 'admin', 'middleware'=>'role:super_admin|admin'],function(){
         Route::get('/accounts', [AccountsController::class, 'index'])->name('admin.dashboard');
         Route::post('/accounts/{id}', [AccountsController::class, 'destroy'])->name('admin.account.destroy');
-
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
+        Route::resource('/index', adminIndexController::class, ['names' => 'admin.index']);
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
         Route::resource('/question', QustionController::class, ['names' => 'admin.question']);
