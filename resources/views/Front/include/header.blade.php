@@ -78,16 +78,21 @@
 
 
 
+    <!-- Tajwal Font -->
+    <link href='https://fonts.googleapis.com/css?family=Tajawal' rel='stylesheet'>
+
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/swiper/swiper.css" />
+
     <!-- Page CSS -->
     <link rel="stylesheet" href="/assets/vendor/css/pages/ui-carousel.css" />
 
 
     {{-- bootstrap link --}}
     <link rel="stylesheet" href="/bootstrap-5.1.3-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
 
     {{-- jQuery link --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -286,15 +291,17 @@
                                     <div class="navbar-collapse">
                                         <div class="nav-inner">
                                             <ul class="nav main-menu menu navbar-nav ">
-                                                <li class="active "><a class="nav-link"
+                                                <li class="navh active"><a class="nav-link"
                                                         href="/">الرئيسية</a></li>
-                                                <li><a class="nav-link" href="/offer">العروض</a></li>
-                                                <li><a class="nav-link" href="/services">الخدمات</a></li>
-                                                <li><a class="nav-link" href="/soon">شراء سيارة<i
-                                                            class="ti-angle-down"></i>
+                                                <li class="navh  "><a class="nav-link"
+                                                        href="/offer">العروض</a></li>
+                                                <li class="navh "><a class="nav-link"
+                                                        href="/services">الخدمات</a></li>
+                                                <li class="navh "><a class="nav-link  " href="#">شراء
+                                                        سيارة<i class="ti-angle-down p-2"></i>
                                                         <!--span class="new">جديد</span-->
                                                     </a>
-                                                    <ul class="dropdown">
+                                                    <ul class="dropdown ">
                                                         <li><a class="nav-link" href="/soon">مستعملة</a></li>
                                                         <li><a class="nav-link" href="/soon">جديد</a></li>
                                                     </ul>
@@ -318,15 +325,11 @@
     <!--/ End Header -->
 
 
-<script >
-
-// add activetion links
-    $('.navh').on('click', function(){
-        $(this).addClass('active').siblings('li').removeClass('active');
-    });
-
-
-
+    <script>
+        // add activetion links
+        $('.navh').on('click', function() {
+            $(this).addClass('active').siblings('li').removeClass('active');
+        });
     </script>
 
 

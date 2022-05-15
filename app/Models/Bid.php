@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -28,9 +29,10 @@ class Bid extends Model
         return $this->belongsTo(User::class, 'bidder_id');
     }
 
-    // public function setSecurityDepositAttribute(){
-    //     $this->attributes['securityDeposit'] = 10;
-    // }
+    public function payment_bill(): HasOne
+    {
+        return $this->hasOne(Payment_Bill::class, 'bid_id');
+    }
 
     public function getDeduction(){
         return ($this->bidPrice / $this->securityDeposit);
