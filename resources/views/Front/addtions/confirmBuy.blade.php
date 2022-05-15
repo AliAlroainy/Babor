@@ -29,7 +29,11 @@
     </div>
 
     </div>
+
+
+
     <div class="container d-flex flex-column align-items-center justify-content-center mt-3  ">
+    
         <ol >
            <div style=" background-color: rgba(255, 166, 0, 0.555); height: 6px; width: 100px; position: relative;">
              <p style="position: absolute; top: -15px" > تعليمات هامة  </p> </div> 
@@ -46,12 +50,31 @@
             <li>
                 في حال تم التراجع على البيع من قبل احد الطرفين بدون مبرر سيتم خصم عقوبة.
             </li>
+            <li>
+                اضغط على زر التاكيد لتاكيد عملية الشراء والبيع.
+            </li>
         </ol>
+    </div>
+
+    <div class="container d-flex align-items-center justify-content-center   w-75 "  >
+        <div class="w-75 alert-light p-3" style="border-right: 3px solid rgba(78, 78, 78, 0.716); border-radius: 6px">
+        انا المشتري : <strong>ابرار الخرساني</strong> 
+        <br/>
+        اوؤكد استلامي من البائع : <strong>علي الرعيني</strong>
+        <br/>
+        سيارة من النوع <strong>نيسان</strong> 
+        بمواصفات كما ذكر في التفاصيل بدون اي اضرار زائدة 
+        <br/>
+        في المزاد رقم <strong>34</strong> وبسعر فوز المزاد المقدر <strong>85943$ </strong> 
+        <br/>
+        والله على ما نقول شهيد ..
+    </div>
     </div>
 
     <div class="container d-flex justify-content-around mt-4">
         <div class="d-flex flex-column align-items-center">
                  	<!-- Button  (to Trigger Modal) -->
+                     <p>  المشتري : ابرار الخرساني</p>
 	<a href="#buyModal" class="btn btn-warning " data-toggle="modal">
         <i class="bi bi-pen-fill"></i>
         تاكيد المشتري
@@ -68,6 +91,8 @@
         </div>
 
             <div class="d-flex flex-column align-items-center">
+
+                <p>  البائع : علي الرعيني</p>
 
                 	<!-- Button  (to Trigger Modal) -->
 	<a href="#buyModal" class="btn btn-warning " data-toggle="modal">
