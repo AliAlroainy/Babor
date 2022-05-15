@@ -1,8 +1,24 @@
 @include('Front.include.header')
 
-<div class="container mt-3 d-flex align-items-center justify-content-center w-100">
+<div class="container mt-3 d-flex flex-column align-items-center justify-content-center w-100" >
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="section-title mt-4" >
+                <h2 >  فاتورة الدفع</h2>
+            </div>
+        </div>
+    </div>
+
     <div bgcolor="#f6f6f6"  style="color: #333; height: 100%; width: 100%;" height="100%" width="100%">
+
+
+
+     				
+   
         <table dir="rtl" bgcolor="#f6f6f6" cellspacing="0" style="border-collapse: collapse; padding: 40px; width: 100%;" width="100%">
+  
             <tbody>
                 <tr>
                     <td width="5px" style="padding: 0;"></td>
@@ -119,6 +135,15 @@
                                             </a>
                                            بأي اسئلة.
                                         </p>
+                                    </td>
+
+                                    <td width="40%" valign="top" style="padding: 10px 0;" >
+                                        <div class="d-flex justify-content-center align-items-center" >
+                                            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                                            <lottie-player src="https://assets8.lottiefiles.com/temp/lf20_xG4aYa.json"  background="transparent"  speed="0.5"  style="width: 80px; height: 80px;"  loop  autoplay></lottie-player>
+                                            تمت عملية الدفع بنجاح
+                                        </div>
+                                        
                                     </td>
                                
                                 </tr>
