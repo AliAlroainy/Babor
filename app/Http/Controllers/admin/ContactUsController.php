@@ -17,7 +17,9 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        //
+       
+        $contactus=contactUs::orderBy('id','desc')->get();
+        return view('Admin.contactus')->with('contactus',$contactus);
     }
 
     /**
