@@ -84,9 +84,9 @@
             <i class="bi bi-check-circle"></i>
             تم تاكيد المشتري </button> --}}
 
-        <button class="btn  mt-2">
-            <i class="bi bi-info-circle"></i>
-            تراجع  </button>
+            <a href="#backModal" class="btn btn-defult mt-2" data-toggle="modal">
+                <i class="bi bi-info-circle"></i>
+                تراجع  </a>
 
         </div>
 
@@ -104,9 +104,9 @@
                     <i class="bi bi-check-circle"></i>
                     تم تاكيد البائع </button> --}}
 
-            <button class="btn btn-defult mt-2">
+                    <a href="#backModal" class="btn btn-defult mt-2" data-toggle="modal">
                 <i class="bi bi-info-circle"></i>
-                تراجع  </button>
+                تراجع  </a>
             </div>
         
     </div>
@@ -129,17 +129,45 @@
 			<div class="modal-body">
                 <h4 class=" w-90 m-3 mt-5"> هل انت متاكد</h4>	
 
-				<p class="text-center">عملية التاكيد بمثابة عقد نهائي للبيع بين الطرفين </p>
+				<p class="text-center alert alert-warning">عملية التاكيد بمثابة عقد نهائي للبيع بين الطرفين </p>
 			</div>
 
         <div >
             <a class="btn btn-dark " href="#" style=" background-color: rgb(57, 57, 57)" data-dismiss="modal">تراجع</a>
             <button class="btn btn-success " data-dismiss="modal">تاكيد</button>
-        </div>
-    
+        </div>		
+		</div>
+	</div>
+</div> 
 
 
-			
+
+<!-- Back Modal  -->
+<div id="backModal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header w-100 d-flex align-items-center justify-content-center text-center" style="top:-80px; " >
+				<div >
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_accg3lm5.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
+				</div>				
+			</div>
+			<div class="modal-body">
+                <h4 class=" w-90 m-3 mt-5"> التراجع عن البيع </h4>	
+
+                <textarea class="form-control" dir="rtl">يرجى كتابة سبب التراجع.. </textarea>
+
+			</div>
+
+        <div >
+            <a class="btn btn-dark " href="#" style=" background-color: rgb(57, 57, 57)" data-dismiss="modal">
+                الغاء
+                        </a>
+            <button class="btn btn-success " data-dismiss="modal">
+                ارسال
+                <i class="bi bi-send"></i>
+            </button>
+        </div>		
 		</div>
 	</div>
 </div> 
