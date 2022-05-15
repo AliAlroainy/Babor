@@ -97,6 +97,8 @@
                                                                         action="{{ route('user.buy.auction', $bid->auction->id) }}"
                                                                         method="POST">
                                                                         @csrf
+                                                                        <input type="hidden" name="next_url"
+                                                                            value="{{ $bid->auction->next_url }}">
                                                                         {{-- <span class="text-success">نعم، </span> --}}
                                                                         <input type="submit"
                                                                             class="btn bg-main-color text-white"

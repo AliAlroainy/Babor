@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Requests\StoreAuctionRequest;
 
@@ -147,6 +148,7 @@ class UserAuctionController extends Controller
             return abort('404');
             
         $auction = Auction::whereId($id);
+        // dd($found->openingBid);
         $auction->when($request->has('cancel'), function ($q) use ($id){
             $q->update(['status' => '3']);
             $this->refundBidders($id);
@@ -154,11 +156,28 @@ class UserAuctionController extends Controller
         $auction->when($request->has('timeExtension'), function ($q) use ($auction){
                         $q->update(['closeDate' => Carbon::parse($auction->first()->closeDate)->addDays(2)]);
                     });
-        $auction->when($request->has('stop'), function ($q) use ($id){
+        $auction->when($request->has('stop'), function ($q) use ($id, $found){
                         $q->update([
                             'status' => '4', 
+                            'winnerPrice'=> $found->bids->sortDesc()->first()->currentPrice,
                             'winner_id' => Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->bidder_id]);
                         $this->refundBidders($id);
+                        $this->apiConnect(
+                            $id,
+                            $found,
+                            $found->bids->sortDesc()->first()->id,
+                            [
+                                'id'    => $found->car->id,
+                                'product_name'  => $found->type_and_model(),
+                                'quantity' => 1,
+                                'unit_amount' => $found->openingBid,
+                            ],
+                            $found->bids->sortDesc()->first()->currentPrice, 
+                            [
+                                'buyer'  =>  $found->bids->sortDesc()->first()->user->name,
+                                'seller' =>  $found->user->name,
+                            ]
+                        );
                     });
         return redirect()->back();          
     }
@@ -170,5 +189,33 @@ class UserAuctionController extends Controller
         foreach(range (0, count($bidders)-1) as $i){
             $admin->transfer($bidders[$i]->user, $bidders[$i]->getDeduction());       
         }
+    }
+    
+    public function apiConnect($id, $found, $ref, $product, $total, $meta){
+        $apiURL = 'https://waslpayment.com/api/test/merchant/payment_order';
+        $headers = [
+            'private-key' => 'rRQ26GcsZzoEhbrP2HZvLYDbn9C9et',
+            'public-key' => 'HGvTMLDssJghr9tlN9gr4DVYt0qyBy',
+            'Content-Type' => 'application/x-www-form-url'
+        ];
+        $data = [
+            "order_reference" => $ref,
+            "products"=> [$product],
+            "total_amount" => $total,
+            "currency" => "YER",
+            "success_url" => "http://localhost:8000/payment/success",
+            "cancel_url"=> "http://localhost:8000/payment/failed",
+            "metadata"=> (object)$meta,
+        ];
+        $response = Http::withHeaders($headers)->post($apiURL, $data);
+        Auction::whereId($id)->update([
+            'next_url' => url($response['invoice']['next_url']),
+        ]);
+        DB::table('bills')->insert([
+            'bid_id' => $product['id'],
+            'invoice_reference' => $response['invoice']['invoice_referance'],
+            'buyer'  =>  $found->bids->sortDesc()->first()->user->name,
+            'seller' =>  $found->user->name,
+        ]);
     }
 }

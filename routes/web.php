@@ -183,34 +183,5 @@ Route::get('/wallet', function (){
 
 });
 
-
-Route::get('/api', function(){
-    // URL
-    $apiURL = 'https://waslpayment.com/api/test/merchant/payment_order';
-
-    $dataMeta = ["Customer name" => "somename", "order id"=> 0];
-    // Data
-    $data = [
-        "order_reference" => "123412",
-        "products"=> [["Customer name" => "somename", "order id"=> 0]],
-        "total_amount" => 1400,
-        "currency" => "YER",
-        "success_url" => "https://company.com/success",
-        "cancel_url"=> "https://company.com/cancel",
-        "metadata"=> (object)$dataMeta,
-    ];
-
-    // Headers
-    $headers = [
-        'private-key' => 'rRQ26GcsZzoEhbrP2HZvLYDbn9C9et',
-        'public-key' => 'HGvTMLDssJghr9tlN9gr4DVYt0qyBy',
-        'Content-Type' => 'application/x-www-form-urlencoded'
-    ];
-
-    $response = Http::withHeaders($headers)->post($apiURL, $data);
-    // $statusCode = $response->status();
-    // $responseBody = json_decode($response->getBody(), true);
-    // echo $statusCode;  // status code
-    // return response($responseBody); // body response
-    return $response->json($key = null);
-});
+Route::view('/payment/success', 'Front.addtions.success')->name('payment.success');
+Route::view('/payment/failed', 'Front.addtions.failed')->name('payment.failed');

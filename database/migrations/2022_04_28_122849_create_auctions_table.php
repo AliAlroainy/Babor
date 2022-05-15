@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('reservePrice', 20, 2);
             $table->decimal('winnerPrice', 20, 2)->nullable();
             $table->text('rejectReason')->nullable();
+            $table->string('next_url')->nullable();
             $table->enum('status', array_keys(['معلقة', 'مرفوضة', 'جارية', 'ملغاة', 'غير مكتملة', 'مكتملة']))->default(0);
             $table->timestamps();
         });
