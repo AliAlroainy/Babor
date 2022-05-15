@@ -186,8 +186,9 @@ Route::get('/wallet', function (){
 
 });
 
-Route::view('/payment/success', 'Front.addtions.success')->name('payment.success');
-Route::view('/payment/failed', 'Front.addtions.failed')->name('payment.failed');
+//API Response
+Route::get('/payment/success/{id}/{e}', [PaymentController::class, 'success'])->name('payment.success');
+Route::get('/payment/failed/{id}/{e}', [PaymentController::class, 'failed'])->name('payment.failed');
 
 
 
