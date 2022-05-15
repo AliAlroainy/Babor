@@ -45,14 +45,32 @@
 
     <div class="container d-flex justify-content-around mt-4">
         <div class="d-flex flex-column align-items-center">
-        <button class="btn btn-warning">تاكيد المشتري </button>
-        <button class="btn  mt-2">تراجع  </button>
+        <button class="btn btn-warning">
+            <i class="bi bi-pen-fill"></i>
+            تاكيد المشتري </button>
+
+        {{-- <button class="btn btn-success">
+            <i class="bi bi-check-circle"></i>
+            تم تاكيد المشتري </button> --}}
+
+        <button class="btn  mt-2">
+            <i class="bi bi-info-circle"></i>
+            تراجع  </button>
 
         </div>
 
             <div class="d-flex flex-column align-items-center">
-            <button class="btn btn-warning">تاكيد البائع </button>
-            <button class="btn btn-defult mt-2">تراجع  </button>
+            <button class="btn btn-warning">
+                <i class="bi bi-pen-fill"></i>
+                تاكيد البائع </button>
+
+                {{-- <button class="btn btn-success ">
+                    <i class="bi bi-check-circle"></i>
+                    تم تاكيد البائع </button> --}}
+
+            <button class="btn btn-defult mt-2">
+                <i class="bi bi-info-circle"></i>
+                تراجع  </button>
             </div>
         
     </div>
