@@ -20,6 +20,14 @@ class adminIndexController extends Controller
      */
     public function index()
     {
+        
+        $Auctions = Auction::get()->count();
+        $auctionPercentage=$Auctions/100;
+        return view('Admin.index')->with([
+            'auction' => $Auctions ,
+            'prec'=>$auctionPercentage,
+           
+        ]);
 
 
    
