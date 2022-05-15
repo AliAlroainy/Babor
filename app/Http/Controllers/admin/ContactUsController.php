@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\admin;
 use App\Models\contactUs;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use App\Http\Requests\StorecontactUsRequest;
-use App\Http\Requests\UpdatecontactUsRequest;
+use Illuminate\Support\Facades\Validator;
 
 class ContactUsController extends Controller
 {
@@ -31,10 +33,10 @@ class ContactUsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorecontactUsRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorecontactUsRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -42,10 +44,10 @@ class ContactUsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\contactUs  $contactUs
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(contactUs $contactUs)
+    public function show($id)
     {
         //
     }
@@ -53,10 +55,10 @@ class ContactUsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\contactUs  $contactUs
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(contactUs $contactUs)
+    public function edit($id)
     {
         //
     }
@@ -64,11 +66,11 @@ class ContactUsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatecontactUsRequest  $request
-     * @param  \App\Models\contactUs  $contactUs
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatecontactUsRequest $request, contactUs $contactUs)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +78,10 @@ class ContactUsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\contactUs  $contactUs
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(contactUs $contactUs)
+    public function destroy($id)
     {
         //
     }
