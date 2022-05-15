@@ -34,6 +34,12 @@ class adminIndexController extends Controller
         $category= User::get()->count();
         $categoryper=$category/100;
 
+        $brands= Brand::get()->count();
+        $brandsper=$brands/100;
+
+        $seris= Brand::get()->count();
+        $serisper=$seris/100;
+
         return view('Admin.index')->with([
             'auction' => $Auctions ,
             'prec'=>$auctionPercentage,
@@ -43,6 +49,12 @@ class adminIndexController extends Controller
             'userper'=>$userper,
             'category' => $category ,
             'categoryper'=>$categoryper,
+            'brands' => $brands ,
+            'brandsper'=>$brandsper,
+            'seris' => $seris,
+            'serisper'=>$serisper,
+
+            
            
         ]);
 

@@ -84,11 +84,28 @@
     direction: ltr;">
                     <div class="d-flex flex-column m-auto pl-5">
                       <div class="stats-small__data text-center mt-2">
-                        <span class="stats-small__label text-uppercase" style="color:#f79522">البلاغات</span>
-                        <h6 class="stats-small__value count my-3" style="color:green;font-size:40px">{{$auction}}</h6>
+                        <span class="stats-small__label text-uppercase" style="color:#f79522">ماركات السيارات</span>
+                        <h6 class="stats-small__value count my-3" style="color:green;font-size:40px">{{$brands}}</h6>
                       </div>
                       <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--decrease" style="color:red">{{$auction}}%</span>
+                        <span class="stats-small__percentage stats-small__percentage--decrease" style="color:red">{{$brandsper}}%</span>
+                      </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-5"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-sm-12 mb-4">
+                <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex" style="text-align: center;
+    direction: ltr;">
+                    <div class="d-flex flex-column m-auto pl-5">
+                      <div class="stats-small__data text-center mt-2">
+                        <span class="stats-small__label text-uppercase" style="color:#f79522">انواع السيارات</span>
+                        <h6 class="stats-small__value count my-3" style="color:green;font-size:40px">{{$seris}}</h6>
+                      </div>
+                      <div class="stats-small__data">
+                        <span class="stats-small__percentage stats-small__percentage--decrease" style="color:red">{{$serisper}}%</span>
                       </div>
                     </div>
                     <canvas height="120" class="blog-overview-stats-small-5"></canvas>
