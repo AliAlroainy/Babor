@@ -31,6 +31,9 @@ class adminIndexController extends Controller
         $user= User::get()->count();
         $userper=$user/100;
 
+        $category= User::get()->count();
+        $categoryper=$category/100;
+
         return view('Admin.index')->with([
             'auction' => $Auctions ,
             'prec'=>$auctionPercentage,
@@ -38,6 +41,8 @@ class adminIndexController extends Controller
             'serviceprec'=>$servicePercentage,
             'user' => $user ,
             'userper'=>$userper,
+            'category' => $category ,
+            'categoryper'=>$categoryper,
            
         ]);
 

@@ -66,11 +66,11 @@
     direction: ltr;">
                     <div class="d-flex flex-column m-auto pl-5">
                       <div class="stats-small__data mt-2">
-                        <span class="stats-small__label text-uppercase " style="color:#f79522">المفضلة</span>
-                        <h6 class="stats-small__value count my-3"style="color:green;font-size:40px">{{$auction}}</h6>
+                        <span class="stats-small__label text-uppercase " style="color:#f79522">الاقسام</span>
+                        <h6 class="stats-small__value count my-3"style="color:green;font-size:40px">{{$category}}</h6>
                       </div>
                       <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--increase"style="color:red">{{$auction}}%</span>
+                        <span class="stats-small__percentage stats-small__percentage--increase"style="color:red">{{$categoryper}}%</span>
                       </div>
                     </div>
                     <canvas height="120" class="blog-overview-stats-small-4"></canvas>
