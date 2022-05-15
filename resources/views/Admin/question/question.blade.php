@@ -18,6 +18,7 @@
                                         aria-label="Close"></button>
                                 </div>
                             @endif
+                       
                             @if (session()->has('successAdd'))
                                 <div class="alert alert-success alert-dismissible fade show">
                                     {{ session()->get('successAdd') }}
@@ -51,9 +52,9 @@
                                                 السؤال
                                             </th>
                                             <th>
-                                                الاجابة 
+                                                الاجابة
                                             </th>
-                                           
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -91,7 +92,7 @@
                                                                           placeholder=" الاجابة">
                                                                </div>
                                                            </div>
-                                                          
+
                                                            </div>
                                                        </div>
                                                        <div class="modal-footer">
@@ -105,7 +106,7 @@
                                            </div>
                                        </div>
                                             <tr>
-                                                
+
                                                 <td>
                                                     {{ $question->question }}
                                                 </td>
@@ -117,8 +118,8 @@
                                                         class="fa-solid fa-edit pe-2 btn-fw btn-rounded "
                                                         data-bs-target="#editModal-{{ $question->id }}"
                                                         data-bs-toggle="modal">
-                                                        
-                                                       
+
+
                                                     </a>
                                                 </td>
                                                 <td>
@@ -137,7 +138,7 @@
                                                                     font-weight-inverse-danger
                                                               btn-rounded  fa-solid fa-trash-restore pe-2
                                                            " style="color:#ff4747;font-size: 25px ;">
-                                                                
+
                                                             </button>
 
                                                         @endif
@@ -196,7 +197,7 @@
                                            placeholder="الاجابة ">
                                 </div>
                             </div>
-                           
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary"
@@ -233,7 +234,7 @@
                                         placeholder="الاجابة">
                                 </div>
                             </div>
-                            
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">إلغاء</button>

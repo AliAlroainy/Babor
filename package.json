@@ -10,13 +10,27 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@popperjs/core": "^2.10.2",
         "axios": "^0.25",
+        "bootstrap": "^5.1.3",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "postcss": "^8.1.14",
+        "resolve-url-loader": "^3.1.2",
+        "sass": "^1.32.11",
+        "sass-loader": "^11.0.1",
+        "vue": "^2.6.14",
+        "vue-loader": "^15.9.8",
+        "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
         "dropify": "^0.2.2",
-        "filepond": "^4.30.3"
+        "emoji-mart-vue": "^2.6.6",
+        "filepond": "^4.30.3",
+        "laravel-echo": "^1.11.7",
+        "pusher-js": "^7.1.0-beta",
+        "vue-upload-component": "^2.8.22",
+        "vuetify": "^2.6.5",
+        "vuetify-loader": "^1.3.0"
     }
 }
