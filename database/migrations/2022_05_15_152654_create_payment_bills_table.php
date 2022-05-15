@@ -8,19 +8,16 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('bills', function (Blueprint $table) {
+        Schema::create('payment_bills', function (Blueprint $table) {
             $table->id();
-            $table->string('buyer')->nullable();
-            $table->string('seller')->nullable();
             $table->string('invoice_reference')->nullable();
-            $table->string('amount')->nullable();
-            $table->string('currency')->nullable();
+            $table->boolean('payment_status')->default(0);
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('bills');
+        Schema::dropIfExists('payment_bills');
     }
 };

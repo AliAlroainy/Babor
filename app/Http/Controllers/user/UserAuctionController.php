@@ -173,10 +173,7 @@ class UserAuctionController extends Controller
                                 'unit_amount' => $found->openingBid,
                             ],
                             $found->bids->sortDesc()->first()->currentPrice, 
-                            [
-                                'buyer'  =>  $found->bids->sortDesc()->first()->user->name,
-                                'seller' =>  $found->user->name,
-                            ]
+                            []
                         );
                     });
         return redirect()->back();          
@@ -203,7 +200,7 @@ class UserAuctionController extends Controller
             "products"=> [$product],
             "total_amount" => $total,
             "currency" => "YER",
-            "success_url" => "http://localhost:8000/payment/success",
+            "success_url" => "http://localhost:8000/payment/success/".$found->bids->sortDesc()->first()->id,
             "cancel_url"=> "http://localhost:8000/payment/failed",
             "metadata"=> (object)$meta,
         ];
@@ -211,11 +208,9 @@ class UserAuctionController extends Controller
         Auction::whereId($id)->update([
             'next_url' => url($response['invoice']['next_url']),
         ]);
-        DB::table('bills')->insert([
-            'bid_id' => $product['id'],
+        DB::table('payment_bills')->insert([
+            'bid_id' => $found->bids->sortDesc()->first()->id,
             'invoice_reference' => $response['invoice']['invoice_referance'],
-            'buyer'  =>  $found->bids->sortDesc()->first()->user->name,
-            'seller' =>  $found->user->name,
         ]);
     }
 }

@@ -189,10 +189,10 @@ Route::get('/wallet', function (){
     return $admin->balance;
 
 });
-
+Route::view('/hihi', 'Front.addtions.bill');
 //API Response
 Route::get('/payment/success/{id}/{e}', [PaymentController::class, 'success'])->name('payment.success');
-Route::get('/payment/failed/{id}/{e}', [PaymentController::class, 'failed'])->name('payment.failed');
+Route::get('/payment/failed/{e}', [PaymentController::class, 'failed'])->name('payment.failed');
 
 
 
