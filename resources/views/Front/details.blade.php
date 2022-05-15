@@ -181,14 +181,14 @@
                                 <div class="qty-label">
                                     سعر المزايدة
                                     <div class="input-n">
-                                        <input type="text" name="bidPrice">
+                                        <input type="number" name="bidPrice">
                                         <span class="qty-up">+</span>
                                         <span class="qty-down">-</span>
                                     </div>
                                 </div>
                                 <div class="alert alert-warning mt-4" role="alert" dir="rtl">
                                     <i class="bi bi-shield-fill-exclamation"></i>
-                                    تنبية سيتم خصم مبلغ 500$ من حسابك قيمة الدخول للمزاد
+                                    تنبية سيتم خصم نسبة 10% من حسابك قيمة الدخول للمزاد
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -211,7 +211,7 @@
 
 
 <!-- Start related cars -->
-<div class="product-area most-popular section">
+{{-- <div class="product-area most-popular section">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -338,7 +338,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- End related cars -->
 
 

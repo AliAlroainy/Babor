@@ -10,11 +10,13 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Bavix\Wallet\Traits\HasWallet;
+use Bavix\Wallet\Interfaces\Wallet;
 
-class User extends Authenticatable
+class User extends Authenticatable  implements Wallet
 {
     use LaratrustUserTrait;
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasWallet;
 
     protected $fillable = [
         'name',
@@ -50,5 +52,8 @@ class User extends Authenticatable
     //     'password'        => 'required|min:5',
     //     'confirm_password'=> 'same:password'
     // ];
-    
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

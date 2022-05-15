@@ -1,28 +1,61 @@
 <?php
 
+use App\Models\Bid;
+use App\Models\User;
+use App\Models\Auction;
 use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Password;
-use App\Http\Controllers\admin\BrandsController;
-use App\Http\Controllers\admin\SeriesController;
 use App\Http\Controllers\user\BidController;
 use App\Http\Controllers\admin\BidsController;
+use App\Http\Controllers\admin\BrandsController;
+use App\Http\Controllers\admin\SeriesController;
 use App\Http\Controllers\Admin\AcutionController;
+use App\Http\Controllers\Admin\QustionController;
 use App\Http\Controllers\user\ProfilesController;
+// use \Illuminate\Support\Facades\URL;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\CategoriesController;
-use App\Http\Controllers\Admin\QustionController;
 use App\Http\Controllers\user\UserAuctionController;
-// use \Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Authentication\authcontroller;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
-use App\Http\Controllers\Notifications\NotificationController;
+
+Route::get('/bill', function () {
+    return view('Front.addtions.bill');
+});
+
+
+Route::get('/confirm', function () {
+    return view('Front.addtions.confirmBuy');
+});
+
+Route::get('/failed', function () {
+    return view('Front.addtions.failed');
+});
+
+Route::get('/nomoney', function () {
+    return view('Front.addtions.nomoney');
+});
+
+Route::get('/success', function () {
+    return view('Front.addtions.success');
+});
+
+Route::get('/chat', function () {
+    return view('Front.addtions.chat');
+});
+
+Route::get('/privcey', function () {
+    return view('Front.privcey');
+});
+
 Route::get('/FAQ', function () {
     return view('Front.FAQ');
 });
@@ -44,6 +77,9 @@ Route::get('/about', function () {
 
 Route::get('/findcar', function () {
     return view('Front.findcar');
+});
+Route::get('/chata', function () {
+    return view('chat.chat');
 });
 Route::get('/services', [SiteController::class, 'ServicesShow']);
 Route::get('/', [SiteController::class, 'home'])->name('/');
@@ -137,7 +173,59 @@ Route::fallback(function () {
     return view('Front.404');
 });
 
+Route::get('/wallet', function (){
+    $admin = User::find(1);
+    $auctioneer_abrar = User::find(2);
+    $bidder_ali = User::find(3);
+    $auction = Auction::where('id', 1)->get();
+    $bid = Bid::where('id', 1)->get();
+    // dd($bid);
+    $admin->deposit(1200);
+    $auctioneer_abrar->deposit(600);
+    $bidder_ali->deposit(700);
+    return $admin->balance;
+
+});
+
+
+Route::get('/api', function(){
+    // URL
+    $apiURL = 'https://waslpayment.com/api/test/merchant/payment_order';
+
+    $dataMeta = ["Customer name" => "somename", "order id"=> 0];
+    // Data
+    $data = [
+        "order_reference" => "123412",
+        "products"=> [["Customer name" => "somename", "order id"=> 0]],
+        "total_amount" => 1400,
+        "currency" => "YER",
+        "success_url" => "https://company.com/success",
+        "cancel_url"=> "https://company.com/cancel",
+        "metadata"=> (object)$dataMeta,
+    ];
+
+    // Headers
+    $headers = [
+        'private-key' => 'rRQ26GcsZzoEhbrP2HZvLYDbn9C9et',
+        'public-key' => 'HGvTMLDssJghr9tlN9gr4DVYt0qyBy',
+        'Content-Type' => 'application/x-www-form-urlencoded'
+    ];
+
+    $response = Http::withHeaders($headers)->post($apiURL, $data);
+    // $statusCode = $response->status();
+    // $responseBody = json_decode($response->getBody(), true);
+    // echo $statusCode;  // status code
+    // return response($responseBody); // body response
+    return $response->json($key = null);
+});
 
 
 
-Route::get('send',[NotificationController::class, 'notification'])->name('new.auction.notification');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/private',[ App\Http\Controllers\HomeController::class, 'private'])->name('private');
+Route::get('/users', [App\Http\Controllers\HomeController::class, 'users'])->name('users');
+
+Route::get('messages', [App\Http\Controllers\MessageController::class, 'fetchMessages']);
+Route::post('messages', [App\Http\Controllers\MessageController::class, 'sendMessage']);
+Route::get('/private-messages/{user}', [App\Http\Controllers\MessageController::class, 'privateMessages'])->name('privateMessages');
+Route::post('/private-messages/{user}',  [App\Http\Controllers\MessageController::class, 'sendPrivateMessage'])->name('privateMessages.store');

@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Notifications\NotificationController;
+use App\Models\User;
 use App\Models\Brand;
 use App\Models\Series;
 use App\Models\Auction;
 use App\Http\Controllers\Controller;
 use App\Models\Bid;
 use App\Models\Notification;
-use App\Models\User;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 use phpDocumentor\Reflection\Types\String_;
 use Pusher\Pusher;
@@ -22,7 +23,7 @@ class AcutionController extends Controller
 
     public function index()
     {
-        $auctions = Auction::orderBy('id')->get();
+        $auctions = Auction::orderBy('id', 'desc')->get();
         $brands = Brand::where('is_active', 1)->select('id', 'name')->get();
         $series = Series::where('is_active', 1)->select('id', 'name')->get();
         return view('Admin.auctions.auctions')->with([
