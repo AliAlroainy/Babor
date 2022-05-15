@@ -55,6 +55,7 @@ class AcutionController extends Controller
     }
     public function action(Request $request, $id)
     {
+        $notify = new NotificationController();
         $found = Auction::find($id);
         if(!$found)
             return abort('404');
@@ -62,9 +63,8 @@ class AcutionController extends Controller
         if($request->has('approve')){
             $auction->update(['status' => '2', 'startDate' => now()]);
 
-        $notify = new NotificationController();
         $notify->newAuctionNotification($found);
-        $notify->auctionAccepted($found);
+        $notify->auctionApproved($found);
 
         }
 
@@ -79,6 +79,7 @@ class AcutionController extends Controller
 
             $auc = Auction::find($id);
             $auc->rejectReason = $request->reject_reason;
+            $notify->auctionDisapproved($found);
             $auc->save();
         }
 
