@@ -200,17 +200,7 @@
 
                                     </div>
                                     <ul class="shopping-list" id="shopping-list">
-                                        <li>
-                                            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                            <a href="">
-                                                <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
-                                                <div class="quantity text-dark">
-                                                    <h4 class="fw-bold"> ${data.message}</h4>
-                                                    <span class="amount">$ ${data.price}</span>
-                                                    <p class="d-block mb-0">ينتهي بتاريخ </p>
-                                                </div>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                     <div class="bottom"><a class="nav-link" href="#">عرض الكل </a> </div>
                                 </div>

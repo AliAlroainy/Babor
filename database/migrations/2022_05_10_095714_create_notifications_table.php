@@ -21,6 +21,7 @@ return new class extends Migration
             $table->tinyInteger('state');
             $table->string('message');
             $table->string('link');
+            $table->string('type');
         });
     }
 

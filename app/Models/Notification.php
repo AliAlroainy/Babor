@@ -16,6 +16,7 @@ class Notification extends Model
         'state',
         'message',
         'link',
+        'type',
     ];
 
 

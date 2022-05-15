@@ -177,8 +177,8 @@
      });
 
      var channel = pusher.subscribe('notify-channel');
+     var channel2 = pusher.subscribe('notify-channel2');
      channel.bind('App\\Events\\Notify', function(data) {
-         alert("{!! Auth::id() !!}");
          var node = document.createElement('li');
              node.innerHTML =`
             <li>
@@ -193,11 +193,33 @@
                 </a>
             </li>
 `;
-{{--         var data = {!! json_encode($data, JSON_HEX_TAG) !!};--}}
-        if( data.user_id.toString() !="{!! Auth::id() !!}")
-         document.getElementById('shopping-list').prepend(node);
+        if( data.user_id.toString() !="{!! Auth::id() !!}") {
+            alert("{!! Auth::id() !!}");
+            document.getElementById('shopping-list').prepend(node);
+        }
      });
-    // pusher.disconnect();
+
+     channel2.bind('App\\Events\\Notify', function(data) {
+         var node = document.createElement('li');
+         node.innerHTML =`
+            <li>
+                <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                <a href="auction/${data.link}">
+                    <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
+                    <div class="quantity text-dark">
+                        <h4 class="fw-bold"> ${data.message}</h4>
+                        <span class="amount">$ ${data.price}</span>
+                        <p class="d-block mb-0">ينتهي بتاريخ ${data.endDate} </p>
+                    </div>
+                </a>
+            </li>
+`;
+         if( data.user_id.toString() =="{!! Auth::id() !!}") {
+             alert("{!! Auth::id() !!}");
+             document.getElementById('shopping-list').prepend(node);
+         }
+     });
+
  </script>
 
  </body>

@@ -62,40 +62,9 @@ class AcutionController extends Controller
         if($request->has('approve')){
             $auction->update(['status' => '2', 'startDate' => now()]);
 
-
-            $options = array(
-                'cluster' => env('PUSHER_APP_CLUSTER'),
-                'encrypted' => true
-            );
-            $pusher = new Pusher(
-                env('PUSHER_APP_KEY'),
-                env('PUSHER_APP_SECRET'),
-                env('PUSHER_APP_ID'),
-                $options
-            );
-
-            $notification = new Notification();
-//            $auction = Auction::whereId('id');
-                $user=User::where('id',$found->auctioneer_id)->first();
-//            $users = User::all()->except(Auth::id());
-                    $notification = Notification::create([
-                            'message' => "تمت إضافة مزاد جديد",
-                        'user_id' => $user->id ,
-                        'state' => 0,
-                        'link' => $found->id
-                    ]);
-//                    $data['id'] = $notification->id;
-                    $brand = $found->car->brand->name;
-                    $series = $found->car->series->name;
-                    $model = $found->car->model;
-                    $info = array('brand'=>$brand,'series'=>$series,'model'=>$model);
-                    $data['message'] = implode("," , $info);
-                    $data['link'] = $found->id;
-                    $data['price'] = $found->openingBid;
-                    $data['endDate'] = $found->closeDate;
-                    $data['user_id'] = $user->id;
-
-                    $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
+        $notify = new NotificationController();
+        $notify->newAuctionNotification($found);
+        $notify->auctionAccepted($found);
 
         }
 
@@ -112,8 +81,6 @@ class AcutionController extends Controller
             $auc->rejectReason = $request->reject_reason;
             $auc->save();
         }
-
-
 
         return redirect()->back();
     }
