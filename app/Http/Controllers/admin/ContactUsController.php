@@ -50,7 +50,7 @@ class ContactUsController extends Controller
         $con->phone=$request->phone;
         
         if($con->save())
-            return redirect()->route('contact.index')->with(['successAdd'=>'تم إضافة السؤال بنجاح']);
+            return redirect()->route('Front.contact')->with(['successAdd'=>'تم إضافة السؤال بنجاح']);
         return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);
     
     }
@@ -97,6 +97,5 @@ class ContactUsController extends Controller
      */
     public function destroy($id)
     {
-        //
     }
 }

@@ -82,11 +82,11 @@
                                                 {{ $contactus->message }}
                                                 </td>
                                                 <td>
-                                                    <form action="{{ route('admin.service.destroy', $service->id) }}"
+                                                    <form action="{{ route('admin.contactus.index.destroy', $contactus->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        @if ($title->is_active == 1)
+                                                        @if ($contactus->is_active == 1)
                                                         <button  class=" btn d-flex align-items-center
                                                                     font-weight-inverse-success
                                                               btn-rounded  fa-solid fa-trash pe-2
