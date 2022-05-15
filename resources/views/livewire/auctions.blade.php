@@ -78,7 +78,7 @@
                                          @endif
                                      @endforeach
                                  </div>
-                                 <!-- <button wire:click ="load" type="button" class=" items-center px-2.5 py-1.5 border "style="position: relative;
+                                 <!-- <button wire:click ="load" type="button" class=" items-center px-2.5 py-1.5 border " style="position: relative;
     border: 2px solid transparent;
     height: 40px;
     padding: 0 30px;
