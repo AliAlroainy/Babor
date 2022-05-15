@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Notifications;
 
 use App\Http\Controllers\Controller;
 use App\Models\Auction;
+use App\Models\Bid;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Pusher\Pusher;
@@ -128,6 +129,41 @@ class NotificationController extends Controller
         $data['endDate'] = $auction->closeDate;
         $data['user_id'] = $user->id;
 
+        $pusher->trigger('notify-channel2', 'App\\Events\\Notify', $data);
+    }
+
+    public function bidOnAuction(Bid $bid){
+        $options = array(
+            'cluster' => env('PUSHER_APP_CLUSTER'),
+            'encrypted' => true
+        );
+        $pusher = new Pusher(
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
+            $options
+        );
+
+        $notification = new Notification();
+        $user=User::where('id',$bid->auction->auctioneer_id)->first();
+        $notification = Notification::create([
+            'message' => "لقد تمت المزايدة على سيارتك",
+            'user_id' => $user->id ,
+            'state' => 1,
+            'link' => $bid->auction->id,
+            'type'=> 4
+        ]);
+//        $brand = $bid->auction->car->brand->name;
+//        $series = $bid->auction->car->series->name;
+//        $model = $bid->auction->car->model;
+//        $info = array('brand'=>$brand,'series'=>$series,'model'=>$model);
+//        $data['carSpecs'] = implode("," , $info);
+        $data['message'] = $notification->message;
+        $data['link'] = $bid->auction->id;
+        $data['price'] = $bid->currentPrice;
+        $data['endDate'] = $bid->auction->closeDate;
+        $data['user_id'] = $user->id;
+        $data['type'] = $notification->type;
         $pusher->trigger('notify-channel2', 'App\\Events\\Notify', $data);
     }
 }
