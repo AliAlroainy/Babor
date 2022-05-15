@@ -26,7 +26,7 @@ use App\Http\Controllers\Admin\CarCharacteristicsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
-
+use App\Http\Controllers\Admin\ContactUsController;
 
 Route::get('/confirm', function () {
     return view('Front.addtions.confirmBuy');
@@ -229,3 +229,6 @@ Route::get('messages', [App\Http\Controllers\MessageController::class, 'fetchMes
 Route::post('messages', [App\Http\Controllers\MessageController::class, 'sendMessage']);
 Route::get('/private-messages/{user}', [App\Http\Controllers\MessageController::class, 'privateMessages'])->name('privateMessages');
 Route::post('/private-messages/{user}',  [App\Http\Controllers\MessageController::class, 'sendPrivateMessage'])->name('privateMessages.store');
+Route::get('/contact', function () {
+    return view('Admin.contactus');
+});
