@@ -26,15 +26,15 @@
     <div id="app">
         <v-toolbar fixed color="white">
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
-            <v-toolbar-title> LChat</v-toolbar-title>
+            <v-toolbar-title> بابور</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
                     @guest
-                        <v-btn text href="{{ route('login') }}">Login</v-btn>
-                        <v-btn text href="{{ route('register') }}">Register</v-btn>
+                        {{-- <v-btn text href="{{ route('login') }}">Login</v-btn>
+                        <v-btn text href="{{ route('register') }}">Register</v-btn> --}}
                     @else
-                        <v-btn text href="{{route('home')}}"> Group</v-btn>
-                        <v-btn text href="{{route('private')}}"> Private</v-btn>
+                        {{-- <v-btn text href="{{route('home')}}"> Group</v-btn> --}}
+                        <v-btn text href="{{route('private')}}"> خاص</v-btn>
                         <v-btn text> {{ Auth::user()->name }}</v-btn>
                         <v-btn text
                         @click=" $refs.logoutForm.submit(); ">
