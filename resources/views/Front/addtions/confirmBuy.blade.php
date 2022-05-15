@@ -51,9 +51,11 @@
 
     <div class="container d-flex justify-content-around mt-4">
         <div class="d-flex flex-column align-items-center">
-        <button class="btn btn-warning">
-            <i class="bi bi-pen-fill"></i>
-            تاكيد المشتري </button>
+                 	<!-- Button  (to Trigger Modal) -->
+	<a href="#buyModal" class="btn btn-warning " data-toggle="modal">
+        <i class="bi bi-pen-fill"></i>
+        تاكيد المشتري
+    </a>
 
         {{-- <button class="btn btn-success">
             <i class="bi bi-check-circle"></i>
@@ -66,10 +68,13 @@
         </div>
 
             <div class="d-flex flex-column align-items-center">
-            <button class="btn btn-warning">
-                <i class="bi bi-pen-fill"></i>
-                تاكيد البائع </button>
 
+                	<!-- Button  (to Trigger Modal) -->
+	<a href="#buyModal" class="btn btn-warning " data-toggle="modal">
+        <i class="bi bi-pen-fill"></i>
+        تاكيد البائع
+    </a>
+           
                 {{-- <button class="btn btn-success ">
                     <i class="bi bi-check-circle"></i>
                     تم تاكيد البائع </button> --}}
@@ -82,5 +87,36 @@
     </div>
 
 </div>
+
+
+
+
+<!-- confirm Modal  -->
+<div id="buyModal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header w-100 d-flex align-items-center justify-content-center text-center" style="top:-80px; " >
+				<div >
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_accg3lm5.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
+				</div>				
+			</div>
+			<div class="modal-body">
+                <h4 class=" w-90 m-3 mt-5"> هل انت متاكد</h4>	
+
+				<p class="text-center">عملية التاكيد بمثابة عقد نهائي للبيع بين الطرفين </p>
+			</div>
+
+        <div >
+            <a class="btn btn-dark " href="#" style=" background-color: rgb(57, 57, 57)" data-dismiss="modal">تراجع</a>
+            <button class="btn btn-success " data-dismiss="modal">تاكيد</button>
+        </div>
+    
+
+
+			
+		</div>
+	</div>
+</div> 
 
 @include('Front.include.footer')
