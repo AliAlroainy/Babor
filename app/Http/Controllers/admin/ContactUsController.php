@@ -42,6 +42,17 @@ class ContactUsController extends Controller
     public function store(Request $request)
     {
         
+        $con = new contactUs();
+        $con->name=$request->name;
+        $con->email=$request->email;
+        $con->title=$request->title;
+        $con->message=$request->message;
+        $con->phone=$request->phone;
+        
+        if($con->save())
+            return redirect()->route('contact.index')->with(['successAdd'=>'تم إضافة السؤال بنجاح']);
+        return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);
+    
     }
 
     /**
