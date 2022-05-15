@@ -10,7 +10,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('user.dashboard') }}">
-                    <i class=" mdi mdi-settings menu-icon ms-3 "></i>
+                    <i class=" mdi mdi-settings menu-icon ms-3"></i>
                     <span class="menu-title fw-bold " style="font-family: Tajawal">إعدادات الحساب</span>
                 </a>
             </li>
@@ -80,9 +80,10 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item me-5">
-                <a class="nav-link" href="{{ route('user.show.bids') }}" style="font-family: Tajawal">
-                    مزايداتي
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('user.show.bids') }}">
+                    <i class="fas fa-money-bill-alt  me-3 ms-3"></i>
+                    <span class="menu-title fw-bold " style="font-family: Tajawal">مزايداتي</span>
                 </a>
             </li>
         </ul>
