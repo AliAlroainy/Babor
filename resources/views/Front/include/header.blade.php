@@ -71,6 +71,9 @@
 
 
 
+        <!-- Tajwal Font -->
+        <link href='https://fonts.googleapis.com/css?family=Tajawal' rel='stylesheet'>
+
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
