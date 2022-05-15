@@ -27,6 +27,10 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
 
+Route::get('/bill', function () {
+    return view('Front.addtions.bill');
+});
+
 
 Route::get('/confirm', function () {
     return view('Front.addtions.confirmBuy');
