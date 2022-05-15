@@ -28,7 +28,8 @@ class adminIndexController extends Controller
         $servicePercentage=$service/100;
 
         
-       
+        $user= User::get()->count();
+        $userper=$user/100;
 
         return view('Admin.index')->with([
             'auction' => $Auctions ,
