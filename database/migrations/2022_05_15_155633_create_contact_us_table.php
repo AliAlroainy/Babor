@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('title');
             $table->longText('message');
             $table->string('phone');
+            $table->boolean("is_active")->default(1);
         });
     }
 
