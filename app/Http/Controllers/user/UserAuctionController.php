@@ -9,6 +9,7 @@ use App\Models\Brand;
 use App\Models\Auction;
 use App\Models\Category;
 use App\Trait\ImageTrait;
+use App\Models\Payment_Bill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -208,9 +209,9 @@ class UserAuctionController extends Controller
         Auction::whereId($id)->update([
             'next_url' => url($response['invoice']['next_url']),
         ]);
-        DB::table('payment_bills')->insert([
-            'bid_id' => $found->bids->sortDesc()->first()->id,
-            'invoice_reference' => $response['invoice']['invoice_referance'],
-        ]);
+        Payment_Bill::firstOrCreate(
+            ['bid_id' => $found->bids->sortDesc()->first()->id],
+            ['invoice_reference' => $response['invoice']['invoice_referance']]
+        );
     }
 }
