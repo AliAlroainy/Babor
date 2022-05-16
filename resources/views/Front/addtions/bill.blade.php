@@ -40,7 +40,7 @@
                                             />
                                         </a>
                                     </td>
-                                    <td style="color: #999; font-size: 12px; padding: 0; text-align: right;" align="right">
+                                    <td style="color: #999; font-size: 16px; padding: 0; text-align: right;" align="right">
                                         بابور<br />
                                         رقم الفاتورة: #3440952<br />
                                         اغسطس 04, 2022
