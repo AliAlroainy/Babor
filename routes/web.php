@@ -159,7 +159,9 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/payment/failed/{res}', [PaymentController::class, 'failed'])->name('payment.failed');
 
             Route::get('/buyer-doContract/{bill_id}', [ConfirmationController::class, 'doContract'])->name('buyer.doContract');
+            Route::get('/seller-doContract/{bill_id}', [ConfirmationController::class, 'doContract'])->name('seller.doContract');
             Route::post('/buyer-confirm/{bill_id}', [ConfirmationController::class, 'confirm'])->name('buyer.confirm');
+            Route::post('/seller-confirm/{bill_id}', [ConfirmationController::class, 'confirm'])->name('seller.confirm');
         });
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');

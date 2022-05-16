@@ -68,12 +68,13 @@
 
     <div class="container d-flex justify-content-around mt-4">
         <div class="d-flex flex-column align-items-center">
-            @if ($route == 'buyer.doContract')
-                @if ($buyer_confirmed)
-                    <button class="btn btn-success">
-                        <i class="bi bi-check-circle"></i>
-                        تم تاكيد المشتري </button>
-                @else
+
+            @if ($buyer_confirmed)
+                <button class="btn btn-success">
+                    <i class="bi bi-check-circle"></i>
+                    تم تاكيد المشتري </button>
+            @else
+                @if ($route == 'buyer.doContract')
                     <!-- Button  (to Trigger Modal) -->
                     <p> المشتري : {{ $bid->user->name }}</p>
                     <a href="#buyModal" class="btn btn-warning " data-toggle="modal">
@@ -89,53 +90,57 @@
         </div>
 
         <div class="d-flex flex-column align-items-center">
-            @if ($route == 'seller.confirm')
-                <p> البائع : علي الرعيني</p>
-
-                <!-- Button  (to Trigger Modal) -->
-                <a href="#buyModal" class="btn btn-warning " data-toggle="modal">
-                    <i class="bi bi-pen-fill"></i>
-                    تاكيد البائع
-                </a>
-
-                {{-- <button class="btn btn-success ">
+            @if ($seller_confirmed)
+                <button class="btn btn-success">
                     <i class="bi bi-check-circle"></i>
-                    تم تاكيد البائع </button> --}}
+                    تم تاكيد البائع </button>
+            @else
+                @if ($route == 'seller.doContract')
+                    <p> البائع : {{ $bid->auction->user->name }}</p>
 
-                <a href="#backModal" class="btn btn-defult mt-2" data-toggle="modal">
-                    <i class="bi bi-info-circle"></i>
-                    تراجع </a>
+                    <!-- Button  (to Trigger Modal) -->
+                    <a href="#buyModal" class="btn btn-warning " data-toggle="modal">
+                        <i class="bi bi-pen-fill"></i>
+                        تاكيد البائع
+                    </a>
+                @endif
             @endif
         </div>
     </div>
 </div>
 <!-- confirm Modal  -->
-<form action="{{ route('buyer.confirm', $bid->payment_bill->id) }}" method="POST">
-    @csrf
-    <div id="buyModal" class="modal fade">
-        <div class="modal-dialog modal-confirm">
-            <div class="modal-content">
-                <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
-                    style="top:-80px;">
-                    <div>
-                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_accg3lm5.json"
-                            background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay>
-                        </lottie-player>
-                    </div>
+
+@if ($route == 'buyer.doContract')
+    <form action="{{ route('buyer.confirm', $bid->payment_bill->id) }}" method="POST">
+    @elseif($route == 'seller.doContract')
+        <form action="{{ route('seller.confirm', $bid->payment_bill->id) }}" method="POST">
+@endif
+
+@csrf
+<div id="buyModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
+                style="top:-80px;">
+                <div>
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_accg3lm5.json"
+                        background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay>
+                    </lottie-player>
                 </div>
-                <div class="modal-body">
-                    <h4 class=" w-90 m-3 mt-5"> هل انت متاكد</h4>
-                    <p class="text-center alert alert-warning">عملية التاكيد بمثابة عقد نهائي للبيع بين الطرفين </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"
-                        style=" background-color: rgb(57, 57, 57)">إلغاء</button>
-                    <button type="submit" class="btn btn-warning text-white">حفظ</button>
-                </div>
+            </div>
+            <div class="modal-body">
+                <h4 class=" w-90 m-3 mt-5"> هل انت متاكد</h4>
+                <p class="text-center alert alert-warning">عملية التاكيد بمثابة عقد نهائي للبيع بين الطرفين </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="close"
+                    style=" background-color: rgb(57, 57, 57)">إلغاء</button>
+                <button type="submit" class="btn btn-warning text-white">حفظ</button>
             </div>
         </div>
     </div>
+</div>
 </form>
 <!-- Back Modal  -->
 <div id="backModal" class="modal fade">
