@@ -164,6 +164,7 @@ $('.dropify').dropify({
 // });
      </script>
 
+ <!-- Active JS -->
 
 </body>
 

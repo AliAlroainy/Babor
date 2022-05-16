@@ -328,7 +328,7 @@
 </section>
 <!-- End Shop Home List  -->
 
-<section class="section free-version-banner">
+{{-- <section class="section free-version-banner">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-8 offset-md-2 col-xs-12">
@@ -352,7 +352,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 
 
