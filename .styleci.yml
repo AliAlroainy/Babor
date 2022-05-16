@@ -10,3 +10,7 @@ js:
     not-name:
       - webpack.mix.js
 css: true
+ mix.autoload({
+    'jquery': ['$', 'window.jQuery', "jQuery", "window.$", "jquery", "window.jquery"],
+    'popper.js/dist/umd/popper.js': ['Popper', 'window.Popper']
+});
