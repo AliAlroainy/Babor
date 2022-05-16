@@ -17,12 +17,12 @@ use App\Http\Controllers\Admin\AcutionController;
 use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\Admin\QustionController;
 // use \Illuminate\Support\Facades\URL;
+use App\Http\Controllers\user\ContractController;
 use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\user\UserAuctionController;
-use App\Http\Controllers\user\ConfirmationController;
 use App\Http\Controllers\Authentication\authcontroller;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -35,14 +35,6 @@ Route::get('/bill', function () {
 
 Route::get('/noConnection', function () {
     return view('Front.noconnection');
-});
-
-Route::get('/403', function () {
-    return view('Front.403');
-});
-
-Route::get('/confirm', function () {
-    return view('Front.addtions.confirmBuy');
 });
 
 Route::get('/failed', function () {
@@ -165,10 +157,8 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/payment/success/{id}/{res}', [PaymentController::class, 'success'])->name('payment.success');
             Route::get('/payment/failed/{res}', [PaymentController::class, 'failed'])->name('payment.failed');
 
-            Route::get('/buyer-doContract/{bill_id}', [ConfirmationController::class, 'doContract'])->name('buyer.doContract');
-            Route::get('/seller-doContract/{bill_id}', [ConfirmationController::class, 'doContract'])->name('seller.doContract');
-            Route::post('/buyer-confirm/{bill_id}', [ConfirmationController::class, 'confirm'])->name('buyer.confirm');
-            Route::post('/seller-confirm/{bill_id}', [ConfirmationController::class, 'confirm'])->name('seller.confirm');
+            Route::get('/do-contract/{bill_id}', [ContractController::class, 'doContract'])->name('do.contract');
+            Route::post('/confirm/{bill_id}', [ContractController::class, 'contract'])->name('confirm');
         });
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');

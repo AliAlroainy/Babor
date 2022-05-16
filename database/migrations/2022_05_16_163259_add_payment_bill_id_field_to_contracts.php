@@ -8,14 +8,14 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::table('confirmations', function (Blueprint $table) {
+        Schema::table('contracts', function (Blueprint $table) {
             $table->foreignId('payment_bill_id')->nullable()->constrained('payment_bills')->onDelete('cascade');
         });
     }
 
     public function down()
     {
-        Schema::table('confirmations', function (Blueprint $table) {
+        Schema::table('contracts', function (Blueprint $table) {
             //
         });
     }

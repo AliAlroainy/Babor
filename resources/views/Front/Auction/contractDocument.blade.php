@@ -5,7 +5,8 @@
         <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_cyn8dgwy.json" background="transparent"
             speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
         {{-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1dlnyjbb.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player> --}}
+        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1dlnyjbb.json" background="transparent"
+            speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player> --}}
     </div>
     <div class="text-center">
         <div class="">
@@ -43,7 +44,7 @@
             </li>
         </ol>
     </div>
-    @if ($route == 'buyer.doContract')
+    @if ($user == 'buyer')
         <div class="container d-flex align-items-center justify-content-center w-75">
             <div class="w-75 alert-light p-3"
                 style="border-right: 3px solid rgba(78, 78, 78, 0.716); border-radius: 6px">
@@ -68,13 +69,16 @@
 
     <div class="container d-flex justify-content-around mt-4">
         <div class="d-flex flex-column align-items-center">
-
-            @if ($buyer_confirmed)
+            @if ($buyer_confirmed == '1')
                 <button class="btn btn-success">
                     <i class="bi bi-check-circle"></i>
                     تم تاكيد المشتري </button>
+            @elseif($buyer_confirmed == '0')
+                <button class="btn btn-danger">
+                    <i class="fa fa-ban"></i>
+                    تم تراجع المشتري</button>
             @else
-                @if ($route == 'buyer.doContract')
+                @if ($user == 'buyer')
                     <!-- Button  (to Trigger Modal) -->
                     <p> المشتري : {{ $bid->user->name }}</p>
                     <a href="#buyModal" class="btn btn-warning " data-toggle="modal">
@@ -90,12 +94,12 @@
         </div>
 
         <div class="d-flex flex-column align-items-center">
-            @if ($seller_confirmed)
+            @if ($seller_confirmed != null)
                 <button class="btn btn-success">
                     <i class="bi bi-check-circle"></i>
                     تم تاكيد البائع </button>
             @else
-                @if ($route == 'seller.doContract')
+                @if ($user == 'seller')
                     <p> البائع : {{ $bid->auction->user->name }}</p>
 
                     <!-- Button  (to Trigger Modal) -->
@@ -110,66 +114,63 @@
 </div>
 <!-- confirm Modal  -->
 
-@if ($route == 'buyer.doContract')
-    <form action="{{ route('buyer.confirm', $bid->payment_bill->id) }}" method="POST">
-    @elseif($route == 'seller.doContract')
-        <form action="{{ route('seller.confirm', $bid->payment_bill->id) }}" method="POST">
-@endif
 
-@csrf
-<div id="buyModal" class="modal fade">
-    <div class="modal-dialog modal-confirm">
-        <div class="modal-content">
-            <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
-                style="top:-80px;">
-                <div>
-                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                    <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_accg3lm5.json"
-                        background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay>
-                    </lottie-player>
+<form action="{{ route('confirm', $bid->payment_bill->id) }}" method="POST">
+    @csrf
+    <div id="buyModal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
+                    style="top:-80px;">
+                    <div>
+                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_accg3lm5.json"
+                            background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay>
+                        </lottie-player>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-body">
-                <h4 class=" w-90 m-3 mt-5"> هل انت متاكد</h4>
-                <p class="text-center alert alert-warning">عملية التاكيد بمثابة عقد نهائي للبيع بين الطرفين </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="close"
-                    style=" background-color: rgb(57, 57, 57)">إلغاء</button>
-                <button type="submit" class="btn btn-warning text-white">حفظ</button>
+                <div class="modal-body">
+                    <h4 class=" w-90 m-3 mt-5"> هل انت متاكد</h4>
+                    <p class="text-center alert alert-warning">عملية التاكيد بمثابة عقد نهائي للبيع بين الطرفين </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
+                        style=" background-color: rgb(57, 57, 57)">إلغاء</button>
+                    <button type="submit" class="btn btn-warning text-white" name="approve">حفظ</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </form>
 <!-- Back Modal  -->
-<div id="backModal" class="modal fade">
-    <div class="modal-dialog modal-confirm">
-        <div class="modal-content">
-            <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
-                style="top:-80px; ">
-                <div>
-                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                    <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_accg3lm5.json"
-                        background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay>
-                    </lottie-player>
+<form action="{{ route('confirm', $bid->payment_bill->id) }}" method="POST">
+    @csrf
+    <div id="backModal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
+                    style="top:-80px; ">
+                    <div>
+                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_accg3lm5.json"
+                            background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay>
+                        </lottie-player>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-body">
-                <h4 class=" w-90 m-3 mt-5"> التراجع عن البيع </h4>
-                <textarea class="form-control" dir="rtl">يرجى كتابة سبب التراجع.. </textarea>
-            </div>
-            <div>
-                <a class="btn btn-dark " href="#" style=" background-color: rgb(57, 57, 57)" data-dismiss="modal">
-                    الغاء
-                </a>
-                <button class="btn btn-success " data-dismiss="modal">
-                    ارسال
-                    <i class="bi bi-send"></i>
-                </button>
+                <div class="modal-body">
+                    <h4 class="w-90 m-3 mt-5"> التراجع عن البيع </h4>
+                    <textarea class="form-control myTextarea" dir="rtl" name="buyer_undoReason"></textarea>
+                </div>
+                <div>
+                    <a class="btn btn-dark " href="#" style=" background-color: rgb(57, 57, 57)" data-dismiss="modal">
+                        الغاء
+                    </a>
+                    <button type="submit" class="btn btn-success" name="disapprove">
+                        ارسال
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+</form>
 @include('Front.include.footer')

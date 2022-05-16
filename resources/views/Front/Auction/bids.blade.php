@@ -106,7 +106,7 @@
                                                                                 value="شراء">
                                                                         </form>
                                                                     @else
-                                                                        <a href="{{ route('buyer.doContract', $bid->payment_bill->id) }}"
+                                                                        <a href="{{ route('do.contract', $bid->payment_bill->id) }}"
                                                                             class="btn bg-main-color text-white">
                                                                             توقيع العقد
                                                                         </a>
