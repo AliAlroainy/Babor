@@ -8,15 +8,16 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('receipt_delivery', function (Blueprint $table) {
+        Schema::create('confirmations', function (Blueprint $table) {
             $table->id();
-            $table->boolean('sell_pay');
+            $table->boolean('buyer_confirm')->default(0);
+            $table->boolean('seller_confirm')->default(0);
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('receipt_delivery');
+        Schema::dropIfExists('confirmations');
     }
 };

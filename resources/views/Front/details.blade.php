@@ -99,12 +99,26 @@
                         @endif
                         @if (Auth::user())
                             <div class="add-to-cart">
-                                <button class="add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#bidding"><i
-                                        class="fa fa-shopping-cart"></i> دخول
-                                    بالمزاد</button>
+                                @if ($auction->status == '4' || $auction->status == '5')
+                                    <span class="text-danger" style="font-size: 12px; vertical-align: bottom;">
+                                        انتهى
+                                    </span>
+                                    <br>
+                                @elseif($auction->status == '3')
+                                    <span class="text-danger" style="font-size: 12px; vertical-align: bottom;">
+                                        ملغي
+                                    </span>
+                                    <br>
+                                @else
+                                    <button class="add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#bidding"><i
+                                            class="fa fa-shopping-cart"></i> دخول
+                                        بالمزاد</button>
+                                @endif
+
                                 <span class="text-muted" style="font-size: 12px; vertical-align: bottom;"> أقل سعر
                                     للمزايدة به هو:
-                                    {{ $auction->minInc }}</span>
+                                    {{ $auction->minInc }}
+                                </span>
                             </div>
                         @else
                             <div class="add-to-cart">

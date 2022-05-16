@@ -5,8 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Receipt_Delivery extends Model
+class Confirmation extends Model
 {
     use HasFactory;
-    protected $table = 'receipt_delivery';
+    protected $fillable = [
+        'payment_bill_id',
+        'buyer_confirm', 
+        'seller_confirm', 
+    ];
 }

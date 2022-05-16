@@ -607,6 +607,15 @@
                                                                     style="font-size: 12px ;"></i>
                                                             </a>
                                                         @endif
+                                                        @if ($auction->bids->first()->payment_bill)
+                                                            <a style="width: fit-content"
+                                                                href="{{ route('seller.doContract', $auction->bids->first()->payment_bill->id) }}"
+                                                                class="mt-3 btn btn-inverse-info btn-rounded">
+                                                                إتمام العقد
+                                                                <i class="fad fa-solid fa-stop pe-2"
+                                                                    style="font-size: 12px ;"></i>
+                                                            </a>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             @endforeach
