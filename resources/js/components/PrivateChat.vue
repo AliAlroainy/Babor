@@ -6,7 +6,7 @@
             v-for="friend in friends"
             :color="(friend.id==activeFriend)?'green':''"
             :key="friend.id"
-            @click="activeFriend=friend.id"
+            v-on:click="activeFriend=friend.id"
           >
             <v-list-item-action>
               <v-icon :color="(onlineFriends.find(user=>user.id===friend.id))?'green':'red'">account_circle</v-icon>
@@ -17,7 +17,7 @@
             </v-list-item-content>
 
             <!-- <v-list-item-avatar>
-              <img :src="item.avatar">
+              <img v-bind:src="item.avatar">
             </v-list-item-avatar> -->
           </v-list-item>
 
@@ -29,7 +29,7 @@
     <v-flex id="privateMessageBox" class="messages mb-5" xs9>
         <message-list :user="user" :all-messages="allMessages"></message-list>
 
-        <div class="floating-div">
+        <div class="float-start">
             <picker v-if="emoStatus" set="emojione" @select="onInput" title="Pick your emoji…" />
 
         </div>
@@ -41,7 +41,7 @@
         >
             <v-layout row >
                 <v-flex class="ml-2 text-right" xs1>
-                    <v-btn @click="toggleEmo" fab dark small color="pink">
+                    <v-btn v-on:click="toggleEmo" fab dark small color="pink">
                         <v-icon>insert_emoticon </v-icon>
                     </v-btn>
                 </v-flex>
@@ -70,8 +70,8 @@
 
                 <v-flex xs4>
                     <v-btn
-                            @click="sendMessage"
-                            dark class="mt-3 ml-2 white--text" small color="green">send</v-btn>
+                            v-on:click="sendMessage"
+                            dark class="mt-3 ml-2 white--text babor " small color="green">send</v-btn>
 
 
                 </v-flex>
@@ -265,5 +265,7 @@
   overflow-y:scroll;
   height:100vh;
 }
-
+.babor{
+    color: blueviolet;
+}
 </style>
