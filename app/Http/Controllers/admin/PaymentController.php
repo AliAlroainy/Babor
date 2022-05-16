@@ -31,7 +31,6 @@ class PaymentController extends Controller
                     [
                         'payment_status' => 1, 
                         'created_at'     => now(),
-                        'updated_at'     => now()
                     ]
                 );
             }

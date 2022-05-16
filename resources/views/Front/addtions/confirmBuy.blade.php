@@ -43,7 +43,7 @@
             </li>
         </ol>
     </div>
-    @if ($route == 'buyer.confirm')
+    @if ($route == 'buyer.doContract')
         <div class="container d-flex align-items-center justify-content-center w-75">
             <div class="w-75 alert-light p-3"
                 style="border-right: 3px solid rgba(78, 78, 78, 0.716); border-radius: 6px">
@@ -68,21 +68,23 @@
 
     <div class="container d-flex justify-content-around mt-4">
         <div class="d-flex flex-column align-items-center">
-            @if ($route == 'buyer.confirm')
-                <!-- Button  (to Trigger Modal) -->
-                <p> المشتري : {{ $bid->user->name }}</p>
-                <a href="#buyModal" class="btn btn-warning " data-toggle="modal">
-                    <i class="bi bi-pen-fill"></i>
-                    تاكيد المشتري
-                </a>
+            @if ($route == 'buyer.doContract')
+                @if ($buyer_confirmed)
+                    <button class="btn btn-success">
+                        <i class="bi bi-check-circle"></i>
+                        تم تاكيد المشتري </button>
+                @else
+                    <!-- Button  (to Trigger Modal) -->
+                    <p> المشتري : {{ $bid->user->name }}</p>
+                    <a href="#buyModal" class="btn btn-warning " data-toggle="modal">
+                        <i class="bi bi-pen-fill"></i>
+                        تاكيد المشتري
+                    </a>
 
-                {{-- <button class="btn btn-success">
-            <i class="bi bi-check-circle"></i>
-            تم تاكيد المشتري </button> --}}
-
-                <a href="#backModal" class="btn btn-defult mt-2" data-toggle="modal">
-                    <i class="bi bi-info-circle"></i>
-                    تراجع </a>
+                    <a href="#backModal" class="btn btn-defult mt-2" data-toggle="modal">
+                        <i class="bi bi-info-circle"></i>
+                        تراجع </a>
+                @endif
             @endif
         </div>
 
@@ -108,33 +110,33 @@
     </div>
 </div>
 <!-- confirm Modal  -->
-<div id="buyModal" class="modal fade">
-    <div class="modal-dialog modal-confirm">
-        <div class="modal-content">
-            <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
-                style="top:-80px; ">
-                <div>
-                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                    <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_accg3lm5.json"
-                        background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay>
-                    </lottie-player>
+<form action="{{ route('buyer.confirm', $bid->payment_bill->id) }}" method="POST">
+    @csrf
+    <div id="buyModal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
+                    style="top:-80px;">
+                    <div>
+                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_accg3lm5.json"
+                            background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay>
+                        </lottie-player>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-body">
-                <h4 class=" w-90 m-3 mt-5"> هل انت متاكد</h4>
-
-                <p class="text-center alert alert-warning">عملية التاكيد بمثابة عقد نهائي للبيع بين الطرفين </p>
-            </div>
-
-            <div>
-                <a class="btn btn-dark " href="#" style=" background-color: rgb(57, 57, 57)"
-                    data-dismiss="modal">تراجع</a>
-                <button class="btn btn-success " data-dismiss="modal">تاكيد</button>
+                <div class="modal-body">
+                    <h4 class=" w-90 m-3 mt-5"> هل انت متاكد</h4>
+                    <p class="text-center alert alert-warning">عملية التاكيد بمثابة عقد نهائي للبيع بين الطرفين </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"
+                        style=" background-color: rgb(57, 57, 57)">إلغاء</button>
+                    <button type="submit" class="btn btn-warning text-white">حفظ</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+</form>
 <!-- Back Modal  -->
 <div id="backModal" class="modal fade">
     <div class="modal-dialog modal-confirm">

@@ -10,7 +10,14 @@ class Payment_Bill extends Model
 {
     use HasFactory;
     protected $table = 'payment_bills';
+    const UPDATED_AT = null;
 
+    protected $fillable = [
+        'invoice_reference',
+        'created_at', 
+        'payment_status',
+        'bid_id',  
+    ];
     public function bid(): BelongsTo
     {
         return $this->belongsTo(Bid::class, 'bid_id');
