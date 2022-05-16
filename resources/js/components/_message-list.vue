@@ -12,7 +12,7 @@
 
 
               <div v-if="message.message" class="text-message-container">
-                  <v-chip :color="(user.id===message.user_id)?'green':'red'" text-color="white">
+                  <v-chip :color="(user.id===message.user_id)?'green':'red'" text-color="white"  class="ma-2">
                       {{message.message}}
 
                   </v-chip>
@@ -20,7 +20,7 @@
               </div>
 
               <div class="image-container">
-                  <img v-if="message.image"  :src="'/storage/'+message.image" alt="">
+                     <img v-if="message.image"  :src="'/storage/'+message.image" alt="">
 
               </div>
 
