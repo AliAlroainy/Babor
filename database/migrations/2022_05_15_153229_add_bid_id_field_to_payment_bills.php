@@ -16,7 +16,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('payment_bills', function (Blueprint $table) {
-            $table->foreignId('bid_id')->nullable()->constrained('bids')->onDelete('cascade');
+            // $table->foreignId('bid_id')->nullable()->constrained('bids')->onDelete('cascade');
         });
     }
 };
