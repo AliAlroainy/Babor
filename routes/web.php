@@ -32,6 +32,9 @@ Route::get('/bill', function () {
     return view('Front.addtions.bill');
 });
 
+Route::get('/noConnection', function () {
+    return view('Front.noconnection');
+});
 
 Route::get('/confirm', function () {
     return view('Front.addtions.confirmBuy');
