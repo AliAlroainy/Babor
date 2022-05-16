@@ -13,7 +13,7 @@ use Livewire\Component;
 class Babor extends Component
 {
     
-    public $pe_babor =8;
+    public $pe_babor =9;
 
     // public function load()
     // {

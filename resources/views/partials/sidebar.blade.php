@@ -3,7 +3,7 @@
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav " style="padding-inline: 0">
         <li class="nav-item">
-                <a class="nav-link" href="/admin">
+                <a class="nav-link" href="/admin/index">
                     <i class="fa-solid fa-user menu-icon ms-3 "></i>
                     <span class="menu-title fw-bold " style="font-family: Tajawal"> الاحصائيات</span>
                 </a>

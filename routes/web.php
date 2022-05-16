@@ -84,7 +84,8 @@ Route::get('/FAQ', [SiteController::class, 'questionShow']);
 Route::get('/auctions/available', [SiteController::class, 'availableAuctions'])->name('site.available.auction');
 Route::get('/auction/{id}', [SiteController::class, 'auctionShow'])->name('site.auction.details');
 Route::view('/soon', 'Front.soon');
-Route::view('/contact', 'Front.contact');
+Route::get('/contact', [ContactUsController::class, 'show'])->name('site.show');
+// Route::view('/contact', 'Front.contact');
 Route::view('/favorite', 'Front.favorite');
 Route::view('/buy', 'Front.buy');
 Route::get('/user/profile/settings/changePassword', function () {
@@ -113,6 +114,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('/contactus', ContactUsController::class, ['names' => 'admin.contactus.index']);
         Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
         Route::get('/auction', [AcutionController::class, 'index'])->name('admin.auction.index');
+        Route::get('/statistic', [adminIndexController::class, 'index'])->name('admin.index');
         Route::post('/auction/filter', [AcutionController::class, 'indexWithFilter'])->name('admin.auction.indexFilter');
         Route::post('/auction/action/{id}', [AcutionController::class, 'action'])->name('admin.auction.action');
         Route::get('/auction/details/{id}', [AcutionController::class, 'showDetails'])->name('admin.auction.details');

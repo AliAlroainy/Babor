@@ -51,7 +51,7 @@ class ContactUsController extends Controller
         $con->phone=$request->phone;
         
         if($con->save())
-            return redirect()->route('admin.contactus.index.index')->with(['successAdd'=>'تم إضافة السؤال بنجاح']);
+            return redirect()->route('site.show')->with(['successAdd'=>'تم إضافة السؤال بنجاح']);
         return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);
     
     }
@@ -62,9 +62,9 @@ class ContactUsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view('Front.contact');
     }
 
     /**

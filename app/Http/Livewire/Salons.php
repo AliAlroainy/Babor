@@ -11,7 +11,7 @@ use Livewire\Component;
 
 class Salons extends Component
 {
-    public $pe_salons =23;
+    public $pe_salons =29;
     public function loadsalon()
     {
       

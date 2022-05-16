@@ -11,7 +11,7 @@ use Livewire\Component;
 
 class Taxis extends Component
 {
-    public $pe_taxi =14;
+    public $pe_taxi =24;
 
     public function load2()
     {
