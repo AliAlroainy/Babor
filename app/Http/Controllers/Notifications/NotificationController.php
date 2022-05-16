@@ -166,4 +166,64 @@ class NotificationController extends Controller
         $data['type'] = $notification->type;
         $pusher->trigger('notify-channel2', 'App\\Events\\Notify', $data);
     }
+
+    public function stopAuction(Auction $auction, $winner_id){
+        $options = array(
+            'cluster' => env('PUSHER_APP_CLUSTER'),
+            'encrypted' => true
+        );
+        $pusher = new Pusher(
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
+            $options
+        );
+
+        $notification = new Notification();
+        $user=User::where('id',)->first();
+        $notification = Notification::create([
+            'message' => "لقد فزت بمزاد سيارة",
+            'user_id' => $winner_id ,
+            'state' => 1,
+            'link' => $auction->id,
+            'type'=> 5
+        ]);
+        $data['message'] = $notification->message;
+        $data['link'] = $auction->id;
+        $data['user_id'] = $notification->user_id;
+        $data['type'] = $notification->type;
+
+
+        $pusher->trigger('notify-channel2', 'App\\Events\\Notify', $data);
+    }
+    public function refundBidders(Auction $auction, $winner_id){
+        $options = array(
+            'cluster' => env('PUSHER_APP_CLUSTER'),
+            'encrypted' => true
+        );
+        $pusher = new Pusher(
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
+            $options
+        );
+
+        $notification = new Notification();
+        $user=User::where('id',)->first();
+        $notification = Notification::create([
+            'message' => "تم إرساء مزاد اشتركت فيه, لم تفز 😥",
+            'user_id' => $winner_id ,
+            'state' => 1,
+            'link' => $auction->id,
+            'type'=> 5
+        ]);
+        $data['message'] = $notification->message;
+        $data['link'] = $auction->id;
+        $data['user_id'] = $notification->user_id;
+        $data['admin_id'] = 1;
+        $data['type'] = $notification->type;
+
+
+        $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
+    }
 }

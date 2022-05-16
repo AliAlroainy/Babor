@@ -81,7 +81,7 @@
                             <p> © 2020 <a href="#" target="_blank">بابور</a> - جميع الحقوق محفوظة</p>
                         </div>
                     </div>
-                
+
                 </div>
             </div>
         </div>
@@ -164,6 +164,7 @@
  <script src="/js/main.js"></script>
 
  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+{{-- <script src="/js/Notifications/notifications.js"></script>--}}
  <script>
 
      var pusher = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
@@ -171,50 +172,73 @@
          encrypted: true
      });
 
-     var channel = pusher.subscribe('notify-channel');
-     var channel2 = pusher.subscribe('notify-channel2');
+     let channel = pusher.subscribe('notify-channel');
+     let channel2 = pusher.subscribe('notify-channel2');
+
      channel.bind('App\\Events\\Notify', function(data) {
-         var node = document.createElement('li');
+         let node = document.createElement('li');
+         if( data.user_id.toString() !="{!! Auth::id() !!}") {
              node.innerHTML =`
-            <li>
-                <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                <a href="auction/${data.link}">
-                    <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
-                    <div class="quantity text-dark">
-                        <h4 class="fw-bold"> ${data.message}</h4>
-                        <span class="amount">$ ${data.price}</span>
-                        <p class="d-block mb-0">ينتهي بتاريخ ${data.endDate} </p>
-                    </div>
-                </a>
-            </li>
+        <li>
+            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+            <a href="auction/${data.link}">
+                <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
+                <div class="quantity text-dark">
+                    <h4 class="fw-bold"> ${data.message}</h4>
+                    <span class="amount">$ ${data.price}</span>
+                    <p class="d-block mb-0">ينتهي بتاريخ ${data.endDate} </p>
+                </div>
+            </a>
+        </li>
 `;
-        if( data.user_id.toString() !="{!! Auth::id() !!}") {
-            alert("{!! Auth::id() !!}");
-            document.getElementById('shopping-list').prepend(node);
-        }
+             alert("{!! Auth::id() !!}");
+             document.getElementById('shopping-list').prepend(node);
+         }
+
+         if( data.user_id.toString() != "{!! Auth::id() !!}" && data.admin_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "" ) {
+
+             node = document.createElement('li');
+             node.innerHTML =`
+        <li>
+            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+            <a href="auction/${data.link}">
+                <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
+                <div class="quantity text-dark">
+                    <h4 class="fw-bold"> ${data.message}</h4>
+                </div>
+            </a>
+        </li>
+`;
+
+             alert("{!! Auth::id() !!}");
+             document.getElementById('shopping-list').prepend(node);
+         }
+
      });
 
      channel2.bind('App\\Events\\Notify', function(data) {
          var node = document.createElement('li');
          node.innerHTML =`
-            <li>
-                <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                <a href="auction/${data.link}">
-                    <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
-                    <div class="quantity text-dark">
-                        <h4 class="fw-bold"> ${data.message}</h4>
-                    </div>
-                </a>
-            </li>
+        <li>
+            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+            <a href="auction/${data.link}">
+                <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
+                <div class="quantity text-dark">
+                    <h4 class="fw-bold"> ${data.message}</h4>
+                </div>
+            </a>
+        </li>
 `;
-         if( data.user_id.toString() =="{!! Auth::id() !!}") {
+
+         if( data.user_id.toString() == "{!! Auth::id() !!}") {
              alert("{!! Auth::id() !!}");
              document.getElementById('shopping-list').prepend(node);
          }
+
      });
 
- </script>
 
+ </script>
  </body>
 
  </html>
