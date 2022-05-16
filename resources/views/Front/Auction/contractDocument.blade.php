@@ -5,7 +5,8 @@
         <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_cyn8dgwy.json" background="transparent"
             speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
         {{-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1dlnyjbb.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player> --}}
+        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1dlnyjbb.json" background="transparent"
+            speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player> --}}
     </div>
     <div class="text-center">
         <div class="">
@@ -68,11 +69,14 @@
 
     <div class="container d-flex justify-content-around mt-4">
         <div class="d-flex flex-column align-items-center">
-
-            @if ($buyer_confirmed)
+            @if ($buyer_confirmed == '1')
                 <button class="btn btn-success">
                     <i class="bi bi-check-circle"></i>
                     تم تاكيد المشتري </button>
+            @elseif($buyer_confirmed == '0')
+                <button class="btn btn-danger">
+                    <i class="fa fa-ban"></i>
+                    تم تراجع المشتري</button>
             @else
                 @if ($user == 'buyer')
                     <!-- Button  (to Trigger Modal) -->
@@ -90,7 +94,7 @@
         </div>
 
         <div class="d-flex flex-column align-items-center">
-            @if ($seller_confirmed)
+            @if ($seller_confirmed != null)
                 <button class="btn btn-success">
                     <i class="bi bi-check-circle"></i>
                     تم تاكيد البائع </button>
@@ -132,7 +136,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
                         style=" background-color: rgb(57, 57, 57)">إلغاء</button>
-                    <button type="submit" class="btn btn-warning text-white">حفظ</button>
+                    <button type="submit" class="btn btn-warning text-white" name="approve">حفظ</button>
                 </div>
             </div>
         </div>
@@ -161,7 +165,7 @@
                     <a class="btn btn-dark " href="#" style=" background-color: rgb(57, 57, 57)" data-dismiss="modal">
                         الغاء
                     </a>
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" class="btn btn-success" name="disapprove">
                         ارسال
                     </button>
                 </div>

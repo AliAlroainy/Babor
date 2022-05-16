@@ -608,13 +608,18 @@
                                                             </a>
                                                         @endif
                                                         @if (isset($auction->bids->first()->payment_bill))
-                                                            <a style="width: fit-content"
-                                                                href="{{ route('do.contract', $auction->bids->first()->payment_bill->id) }}"
-                                                                class="mt-3 btn btn-inverse-info btn-rounded">
-                                                                إتمام العقد
-                                                                <i class="fad fa-solid fa-stop pe-2"
-                                                                    style="font-size: 12px ;"></i>
-                                                            </a>
+                                                            @if ($auction->bids->first()->payment_bill->payment_status == 1)
+                                                                <a style="width: fit-content"
+                                                                    href="{{ route('do.contract', $auction->bids->first()->payment_bill->id) }}"
+                                                                    class="mt-3 btn btn-inverse-info btn-rounded">
+                                                                    إتمام العقد
+                                                                    <i class="fad fa-solid fa-stop pe-2"
+                                                                        style="font-size: 12px ;"></i>
+                                                                </a>
+                                                            @else
+                                                                <span class="bg-success"> في انتظار دفع المزايد
+                                                                    الفائز</span>
+                                                            @endif
                                                         @endif
                                                     </div>
                                                 </div>

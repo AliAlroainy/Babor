@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
             $table->boolean('buyer_confirm')->nullable();
-            $table->boolean('buyer_confirm')->nullable();
+            $table->boolean('seller_confirm')->nullable();
             $table->text('buyer_undoReason')->nullable();
             $table->timestamps();
         });
