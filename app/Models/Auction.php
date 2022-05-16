@@ -20,7 +20,9 @@ class Auction extends Model
         'startDate',
         'minInc',  
         'auctioneer_id',
-        'car_id' 
+        'car_id', 
+        'winner_id', 
+        'winnerPrice', 
     ];
     public function car(): BelongsTo
     {

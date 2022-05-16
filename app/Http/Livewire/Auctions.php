@@ -21,6 +21,11 @@ class Auctions extends Component
       $this->pe_page +=6;
         
     }
+    public function load2()
+    {
+      $this->pe_page +=6;
+        
+    }
     public function render()
     {$auctions = Auction::with(['car' => function ($q) {
         $q->select('brand_id', 'series_id', 'model', );

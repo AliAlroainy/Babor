@@ -71,8 +71,8 @@
 
 
 
-        <!-- Tajwal Font -->
-        <link href='https://fonts.googleapis.com/css?family=Tajawal' rel='stylesheet'>
+    <!-- Tajwal Font -->
+    <link href='https://fonts.googleapis.com/css?family=Tajawal' rel='stylesheet'>
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -111,8 +111,8 @@
         ga('create', 'UA-47923629-1', 'gigagit.com');
         ga('send', 'pageview');
     </script>
-{{-- success --}}
-{{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    {{-- success --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> --}}
 
@@ -300,10 +300,12 @@
                                             <ul class="nav main-menu menu navbar-nav ">
                                                 <li class="navh active"><a class="nav-link"
                                                         href="/">الرئيسية</a></li>
-                                                <li class="navh  "><a class="nav-link" href="/offer">العروض</a></li>
-                                                <li class="navh "><a class="nav-link" href="/services">الخدمات</a></li>
-                                                <li class="navh "><a class="nav-link  " href="#">شراء سيارة<i
-                                                            class="ti-angle-down p-2"></i>
+                                                <li class="navh  "><a class="nav-link"
+                                                        href="/offer">العروض</a></li>
+                                                <li class="navh "><a class="nav-link"
+                                                        href="/services">الخدمات</a></li>
+                                                <li class="navh "><a class="nav-link  " href="#">شراء
+                                                        سيارة<i class="ti-angle-down p-2"></i>
                                                         <!--span class="new">جديد</span-->
                                                     </a>
                                                     <ul class="dropdown ">
@@ -328,21 +330,11 @@
         <!--/ End Header Inner -->
     </header>
     <!--/ End Header -->
+    {{-- @include('Front.include.modals') --}}
 
-
-<script >
-
-// add activetion links 
-    $('.navh').on('click', function(){
-        $(this).addClass('active').siblings('li').removeClass('active');
-    });
-
-
-
+    <script>
+        // add activetion links 
+        $('.navh').on('click', function() {
+            $(this).addClass('active').siblings('li').removeClass('active');
+        });
     </script>
-
-
-
-
-
-
