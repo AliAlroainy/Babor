@@ -24,6 +24,7 @@ class CarSeeder extends Seeder
                                                 ]),
               'description' => $faker->sentence(8),
               'carPosition'=> $faker->sentence(8),
+              'status' => '0',
               'brand_id' => $faker->numberBetween(1,5),
               'series_id' => $faker->numberBetween(1,4),
               'category_id' => $faker->numberBetween(1,5),
@@ -39,6 +40,7 @@ class CarSeeder extends Seeder
                                         ]),
             'description' => $faker->sentence(8),
             'carPosition'=> $faker->sentence(8),
+            'status' => '1',
             'brand_id' => $faker->numberBetween(1,5),
             'series_id' => $faker->numberBetween(1,4),
             'category_id' => $faker->numberBetween(1,5),
@@ -55,6 +57,7 @@ class CarSeeder extends Seeder
                                             ]),
             'description' => $faker->sentence(8),
             'carPosition'=> $faker->sentence(8),
+            'status' => '1',
             'brand_id' => $faker->numberBetween(1,5),
             'series_id' => $faker->numberBetween(1,4),
             'category_id' => $faker->numberBetween(1,5),
@@ -71,6 +74,7 @@ class CarSeeder extends Seeder
                                             ]),
             'description' => $faker->sentence(8),
             'carPosition'=> $faker->sentence(8),
+            'status' => '0',
             'brand_id' => $faker->numberBetween(1,5),
             'series_id' => $faker->numberBetween(1,4),
             'category_id' => $faker->numberBetween(1,5),
@@ -87,12 +91,11 @@ class CarSeeder extends Seeder
                                             ]),
             'description' => $faker->sentence(8),
             'carPosition'=> $faker->sentence(8),
+            'status' => '1',
             'brand_id' => $faker->numberBetween(1,5),
             'series_id' => $faker->numberBetween(1,4),
             'category_id' => $faker->numberBetween(1,5),
           ]);
-
-
     }
 
 }

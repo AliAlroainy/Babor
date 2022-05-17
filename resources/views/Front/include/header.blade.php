@@ -147,12 +147,21 @@
                                         <i class="ti-alarm-clock"></i>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('login') }}"
-                                        style="background-color: transparent ; border:none; text-decoration: none">
-                                        تسجيل دخول <i class="ti-power-off"></i>
-                                    </a>
-                                </li>
+                                @if (Auth::user())
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            style="background-color: transparent ; border:none; text-decoration: none">
+                                            تسجيل خروج <i class="ti-power-off"></i>
+                                        </a>
+                                    </li>
+                                @else
+                                    <li>
+                                        <a href="{{ route('login') }}"
+                                            style="background-color: transparent ; border:none; text-decoration: none">
+                                            تسجيل دخول <i class="ti-power-off"></i>
+                                        </a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                         <!-- End Top left -->
@@ -224,8 +233,8 @@
                                         aria-hidden="true"></i> </a>
                             </div>
                             <div class="sinlge-bar">
-                                <a href="{{ route('user.profile') }}" class="single-icon"><i
-                                        class="fa fa-user-circle-o" aria-hidden="true"></i> </a>
+                                <a href="{{ route('user.profile') }}" class="single-icon">
+                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> </a>
                             </div>
 
                         </div>
