@@ -21,11 +21,11 @@ use App\Http\Requests\StoreAuctionRequest;
 class UserAuctionController extends Controller
 {
     use ImageTrait;
-    // public function index()
-    // {
-    //     $auctions= Auction::orderBy('id')->get();
-    //     return view('Front.Auction.auctions')->with('auctions',$auctions);
-    // }
+    public function index()
+    {
+        $auctions= Auction::orderBy('id')->get();
+        return view('Front.Auction.auctions')->with('auctions',$auctions);
+    }
 
     public function create(){
         $brands = Brand::where('is_active', 1)->select('id', 'name')->get();
@@ -41,10 +41,6 @@ class UserAuctionController extends Controller
         if (count($series) > 0) {
             return response()->json($series);
         }
-    }
-
-    public function show(){
-
     }
 
     public function store(StoreAuctionRequest $request){
@@ -139,20 +135,21 @@ class UserAuctionController extends Controller
                 return view('Front.Auction.auctionDetails')->with('auction', $auction);
             }
         }
-        return response()->view('Front.404', []);
+        return response()->view('Front.errors.404', []);
     }
 
     public function action(Request $request, $id){
         // '3': canceled, '4': uncomplete
         $found = Auction::find($id);
         if(!$found)
-            return abort('404');
+            return response()->view('Front.errors.404', []);
             
         $auction = Auction::whereId($id);
-        // dd($found->openingBid);
-        $auction->when($request->has('cancel'), function ($q) use ($id){
+        $auction->when($request->has('cancel'), function ($q) use ($id, $auction){
             $q->update(['status' => '3']);
-            $this->refundBidders($id);
+            $q->when($auction->first()->bids->count() > 0, function ($q) use ($id){
+                $this->refundBidders($id);
+            });
         });
         $auction->when($request->has('timeExtension'), function ($q) use ($auction){
                         $q->update(['closeDate' => Carbon::parse($auction->first()->closeDate)->addDays(2)]);

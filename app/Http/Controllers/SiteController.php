@@ -54,7 +54,7 @@ class SiteController extends Controller
                 return view('Front.details')->with('auction', $auction);
             }
         }
-        return response()->view('Front.404', []);
+        return response()->view('Front.errors.404', []);
     }
     public function ServicesShow(){
         $services = service::where('is_active', '1')->get();
