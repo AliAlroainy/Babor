@@ -14,15 +14,16 @@ use App\Http\Controllers\admin\BidsController;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
 use App\Http\Controllers\Admin\AcutionController;
+use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\Admin\QustionController;
-use App\Http\Controllers\user\ProfilesController;
 // use \Illuminate\Support\Facades\URL;
+use App\Http\Controllers\user\ContractController;
+use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\user\UserAuctionController;
 use App\Http\Controllers\Authentication\authcontroller;
-use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
@@ -32,9 +33,8 @@ Route::get('/bill', function () {
     return view('Front.addtions.bill');
 });
 
-
-Route::get('/confirm', function () {
-    return view('Front.addtions.confirmBuy');
+Route::get('/noConnection', function () {
+    return view('Front.noconnection');
 });
 
 Route::get('/failed', function () {
@@ -152,6 +152,13 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/bids', [BidController::class, 'index'])->name('user.show.bids');
             Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
             Route::post('/auction/{id}/buy', [PaymentController::class, 'buy'])->name('user.buy.auction');
+            
+            //API Response
+            Route::get('/payment/success/{id}/{res}', [PaymentController::class, 'success'])->name('payment.success');
+            Route::get('/payment/failed/{res}', [PaymentController::class, 'failed'])->name('payment.failed');
+
+            Route::get('/do-contract/{bill_id}', [ContractController::class, 'doContract'])->name('do.contract');
+            Route::post('/confirm/{bill_id}', [ContractController::class, 'contract'])->name('confirm');
         });
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
@@ -189,13 +196,6 @@ Route::get('/wallet', function (){
     return $admin->balance;
 
 });
-Route::view('/hihi', 'Front.addtions.bill');
-//API Response
-Route::get('/payment/success/{id}/{e}', [PaymentController::class, 'success'])->name('payment.success');
-Route::get('/payment/failed/{e}', [PaymentController::class, 'failed'])->name('payment.failed');
-
-
-
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/private',[ App\Http\Controllers\HomeController::class, 'private'])->name('private');
