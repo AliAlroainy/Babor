@@ -47,7 +47,7 @@ class SiteController extends Controller
     public function auctionShow($id){
         $found = Auction::find($id);
         if($found){
-            $auction = Auction::whereId($id)->whereNotIn('status', ['0','1'])->withCount('bids')->with('bids', function($q){
+            $auction = Auction::with('ReviewData')->whereId($id)->whereNotIn('status', ['0','1'])->withCount('bids')->with('bids', function($q){
                 $q->orderBy('id', 'desc')->first();
             })->withCount('bids')->first();
             if($auction){

@@ -155,6 +155,20 @@
 
                     <ul class="product-links">
                         <li>مشاركة :</li>
+<!--                         
+                    <div class="likeShareBtnmt-3">
+                        <div id="fb-root"></div>
+                        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0" nonce="ccaa4s"></script>
+                        <div 
+                            class="fb-like" 
+                            data-layout="standard" 
+                            data-action="like" 
+                            data-size="large" 
+                            data-show-faces="true" 
+                            data-href="https://developers.facebook.com/docs/plugins/" 
+                            data-share="true">c,.jkhf
+                        </div>
+                    </div> -->
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>

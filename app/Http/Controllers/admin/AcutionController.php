@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
-
+use Session;
+use App\Models\ReviewRating;
 class AcutionController extends Controller
 {
 
@@ -87,5 +88,17 @@ class AcutionController extends Controller
             }
         }
         return response()->view('Front.404', []);
+    }
+
+    public function reviewstore(Request $request){
+        $review = new ReviewRating();
+        $review->post_id = $request->post_id;
+        $review->name    = $request->name;
+        $review->email   = $request->email;
+        $review->phone   = $request->phone;
+        $review->comments= $request->comment;
+        $review->star_rating = $request->rating;
+        $review->save();
+        return redirect()->back()->with('flash_msg_success','Your review has been submitted Successfully,');
     }
 }

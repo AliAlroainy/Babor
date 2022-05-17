@@ -28,6 +28,7 @@ use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\adminIndexController;
+use App\Http\Controllers\PostController;
 
 Route::get('/confirm', function () {
     return view('Front.addtions.confirmBuy');
@@ -233,3 +234,15 @@ Route::get('messages', [App\Http\Controllers\MessageController::class, 'fetchMes
 Route::post('messages', [App\Http\Controllers\MessageController::class, 'sendMessage']);
 Route::get('/private-messages/{user}', [App\Http\Controllers\MessageController::class, 'privateMessages'])->name('privateMessages');
 Route::post('/private-messages/{user}',  [App\Http\Controllers\MessageController::class, 'sendPrivateMessage'])->name('privateMessages.store');
+
+
+
+ 
+#Manage Post
+Route::get('/post-create',[PostController::class, 'create'])->name('post.create');
+Route::post('/post-store',[PostController::class, 'store'])->name('post.store');
+Route::get('/post-list',[PostController::class, 'list'])->name('post.list');
+Route::get('/post-view/{id}',[PostController::class, 'view'])->name('post.view');
+ 
+#Manage Review
+Route::post('/review-store',[PostController::class, 'reviewstore'])->name('review.store');
