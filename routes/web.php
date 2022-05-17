@@ -29,6 +29,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
 
+
 Route::get('/bill', function () {
     return view('Front.addtions.bill');
 });
@@ -158,6 +159,11 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/bids', [BidController::class, 'index'])->name('user.show.bids');
             Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
             Route::post('/auction/{id}/buy', [PaymentController::class, 'buy'])->name('user.buy.auction');
+           
+            Route::get('/wallet', function () {
+                return view('Admin.wallet.wallet');
+            });
+            
             
             //API Response
             Route::get('/payment/success/{id}/{res}', [PaymentController::class, 'success'])->name('payment.success');
@@ -189,19 +195,19 @@ Route::fallback(function () {
     return view('Front.errors.404');
 });
 
-Route::get('/wallet', function (){
-    $admin = User::find(1);
-    $auctioneer_abrar = User::find(2);
-    $bidder_ali = User::find(3);
-    $auction = Auction::where('id', 1)->get();
-    $bid = Bid::where('id', 1)->get();
-    // dd($bid);
-    $admin->deposit(1200);
-    $auctioneer_abrar->deposit(600);
-    $bidder_ali->deposit(700);
-    return $admin->balance;
+// Route::get('/wallet', function (){
+//     $admin = User::find(1);
+//     $auctioneer_abrar = User::find(2);
+//     $bidder_ali = User::find(3);
+//     $auction = Auction::where('id', 1)->get();
+//     $bid = Bid::where('id', 1)->get();
+//     // dd($bid);
+//     $admin->deposit(1200);
+//     $auctioneer_abrar->deposit(600);
+//     $bidder_ali->deposit(700);
+//     return $admin->balance;
 
-});
+// });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/private',[ App\Http\Controllers\HomeController::class, 'private'])->name('private');
