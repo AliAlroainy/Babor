@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('invoice_reference')->nullable();
             $table->boolean('payment_status')->default(0);
             $table->timestamps();
+            $table->dropColumn('updated_at');
         });
     }
 

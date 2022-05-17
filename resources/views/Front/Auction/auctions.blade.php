@@ -309,7 +309,7 @@
                                                                 <span class="fw-bold">السعر الحالي</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">
-                                                                    @if ($auction->bids_count > 0)
+                                                                    @if ($auction->bids->count() > 0)
                                                                         {{ $auction->bids->first()->currentPrice }}
                                                                     @else
                                                                         {{ $auction->openingBid }}
@@ -325,8 +325,8 @@
                                                                 <span class="fw-bold">عددالمزايدين</span>
                                                                 <br>
                                                                 <span class="text-danger ps-1 pe-3">
-                                                                    @if ($auction->bids_count > 0)
-                                                                        {{ $auction->bids_count }}
+                                                                    @if ($auction->bids->count() > 0)
+                                                                        {{ $auction->bids->count() }}
                                                                     @else
                                                                         -
                                                                     @endif
@@ -339,7 +339,7 @@
                                                                 <span class="fw-bold">أعلى مزايد</span>
                                                                 <br>
                                                                 <span class="text-danger ps-1 pe-3">
-                                                                    @if ($auction->bids_count > 0)
+                                                                    @if ($auction->bids->count() > 0)
                                                                         {{ $auction->bids->first()->user->name }}
                                                                     @else
                                                                         -
@@ -348,133 +348,6 @@
                                                             </p>
                                                         </div>
                                                     </div>
-                                                    <div class="mt-auto row align-items-baseline justify-content-evenly">
-                                                        <button style="width: fit-content"
-                                                            class="mt-3 btn btn-inverse-danger btn-rounded"
-                                                            data-bs-target="#cancel-{{ $auction->id }}"
-                                                            data-bs-toggle="modal">
-                                                            إلغاء المزاد
-                                                            <i class="fa-solid fa-times pe-2"
-                                                                style="font-size: 12px ;"></i>
-                                                        </button>
-                                                        <div class="modal fade" id="cancel-{{ $auction->id }}"
-                                                            tabindex="-1" aria-hidden="true">
-                                                            <div class="modal-dialog" role="document">
-                                                                <form
-                                                                    action="{{ route('user.progress.action.auction', $auction->id) }}"
-                                                                    method="POST">
-                                                                    @csrf
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title"
-                                                                                id="exampleModalLabel1">
-                                                                                تأكيد
-                                                                                الإلغاء</h5>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <span>هل أنت متأكد من رغبتك في إلغاء
-                                                                                هذا المزاد؟</span>
-                                                                            <span class="text-danger fw-bold">لا
-                                                                                يمكنك
-                                                                                التراجع</span>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button"
-                                                                                class="btn btn-outline-secondary"
-                                                                                data-bs-dismiss="modal">إلغاء</button>
-                                                                            <button type="submit" name="cancel"
-                                                                                class="btn btn-warning text-white">نعم</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                        @if ($auction->bids_count > 0)
-                                                            <button style="width: fit-content"
-                                                                class="mt-3 btn btn-inverse-info btn-rounded"
-                                                                data-bs-target="#stop-{{ $auction->id }}"
-                                                                data-bs-toggle="modal">
-                                                                توقيف
-                                                                <i class="fad fa-solid fa-stop pe-2"
-                                                                    style="font-size: 12px ;"></i>
-                                                            </button>
-                                                            <div class="modal fade" id="stop-{{ $auction->id }}"
-                                                                tabindex="-1" aria-hidden="true">
-                                                                <div class="modal-dialog" role="document">
-                                                                    <form
-                                                                        action="{{ route('user.progress.action.auction', $auction->id) }}"
-                                                                        method="POST">
-                                                                        @csrf
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h5 class="modal-title"
-                                                                                    id="exampleModalLabel1">
-                                                                                    تأكيد إرساء المزاد
-                                                                                </h5>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                                <span>هل أنت متأكد من رغبتك في إرساء
-                                                                                    المزاد؟</span>
-                                                                                <span class="text-danger fw-bold">لا
-                                                                                    يمكنك
-                                                                                    التراجع</span>
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button"
-                                                                                    class="btn btn-outline-secondary"
-                                                                                    data-bs-dismiss="modal">إلغاء</button>
-                                                                                <button type="submit" name="stop"
-                                                                                    class="btn btn-warning text-white">نعم</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        @else
-                                                            <button style="width: fit-content"
-                                                                class="mt-3 btn btn-inverse-info btn-rounded"
-                                                                data-bs-target="#expand-{{ $auction->id }}"
-                                                                data-bs-toggle="modal">
-                                                                تمديد الوقت
-                                                                <i class="fas fa-expand-alt pe-2"
-                                                                    style="font-size: 12px ;"></i>
-                                                            </button>
-                                                            <div class="modal fade" id="expand-{{ $auction->id }}"
-                                                                tabindex="-1" aria-hidden="true">
-                                                                <div class="modal-dialog" role="document">
-                                                                    <form
-                                                                        action="{{ route('user.progress.action.auction', $auction->id) }}"
-                                                                        method="POST">
-                                                                        @csrf
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h5 class="modal-title"
-                                                                                    id="exampleModalLabel1">
-                                                                                    تأكيد تمديد الوقت
-                                                                                </h5>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                                <span>هل أنت متأكد من رغبتك في تمديد
-                                                                                    وقت
-                                                                                    المزاد يومين؟</span>
-                                                                                <span class="text-danger fw-bold">لا
-                                                                                    يمكنك
-                                                                                    التراجع</span>
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button"
-                                                                                    class="btn btn-outline-secondary"
-                                                                                    data-bs-dismiss="modal">إلغاء</button>
-                                                                                <button type="submit" name="timeExtension"
-                                                                                    class="btn btn-warning text-white">نعم</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        @endif
-                                                    </div>
-
                                                 </div>
                                             @endforeach
                                         @else
@@ -606,6 +479,20 @@
                                                                 <i class="fad fa-solid fa-stop pe-2"
                                                                     style="font-size: 12px ;"></i>
                                                             </a>
+                                                        @endif
+                                                        @if (isset($auction->bids->first()->payment_bill))
+                                                            @if ($auction->bids->first()->payment_bill->payment_status == 1)
+                                                                <a style="width: fit-content"
+                                                                    href="{{ route('do.contract', $auction->bids->first()->payment_bill->id) }}"
+                                                                    class="mt-3 btn btn-inverse-info btn-rounded">
+                                                                    إتمام العقد
+                                                                    <i class="fad fa-solid fa-stop pe-2"
+                                                                        style="font-size: 12px ;"></i>
+                                                                </a>
+                                                            @else
+                                                                <span class="bg-success"> في انتظار دفع المزايد
+                                                                    الفائز</span>
+                                                            @endif
                                                         @endif
                                                     </div>
                                                 </div>
@@ -775,7 +662,7 @@
                                                         <div class="col-12 col-sm-5">
                                                             <p>
                                                                 <i class="fas fa-hourglass-start"></i>
-                                                                <span class="fw-bold">تاريخ النشر</span>
+                                                                <span class="fw-bold">تاريخ الرفض</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">
                                                                     {{ $auction->startDate }}
@@ -804,182 +691,7 @@
                                                                 </span>
                                                             </p>
                                                         </div>
-                                                        <div class="mt-3 col-sm-5">
-                                                            <p>
-                                                                <i class="far fa-arrow-alt-circle-up"></i>
-                                                                <span class="fw-bold">السعر الحالي</span>
-                                                                <br>
-                                                                <span class="ps-1 pe-3">
-                                                                    @if ($auction->bids_count > 0)
-                                                                        {{ $auction->bids->first()->currentPrice }}
-                                                                    @else
-                                                                        {{ $auction->openingBid }}
-                                                                    @endif
-                                                                </span>
-                                                            </p>
-                                                        </div>
                                                     </div>
-                                                    <div class="mt-3 row align-items-baseline justify-content-evenly">
-                                                        <div class="col-sm-5">
-                                                            <p>
-                                                                <i class="fas fa-users"></i>
-                                                                <span class="fw-bold">عددالمزايدين</span>
-                                                                <br>
-                                                                <span class="text-danger ps-1 pe-3">
-                                                                    @if ($auction->bids_count > 0)
-                                                                        {{ $auction->bids_count }}
-                                                                    @else
-                                                                        -
-                                                                    @endif
-                                                                </span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="mt-3 col-sm-5">
-                                                            <p>
-                                                                <i class="fas fa-user-clock"></i>
-                                                                <span class="fw-bold">أعلى مزايد</span>
-                                                                <br>
-                                                                <span class="text-danger ps-1 pe-3">
-                                                                    @if ($auction->bids_count > 0)
-                                                                        {{ $auction->bids->first()->user->name }}
-                                                                    @else
-                                                                        -
-                                                                    @endif
-                                                                </span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mt-auto row align-items-baseline justify-content-evenly">
-                                                        <button style="width: fit-content"
-                                                            class="mt-3 btn btn-inverse-danger btn-rounded"
-                                                            data-bs-target="#cancel-{{ $auction->id }}"
-                                                            data-bs-toggle="modal">
-                                                            إلغاء المزاد
-                                                            <i class="fa-solid fa-times pe-2"
-                                                                style="font-size: 12px ;"></i>
-                                                        </button>
-                                                        <div class="modal fade" id="cancel-{{ $auction->id }}"
-                                                            tabindex="-1" aria-hidden="true">
-                                                            <div class="modal-dialog" role="document">
-                                                                <form
-                                                                    action="{{ route('user.progress.action.auction', $auction->id) }}"
-                                                                    method="POST">
-                                                                    @csrf
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title"
-                                                                                id="exampleModalLabel1">
-                                                                                تأكيد
-                                                                                الإلغاء</h5>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <span>هل أنت متأكد من رغبتك في إلغاء
-                                                                                هذا المزاد؟</span>
-                                                                            <span class="text-danger fw-bold">
-                                                                                لا يمكنك التراجع
-                                                                            </span>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button"
-                                                                                class="btn btn-outline-secondary"
-                                                                                data-bs-dismiss="modal">
-                                                                                إلغاء
-                                                                            </button>
-                                                                            <button type="submit" name="cancel"
-                                                                                class="btn btn-warning text-white">
-                                                                                نعم
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                        @if ($auction->bids_count > 0)
-                                                            <button style="width: fit-content"
-                                                                class="mt-3 btn btn-inverse-info btn-rounded"
-                                                                data-bs-target="#stop-{{ $auction->id }}"
-                                                                data-bs-toggle="modal">
-                                                                توقيف
-                                                                <i class="fad fa-solid fa-stop pe-2"
-                                                                    style="font-size: 12px ;"></i>
-                                                            </button>
-                                                            <div class="modal fade" id="stop-{{ $auction->id }}"
-                                                                tabindex="-1" aria-hidden="true">
-                                                                <div class="modal-dialog" role="document">
-                                                                    <form
-                                                                        action="{{ route('user.progress.action.auction', $auction->id) }}"
-                                                                        method="POST">
-                                                                        @csrf
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h5 class="modal-title"
-                                                                                    id="exampleModalLabel1">
-                                                                                    تأكيد إرساء المزاد
-                                                                                </h5>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                                <span>هل أنت متأكد من رغبتك في إرساء
-                                                                                    المزاد؟</span>
-                                                                                <span class="text-danger fw-bold">لا
-                                                                                    يمكنك
-                                                                                    التراجع</span>
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button"
-                                                                                    class="btn btn-outline-secondary"
-                                                                                    data-bs-dismiss="modal">إلغاء</button>
-                                                                                <button type="submit" name="stop"
-                                                                                    class="btn btn-warning text-white">نعم</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        @else
-                                                            <button style="width: fit-content"
-                                                                class="mt-3 btn btn-inverse-info btn-rounded"
-                                                                data-bs-target="#expand-{{ $auction->id }}"
-                                                                data-bs-toggle="modal">
-                                                                تمديد الوقت
-                                                                <i class="fas fa-expand-alt pe-2"
-                                                                    style="font-size: 12px ;"></i>
-                                                            </button>
-                                                            <div class="modal fade" id="expand-{{ $auction->id }}"
-                                                                tabindex="-1" aria-hidden="true">
-                                                                <div class="modal-dialog" role="document">
-                                                                    <form
-                                                                        action="{{ route('user.progress.action.auction', $auction->id) }}"
-                                                                        method="POST">
-                                                                        @csrf
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h5 class="modal-title"
-                                                                                    id="exampleModalLabel1">
-                                                                                    تأكيد تمديد الوقت
-                                                                                </h5>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                                <span>هل أنت متأكد من رغبتك في تمديد
-                                                                                    وقت
-                                                                                    المزاد يومين؟</span>
-                                                                                <span class="text-danger fw-bold">لا
-                                                                                    يمكنك
-                                                                                    التراجع</span>
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button"
-                                                                                    class="btn btn-outline-secondary"
-                                                                                    data-bs-dismiss="modal">إلغاء</button>
-                                                                                <button type="submit" name="timeExtension"
-                                                                                    class="btn btn-warning text-white">نعم</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        @endif
-                                                    </div>
-
                                                 </div>
                                             @endforeach
                                         @else

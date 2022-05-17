@@ -106,10 +106,10 @@
                                                                                 value="شراء">
                                                                         </form>
                                                                     @else
-                                                                        <span class="text-success">نعم،
-                                                                            <a href="">وتم
-                                                                                الدفع</a>
-                                                                        </span>
+                                                                        <a href="{{ route('do.contract', $bid->payment_bill->id) }}"
+                                                                            class="btn bg-main-color text-white">
+                                                                            توقيع العقد
+                                                                        </a>
                                                                     @endif
                                                                 </div>
                                                             @else
