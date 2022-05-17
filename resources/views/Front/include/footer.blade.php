@@ -1,5 +1,6 @@
  <!-- Start Footer Area -->
  <footer class="footer" dir="rtl">
+
      <!-- Footer Top -->
      <div class="footer-top section pb-3">
          <div class="container ">
@@ -161,6 +162,8 @@
  <script src="/js/nouislider.min.js"></script>
  <script src="/js/jquery.zoom.min.js"></script>
  <script src="/js/main.js"></script>
+
+
 
  </body>
 

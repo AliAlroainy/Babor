@@ -78,7 +78,8 @@
                                         @endif
                                     @endforeach
                                 </div>
-                                <!-- <button wire:click ="load" type="button" class=" items-center px-2.5 py-1.5 border " style="position: relative;
+                                <button wire:click="load" type="button" class=" items-center px-2.5 py-1.5 border "
+                                    style="position: relative;
     border: 2px solid transparent;
     height: 40px;
     padding: 0 30px;
@@ -89,12 +90,11 @@
     border-radius: 40px;
     -webkit-transition: 0.2s all;
     transition: 0.2s all;">
-                                   عرض المزيد
-</button>  -->
+                                    عرض المزيد
+                                </button>
                             </div>
                         </div>
-                        <!--/ End cars Single Tab -->
-                        @livewire('salons')
+
 
 
 

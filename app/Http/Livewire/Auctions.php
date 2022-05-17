@@ -10,7 +10,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Http;
 class Auctions extends Component
 {
-    public $pe_car =36;
+    public $pe_car =3;
 
     public function load()
     {

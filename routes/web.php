@@ -167,7 +167,7 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/auction/{id}/buy', [PaymentController::class, 'buy'])->name('user.buy.auction');
            
             Route::get('/wallet', function () {
-                return view('Admin.wallet.wallet');
+                return view('Front.User.wallet');
             });
             
             
