@@ -89,5 +89,12 @@
                     <span class="menu-title fw-bold " style="font-family: Tajawal">مزايداتي</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/user/wallet">
+                    <i class="fa-solid fa-wallet me-3 ms-3"></i>
+                    <span class="menu-title fw-bold " style="font-family: Tajawal">المحفظة</span>
+                </a>
+            </li>
         </ul>
     </nav>
