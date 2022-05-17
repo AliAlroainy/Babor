@@ -178,40 +178,65 @@
      channel.bind('App\\Events\\Notify', function(data) {
          let node = document.createElement('li');
          if( data.user_id.toString() !="{!! Auth::id() !!}" && data.type == 1 ) {
+//              node.innerHTML =`
+//         <li>
+//             <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+//             <a href="auction/${data.link}">
+//                 <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
+//                 <div class="quantity text-dark">
+//                     <h4 class="fw-bold"> ${data.message}</h4>
+//                     <span class="amount">$ ${data.price}</span>
+//                     <p class="d-block mb-0">ينتهي بتاريخ ${data.endDate} </p>
+//                 </div>
+//             </a>
+//         </li>
+// `;
+
              node.innerHTML =`
-        <li>
-            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-            <a href="auction/${data.link}">
-                <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
-                <div class="quantity text-dark">
-                    <h4 class="fw-bold"> ${data.message}</h4>
-                    <span class="amount">$ ${data.price}</span>
-                    <p class="d-block mb-0">ينتهي بتاريخ ${data.endDate} </p>
-                </div>
-            </a>
-        </li>
+                <li>
+                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                    <a href="auction/${data.link}">
+                        <div class="quantity text-dark">
+                            <h4 class="fw-bold"> ${data.message}</h4>
+                        </div>
+                    </a>
+                </li>
 `;
              alert("{!! Auth::id() !!}");
              document.getElementById('shopping-list').prepend(node);
          }
 
          if( data.user_id.toString() == "{!! Auth::id() !!}" && data.admin_id.toString() != "{!! Auth::id() !!}"  && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "" && data.type == 5) {
-
-             alert(data.user_id.toString() != "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "");
+             {{--alert(data.user_id.toString() != "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "");--}}
              node = document.createElement('li');
              node.innerHTML =`
-        <li>
-            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-            <a href="auction/${data.link}">
-                <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
-                <div class="quantity text-dark">
-                    <h4 class="fw-bold"> ${data.message}</h4>
-                </div>
-            </a>
-        </li>
-`;
+                <li>
+                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                    <a href="auction/${data.link}">
+                        <div class="quantity text-dark">
+                            <h4 class="fw-bold"> ${data.message}</h4>
+                        </div>
+                    </a>
+                </li>
 
-{{--             alert("{!! Auth::id() !!}");--}}
+`;
+             alert("{!! Auth::id() !!}");
+             document.getElementById('shopping-list').prepend(node);
+         }
+
+         if( data.user_id.toString() == "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != 1 && "{!! Auth::id() !!}" != "" && data.type == 6) {
+             node = document.createElement('li');
+             node.innerHTML =`
+                <li>
+                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                    <a href="auction/${data.link}">
+                        <div class="quantity text-dark">
+                            <h4 class="fw-bold"> ${data.message}</h4>
+                        </div>
+                    </a>
+                </li>
+`;
+             alert("{!! Auth::id() !!}");
              document.getElementById('shopping-list').prepend(node);
          }
 
@@ -220,17 +245,15 @@
      channel2.bind('App\\Events\\Notify', function(data) {
          var node = document.createElement('li');
          node.innerHTML =`
-        <li>
-            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-            <a href="auction/${data.link}">
-                <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
-                <div class="quantity text-dark">
-                    <h4 class="fw-bold"> ${data.message}</h4>
-                </div>
-            </a>
-        </li>
+                <li>
+                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                    <a href="auction/${data.link}">
+                        <div class="quantity text-dark">
+                            <h4 class="fw-bold"> ${data.message}</h4>
+                        </div>
+                    </a>
+                </li>
 `;
-
          if( data.user_id.toString() == "{!! Auth::id() !!}") {
              alert("{!! Auth::id() !!}");
              document.getElementById('shopping-list').prepend(node);

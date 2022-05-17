@@ -67,6 +67,7 @@ class NotificationController extends Controller
         $data['price'] = $auction->openingBid;
         $data['endDate'] = $auction->closeDate;
         $data['user_id'] = $user->id;
+        $data['type'] = $notification->type;
 
         $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
     }
@@ -220,18 +221,48 @@ class NotificationController extends Controller
 
         $data['message'] = $notification->message;
         $data['link'] = $auction->id;
-//        $data['user_id'] = $notification->user_id;
         $data['admin_id'] = 1;
         $data['winner_id'] = $winner_id;
         $data['type'] = $notification->type;
 
-//        $admin = User::first();
         $bidders = Auction::find($id)->bids;
         foreach(range (0, count($bidders)-1) as $i){
-//            $admin->transfer($bidders[$i]->user, $bidders[$i]->getDeduction());
             $data['user_id'] = $bidders[$i]->user->id;
         $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
         }
 
     }
+    public function cancelAuction(Auction $auction,$id){
+        $options = array(
+            'cluster' => env('PUSHER_APP_CLUSTER'),
+            'encrypted' => true
+        );
+        $pusher = new Pusher(
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
+            $options
+        );
+
+        $bidders = Auction::find($id)->bids;
+        foreach(range (0, count($bidders)-1) as $i){
+            $notification = new Notification();
+            $notification = Notification::create([
+                'message' => "تم إلغاء مزاد اشتركت فيه",
+                'user_id' =>   $bidders[$i]->user->id,
+                'state' => 1,
+                'link' => $auction->id,
+                'type'=> 6
+            ]);
+
+            $data['user_id'] = $bidders[$i]->user->id;
+            $data['message'] = $notification->message;
+            $data['link'] = $auction->id;
+            $data['type'] = $notification->type;
+
+            $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
+            }
+        }
+
+
 }

@@ -466,10 +466,10 @@
 .header .shopping .shopping-item {
 	position: absolute;
 	top: 68px;
-	right: 0;
+	right: -45px;
 	width: 300px;
 	background: #fff;
-	padding: 20px 25px;
+	padding: 20px 25px 5px 25px;
 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
@@ -484,13 +484,13 @@
 	z-index:99;
 }
 .header .shopping:hover .shopping-item{
-	transform: translateY(0px);
+	transform: translateY(-40px);
 	opacity:1;
 	visibility:visible;
 }
 .header .shopping .dropdown-cart-header{
 	padding-bottom: 10px;
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
 	border-bottom:1px solid #e6e6e6;
 }
 .header .shopping .dropdown-cart-header span {
@@ -509,17 +509,18 @@
 .header .shopping .dropdown-cart-header a:hover{
 	color:#F7941D;
 }
+.header .shopping-list > li {
+    border-bottom: 1px solid #e6e6e6;
+}
 .header .shopping-list li {
 	overflow: hidden;
-	border-bottom: 1px solid #e6e6e6;
-	padding-bottom: 1px;
-	margin-bottom: 1px;
+    padding: 7px 0px 2px 0px;
 	position:relative;
 }
 .header .shopping-list li .remove {
 	position: absolute;
 	left: 0;
-	top: 18px;
+	top: 25px;
 	margin-top: -20px;
 	height: 20px;
 	width: 20px;
@@ -554,7 +555,7 @@
 .header .shopping-list .quantity{
 	line-height: 22px;
     font-size: 13px;
-	padding-bottom: 30px;
+	/*padding-bottom: 30px;*/
 }
 .header .shopping-list h4 {
 	font-size: 14px;

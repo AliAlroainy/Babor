@@ -45,9 +45,9 @@ Version:1.0
 .header.shop .right-bar .sinlge-bar .single-icon {
 	font-size: 18px;
 }
-.header .shopping .shopping-item {
-	top: 30px;
-}
+/*.header .shopping .shopping-item {*/
+/*	top: 30px;*/
+/*}*/
 .header .shopping .dropdown-cart-header a {
 	font-size: 12px;
 }

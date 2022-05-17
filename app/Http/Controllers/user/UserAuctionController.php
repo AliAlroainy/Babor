@@ -150,9 +150,11 @@ class UserAuctionController extends Controller
 
         $auction = Auction::whereId($id);
         // dd($found->openingBid);
-        $auction->when($request->has('cancel'), function ($q) use ($id){
+        $auction->when($request->has('cancel'), function ($q) use ($id, $auction){
             $q->update(['status' => '3']);
             $this->refundBidders($id);
+            $notify = new NotificationController();
+            $notify->cancelAuction($auction->first(),$id);
         });
         $auction->when($request->has('timeExtension'), function ($q) use ($auction){
                         $q->update(['closeDate' => Carbon::parse($auction->first()->closeDate)->addDays(2)]);
