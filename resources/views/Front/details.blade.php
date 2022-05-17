@@ -351,7 +351,26 @@
 										<!-- Reviews -->
 										<div class="col-md-6" dir="rtl" >
 											<div id="reviews" dir="ltr">
-										
+												<ul class="reviews" dir="rtl" >
+                                                @foreach($auction->user->ReviewData as $review)
+													<li >
+														<div class="review-heading">
+															<h5 class="name">{{$review->name}}</h5>
+															<p class="date">{{$review->created_at->format('jS \\of F Y') }}</p>
+															<div class="review-rating">
+                                                            @for($i=1; $i<=$review->star_rating; $i++)
+																<i class="fa fa-star"></i>
+                                                                @endfor
+																
+																
+															</div>
+														</div>
+														<div class="review-body" dir="rtl" >
+															<p>{{$review->comments}}</p>
+														</div>
+													</li>
+                                                    @endforeach
+													<li>
 														<div class="review-heading">
 															<h5 class="name">ريم الشاذلي</h5>
 															<p class="date">27 DEC 2018, 8:0 PM</p>
