@@ -224,11 +224,6 @@ Route::post('/private-messages/{user}',  [App\Http\Controllers\MessageController
 
 
  
-#Manage Post
-Route::get('/post-create',[PostController::class, 'create'])->name('post.create');
-Route::post('/post-store',[PostController::class, 'store'])->name('post.store');
-Route::get('/post-list',[PostController::class, 'list'])->name('post.list');
-Route::get('/post-view/{id}',[PostController::class, 'view'])->name('post.view');
- 
+
 #Manage Review
 Route::post('/review-store',[SiteController::class, 'reviewstore'])->name('review.store');
