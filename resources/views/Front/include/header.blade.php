@@ -233,8 +233,21 @@
                                         aria-hidden="true"></i> </a>
                             </div>
                             <div class="sinlge-bar">
-                                <a href="{{ route('user.profile') }}" class="single-icon">
-                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> </a>
+                                @if (Auth::user() && Auth::user()->hasRole('user'))
+                                    <a href="{{ route('user.profile') }}" class="single-icon">
+                                        @if (isset(Auth::user()->profile->avatar))
+                                            <img src="/images/profiles/{{ Auth::user()->profile->avatar }}"
+                                                alt="profile" width="100"
+                                                class="d-block h-auto ms-0 rounded user-profile-img" />
+                                        @else
+                                            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                        @endif
+                                    </a>
+                                @else
+                                    <a href="{{ route('admin.dashboard') }}" class="single-icon">
+                                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                    </a>
+                                @endif
                             </div>
 
                         </div>

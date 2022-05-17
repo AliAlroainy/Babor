@@ -20,24 +20,19 @@ class CategorySeeder extends Seeder
               'is_active' => '1',
           ]);
           DB::table('categories')->insert([
-            'name' => 'صالون',
-            'image' => $faker->image('public/images/categories',640,480, null, false),
-            'is_active' => '1',
-          ]);
-          DB::table('categories')->insert([
             'name' => 'تاكسي',
             'image' => $faker->image('public/images/categories',640,480, null, false),
-            'is_active' => '1',
+            'is_active' => '2',
           ]);
           DB::table('categories')->insert([
             'name' => 'شاحنة',
             'image' => $faker->image('public/images/categories',640,480, null, false),
-            'is_active' => '1',
+            'is_active' => '3',
           ]);
           DB::table('categories')->insert([
             'name' => 'حافلة',
             'image' => $faker->image('public/images/categories',640,480, null, false),
-            'is_active' => '1',
+            'is_active' => '4',
           ]);
 
     }

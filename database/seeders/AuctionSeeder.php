@@ -27,10 +27,9 @@ class AuctionSeeder extends Seeder
               'openingBid' =>   $faker->numberBetween(40000,68017),
               'reservePrice' => $faker->numberBetween(40000,68017),
               'auctioneer_id' => $faker->numberBetween(2,10),
-              'car_id' => $faker->numberBetween(1,5),
+              'car_id' => $faker->numberBetween(1, 11),
               'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
               'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
-
           ]);
   }
     }

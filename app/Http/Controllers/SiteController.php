@@ -61,7 +61,7 @@ class SiteController extends Controller
         $auctions = Auction::whereNotIn('status', ['0','1'])->with('bids', function($q){
             $q->orderBy('id', 'desc')->first();
         })->with('car', function ($q){
-            $q->where('status', '0')->get();
+            $q->where('status', '1')->get();
         })->get();
         if($auctions){
             return view('Front.auctions')->with(['auctions' => $auctions, 'title' => 'السيارات الجديدة']);
@@ -72,7 +72,7 @@ class SiteController extends Controller
         $auctions = Auction::whereNotIn('status', ['0','1'])->with('bids', function($q){
            return $q->orderBy('id', 'desc')->first();
         })->with('car', function ($q){
-           return $q->where('status', '1')->get();
+           return $q->where('status', '0')->get();
         })->get();
         if($auctions){
             return view('Front.auctions')->with(['auctions' => $auctions, 'title' => 'السيارات القديمة']);
