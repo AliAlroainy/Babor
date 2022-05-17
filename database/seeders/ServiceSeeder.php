@@ -20,8 +20,8 @@ class ServiceSeeder extends Seeder
             'description' => $faker->sentence(8),
             'pic' => $faker->image('public/images/services',640,480, null, false),
             'is_active' => '1',
-            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
-            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+            'created_at'=> $faker->date('Y-m-d', '2020-3-12'),
+            'updated_at' => $faker->date('Y-m-d','2020-3-12'),
 
         ]);
         DB::table('services')->insert([
@@ -29,8 +29,8 @@ class ServiceSeeder extends Seeder
             'description' => $faker->sentence(8),
             'pic' => $faker->image('public/images/services',640,480, null, false),
             'is_active' => '1',
-            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
-            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+            'created_at'=> $faker->date('Y-m-d', '2020-3-12'),
+            'updated_at' => $faker->date('Y-m-d', '2020-3-12'),
 
         ]);
         DB::table('services')->insert([
@@ -38,8 +38,8 @@ class ServiceSeeder extends Seeder
             'description' => $faker->sentence(8),
             'pic' => $faker->image('public/images/services',640,480, null, false),
             'is_active' => '1',
-            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
-            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+            'created_at'=> $faker->date('Y-m-d', '2020-3-12'),
+            'updated_at' => $faker->date('Y-m-d', '2020-3-12'),
 
         ]);
         DB::table('services')->insert([
@@ -47,8 +47,8 @@ class ServiceSeeder extends Seeder
             'description' => $faker->sentence(8),
             'pic' => $faker->image('public/images/services',640,480, null, false),
             'is_active' => '1',
-            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
-            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+            'created_at'=> $faker->date('Y-m-d', '2020-3-12'),
+            'updated_at' => $faker->date('Y-m-d', '2020-3-12'),
 
         ]);
         DB::table('services')->insert([
@@ -56,8 +56,8 @@ class ServiceSeeder extends Seeder
             'description' => $faker->sentence(8),
             'pic' => $faker->image('public/images/services',640,480, null, false),
             'is_active' => '1',
-            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
-            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+            'created_at'=> $faker->date('Y-m-d', '2020-3-12'),
+            'updated_at' => $faker->date('Y-m-d', '2020-3-12'),
 
         ]);
         DB::table('services')->insert([
@@ -65,8 +65,8 @@ class ServiceSeeder extends Seeder
             'description' => $faker->sentence(8),
             'pic' => $faker->image('public/images/services',640,480, null, false),
             'is_active' => '1',
-            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
-            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+            'created_at'=> $faker->date('Y-m-d', '2020-3-12'),
+            'updated_at' => $faker->date('Y-m-d', '2020-3-12'),
 
        ]);
     }

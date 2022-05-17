@@ -57,4 +57,8 @@ class User extends Authenticatable  implements Wallet
     {
         return $this->hasMany(Message::class);
     }
+    public function ReviewData()
+    {
+    return $this->hasMany('App\Models\ReviewRating','user_id');
+    }
 }
