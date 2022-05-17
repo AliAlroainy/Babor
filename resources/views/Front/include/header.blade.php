@@ -187,7 +187,7 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-2 col-12">
 
-                        <div class="right-bar">
+                        <div class="right-bar d-flex">
                             <!-- noted Form -->
                             <div class="sinlge-bar shopping">
                                 <a href="#" class="single-icon">
@@ -237,8 +237,8 @@
                                     <a href="{{ route('user.profile') }}" class="single-icon">
                                         @if (isset(Auth::user()->profile->avatar))
                                             <img src="/images/profiles/{{ Auth::user()->profile->avatar }}"
-                                                alt="profile" width="100"
-                                                class="d-block h-auto ms-0 rounded user-profile-img" />
+                                                alt="profile" width="25"
+                                                class="d-block h-auto ms-0 rounded-circle user-profile-img" />
                                         @else
                                             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                                         @endif
@@ -332,10 +332,11 @@
                                                     </a>
                                                     <ul class="dropdown ">
                                                         <li><a class="nav-link"
-                                                                href="{{ route('site.auction.used') }}">مستعملة</a>
+                                                                href="{{ route('site.auction.by_status', 'old') }}">مستعملة</a>
                                                         </li>
                                                         <li><a class="nav-link"
-                                                                href="{{ route('site.auction.new') }}">جديد</a></li>
+                                                                href="{{ route('site.auction.by_status', 'new') }}">جديد</a>
+                                                        </li>
                                                     </ul>
                                                 </li>
 

@@ -57,28 +57,21 @@ class SiteController extends Controller
         return response()->view('Front.errors.404', []);
     }
 
-    public function newCars(){
+    public function auctionByCarStatus($status){
+        $status = $status == 'old'? '0': '1';
         $auctions = Auction::whereNotIn('status', ['0','1'])->with('bids', function($q){
             $q->orderBy('id', 'desc')->first();
-        })->with('car', function ($q){
-            $q->where('status', '1')->get();
+        })->with('car', function ($q) use ($status){
+            $q->where('status', $status)->get();
         })->get();
         if($auctions){
-            return view('Front.auctions')->with(['auctions' => $auctions, 'title' => 'السيارات الجديدة']);
+            $title = $status == '0' ? 'مستعملة': 'جديدة';
+            return view('Front.auctions')->with(['auctions' => $auctions, 
+            'title' => 'السيارات ال'.$title]);
         }
         return response()->view('Front.errors.404', []);
     }
-    public function oldCars(){
-        $auctions = Auction::whereNotIn('status', ['0','1'])->with('bids', function($q){
-           return $q->orderBy('id', 'desc')->first();
-        })->with('car', function ($q){
-           return $q->where('status', '0')->get();
-        })->get();
-        if($auctions){
-            return view('Front.auctions')->with(['auctions' => $auctions, 'title' => 'السيارات القديمة']);
-        }
-        return response()->view('Front.errors.404', []);
-    }
+
     public function ServicesShow(){
         $services = service::where('is_active', '1')->get();
         return view('Front.services', ['services' => $services]);
