@@ -10,7 +10,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Http;
 class Auctions extends Component
 {
-    public $pe_car =36;
+    public $pe_car =3;
 
     public function load()
     {
@@ -21,11 +21,12 @@ class Auctions extends Component
     }
     public function load2()
     {
-      $this->pe_page +=6;
+      $this->pe_page +=3;
         
     }
     public function render()
-    { $last_cars = Auction::with(['car' => function ($q){
+    { 
+        $last_cars = Auction::with(['car' => function ($q){
         return $q->where('category_id', 1)->get();
 
     }])->where('status', '2')->orderBy('id', 'desc')->paginate($this->pe_car);
