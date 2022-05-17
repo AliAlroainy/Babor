@@ -392,7 +392,26 @@
 										<!-- Review Form -->
 										<div class="col-md-3">
 											<div id="review-form">
-											
+												<form class="review-form" action="{{route('review.store')}}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="user_id" value="{{$auction->user->id}}">
+													<input class="input" type="text" name="name" placeholder="اسمك ">
+													<input class="input" type="email" name="email" placeholder="بريدك الالكتروني">
+                                                    <input class="input" type="text" name="phone" placeholder="الموبايل ">
+
+													<textarea class="input" name="comment" placeholder="اضف تعليقك للتقييم"></textarea>
+													<div class="input-rating">
+														<span> تقييمك:</span>
+														<div class="stars">
+															<input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
+															<input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
+															<input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
+															<input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
+															<input id="star1" name="rating" value="1" type="radio"><label for="star1" require></label>
+														</div>
+													</div>
+													<button class="primary-btn">حفظ</button>
+												</form>
 											</div>
 										</div>
 										<!-- /Review Form -->
