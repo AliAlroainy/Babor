@@ -7,6 +7,7 @@ use App\Models\Auction;
 use App\Models\Bid;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Pusher\Pusher;
 use App\Models\Notification;
 class NotificationController extends Controller
@@ -263,6 +264,18 @@ class NotificationController extends Controller
             $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
             }
         }
+
+    public static function getNotifications()
+    {
+        $user_id = Auth::id();
+
+        $notifications = Notification::where(['state'=>'1' , 'user_id' => $user_id])->get();
+//        $count = count($notifications);
+
+        return $notifications;
+    }
+
+
 
 
 }
