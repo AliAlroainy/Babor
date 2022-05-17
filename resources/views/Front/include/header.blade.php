@@ -118,6 +118,10 @@
         ga('create', 'UA-47923629-1', 'gigagit.com');
         ga('send', 'pageview');
     </script>
+    {{-- success --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> --}}
 
 </head>
 
@@ -150,17 +154,21 @@
                                         <i class="ti-alarm-clock"></i>
                                     </a>
                                 </li>
-                                <li>
-                                    @if (!Auth::user())
+                                @if (Auth::user())
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            style="background-color: transparent ; border:none; text-decoration: none">
+                                            تسجيل خروج <i class="ti-power-off"></i>
+                                        </a>
+                                    </li>
+                                @else
+                                    <li>
                                         <a href="{{ route('login') }}"
                                             style="background-color: transparent ; border:none; text-decoration: none">
                                             تسجيل دخول <i class="ti-power-off"></i>
                                         </a>
-                                    @else
-                                        {{ ucfirst(Auth::user()->name) }}
-                                    @endif
-
-                                </li>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                         <!-- End Top left -->
@@ -235,8 +243,21 @@
                             </div>
 
                             <div class="sinlge-bar">
-                                <a href="{{ route('user.profile') }}" class="single-icon"><i
-                                        class="fa fa-user-circle-o" aria-hidden="true"></i> </a>
+                                @if (Auth::user() && Auth::user()->hasRole('user'))
+                                    <a href="{{ route('user.profile') }}" class="single-icon">
+                                        @if (isset(Auth::user()->profile->avatar))
+                                            <img src="/images/profiles/{{ Auth::user()->profile->avatar }}"
+                                                alt="profile" width="25"
+                                                class="d-block h-auto ms-0 rounded-circle user-profile-img" />
+                                        @else
+                                            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                        @endif
+                                    </a>
+                                @else
+                                    <a href="{{ route('admin.dashboard') }}" class="single-icon">
+                                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                    </a>
+                                @endif
                             </div>
                         </div>
 
@@ -314,13 +335,17 @@
                                                         href="/offer">العروض</a></li>
                                                 <li class="navh "><a class="nav-link"
                                                         href="/services">الخدمات</a></li>
-                                                <li class="navh "><a class="nav-link  " href="#">شراء
+                                                <li class="navh"><a class="nav-link" href="#">شراء
                                                         سيارة<i class="ti-angle-down p-2"></i>
                                                         <!--span class="new">جديد</span-->
                                                     </a>
                                                     <ul class="dropdown ">
-                                                        <li><a class="nav-link" href="/soon">مستعملة</a></li>
-                                                        <li><a class="nav-link" href="/soon">جديد</a></li>
+                                                        <li><a class="nav-link"
+                                                                href="{{ route('site.auction.by_status', 'old') }}">مستعملة</a>
+                                                        </li>
+                                                        <li><a class="nav-link"
+                                                                href="{{ route('site.auction.by_status', 'new') }}">جديد</a>
+                                                        </li>
                                                     </ul>
                                                 </li>
 

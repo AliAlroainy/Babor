@@ -7,20 +7,24 @@ use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\user\BidController;
 use App\Http\Controllers\admin\BidsController;
+use App\Http\Controllers\user\WalletController;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
 use App\Http\Controllers\Admin\AcutionController;
+// use \Illuminate\Support\Facades\URL;
 use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\Admin\QustionController;
-// use \Illuminate\Support\Facades\URL;
 use App\Http\Controllers\user\ContractController;
 use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\adminIndexController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\user\UserAuctionController;
 use App\Http\Controllers\Authentication\authcontroller;
@@ -91,9 +95,11 @@ Route::get('/', [SiteController::class, 'home'])->name('/');
 Route::get('/FAQ', [SiteController::class, 'questionShow']);
 Route::get('/auctions/available', [SiteController::class, 'availableAuctions'])->name('site.available.auction');
 Route::get('/auction/{id}', [SiteController::class, 'auctionShow'])->name('site.auction.details');
+Route::get('/auctions/{status}', [SiteController::class, 'auctionByCarStatus'])->name('site.auction.by_status');
 
 Route::view('/soon', 'Front.soon');
-Route::view('/contact', 'Front.contact');
+Route::get('/contact', [ContactUsController::class, 'show'])->name('site.show');
+// Route::view('/contact', 'Front.contact');
 Route::view('/favorite', 'Front.favorite');
 Route::view('/buy', 'Front.buy');
 Route::view('/privacy', 'Front.privcey');
@@ -116,13 +122,15 @@ Route::group(['middleware'=>'auth'],function(){
     Route::group(['prefix' => 'admin', 'middleware'=>'role:super_admin|admin'],function(){
         Route::get('/accounts', [AccountsController::class, 'index'])->name('admin.dashboard');
         Route::post('/accounts/{id}', [AccountsController::class, 'destroy'])->name('admin.account.destroy');
-
         Route::resource('/service', ServicesController::class, ['names' => 'admin.service']);
+        Route::resource('/index', adminIndexController::class, ['names' => 'admin.index']);
         Route::resource('/cars/brands', BrandsController::class, ['names' => 'admin.brand']);
         Route::resource('/cars/series', SeriesController::class, ['names' => 'admin.series']);
         Route::resource('/question', QustionController::class, ['names' => 'admin.question']);
+        Route::resource('/contactus', ContactUsController::class, ['names' => 'admin.contactus.index']);
         Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
         Route::get('/auction', [AcutionController::class, 'index'])->name('admin.auction.index');
+        Route::get('/statistic', [adminIndexController::class, 'index'])->name('admin.index');
         Route::post('/auction/filter', [AcutionController::class, 'indexWithFilter'])->name('admin.auction.indexFilter');
         Route::post('/auction/action/{id}', [AcutionController::class, 'action'])->name('admin.auction.action');
         Route::get('/auction/details/{id}', [AcutionController::class, 'showDetails'])->name('admin.auction.details');
@@ -159,9 +167,7 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
             Route::post('/auction/{id}/buy', [PaymentController::class, 'buy'])->name('user.buy.auction');
            
-            Route::get('/wallet', function () {
-                return view('Admin.wallet.wallet');
-            });
+            Route::get('/wallet', [WalletController::class, 'index'])->name('user.wallet');
             
             
             //API Response
@@ -194,6 +200,21 @@ Route::fallback(function () {
     return view('Front.errors.404');
 });
 
+Route::get('/admin',function () {
+    return view('Admin.index');
+});
+
+Route::get('/wallet', function (){
+    $admin = User::find(1);
+    $auctioneer_abrar = User::find(2);
+    $bidder_ali = User::find(3);
+    $auction = Auction::where('id', 1)->get();
+    $bid = Bid::where('id', 1)->get();
+    // dd($bid);
+    $admin->deposit(1200);
+    $auctioneer_abrar->deposit(600);
+    $bidder_ali->deposit(700);
+    return $admin->balance; 
 // Route::get('/wallet', function (){
 //     $admin = User::find(1);
 //     $auctioneer_abrar = User::find(2);
@@ -206,7 +227,7 @@ Route::fallback(function () {
 //     $bidder_ali->deposit(700);
 //     return $admin->balance;
 
-// });
+ });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/private',[ App\Http\Controllers\HomeController::class, 'private'])->name('private');
@@ -216,3 +237,10 @@ Route::get('messages', [App\Http\Controllers\MessageController::class, 'fetchMes
 Route::post('messages', [App\Http\Controllers\MessageController::class, 'sendMessage']);
 Route::get('/private-messages/{user}', [App\Http\Controllers\MessageController::class, 'privateMessages'])->name('privateMessages');
 Route::post('/private-messages/{user}',  [App\Http\Controllers\MessageController::class, 'sendPrivateMessage'])->name('privateMessages.store');
+
+
+
+ 
+
+#Manage Review
+Route::post('/review-store',[SiteController::class, 'reviewstore'])->name('review.store');
