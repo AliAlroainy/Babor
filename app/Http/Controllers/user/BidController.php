@@ -52,17 +52,16 @@ class BidController extends Controller
         else
             // to get last bid of an auction
             $bid->currentPrice = $bid->bidPrice + Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->currentPrice;
-       
+        
+        
         //check balance
         if($bid->user->balance >= $bid->bidPrice){
             $deduction = $bid->getDeduction();
-            $bid->user->transfer(User::first(), $deduction);
+            $bid->save();
+            $bid->user->transfer(User::first(), $deduction, ['bid' => $bid->id]);
+            return redirect()->back()->with('successBid', 'تمت المزايدة بنجاح');
         }
         else
             return redirect()->route('site.auction.details', $id)->with('errorBid','رصيدك غير كافٍ لإجراء هذه المزايدة');
-         
-        $bid->save();
-        
-        return redirect()->back()->with('successBid', 'تمت المزايدة بنجاح');
     }
 }
