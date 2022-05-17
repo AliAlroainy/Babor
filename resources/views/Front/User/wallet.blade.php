@@ -25,13 +25,14 @@
                                         <p class="ps-3 textmuted fw-bold h6 mb-0">اجمالي الرصيد</p>
                                         <p class="h1 fw-bold d-flex"> <span
                                                 class=" fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>
-                                            <span class="textmuted">58.</span> 84,254
+                                            {{-- <span class="textmuted">58.</span>  --}}
+                                            {{ $wallet->balance }}
                                         </p>
                                         <p class="ms-3 mt-5 px-2 bg-green">غذي حسابك</p>
                                     </div>
                                     <div class="col-md-4">
                                         <p class="p-blue"><span class="fas fa-circle pe-2"></span>الداخل </p>
-                                        <p class="fw-bold mb-3"><span class="fas fa-dollar-sign pe-1"></span>1254 <span
+                                        <p class="fw-bold mb-3"><span class="fas fa-dollar-sign pe-1"></span>{{ $wallet->balance }} <span
                                                 class="textmuted">.50</span> </p>
                                         <p class="p-org"><span class="fas fa-circle pe-2"></span>الخارج </p>
                                         <p class="fw-bold"><span class="fas fa-dollar-sign pe-1"></span>00<span

@@ -7,20 +7,24 @@ use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\user\BidController;
 use App\Http\Controllers\admin\BidsController;
+use App\Http\Controllers\user\WalletController;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
 use App\Http\Controllers\Admin\AcutionController;
+// use \Illuminate\Support\Facades\URL;
 use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\Admin\QustionController;
-// use \Illuminate\Support\Facades\URL;
 use App\Http\Controllers\user\ContractController;
 use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\adminIndexController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\user\UserAuctionController;
 use App\Http\Controllers\Authentication\authcontroller;
@@ -28,9 +32,6 @@ use App\Http\Controllers\Admin\CarCharacteristicsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Authentication\ResetPasswordController;
 use App\Http\Controllers\Authentication\ForgotPasswordController;
-use App\Http\Controllers\Admin\ContactUsController;
-use App\Http\Controllers\Admin\adminIndexController;
-use App\Http\Controllers\PostController;
 
 
 Route::get('/bill', function () {
@@ -166,9 +167,7 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
             Route::post('/auction/{id}/buy', [PaymentController::class, 'buy'])->name('user.buy.auction');
            
-            Route::get('/wallet', function () {
-                return view('Front.User.wallet');
-            });
+            Route::get('/wallet', [WalletController::class, 'index'])->name('user.wallet');
             
             
             //API Response

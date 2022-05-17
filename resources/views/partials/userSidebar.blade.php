@@ -8,7 +8,7 @@
                     <span class="menu-title fw-bold " style="font-family: Tajawal">المعلومات الشخصية</span>
                 </a>
             </li>
-      
+
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
                     aria-controls="ui-basic">
@@ -18,7 +18,7 @@
                 </a>
                 <div class="collapse" id="ui-basic">
                     <ul class="nav flex-column sub-menu">
-                        
+
                         <li class="nav-item me-5">
                             <a class="nav-link" href="{{ route('user.add.auction') }}"
                                 style="font-family: Tajawal">
@@ -86,7 +86,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/user/wallet">
+                <a class="nav-link" href="{{ route('user.wallet') }}">
                     <i class="fa-solid fa-wallet me-3 ms-3"></i>
                     <span class="menu-title fw-bold " style="font-family: Tajawal">المحفظة</span>
                 </a>
