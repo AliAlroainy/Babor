@@ -1,5 +1,5 @@
 @include('Front.include.header')
-@livewireStyles
+
 <div class="container d-flex flex-column justify-content-center align-items-center mt-5 ">
     <h1 class="m-3 text-center "> معنا تقدر تبيع وتشتري سيارتك بسهولة </h1>
     <div class=" ">
@@ -75,8 +75,8 @@
 <!-- End Shop Services Area -->
 
 
-@livewire('auctions')
 
+@include('Front.include.produacts')
 
 
 
@@ -416,7 +416,5 @@
 
 </div>
 
-
-@livewireScripts
 
 @include('Front.include.footer')
