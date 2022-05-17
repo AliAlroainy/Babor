@@ -8,12 +8,7 @@
                     <span class="menu-title fw-bold " style="font-family: Tajawal">المعلومات الشخصية</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('user.dashboard') }}">
-                    <i class=" mdi mdi-settings menu-icon ms-3"></i>
-                    <span class="menu-title fw-bold " style="font-family: Tajawal">إعدادات الحساب</span>
-                </a>
-            </li>
+      
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
                     aria-controls="ui-basic">
@@ -89,5 +84,21 @@
                     <span class="menu-title fw-bold " style="font-family: Tajawal">مزايداتي</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/user/wallet">
+                    <i class="fa-solid fa-wallet me-3 ms-3"></i>
+                    <span class="menu-title fw-bold " style="font-family: Tajawal">المحفظة</span>
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('user.dashboard') }}">
+                    <i class=" mdi mdi-settings menu-icon ms-3"></i>
+                    <span class="menu-title fw-bold " style="font-family: Tajawal">إعدادات الحساب</span>
+                </a>
+            </li>
+
         </ul>
     </nav>

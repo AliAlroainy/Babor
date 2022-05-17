@@ -32,6 +32,7 @@ use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\adminIndexController;
 use App\Http\Controllers\PostController;
 
+
 Route::get('/bill', function () {
     return view('Front.addtions.bill');
 });
@@ -93,6 +94,7 @@ Route::get('/', [SiteController::class, 'home'])->name('/');
 Route::get('/FAQ', [SiteController::class, 'questionShow']);
 Route::get('/auctions/available', [SiteController::class, 'availableAuctions'])->name('site.available.auction');
 Route::get('/auction/{id}', [SiteController::class, 'auctionShow'])->name('site.auction.details');
+Route::get('/auctions/{status}', [SiteController::class, 'auctionByCarStatus'])->name('site.auction.by_status');
 
 Route::view('/soon', 'Front.soon');
 Route::get('/contact', [ContactUsController::class, 'show'])->name('site.show');
@@ -163,6 +165,11 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/bids', [BidController::class, 'index'])->name('user.show.bids');
             Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
             Route::post('/auction/{id}/buy', [PaymentController::class, 'buy'])->name('user.buy.auction');
+           
+            Route::get('/wallet', function () {
+                return view('Admin.wallet.wallet');
+            });
+            
             
             //API Response
             Route::get('/payment/success/{id}/{res}', [PaymentController::class, 'success'])->name('payment.success');
@@ -208,9 +215,20 @@ Route::get('/wallet', function (){
     $admin->deposit(1200);
     $auctioneer_abrar->deposit(600);
     $bidder_ali->deposit(700);
-    return $admin->balance;
+    return $admin->balance; 
+// Route::get('/wallet', function (){
+//     $admin = User::find(1);
+//     $auctioneer_abrar = User::find(2);
+//     $bidder_ali = User::find(3);
+//     $auction = Auction::where('id', 1)->get();
+//     $bid = Bid::where('id', 1)->get();
+//     // dd($bid);
+//     $admin->deposit(1200);
+//     $auctioneer_abrar->deposit(600);
+//     $bidder_ali->deposit(700);
+//     return $admin->balance;
 
-});
+ });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/private',[ App\Http\Controllers\HomeController::class, 'private'])->name('private');
