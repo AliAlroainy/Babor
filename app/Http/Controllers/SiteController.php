@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\service;
 use App\Models\Category;
 use App\Models\question;
+use App\Models\ReviewRating;
 class SiteController extends Controller
 {
     public function home(){
@@ -67,6 +68,17 @@ class SiteController extends Controller
     public function questionShow(){
         $questions = question::where('is_active', '1')->get();
         return view('Front.FAQ', ['questions' => $questions]);
+    }
+    public function reviewstore(Request $request){
+        $review = new ReviewRating();
+        $review->user_id = $request->user_id;
+        $review->name    = $request->name;
+        $review->email   = $request->email;
+        $review->phone   = $request->phone;
+        $review->comments= $request->comment;
+        $review->star_rating = $request->rating;
+        $review->save();
+        return redirect()->back()->with('flash_msg_success','Your review has been submitted Successfully,');
     }
 
 }

@@ -10,10 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Auction extends Model
 {
     use HasFactory;
-    public function ReviewData()
-    {
-    return $this->hasMany('App\Models\ReviewRating','auction_id');
-    }
+    
     protected $guarded =[];
 
     protected $fillable = [

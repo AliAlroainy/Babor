@@ -245,4 +245,4 @@ Route::get('/post-list',[PostController::class, 'list'])->name('post.list');
 Route::get('/post-view/{id}',[PostController::class, 'view'])->name('post.view');
  
 #Manage Review
-Route::post('/review-store',[PostController::class, 'reviewstore'])->name('review.store');
+Route::post('/review-store',[AcutionController::class, 'reviewstore'])->name('review.store');
