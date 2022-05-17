@@ -6,7 +6,7 @@
                     <img  src="{{ @asset('assets/images/logo.png') }}" style="width: 80px; height: 50px;" alt="logo"  /></a>
                 <a class="navbar-brand brand-logo-mini" href="{{ route('/') }}">
                     <img
-                        src="{{ @asset('assets/images/logo.png') }}" alt="logo" /></a>
+                        src="{{ @asset('assets/images/logo.png') }}" alt="logo" style="width: 80px; height: 50px;" /></a>
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     {{-- <span class="mdi mdi-sort-variant"></span> --}}
                     <i class="fa-solid fa-bars fs-5 me-3"></i>

@@ -23,10 +23,19 @@
                 </a>
                 <div class="collapse" id="ui-basic">
                     <ul class="nav flex-column sub-menu">
+                        
+                        <li class="nav-item me-5">
+                            <a class="nav-link" href="{{ route('user.add.auction') }}"
+                                style="font-family: Tajawal">
+                                إضافة مزاد
+                            </a>
+                        </li>
+
+
                         <li class="nav-item me-5">
                             <a class="nav-link" data-bs-toggle="collapse" href="#show-auctions"
                                 aria-expanded="false" aria-controls="show-auctions">
-                                <span class="menu-title fw-bold" style="font-family: Tajawal; "> عرض المزادات</span>
+                                <span class="menu-title fw-bold" style="font-family: Tajawal; "> تفاصيل المزادات</span>
                                 <i class="menu-arrow"></i>
                             </a>
                             <div class="collapse" id="show-auctions">
@@ -71,12 +80,6 @@
                             </div>
                         </li>
 
-                        <li class="nav-item me-5">
-                            <a class="nav-link" href="{{ route('user.add.auction') }}"
-                                style="font-family: Tajawal">
-                                إضافة مزاد
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </li>
