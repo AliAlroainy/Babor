@@ -410,7 +410,31 @@
 										<!-- Review Form -->
 										<div class="col-md-3">
 											<div id="review-form">
-                                                
+                                            @if (session()->has('successAdd'))
+                                <div class="alert alert-success alert-dismissible fade show">
+                                    {{ session()->get('successAdd') }}
+                                    <button type=" button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
+                            @if (session()->has('errorAdd'))
+                                <div class="alert alert-success alert-dismissible fade show">
+                                    {{ session()->get('errorAdd') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
+                            @if ($errors->any())
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    <ul class="m-0">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
 												<form class="review-form" action="{{route('review.store')}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="user_id" value="{{$auction->user->id}}">

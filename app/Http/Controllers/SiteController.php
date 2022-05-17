@@ -8,7 +8,7 @@ use App\Models\service;
 use App\Models\Category;
 use App\Models\question;
 use App\Models\ReviewRating;
-use App\Models\ReviewsRequest;
+use  App\Http\Requests\ReviewsRequest;
 class SiteController extends Controller
 {
     public function home(){
@@ -99,7 +99,7 @@ class SiteController extends Controller
         $questions = question::where('is_active', '1')->get();
         return view('Front.FAQ', ['questions' => $questions]);
     }
-    public function reviewstore(Request $request){
+    public function reviewstore(ReviewsRequest $request){
         $review = new ReviewRating();
         $review->user_id = $request->user_id;
         $review->name    = $request->name;
@@ -108,22 +108,8 @@ class SiteController extends Controller
         $review->comments= $request->comment;
         $review->star_rating = $request->rating;
         $review->save();
-        return redirect()->back()->with('flash_msg_success','Your review has been submitted Successfully,');
-    }
-    public function counting(Request $request){
-        $total= ReviewRating::get()->count();
-        $oneStar = ReviewRating::where('star_rating', 1)->get()->count();
-        $onePrsent=($oneStar/$total)*100;
-        $towStar = ReviewRating::where('star_rating', 2)->get()->count();
-        $threeStar = ReviewRating::where('star_rating', 3)->get()->count();
-        $fourStar = ReviewRating::where('star_rating',4)->get()->count();
-        $fiveStar = ReviewRating::where('star_rating', 5)->get()->count();
-
-        $review->save();
-        return redirect()->back()->with(
-            'flash_msg_success',
-            'Your review has been submitted Successfully,'
-        );
-    }
+        return redirect()->back()->  with(['successAdd'=>'تم إضافة السؤال بنجاح']);
+        return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);}
+  
     
 }
