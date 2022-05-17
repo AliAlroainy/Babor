@@ -25,17 +25,19 @@
                                         <p class="ps-3 textmuted fw-bold h6 mb-0">اجمالي الرصيد</p>
                                         <p class="h1 fw-bold d-flex"> <span
                                                 class=" fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>
-                                            {{-- <span class="textmuted">58.</span>  --}}
+                                            {{-- <span class="textmuted">58.</span> --}}
                                             {{ $wallet->balance }}
                                         </p>
                                         <p class="ms-3 mt-5 px-2 bg-green">غذي حسابك</p>
                                     </div>
                                     <div class="col-md-4">
                                         <p class="p-blue"><span class="fas fa-circle pe-2"></span>الداخل </p>
-                                        <p class="fw-bold mb-3"><span class="fas fa-dollar-sign pe-1"></span>{{ $wallet->balance }} <span
+                                        <p class="fw-bold mb-3"><span
+                                                class="fas fa-dollar-sign pe-1"></span>{{ $looses }} <span
                                                 class="textmuted">.50</span> </p>
                                         <p class="p-org"><span class="fas fa-circle pe-2"></span>الخارج </p>
-                                        <p class="fw-bold"><span class="fas fa-dollar-sign pe-1"></span>00<span
+                                        <p class="fw-bold"><span
+                                                class="fas fa-dollar-sign pe-1"></span>{{ $looses }}<span
                                                 class="textmuted">.00</span></p>
                                     </div>
                                 </div>
@@ -384,19 +386,6 @@
         .bg.btn.btn-primary:hover {
             color: #539ee9
         }
-        /* @media(max-width:320px) {
-            .h8 {
-                font-size: 11px
-            }
-
-            .h7 {
-                font-size: 13px
-            }
-
-            ::placeholder {
-                font-size: 10px
-            }
-        }  */
 
     </style>
 @endsection
