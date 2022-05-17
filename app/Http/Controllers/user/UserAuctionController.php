@@ -147,12 +147,14 @@ class UserAuctionController extends Controller
         // '3': canceled, '4': uncomplete
         $found = Auction::find($id);
         if(!$found)
-            return abort('404');
+            return response()->view('Front.errors.404', []);
 
         $auction = Auction::whereId($id);
-        // dd($found->openingBid);
         $auction->when($request->has('cancel'), function ($q) use ($id, $auction){
             $q->update(['status' => '3']);
+            $q->when($auction->first()->bids->count() > 0, function ($q) use ($id){
+                $this->refundBidders($id);
+            });
             $this->refundBidders($id);
             $notify = new NotificationController();
             $notify->cancelAuction($auction->first(),$id);

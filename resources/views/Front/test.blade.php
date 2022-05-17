@@ -22,16 +22,12 @@
             <div class="col-md-5 col-md-push-2">
                 <div id="product-main-img">
                     <div class="product-preview">
-                        <img src="/images/cars/{{ $auction->car->thumbnail }}" alt="thumbnail pic">
+                        <img src="/img/c1.jpg" alt="thumbnail pic">
                     </div>
-                    @php
-                        $images = json_decode($auction->car->car_images, true);
-                    @endphp
-                    @foreach ($images as $img)
+              
                         <div class="product-preview">
-                            <img src="/images/cars/car_images/{{ $img }}" alt="car img">
+                            <img src="/img/c1.jpg" alt="car img">
                         </div>
-                    @endforeach
                 </div>
             </div>
             <!-- /Product main img -->
@@ -40,16 +36,12 @@
             <div class="col-md-2  col-md-pull-5">
                 <div id="product-imgs">
                     <div class="product-preview">
-                        <img src="/images/cars/{{ $auction->car->thumbnail }}" alt="thumbnail pic">
+                        <img src="/img/c1.jpg" alt="thumbnail pic">
                     </div>
-                    @php
-                        $images = json_decode($auction->car->car_images, true);
-                    @endphp
-                    @foreach ($images as $img)
+                
                         <div class="product-preview">
-                            <img src="/images/cars/car_images/{{ $img }}" alt="">
+                            <img src="/img/c1.jpg" alt="">
                         </div>
-                    @endforeach
                 </div>
             </div>
             <!-- /Product thumb imgs -->
@@ -58,80 +50,39 @@
             <div class="col-md-5" dir="rtl">
                 <div class="product-details">
                     <div class="d-flex">
-                        <h2 class="product-name">{{ $auction->type_and_model() }}</h2>
-                        <span class="product-available">{{ App\Models\Car::getStatus($auction->car->status) }}</span>
+                        <h2 class="product-name">فيراري</h2>
+                        <span class="product-available">مستعملة</span>
                     </div>
                     <div>
                         <h3 class="product-price">
-                            @if ($auction->bids->count() > 0)
-                                {{ $auction->bids->first()->currentPrice }}
-                            @else
-                                {{ $auction->openingBid }}
-                            @endif
+                         3233
                         </h3>
                     </div>
                     <div>
-                        @error('bidPrice')
-                            <p style="color: red;">
-                                {{ $message }}
-                            </p>
-                        @enderror
-                        @if (session()->has('errorBid'))
-                            <div class="alert alert-danger alert-dismissible fade show">
-                                {{ session()->get('errorBid') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
-                        @endif
-                        @if (session()->has('warningBid'))
-                            <div class="alert alert-warning alert-dismissible fade show">
-                                {{ session()->get('warningBid') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
-                        @endif
-                        @if (session()->has('successBid'))
-                            <div class="alert alert-success alert-dismissible fade show">
-                                {{ session()->get('successBid') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
-                        @endif
-                        @if (Auth::user())
+                     
+                 
+                    
+                       
                             <div class="add-to-cart">
-                                @if ($auction->status == '4' || $auction->status == '5')
-                                    <span class="text-danger" style="font-size: 12px; vertical-align: bottom;">
-                                        انتهى
-                                    </span>
-                                    <br>
-                                @elseif($auction->status == '3')
-                                    <span class="text-danger" style="font-size: 12px; vertical-align: bottom;">
-                                        ملغي
-                                    </span>
-                                    <br>
-                                @else
-                                    <button class="add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#bidding"><i
-                                            class="fa fa-shopping-cart"></i> دخول
-                                        بالمزاد</button>
-                                @endif
-
+                                <button class="add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#bidding"><i
+                                        class="fa fa-shopping-cart"></i> دخول
+                                    بالمزاد</button>
                                 <span class="text-muted" style="font-size: 12px; vertical-align: bottom;"> أقل سعر
                                     للمزايدة به هو:
-                                    {{ $auction->minInc }}
-                                </span>
+                                   </span>
                             </div>
-                        @else
+                      
                             <div class="add-to-cart">
-                                <a href="{{ route('login') }}" style="line-height: 40px;"
+                                <a href="#" style="line-height: 40px;"
                                     class="d-inline-block add-to-cart-btn">
                                     <i class="fa fa-sign-in"></i> سجل دخول للبدء
                                     بالمزايدة
                                 </a>
                             </div>
-                        @endif
+                    
                     </div>
                     <p>
-                        {!! $auction->car->description !!}
+                      
                     </p>
 
                     <ul class="product-btns">
@@ -140,9 +91,9 @@
 
                     <h6> البائع</h6>
                     <div class="d-flex align-items-center justify-content-start ">
-                        <img src="/images/profiles/{{ $auction->user->profile->avatar }}" class="rounded-circle mb-3"
+                        <img src="/img/c1.jpg" class="rounded-circle mb-3"
                             style="width: 40px; margin-left: 10px" alt="Avatar" />
-                        <h6 class="mb-2 text-muted">{{ $auction->user->name }}</h6>
+                        <h6 class="mb-2 text-muted">علي</h6>
                     </div>
                     <div>
                         <div class="product-rating">
@@ -162,9 +113,9 @@
                     <ul class="product-links">
                         <li>الاقسام:</li>
                         <li class="badge bg-secondary"><a style="text-decoration: none; color: white"
-                                href="#">{{ $auction->car->category->name }}</a></li>
+                                href="#">سيارات</a></li>
                         <li class="badge bg-secondary"><a style="text-decoration: none; color: white" href="#">
-                                {{ App\Models\Car::getStatus($auction->car->status) }}</a></li>
+                               بوابير</a></li>
                     </ul>
 
                     <ul class="product-links">
@@ -186,7 +137,7 @@
             <div class="modal fade" id="bidding" action="post" tabindex="-1" dir="rtl"
                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog ">
-                    <form action="{{ route('user.place.bid', $auction->id) }}" method="POST">
+                    <form action="#" method="POST">
                         @csrf
                         <div class="modal-content alert alert-warning" role="alert">
                             <div class="modal-header">
@@ -218,20 +169,7 @@
 
 
 
-            		<!-- Product reviews -->
-					<div class="col-md-12">
-						<div id="product-tab">
-							<!-- product tab nav -->
-							<ul class="tab-nav">
-							
-								<li><a data-toggle="tab" href="#tab3">التقييمات (3)</a></li>
-							</ul>
-							<!-- /product tab nav -->
-
-							<!-- product tab content -->
-							<div class="tab-content">
-
-						      	<!-- Product tab -->
+                 	<!-- Product tab -->
 					<div class="col-md-12">
 						<div id="product-tab">
 							<!-- product tab nav -->
@@ -422,12 +360,7 @@
 						</div>
 					</div>
 					<!-- /product tab -->
-							</div>
-							<!-- /product tab content  -->
-						</div>
-					</div>
-					<!-- /product reviews -->
-
+       
 
 
         </div>

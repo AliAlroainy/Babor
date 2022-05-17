@@ -33,6 +33,11 @@ Route::get('/bill', function () {
     return view('Front.addtions.bill');
 });
 
+Route::get('/test', function () {
+    return view('Front.test');
+});
+
+
 Route::get('/noConnection', function () {
     return view('Front.noconnection');
 });
@@ -180,7 +185,7 @@ Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->n
 
 //fallback route
 Route::fallback(function () {
-    return view('Front.404');
+    return view('Front.errors.404');
 });
 
 Route::get('/wallet', function (){
