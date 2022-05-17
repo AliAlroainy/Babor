@@ -11,7 +11,7 @@
 
  
  
- .card{
+ .cardp{
      height:220px;
      width:330px;
      border-radius:20px;
@@ -25,7 +25,7 @@
       cursor:pointer;
  }
  
- .card .line-1{
+ .cardp .line-1{
      height:200px;
      width:200px;
      display:flex;
@@ -41,7 +41,7 @@
       
  }
  
-  .card .line-2{
+  .cardp .line-2{
      height:300px;
      width:300px;
      display:flex;
@@ -56,7 +56,7 @@
      animation-delay:2s;
  }
  
-   .card .line-3{
+   .cardp .line-3{
      height:200px;
      width:200px;
      display:flex;
@@ -102,7 +102,7 @@
      width:50px;
  }
  
- .card .visa i{
+ .cardp .visa i{
      font-size:50px;
      
  }
@@ -123,7 +123,7 @@
      transition:all 1s;
  }
  
- .card:hover .tick i{
+ .cardp:hover .tick i{
      
      transform: rotate(360deg);
  }
@@ -181,14 +181,14 @@
             </div>
 
             <div class="container">
-                <div class="card">
+                <div class="cardp">
                     <span class="line-1"></span>
                     <span class="line-2"></span>
                     <span class="line-3"></span>
                     <div class="top-row">
                         <div class="visa">
                             <h4>VISA</h4>
-                            <span>John Doe</span>
+                            <span>علي الرعيني</span>
                         </div>
                         <div class="tick">
                             <i class="fa fa-check"></i>
