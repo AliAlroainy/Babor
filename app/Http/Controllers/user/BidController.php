@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\user;
 
+use App\Http\Controllers\Notifications\NotificationController;
 use App\Models\Bid;
 use App\Models\User;
 use App\Models\Auction;
@@ -14,7 +15,7 @@ class BidController extends Controller
 {
     public function index(){
         $bids = Bid::where('bidder_id', Auth::id())->with('auction')->get();
-        return view('Front.Auction.bids')->with('bids',$bids);  
+        return view('Front.Auction.bids')->with('bids',$bids);
     }
     public function create(Request $request, $id){
         $current_user = Auth::id();
@@ -45,7 +46,7 @@ class BidController extends Controller
         $bid->bidPrice =  $request->input('bidPrice');
         $bid->securityDeposit = 10;
 
-        
+
         $start_before = Bid::where('auction_id', $id)->first();
         if(!$start_before)
             $bid->currentPrice = $bid->bidPrice + Auction::whereId($id)->first()->openingBid;
@@ -59,6 +60,8 @@ class BidController extends Controller
             $deduction = $bid->getDeduction();
             $bid->save();
             $bid->user->transfer(User::first(), $deduction, ['bid' => $bid->id]);
+            $notify = new NotificationController();
+            $notify->bidOnAuction($bid);
             return redirect()->back()->with('successBid', 'تمت المزايدة بنجاح');
         }
         else

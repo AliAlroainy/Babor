@@ -42,7 +42,7 @@ class Bid extends Model
     // }
 
     // public function setCurrentPriceAttribute(){
-        
+
     //     $this->attributes['currentPrice'] = $this->auction->openingBid;
     // }
 }
