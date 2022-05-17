@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\user;
 
+use App\Http\Controllers\Notifications\NotificationController;
 use App\Models\Bid;
 use App\Models\User;
 use App\Models\Auction;
@@ -14,7 +15,7 @@ class BidController extends Controller
 {
     public function index(){
         $bids = Bid::where('bidder_id', Auth::id())->with('auction')->get();
-        return view('Front.Auction.bids')->with('bids',$bids);  
+        return view('Front.Auction.bids')->with('bids',$bids);
     }
     public function create(Request $request, $id){
         $current_user = Auth::id();
@@ -45,24 +46,27 @@ class BidController extends Controller
         $bid->bidPrice =  $request->input('bidPrice');
         $bid->securityDeposit = 10;
 
-        
+
         $start_before = Bid::where('auction_id', $id)->first();
         if(!$start_before)
             $bid->currentPrice = $bid->bidPrice + Auction::whereId($id)->first()->openingBid;
         else
             // to get last bid of an auction
             $bid->currentPrice = $bid->bidPrice + Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->currentPrice;
-       
+
         //check balance
         if($bid->user->balance >= $bid->bidPrice){
             $deduction = $bid->getDeduction();
             $bid->user->transfer(User::first(), $deduction);
+            $notify = new NotificationController();
+//            $auction = Auction::find($bid->user->id);
+            $notify->bidOnAuction($bid);
         }
         else
             return redirect()->route('site.auction.details', $id)->with('errorBid','رصيدك غير كافٍ لإجراء هذه المزايدة');
-         
+
         $bid->save();
-        
+
         return redirect()->back()->with('successBid', 'تمت المزايدة بنجاح');
     }
 }
