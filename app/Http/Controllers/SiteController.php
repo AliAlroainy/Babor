@@ -53,6 +53,8 @@ class SiteController extends Controller
         $threeStar = ReviewRating::where('star_rating', 3)->get()->count();
         $fourStar = ReviewRating::where('star_rating',4)->get()->count();
         $fiveStar = ReviewRating::where('star_rating', 5)->get()->count();
+
+        if ($total>0){
         $onePrsent=$oneStar/$total*100;
         $towPrsent=$towStar /$total*100;
         $threePrsent=$threeStar/$total*100;
@@ -60,7 +62,17 @@ class SiteController extends Controller
         $fivePrsent=$fiveStar/$total*100;
         $avg=round($total/5);
         $avgBeforRound=$total/5;
- 
+        }
+        else{
+            $total=1; 
+            $onePrsent=$oneStar/$total*100;
+            $towPrsent=$towStar /$total*100;
+            $threePrsent=$threeStar/$total*100;
+            $fourPrsent=$fourStar/$total*100;
+            $fivePrsent=$fiveStar/$total*100;
+            $avg=round($total/5);
+            $avgBeforRound=$total/5;
+        }
         $found = Auction::find($id);
         if($found){
             $auction = Auction::whereId($id)->whereNotIn('status', ['0','1'])->withCount('bids')->with('bids', function($q){
@@ -103,12 +115,10 @@ class SiteController extends Controller
         $review = new ReviewRating();
         $review->user_id = $request->user_id;
         $review->name    = $request->name;
-        $review->email   = $request->email;
-        $review->phone   = $request->phone;
         $review->comments= $request->comment;
         $review->star_rating = $request->rating;
         $review->save();
-        return redirect()->back()->  with(['successAdd'=>'تم إضافة السؤال بنجاح']);
+        return redirect()->back()->  with(['successAdd'=>'تم الاحتفاظ بتقييمك شكرا لك']);
         return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);}
   
     

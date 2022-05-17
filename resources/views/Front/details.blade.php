@@ -439,9 +439,7 @@
                                                 @csrf
                                                 <input type="hidden" name="user_id" value="{{$auction->user->id}}">
 													<input class="input" type="text" name="name" placeholder="اسمك "require>
-													<input class="input" type="email" name="email" placeholder="بريدك الالكتروني" require>
-                                                    <input class="input" type="text" name="phone" placeholder="الموبايل " require>
-
+								
 													<textarea class="input" name="comment" placeholder="اضف تعليقك للتقييم" require></textarea>
 													<div class="input-rating">
 														<span> تقييمك:</span>

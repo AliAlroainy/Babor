@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('review_ratings', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            //$table->unsignedBigInteger('post_id');
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->longText('comments')->nullable();
