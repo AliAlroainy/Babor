@@ -19,18 +19,19 @@
 									<h4>تواصل</h4>
 									<h3>اكتب لنا رسالة</h3>
 								</div>
-								<form class="form" method="post" action="mail/mail.php">
+								<form class="form"  action="{{ route('admin.contactus.index.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
 									<div class="row">
 										<div class="col-lg-6 col-12">
 											<div class="form-group">
 												<label>اسمك<span>*</span></label>
-												<input name="name" type="text" placeholder=" علي عبده" required>
+												<input name="name" type="text" placeholder="  " required>
 											</div>
 										</div>
 										<div class="col-lg-6 col-12">
 											<div class="form-group">
 												<label>عنوان رسالتك<span>*</span></label>
-												<input name="subject" type="text" placeholder="" required>
+												<input name="title" type="text" placeholder="" required>
 											</div>
 										</div>
 										<div class="col-lg-6 col-12">
@@ -42,7 +43,7 @@
 										<div class="col-lg-6 col-12">
 											<div class="form-group">
 												<label>رقم تلفونك<span>*</span></label>
-												<input name="company_name" type="text" placeholder=" 777 777 777" required>
+												<input name="phone" type="text" placeholder=" 777 777 777" required>
 											</div>	
 										</div>
 										<div class="col-12">
@@ -53,7 +54,7 @@
 										</div>
 										<div class="col-12">
 											<div class="form-group button">
-												<button type="submit" class="btn btn-light ">ارسال الرسالة </button>
+												<button type="submit" class="btn btn-warning text-white ">ارسال الرسالة </button>
 											</div>
 										</div>
 									</div>
