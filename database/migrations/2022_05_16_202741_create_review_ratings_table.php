@@ -14,7 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('review_ratings', function (Blueprint $table) {
-           
+            $table->id();
+            $table->timestamps();
+            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('auction_id')->nullable();
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->longText('comments')->nullable();
+            $table->integer('star_rating');
         });
     }
 
