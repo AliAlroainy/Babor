@@ -58,8 +58,10 @@
             <div class="col-md-5" dir="rtl">
                 <div class="product-details">
                     <div class="d-flex">
-                        <h2 class="product-name">{{ $auction->type_and_model() }}</h2>
-                        <span class="product-available">{{ App\Models\Car::getStatus($auction->car->status) }}</span>
+                        <h2 class="product-name mb-0 ms-1"> {{ $auction->type_and_model() }} </h2>
+                        <span
+                            class="product-available align-self-end">{{ App\Models\Car::getStatus($auction->car->status) }}
+                        </span>
                     </div>
                     <div>
                         <h3 class="product-price">
@@ -79,13 +81,6 @@
                         @if (session()->has('errorBid'))
                             <div class="alert alert-danger alert-dismissible fade show">
                                 {{ session()->get('errorBid') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
-                        @endif
-                        @if (session()->has('warningBid'))
-                            <div class="alert alert-warning alert-dismissible fade show">
-                                {{ session()->get('warningBid') }}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                                     aria-label="Close"></button>
                             </div>
@@ -110,14 +105,16 @@
                                     </span>
                                     <br>
                                 @else
-                                    <button class="add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#bidding"><i
-                                            class="fa fa-shopping-cart"></i> دخول
-                                        بالمزاد</button>
+                                    @if (!Auth::user() == $auction->user)
+                                        <button class="add-to-cart-btn" data-bs-toggle="modal"
+                                            data-bs-target="#bidding"><i class="fa fa-shopping-cart"></i> دخول
+                                            بالمزاد</button>
+                                    @endif
                                 @endif
-
-                                <span class="text-muted" style="font-size: 12px; vertical-align: bottom;"> أقل سعر
+                                <span class="text-muted" style="font-size: 12px; vertical-align: bottom;"> أقل
+                                    سعر
                                     للمزايدة به هو:
-                                    {{ $auction->minInc }}
+                                    <span class="text-danger"> {{ $auction->minInc }} </span>
                                 </span>
                             </div>
                         @else
@@ -138,8 +135,8 @@
                         <li><a href="#"><i class="fa fa-heart-o"></i> اضافة للمفضلة</a></li>
                     </ul>
 
-                    <h6> البائع</h6>
-                    <div class="d-flex align-items-center justify-content-start ">
+                    <div class="d-flex align-items-center justify-content-start">
+                        <span class="fw-bold"> البائع: </span>
                         <img src="/images/profiles/{{ $auction->user->profile->avatar }}" class="rounded-circle mb-3"
                             style="width: 40px; margin-left: 10px" alt="Avatar" />
                         <h6 class="mb-2 text-muted">{{ $auction->user->name }}</h6>
@@ -154,7 +151,9 @@
                         </div>
                         <br />
                         <a class="review-link" href="#">10 تقييمات البائع
-                            | ضيف تقييمك
+                            @if (!Auth::user() == $auction->user)
+                                | ضيف تقييمك
+                            @endif
                         </a>
 
                     </div>
@@ -163,8 +162,11 @@
                         <li>الاقسام:</li>
                         <li class="badge bg-secondary"><a style="text-decoration: none; color: white"
                                 href="#">{{ $auction->car->category->name }}</a></li>
-                        <li class="badge bg-secondary"><a style="text-decoration: none; color: white" href="#">
-                                {{ App\Models\Car::getStatus($auction->car->status) }}</a></li>
+                        <li class="badge bg-secondary">
+                            <a style="text-decoration: none; color:white;" href="#">
+                                {{ App\Models\Car::getStatus($auction->car->status) }}
+                            </a>
+                        </li>
                     </ul>
 
                     <ul class="product-links">
@@ -243,10 +245,6 @@
 
                                 <!-- product tab content -->
                                 <div class="tab-content">
-
-
-
-
                                     <!-- tab3  -->
                                     <div id="tab3" class="tab-pane fade fade show active" dir="rtl">
                                         <div class="row">

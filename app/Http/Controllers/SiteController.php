@@ -59,6 +59,7 @@ class SiteController extends Controller
 
     public function auctionByCarStatus($status){
         $status = $status == 'old'? '0': '1';
+        
         $auctions = Auction::whereNotIn('status', ['0','1'])->with('bids', function($q){
             $q->orderBy('id', 'desc')->first();
         })->with('car', function ($q) use ($status){
