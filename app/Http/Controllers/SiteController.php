@@ -41,7 +41,7 @@ class SiteController extends Controller
     public function availableAuctions(){
         // available = not-expired + progress
         $auctions = Auction::whereDate('closeDate', '>', now())->where('status', '2')->get();
-        return view('Front.auctions', ['auctions' => $auctions]);
+        return view('Front.auctions')->with(['auctions' => $auctions, 'title' => 'المزادات الحالية']);
     }
 
     public function auctionShow($id){
@@ -56,6 +56,23 @@ class SiteController extends Controller
         }
         return response()->view('Front.errors.404', []);
     }
+
+    public function auctionByCarStatus($status){
+        $status = $status == 'old'? '0': '1';
+        
+        $auctions = Auction::whereNotIn('status', ['0','1'])->with('bids', function($q){
+            $q->orderBy('id', 'desc')->first();
+        })->with('car', function ($q) use ($status){
+            $q->where('status', $status)->get();
+        })->get();
+        if($auctions){
+            $title = $status == '0' ? 'مستعملة': 'جديدة';
+            return view('Front.auctions')->with(['auctions' => $auctions, 
+            'title' => 'السيارات ال'.$title]);
+        }
+        return response()->view('Front.errors.404', []);
+    }
+
     public function ServicesShow(){
         $services = service::where('is_active', '1')->get();
         return view('Front.services', ['services' => $services]);

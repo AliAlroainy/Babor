@@ -91,6 +91,7 @@ Route::get('/', [SiteController::class, 'home'])->name('/');
 Route::get('/FAQ', [SiteController::class, 'questionShow']);
 Route::get('/auctions/available', [SiteController::class, 'availableAuctions'])->name('site.available.auction');
 Route::get('/auction/{id}', [SiteController::class, 'auctionShow'])->name('site.auction.details');
+Route::get('/auctions/{status}', [SiteController::class, 'auctionByCarStatus'])->name('site.auction.by_status');
 
 Route::view('/soon', 'Front.soon');
 Route::view('/contact', 'Front.contact');
