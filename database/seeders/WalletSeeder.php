@@ -9,11 +9,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class WalletSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $unixTimestamp = '1461067200';

@@ -19,6 +19,11 @@ class Auctions extends Component
      
         
     }
+    public function load2()
+    {
+      $this->pe_page +=6;
+        
+    }
     public function render()
     { $last_cars = Auction::with(['car' => function ($q){
         return $q->where('category_id', 1)->get();

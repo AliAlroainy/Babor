@@ -14,9 +14,11 @@ use App\Http\Controllers\admin\BidsController;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
 use App\Http\Controllers\Admin\AcutionController;
+use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\Admin\QustionController;
-use App\Http\Controllers\user\ProfilesController;
 // use \Illuminate\Support\Facades\URL;
+use App\Http\Controllers\user\ContractController;
+use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\CategoriesController;
@@ -30,8 +32,17 @@ use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\adminIndexController;
 use App\Http\Controllers\PostController;
 
-Route::get('/confirm', function () {
-    return view('Front.addtions.confirmBuy');
+Route::get('/bill', function () {
+    return view('Front.addtions.bill');
+});
+
+Route::get('/test', function () {
+    return view('Front.test');
+});
+
+
+Route::get('/noConnection', function () {
+    return view('Front.noconnection');
 });
 
 Route::get('/failed', function () {
@@ -50,9 +61,7 @@ Route::get('/chat', function () {
     return view('Front.addtions.chat');
 });
 
-Route::get('/privcey', function () {
-    return view('Front.privcey');
-});
+
 
 Route::get('/FAQ', function () {
     return view('Front.FAQ');
@@ -84,11 +93,14 @@ Route::get('/', [SiteController::class, 'home'])->name('/');
 Route::get('/FAQ', [SiteController::class, 'questionShow']);
 Route::get('/auctions/available', [SiteController::class, 'availableAuctions'])->name('site.available.auction');
 Route::get('/auction/{id}', [SiteController::class, 'auctionShow'])->name('site.auction.details');
+
 Route::view('/soon', 'Front.soon');
 Route::get('/contact', [ContactUsController::class, 'show'])->name('site.show');
 // Route::view('/contact', 'Front.contact');
 Route::view('/favorite', 'Front.favorite');
 Route::view('/buy', 'Front.buy');
+Route::view('/privacy', 'Front.privcey');
+
 Route::get('/user/profile/settings/changePassword', function () {
     return view('auth.changePassword');
 });
@@ -148,8 +160,16 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/auctions/canceled', [UserAuctionController::class, 'showMyAuctions'])->name('user.show.canceled.auction');
             Route::get('/auction/details/{id}', [UserAuctionController::class, 'showDetails'])->name('user.auction.details');
             Route::post('/auctions/in-progress/action/{id}', [UserAuctionController::class, 'action'])->name('user.progress.action.auction');
-            Route::post('/bid/{id}', BidController::class)->name('user.place.bid');
-            Route::get('/auctions/subscribed_auction', [UserAuctionController::class, 'subscribedAuctions'])->name('user.show.subscribed.auction');
+            Route::get('/bids', [BidController::class, 'index'])->name('user.show.bids');
+            Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
+            Route::post('/auction/{id}/buy', [PaymentController::class, 'buy'])->name('user.buy.auction');
+            
+            //API Response
+            Route::get('/payment/success/{id}/{res}', [PaymentController::class, 'success'])->name('payment.success');
+            Route::get('/payment/failed/{res}', [PaymentController::class, 'failed'])->name('payment.failed');
+
+            Route::get('/do-contract/{bill_id}', [ContractController::class, 'doContract'])->name('do.contract');
+            Route::post('/confirm/{bill_id}', [ContractController::class, 'contract'])->name('confirm');
         });
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
@@ -171,7 +191,7 @@ Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->n
 
 //fallback route
 Route::fallback(function () {
-    return view('Front.404');
+    return view('Front.errors.404');
 });
 
 Route::get('/admin',function () {
@@ -191,40 +211,6 @@ Route::get('/wallet', function (){
     return $admin->balance;
 
 });
-
-
-Route::get('/api', function(){
-    // URL
-    $apiURL = 'https://waslpayment.com/api/test/merchant/payment_order';
-
-    $dataMeta = ["Customer name" => "somename", "order id"=> 0];
-    // Data
-    $data = [
-        "order_reference" => "123412",
-        "products"=> [["Customer name" => "somename", "order id"=> 0]],
-        "total_amount" => 1400,
-        "currency" => "YER",
-        "success_url" => "https://company.com/success",
-        "cancel_url"=> "https://company.com/cancel",
-        "metadata"=> (object)$dataMeta,
-    ];
-
-    // Headers
-    $headers = [
-        'private-key' => 'rRQ26GcsZzoEhbrP2HZvLYDbn9C9et',
-        'public-key' => 'HGvTMLDssJghr9tlN9gr4DVYt0qyBy',
-        'Content-Type' => 'application/x-www-form-urlencoded'
-    ];
-
-    $response = Http::withHeaders($headers)->post($apiURL, $data);
-    // $statusCode = $response->status();
-    // $responseBody = json_decode($response->getBody(), true);
-    // echo $statusCode;  // status code
-    // return response($responseBody); // body response
-    return $response->json($key = null);
-});
-
-
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/private',[ App\Http\Controllers\HomeController::class, 'private'])->name('private');

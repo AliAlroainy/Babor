@@ -1602,14 +1602,14 @@ textarea.input {
 
 .reviews li {
   position: relative;
-  padding-left: 145px;
+  padding-right: 145px;
   margin-bottom: 30px;
 }
 
 .reviews .review-heading {
   position: absolute;
   width: 130px;
-  left: 0;
+  right: 0;
   top: 0;
   height: 70px;
 }

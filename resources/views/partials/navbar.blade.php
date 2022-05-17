@@ -2,10 +2,11 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex justify-content-center">
             <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-                <a class="navbar-brand brand-logo" href="{{ route('/') }}"><img
-                        src="{{ @asset('assets/images/logo.png') }}" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="{{ route('/') }}"><img
-                        src="{{ @asset('assets/images/logo.png') }}" alt="logo" /></a>
+                <a class="navbar-brand brand-logo" href="{{ route('/') }}">
+                    <img  src="{{ @asset('assets/images/logo.png') }}" style="width: 80px; height: 50px;" alt="logo"  /></a>
+                <a class="navbar-brand brand-logo-mini" href="{{ route('/') }}">
+                    <img
+                        src="{{ @asset('assets/images/logo.png') }}" alt="logo" style="width: 80px; height: 50px;" /></a>
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     {{-- <span class="mdi mdi-sort-variant"></span> --}}
                     <i class="fa-solid fa-bars fs-5 me-3"></i>

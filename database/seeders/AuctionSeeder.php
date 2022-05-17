@@ -9,11 +9,6 @@ use Carbon\Carbon;
 use Faker\Factory as Faker;
 class AuctionSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
 
@@ -31,7 +26,6 @@ class AuctionSeeder extends Seeder
               'startDate' => $date->format('Y-m-d H:i:s'),
               'openingBid' =>   $faker->numberBetween(40000,68017),
               'reservePrice' => $faker->numberBetween(40000,68017),
-              'commission' => 10,
               'auctioneer_id' => $faker->numberBetween(1,10),
               'car_id' => $faker->numberBetween(1,5),
               'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
