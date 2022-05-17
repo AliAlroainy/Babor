@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title">
-                    <h2> المزادات الحالية</h2>
+                    <h2>{{ $title }}</h2>
                 </div>
             </div>
         </div>

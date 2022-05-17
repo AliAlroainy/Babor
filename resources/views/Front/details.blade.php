@@ -47,7 +47,7 @@
                     @endphp
                     @foreach ($images as $img)
                         <div class="product-preview">
-                            <img src="/images/cars/car_images/{{ $img }}" alt="">
+                            <img src="/images/cars/car_images/{{ $img }}" alt="car images">
                         </div>
                     @endforeach
                 </div>

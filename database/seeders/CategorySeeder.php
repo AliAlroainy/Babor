@@ -9,23 +9,18 @@ use Faker\Factory as Faker;
 
 class CategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         //
         $faker = Faker::create();
 
           DB::table('categories')->insert([
-              'name' => 'سيارات',
+              'name' => 'سيارة',
               'image' => $faker->image('public/images/categories',640,480, null, false),
               'is_active' => '1',
           ]);
           DB::table('categories')->insert([
-            'name' => 'صوالين',
+            'name' => 'صالون',
             'image' => $faker->image('public/images/categories',640,480, null, false),
             'is_active' => '1',
           ]);
@@ -35,12 +30,12 @@ class CategorySeeder extends Seeder
             'is_active' => '1',
           ]);
           DB::table('categories')->insert([
-            'name' => 'شاحنات',
+            'name' => 'شاحنة',
             'image' => $faker->image('public/images/categories',640,480, null, false),
             'is_active' => '1',
           ]);
           DB::table('categories')->insert([
-            'name' => 'حافلات',
+            'name' => 'حافلة',
             'image' => $faker->image('public/images/categories',640,480, null, false),
             'is_active' => '1',
           ]);
