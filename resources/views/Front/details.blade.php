@@ -268,13 +268,12 @@
 										<div class="col-md-3" >
 											<div id="rating">
 												<div class="rating-avg" >
-													<span>4.5</span>
+													<span>{{ $totalstar }}</span>
 													<div class="rating-stars">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
+                                                    @for($i=1; $i<=$total; $i++)
+																<i class="fa fa-star"></i>
+                                                                @endfor
+														
 													</div>
 												</div>
 												<ul class="rating">
@@ -287,9 +286,9 @@
 															<i class="fa fa-star"></i>
 														</div>
 														<div class="rating-progress">
-															<div style="width: 80%;"></div>
+															<div style="width:{{ $five }}%;"></div>
 														</div>
-														<span class="sum">3</span>
+														<span class="sum">{{ $fiveStar }}</span>
 													</li>
 													<li>
 														<div class="rating-stars">
@@ -300,9 +299,9 @@
 															<i class="fa fa-star-o"></i>
 														</div>
 														<div class="rating-progress">
-															<div style="width: 60%;"></div>
+															<div style="width: {{ $four }}%;"></div>
 														</div>
-														<span class="sum">2</span>
+														<span class="sum">{{ $fourStar }}</span>
 													</li>
 													<li>
 														<div class="rating-stars">
@@ -313,9 +312,9 @@
 															<i class="fa fa-star-o"></i>
 														</div>
 														<div class="rating-progress">
-															<div></div>
+															<div style="width: {{ $three }}%;"></div>
 														</div>
-														<span class="sum">0</span>
+														<span class="sum">{{ $threeStar }}</span>
 													</li>
 													<li>
 														<div class="rating-stars">
@@ -326,9 +325,9 @@
 															<i class="fa fa-star-o"></i>
 														</div>
 														<div class="rating-progress">
-															<div></div>
+															<div style="width: {{ $two }}%;"></div>
 														</div>
-														<span class="sum">0</span>
+														<span class="sum">{{ $twoStar }}</span>
 													</li>
 													<li>
 														<div class="rating-stars">
@@ -339,9 +338,9 @@
 															<i class="fa fa-star-o"></i>
 														</div>
 														<div class="rating-progress">
-															<div></div>
+															<div style="width: {{ $one }}%;"></div>
 														</div>
-														<span class="sum">0</span>
+														<span class="sum"> {{$oneStar}}</span>
 													</li>
 												</ul>
 											</div>

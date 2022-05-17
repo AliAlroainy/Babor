@@ -47,13 +47,42 @@ class SiteController extends Controller
     }
 
     public function auctionShow($id){
+        $total= ReviewRating::get()->count();
+        $oneStar = ReviewRating::where('star_rating', 1)->get()->count();
+        $towStar = ReviewRating::where('star_rating', 2)->get()->count();
+        $threeStar = ReviewRating::where('star_rating', 3)->get()->count();
+        $fourStar = ReviewRating::where('star_rating',4)->get()->count();
+        $fiveStar = ReviewRating::where('star_rating', 5)->get()->count();
+        $onePrsent=$oneStar/$total*100;
+        $towPrsent=$towStar /$total*100;
+        $threePrsent=$threeStar/$total*100;
+        $fourPrsent=$fourStar/$total*100;
+        $fivePrsent=$fiveStar/$total*100;
+        $avg=round($total/5);
+        $avgBeforRound=$total/5;
+ 
         $found = Auction::find($id);
         if($found){
             $auction = Auction::whereId($id)->whereNotIn('status', ['0','1'])->withCount('bids')->with('bids', function($q){
                 $q->orderBy('id', 'desc')->first();
             })->withCount('bids')->first();
             if($auction){
-                return view('Front.details')->with('auction', $auction);
+                return view('Front.details')->with(['auction'=>$auction,
+                'one' => $onePrsent ,
+                'oneStar'=>$oneStar,
+                'two' => $towPrsent ,
+                'twoStar'=>$towStar,
+                'three' => $threePrsent ,
+                'threeStar'=>$threeStar,
+                'four' => $fourPrsent ,
+                'fourStar'=>$fourStar,
+                'five' => $fivePrsent ,
+                'fiveStar'=>$fiveStar,
+                'total'=>$avg,
+                'totalstar'=>$avgBeforRound,
+            
+            
+                 ] );
             }
         }
         return response()->view('Front.errors.404', []);
@@ -80,6 +109,21 @@ class SiteController extends Controller
         $review->star_rating = $request->rating;
         $review->save();
         return redirect()->back()->with('flash_msg_success','Your review has been submitted Successfully,');
+    }
+    public function counting(Request $request){
+        $total= ReviewRating::get()->count();
+        $oneStar = ReviewRating::where('star_rating', 1)->get()->count();
+        $onePrsent=($oneStar/$total)*100;
+        $towStar = ReviewRating::where('star_rating', 2)->get()->count();
+        $threeStar = ReviewRating::where('star_rating', 3)->get()->count();
+        $fourStar = ReviewRating::where('star_rating',4)->get()->count();
+        $fiveStar = ReviewRating::where('star_rating', 5)->get()->count();
+
+        $review->save();
+        return redirect()->back()->with(
+            'flash_msg_success',
+            'Your review has been submitted Successfully,'
+        );
     }
     
 }
