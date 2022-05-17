@@ -13,7 +13,7 @@
  
  .cardp{
      height:220px;
-     width:330px;
+     width: 100%;
      border-radius:20px;
      background-image:linear-gradient(to top right, #393938,#F7941D);
      padding:10px;
@@ -162,14 +162,120 @@
      font-size:20px;
      font-weight:600;
  }
+
+
+.box-right {
+    padding: 30px 25px;
+    background-color: white;
+    border-radius: 15px;
+    margin-left: 6px;
+}
+
+.box-left {
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 15px
+}
+
+.textmuted {
+    color: #7a7a7a
+}
+
+.bg-green {
+    background-color: #d4f8f2;
+    color: #06e67a;
+    padding: 3px 0;
+    display: inline;
+    border-radius: 25px;
+    font-size: 11px
+}
+
+.p-blue {
+    font-size: 14px;
+    color: #1976d2
+}
+
+.fas.fa-circle {
+    font-size: 12px
+}
+
+.p-org {
+    font-size: 14px;
+    color: #fbc02d
+}
+
+.h7 {
+    font-size: 15px
+}
+
+.h8 {
+    font-size: 12px
+}
+
+.h9 {
+    font-size: 10px
+}
+
+.bg-blue {
+    background-color: #dfe9fc9c;
+    border-radius: 5px
+}
+
+
+
+.far.fa-credit-card {
+    position: absolute;
+    top: 10px;
+    padding: 0 15px
+}
+
+.fas,
+.far {
+    cursor: pointer
+}
+
+.cursor {
+    cursor: pointer
+}
+
+.btn.btn-primary {
+    box-shadow: none;
+    height: 40px;
+    padding: 11px
+}
+
+.bg.btn.btn-primary {
+    background-color: transparent;
+    border: none;
+    color: #1976d2
+}
+
+.bg.btn.btn-primary:hover {
+    color: #539ee9
+}
+
+@media(max-width:320px) {
+    .h8 {
+        font-size: 11px
+    }
+
+    .h7 {
+        font-size: 13px
+    }
+
+    ::placeholder {
+        font-size: 10px
+    }
+}
+
         </style>
 
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
 
-                <div class="col-lg-12 grid-margin stretch-card">
-                    <div class="card">
+                <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+                    <div class="cardp">
                         <div class="card-body">
                             <h4 class="card-title">المحفظة</h4>
 
@@ -180,7 +286,7 @@
 
             </div>
 
-            <div class="container">
+            {{-- <div class="container">
                 <div class="cardp">
                     <span class="line-1"></span>
                     <span class="line-2"></span>
@@ -212,8 +318,104 @@
                 </div>
                 
             </div>
+ --}}
 
-        </div>
 
-        
+
+
+                <div class="container"> 
+                    <div class="row m-0"> 
+                        <div class="col-md-7 col-12"> 
+                            <div class="row">
+                                <div class="col-12 mb-4"> 
+                                    <div class="row box-right">
+                                        <div class="col-md-8 ps-0 ">
+                                            <p class="ps-3 textmuted fw-bold h6 mb-0">اجمالي الرصيد</p> 
+                                            <p class="h1 fw-bold d-flex" > <span class=" fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span> <span class="textmuted">58.</span>   84,254   </p>
+                                            <p class="ms-3 px-2 bg-green">+10% منذ الشهر الماضي</p>
+                                            </div> 
+                                            <div class="col-md-4"> 
+                                                <p class="p-blue"> 
+                                                    <span class="fas fa-circle pe-2"></span>الداخل </p>
+                                                     <p class="fw-bold mb-3"><span class="fas fa-dollar-sign pe-1"></span>1254 <span class="textmuted">.50</span> </p>
+                                                      <p class="p-org"><span class="fas fa-circle pe-2"></span>الخارج </p> <p class="fw-bold"><span class="fas fa-dollar-sign pe-1"></span>00<span class="textmuted">.00</span></p>
+                                                     </div> </div> </div> 
+                                                     <div class="col-12 px-0 mb-4"> 
+                                                         <div class="box-right"> 
+                                                             <div class="d-flex pb-2"> 
+                                                                 <p class="fw-bold h7">
+                                                                     <span class="textmuted">المحفظة/</span>العمليات المالية</p>
+                                                                      <p class="ms-auto p-blue"><span class=" bg btn btn-primary fas fa-pencil-alt me-3"></span> <span class=" bg btn btn-primary far fa-clone"></span> </p> 
+                                                                    </div> 
+                                                                    <div class="bg-blue p-2 mb-3"> 
+                                                                        <P class="h8 textmuted">شراء سيارة فيراري بقيمة 23421$ 
+                                                                            <p class="p-blue bg btn btn-primary h8">التفاصيل</p>
+                                                                         </P> 
+                                                                        </div>
+                                                                                                                     
+                                                                        <div class="bg-blue p-2 mb-3"> 
+                                                                            <P class="h8 textmuted">شراء سيارة فيراري بقيمة 23421$ 
+                                                                                <p class="p-blue bg btn btn-primary h8">التفاصيل</p>
+                                                                             </P> 
+                                                                            </div>
+                                                                               
+                                                                            <div class="bg-blue p-2  mb-3"> 
+                                                                                <P class="h8 textmuted">شراء سيارة فيراري بقيمة 23421$ 
+                                                                                    <p class="p-blue bg btn btn-primary h8">التفاصيل</p>
+                                                                                 </P> 
+                                                                                </div>
+                                                                                       
+                                                                    
+                                                                    </div> 
+                                                                </div> 
+                                                                 </div> </div> </div> 
+                                                                                                <div class="col-md-5 col-12 ps-md-5 p-0 "> 
+                                                                                                    <div class="box-left"> 
+                                                                                                        <p class="textmuted h8">الفاتورة</p> 
+                                                                                                        <p class="fw-bold h7">شراء سيارة فيراري</p> 
+                                                                                                        <p class="textmuted h8">البائع : ابرار الخرساني</p> 
+                                                                                                        <p class="textmuted h8 mb-2">التاريخ : 23-1-2023</p> 
+                                                                                                        <div class="h8"> <div class="row m-0 border mb-3"> 
+                                                                                                            <div class="col-6 h8 pe-0 ps-2"> <p class="textmuted py-2">العناصر</p> 
+                                                                                                                <span class="d-block py-2 border-bottom">سيارة فيراري</span> 
+                                                                                                                <span class="d-block py-2">سيارة هامر</span> </div> 
+                                                                                                                <div class="col-2 text-center p-0"> <p class="textmuted p-2">الكمية</p> 
+                                                                                                                    <span class="d-block p-2 border-bottom">2</span> 
+                                                                                                                    <span class="d-block p-2">1</span> </div> 
+                                                                                                                    <div class="col-2 p-0 text-center h8 border-end"> <p class="textmuted p-2">السعر</p> 
+                                                                                                                        <span class="d-block border-bottom py-2"><span class="fas fa-dollar-sign"></span>500</span>
+                                                                                                                         <span class="d-block py-2 "><span class="fas fa-dollar-sign"></span>400</span> 
+                                                                                                                        </div> <div class="col-2 p-0 text-center">
+                                                                                                                             <p class="textmuted p-2">Total</p> <span class="d-block py-2 border-bottom">
+                                                                                                                                 <span class="fas fa-dollar-sign"></span>1000</span> 
+                                                                                                                                 <span class="d-block py-2">
+                                                                                                                                     <span class="fas fa-dollar-sign"></span>400</span>
+                                                                                                                                     </div> 
+                                                                                                                                    </div> 
+                                                                                                                                    <div class="d-flex h7 mb-2"> 
+                                                                                                                                        <p class="ml-5">الاجمالي:</p> 
+                                                                                                                                        <p class="ms-auto">
+                                                                                                                                            <span class="fas fa-dollar-sign"></span>1400</p> 
+                                                                                                                                        </div> 
+                                                                                                                                        <div class="h8 mb-5"> 
+                                                                                                                                            <p class="textmuted">رقم الفاتورة 2343 - وسيلة الدفع منصة وصل  </p> 
+                                                                                                                                        </div> </div> 
+                                                                                                                                   
+                                                                                                                                               </div>
+                                                                                                                                            </div>
+                                                                                                                                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>        
     @endsection
