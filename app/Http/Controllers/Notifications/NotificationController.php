@@ -196,7 +196,7 @@ class NotificationController extends Controller
 
         $pusher->trigger('notify-channel2', 'App\\Events\\Notify', $data);
     }
-    public function refundBidders(Auction $auction, $winner_id){
+    public function refundBidders(Auction $auction, $winner_id,$id){
         $options = array(
             'cluster' => env('PUSHER_APP_CLUSTER'),
             'encrypted' => true
@@ -217,13 +217,21 @@ class NotificationController extends Controller
             'link' => $auction->id,
             'type'=> 5
         ]);
+
         $data['message'] = $notification->message;
         $data['link'] = $auction->id;
-        $data['user_id'] = $notification->user_id;
+//        $data['user_id'] = $notification->user_id;
         $data['admin_id'] = 1;
+        $data['winner_id'] = $winner_id;
         $data['type'] = $notification->type;
 
-
+//        $admin = User::first();
+        $bidders = Auction::find($id)->bids;
+        foreach(range (0, count($bidders)-1) as $i){
+//            $admin->transfer($bidders[$i]->user, $bidders[$i]->getDeduction());
+            $data['user_id'] = $bidders[$i]->user->id;
         $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
+        }
+
     }
 }

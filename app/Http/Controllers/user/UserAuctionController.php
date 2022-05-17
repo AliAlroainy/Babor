@@ -166,7 +166,7 @@ class UserAuctionController extends Controller
                         $notify->stopAuction($auction->first(),$auction->first()->winner_id);
 
                         $this->refundBidders($id);
-                        $notify->refundBidders($auction->first(),$auction->first()->winner_id);
+                        $notify->refundBidders($auction->first(),$auction->first()->winner_id,$id);
                         $this->apiConnect(
                             $id,
                             $found,

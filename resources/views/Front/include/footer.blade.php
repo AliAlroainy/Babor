@@ -177,7 +177,7 @@
 
      channel.bind('App\\Events\\Notify', function(data) {
          let node = document.createElement('li');
-         if( data.user_id.toString() !="{!! Auth::id() !!}") {
+         if( data.user_id.toString() !="{!! Auth::id() !!}" && data.type == 1 ) {
              node.innerHTML =`
         <li>
             <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
@@ -195,8 +195,9 @@
              document.getElementById('shopping-list').prepend(node);
          }
 
-         if( data.user_id.toString() != "{!! Auth::id() !!}" && data.admin_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "" ) {
+         if( data.user_id.toString() == "{!! Auth::id() !!}" && data.admin_id.toString() != "{!! Auth::id() !!}"  && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "" && data.type == 5) {
 
+             alert(data.user_id.toString() != "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "");
              node = document.createElement('li');
              node.innerHTML =`
         <li>
@@ -210,7 +211,7 @@
         </li>
 `;
 
-             alert("{!! Auth::id() !!}");
+{{--             alert("{!! Auth::id() !!}");--}}
              document.getElementById('shopping-list').prepend(node);
          }
 
