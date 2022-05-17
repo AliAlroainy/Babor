@@ -180,7 +180,7 @@ Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->n
 
 //fallback route
 Route::fallback(function () {
-    return view('Front.404');
+    return view('Front.errors.404');
 });
 
 Route::get('/wallet', function (){
