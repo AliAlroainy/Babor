@@ -8,6 +8,7 @@ use App\Models\service;
 use App\Models\Category;
 use App\Models\question;
 use App\Models\ReviewRating;
+use App\Models\ReviewsRequest;
 class SiteController extends Controller
 {
     public function home(){
@@ -80,5 +81,5 @@ class SiteController extends Controller
         $review->save();
         return redirect()->back()->with('flash_msg_success','Your review has been submitted Successfully,');
     }
-
+    
 }
