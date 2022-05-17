@@ -351,24 +351,7 @@
 										<!-- Reviews -->
 										<div class="col-md-6" dir="rtl" >
 											<div id="reviews" dir="ltr">
-												<ul class="reviews" dir="rtl" >
-													<li >
-														<div class="review-heading">
-															<h5 class="name">علي الرعيني</h5>
-															<p class="date">27 DEC 2018, 8:0 PM</p>
-															<div class="review-rating">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-o empty"></i>
-															</div>
-														</div>
-														<div class="review-body" dir="rtl" >
-															<p>هذه السيارة جميلة فعلا!</p>
-														</div>
-													</li>
-													<li>
+										
 														<div class="review-heading">
 															<h5 class="name">ريم الشاذلي</h5>
 															<p class="date">27 DEC 2018, 8:0 PM</p>
@@ -409,22 +392,7 @@
 										<!-- Review Form -->
 										<div class="col-md-3">
 											<div id="review-form">
-												<form class="review-form">
-													<input class="input" type="text" placeholder="اسمك ">
-													<input class="input" type="email" placeholder="بريدك الالكتروني">
-													<textarea class="input" placeholder="اضف تعليقك للتقييم"></textarea>
-													<div class="input-rating">
-														<span> تقييمك:</span>
-														<div class="stars">
-															<input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
-															<input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
-															<input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
-															<input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
-															<input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
-														</div>
-													</div>
-													<button class="primary-btn">حفظ</button>
-												</form>
+											
 											</div>
 										</div>
 										<!-- /Review Form -->
