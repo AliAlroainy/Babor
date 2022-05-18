@@ -34,6 +34,10 @@ Route::get('/bill', function () {
     return view('Front.addtions.bill');
 });
 
+Route::get('/privcey', function () {
+    return view('Front.privcey');
+});
+
 Route::get('/test', function () {
     return view('Front.test');
 });
