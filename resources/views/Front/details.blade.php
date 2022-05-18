@@ -47,7 +47,7 @@
                     @endphp
                     @foreach ($images as $img)
                         <div class="product-preview">
-                            <img src="/images/cars/car_images/{{ $img }}" alt="">
+                            <img src="/images/cars/car_images/{{ $img }}" alt="car images">
                         </div>
                     @endforeach
                 </div>
@@ -58,8 +58,10 @@
             <div class="col-md-5" dir="rtl">
                 <div class="product-details">
                     <div class="d-flex">
-                        <h2 class="product-name">{{ $auction->type_and_model() }}</h2>
-                        <span class="product-available">{{ App\Models\Car::getStatus($auction->car->status) }}</span>
+                        <h2 class="product-name mb-0 ms-1"> {{ $auction->type_and_model() }} </h2>
+                        <span
+                            class="product-available align-self-end">{{ App\Models\Car::getStatus($auction->car->status) }}
+                        </span>
                     </div>
                     <div>
                         <h3 class="product-price">
@@ -79,13 +81,6 @@
                         @if (session()->has('errorBid'))
                             <div class="alert alert-danger alert-dismissible fade show">
                                 {{ session()->get('errorBid') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
-                        @endif
-                        @if (session()->has('warningBid'))
-                            <div class="alert alert-warning alert-dismissible fade show">
-                                {{ session()->get('warningBid') }}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                                     aria-label="Close"></button>
                             </div>
@@ -110,14 +105,16 @@
                                     </span>
                                     <br>
                                 @else
-                                    <button class="add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#bidding"><i
-                                            class="fa fa-shopping-cart"></i> دخول
-                                        بالمزاد</button>
+                                    @if (Auth::user() != $auction->user)
+                                        <button class="add-to-cart-btn" data-bs-toggle="modal"
+                                            data-bs-target="#bidding"><i class="fa fa-shopping-cart"></i> دخول
+                                            بالمزاد</button>
+                                    @endif
                                 @endif
-
-                                <span class="text-muted" style="font-size: 12px; vertical-align: bottom;"> أقل سعر
+                                <span class="text-muted" style="font-size: 12px; vertical-align: bottom;"> أقل
+                                    سعر
                                     للمزايدة به هو:
-                                    {{ $auction->minInc }}
+                                    <span class="text-danger"> {{ $auction->minInc }} </span>
                                 </span>
                             </div>
                         @else
@@ -138,8 +135,8 @@
                         <li><a href="#"><i class="fa fa-heart-o"></i> اضافة للمفضلة</a></li>
                     </ul>
 
-                    <h6> البائع</h6>
-                    <div class="d-flex align-items-center justify-content-start ">
+                    <div class="d-flex align-items-center justify-content-start">
+                        <span class="fw-bold"> البائع: </span>
                         <img src="/images/profiles/{{ $auction->user->profile->avatar }}" class="rounded-circle mb-3"
                             style="width: 40px; margin-left: 10px" alt="Avatar" />
                         <h6 class="mb-2 text-muted">{{ $auction->user->name }}</h6>
@@ -154,7 +151,9 @@
                         </div>
                         <br />
                         <a class="review-link" href="#">10 تقييمات البائع
-                            | ضيف تقييمك
+                            @if (!Auth::user() == $auction->user)
+                                | ضيف تقييمك
+                            @endif
                         </a>
 
                     </div>
@@ -163,12 +162,30 @@
                         <li>الاقسام:</li>
                         <li class="badge bg-secondary"><a style="text-decoration: none; color: white"
                                 href="#">{{ $auction->car->category->name }}</a></li>
-                        <li class="badge bg-secondary"><a style="text-decoration: none; color: white" href="#">
-                                {{ App\Models\Car::getStatus($auction->car->status) }}</a></li>
+                        <li class="badge bg-secondary">
+                            <a style="text-decoration: none; color:white;" href="#">
+                                {{ App\Models\Car::getStatus($auction->car->status) }}
+                            </a>
+                        </li>
                     </ul>
 
                     <ul class="product-links">
                         <li>مشاركة :</li>
+                        <!--
+                    <div class="likeShareBtnmt-3">
+                        <div id="fb-root"></div>
+                        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0"
+                                                nonce="ccaa4s"></script>
+                        <div
+                            class="fb-like"
+                            data-layout="standard"
+                            data-action="like"
+                            data-size="large"
+                            data-show-faces="true"
+                            data-href="https://developers.facebook.com/docs/plugins/"
+                            data-share="true">c,.jkhf
+                        </div>
+                    </div> -->
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -218,215 +235,251 @@
 
 
 
-            		<!-- Product reviews -->
-					<div class="col-md-12">
-						<div id="product-tab">
-							<!-- product tab nav -->
-							<ul class="tab-nav">
-							
-								<li><a data-toggle="tab" href="#tab3">التقييمات (3)</a></li>
-							</ul>
-							<!-- /product tab nav -->
+            <!-- Product reviews -->
+            <div class="col-md-12">
+                <div id="product-tab">
+                    <!-- product tab nav -->
 
-							<!-- product tab content -->
-							<div class="tab-content">
+                    <!-- /product tab nav -->
 
-						      	<!-- Product tab -->
-					<div class="col-md-12">
-						<div id="product-tab">
-							<!-- product tab nav -->
-							<ul class="tab-nav">
-                                <li class="active"><a data-toggle="tab" href="#tab3">التقييمات (3)</a></li>
+                    <!-- product tab content -->
+                    <div class="tab-content">
 
-							</ul>
-							<!-- /product tab nav -->
+                        <!-- Product tab -->
+                        <div class="col-md-12">
+                            <div id="product-tab">
+                                <!-- product tab nav -->
+                                <ul class="tab-nav">
+                                    <li class="active"><a data-toggle="tab" href="#tab3">التقييمات (3)</a></li>
 
-							<!-- product tab content -->
-							<div class="tab-content">
-					
+                                </ul>
+                                <!-- /product tab nav -->
 
-					
+                                <!-- product tab content -->
+                                <div class="tab-content">
 
-								<!-- tab3  -->
-								<div id="tab3" class="tab-pane fade fade show active" dir="rtl">
-									<div class="row">
-										<!-- Rating -->
-										<div class="col-md-3" >
-											<div id="rating">
-												<div class="rating-avg" >
-													<span>4.5</span>
-													<div class="rating-stars">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</div>
-												</div>
-												<ul class="rating">
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-														</div>
-														<div class="rating-progress">
-															<div style="width: 80%;"></div>
-														</div>
-														<span class="sum">3</span>
-													</li>
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="rating-progress">
-															<div style="width: 60%;"></div>
-														</div>
-														<span class="sum">2</span>
-													</li>
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="rating-progress">
-															<div></div>
-														</div>
-														<span class="sum">0</span>
-													</li>
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="rating-progress">
-															<div></div>
-														</div>
-														<span class="sum">0</span>
-													</li>
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="rating-progress">
-															<div></div>
-														</div>
-														<span class="sum">0</span>
-													</li>
-												</ul>
-											</div>
-										</div>
-										<!-- /Rating -->
 
-										<!-- Reviews -->
-										<div class="col-md-6" dir="rtl" >
-											<div id="reviews" dir="ltr">
-												<ul class="reviews" dir="rtl" >
-													<li >
-														<div class="review-heading">
-															<h5 class="name">علي الرعيني</h5>
-															<p class="date">27 DEC 2018, 8:0 PM</p>
-															<div class="review-rating">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-o empty"></i>
-															</div>
-														</div>
-														<div class="review-body" dir="rtl" >
-															<p>هذه السيارة جميلة فعلا!</p>
-														</div>
-													</li>
-													<li>
-														<div class="review-heading">
-															<h5 class="name">ريم الشاذلي</h5>
-															<p class="date">27 DEC 2018, 8:0 PM</p>
-															<div class="review-rating">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-o empty"></i>
-															</div>
-														</div>
-														<div class="review-body">
-															<p>حلااااااوة ذي السيارة </p>
-														</div>
-													</li>
-													<li>
-														<div class="review-heading">
-															<h5 class="name">حمد بكيل</h5>
-															<p class="date">27 DEC 2018, 8:0 PM</p>
-															<div class="review-rating">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-o empty"></i>
-															</div>
-														</div>
-														<div class="review-body">
-															<p>ي عيني ذي سيارة والا طيارة</p>
-														</div>
-													</li>
-												</ul>
-										
-											</div>
-										</div>
-										<!-- /Reviews -->
 
-										<!-- Review Form -->
-										<div class="col-md-3">
-											<div id="review-form">
-												<form class="review-form">
-													<input class="input" type="text" placeholder="اسمك ">
-													<input class="input" type="email" placeholder="بريدك الالكتروني">
-													<textarea class="input" placeholder="اضف تعليقك للتقييم"></textarea>
-													<div class="input-rating">
-														<span> تقييمك:</span>
-														<div class="stars">
-															<input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
-															<input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
-															<input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
-															<input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
-															<input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
-														</div>
-													</div>
-													<button class="primary-btn">حفظ</button>
-												</form>
-											</div>
-										</div>
-										<!-- /Review Form -->
-									</div>
-								</div>
-								<!-- /tab3  -->
-							</div>
-							<!-- /product tab content  -->
-						</div>
-					</div>
-					<!-- /product tab -->
-							</div>
-							<!-- /product tab content  -->
-						</div>
-					</div>
-					<!-- /product reviews -->
+
+                                    <!-- tab3  -->
+                                    <div id="tab3" class="tab-pane fade fade show active" dir="rtl">
+                                        <div class="row">
+                                            <!-- Rating -->
+                                            <div class="col-md-3">
+                                                <div id="rating">
+                                                    <div class="rating-avg">
+                                                        <span>{{ $totalstar }}</span>
+                                                        <div class="rating-stars">
+                                                            @for ($i = 1; $i <= $total; $i++)
+                                                                <i class="fa fa-star"></i>
+                                                            @endfor
+
+                                                        </div>
+                                                    </div>
+                                                    <ul class="rating">
+                                                        <li>
+                                                            <div class="rating-stars">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                            </div>
+                                                            <div class="rating-progress">
+                                                                <div style="width:{{ $five }}%;"></div>
+                                                            </div>
+                                                            <span class="sum">{{ $fiveStar }}</span>
+                                                        </li>
+                                                        <li>
+                                                            <div class="rating-stars">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </div>
+                                                            <div class="rating-progress">
+                                                                <div style="width: {{ $four }}%;"></div>
+                                                            </div>
+                                                            <span class="sum">{{ $fourStar }}</span>
+                                                        </li>
+                                                        <li>
+                                                            <div class="rating-stars">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </div>
+                                                            <div class="rating-progress">
+                                                                <div style="width: {{ $three }}%;"></div>
+                                                            </div>
+                                                            <span class="sum">{{ $threeStar }}</span>
+                                                        </li>
+                                                        <li>
+                                                            <div class="rating-stars">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </div>
+                                                            <div class="rating-progress">
+                                                                <div style="width: {{ $two }}%;"></div>
+                                                            </div>
+                                                            <span class="sum">{{ $twoStar }}</span>
+                                                        </li>
+                                                        <li>
+                                                            <div class="rating-stars">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </div>
+                                                            <div class="rating-progress">
+                                                                <div style="width: {{ $one }}%;"></div>
+                                                            </div>
+                                                            <span class="sum"> {{ $oneStar }}</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- /Rating -->
+
+                                            <!-- Reviews -->
+                                            <div class="col-md-6" dir="rtl">
+                                                <div id="reviews" dir="ltr">
+                                                    <ul class="reviews" dir="rtl">
+                                                        @foreach ($auction->user->ReviewData as $review)
+                                                            <li>
+                                                                <div class="review-heading">
+                                                                    <h5 class="name">{{ $review->name }}
+                                                                    </h5>
+                                                                    <p class="date">
+                                                                        {{ $review->created_at->format('jS \\of F Y') }}
+                                                                    </p>
+                                                                    <div class="review-rating">
+                                                                        @for ($i = 1; $i <= $review->star_rating; $i++)
+                                                                            <i class="fa fa-star"></i>
+                                                                        @endfor
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="review-body" dir="rtl">
+                                                                    <p>{{ $review->comments }}</p>
+                                                                </div>
+                                                            </li>
+                                                        @endforeach
+                                                        <li>
+                                                            <div class="review-heading">
+                                                                <h5 class="name">ريم الشاذلي</h5>
+                                                                <p class="date">27 DEC 2018, 8:0 PM</p>
+                                                                <div class="review-rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o empty"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="review-body">
+                                                                <p>حلااااااوة ذي السيارة </p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="review-heading">
+                                                                <h5 class="name">حمد بكيل</h5>
+                                                                <p class="date">27 DEC 2018, 8:0 PM</p>
+                                                                <div class="review-rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o empty"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="review-body">
+                                                                <p>ي عيني ذي سيارة والا طيارة</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+                                            <!-- /Reviews -->
+
+                                            <!-- Review Form -->
+                                            <div class="col-md-3">
+                                                <div id="review-form">
+                                                    @if (session()->has('successAdd'))
+                                                        <div class="alert alert-success alert-dismissible fade show">
+                                                            {{ session()->get('successAdd') }}
+                                                            <button type=" button" class="btn-close"
+                                                                data-bs-dismiss="alert" aria-label="Close"></button>
+                                                        </div>
+                                                    @endif
+                                                    @if (session()->has('errorAdd'))
+                                                        <div class="alert alert-success alert-dismissible fade show">
+                                                            {{ session()->get('errorAdd') }}
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="alert" aria-label="Close"></button>
+                                                        </div>
+                                                    @endif
+                                                    @if ($errors->any())
+                                                        <div class="alert alert-danger alert-dismissible fade show">
+                                                            <ul class="m-0">
+                                                                @foreach ($errors->all() as $error)
+                                                                    <li>{{ $error }}</li>
+                                                                @endforeach
+                                                            </ul>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="alert" aria-label="Close"></button>
+                                                        </div>
+                                                    @endif
+                                                    <form class="review-form"
+                                                        action="{{ route('review.store') }}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="user_id"
+                                                            value="{{ $auction->user->id }}">
+                                                        <input class="input" type="text" name="name"
+                                                            placeholder="اسمك " require>
+
+                                                        <textarea class="input" name="comment" placeholder="اضف تعليقك للتقييم" require></textarea>
+                                                        <div class="input-rating">
+                                                            <span> تقييمك:</span>
+                                                            <div class="stars">
+                                                                <input id="star5" name="rating" value="5"
+                                                                    type="radio"><label for="star5"></label>
+                                                                <input id="star4" name="rating" value="4"
+                                                                    type="radio"><label for="star4"></label>
+                                                                <input id="star3" name="rating" value="3"
+                                                                    type="radio"><label for="star3"></label>
+                                                                <input id="star2" name="rating" value="2"
+                                                                    type="radio"><label for="star2"></label>
+                                                                <input id="star1" name="rating" value="1"
+                                                                    type="radio"><label for="star1" require></label>
+                                                            </div>
+                                                        </div>
+                                                        <button class="primary-btn">حفظ</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!-- /Review Form -->
+                                        </div>
+                                    </div>
+                                    <!-- /tab3  -->
+                                </div>
+                                <!-- /product tab content  -->
+                            </div>
+                        </div>
+                        <!-- /product tab -->
+                    </div>
+                    <!-- /product tab content  -->
+                </div>
+            </div>
+            <!-- /product reviews -->
 
 
 

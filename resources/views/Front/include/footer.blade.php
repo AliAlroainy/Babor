@@ -1,91 +1,91 @@
  <!-- Start Footer Area -->
  <footer class="footer" dir="rtl">
 
-    <!-- Footer Top -->
-    <div class="footer-top section pb-3">
-        <div class="container ">
-            <div class="row">
-                <div class="col-lg-5 col-md-6 col-12">
-                    <!-- Single Widget -->
-                    <div class="single-footer about text-end" dir="rtl" >
-                        <div class="logo">
-                            <a href="/"><img src="/assets/images/logo.png" alt="logo" width="150"></a>
-                        </div>
-                        <p class="text">بابور نقدم لك اسهل خدمة لبيع وشراء السيارات في المزاد بشكل رائع وامن
-                            وسهل الاستخدام</p>
-                        <p class="call">اتصل نصل 24/7<span><a href="tel:+967773739473" dir="rtl"
-                                    class="nav-link">00967 7737 39473</a></span></p>
-                    </div>
-                    <!-- End Single Widget -->
-                </div>
-                <div class="col-lg-2 col-md-6 col-12">
-                    <!-- Single Widget -->
-                    <div class="single-footer links text-end">
-                        <h4>معلومات</h4>
-                        <ul>
-                            <li><a class="nav-link" href="/about">عننا</a></li>
-                            <li><a class="nav-link" href="/FAQ">ابرز اسئلة</a></li>
-                            <li><a class="nav-link" href="/privcey">الخصوصية</a></li>
-                        </ul>
-                    </div>
-                    <!-- End Single Widget -->
-                </div>
-                <div class="col-lg-2 col-md-6 col-12">
-                    <!-- Single Widget -->
-                    <div class="single-footer links text-end">
-                        <h4>خدمة العلاء</h4>
-                        <ul>
-                            <li><a class="nav-link" href="/contact">تواصل معنا</a></li>
-                            <li><a class="nav-link" href="/soon">طرق الدفع</a></li>
-                            <li><a class="nav-link" href="/soon">الشحن</a></li>
-                        </ul>
-                    </div>
-                    <!-- End Single Widget -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Single Widget -->
-                    <div class="single-footer social text-end">
-                        <h4>تواصل بنا</h4>
-                        <!-- Single Widget -->
-                        <div class="contact">
-                            <ul>
-                                <li>اليمن - تعز</li>
-                                <li>جولة المسبح</li>
-                                <li>info@babor.com</li>
-                                <li>+967 773 739 473</li>
-                                <li>  </li>
+     <!-- Footer Top -->
+     <div class="footer-top section pb-3">
+         <div class="container ">
+             <div class="row">
+                 <div class="col-lg-5 col-md-6 col-12">
+                     <!-- Single Widget -->
+                     <div class="single-footer about text-end" dir="rtl">
+                         <div class="logo">
+                             <a href="/"><img src="/assets/images/logo.png" alt="logo" width="150"></a>
+                         </div>
+                         <p class="text">بابور نقدم لك اسهل خدمة لبيع وشراء السيارات في المزاد بشكل رائع وامن
+                             وسهل الاستخدام</p>
+                         <p class="call">اتصل نصل 24/7<span><a href="tel:+967773739473" dir="rtl"
+                                     class="nav-link">00967 7737 39473</a></span></p>
+                     </div>
+                     <!-- End Single Widget -->
+                 </div>
+                 <div class="col-lg-2 col-md-6 col-12">
+                     <!-- Single Widget -->
+                     <div class="single-footer links text-end">
+                         <h4>معلومات</h4>
+                         <ul>
+                             <li><a class="nav-link" href="/about">عننا</a></li>
+                             <li><a class="nav-link" href="/FAQ">ابرز اسئلة</a></li>
+                             <li><a class="nav-link" href="/privcey">الخصوصية</a></li>
+                         </ul>
+                     </div>
+                     <!-- End Single Widget -->
+                 </div>
+                 <div class="col-lg-2 col-md-6 col-12">
+                     <!-- Single Widget -->
+                     <div class="single-footer links text-end">
+                         <h4>خدمة العلاء</h4>
+                         <ul>
+                             <li><a class="nav-link" href="/contact">تواصل معنا</a></li>
+                             <li><a class="nav-link" href="/soon">طرق الدفع</a></li>
+                             <li><a class="nav-link" href="/soon">الشحن</a></li>
+                         </ul>
+                     </div>
+                     <!-- End Single Widget -->
+                 </div>
+                 <div class="col-lg-3 col-md-6 col-12">
+                     <!-- Single Widget -->
+                     <div class="single-footer social text-end">
+                         <h4>تواصل بنا</h4>
+                         <!-- Single Widget -->
+                         <div class="contact">
+                             <ul>
+                                 <li>اليمن - تعز</li>
+                                 <li>جولة المسبح</li>
+                                 <li>info@babor.com</li>
+                                 <li>+967 773 739 473</li>
+                                 <li> </li>
 
 
-                            </ul>
-                        </div>
-                        <!-- End Single Widget -->
-                        <ul>
-                            <li><a class="nav-link" href="#"><i class="ti-facebook"></i></a></li>
-                            <li><a class="nav-link" href="#"><i class="ti-twitter"></i></a></li>
-                            ..
-                            <li><a class="nav-link" href="#"><i class="ti-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- End Single Widget -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Footer Top -->
-    <div class="copyright text-center">
-        <div class="container">
-            <div class="inner">
-                <div class="row text-center">
-                    <div class="col-lg-12 col-12">
-                        <div class="w-90 text-center">
-                            <p> © 2020 <a href="#" target="_blank">بابور</a> - جميع الحقوق محفوظة</p>
-                        </div>
-                    </div>
-                
-                </div>
-            </div>
-        </div>
-    </div>
+                             </ul>
+                         </div>
+                         <!-- End Single Widget -->
+                         <ul>
+                             <li><a class="nav-link" href="#"><i class="ti-facebook"></i></a></li>
+                             <li><a class="nav-link" href="#"><i class="ti-twitter"></i></a></li>
+                             ..
+                             <li><a class="nav-link" href="#"><i class="ti-instagram"></i></a></li>
+                         </ul>
+                     </div>
+                     <!-- End Single Widget -->
+                 </div>
+             </div>
+         </div>
+     </div>
+     <!-- End Footer Top -->
+     <div class="copyright text-center">
+         <div class="container">
+             <div class="inner">
+                 <div class="row text-center">
+                     <div class="col-lg-12 col-12">
+                         <div class="w-90 text-center">
+                             <p> © 2020 <a href="#" target="_blank">بابور</a> - جميع الحقوق محفوظة</p>
+                         </div>
+                     </div>
+
+                 </div>
+             </div>
+         </div>
+     </div>
 
 </footer>
 <!-- /End Footer Area -->
@@ -163,8 +163,106 @@
  <script src="/js/jquery.zoom.min.js"></script>
  <script src="/js/main.js"></script>
 
+ <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+{{-- <script src="/js/Notifications/notifications.js"></script>--}}
+ <script>
+
+     var pusher = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
+         cluster: '{{env("PUSHER_APP_CLUSTER")}}',
+         encrypted: true
+     });
+
+     let channel = pusher.subscribe('notify-channel');
+     let channel2 = pusher.subscribe('notify-channel2');
+
+     channel.bind('App\\Events\\Notify', function(data) {
+         let node = document.createElement('li');
+         if( data.user_id.toString() !="{!! Auth::id() !!}" && data.type == 1 ) {
+//              node.innerHTML =`
+//         <li>
+//             <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+//             <a href="auction/${data.link}">
+//                 <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>
+//                 <div class="quantity text-dark">
+//                     <h4 class="fw-bold"> ${data.message}</h4>
+//                     <span class="amount">$ ${data.price}</span>
+//                     <p class="d-block mb-0">ينتهي بتاريخ ${data.endDate} </p>
+//                 </div>
+//             </a>
+//         </li>
+// `;
+
+             node.innerHTML =`
+                <li>
+                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                    <a href="auction/${data.link}">
+                        <div class="quantity text-dark">
+                            <h4 class="fw-bold"> ${data.message}</h4>
+                        </div>
+                    </a>
+                </li>
+`;
+             alert("{!! Auth::id() !!}");
+             document.getElementById('shopping-list').prepend(node);
+         }
+
+         if( data.user_id.toString() == "{!! Auth::id() !!}" && data.admin_id.toString() != "{!! Auth::id() !!}"  && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "" && data.type == 5) {
+             {{--alert(data.user_id.toString() != "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "");--}}
+             node = document.createElement('li');
+             node.innerHTML =`
+                <li>
+                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                    <a href="auction/${data.link}">
+                        <div class="quantity text-dark">
+                            <h4 class="fw-bold"> ${data.message}</h4>
+                        </div>
+                    </a>
+                </li>
+
+`;
+             alert("{!! Auth::id() !!}");
+             document.getElementById('shopping-list').prepend(node);
+         }
+
+         if( data.user_id.toString() == "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != 1 && "{!! Auth::id() !!}" != "" && data.type == 6) {
+             node = document.createElement('li');
+             node.innerHTML =`
+                <li>
+                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                    <a href="auction/${data.link}">
+                        <div class="quantity text-dark">
+                            <h4 class="fw-bold"> ${data.message}</h4>
+                        </div>
+                    </a>
+                </li>
+`;
+             alert("{!! Auth::id() !!}");
+             document.getElementById('shopping-list').prepend(node);
+         }
+
+     });
+
+     channel2.bind('App\\Events\\Notify', function(data) {
+         var node = document.createElement('li');
+         node.innerHTML =`
+                <li>
+                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                    <a href="auction/${data.link}">
+                        <div class="quantity text-dark">
+                            <h4 class="fw-bold"> ${data.message}</h4>
+                        </div>
+                    </a>
+                </li>
+`;
+         if( data.user_id.toString() == "{!! Auth::id() !!}") {
+             alert("{!! Auth::id() !!}");
+             document.getElementById('shopping-list').prepend(node);
+         }
+
+     });
 
 
+ </script>
  </body>
 
  </html>

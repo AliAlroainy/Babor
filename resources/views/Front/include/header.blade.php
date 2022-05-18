@@ -10,6 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title Tag  -->
     <title>Babor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+    </style>
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png" />
     <!-- Web Font -->
@@ -27,6 +31,9 @@
     <!-- StyleSheet -->
 
     <!-- Bootstrap -->
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <!-- Magnific Popup -->
     <link rel="stylesheet" href="/css/magnific-popup.min.css">
     <!-- Font Awesome -->
@@ -71,8 +78,8 @@
 
 
 
-        <!-- Tajwal Font -->
-        <link href='https://fonts.googleapis.com/css?family=Tajawal' rel='stylesheet'>
+    <!-- Tajwal Font -->
+    <link href='https://fonts.googleapis.com/css?family=Tajawal' rel='stylesheet'>
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -111,8 +118,8 @@
         ga('create', 'UA-47923629-1', 'gigagit.com');
         ga('send', 'pageview');
     </script>
-{{-- success --}}
-{{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    {{-- success --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> --}}
 
@@ -147,12 +154,21 @@
                                         <i class="ti-alarm-clock"></i>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('login') }}"
-                                        style="background-color: transparent ; border:none; text-decoration: none">
-                                        تسجيل دخول <i class="ti-power-off"></i>
-                                    </a>
-                                </li>
+                                @if (Auth::user())
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            style="background-color: transparent ; border:none; text-decoration: none">
+                                            تسجيل خروج <i class="ti-power-off"></i>
+                                        </a>
+                                    </li>
+                                @else
+                                    <li>
+                                        <a href="{{ route('login') }}"
+                                            style="background-color: transparent ; border:none; text-decoration: none">
+                                            تسجيل دخول <i class="ti-power-off"></i>
+                                        </a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                         <!-- End Top left -->
@@ -180,54 +196,69 @@
 
                         <div class="right-bar">
                             <!-- noted Form -->
+
+
                             <div class="sinlge-bar shopping">
                                 <a href="#" class="single-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
-                                        class="bi bi-bell" viewBox="0 0 16 16">
+                                         class="bi bi-bell" viewBox="0 0 16 16">
                                         <path
                                             d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
                                     </svg>
-                                    <span class="total-count">2</span>
+                                    <span class="total-count">{{\App\Http\Controllers\Notifications\NotificationController::getNotifications()['count']}}</span>
+{{--                                    <span class="total-count">2</span>--}}
                                 </a>
 
                                 <!-- notfications Item -->
                                 <div class="shopping-item" dir="rtl">
                                     <div class="dropdown-cart-header">
-                                        <span>2 اشعارات</span>
+                                        <span class="total-count">  {{\App\Http\Controllers\Notifications\NotificationController::getNotifications()['count']}} إشعارات </span>
 
                                     </div>
-                                    <ul class="shopping-list">
+                                    <ul class="shopping-list mb-0" id="shopping-list" style="padding-inline-end: 0">
+
+                                        @foreach( \App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
                                         <li>
-                                            <a href="#" class="remove" title="Remove this item"><i
-                                                    class="fa fa-remove"></i></a>
-                                            <a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
-                                            <h4><a href="#">تبقى يومين </a></h4>
-                                            <p class="quantity">مزاد سيارة لاندكروسر <span
-                                                    class="amount">$9990.00</span></p>
+                                            <a href="/notifications/disable/{{$notification->id}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                            <a href="auction/{{$notification->link}}$">
+{{--                                                <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>--}}
+                                                <div class="quantity text-dark">
+                                                    <h4 class="fw-bold"> {{$notification->message}}</h4>
+                                                </div>
+                                            </a>
                                         </li>
-                                        <li>
-                                            <a href="#" class="remove" title="Remove this item"><i
-                                                    class="fa fa-remove"></i></a>
-                                            <a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
-                                            <h4><a href="#"> سيارة شفرليه </a></h4>
-                                            <p class="quantity"> عرض قد يهمك <span
-                                                    class="amount">$3905.00</span></p>
-                                        </li>
+                                        @endforeach
                                     </ul>
-                                    <div class="bottom"><a href="#">عرض الكل </a> </div>
+{{--                                    <div class="bottom"><a class="nav-link" href="#">عرض الكل </a> </div>--}}
                                 </div>
                                 <!--/ End notfications Item -->
                             </div>
 
+
+
                             <div class="sinlge-bar">
-                                <a href="/favorite" class="single-icon "><i class="fa fa-heart-o"
-                                        aria-hidden="true"></i> </a>
-                            </div>
-                            <div class="sinlge-bar">
-                                <a href="{{ route('user.profile') }}" class="single-icon"><i
-                                        class="fa fa-user-circle-o" aria-hidden="true"></i> </a>
+                                <a href="/favorite" class="single-icon ">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                </a>
                             </div>
 
+                            <div class="sinlge-bar">
+                                @if (Auth::user() && Auth::user()->hasRole('user'))
+                                    <a href="{{ route('user.profile') }}" class="single-icon">
+                                        @if (isset(Auth::user()->profile->avatar))
+                                            <img src="/images/profiles/{{ Auth::user()->profile->avatar }}"
+                                                alt="profile" width="25"
+                                                class="d-block h-auto ms-0 rounded-circle user-profile-img" />
+                                        @else
+                                            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                        @endif
+                                    </a>
+                                @else
+                                    <a href="{{ route('admin.dashboard') }}" class="single-icon">
+                                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                    </a>
+                                @endif
+                            </div>
                         </div>
 
                         <!-- Search Form -->
@@ -251,7 +282,7 @@
                         <div class="search-bar-top">
                             <div class="search-bar">
                                 <select>
-                                    <option selected="selected">كل الانواع</option>
+                                    <option selected="selected" style="font-family: Tajawal">كل الانواع</option>
                                     <option>دايوها</option>
                                     <option>سنتافي</option>
                                     <option>تكاسي</option>
@@ -300,15 +331,21 @@
                                             <ul class="nav main-menu menu navbar-nav ">
                                                 <li class="navh active"><a class="nav-link"
                                                         href="/">الرئيسية</a></li>
-                                                <li class="navh  "><a class="nav-link" href="/offer">العروض</a></li>
-                                                <li class="navh "><a class="nav-link" href="/services">الخدمات</a></li>
-                                                <li class="navh "><a class="nav-link  " href="#">شراء سيارة<i
-                                                            class="ti-angle-down p-2"></i>
+                                                <li class="navh  "><a class="nav-link"
+                                                        href="/offer">العروض</a></li>
+                                                <li class="navh "><a class="nav-link"
+                                                        href="/services">الخدمات</a></li>
+                                                <li class="navh"><a class="nav-link" href="#">شراء
+                                                        سيارة<i class="ti-angle-down p-2"></i>
                                                         <!--span class="new">جديد</span-->
                                                     </a>
                                                     <ul class="dropdown ">
-                                                        <li><a class="nav-link" href="/soon">مستعملة</a></li>
-                                                        <li><a class="nav-link" href="/soon">جديد</a></li>
+                                                        <li><a class="nav-link"
+                                                                href="{{ route('site.auction.by_status', 'old') }}">مستعملة</a>
+                                                        </li>
+                                                        <li><a class="nav-link"
+                                                                href="{{ route('site.auction.by_status', 'new') }}">جديد</a>
+                                                        </li>
                                                     </ul>
                                                 </li>
 
@@ -330,15 +367,11 @@
     <!--/ End Header -->
 
 
-<script >
-
-// add activetion links 
-    $('.navh').on('click', function(){
-        $(this).addClass('active').siblings('li').removeClass('active');
-    });
-
-
-
+    <script>
+        // add activetion links
+        $('.navh').on('click', function() {
+            $(this).addClass('active').siblings('li').removeClass('active');
+        });
     </script>
 
 
