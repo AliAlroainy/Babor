@@ -31,6 +31,30 @@
                 </div>
               </div>
 
+              <div class="col-lg-2 col-md-6 col-sm-6 mb-4  ml-2">
+                <div class="stats-small stats-small--1 card card-small">
+                  
+                <div class="card-body p-0 d-flex" style="text-align: center;
+    ">
+                    <div class="d-flex flex-column m-auto pl-5">
+                      <div class="stats-small__data text-center mt-2">
+                        <span class=" text-uppercase " style="color:#f79522;">المزايدات</span>
+                        <h2 class="stats-small__value count my-3"style="color:green;font-size:40px">{{$bids}}</h2>
+                      </div>
+                      <div class="stats-small__data">
+                        <span class="stats-small__percentage stats-small__percentage--increase"style="color:red">{{$bidsprs}}%</span>
+                      </div>
+                      
+                    </div>
+                   
+                  </div>
+                  <div class="progress">
+  <div class="progress-bar" role="progressbar" style="width:{{$bidsprs}}%;background:#f79725" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+                </div>
+              </div>
+
+
               <div class="col-lg-2 col-md-6 col-sm-6 mb-4 ml-2 mr-2">
                 <div class="stats-small stats-small--1 card card-small">
                 <div class="card-body p-0 d-flex" style="text-align: center;
@@ -58,16 +82,37 @@
                     <div class="d-flex flex-column m-auto pl-5">
                       <div class="stats-small__data text-center mt-2">
                         <span class="stats-small__label text-uppercase"style="color:#f79522">التقييمات</span>
-                        <h2 class="stats-small__value count my-3" style="color:green;font-size:40px">{{$service}}</h2>
+                        <h2 class="stats-small__value count my-3" style="color:green;font-size:40px">{{$stars}}</h2>
                       </div>
                       <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--decrease"style="color:red">{{$serviceprec}}%</span>
+                        <span class="stats-small__percentage stats-small__percentage--decrease"style="color:red">{{$starper}}%</span>
                       </div>
                     </div>
                  
                   </div>
                   <div class="progress">
-  <div class="progress-bar" role="progressbar" style="width:{{$service}}%;background:#f79725" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar" role="progressbar" style="width:{{$starper}}%;background:#f79725" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+                </div>
+              </div>
+
+              <div class="col-lg-2 col-md-6 col-sm-6 mb-4 ml-2 mr-2">
+                <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex" style="text-align: center;
+    direction: ltr;">
+                    <div class="d-flex flex-column m-auto pl-5">
+                      <div class="stats-small__data text-center mt-2">
+                        <span class="stats-small__label text-uppercase"style="color:#f79522">اسئلة الزوار</span>
+                        <h2 class="stats-small__value count my-3" style="color:green;font-size:40px">{{$messages}}</h2>
+                      </div>
+                      <div class="stats-small__data">
+                        <span class="stats-small__percentage stats-small__percentage--decrease"style="color:red">{{$messagesprs}}%</span>
+                      </div>
+                    </div>
+                 
+                  </div>
+                  <div class="progress">
+  <div class="progress-bar" role="progressbar" style="width:{{$messagesprs}}%;background:#f79725" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
                 </div>
               </div>

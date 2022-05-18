@@ -10,7 +10,6 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">عرض الأقسام</h4>
                             @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     {{ session()->get('errorEdit') }}
@@ -113,7 +112,7 @@
 
                                                 <td>
                                                     <a href="editCategory"
-                                                        style="width: fit-content; font-size: 25px ;color:#686868"
+                                                        style="width: fit-content;font-size:18px;color:#686868"
                                                         class="fa-solid fa-edit pe-2  btn-fw btn-rounded "
                                                         data-bs-target="#editModal-{{ $category->id }}"
                                                         data-bs-toggle="modal">
@@ -130,10 +129,10 @@
                                                                     font-weight-inverse-success
                                                               btn-rounded  fa-solid fa-trash pe-2
                                                            "
-                                                                style="color:#71c016;font-size: 25px ;">
+                                                                style="color:#71c016;font-size:18px;">
                                                             </button>
                                                         @else
-                                                            <button style="color:#ff4747;font-size: 25px ;"
+                                                            <button style="color:#ff4747;font-size:18px;"
                                                                 class="
                                                             btn d-flex align-items-center fas fa-trash-restore pe-2
                                                              ">

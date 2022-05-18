@@ -273,6 +273,7 @@
                                                             @for ($i = 1; $i <= $total; $i++)
                                                                 <i class="fa fa-star"></i>
                                                             @endfor
+                                                            <i class="fa fa-star-o"></i>
 
                                                         </div>
                                                     </div>

@@ -10,7 +10,7 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">عرض الخدمات</h4>
+                           
                             @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     {{ session()->get('errorEdit') }}
@@ -124,7 +124,7 @@
                                                     {{ $service->description }}
                                                 </td>
                                                 <td>
-                                                    <a href="editService" style="width: fit-content; font-size: 25px ;color:#686868"
+                                                    <a href="editService" style="width: fit-content;font-size:18px;color:#686868"
                                                         class="fa-solid fa-edit pe-2 btn-fw btn-rounded "
                                                         data-bs-target="#editModal-{{ $service->id }}"
                                                         data-bs-toggle="modal">
@@ -141,13 +141,13 @@
                                                         <button  class=" btn d-flex align-items-center
                                                                     font-weight-inverse-success
                                                               btn-rounded  fa-solid fa-trash pe-2
-                                                           " style="color:#71c016;font-size: 25px ;">
+                                                           " style="color:#71c016;font-size:18px;">
                                                                 </button>
                                                         @else
                                                             <button class=" btn d-flex align-items-center
                                                                     font-weight-inverse-danger
                                                               btn-rounded  fa-solid fa-trash-restore pe-2
-                                                           " style="color:#ff4747;font-size: 25px ;">
+                                                           " style="color:#ff4747;font-size:18px;">
 
                                                             </button>
 
