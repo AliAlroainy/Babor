@@ -51,21 +51,20 @@
                                             العمليات المالية
                                         </p>
                                     </div>
-                                    <div class="bg-blue p-2 mb-3">
-                                        <p class="h6 textmuted">شراء سيارة فيراري بقيمة 23421$
-                                        <p class="p-blue bg btn btn-primary h7">التفاصيل</p>
-                                        </p>
-                                    </div>
-                                    <div class="bg-blue p-2 mb-3">
-                                        <p class="h6 textmuted">شراء سيارة فيراري بقيمة 23421$
-                                        <p class="p-blue bg btn btn-primary h7">التفاصيل</p>
-                                        </p>
-                                    </div>
-                                    <div class="bg-blue p-2  mb-3">
-                                        <p class="h7 textmuted">شراء سيارة فيراري بقيمة 23421$
-                                        <p class="p-blue bg btn btn-primary h6">التفاصيل</p>
-                                        </p>
-                                    </div>
+                                    @forelse($bids as $bid)
+                                        <div class="bg-blue p-2 mb-3">
+                                            <p class="h6 textmuted">مزايدة على
+                                                {{ $bid->auction->type_and_model() }} - {{ $bid->getDeduction() }}
+                                                <a href="{{ route('site.auction.details', $bid->auction->id) }}">
+                                                    <p class="p-blue bg btn btn-primary h7">التفاصيل</p>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    @empty
+                                        <div class="bg-blue p-2 mb-3">
+                                            <p class="h6 textmuted">لا يوجد أي عمليات مالية لديك </p>
+                                        </div>
+                                    @endforelse
                                 </div>
                             </div>
                         </div>

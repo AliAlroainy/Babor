@@ -155,7 +155,7 @@ class UserAuctionController extends Controller
             $q->when($auction->first()->bids->count() > 0, function ($q) use ($id){
                 $this->refundBidders($id);
             });
-            $this->refundBidders($id);
+            // $this->refundBidders($id);
             $notify = new NotificationController();
             $notify->cancelAuction($auction->first(),$id);
         });
