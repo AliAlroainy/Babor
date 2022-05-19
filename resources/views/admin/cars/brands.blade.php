@@ -102,7 +102,7 @@
                                                                 <button type="button" class="btn btn-outline-secondary"
                                                                     data-bs-dismiss="modal">إلغاء</button>
                                                                 <button type="submit"
-                                                                    class="btn btn-warning text-white">تعديل</button>
+                                                                    class="btn text-white" style="background:#f79827">تعديل</button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -204,7 +204,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">إلغاء</button>
-                            <button type="submit" class="btn btn-warning text-white">إضافة</button>
+                            <button type="submit" class="btn text-white" style="background:#f79827">إضافة</button>
                         </div>
                     </div>
                 </form>

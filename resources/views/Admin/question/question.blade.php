@@ -98,7 +98,7 @@
                                                            <button type="button" class="btn btn-outline-secondary"
                                                                    data-bs-dismiss="modal">إلغاء</button>
                                                            <button type="submit"
-                                                                   class="btn btn-warning text-white">تعديل</button>
+                                                                   class="btn  text-white" style="background:#f79827">تعديل</button>
                                                        </div>
                                                    </div>
                                                </form>
@@ -163,51 +163,6 @@
 
         <!-- Modal -->
 
-        {{-- <div class="modal fade" id="editModal-{{ $question->id }}" tabindex="-1"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <form action="{{ route('admin.question.update', $question->id) }}"
-                      method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PATCH')
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel1">عدل
-                                السؤال</h5>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <label for="editTitle" class="form-label">
-                                        السؤال</label>
-                                    <input type="text" id="editTitle"
-                                           class="form-control" name="title"
-                                           value="{{ $question->question ?? '' }}"
-                                           placeholder=" السؤال">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <label for="editDesc"
-                                           class="form-label">الاجابة</label>
-                                    <input type="text" id="editDesc"
-                                           class="form-control" name="description"
-                                           value="{{ $question->answer ?? '' }}"
-                                           placeholder="الاجابة ">
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary"
-                                    data-bs-dismiss="modal">إلغاء</button>
-                            <button type="submit"
-                                    class="btn btn-warning text-white">تعديل</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div> --}}
 
 
         <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
@@ -237,7 +192,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">إلغاء</button>
-                            <button type="submit" class="btn btn-warning text-white">إضافة</button>
+                            <button type="submit" class="btn  text-white" style="background:#f79827">إضافة</button>
                         </div>
                     </div>
                 </form>
