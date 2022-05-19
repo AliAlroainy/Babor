@@ -91,7 +91,7 @@
                  
                   </div>
                   <div class="progress">
-  <div class="progress-bar" role="progressbar" style="width:{{$starper}}%;background:#f79725" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar" role="progressbar" style="width:{{$stars}}%;background:#f79725" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
                 </div>
               </div>
@@ -112,7 +112,7 @@
                  
                   </div>
                   <div class="progress">
-  <div class="progress-bar" role="progressbar" style="width:{{$messagesprs}}%;background:#f79725" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar" role="progressbar" style="width:{{$messages}}%;background:#f79725" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
                 </div>
               </div>

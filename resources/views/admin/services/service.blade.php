@@ -165,7 +165,7 @@
 
             </div>
             <button type="button" data-bs-target="#addModal" data-bs-toggle="modal"
-                class="btn btn-warning btn-rounded btn-icon add">
+                class="btn  btn-rounded btn-icon add  me-8" style="background:#f79827;margin-top:-20px;margin-left:8%">
                 <i class="mdi mdi-plus text-white"></i>
             </button>
         </div>
