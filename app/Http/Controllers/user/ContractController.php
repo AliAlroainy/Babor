@@ -111,7 +111,7 @@ class ContractController extends Controller
         $auction_id = $auction->id;
         $this->siteDeduction($auction_id, $commission);
         $seller_dues = $money-($commission);
-        $admin->transfer($seller, $seller_dues);
+        $admin->transfer($seller, $seller_dues, ['sell' => $bill->id]);
     }
 
     public function buyerPenalty($admin, $bill){

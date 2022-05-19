@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Contract extends Model
 {
@@ -15,4 +16,11 @@ class Contract extends Model
         'seller_confirm',
         'buyer_undoReason',
     ];
+
+    public function payment_bill(): BelongsTo 
+    {
+        return $this->belongsTo(Payment_Bill::class, 'payment_bill_id');
+    }
+
+    
 }

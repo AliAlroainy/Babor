@@ -192,9 +192,10 @@ class UserAuctionController extends Controller
     //Refunds to previous bidders
     public function refundBidders($id){
         $admin = User::first();
-        $bidders = Auction::find($id)->bids;
-        foreach(range (0, count($bidders)-1) as $i){
-            $admin->transfer($bidders[$i]->user, $bidders[$i]->getDeduction());
+        $bid = Auction::find($id)->bids;
+        foreach(range (0, count($bid)-1) as $i){
+            $admin->transfer($bid[$i]->user, $bid[$i]->getDeduction(), ['unbid'=>$bid[$i]->id]);
+            Bid::whereId($bid[$i]->id)->update(['refund' => 1]);
         }
     }
 
