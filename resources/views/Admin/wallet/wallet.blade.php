@@ -351,19 +351,21 @@
     border-radius: 10px
 }
 
-.textmuted {
-    color: #7a7a7a
-}
-
-.bg-green {
+.rouned-btn{
     background-color: #d4f8f2;
-    color: #06e67a;
     padding: 3px 0;
     display: inline;
     border-radius: 25px;
     font-size: 11px
 }
 
+.bg-green {
+    color: #06e67a;
+}
+
+.bg-main {
+    color: #f79522;
+}
 .p-blue {
     font-size: 14px;
     color: #1976d2

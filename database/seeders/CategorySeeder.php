@@ -22,17 +22,17 @@ class CategorySeeder extends Seeder
           DB::table('categories')->insert([
             'name' => 'تاكسي',
             'image' => $faker->image('public/images/categories',640,480, null, false),
-            'is_active' => '2',
+            'is_active' => '1',
           ]);
           DB::table('categories')->insert([
             'name' => 'شاحنة',
             'image' => $faker->image('public/images/categories',640,480, null, false),
-            'is_active' => '3',
+            'is_active' => '1',
           ]);
           DB::table('categories')->insert([
             'name' => 'حافلة',
             'image' => $faker->image('public/images/categories',640,480, null, false),
-            'is_active' => '4',
+            'is_active' => '1',
           ]);
 
     }

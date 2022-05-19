@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('message');
             $table->string('link');
             $table->string('type');
+            $table->string('thumbnail');
+            $table->string('price');
+            $table->string('closeDate');
+
         });
     }
 
