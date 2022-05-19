@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -18,9 +19,15 @@ class Payment_Bill extends Model
         'payment_status',
         'bid_id',  
     ];
+
     public function bid(): BelongsTo
     {
         return $this->belongsTo(Bid::class, 'bid_id');
+    }
+    
+    public function contract(): HasOne
+    {
+        return $this->hasOne(Contract::class, 'payment_bill_id');
     }
 }
 

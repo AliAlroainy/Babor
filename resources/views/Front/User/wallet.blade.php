@@ -22,21 +22,25 @@
                             <div class="col-12 mb-4">
                                 <div class="row box-right">
                                     <div class="col-md-8 ps-0 ">
-                                        <p class="ps-3 textmuted fw-bold h6 mb-0">اجمالي الرصيد</p>
+                                        <p class="ps-3 text-muted fw-bold h6 mb-0">اجمالي الرصيد</p>
                                         <p class="h1 fw-bold d-flex"> <span
-                                                class=" fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>
-                                            {{-- <span class="textmuted">58.</span>  --}}
-                                            {{ $wallet->balance }}
+                                                class=" fas fa-dollar-sign text-muted pe-1 h6 align-text-top mt-1"></span>
+                                            {{-- <span class="text-muted">58.</span> --}}
+                                            {{ $balance }}
                                         </p>
-                                        <p class="ms-3 mt-5 px-2 bg-green">غذي حسابك</p>
+                                        <p class="ms-3 mt-5 px-2 rouned-btn bg-green">غذي حسابك</p>
                                     </div>
                                     <div class="col-md-4">
-                                        <p class="p-blue"><span class="fas fa-circle pe-2"></span>الداخل </p>
-                                        <p class="fw-bold mb-3"><span class="fas fa-dollar-sign pe-1"></span>{{ $wallet->balance }} <span
-                                                class="textmuted">.50</span> </p>
-                                        <p class="p-org"><span class="fas fa-circle pe-2"></span>الخارج </p>
-                                        <p class="fw-bold"><span class="fas fa-dollar-sign pe-1"></span>00<span
-                                                class="textmuted">.00</span></p>
+                                        <p class="p-blue"><span class="fas fa-circle pe-2"></span> الداخل </p>
+                                        <p class="fw-bold mb-3">
+                                            {{-- <span class="text-muted">.{{ $gains - intval($gains) }}</span> --}}
+                                            <span class="fas fa-dollar-sign pe-1"></span>{{ $gains }}
+                                        </p>
+                                        <p class="p-org"><span class="fas fa-circle pe-2"></span> الخارج </p>
+                                        <p class="fw-bold">
+                                            {{-- <span class="text-muted">.{{ $loses - intval($loses) }}</span> --}}
+                                            <span class="fas fa-dollar-sign pe-1"></span>{{ $loses }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -45,25 +49,125 @@
                                     <div class="d-flex pb-2">
                                         <p class="fw-bold h7">
                                             <i class="bi bi-clock-history"></i>
-                                            <span class="textmuted">المحفظة/</span>
+                                            <span class="text-muted">المحفظة/</span>
                                             العمليات المالية
                                         </p>
                                     </div>
-                                    <div class="bg-blue p-2 mb-3">
-                                        <p class="h6 textmuted">شراء سيارة فيراري بقيمة 23421$
-                                        <p class="p-blue bg btn btn-primary h7">التفاصيل</p>
-                                        </p>
-                                    </div>
-                                    <div class="bg-blue p-2 mb-3">
-                                        <p class="h6 textmuted">شراء سيارة فيراري بقيمة 23421$
-                                        <p class="p-blue bg btn btn-primary h7">التفاصيل</p>
-                                        </p>
-                                    </div>
-                                    <div class="bg-blue p-2  mb-3">
-                                        <p class="h7 textmuted">شراء سيارة فيراري بقيمة 23421$
-                                        <p class="p-blue bg btn btn-primary h6">التفاصيل</p>
-                                        </p>
-                                    </div>
+                                    @forelse($operations as $item)
+                                        @if (isset($item->meta['bid']))
+                                            @php
+                                                $bid = \App\Models\Bid::where('id', $item->meta['bid'])->first();
+                                            @endphp
+                                            <div class="bg-blue p-3 mb-3">
+                                                <p class="h6 text-muted"> مزايدة على
+                                                    {{ $bid->auction->type_and_model() }} بتكلفة
+                                                    {{ $bid->getDeduction() }}
+                                                    @if ($bid->refund == '1')
+                                                        <small class="text-danger">
+                                                            <i class="fas fa-undo"></i>
+                                                            تمت الاستعادة
+                                                        </small>
+                                                    @endif
+                                                </p>
+                                                <p class="p-blue bg btn btn-primary h7">
+                                                    <a href="{{ route('site.auction.details', $bid->auction->id) }}">
+                                                        التفاصيل
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        @elseif(isset($item->meta['buy']))
+                                            @php
+                                                $bill = \App\Models\Payment_Bill::with('contract')
+                                                    ->where('id', $item->meta['buy'])
+                                                    ->first();
+                                            @endphp
+                                            <div class="bg-blue p-3 mb-3">
+                                                <p class="h6 text-muted"> شراء
+                                                    {{ $bill->bid->auction->car->category->name }} -
+                                                    {{ $bill->bid->auction->type_and_model() }}
+                                                    بقيمة
+                                                    {{ $bill->bid->currentPrice }}
+                                                </p>
+                                                @if ($bill->bid->auction->status == '4')
+                                                    @if (!isset($bill->contract->buyer_confirm))
+                                                        <a href="{{ route('do.contract', $bill->id) }}"
+                                                            class="ms-3 mt-5 px-2 rouned-btn bg-main text-decoration-none">
+                                                            توقيع العقد
+                                                        </a>
+                                                        <a href="{{ route('site.auction.details', $bill->bid->auction->id) }}"
+                                                            class="ms-3 mt-5 px-2 rouned-btn bg-green text-decoration-none">
+                                                            التفاصيل
+                                                        </a>
+                                                    @elseif(!isset($bill->contract->seller_confirm))
+                                                        <small class="text-danger">
+                                                            <i class="fa fa-spinner" aria-hidden="true"></i>
+                                                            <a href="{{ route('do.contract', $bill->id) }}"
+                                                                class="text-danger text-decoration-none">
+                                                                في انتظار توقيع صاحب السيارة
+                                                            </a>
+                                                        </small>
+                                                    @endif
+                                                @elseif($bill->bid->auction->status == '5')
+                                                    <small class="text-success">
+                                                        <i class="fa fa-check"></i>
+                                                        تمت العملية بنجاح
+                                                        <a href="{{ route('site.auction.details', $bill->bid->auction->id) }}"
+                                                            class="text-success text-decoration-none">
+                                                            | التفاصيل
+                                                        </a>
+                                                    </small>
+                                                @endif
+                                            </div>
+                                        @elseif(isset($item->meta['sell']))
+                                            @php
+                                                $bill = \App\Models\Payment_Bill::with('contract')
+                                                    ->where('id', $item->meta['sell'])
+                                                    ->first();
+                                            @endphp
+                                            <div class="bg-blue p-3 mb-3">
+                                                <p class="h6 text-muted">
+                                                    بيع
+                                                    {{ $bill->bid->auction->car->category->name }} -
+                                                    {{ $bill->bid->auction->type_and_model() }}
+                                                    بقيمة
+                                                    {{ $bill->bid->currentPrice - $bill->bid->auction->commission }}
+                                                </p>
+                                                @if ($bill->bid->auction->status == '4')
+                                                    @if (!isset($bill->contract->seller_confirm))
+                                                        <a href="{{ route('do.contract', $bill->id) }}"
+                                                            class="ms-3 mt-5 px-2 rouned-btn bg-main text-decoration-none">
+                                                            توقيع العقد
+                                                        </a>
+                                                        <a href="{{ route('site.auction.details', $bill->bid->auction->id) }}"
+                                                            class="ms-3 mt-5 px-2 rouned-btn bg-green text-decoration-none">
+                                                            التفاصيل
+                                                        </a>
+                                                    @elseif(!isset($bill->contract->buyer_confirm))
+                                                        <small class="text-danger">
+                                                            <i class="fa fa-spinner" aria-hidden="true"></i>
+                                                            <a href="{{ route('do.contract', $bill->id) }}"
+                                                                class="text-danger text-decoration-none">
+                                                                في انتظار توقيع الفائز بالمزاد
+                                                            </a>
+                                                        </small>
+                                                    @endif
+                                                @elseif($bill->bid->auction->status == '5')
+                                                    <small class="text-success">
+                                                        <i class="fa fa-check"></i>
+                                                        تمت العملية بنجاح
+                                                        <a href="{{ route('site.auction.details', $bill->bid->auction->id) }}"
+                                                            class="text-success text-decoration-none">
+                                                            | التفاصيل
+                                                        </a>
+                                                    </small>
+                                                @endif
+                                            </div>
+                                        @endif
+                                    @empty
+                                        <div class="bg-blue p-2 mb-3">
+                                            <p class="h6 text-muted">لا يوجد أي عمليات مالية لديك </p>
+                                        </div>
+                                    @endforelse
                                 </div>
                             </div>
                         </div>
@@ -72,26 +176,26 @@
                         <div class="box-left">
                             <div class="d-flex">
                                 <i class="bi bi-receipt"></i>
-                                <p class="textmuted h8 me-3"> الفاتورة #3424</p>
+                                <p class="text-muted h8 me-3"> الفاتورة #3424</p>
                             </div>
                             <p class="fw-bold h7">شراء سيارة فيراري</p>
-                            <p class="textmuted h8">البائع : ابرار الخرساني</p>
-                            <p class="textmuted h8">المشتري : علي الرعيني</p>
-                            <p class="textmuted h8 mb-2">التاريخ : 23-1-2023</p>
+                            <p class="text-muted h8">البائع : ابرار الخرساني</p>
+                            <p class="text-muted h8">المشتري : علي الرعيني</p>
+                            <p class="text-muted h8 mb-2">التاريخ : 23-1-2023</p>
                             <div class="h8">
                                 <div class="row m-0 border mb-3">
                                     <div class="col-6 h8 pe-0 ps-2">
-                                        <p class="textmuted py-2">العناصر</p>
+                                        <p class="text-muted py-2">العناصر</p>
                                         <span class="d-block py-2 border-bottom">سيارة فيراري</span>
                                         <span class="d-block py-2">سيارة هامر</span>
                                     </div>
                                     <div class="col-2 text-center p-0">
-                                        <p class="textmuted p-2">الكمية</p>
+                                        <p class="text-muted p-2">الكمية</p>
                                         <span class="d-block p-2 border-bottom">2</span>
                                         <span class="d-block p-2">1</span>
                                     </div>
                                     <div class="col-2 p-0 text-center h8 border-end">
-                                        <p class="textmuted p-2">السعر</p>
+                                        <p class="text-muted p-2">السعر</p>
                                         <span class="d-block border-bottom py-2">
                                             <span class="fas fa-dollar-sign"></span>
                                             500
@@ -102,7 +206,7 @@
                                         </span>
                                     </div>
                                     <div class="col-2 p-0 text-center">
-                                        <p class="textmuted p-2">الاجمالي</p>
+                                        <p class="text-muted p-2">الاجمالي</p>
                                         <span class="d-block py-2 border-bottom">
                                             <span class="fas fa-dollar-sign"></span>
                                             1000
@@ -122,7 +226,7 @@
                                 </div>
                                 <div class="h8 mb-5">
                                     <p> التفاصيل </p>
-                                    <p class="textmuted"> وسيلة الدفع منصة وصل</p>
+                                    <p class="text-muted"> وسيلة الدفع منصة وصل</p>
                                 </div>
                             </div>
                         </div>
@@ -311,17 +415,21 @@
             border-radius: 10px
         }
 
-        .textmuted {
-            color: #7a7a7a
-        }
-
-        .bg-green {
-            background-color: #d4f8f2;
-            color: #06e67a;
+        .rouned-btn {
             padding: 3px 0;
             display: inline;
             border-radius: 25px;
             font-size: 11px
+        }
+
+        .bg-green {
+            background-color: #d4f8f2;
+            color: #02b05c;
+        }
+
+        .bg-main {
+            background-color: #f79522;
+            color: white;
         }
 
         .p-blue {
@@ -387,19 +495,6 @@
         .bg.btn.btn-primary:hover {
             color: #539ee9
         }
-        /* @media(max-width:320px) {
-            .h8 {
-                font-size: 11px
-            }
-
-            .h7 {
-                font-size: 13px
-            }
-
-            ::placeholder {
-                font-size: 10px
-            }
-        }  */
 
     </style>
 @endsection

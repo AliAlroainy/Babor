@@ -155,7 +155,7 @@ class UserAuctionController extends Controller
             $q->when($auction->first()->bids->count() > 0, function ($q) use ($id){
                 $this->refundBidders($id);
             });
-            $this->refundBidders($id);
+            // $this->refundBidders($id);
             $notify = new NotificationController();
             $notify->cancelAuction($auction->first(),$id);
         });
@@ -192,9 +192,10 @@ class UserAuctionController extends Controller
     //Refunds to previous bidders
     public function refundBidders($id){
         $admin = User::first();
-        $bidders = Auction::find($id)->bids;
-        foreach(range (0, count($bidders)-1) as $i){
-            $admin->transfer($bidders[$i]->user, $bidders[$i]->getDeduction());
+        $bid = Auction::find($id)->bids;
+        foreach(range (0, count($bid)-1) as $i){
+            $admin->transfer($bid[$i]->user, $bid[$i]->getDeduction(), ['unbid'=>$bid[$i]->id]);
+            Bid::whereId($bid[$i]->id)->update(['refund' => 1]);
         }
     }
 
