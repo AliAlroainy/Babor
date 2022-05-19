@@ -1,8 +1,62 @@
 @include('partials.header')
 @include('partials.navbar');
 @include('partials.userSidebar')
+
+{{-- style --}}
+@include('Front.user.style.style')
+
 <!-- Content wrapper -->
 <div class="content-wrapper" dir="rtl">
+
+
+    <div class="row ">
+        <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+            <div class="cardp d-flex align-items-center justify-content-center">
+                <div class="card-body d-flex align-items-center justify-content-center">
+                    <div class="p-3 d-flex flex-column align-items-center justify-content-center">
+                        
+
+
+                        <div class=" mt-n2 mx-sm-0 mx-auto pt-3 pe-3" style="position: relative">
+                            <button type="button" class="btn" data-bs-toggle="modal"
+                                data-bs-target="#profile_pic" style="position: absolute; bottom:0; left:-35px;">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                            @if (isset($user->profile->avatar))
+                                <img src="/images/profiles/{{ $user->profile->avatar }}" alt="profile" width="100"
+                                    class="d-block h-auto ms-0 rounded user-profile-img" />
+                            @else
+                                <img src="/images/profiles/default.png" alt="profile"
+                                    class="d-block h-auto ms-0 rounded user-profile-img" width="100" />
+                            @endif
+
+                        </div>
+
+                        <div class="mt-3">
+                       
+                            @if (@isset($user->profile->username))
+                              <h1> 
+                                {{ $user->profile->username }}  </h1>  
+                            @endif 
+                        </div>            
+
+                        {{-- <div class="mb-3">
+                            <button class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 100px; height: 40px;">
+                                <i class="bi bi-chat-dots ms-2"></i>  
+                                تواصل
+                            </button>
+
+                        </div> --}}
+                     
+
+                    </div>
+          
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
         <!-- Modal -->
@@ -39,7 +93,7 @@
                 </div>
             </div>
         </div>
-        <!-- Header -->
+        {{-- <!-- Header -->
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
@@ -96,9 +150,9 @@
                 </div>
             </div>
         </div>
-        <!--/ Header -->
+        <!--/ Header --> --}}
 
-        <!-- Navbar pills -->
+        {{-- <!-- Navbar pills -->
         <div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-pills flex-column flex-sm-row mb-4">
@@ -113,7 +167,7 @@
                 </ul>
             </div>
         </div>
-        <!--/ Navbar pills -->
+        <!--/ Navbar pills --> --}}
 
         <!-- User Profile Content -->
         <div class="row">
@@ -121,7 +175,9 @@
                 <!-- About User -->
                 <div class="card mb-4">
                     <div class="card-body">
-                        <small class="text-muted text-uppercase">نبذة</small>
+                        <small class="text-muted text-uppercase">
+                            <i class="bi bi-person"></i>
+                            نبذة</small>
                         <ul class="list-unstyled mb-4 mt-3">
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-user"></i><span
                                     class="fw-semibold mx-2"><i class="fa-solid fa-user-large"></i> الاسم: </span>
@@ -168,13 +224,16 @@
             </div>
             <div class="col-xl-8 col-lg-7 col-md-7">
                 <!-- Activity Timeline -->
-                <div class="card card-action mb-4">
-                    <div class="card-header align-items-center">
-                        <h5 class="card-action-title mb-0"><i class='bx bx-list-ul me-2'></i>ابرز الانشطة </h5>
+                <div class="card card-action mb-4 ">
 
-                    </div>
+                     
                     <div class="card-body">
-                        <ul class="timeline ms-2">
+                        <small class="text-muted text-uppercase  ">
+                            <i class="bi bi-activity"></i>
+                            الانشطة</small>
+
+
+                        <ul class="list-unstyled mt-3 ms-2">
                             <li class="timeline-item timeline-item-transparent">
                                 <span class="timeline-point timeline-point-warning"></span>
                                 <div class="timeline-event">
