@@ -1,19 +1,23 @@
 <template>
-  <v-layout row>
-    <v-flex class="online-users babor" xs3 >
+
+  <v-layout row >
+
+    <v-flex class="online-users" xs2 >
+<h4>اختر شخص من فضلك</h4>
       <v-list>
-          <v-list-item
+
+          <v-list-item class="babor"
             v-for="friend in friends"
             :color="(friend.id==activeFriend)?'green':''"
             :key="friend.id"
             v-on:click="activeFriend=friend.id"
           >
-            <v-list-item-action>
-              <v-icon :color="(onlineFriends.find(user=>user.id===friend.id))?'green':'red'">account_circle</v-icon>
+            <v-list-item-action >
+              <v-icon  :color="(onlineFriends.find(user=>user.id===friend.id))?'green':'red' ">account_circle</v-icon>
             </v-list-item-action>
 
-            <v-list-item-content>
-              <v-list-item-title>{{friend.name}}</v-list-item-title>
+            <v-list-item-content >
+              <v-list-item-title  >{{friend.name}}</v-list-item-title>
             </v-list-item-content>
 
             <!-- <v-list-item-avatar>
@@ -26,11 +30,12 @@
 
     </v-flex>
 
-    <v-flex id="privateMessageBox" class="messages mb-5" xs9>
-        <message-list :user="user" :all-messages="allMessages"></message-list>
+    <v-flex id="privateMessageBox" class="messages mb-5 " xs9>
+        <h4>ادخل رساله</h4>
+        <message-list :user="user" :all-messages="allMessages" class="babor"></message-list>
 
         <div class="float-start">
-            <picker v-if="emoStatus" set="emojione" @select="onInput" title="Pick your emoji…" />
+            <picker v-if="emoStatus" set="emojione" @select="onInput"   title="Pick your emoji…" />
 
         </div>
 
@@ -40,13 +45,13 @@
                 color="grey"
         >
             <v-layout row >
-                <v-flex class="ml-2 text-right" xs1>
+                <v-flex class=" text-right mt-1 ml-2" xs1>
                     <v-btn v-on:click="toggleEmo" fab dark small color="pink">
                         <v-icon>insert_emoticon </v-icon>
                     </v-btn>
                 </v-flex>
 
-                <v-flex xs1 class="text-center">
+                <v-flex xs1 class="text-center ">
                     <file-upload
                             :post-action="'/private-messages/'+activeFriend"
                             ref='upload'
@@ -58,7 +63,7 @@
                     </file-upload>
 
                 </v-flex>
-                <v-flex xs6 >
+                <v-flex xs4 >
                     <v-text-field
                             rows=2
                             v-model="message"
@@ -267,5 +272,6 @@
 }
 .babor{
     color: blueviolet;
+    background-color: rgb(247, 201, 123);
 }
 </style>

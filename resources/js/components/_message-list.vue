@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div >
       <v-list
-              class="p-3"
+              class="p-3 "
               v-for="(message, index) in allMessages"
               :key="index"
       >
@@ -11,7 +11,7 @@
               </v-flex>
 
 
-              <div v-if="message.message" class="text-message-container">
+              <div v-if="message.message" class="text-message-container ">
                   <v-chip :color="(user.id===message.user_id)?'green':'red'" text-color="white"  class="ma-2">
                       {{message.message}}
 
@@ -52,6 +52,9 @@
 .chat-card img {
     max-width: 300px;
     max-height: 200px;
+}
+.babor{
+    background-color: aquamarine;
 }
 
 </style>
