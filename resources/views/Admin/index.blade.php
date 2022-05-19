@@ -229,7 +229,39 @@
     });
   </script>
 
- 
+  <script>
+      var chart = bb.generate({
+        data: {
+          columns: [ 
+            ["المزادات",  {{$auction}}],
+            ["المزايدات", {{$bids}}],
+            ["المستخدمين",{{$user}}],
+            ["الخدمات", {{$service}}],
+            ["الاقسام",{{$category}}],
+            ["الماركات", {{$brands}}],
+            ["السيارات", {{$seris}}],
+            ["رسائل الزوار",{{$messages}}],
+            [" التقييمات", {{$stars}}],
+
+
+          ],
+          type: "donut",
+          onclick: function (d, i) {
+            console.log("onclick", d, i);
+          },
+          onover: function (d, i) {
+            console.log("onover", d, i);
+          },
+          onout: function (d, i) {
+            console.log("onout", d, i);
+          },
+        },
+        donut: {
+          title: "احصائيات الموقع",
+        },
+        bindto: "#donut-chart",
+      });
+    </script>
 </div>
             <!-- End Small Stats Blocks -->
              <!-- End Small Stats Blocks -->
