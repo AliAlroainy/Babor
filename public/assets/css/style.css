@@ -24714,6 +24714,7 @@ dl li {
   /* right: 0;
   left: auto; */
   top: 60px;
+    width: fit-content;
 }
 
 .rtl .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {

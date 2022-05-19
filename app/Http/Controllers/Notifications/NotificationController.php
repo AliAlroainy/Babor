@@ -51,26 +51,52 @@ class NotificationController extends Controller
         );
 
         $notification = new Notification();
-        $user=User::where('id',$auction->auctioneer_id)->first();
-        $notification = Notification::create([
-            'message' => "تمت إضافة مزاد جديد",
-            'user_id' => $user->id ,
-            'state' => 1,
-            'link' => $auction->id,
-            'type'=> 1
-        ]);
-        $brand = $auction->car->brand->name;
-        $series = $auction->car->series->name;
-        $model = $auction->car->model;
-        $info = array('brand'=>$brand,'series'=>$series,'model'=>$model);
-        $data['message'] = implode("," , $info);
-        $data['link'] = $auction->id;
-        $data['price'] = $auction->openingBid;
-        $data['endDate'] = $auction->closeDate;
-        $data['user_id'] = $user->id;
-        $data['type'] = $notification->type;
+        $auctioneer=User::where('id',$auction->auctioneer_id)->first();
+        $users = User::get();
+        foreach ($users as $user) {
+            if($user->id !=$auctioneer->id){
+                $notification = Notification::create([
+                    'message' => "تمت إضافة مزاد جديد",
+                    'user_id' => $user->id ,
+                    'state' => 1,
+                    'link' => $auction->id,
+                    'type'=> 1
+                ]);
 
-        $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
+                $brand = $auction->car->brand->name;
+                $series = $auction->car->series->name;
+                $model = $auction->car->model;
+                $info = array('brand'=>$brand,'series'=>$series,'model'=>$model);
+//              $data['message'] = implode("," , $info);
+                $data['message'] = $notification->message;
+                $data['link'] = $auction->id;
+                $data['price'] = $auction->openingBid;
+                $data['endDate'] = $auction->closeDate;
+                $data['user_id'] = $user->id;
+                $data['type'] = $notification->type;
+
+                if(Auth::id() == $user->id)
+                    $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
+            }else{
+                $notification = new Notification();
+//                $user=User::where('id',$auction->auctioneer_id)->first();
+                $notification = Notification::create([
+                    'message' => "لقد تمت الموافقة على مزادك",
+                    'user_id' => $auctioneer->id ,
+                    'state' => 1,
+                    'link' => $auction->id,
+                    'type'=> 2
+                ]);
+                $data['message'] = $notification->message;
+                $data['link'] = $auction->id;
+                $data['price'] = $auction->openingBid;
+                $data['endDate'] = $auction->closeDate;
+                $data['user_id'] = $user->id;
+
+                $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
+            }
+        }
+
     }
     public function auctionApproved(Auction $auction)
     {
