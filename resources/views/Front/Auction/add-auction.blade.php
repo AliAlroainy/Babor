@@ -81,7 +81,7 @@
                                         class=" col-sm-12 col-md-6 mb-4 d-flex flex-column justify-content-center align-items-start h-100">
                                         <p >
                                             <i class="bi bi-cash-coin" style="color: #F7941D "></i>
-                                            السعر الابتدائي:</p>
+                                             السعر الابتدائي للمزاد:</p>
 
                                             <input type="text" name="openingBid"
                                                 value="{{ old('openingBid', $car->openingBid ?? null) }}"
@@ -165,7 +165,7 @@
                                         <div
                                             class="col-sm-12 col-md-6 col-lg-3 mb-4 d-flex flex-column justify-content-center align-items-start">
                                             <p>
-                                                
+                                                <i class="bi bi-x-diamond" style="color: #F7941D"></i>
                                                 المودل:</p>
 
                                             <input type="text" class="bg-transparent input dark-placeholder form-control"
@@ -195,7 +195,7 @@
 
                                         <div class="col-12 col-md-3 mb-4 d-flex flex-column justify-content-center align-items-start">
                                             <p>
-                                                <i class="bi bi-wrench-adjustable-circle" style="color: #F7941D"></i>
+                                                <i class="bi bi-tools" style="color: #F7941D"></i>
                                                 حجم الضرر:</p>
 
                                             <select id="sizOfDamage" name="sizOfDamage"
@@ -222,29 +222,31 @@
 
                                         <br>
                                         <div
-                                            class="col-12 col-md-3 mb-4 gap-2 d-flex flex-column  justify-content-center align-items-start ">
+                                            class="col-12 col-md-3 mb-4  d-flex flex-column  justify-content-center align-items-start " style="height: 100px">
                                             
-                                            <p >
+                                            <p class="mb-0">
                                                 <i class="bi bi-server" style="color: #F7941D"></i>
                                                 حالة السيارة:</p>
                                             </p>
-                                            <div class="d-flex align-items-end gap-2 input select">
+                                            <div class="d-flex gap-3 align-items-end alert alert-warning input select mt-0">
                                                 <div class="form-check d-flex justify-content-center align-items-center ">
                                                     <input type="radio" name="status" id="used" value="0">
-                                                    <label class="form-check-label m-auto" for="used">
+                                                    <label class="form-check-label me-2" for="used">
                                                         {{ App\Models\Car::getStatus('0') }}
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex justify-content-center align-items-center">
                                                     <input type="radio" name="status" id="new" value="1">
-                                                    <label class="form-check-label m-auto" for="new">
+                                                    <label class="form-check-label me-2" for="new">
                                                         {{ App\Models\Car::getStatus('1') }}
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div> صور السيارة </div>
+                                        <div class="w-100 d-flex align-items-end mb-3">
+                                            <i class="bi bi-images ms-2" style="color: #F7941D"></i>
+                                            صور السيارة: </div>
 
                                         <div
                                             class="col-md-12 col-lg-6 mb-4 d-flex justify-content-center align-items-center flex-column ">
@@ -254,18 +256,27 @@
                                         </div>
                                         <div
                                             class="col-md-12 col-lg-6 mb-4 d-flex justify-content-center flex-column align-items-center">
-                                            <label class="label image w-100 border-0">صور السيارة</label>
+                                            <label class="label image w-100 ">صور السيارة</label>
                                             <input type="file" name="car_images[]" class="dropify" multiple>
                                         </div>
-                                        {{-- <div class="col-12 w-100  mb-4 d-flex justify-content-center align-items-center">
-                                            <textarea type="text"  class="bg-transparent dark-placeholder form-control myTextarea" row="20" name="description"
-                                                placeholder="وصف السيارة"
-                                                {{ old('description', $car->description ?? null) }}></textarea>
-                                        </div> --}}
-                                    </div>
-                                    <input type="submit" class="btn btn-warning w-auto fw-bold" value="حفظ" />
-                                    <input type="reset" class="btn btn-dark w-auto fw-bold" value="الغاء" />
+                                       
+                                        <div class="w-100 d-flex align-items-end mb-3">
+                                            <i class="bi bi-journal-text ms-2" style="color: #F7941D"></i>
+                                        تفاصيل اضافية عن السيارة: </div>
 
+                                        <div
+                                       
+                                        <div class="col-12 w-100  mb-4 d-flex justify-content-center align-items-center">
+                                            <textarea type="text"  class="bg-transparent dark-placeholder form-control myTextarea" row="20" name="description"
+                                                placeholder="وصف السيارة" dir="rtl"
+                                                {{ old('description', $car->description ?? null) }}></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex">
+                                    <input type="submit" class="btn btn-warning w-75 fw-bold ms-2" value="اضافة الى المزاد" />
+                                    <input type="reset" class="btn btn-dark w-25 fw-bold" value="الغاء" />
+                                    </div>
                                 </div>
                             </form>
                         </div>

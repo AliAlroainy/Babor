@@ -2,7 +2,28 @@
 @include('partials.navbar');
 @include('partials.userSidebar')
 
+{{-- style --}}
+@include('Front.user.style.style')
+
 <div class="main-panel">
+
+    <div class="row m-2 ">
+
+        <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+            <div class="cardp d-flex align-items-center justify-content-center">
+                <div class="card-body d-flex  align-items-center justify-content-center">
+
+                    <h1 style="margin-top:-40px">
+                        <i class=" mdi mdi-settings menu-icon  me-3 ms-3"></i>
+                        الاعدادات
+                    </h1>
+    
+                 
+                </div>
+            </div>
+        </div>
+    
+    </div>
     <div class="content-wrapper">
         @if (session()->has('successRegistration'))
             <div class="alert alert-dismissible alert-success fade show" role="alert">
