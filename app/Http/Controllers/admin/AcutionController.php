@@ -68,7 +68,7 @@ class AcutionController extends Controller
             $auction->update(['status' => '2', 'startDate' => now()]);
 
         $notify->newAuctionNotification($found);
-        $notify->auctionApproved($found);
+//        $notify->auctionApproved($found);
 
         }
 
