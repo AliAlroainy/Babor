@@ -73,7 +73,7 @@
                                                         </div>
                                                         <div class="mt-3 col-sm-5">
                                                             <p>
-                                                                <i class="fas fa-hourglass-start"></i>
+                                                                <i class="bi bi-hourglass-bottom"></i>
                                                                 <span class="fw-bold">تاريخ الإنتهاء</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">
@@ -328,7 +328,7 @@
                                                         </div>
                                                         <div class="mt-3 col-sm-5">
                                                             <p>
-                                                                <i class="fas fa-hourglass-start"></i>
+                                                                <i class="bi bi-hourglass-bottom"></i>
                                                                 <span class="fw-bold">تاريخ الإنتهاء</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">
@@ -458,7 +458,7 @@
                                                         </div>
                                                         <div class="mt-3 col-sm-5">
                                                             <p>
-                                                                <i class="fas fa-hourglass-start"></i>
+                                                                <i class="bi bi-hourglass-bottom"></i>
                                                                 <span class="fw-bold">تاريخ الإنتهاء</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">
@@ -641,7 +641,7 @@
                                                         </div>
                                                         <div class="mt-3 col-sm-5">
                                                             <p>
-                                                                <i class="fas fa-hourglass-start"></i>
+                                                                <i class="bi bi-hourglass-bottom"></i>
                                                                 <span class="fw-bold">تاريخ الإنتهاء</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">
@@ -769,7 +769,7 @@
                                                         </div>
                                                         <div class="mt-3 col-sm-5">
                                                             <p>
-                                                                <i class="fas fa-hourglass-start"></i>
+                                                                <i class="bi bi-hourglass-bottom"></i>
                                                                 <span class="fw-bold">تاريخ الإنتهاء</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">
@@ -853,7 +853,7 @@
                                                         </div>
                                                         <div class="mt-3 col-sm-5">
                                                             <p>
-                                                                <i class="fas fa-hourglass-start"></i>
+                                                                <i class="bi bi-hourglass-bottom"></i>
                                                                 <span class="fw-bold">تاريخ الإنتهاء</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">

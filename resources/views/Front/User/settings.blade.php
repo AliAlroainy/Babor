@@ -47,6 +47,7 @@
                                     id="{{ route('user.dashboard') }}-tab" href="{{ route('user.dashboard') }}"
                                     role="tab">
                                     <div class="card-body">
+                                        <i class="bi bi-person-workspace ms-2"></i>
                                         تعديل البيانات الشخصية
                                     </div>
                                 </a>
@@ -54,6 +55,7 @@
                                     id="{{ route('change-password-user') }}-tab"
                                     href="{{ route('change-password-user') }}" role="tab">
                                     <div class="card-body">
+                                        <i class="bi bi-key ms-2"></i>
                                         تغيير كلمة السر
                                     </div>
                                 </a>
@@ -67,8 +69,8 @@
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade {{ request()->is('user/dashboard/settings/info') ? 'show active' : null }}"
                     id="{{ route('user.dashboard') }}" role="tabpanel" aria-labelledby="info-tab">
-                    <div class="col-md-8 m-auto mt-2">
-                        <div class="card">
+                    <div class="col-md-12  mt-2">
+                        <div class="card w-100">
                             <div class="card-body">
                                 @if (session()->has('successEdit'))
                                     <div class="alert alert-dismissible alert-success fade show" role="alert">
@@ -85,7 +87,9 @@
                                     @csrf
                                     <div class="form-group d-flex justify-content-between">
                                         <div class="col-sm-7">
-                                            <label for="name" class="text-muted">الاسم الكامل</label>
+                                            <label for="name" class="text-muted">
+                                                <i class="bi bi-person-bounding-box ms-1" style="color: #F7941D "></i>
+                                                الاسم الكامل:</label>
                                             <input type="text" class="form-control" id="name" name="name"
                                                 value="{{ $user->name ?? '' }}" placeholder="الاسم كاملا">
                                             @error('name')
@@ -93,7 +97,9 @@
                                             @enderror
                                         </div>
                                         <div class="col-sm-4">
-                                            <label for="username" class="text-muted">اسم المستخدم</label>
+                                            <label for="username" class="text-muted">
+                                                <i class="bi bi-person-video3 ms-1" style="color: #F7941D "></i>
+                                                اسم المستخدم:</label>
                                             <input type="text" class="form-control" id="username" name="username"
                                                 value="{{ old('username') }}{{ $user->profile->username ?? '' }}"
                                                 placeholder="اسم المستخدم">
@@ -104,7 +110,9 @@
                                     </div>
                                     <div class="form-group d-flex justify-content-between">
                                         <div class="col-sm-4">
-                                            <label for="job" class="text-muted">الوظيفة</label>
+                                            <label for="job" class="text-muted">
+                                                <i class="bi bi-briefcase ms-1" style="color: #F7941D"></i>
+                                                الوظيفة:</label>
                                             <input type="text" class="form-control" id="job" name="job"
                                                 value="{{ old('job') }} {{ $user->profile->job ?? '' }}"
                                                 placeholder="مندوب مبيعات">
@@ -113,7 +121,9 @@
                                             @enderror
                                         </div>
                                         <div class="col-sm-4">
-                                            <label for="phone" class="text-muted">رقم الهاتف</label>
+                                            <label for="phone" class="text-muted">
+                                                <i class="bi bi-phone ms-1" style="color: #F7941D"></i>
+                                                رقم الهاتف:</label>
                                             <input type="text" class="form-control" id="phone" name="phone"
                                                 value="{{ old('phone') }} {{ $user->profile->phone ?? '' }}"
                                                 placeholder="رقم الهاتف">
@@ -122,7 +132,9 @@
                                             @enderror
                                         </div>
                                         <div class="col-sm-4">
-                                            <label for="city" class="text-muted">المدينة</label>
+                                            <label for="city" class="text-muted">
+                                                <i class="bi bi-geo-alt ms-1" style="color: #F7941D"></i>
+                                                المدينة:</label>
                                             <input type="text" class="form-control" id="city" name="city"
                                                 value="{{ old('city') }} {{ $user->profile->city ?? '' }}"
                                                 placeholder="رقم الهاتف">
@@ -131,22 +143,35 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="bio" class="text-muted myTextarea">نبذة عني</label>
+
+                                    <div class="d-flex">
+                                        <i class="bi bi-award ms-1" style="color: #F7941D"></i>
+
+                                        <label  class="text-muted ">
+                                            نبذة عني:</label>
+                                    </div>
+                                <div class="form-group">
+                                        <label for="bio" class="text-muted myTextarea">
+                                            نبذة عني:</label>
                                         <textarea class="form-control" rows="4" name="bio">{{ old('bio') }} {{ $user->profile->bio ?? '' }}</textarea>
                                         @error('bio')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="address" class="text-muted">العنوان</label>
+                                        <label for="address" class="text-muted">
+                                            <i class="bi bi-geo ms-1" style="color: #F7941D"></i>
+                                            العنوان:</label>
                                         <textarea class="form-control" id="address" rows="4" name="address">
                                             {{ old('address') }} {{ $user->profile->address ?? '' }}</textarea>
                                         @error('address')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
-                                    <button type="submit" class="btn btn-warning text-white me-2">حفظ</button>
+                                    <div class="d-flex gap-1">
+                                    <button type="submit" class="btn  text-white me-2" style="background-color: #F7941D">حفظ</button>
+                                    <button type="reset" class="btn btn-dark text-white me-2">الغاء</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -172,47 +197,46 @@
                                                 aria-label="Close"></button>
                                         </div>
                                     @endif
-                                    <h3><i class="fa fa-lock fa-2x my-3"></i></h3>
-                                    <h2 class="text-center">تغيير كلمة المرور</h2>
+                                    <h3><i class="bi bi-lock my-3" style="color: #F7941D; font-size: 4em"></i></h3>
+                                    <h2 class="text-center text-muted">تغيير كلمة المرور</h2>
                                     <div class="panel-body my-5">
                                         <form id="register-form" action="{{ route('update-password-user') }}"
                                             autocomplete="off" class="form" method="POST">
                                             @csrf
-                                            <div class="input-group mt-3">
-                                                <span class="input-group-text" id="basic-addon1"><i
-                                                        class="fa-solid fa-lock"></i></span>
+                                            <div class=" d-flex flex-column align-items-start mt-3">
+                                                <p> كلمة المرور القديمة: </p>
                                                 <input type="password" name="old_password" class="form-control"
-                                                    placeholder="كلمة المرور القديمة">
+                                                    placeholder="******">
                                                 @error('old_password')
                                                     <p class="text-danger">
                                                         {{ $message }}
                                                     </p>
                                                 @enderror
                                             </div>
-                                            <div class="input-group mt-3">
-                                                <span class="input-group-text" id="basic-addon1"><i
-                                                        class="fa-solid fa-lock"></i></span>
+                                            <div class="d-flex flex-column align-items-start mt-3">
+                                                <p> كلمة المرور الجديدة: </p>
+
                                                 <input type="password" name="new_password"
                                                     class="form-control @error('new_password') is-invalid @enderror"
-                                                    placeholder="كلمة المرور الجديدة">
+                                                    placeholder="*******">
                                             </div>
                                             @error('new_password')
                                                 <p class="text-danger">
                                                     {{ $message }}</p>
                                             @enderror
-                                            <div class="input-group my-3">
-                                                <span class="input-group-text" id="basic-addon1"><i
-                                                        class="fa-solid fa-lock"></i></span>
+                                            <div class="d-flex flex-column align-items-start mt-3 mb-3">
+                                                <p> تاكيد كلمة المرور: </p>
+
                                                 <input type="password" name="confirm_new_password"
                                                     class="form-control @error('confirm_new_password') is-invalid @enderror"
-                                                    placeholder="تاكيد كلمة المرور الجديدة">
+                                                    placeholder="*******">
                                             </div>
                                             @error('confirm_new_password')
                                                 <p class="text-danger">
                                                     {{ $message }}</p>
                                             @enderror
-                                            <input name="recover-submit"
-                                                class="btn btn-sm px-5 py-2 btn-warning text-white btn-block"
+                                            <input name="recover-submit mt-3"
+                                                class="btn btn-sm px-5 py-2  text-white " style="background-color: #F7941D"
                                                 value="تغيير " type="submit">
                                         </form>
 
