@@ -218,15 +218,41 @@
                                     <ul class="shopping-list mb-0" id="shopping-list" style="padding-inline-end: 0">
 
                                         @foreach( \App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
-                                        <li>
-                                            <a href="/notifications/disable/{{$notification->id}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                            <a href="auction/{{$notification->link}}$">
-{{--                                                <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>--}}
-                                                <div class="quantity text-dark">
-                                                    <h4 class="fw-bold"> {{$notification->message}}</h4>
-                                                </div>
-                                            </a>
-                                        </li>
+
+                                            @if($notification->type == 1)
+
+                                                <li>
+                                                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                                    <a href="auction/${data.link}">
+                                                        <span class="cart-img" ><img src="images/cars/{{$notification->thumbnail}}" alt="#"></span>
+                                                        <div class="quantity text-dark">
+                                                            <h4 class="fw-bold"> {{$notification->message}}</h4>
+                                                            <span class="amount">$ {{$notification->price}}</span>
+                                                            <p class="d-block mb-0">ينتهي بتاريخ {{$notification->closeDate}}</p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            @elseif($notification->type == 3)
+                                                <li>
+                                                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                                    <a href="user/auction/details/{{$notification->link}}">
+                                                        <div class="quantity text-dark">
+                                                            <h4 class="fw-bold mb-0"> {{$notification->link}}</h4>
+                                                            <p class="m-0">إضغط لمعرفة السبب</p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                @else
+                                                <li>
+                                                    <a href="/notifications/disable/{{$notification->id}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                                    <a href="auction/{{$notification->link}}$">
+        {{--                                                <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>--}}
+                                                        <div class="quantity text-dark">
+                                                            <h4 class="fw-bold"> {{$notification->message}}</h4>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            @endif
                                         @endforeach
                                     </ul>
 {{--                                    <div class="bottom"><a class="nav-link" href="#">عرض الكل </a> </div>--}}
