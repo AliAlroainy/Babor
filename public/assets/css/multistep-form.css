@@ -49,9 +49,13 @@
 
 .msform input.form-control:not([type=file]) {
     padding-block: 0.65rem;
+    
 }
 
-.msform input:focus,
+.msform input:focus{
+    border: none;
+    border-bottom: #f79522 solid 1px;
+}
 .msform textarea:focus {
     /*-moz-box-shadow: none !important;*/
     /*-webkit-box-shadow: none !important;*/
@@ -121,7 +125,7 @@ select.list-dt:focus {
 .fs-title {
     font-size: 1.3rem;
     color: #2C3E50;
-    margin-bottom: 10px;
+    margin-bottom: 33px;
     font-weight: bold;
     text-align: left
 }
