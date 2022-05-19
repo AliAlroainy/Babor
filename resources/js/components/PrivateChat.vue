@@ -1,6 +1,6 @@
 <template>
   <v-layout row>
-    <v-flex class="online-users" xs3>
+    <v-flex class="online-users babor" xs3 >
       <v-list>
           <v-list-item
             v-for="friend in friends"

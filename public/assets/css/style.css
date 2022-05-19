@@ -24252,7 +24252,7 @@ dl li {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   padding: 0;
-  width: 257px;
+  width: 290px;
   z-index: 11;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
@@ -24263,6 +24263,7 @@ dl li {
   -moz-box-shadow: none;
   -ms-box-shadow: none;
   border-right: 1px solid #e3e3e3;
+  border-radius: 10px;
 }
 
 .sidebar .nav {
@@ -24714,6 +24715,7 @@ dl li {
   /* right: 0;
   left: auto; */
   top: 60px;
+    width: fit-content;
 }
 
 .rtl .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {

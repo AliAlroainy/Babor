@@ -372,38 +372,6 @@
                                                                 </div>
                                                             </li>
                                                         @endforeach
-                                                        <li>
-                                                            <div class="review-heading">
-                                                                <h5 class="name">ريم الشاذلي</h5>
-                                                                <p class="date">27 DEC 2018, 8:0 PM</p>
-                                                                <div class="review-rating">
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star-o empty"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="review-body">
-                                                                <p>حلااااااوة ذي السيارة </p>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="review-heading">
-                                                                <h5 class="name">حمد بكيل</h5>
-                                                                <p class="date">27 DEC 2018, 8:0 PM</p>
-                                                                <div class="review-rating">
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star-o empty"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="review-body">
-                                                                <p>ي عيني ذي سيارة والا طيارة</p>
-                                                            </div>
-                                                        </li>
                                                     </ul>
 
                                                 </div>

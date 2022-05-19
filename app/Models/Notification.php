@@ -17,6 +17,9 @@ class Notification extends Model
         'message',
         'link',
         'type',
+        'price',
+        'closeDate',
+        'thumbnail'
     ];
 
 
