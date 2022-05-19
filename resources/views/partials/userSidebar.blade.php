@@ -1,7 +1,7 @@
 <div class="container-fluid page-body-wrapper">
     <!-- partial:'assets/partials/_sidebar.html -->
     <nav class="sidebar sidebar-offcanvas" style="" id="sidebar">
-        <ul class="nav" style="padding-inline: 0">
+        <ul class="nav " style="padding-inline: 0">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('user.profile') }}">
                     <i class="fa-solid fa-user menu-icon ms-3 "></i>
@@ -16,10 +16,10 @@
                     <span class="menu-title fw-bold" style="font-family: Tajawal">المزادات</span>
                     <i class="menu-arrow"></i>
                 </a>
-                <div class="collapse" id="ui-basic">
-                    <ul class="nav flex-column sub-menu">
+                <div class="collapse" id="ui-basic" >
+                    <ul class="nav flex-column sub-menu  " style="list-style: none">
 
-                        <li class="nav-item me-5">
+                        <li class=" me-5 ">
                             <a class="nav-link" href="{{ route('user.add.auction') }}"
                                 style="font-family: Tajawal">
                                 إضافة مزاد
@@ -27,51 +27,67 @@
                         </li>
 
 
-                        <li class="nav-item me-5">
+                        <li class="me-5">
                             <a class="nav-link" data-bs-toggle="collapse" href="#show-auctions"
                                 aria-expanded="false" aria-controls="show-auctions">
                                 <span class="menu-title fw-bold" style="font-family: Tajawal; "> تفاصيل المزادات</span>
                                 <i class="menu-arrow"></i>
                             </a>
                             <div class="collapse" id="show-auctions">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item me-5">
+                                <ol class="list-unstyled nav flex-column sub-menu">
+                                    <li class=" me-5" >
+
                                         <a class="nav-link" href="{{ route('user.show.progress.auction') }}"
                                             style="font-family: Tajawal">
+                                            <i class="bi bi-activity ms-2"></i>
+
                                             الجارية
                                         </a>
                                     </li>
-                                    <li class="nav-item me-5">
+                             
+                                    <li class=" me-5">
+                                        <a class="nav-link" href="{{ route('user.show.uncompleted.auction') }}"
+                                            style="font-family: Tajawal">
+                                            <i class="bi bi-pen ms-2"></i>
+                                              بانتظار اتمام البيع  
+                                        </a>
+                                    </li>
+
+                                 
+
+                                    <li class=" me-5">
+                                        <a class="nav-link" href="{{ route('user.show.pending.auction') }}"
+                                            style="font-family: Tajawal">
+                                            <i class="bi bi-hourglass-split ms-1"></i>
+                                             بانتظار موفقه المسؤول
+                                        </a>
+                                    </li>
+
+                                    <li class=" me-5">
                                         <a class="nav-link" href="{{ route('user.show.completed.auction') }}"
                                             style="font-family: Tajawal">
+                                            <i class="bi bi-check2-all ms-2"></i>
                                             المكتملة
                                         </a>
                                     </li>
-                                    <li class="nav-item me-5">
-                                        <a class="nav-link" href="{{ route('user.show.uncompleted.auction') }}"
-                                            style="font-family: Tajawal">
-                                            الغير المكتملة
-                                        </a>
-                                    </li>
-                                    <li class="nav-item me-5">
-                                        <a class="nav-link" href="{{ route('user.show.pending.auction') }}"
-                                            style="font-family: Tajawal">
-                                            في انتظار المسؤول
-                                        </a>
-                                    </li>
-                                    <li class="nav-item me-5">
+
+                                    <li class=" me-5">
                                         <a class="nav-link" href="{{ route('user.show.disapproved.auction') }}"
                                             style="font-family: Tajawal">
+                                            <i class="bi bi-archive ms-2"></i>
                                             المرفوضة
                                         </a>
                                     </li>
-                                    <li class="nav-item me-5">
+
+                                  
+                                    <li class=" me-5">
                                         <a class="nav-link" href="{{ route('user.show.canceled.auction') }}"
                                             style="font-family: Tajawal">
+                                            <i class="bi bi-trash3 ms-2"></i>
                                             الملغية
                                         </a>
                                     </li>
-                                </ul>
+                                </ol>
                             </div>
                         </li>
 
