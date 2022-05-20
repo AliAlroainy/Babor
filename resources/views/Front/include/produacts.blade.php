@@ -29,10 +29,11 @@
                          <!-- Start cars Single Tab -->
                          <div class="tab-pane fade show active" id="cars" role="tabpanel">
                              <div class="tab-single">
-                                 <div class="row " id="list">
+                                 
+                                 <div class="row " id="list" class="">
                                      @foreach ($last_cars as $auction)
                                          @if ($auction->car != null)
-                                             <div class="cars col-xl-3 col-lg-4 col-md-4 col-12">
+                                             <div class="cars col-xl-3 col-lg-4 col-md-4 col-12 ">
                                                  <div class="single-product">
                                                      <div class="product-img">
                                                          <a href="{{ route('site.auction.details', $auction->id) }}">
