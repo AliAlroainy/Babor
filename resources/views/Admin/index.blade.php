@@ -46,8 +46,10 @@
                   
                 <div class="card-body cardp d-flex align-items-center justify-content-center  " >
                     <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
-                      <div class="stats-small__data text-center mt-2">
-                        <span class=" text-uppercase  " style="font-size:30px">المزادات</span>
+                      <div class="stats-small__data text-center d-flex flex-column mt-2">
+                        <i class="mdi mdi-car menu-icon mb-2 " style="font-size:30px"></i>
+
+                        <span class=" text-uppercase  " style="font-size:20px">المزادات</span>
                         <h2 class="stats-small__value count my-3"style="font-size:40px">{{$auction}}</h2>
                       </div>
                       <div class="stats-small__data">
@@ -66,8 +68,10 @@
                   
                 <div class=" card-body cardp d-flex align-items-center justify-content-center" >
                   <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
-                    <div class="stats-small__data text-center mt-2">
-                        <span class=" text-uppercase "  style="font-size:30px" >المزايدات</span>
+                    <div class="stats-small__data text-center d-flex flex-column mt-2">
+                      <i class="bi bi-cash-coin  mb-2 " style="font-size:30px"></i>
+
+                        <span class=" text-uppercase "  style="font-size:20px" >المزايدات</span>
                         <h2 class="stats-small__value count my-3"style="font-size:30px">{{$bids}}</h2>
                       </div>
                       <div class="stats-small__data">
@@ -87,8 +91,9 @@
 
             <div class=" card-body cardp d-flex align-items-center justify-content-center" >
               <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
-                <div class="stats-small__data text-center mt-2">
-                        <span class="stats-small__label text-uppercase"style="font-size:30px">الخدمات</span>
+                <div class="stats-small__data text-center mt-2 d-flex flex-column">
+                  <i class="bi bi-inboxes-fill menu-icon  mb-2 " style="font-size:30px"></i>
+                        <span class="stats-small__label text-uppercase"style="font-size:20px">الخدمات</span>
                         <h2 class="stats-small__value count my-3" style="font-size:30px">{{$service}}</h2>
                       </div>
                       <div class="stats-small__data">
@@ -143,8 +148,9 @@
                 <div class="stats-small stats-small--1 card card-small">
                   <div class=" card-body cardp d-flex align-items-center justify-content-center" >
                     <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
-                      <div class="stats-small__data mt-2">
-                        <span class="stats-small__label text-uppercase " style="font-size:30px">المستخدمين</span>
+                      <div class="stats-small__data mt-2 d-flex flex-column">
+                        <i class="bi bi-person-bounding-box mb-2 text-center" style="font-size:30px"></i>
+                        <span class="stats-small__label text-uppercase " style="font-size:20px">المستخدمين</span>
                         <h2 class="stats-small__value count my-3 text-center" style="font-size:30px">{{$user}}</h2>
                       </div>
                       <div class="stats-small__data">
@@ -160,8 +166,9 @@
                 <div class="stats-small stats-small--1 card ">
                   <div class=" card-body cardp d-flex align-items-center justify-content-center" >
                     <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
-                      <div class="stats-small__data mt-2">
-                        <span class="stats-small__label text-uppercase " style="font-size: 30px">الاقسام</span>
+                      <div class="stats-small__data mt-2 d-flex flex-column">
+                        <i class="fa-solid fa-qrcode menu-icon mb-2 text-center " style="font-size: 30px"></i>
+                        <span class="stats-small__label text-uppercase " style="font-size: 20px">الاقسام</span>
                         <h6 class="stats-small__value text-center count my-3"style="font-size:30px">{{$category}}</h6>
                       </div>
                       <div class="stats-small__data">
