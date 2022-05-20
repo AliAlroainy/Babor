@@ -4,7 +4,7 @@
 </div>
 <footer class="footer text-center">
     <span class="text-muted d-block d-sm-inline-block" style="font-family: Tajawal">جميع الحقوق محفوضة لدى © <a href=""
-            target="_blank"> Babor
+            target="/"> Babor
         </a>2022</span>
 </footer>
 <!-- page-body-wrapper ends -->
