@@ -30,42 +30,42 @@
 <thead>
 <tr class="border-bottom">
 <th>
-  <span class="ml-2 d-flex flex-column ">
-    <i class="bi bi-calendar-date mb-2" style="color: #F7941D"></i> 
+  <span class="ml-2 d-flex flex-column text-muted ">
+    <i class="bi bi-calendar-date mb-2 " style="color: #F7941D"></i> 
     التاريخ</span>
 </th>
 <th>
-  <span class="ml-2 d-flex flex-column">
+  <span class="ml-2 d-flex flex-column text-muted">
     <i class="bi bi-file-person mb-2" style="color: #F7941D"></i>
     المشتري</span>
 </th>
 <th>
-  <span class="ml-2 d-flex flex-column">
+  <span class="ml-2 d-flex flex-column text-muted">
     <i class="bi bi-person-badge mb-2" style="color: #F7941D"></i>
     البائع</span>
 </th>
 <th>
-  <span class="ml-2 d-flex flex-column">
+  <span class="ml-2 d-flex flex-column text-muted">
     <i class="bi bi-geo-alt mb-2" style="color: #F7941D"></i>
     الموقع</span>
 </th>
 <th>
-    <span class="ml-2 d-flex flex-column">
+    <span class="ml-2 d-flex flex-column text-muted">
         <i class="bi bi-coin mb-2" style="color: #F7941D"></i>
         السعر</span>
   </th>
 <th>
-  <span class="ml-2  d-flex flex-column">
+  <span class="ml-2  d-flex flex-column text-muted">
     <i class="bi bi-app-indicator mb-2" style="color: #F7941D"></i>
     الحالة</span>
 </th>
 <th>
-    <span class="ml-2 d-flex flex-column">
+    <span class="ml-2 d-flex flex-column text-muted">
         <i class="bi bi-hand-index  mb-2" style="color: #F7941D"></i>
         اجراء</span>
   </th>
   <th>
-    <span class="ml-2 d-flex flex-column">
+    <span class="ml-2 d-flex flex-column text-muted">
         <i class="bi bi-window mb-2" style="color: #F7941D"></i>
         التفاصيل</span>
   </th>
