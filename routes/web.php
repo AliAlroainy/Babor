@@ -208,6 +208,11 @@ Route::get('/admin',function () {
     return view('Admin.index');
 });
 
+Route::get('/admin/wallet',function () {
+    return view('Admin.wallet.wallet');
+});
+
+
 Route::get('/wallet', function (){
     $admin = User::find(1);
     $auctioneer_abrar = User::find(2);

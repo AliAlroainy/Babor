@@ -1,5 +1,9 @@
-@extends('partials.usermaster')
+@extends('partials.master')
 @section('body')
+
+{{-- style --}}
+@include('Front.user.style.style')
+
     <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper">
@@ -11,7 +15,7 @@
                         <div class="card-body d-flex align-items-center justify-content-center">
                             <h1 class="card-title">
                                 <i class="bi bi-cash-stack"></i>
-                                المحفظة</h1>
+                                الرصيد</h1>
 
                          
                         </div>
