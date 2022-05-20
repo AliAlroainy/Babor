@@ -1,10 +1,35 @@
 @extends('partials.master')
 @section('body')
+
+{{-- style --}}
+@include('Front.user.style.style')
+
+
     <!-- partial -->
 
     <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper" style="position: relative">
+
+            <div class="row ">
+
+                <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+                    <div class="cardp d-flex align-items-center justify-content-center">
+                        <div class="card-body d-flex align-items-center justify-content-center">
+                            <h1 class="card-title">
+                                <i class="bi bi-truck ms-2"></i>
+                                ادارة الماركات</h1>
+
+                         
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
             <div class="row">
 
                 <div class="col-lg-12 grid-margin stretch-card">
@@ -164,7 +189,7 @@
 
             </div>
             <button type="button" data-bs-target="#addModal" data-bs-toggle="modal"
-                class="btn  btn-rounded btn-icon add"  style="background:#f79827;margin-top:-20px;margin-left:8%">
+                class="btn  btn-rounded btn-icon add"  style="background:#f79827;margin-top:200px;margin-left:8%">
                 <i class="mdi mdi-plus text-white"></i>
             </button>
         </div>

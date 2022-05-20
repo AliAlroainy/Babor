@@ -33,7 +33,8 @@
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/fonts/dropify.svg">
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/fonts/dropify.ttf">
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/fonts/dropify.woff">
-    <!-- inject:css --> --}}
+    <!-- inject:css --> 
+    <br/>
     <link rel="stylesheet" href="{{ @asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ @asset('assets/css/styles.css') }}">
     <link rel="stylesheet" href="{{ @asset('assets/css/multistep-form.css') }}">

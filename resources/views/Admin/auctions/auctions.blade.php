@@ -1,11 +1,34 @@
 @extends('partials.master')
 
 @section('body')
+{{-- style --}}
+@include('Front.user.style.style')
+
+
     <!-- partial -->
    
     <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper" style="position: relative">
+
+            
+            <div class="row ">
+
+                <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+                    <div class="cardp d-flex align-items-center justify-content-center">
+                        <div class="card-body d-flex align-items-center justify-content-center">
+                            <h1 class="card-title">
+                                <i class="bi bi-truck-flatbed ms-2"></i>
+                                 المزادات</h1>
+
+                         
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
             <div class="row">
 
                 <div class="col-lg-12 grid-margin stretch-card">
