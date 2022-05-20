@@ -337,12 +337,7 @@
                     <div class="col-lg-8 col-md-7 col-12">
                         <div class="search-bar-top">
                             <div class="search-bar">
-                                <select>
-                                    <option selected="selected" style="font-family: Tajawal">كل الانواع</option>
-                                    <option>دايوها</option>
-                                    <option>سنتافي</option>
-                                    <option>تكاسي</option>
-                                </select>
+                               
                                 <form>
                                     <input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث"  onkeyup="search_cars()" type="text"
               name="search" id="searchbar">
