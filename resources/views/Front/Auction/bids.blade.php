@@ -32,18 +32,9 @@
                         <div class="card-body">
                             <div class="col-lg-12 col-md-7 col-12 " style="direction:ltr ;margin: right 0px;">
                                 <div class="search-bar-top">
-                                    <div class="search-bar">
-                                        <h4 class="card-title">عرض بحسب</h4>
-                                        <select>
-                                            <option selected="selected"> الكل</option>
-                                            <option>اسم البائع</option>
-                                            <option>تاريخ الانتهاء</option>
-                                            <option> سعر المزايدة</option>
-                                        </select>
-                                    </div>
+                                   
                                 </div>
                             </div>
-                            <h4 class="card-title">عرض  المزايدات</h4>
                             @if (session()->has('notFound'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     {{ session()->get('notFound') }}
