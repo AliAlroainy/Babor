@@ -38,11 +38,13 @@
                     <ul class="nav flex-column sub-menu">
                         <li class=" me-5">
                             <a class="nav-link" href="{{ route('admin.brand.index') }}" target="_self" style="font-family: Tajawal">
+                                <i class="bi bi-truck ms-2"></i>
                                 الماركات
                             </a>
                         </li>
-                        <li class=" me-5">
+                        <li class=" me-5 ">
                             <a class="nav-link" href="{{ route('admin.series.index') }}" style="font-family: Tajawal">
+                                <i class="bi bi-speedometer2 ms-2"></i>
                                 الانواع
                             </a>
                         </li>
