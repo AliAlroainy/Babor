@@ -71,7 +71,7 @@
 
     border-bottom-left-radius:5%;
     border-bottom-right-radius: 5%;
-    border-top-right-radius: 5%;
+    border-top-left-radius: 5%;
 }
 .user{
 color:#f79622;

@@ -277,6 +277,7 @@
     background-image: linear-gradient(to top right,#a98f71, #f3a547);
     border-radius: 9px;
     margin-top: 2%;
+   
 }
 .fontcolor{
 color:#594327;
