@@ -474,117 +474,46 @@
         <div class="row">
             <div class="col-12">
                 <div class="owl-carousel popular-slider">
-                    <!-- Start Single Product -->
-                    <div class="single-product">
-                        <div class="product-img">
-                            <a href="/details">
-                                <img class="default-img" src="img/c1.jpg" alt="#">
-                                <img class="hover-img" src="img/c1.jpg" alt="#">
-                                <span class="out-of-stock">Hot</span>
-                            </a>
-                            <div class="button-head">
-                                <div class="product-action">
-                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
-                                            class=" ti-eye"></i><span>عرض سريع</span></a>
-                                    <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>اضافة
-                                            للمفضلة</span></a>
+                    @forelse ($similars as $item)
+                        @if ($item->car != null)
+                            <!-- Start Single Product -->
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <a href="{{ route('site.auction.details', $item->id) }}">
+                                        <img class="default-img" src="/images/cars/{{ $item->car->thumbnail }}"
+                                            alt="car img">
+                                        <span class="out-of-stock">Hot</span>
+                                    </a>
+                                    <div class="button-head">
+                                        <div class="product-action">
+                                            <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>اضافة
+                                                    للمفضلة</span></a>
+                                        </div>
+                                        <div class="product-action-2">
+                                            <a title="Add to cart" href="#">دخول المزاد</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="product-action-2">
-                                    <a title="Add to cart" href="#">دخول المزاد</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3><a href="/details">فورد</a></h3>
-                            <div class="product-price">
-                                <span class="old">$60.00</span>
-                                <span>$50.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Product -->
-                    <!-- Start Single Product -->
-                    <div class="single-product">
-                        <div class="product-img">
-                            <a href="/details">
-                                <img class="default-img" src="img/c1.jpg" alt="#">
-                                <img class="hover-img" src="img/c1.jpg" alt="#">
-                            </a>
-                            <div class="button-head">
-                                <div class="product-action">
-                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
-                                            class=" ti-eye"></i><span>عرض سريع</span></a>
-                                    <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>اضافة
-                                            للمفضلة</span></a>
-                                </div>
-                                <div class="product-action-2">
-                                    <a title="Add to cart" href="#">دخول المزاد</a>
+                                <div class="product-content">
+                                    <h3><a
+                                            href="{{ route('site.auction.details', $item->id) }}">{{ $auction->type_and_model() }}</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span>
+                                            @if ($auction->bids->count() > 0)
+                                                {{ $auction->bids->first()->currentPrice }}
+                                            @else
+                                                {{ $auction->openingBid }}
+                                            @endif
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="product-content">
-                            <h3><a href="/details">سنتافي</a></h3>
-                            <div class="product-price">
-                                <span>$50.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Product -->
-                    <!-- Start Single Product -->
-                    <div class="single-product">
-                        <div class="product-img">
-                            <a href="/details">
-                                <img class="default-img" src="img/c1.jpg" alt="#">
-                                <img class="hover-img" src="img/c1.jpg" alt="#">
-                                <span class="new">جديد</span>
-                            </a>
-                            <div class="button-head">
-                                <div class="product-action">
-                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
-                                            class=" ti-eye"></i><span>عرض سريع</span></a>
-                                    <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>اضافة
-                                            للمفضلة</span></a>
-                                </div>
-                                <div class="product-action-2">
-                                    <a title="Add to cart" href="/details">دخول في المزاد</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3><a href="/details">فورد</a></h3>
-                            <div class="product-price">
-                                <span>$50.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Product -->
-                    <!-- Start Single Product -->
-                    <div class="single-product">
-                        <div class="product-img">
-                            <a href="/details">
-                                <img class="default-img" src="img/c1.jpg" alt="#">
-                                <img class="hover-img" src="img/c1.jpg" alt="#">
-                            </a>
-                            <div class="button-head">
-                                <div class="product-action">
-                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
-                                            class=" ti-eye"></i><span>عرض سريع</span></a>
-                                    <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>اضافة
-                                            للمفضلة</span></a>
-                                </div>
-                                <div class="product-action-2">
-                                    <a title="Add to cart" href="#">دخول في المزاد</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3><a href="/details">فورد</a></h3>
-                            <div class="product-price">
-                                <span>$50.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Product -->
+                            <!-- End Single Product -->
+                        @endif
+                    @empty
+                        لا توجد عروض مشابهة
+                    @endforelse
                 </div>
             </div>
         </div>

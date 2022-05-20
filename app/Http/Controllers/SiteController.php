@@ -42,7 +42,11 @@ class SiteController extends Controller
         return view('Front.auctions')->with(['auctions' => $auctions, 'title' => 'المزادات الحالية']);
     }
 
+    // TODO: Refactor the method
     public function auctionShow($id){
+        /**
+         * Preparing the reviews in that auction
+         */
         $total= ReviewRating::get()->count();
         $oneStar = ReviewRating::where('star_rating', 1)->get()->count();
         $towStar = ReviewRating::where('star_rating', 2)->get()->count();
@@ -51,13 +55,13 @@ class SiteController extends Controller
         $fiveStar = ReviewRating::where('star_rating', 5)->get()->count();
 
         if ($total>0){
-        $onePrsent=$oneStar/$total*100;
-        $towPrsent=$towStar /$total*100;
-        $threePrsent=$threeStar/$total*100;
-        $fourPrsent=$fourStar/$total*100;
-        $fivePrsent=$fiveStar/$total*100;
-        $avg=round($total/5);
-        $avgBeforRound=$total/5;
+            $onePrsent=$oneStar/$total*100;
+            $towPrsent=$towStar /$total*100;
+            $threePrsent=$threeStar/$total*100;
+            $fourPrsent=$fourStar/$total*100;
+            $fivePrsent=$fiveStar/$total*100;
+            $avg=round($total/5);
+            $avgBeforRound=$total/5;
         }
         else{
             $total=1; 
@@ -68,29 +72,39 @@ class SiteController extends Controller
             $fivePrsent=$fiveStar/$total*100;
             $avg=round($total/5);
             $avgBeforRound=$total/5;
-        }
+        }        
+        /**
+         * Preparing the auction details
+         */
         $found = Auction::find($id);
         if($found){
-            $auction = Auction::whereId($id)->whereNotIn('status', ['0','1'])->withCount('bids')->with('bids', function($q){
-                $q->orderBy('id', 'desc')->first();
-            })->withCount('bids')->first();
+            $auction = Auction::whereId($id)
+                                ->whereNotIn('status', ['0','1'])
+                                ->with('bids', function($q){
+                                    $q->orderBy('id', 'desc')->first();
+                                })->first();
             if($auction){
-                return view('Front.details')->with(['auction'=>$auction,
-                'one' => $onePrsent ,
-                'oneStar'=>$oneStar,
-                'two' => $towPrsent ,
-                'twoStar'=>$towStar,
-                'three' => $threePrsent ,
-                'threeStar'=>$threeStar,
-                'four' => $fourPrsent ,
-                'fourStar'=>$fourStar,
-                'five' => $fivePrsent ,
-                'fiveStar'=>$fiveStar,
-                'total'=>$avg,
-                'totalstar'=>$avgBeforRound,
-            
-            
-                 ] );
+                $similars = Auction::with(['car' => function($q) use ($auction){
+                        $q->where('category_id', $auction->car->category_id)->get();
+                            }])->with('bids', function($q){
+                                $q->orderBy('id', 'desc')->first();
+                            })->get();
+                return view('Front.details')->with([
+                        'auction'=>$auction,
+                        'similars' => $similars,
+                        'one' => $onePrsent ,
+                        'oneStar'=>$oneStar,
+                        'two' => $towPrsent ,
+                        'twoStar'=>$towStar,
+                        'three' => $threePrsent ,
+                        'threeStar'=>$threeStar,
+                        'four' => $fourPrsent ,
+                        'fourStar'=>$fourStar,
+                        'five' => $fivePrsent ,
+                        'fiveStar'=>$fiveStar,
+                        'total'=>$avg,
+                        'totalstar'=>$avgBeforRound,     
+                ] );
             }
         }
         return response()->view('Front.errors.404', []);
@@ -132,7 +146,6 @@ class SiteController extends Controller
         $review->star_rating = $request->rating;
         $review->save();
         return redirect()->back()->  with(['successAdd'=>'تم الاحتفاظ بتقييمك شكرا لك']);
-        return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);}
-  
-    
+        return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);
+    } 
 }
