@@ -53,7 +53,7 @@ class NotificationController extends Controller
 
         $notification = new Notification();
         $auctioneer=User::where('id',$auction->auctioneer_id)->first();
-        $users = User::all();
+        $users = User::where('id',">",1)->get();
         $car = Car::where('id',$auction->car_id)->first();
         foreach ($users as $user) {
             if($user->id != $auctioneer->id){
@@ -153,12 +153,16 @@ class NotificationController extends Controller
 
         $notification = new Notification();
         $auctioneer=User::where('id',$auction->auctioneer_id)->first();
+        $car = Car::where('id',$auction->car_id)->first();
         $notification = Notification::create([
             'message' => "لم توافق الإدارة على مزادك",
             'user_id' => $auctioneer->id ,
             'state' => 1,
             'link' => $auction->id,
-            'type'=> 3
+            'type'=> 3,
+            'price' => $auction->openingBid,
+            'closeDate' => $auction->closeDate,
+            'thumbnail' => $car->thumbnail
         ]);
         $data['message'] = $notification->message;
         $data['link'] = $auction->id;
@@ -182,13 +186,17 @@ class NotificationController extends Controller
         );
 
         $notification = new Notification();
+        $car = Car::where('id',$bid->auction->car_id)->first();
         $user=User::where('id',$bid->auction->auctioneer_id)->first();
         $notification = Notification::create([
             'message' => "لقد تمت المزايدة على سيارتك",
             'user_id' => $user->id ,
             'state' => 1,
             'link' => $bid->auction->id,
-            'type'=> 4
+            'type'=> 4,
+            'price' => $bid->auction->openingBid,
+            'closeDate' => $bid->auction->closeDate,
+            'thumbnail' => $car->thumbnail
         ]);
 //        $brand = $bid->auction->car->brand->name;
 //        $series = $bid->auction->car->series->name;
@@ -217,13 +225,17 @@ class NotificationController extends Controller
         );
 
         $notification = new Notification();
+        $car = Car::where('id',$auction->car_id)->first();
         $user=User::where('id',)->first();
         $notification = Notification::create([
             'message' => "لقد فزت بمزاد سيارة",
             'user_id' => $winner_id ,
             'state' => 1,
             'link' => $auction->id,
-            'type'=> 5
+            'type'=> 5,
+            'price' => $auction->openingBid,
+            'closeDate' => $auction->closeDate,
+            'thumbnail' => $car->thumbnail
         ]);
         $data['message'] = $notification->message;
         $data['link'] = $auction->id;
@@ -246,13 +258,17 @@ class NotificationController extends Controller
         );
 
         $notification = new Notification();
+        $car = Car::where('id',$auction->car_id)->first();
         $user=User::where('id',)->first();
         $notification = Notification::create([
             'message' => "تم إرساء مزاد اشتركت فيه, لم تفز 😥",
             'user_id' => $winner_id ,
             'state' => 1,
             'link' => $auction->id,
-            'type'=> 5
+            'type'=> 5,
+            'price' => $auction->openingBid,
+            'closeDate' => $auction->closeDate,
+            'thumbnail' => $car->thumbnail
         ]);
 
         $data['message'] = $notification->message;
@@ -281,6 +297,7 @@ class NotificationController extends Controller
         );
 
         $bidders = Auction::find($id)->bids;
+        $car = Car::where('id',$auction->car_id)->first();
         foreach(range (0, count($bidders)-1) as $i){
             $notification = new Notification();
             $notification = Notification::create([
@@ -288,7 +305,10 @@ class NotificationController extends Controller
                 'user_id' =>   $bidders[$i]->user->id,
                 'state' => 1,
                 'link' => $auction->id,
-                'type'=> 6
+                'type'=> 6,
+                'price' => $auction->openingBid,
+                'closeDate' => $auction->closeDate,
+                'thumbnail' => $car->thumbnail
             ]);
 
             $data['user_id'] = $bidders[$i]->user->id;
