@@ -24252,7 +24252,7 @@ dl li {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   padding: 0;
-  width: 257px;
+  width: 290px;
   z-index: 11;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
@@ -24263,6 +24263,7 @@ dl li {
   -moz-box-shadow: none;
   -ms-box-shadow: none;
   border-right: 1px solid #e3e3e3;
+  border-radius: 10px;
 }
 
 .sidebar .nav {
@@ -24455,7 +24456,7 @@ dl li {
     top: 60px;
     bottom: 0;
     overflow: auto;
-    right: -257px;
+    right: -292px;
     -webkit-transition: all 0.25s ease-out;
     -o-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;

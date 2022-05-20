@@ -13,6 +13,7 @@ return new class extends Migration
             $table->decimal('currentPrice', 20, 2);
             $table->decimal('bidPrice', 10, 2);
             $table->integer('securityDeposit')->nullable();
+            $table->boolean('refund')->default(0);
             $table->timestamps();
         });
     }

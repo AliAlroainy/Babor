@@ -272,7 +272,7 @@ div[style*="margin: 16px 0;"] {
 }
 
 .label {
-    background: #888;
+    background-image: linear-gradient(to top right, #121312, #575654);
     padding: 10px 6px;
     border-bottom-right-radius: 5px !important;
     border-top-right-radius: 5px !important;

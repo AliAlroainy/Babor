@@ -29,10 +29,10 @@
                          <!-- Start cars Single Tab -->
                          <div class="tab-pane fade show active" id="cars" role="tabpanel">
                              <div class="tab-single">
-                                 <div class="row">
+                                 <div class="row " id="list">
                                      @foreach ($last_cars as $auction)
                                          @if ($auction->car != null)
-                                             <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                             <div class="cars col-xl-3 col-lg-4 col-md-4 col-12">
                                                  <div class="single-product">
                                                      <div class="product-img">
                                                          <a href="{{ route('site.auction.details', $auction->id) }}">
@@ -84,10 +84,10 @@
                          <!-- Start taxis Single Tab -->
                          <div class="tab-pane fade show" id="taxis" role="tabpanel">
                              <div class="tab-single">
-                                 <div class="row">
+                                 <div class="row" id="list">
                                      @foreach ($last_taxis as $auction)
                                          @if ($auction->car != null)
-                                             <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                             <div class="cars col-xl-3 col-lg-4 col-md-4 col-12">
                                                  <div class="single-product">
                                                      <div class="product-img">
                                                          <a href="{{ route('site.auction.details', $auction->id) }}">
@@ -139,7 +139,7 @@
                          <!-- Start salon Single Tab -->
                          <div class="tab-pane fade show" id="babors" role="tabpanel">
                              <div class="tab-single">
-                                 <div class="row">
+                                 <div class="row" id="list">
                                      @foreach ($last_babors as $auction)
                                          @if ($auction->car != null)
                                              <div class="col-xl-3 col-lg-4 col-md-4 col-12">
@@ -195,7 +195,7 @@
                          <!-- Start buses Single Tab -->
                          <div class="tab-pane fade show" id="buses" role="tabpanel">
                              <div class="tab-single">
-                                 <div class="row">
+                                 <div class="row" id="list">
                                      @foreach ($last_buses as $auction)
                                          @if ($auction->car != null)
                                              <div class="col-xl-3 col-lg-4 col-md-4 col-12">

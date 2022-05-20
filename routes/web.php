@@ -38,6 +38,10 @@ Route::get('/bill', function () {
     return view('Front.addtions.bill');
 });
 
+Route::get('/privcey', function () {
+    return view('Front.privcey');
+});
+
 Route::get('/test', function () {
     return view('Front.test');
 });
@@ -166,10 +170,10 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/bids', [BidController::class, 'index'])->name('user.show.bids');
             Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
             Route::post('/auction/{id}/buy', [PaymentController::class, 'buy'])->name('user.buy.auction');
-           
+
             Route::get('/wallet', [WalletController::class, 'index'])->name('user.wallet');
-            
-            
+
+
             //API Response
             Route::get('/payment/success/{id}/{res}', [PaymentController::class, 'success'])->name('payment.success');
             Route::get('/payment/failed/{res}', [PaymentController::class, 'failed'])->name('payment.failed');
@@ -204,6 +208,15 @@ Route::get('/admin',function () {
     return view('Admin.index');
 });
 
+Route::get('/admin/wallet',function () {
+    return view('Admin.wallet.wallet');
+});
+
+Route::get('/admin/walletAuctions',function () {
+    return view('Admin.wallet.usersAuctions');
+});
+
+
 Route::get('/wallet', function (){
     $admin = User::find(1);
     $auctioneer_abrar = User::find(2);
@@ -214,7 +227,7 @@ Route::get('/wallet', function (){
     $admin->deposit(1200);
     $auctioneer_abrar->deposit(600);
     $bidder_ali->deposit(700);
-    return $admin->balance; 
+    return $admin->balance;
 // Route::get('/wallet', function (){
 //     $admin = User::find(1);
 //     $auctioneer_abrar = User::find(2);
@@ -228,7 +241,7 @@ Route::get('/wallet', function (){
 //     return $admin->balance;
 
  });
-
+//chat Router
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/private',[ App\Http\Controllers\HomeController::class, 'private'])->name('private');
 Route::get('/users', [App\Http\Controllers\HomeController::class, 'users'])->name('users');
@@ -240,7 +253,7 @@ Route::post('/private-messages/{user}',  [App\Http\Controllers\MessageController
 
 
 
- 
+
 
 #Manage Review
 Route::post('/review-store',[SiteController::class, 'reviewstore'])->name('review.store');

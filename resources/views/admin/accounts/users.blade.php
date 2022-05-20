@@ -1,14 +1,36 @@
 @extends('partials.master')
 @section('body')
+{{-- style --}}
+@include('Front.user.style.style')
+
     <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper">
+
+
+            <div class="row ">
+
+                <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+                    <div class="cardp d-flex align-items-center justify-content-center">
+                        <div class="card-body d-flex align-items-center justify-content-center">
+                            <h1 class="card-title">
+                                <i class="fa-solid fa-user "></i>
+                                المستخدمين</h1>
+
+                         
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
             <div class="row">
 
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">عرض المستخدمين</h4>
 
                             <div class="table-responsive">
                                 <table class="table table-striped table-hover">
@@ -65,12 +87,12 @@
                                                                     class=" btn d-flex align-items-center
                                                                     font-weight-inverse-success
                                                               btn-rounded  fa-solid fa-trash pe-2
-                                                           " style="color:#71c016;font-size:25px ;">
+                                                           " style="color:#71c016;font-size:18px ;">
                                                                    
                                                                 </button>
                                                                
                                                             @else
-                                                                <button style="color:#ff4747;font-size: 25px ;"
+                                                                <button style="color:#ff4747;font-size: 18px ;"
                                                                     class="
                                                             btn d-flex align-items-center fas fa-trash-restore pe-2
                                                              ">

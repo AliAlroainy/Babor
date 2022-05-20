@@ -20,6 +20,28 @@
     <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+<!--flown chart  -->
+
+
+
+
+<link
+    rel=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    type="text/css"
+  />
+  <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script
+    src=
+"https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
+    type="text/javascript"
+  ></script>
+  <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+  <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
 
 
 
@@ -45,7 +67,8 @@
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/fonts/dropify.svg">
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/fonts/dropify.ttf">
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/fonts/dropify.woff">
-    <!-- inject:css --> --}}
+    <!-- inject:css --> 
+    <br/>
     <link rel="stylesheet" href="{{ @asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ @asset('assets/css/styles.css') }}">
     <link rel="stylesheet" href="{{ @asset('assets/css/multistep-form.css') }}">

@@ -1,16 +1,40 @@
 @extends('partials.master')
 @section('body')
+
+{{-- style --}}
+@include('Front.user.style.style')
+
+
+
     <!-- partial -->
 
     <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper" style="position: relative">
+
+
+            <div class="row ">
+
+                <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+                    <div class="cardp d-flex align-items-center justify-content-center">
+                        <div class="card-body d-flex align-items-center justify-content-center">
+                            <h1 class="card-title">
+                                <i class="fa-solid fa-qrcode menu-icon ms-3 "></i>
+                                ادارة الاقسام</h1>
+
+                         
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
             <div class="row">
 
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">عرض الأقسام</h4>
                             @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     {{ session()->get('errorEdit') }}
@@ -97,7 +121,7 @@
                                                                 <button type="button" class="btn btn-outline-danger"
                                                                     data-bs-dismiss="modal">إلغاء</button>
                                                                 <button type="submit"
-                                                                    class="btn btn-warning text-white">تعديل</button>
+                                                                    class="btn   text-white" style="background:#f79827" >تعديل</button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -113,7 +137,7 @@
 
                                                 <td>
                                                     <a href="editCategory"
-                                                        style="width: fit-content; font-size: 25px ;color:#686868"
+                                                        style="width: fit-content;font-size:18px;color:#686868"
                                                         class="fa-solid fa-edit pe-2  btn-fw btn-rounded "
                                                         data-bs-target="#editModal-{{ $category->id }}"
                                                         data-bs-toggle="modal">
@@ -130,10 +154,10 @@
                                                                     font-weight-inverse-success
                                                               btn-rounded  fa-solid fa-trash pe-2
                                                            "
-                                                                style="color:#71c016;font-size: 25px ;">
+                                                                style="color:#71c016;font-size:18px;">
                                                             </button>
                                                         @else
-                                                            <button style="color:#ff4747;font-size: 25px ;"
+                                                            <button style="color:#ff4747;font-size:18px;"
                                                                 class="
                                                             btn d-flex align-items-center fas fa-trash-restore pe-2
                                                              ">
@@ -152,7 +176,7 @@
 
             </div>
             <button type="button" data-bs-target="#addModal" data-bs-toggle="modal"
-                class="btn btn-warning btn-rounded btn-icon add">
+                class="btn  btn-rounded btn-icon add" style="background:#f79827;margin-top:200px;margin-left:8%">
                 <i class="mdi mdi-plus text-white"></i>
             </button>
         </div>
@@ -184,7 +208,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">إلغاء</button>
-                            <button type="submit" class="btn btn-warning text-white">إضافة</button>
+                            <button type="submit" class="btn  text-white"  style="background:#f79827">إضافة</button>
                         </div>
                     </div>
                 </form>
