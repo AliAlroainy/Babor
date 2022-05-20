@@ -73,9 +73,9 @@
                             </div> 
                             <div class="col-md-4"> 
                                 <p class="p-blue"> 
-                                    <span class="fas fa-circle pe-2"></span>الداخل </p>
+                                    <span class="fas fa-circle pe-2"></span>الارباح </p>
                                      <p class="fw-bold mb-3"><span class="fas fa-dollar-sign pe-1"></span>1254 <span class="textmuted">.50</span> </p>
-                                      <p class="p-org"><span class="fas fa-circle pe-2"></span>الخارج </p> <p class="fw-bold"><span class="fas fa-dollar-sign pe-1"></span>00<span class="textmuted">.00</span></p>
+                                      <p class="p-org"><span class="fas fa-circle pe-2"></span>الخسائر </p> <p class="fw-bold"><span class="fas fa-dollar-sign pe-1"></span>00<span class="textmuted">.00</span></p>
                                      </div> </div> </div> 
                                      <div class="col-12 px-0 mb-4"> 
                                          <div class="box-right"> 

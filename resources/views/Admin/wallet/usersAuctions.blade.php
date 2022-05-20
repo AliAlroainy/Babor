@@ -14,8 +14,8 @@
                     <div class="cardp d-flex align-items-center justify-content-center">
                         <div class="card-body d-flex align-items-center justify-content-center">
                             <h1 class="card-title">
-                                <i class="bi bi-cash-stack"></i>
-                                الرصيد</h1>
+                                <i class="bi bi-people-fill"></i>
+                                    عمليات المزايدين</h1>
 
                          
                         </div>
@@ -24,188 +24,172 @@
 
             </div>
 
-<div class="container mt-5">
+<div class="container ">
 
-    <table class="table table-borderless table-responsive card-1 p-4">
+    <table class="table table-borderless table-responsive card-1 p-4" dir="rtl">
 <thead>
 <tr class="border-bottom">
 <th>
-  <span class="ml-2">Time</span>
+  <span class="ml-2 d-flex flex-column ">
+    <i class="bi bi-calendar-date mb-2" style="color: #F7941D"></i> 
+    التاريخ</span>
 </th>
 <th>
-  <span class="ml-2">Agent</span>
+  <span class="ml-2 d-flex flex-column">
+    <i class="bi bi-file-person mb-2" style="color: #F7941D"></i>
+    المشتري</span>
 </th>
 <th>
-  <span class="ml-2">Customer</span>
+  <span class="ml-2 d-flex flex-column">
+    <i class="bi bi-person-badge mb-2" style="color: #F7941D"></i>
+    البائع</span>
 </th>
 <th>
-  <span class="ml-2">Location</span>
+  <span class="ml-2 d-flex flex-column">
+    <i class="bi bi-geo-alt mb-2" style="color: #F7941D"></i>
+    الموقع</span>
 </th>
 <th>
-  <span class="ml-4">Action</span>
+    <span class="ml-2 d-flex flex-column">
+        <i class="bi bi-coin mb-2" style="color: #F7941D"></i>
+        السعر</span>
+  </th>
+<th>
+  <span class="ml-2  d-flex flex-column">
+    <i class="bi bi-app-indicator mb-2" style="color: #F7941D"></i>
+    الحالة</span>
 </th>
+<th>
+    <span class="ml-2 d-flex flex-column">
+        <i class="bi bi-hand-index  mb-2" style="color: #F7941D"></i>
+        اجراء</span>
+  </th>
+  <th>
+    <span class="ml-2 d-flex flex-column">
+        <i class="bi bi-window mb-2" style="color: #F7941D"></i>
+        التفاصيل</span>
+  </th>
 </tr>
 </thead>
 <tbody>
+
 <tr class="border-bottom">
 <td>
   <div class="p-2">
-      <span class="d-block font-weight-bold">Tomorrow</span>
+      <span class="d-block font-weight-bold">اليوم</span>
       <small>2:30PM</small>
   </div>
 </td>
 <td>
    <div class="p-2 d-flex flex-row align-items-center mb-2">
-      <img src="https://i.imgur.com/ZSkeqnd.jpg" width="40" class="rounded-circle">
+      <img src="/img/ali.jpg" width="40" class="rounded-circle" />
       <div class="d-flex flex-column ml-2">
-          <span class="d-block font-weight-bold">Jennifer john</span>
-          <small class="text-muted">Jasmine Owner Reality group</small>
+          <span class="d-block font-weight-bold">علي الرعيني </span>
       </div>
   </div>
 
 </td>
 <td>
-  <div class="p-2">
-      <span class="font-weight-bold">Ammy Song</span>
-  </div>
+    <div class="p-2 d-flex flex-row align-items-center mb-2">
+        <img src="/img/jihad.jpg" width="40" class="rounded-circle">
+        <div class="d-flex flex-column ml-2">
+            <span class="d-block font-weight-bold"> ابرار الخرساني </span>
+        </div>
+    </div>
 </td>
 <td>
   <div class="p-2 d-flex flex-column">
-      <span>1 City point,#2A</span>
-      <span> Brooklyn,NY</span>
+      <span> حي المسبح - تعز ,اليمن</span>
   </div>
 </td>
 <td>
-  <div class="p-2 icons">
-      <i class="fa fa-phone text-danger"></i>
-      <i class="fa fa-adjust text-danger"></i>
-      <i class="fa fa-share"></i>
+    <div class="p-2 ">
+        <p class="font-weight-bold"> 345345 <span style="color: #F7941D">$</span> </P>
+    </div>
+  </td>
+<td>
+  <div class="p-2 text-warning d-flex">
+    <i class="bi bi-hourglass-split"></i>
+    قيد الانتظار
   </div>
 </td>
+<td>
+    <div class="p-2 ">
+        <button class=" btn  alert-warning  d-flex align-items-center justify-content-center " style="width: 150px"> تحويل المبلغ للبائع</button>
+      <button class="btn alert-secondary  mt-2 d-flex align-items-center justify-content-center " style="width: 150px"> ارجاع المبلغ للمشتري </button>
+    </div>
+  </td>
+
+  <td>
+    <a href="#" class="p-2 font-warining ">
+        عرض التفاصيل 
+        <i class="bi bi-eye"></i>
+      </a>
+  </td>
+
 </tr>
-
-
-
 
 
 <tr class="border-bottom">
-<td>
-  <div class="p-2">
-      <span class="d-block font-weight-bold">Tomorrow</span>
-      <small>3:30PM</small>
-  </div>
-</td>
-<td>
-   <div class="p-2 d-flex flex-row align-items-center mb-2">
-      <img src="https://i.imgur.com/C4egmYM.jpg" class="rounded-circle" width="40">           
-           <div class="d-flex flex-column ml-2">
-          <span class="d-block font-weight-bold">David Smith</span>
-          <small class="text-muted">Jasmine Owner Reality group</small>
+    <td>
+      <div class="p-2">
+          <span class="d-block font-weight-bold">اليوم</span>
+          <small>2:30PM</small>
       </div>
-  </div>
-
-</td>
-<td>
-  <div class="p-2">
-      <span class="font-weight-bold">David Clark</span>
-  </div>
-</td>
-<td>
-  <div class="p-2 d-flex flex-column">
-      <span>205 2ndst,#2A,</span>
-      <span> Brooklyn,NY</span>
-  </div>
-</td>
-<td>
-  <div class="p-2 icons">
-      <i class="fa fa-phone text-danger"></i>
-      <i class="fa fa-adjust text-danger"></i>
-      <i class="fa fa-share"></i>
-  </div>
-</td>
-</tr>
-
-
-
-
-<tr class="border-bottom">
-<td>
-  <div class="p-2">
-      <span class="d-block font-weight-bold">Tomorrow</span>
-      <small>12:30PM</small>
-  </div>
-</td>
-<td>
-   <div class="p-2 d-flex flex-row align-items-center mb-2">
-      <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="40">
-      <div class="d-flex flex-column ml-2">
-          <span class="d-block font-weight-bold">Emmily johnson</span>
-          <small class="text-muted">Jasmine Owner Reality group</small>
+    </td>
+    <td>
+       <div class="p-2 d-flex flex-row align-items-center mb-2">
+          <img src="/img/ali.jpg" width="40" class="rounded-circle" />
+          <div class="d-flex flex-column ml-2">
+              <span class="d-block font-weight-bold">علي الرعيني </span>
+          </div>
       </div>
-  </div>
-
-</td>
-<td>
-  <div class="p-2">
-      <span class="font-weight-bold">Mary Kingston</span>
-  </div>
-</td>
-<td>
-  <div class="p-2 d-flex flex-column">
-      <span>199 Bowery,#7A</span>
-      <span> Brooklyn,NY</span>
-  </div>
-</td>
-<td>
-  <div class="p-2 icons">
-      <i class="fa fa-phone text-danger"></i>
-      <i class="fa fa-adjust text-danger"></i>
-      <i class="fa fa-share"></i>
-  </div>
-</td>
-</tr>
-
-
-
-
-
-
-<tr class="border-bottom">
-<td>
-  <div class="p-2">
-      <span class="d-block font-weight-bold">Tomorrow</span>
-      <small>1:30PM</small>
-  </div>
-</td>
-<td>
-   <div class="p-2 d-flex flex-row align-items-center mb-2">
-      <img src="https://i.imgur.com/hczKIze.jpg" width="40" class="rounded-circle">
-      <div class="d-flex flex-column ml-2">
-          <span class="d-block font-weight-bold">Nick Jones</span>
-          <small class="text-muted">Jasmine Owner Reality group</small>
+    
+    </td>
+    <td>
+        <div class="p-2 d-flex flex-row align-items-center mb-2">
+            <img src="/img/jihad.jpg" width="40" class="rounded-circle">
+            <div class="d-flex flex-column ml-2">
+                <span class="d-block font-weight-bold"> ابرار الخرساني </span>
+            </div>
+        </div>
+    </td>
+    <td>
+      <div class="p-2 d-flex flex-column">
+          <span> حي المسبح - تعز ,اليمن</span>
       </div>
-  </div>
+    </td>
+    <td>
+        <div class="p-2 ">
+            <p class="font-weight-bold"> 345345 <span style="color: #F7941D">$</span> </P>
+        </div>
+      </td>
+    <td>
+      <div class="p-2 text-success d-flex ">
+        <i class="bi bi-check-all"></i>
+       مكتملة
+      </div>
+    </td>
+    <td>
+        <div class="p-2 ">
+            <div class="alert alert-success  d-flex align-items-center justify-content-center " style="width: 150px">
+                <i class="bi bi-check-all"></i>
+                تم البيع</div>
+        </div>
+      </td>
+    
+      <td>
+        <a href="#" class="p-2 font-warining ">
+          عرض التفاصيل 
+          <i class="bi bi-eye"></i>
+        </a>
+      </td>
+    
+    </tr>
 
-</td>
-<td>
-  <div class="p-2">
-      <span class="font-weight-bold">James Smith</span>
-  </div>
-</td>
-<td>
-  <div class="p-2 d-flex flex-column">
-      <span>123 Clinton Ave,#2A</span>
-      <span> Brooklyn,NY</span>
-  </div>
-</td>
-<td>
-  <div class="p-2 icons">
-      <i class="fa fa-phone text-danger"></i>
-      <i class="fa fa-adjust text-danger"></i>
-      <i class="fa fa-share"></i>
-  </div>
-</td>
-</tr>
+
+
+
 
 
 
@@ -220,4 +204,23 @@
 </div>          
 </div>
 
+
+
+<style>
+
+.card-1{
+
+border: none;
+  border-radius: 10px;
+  width: 100%;
+  background-color: #fff;
+}
+
+
+.icons i {
+
+margin-left: 20px;
+
+}
+    </style>
 @endsection
