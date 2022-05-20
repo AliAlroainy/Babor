@@ -6596,7 +6596,7 @@
             },
             "time": "2022-05-18T15:56:59+00:00"
         },
-        {
+        
             "name": "mockery/mockery",
             "version": "1.5.0",
             "source": {

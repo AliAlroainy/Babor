@@ -10,7 +10,7 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">عرض البراندات</h4>
+                          
                             @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show">
                                     {{ session()->get('errorEdit') }}
@@ -102,7 +102,7 @@
                                                                 <button type="button" class="btn btn-outline-secondary"
                                                                     data-bs-dismiss="modal">إلغاء</button>
                                                                 <button type="submit"
-                                                                    class="btn btn-warning text-white">تعديل</button>
+                                                                    class="btn text-white" style="background:#f79827">تعديل</button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -122,7 +122,7 @@
                                                     {{ $brand->name }}
                                                 </td>
                                                 <td>
-                                                    <a href="editBrand" style="width: fit-content; font-size: 25px ;color:#686868"
+                                                    <a href="editBrand" style="width: fit-content;font-size:18px;color:#686868"
                                                         class="fa-solid fa-edit pe-2  btn-fw btn-rounded "
                                                         data-bs-target="#editModal-{{ $brand->id }}"
                                                         data-bs-toggle="modal">
@@ -138,12 +138,12 @@
                                                         <button  class=" btn d-flex align-items-center
                                                                     font-weight-inverse-success
                                                               btn-rounded  fa-solid fa-trash pe-2
-                                                           " style="color:#71c016;font-size:25px ;">
+                                                           " style="color:#71c016;font-size:18px;">
 
                                                                 </button>
 
                                                             @else
-                                                                <button style="color:#ff4747;font-size: 25px ;"
+                                                                <button style="color:#ff4747;font-size:18px;"
                                                                     class="
                                                             btn d-flex align-items-center fas fa-trash-restore pe-2
                                                              ">
@@ -164,7 +164,7 @@
 
             </div>
             <button type="button" data-bs-target="#addModal" data-bs-toggle="modal"
-                class="btn btn-warning btn-rounded btn-icon add">
+                class="btn  btn-rounded btn-icon add"  style="background:#f79827;margin-top:-20px;margin-left:8%">
                 <i class="mdi mdi-plus text-white"></i>
             </button>
         </div>
@@ -204,7 +204,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">إلغاء</button>
-                            <button type="submit" class="btn btn-warning text-white">إضافة</button>
+                            <button type="submit" class="btn text-white" style="background:#f79827">إضافة</button>
                         </div>
                     </div>
                 </form>

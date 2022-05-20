@@ -1,6 +1,14 @@
 @extends('partials.usermaster')
 @section('body')
+
+{{-- style --}}
+@include('Front.user.style.style')
+
     <div class="container mt-2 ">
+
+
+
+
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
@@ -9,9 +17,29 @@
                             <div class="tab-pane fade {{ request()->is('user/auctions/in-progress') ? 'show active' : null }}"
                                 id="{{ route('user.show.progress.auction') }}" role="tabpanel"
                                 aria-labelledby="{{ route('user.show.progress.auction') }}-tab">
-                                <h2 class="text-center mt-3">المزادات الجارية</h2>
+                                
+                                <div class="row  ">
+
+                                    <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+                                        <div class="cardp d-flex align-items-center justify-content-center">
+                                            <div class="card-body d-flex  align-items-center justify-content-center">
+                        
+                                                <h1 style="margin-top:-40px">
+                                                    <i class="bi bi-activity ms-2"></i>
+
+                                                    مزادات جارية
+                                                </h1>
+                                
+                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+
                                 <div class="container my-5">
                                     <div class="row auction-list">
+                                       
                                         @if (isset($auctions) && $auctions->count() > 0)
                                             @foreach ($auctions as $auction)
                                                 <div class=" p-2 bg-white d-flex flex-column shadow rounded">
@@ -45,7 +73,7 @@
                                                         </div>
                                                         <div class="mt-3 col-sm-5">
                                                             <p>
-                                                                <i class="fas fa-hourglass-start"></i>
+                                                                <i class="bi bi-hourglass-bottom"></i>
                                                                 <span class="fw-bold">تاريخ الإنتهاء</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">
@@ -247,7 +275,24 @@
                             <div class="tab-pane fade {{ request()->is('user/auctions/completed') ? 'show active' : null }}"
                                 id="{{ route('user.show.completed.auction') }}" role="tabpanel"
                                 aria-labelledby="{{ route('user.show.completed.auction') }}-tab">
-                                <h2 class="text-center mt-3 ">المزادات المنتهية</h2>
+                                
+                                <div class="row  ">
+
+                                    <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+                                        <div class="cardp d-flex align-items-center justify-content-center">
+                                            <div class="card-body d-flex  align-items-center justify-content-center">
+                        
+                                                <h1 style="margin-top:-40px">
+                                                    <i class="bi bi-check2-all ms-2"></i>
+                                                    مزادات مكتملة 
+                                                </h1>
+                                
+                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
                                 <div class="container my-5">
                                     <div class="row auction-list ">
                                         @if (isset($auctions) && $auctions->count() > 0)
@@ -283,7 +328,7 @@
                                                         </div>
                                                         <div class="mt-3 col-sm-5">
                                                             <p>
-                                                                <i class="fas fa-hourglass-start"></i>
+                                                                <i class="bi bi-hourglass-bottom"></i>
                                                                 <span class="fw-bold">تاريخ الإنتهاء</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">
@@ -359,7 +404,25 @@
                             <div class="tab-pane fade {{ request()->is('user/auctions/uncompleted') ? 'show active' : null }}"
                                 id="{{ route('user.show.uncompleted.auction') }}" role="tabpanel"
                                 aria-labelledbyh2="{{ route('user.show.uncompleted.auction') }}-tab">
-                                <h2 class="text-center mt-3 ">المزادات الغير مكتملة</h2>
+
+                                <div class="row  ">
+
+                                    <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+                                        <div class="cardp d-flex align-items-center justify-content-center">
+                                            <div class="card-body d-flex  align-items-center justify-content-center">
+                        
+                                                <h1 style="margin-top:-40px">
+                                                    <i class="bi bi-pen ms-2"></i>
+                                                    اتمام البيع
+                                                </h1>
+                                
+                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+
                                 <div class="container my-5">
                                     <div class="row auction-list">
                                         @if (isset($auctions) && $auctions->count() > 0)
@@ -395,7 +458,7 @@
                                                         </div>
                                                         <div class="mt-3 col-sm-5">
                                                             <p>
-                                                                <i class="fas fa-hourglass-start"></i>
+                                                                <i class="bi bi-hourglass-bottom"></i>
                                                                 <span class="fw-bold">تاريخ الإنتهاء</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">
@@ -506,7 +569,24 @@
                             <div class="tab-pane fade {{ request()->is('user/auctions/pending') ? 'show active' : null }}"
                                 id="{{ route('user.show.pending.auction') }}" role="tabpanel"
                                 aria-labelledby="{{ route('user.show.pending.auction') }}-tab">
-                                <h2 class="text-center mt-3">المزادات المعلقة</h2>
+
+                                <div class="row  ">
+
+                                    <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+                                        <div class="cardp d-flex align-items-center justify-content-center">
+                                            <div class="card-body d-flex  align-items-center justify-content-center">
+                        
+                                                <h1 style="margin-top:-40px">
+                                                    <i class="bi bi-hourglass-split ms-2"></i>                                                    مزادات بانتظار موافقة المسؤول
+                                                </h1>
+                                
+                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+
                                 @if (session()->has('successDelete'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                         {{ session()->get('successDelete') }}
@@ -561,7 +641,7 @@
                                                         </div>
                                                         <div class="mt-3 col-sm-5">
                                                             <p>
-                                                                <i class="fas fa-hourglass-start"></i>
+                                                                <i class="bi bi-hourglass-bottom"></i>
                                                                 <span class="fw-bold">تاريخ الإنتهاء</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">
@@ -635,7 +715,25 @@
                             <div class="tab-pane fade {{ request()->is('user/auctions/disapproved') ? 'show active' : null }}"
                                 id="{{ route('user.show.disapproved.auction') }}" role="tabpanel"
                                 aria-labelledby="{{ route('user.show.disapproved.auction') }}-tab">
-                                <h2 class="text-center mt-3 ">المزادات المرفوضة </h2>
+
+                                <div class="row  ">
+
+                                    <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+                                        <div class="cardp d-flex align-items-center justify-content-center">
+                                            <div class="card-body d-flex  align-items-center justify-content-center">
+                        
+                                                <h1 style="margin-top:-40px">
+                                                    <i class="bi bi-archive ms-2"></i>
+                                                    مزادات مرفوضة
+                                                </h1>
+                                
+                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+
                                 <div class="container my-5">
                                     <div class="row auction-list ">
                                         @if (isset($auctions) && $auctions->count() > 0)
@@ -671,7 +769,7 @@
                                                         </div>
                                                         <div class="mt-3 col-sm-5">
                                                             <p>
-                                                                <i class="fas fa-hourglass-start"></i>
+                                                                <i class="bi bi-hourglass-bottom"></i>
                                                                 <span class="fw-bold">تاريخ الإنتهاء</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">
@@ -703,7 +801,23 @@
                             <div class="tab-pane fade {{ request()->is('user/auctions/canceled') ? 'show active' : null }}"
                                 id="{{ route('user.show.canceled.auction') }}" role="tabpanel"
                                 aria-labelledby="{{ route('user.show.canceled.auction') }}-tab">
-                                <h2 class="text-center mt-3 ">المزادات الملغية</h2>
+                                <div class="row  ">
+
+                                    <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+                                        <div class="cardp d-flex align-items-center justify-content-center">
+                                            <div class="card-body d-flex  align-items-center justify-content-center">
+                        
+                                                <h1 style="margin-top:-40px">
+                                                    <i class="bi bi-trash3 ms-2"></i>
+                                                    مزادات ملغية
+                                                </h1>
+                                
+                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
                                 <div class="container my-5">
                                     <div class="row auction-list ">
                                         @if (isset($auctions) && $auctions->count() > 0)
@@ -739,7 +853,7 @@
                                                         </div>
                                                         <div class="mt-3 col-sm-5">
                                                             <p>
-                                                                <i class="fas fa-hourglass-start"></i>
+                                                                <i class="bi bi-hourglass-bottom"></i>
                                                                 <span class="fw-bold">تاريخ الإنتهاء</span>
                                                                 <br>
                                                                 <span class="ps-1 pe-3">

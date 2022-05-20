@@ -52,14 +52,14 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <input wire:model="search" type="text">
+                                          
                                         </div>
                                     </div>
 
                                 </div>
 
                             </div>
-                            <h4 class="card-title">عرض المزادات</h4>
+                           
                             @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     {{ session()->get('errorEdit') }}
@@ -113,9 +113,7 @@
                                             <th style="text-align:center">
                                                 حالة المزاد
                                             </th>
-                                            <th style="text-align:center">
-                                                تفاصيل
-                                            </th>
+                                            
                                             <th style="text-align:center">
                                                 عمليات
                                             </th>
@@ -146,16 +144,14 @@
                                                             {{ \App\Models\Auction::matchAuctionStatus($auction->status) }}
                                                         </h5>
                                                     </td>
-                                                    <td style="text-align:center">
-                                                        <a href="{{ route('admin.auction.details', $auction->id) }}"
+                                                
+                                                    <td class="status status_filed d-flex">
+                                                    <a href="{{ route('admin.auction.details', $auction->id) }}"
                                                             class="btn     "
                                                             style="font-size:12px;
-                                                                                                width: fit-content; font-size: 25px ;color:#f79522 ">
-                                                            <h5> المزيد ..<i class="fa-solid fa-angles-left"></i></h5>
+                                                                                                width: fit-content; font-size: 10px ;color:#f79522 ">
+                                                             <i class="fa fa-eye fs-10" style="font-size:18px;"></i>
                                                         </a>
-
-                                                    </td>
-                                                    <td class="status status_filed">
                                                         @if ($auction->status == '0')
                                                             <div class="d-flex">
                                                                 <form
@@ -163,7 +159,7 @@
                                                                     method="POST" class="d-flex justify-content-center">
                                                                     @csrf
                                                                     <button type="submit" name="approve"
-                                                                        style="color:#71c016;"
+                                                                        style="color:#71c016;font-size:18px;"
                                                                         class="fs-25px btn btn-rounded fa-solid fa-circle-check">
                                                                     </button>
                                                                 </form>
@@ -171,7 +167,7 @@
                                                                     action="{{ route('admin.auction.action', $auction->id) }}"
                                                                     method="POST" class="d-flex justify-content-center">
                                                                     @csrf
-                                                                    <span style="color:#ff4747;"
+                                                                    <span style="color:#ff4747;font-size:18px;"
                                                                         class="fs-25px btn btn-rounded fa-solid fa-circle-xmark"
                                                                         data-bs-target="#rejectReason-{{ $auction->id }}"
                                                                         data-bs-toggle="modal">
@@ -224,7 +220,7 @@
                                                                 action="{{ route('admin.auction.action', $auction->id) }}"
                                                                 method="POST" class="d-flex justify-content-center">
                                                                 @csrf
-                                                                <span style="color:#ff4747;"
+                                                                <span style="color:#ff4747;font-size:18px;"
                                                                     class="fs-25px btn btn-rounded fa-solid fa-circle-xmark"
                                                                     data-bs-target="#rejectReason-{{ $auction->id }}"
                                                                     data-bs-toggle="modal">

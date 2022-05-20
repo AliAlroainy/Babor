@@ -18,7 +18,6 @@
         color: #fff;
         position: relative;
         overflow: hidden;
-        cursor: pointer;
     }
 
     .cardp .line-1 {
