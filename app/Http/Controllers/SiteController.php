@@ -136,4 +136,11 @@ class SiteController extends Controller
         return redirect()->back()->  with(['successAdd'=>'تم الاحتفاظ بتقييمك شكرا لك']);
         return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);}
   
+
+
+        public function availableOffer(){
+            // available = not-expired + progress
+            $auctions = Auction::whereDate('closeDate', '>', now())->where('status', '2')->get();
+            return view('Front.offer')->with(['auctions' => $auctions, 'title' => 'المزادات الحالية']);
+        }
     }
