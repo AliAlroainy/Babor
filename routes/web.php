@@ -213,7 +213,7 @@ Route::get('/admin/wallet',function () {
 });
 
 Route::get('/admin/walletAuctions',function () {
-    return view('Admin.wallet.userAuctions');
+    return view('Admin.wallet.usersAuctions');
 });
 
 
