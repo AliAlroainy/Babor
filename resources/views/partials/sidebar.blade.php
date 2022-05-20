@@ -93,7 +93,7 @@
                             </a>
                         </li>
                         <li class=" me-5">
-                            <a class="nav-link" href="#" style="font-family: Tajawal">
+                            <a class="nav-link" href="/admin/walletAuctions" style="font-family: Tajawal">
                                 <i class="bi bi-people-fill me-2 ms-2"></i>
                                 عمليات المزادات
                             </a>

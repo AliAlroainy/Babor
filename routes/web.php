@@ -212,6 +212,10 @@ Route::get('/admin/wallet',function () {
     return view('Admin.wallet.wallet');
 });
 
+Route::get('/admin/walletAuctions',function () {
+    return view('Admin.wallet.userAuctions');
+});
+
 
 Route::get('/wallet', function (){
     $admin = User::find(1);
