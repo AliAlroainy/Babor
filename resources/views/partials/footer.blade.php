@@ -163,8 +163,8 @@ $('.dropify').dropify({
 
 // });
      </script>
-
 <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+{{-- <script src="/js/Notifications/notifications.js"></script>--}}
 <script>
 
     var pusher = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
@@ -172,24 +172,98 @@ $('.dropify').dropify({
         encrypted: true
     });
 
-    var channel = pusher.subscribe('notify-channel');
-    channel.bind('App\\Events\\Notify', function(data) {
-        alert(data.message + data.link);
-        var channel = pusher.subscribe('notify-channel');
-        channel.bind('App\\Events\\Notify', function(data) {
-            alert(data.carName );
-            var node = document.createElement('li') ;
-            node.textContent = `
-                <li>
-                    <a href="#" class="remove" title="Remove this item"><iclass="fa fa-remove"></i></a>
-                    <a class="cart-img" href="#"><img src="img/c1.jpg" alt="#"></a>
-                    <h4><a class="nav-link" href="#">${data.endDate}</a></h4>
-                    <p class="quantity">${data.carName} <span class="amount">$${data.price}</span></p>
-                </li>
-`;
+    let channel = pusher.subscribe('notify-channel');
+    let channel2 = pusher.subscribe('notify-channel2');
 
-            document.getElementById('shopping-list').prepend(node);
+    channel.bind('App\\Events\\Notify', function(data) {
+        let node = document.createElement('li');
+        if( data.user_id.toString() =="{!! Auth::id() !!}" && data.type == 1 ) {
+            // if( data.type == 1 ) {
+            node.innerHTML =`
+                <span class="dropdown-item">
+                    <span class="cart-img ms-2" ><img src="/images/cars/${data.thumbnail}" alt="#"></span>
+                    <a class="quantity text-dark" href="user/auction/details/${data.link}">
+                        <p class="fw-bold m-0"> ${data.message}</p>
+                        <span class="amount">${data.price}</span>
+                        <span class="d-block mb-0 date">ينتهي بتاريخ ${data.endDate} </span>
+                    </a>
+                </span>
+`;
+            alert({!! \Illuminate\Support\Facades\Auth::id() !!})
+            document.getElementById('dropdown-menu').append(node);
+        }
+
+        if( data.user_id.toString() =="{!! Auth::id() !!}" && data.type == 2 ) {
+            node.innerHTML =`
+                <span class="dropdown-item">
+                    <a class="quantity text-dark" href="user/auction/details/${data.link}">
+                        <p class="fw-bold m-0"> ${data.message}</p>
+                    </a>
+                </span>
+`;
+            {{--             alert("{!! Auth::id() !!}");--}}
+            document.getElementById('dropdown-menu').append(node);
+        }
+        if( data.type == 3 ) {
+            node.innerHTML =`
+                <span class="dropdown-item">
+                    <a class="quantity text-dark" href="user/auction/details/${data.link}">
+                        <p class="fw-bold m-0"> ${data.message}</p>
+                        <p class="m-0">إضغط لمعرفة السبب</p>
+                    </a>
+                </span>
+`;
+            {{--alert("{!! Auth::id() !!}");--}}
+            document.getElementById('dropdown-menu').append(node);
+        }
+
+
+        if( data.user_id.toString() == "{!! Auth::id() !!}" && data.admin_id.toString() != "{!! Auth::id() !!}"  && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "" && data.type == 5) {
+            {{--alert(data.user_id.toString() != "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "");--}}
+                node = document.createElement('li');
+            node.innerHTML =`
+                <span class="dropdown-item">
+                    <a class="quantity text-dark" href="user/auction/details/${data.link}">
+                        <p class="fw-bold m-0"> ${data.message}</p>
+                    </a>
+                </span>
+`;
+            {{--alert("{!! Auth::id() !!}");--}}
+            document.getElementById('dropdown-menu').append(node);
+        }
+
+        if( data.user_id.toString() == "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != 1 && "{!! Auth::id() !!}" != "" && data.type == 6) {
+            node = document.createElement('li');
+            node.innerHTML =`
+                <span class="dropdown-item">
+                    <a class="quantity text-dark" href="user/auction/details/${data.link}">
+                        <p class="fw-bold m-0"> ${data.message}</p>
+                    </a>
+                </span>
+`;
+            {{--alert("{!! Auth::id() !!}");--}}
+            document.getElementById('dropdown-menu').append(node);
+        }
+
     });
+
+    channel2.bind('App\\Events\\Notify', function(data) {
+        var node = document.createElement('li');
+        node.innerHTML =`
+                <span class="dropdown-item">
+                    <a class="quantity text-dark" href="user/auction/details/${data.link}">
+                        <p class="fw-bold m-0"> ${data.message}</p>
+                    </a>
+                </span>
+`;
+        if( data.user_id.toString() == "{!! Auth::id() !!}") {
+            {{--alert("{!! Auth::id() !!}");--}}
+            document.getElementById('dropdown-menu').append(node);
+        }
+
+    });
+
+
 </script>
 
 </body>

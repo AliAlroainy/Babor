@@ -48,48 +48,47 @@
                         <i class="mdi mdi-bell mx-0"></i>
                         <span class="count"></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
+                    <div class="dropdown-menu dropdown-menu-right rtl navbar-dropdown"
+                         id="dropdown-menu"
                         aria-labelledby="notificationDropdown">
-                        <p class="mb-0 font-weight-normal float-left dropdown-header">الإشعارات</p>
-                        <a class="dropdown-item">
-                            <div class="item-thumbnail">
-                                <div class="item-icon bg-success">
-                                    <i class="mdi mdi-information mx-0"></i>
-                                </div>
-                            </div>
-                            <div class="item-content">
-                                <h6 class="font-weight-normal">Application Error</h6>
-                                <p class="font-weight-light small-text mb-0 text-muted">
-                                    Just now
-                                </p>
-                            </div>
-                        </a>
-                        <a class="dropdown-item">
-                            <div class="item-thumbnail">
-                                <div class="item-icon bg-warning">
-                                    <i class="mdi mdi-settings mx-0"></i>
-                                </div>
-                            </div>
-                            <div class="item-content">
-                                <h6 class="font-weight-normal">الإعدادات</h6>
-                                <p class="font-weight-light small-text mb-0 text-muted">
-                                    Private message
-                                </p>
-                            </div>
-                        </a>
-                        <a class="dropdown-item">
-                            <div class="item-thumbnail">
-                                <div class="item-icon bg-info">
-                                    <i class="mdi mdi-account-box mx-0"></i>
-                                </div>
-                            </div>
-                            <div class="item-content">
-                                <h6 class="font-weight-normal">New user registration</h6>
-                                <p class="font-weight-light small-text mb-0 text-muted">
-                                    2 days ago
-                                </p>
-                            </div>
-                        </a>
+                        <p class="mb-0 font-weight-normal  dropdown-header">الإشعارات</p>
+                        @foreach( \App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
+                            @if($notification->type == 1)
+                        <span class="dropdown-item">
+                            <span class="cart-img ms-2" ><img src="/images/cars/{{$notification->thumbnail}}" alt="#"></span>
+                                <a class="quantity text-dark" href="{{ url('user/auction/details')}}/{{$notification->link}}">
+                                <p class="fw-bold m-0"> {{$notification->message}}</p>
+                                <span class="amount">$ {{$notification->price}}</span>
+                                <span class="d-block mb-0 date">ينتهي بتاريخ {{$notification->closeDate}}</span>
+                            </a>
+                        </span>
+                            @elseif($notification->type == 2)
+                                <span class="dropdown-item">
+                                    <a class="quantity text-dark" href="{{ url('user/auction/details')}}/{{$notification->link}}">
+                                        <p class="fw-bold m-0"> {{$notification->message}}</p>
+                                    </a>
+                                </span>
+                            @elseif($notification->type == 3)
+                                <span class="dropdown-item">
+                                    <a class="quantity text-dark" href="{{ url('user/auction/details')}}/{{$notification->link}}">
+                                        <p class="fw-bold m-0"> {{$notification->message}}</p>
+                                        <p class="m-0">إضغط لمعرفة السبب</p>
+                                    </a>
+                                </span>
+                                @else
+                                <span class="dropdown-item">
+                                    <a class="quantity text-dark" href="{{ url('user/auction/details')}}/{{$notification->link}}">
+                                        <p class="fw-bold m-0"> {{$notification->message}}</p>
+                                    </a>
+                                </span>
+                            @endif
+                        @endforeach
+
+
+                        <span class="all">
+                            <a href="#" class="removeAll text-center w-100 d-inline-block mt-2">حذف الكل</a>
+                            <a href="#" class="showAll text-center w-100 d-inline-block mt-2">عرض الكل</a>
+                        </span>
                     </div>
                 </li>
                 <li class="nav-item nav-profile dropdown">
