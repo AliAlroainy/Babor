@@ -234,6 +234,7 @@
                                                    
 
                                                     <div id="demo" class="carousel slide" data-ride="carousel">
+                                                        <br>
                                                         <h6 style="direction:rtl;margin-left:20%">عرض المزيد من الصور</h6>
 
                                                         <!-- Indicators -->
