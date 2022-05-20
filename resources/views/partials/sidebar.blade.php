@@ -64,11 +64,13 @@
                     <ul class="nav flex-column sub-menu">
                         <li class=" me-5">
                             <a class="nav-link" href="{{ route('admin.auction.index') }}" style="font-family: Tajawal" target="_self">
+                                <i class="bi bi-truck-flatbed ms-2"></i>
                                 المزادات
                             </a>
                         </li>
                         <li class=" me-5">
                             <a class="nav-link" href="{{ route('admin.bid.index') }}" style="font-family: Tajawal">
+                                <i class="bi bi-cash-coin ms-2"></i>
                                 عمليات المزايدة
                             </a>
                         </li>
