@@ -100,7 +100,24 @@
 
 
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
-
+<!-- search code -->
+    <script>
+        /// JavaScript code
+        function search_cars() {
+            let input = document.getElementById('searchbar').value
+            input=input.toLowerCase();
+            let x = document.getElementsByClassName('cars');
+              
+            for (i = 0; i < x.length; i++) { 
+                if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                    x[i].style.display="none";
+                }
+                else {
+                    x[i].style.display="flex";                 
+                }
+            }
+        }
+            </script>
 
     <script>
         (function(i, s, o, g, r, a, m) {
@@ -267,8 +284,8 @@
                             <!-- Search Form -->
                             <div class="search-top" dir="rtl">
                                 <form class="search-form">
-                                    <input type="text" placeholder="ابحث هنا..." name="search">
-                                    <button value="search" type="submit"><i class="ti-search"></i></button>
+                                    <input type="text" placeholder="ابحث هنا..." name="search" onkeyup="search_cars()" id="searchbar">
+                                    <button value="" type="submit"><i class="ti-search"></i></button>
                                 </form>
                             </div>
                             <!--/ End Search Form -->
@@ -288,7 +305,8 @@
                                     <option>تكاسي</option>
                                 </select>
                                 <form>
-                                    <input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث">
+                                    <input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث"  onkeyup="search_cars()" type="text"
+              name="search" id="searchbar">
                                     <button class="btnn"><i class="ti-search"></i></button>
                                 </form>
                             </div>
