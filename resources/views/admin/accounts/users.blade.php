@@ -65,12 +65,12 @@
                                                                     class=" btn d-flex align-items-center
                                                                     font-weight-inverse-success
                                                               btn-rounded  fa-solid fa-trash pe-2
-                                                           " style="color:#71c016;font-size:25px ;">
+                                                           " style="color:#71c016;font-size:18px ;">
                                                                    
                                                                 </button>
                                                                
                                                             @else
-                                                                <button style="color:#ff4747;font-size: 25px ;"
+                                                                <button style="color:#ff4747;font-size: 18px ;"
                                                                     class="
                                                             btn d-flex align-items-center fas fa-trash-restore pe-2
                                                              ">

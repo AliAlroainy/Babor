@@ -8,9 +8,10 @@ use App\Models\Series;
 use App\Models\service;
 use App\Models\Category;
 use App\Models\Bid;
+use App\Models\ReviewRating;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\contactUs;
 class adminIndexController extends Controller
 {
     /**
@@ -31,15 +32,23 @@ class adminIndexController extends Controller
         $user= User::get()->count();
         $userper=$user/100;
 
-        $category= User::get()->count();
+        $category= Category::get()->count();
         $categoryper=$category/100;
 
         $brands= Brand::get()->count();
         $brandsper=$brands/100;
 
-        $seris= Brand::get()->count();
+        $seris= Series::get()->count();
         $serisper=$seris/100;
+        $stars= ReviewRating::get()->count();
+        $starper=$stars/100;
 
+        $messages= contactUs::get()->count();
+        $messagesprs=$messages/100;
+
+        $bids= Bid::get()->count();
+       $bidsprs=$bids/100;
+        
         return view('Admin.index')->with([
             'auction' => $Auctions ,
             'prec'=>$auctionPercentage,
@@ -53,6 +62,12 @@ class adminIndexController extends Controller
             'brandsper'=>$brandsper,
             'seris' => $seris,
             'serisper'=>$serisper,
+            'stars'=>$stars,
+            'starper'=>$starper,
+            'messages'=>$messages,
+            'messagesprs'=>$messagesprs,
+            'bids'=>$bids,
+            'bidsprs'=>$bidsprs,
 
             
            

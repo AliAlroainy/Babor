@@ -10,7 +10,6 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">عرض الاسئلة</h4>
                             @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     {{ session()->get('errorEdit') }}
@@ -99,7 +98,7 @@
                                                            <button type="button" class="btn btn-outline-secondary"
                                                                    data-bs-dismiss="modal">إلغاء</button>
                                                            <button type="submit"
-                                                                   class="btn btn-warning text-white">تعديل</button>
+                                                                   class="btn  text-white" style="background:#f79827">تعديل</button>
                                                        </div>
                                                    </div>
                                                </form>
@@ -114,7 +113,7 @@
                                                     {{ $question->answer }}
                                                 </td>
                                                 <td>
-                                                    <a href="editService" style="width: fit-content; font-size: 25px ;color:#686868"
+                                                    <a href="editService" style="width: fit-content; font-size:18px;color:#686868"
                                                         class="fa-solid fa-edit pe-2 btn-fw btn-rounded "
                                                         data-bs-target="#editModal-{{ $question->id }}"
                                                         data-bs-toggle="modal">
@@ -131,13 +130,13 @@
                                                         <button  class=" btn d-flex align-items-center
                                                                     font-weight-inverse-success
                                                               btn-rounded  fa-solid fa-trash pe-2
-                                                           " style="color:#71c016;font-size: 25px ;">
+                                                           " style="color:#71c016;font-size:18px;">
                                                                 </button>
                                                         @else
                                                             <button class=" btn d-flex align-items-center
                                                                     font-weight-inverse-danger
                                                               btn-rounded  fa-solid fa-trash-restore pe-2
-                                                           " style="color:#ff4747;font-size: 25px ;">
+                                                           " style="color:#ff4747;font-size:18px;">
 
                                                             </button>
 
@@ -155,7 +154,7 @@
 
             </div>
             <button type="button" data-bs-target="#addModal" data-bs-toggle="modal"
-                class="btn btn-warning btn-rounded btn-icon add">
+                class="btn  btn-rounded btn-icon add" style="background:#f79827;margin-top:-20px;margin-left:6%">
                 <i class="mdi mdi-plus text-white"></i>
             </button>
         </div>
@@ -164,51 +163,6 @@
 
         <!-- Modal -->
 
-        {{-- <div class="modal fade" id="editModal-{{ $question->id }}" tabindex="-1"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <form action="{{ route('admin.question.update', $question->id) }}"
-                      method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PATCH')
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel1">عدل
-                                السؤال</h5>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <label for="editTitle" class="form-label">
-                                        السؤال</label>
-                                    <input type="text" id="editTitle"
-                                           class="form-control" name="title"
-                                           value="{{ $question->question ?? '' }}"
-                                           placeholder=" السؤال">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <label for="editDesc"
-                                           class="form-label">الاجابة</label>
-                                    <input type="text" id="editDesc"
-                                           class="form-control" name="description"
-                                           value="{{ $question->answer ?? '' }}"
-                                           placeholder="الاجابة ">
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary"
-                                    data-bs-dismiss="modal">إلغاء</button>
-                            <button type="submit"
-                                    class="btn btn-warning text-white">تعديل</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div> --}}
 
 
         <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
@@ -238,7 +192,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">إلغاء</button>
-                            <button type="submit" class="btn btn-warning text-white">إضافة</button>
+                            <button type="submit" class="btn  text-white" style="background:#f79827">إضافة</button>
                         </div>
                     </div>
                 </form>

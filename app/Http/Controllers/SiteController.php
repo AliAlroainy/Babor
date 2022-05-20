@@ -60,7 +60,7 @@ class SiteController extends Controller
         $avgBeforRound=$total/5;
         }
         else{
-            $total=1; 
+            $total=.001; 
             $onePrsent=$oneStar/$total*100;
             $towPrsent=$towStar /$total*100;
             $threePrsent=$threeStar/$total*100;

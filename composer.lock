@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "bavix/laravel-wallet",
-            "version": "9.0.0",
+            "version": "9.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bavix/laravel-wallet.git",
-                "reference": "79f34401a9dcc558037f2f5182fd7c3c9562cf15"
+                "reference": "150f248cb8cc3b28551d6125f7b60e02475ceaf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bavix/laravel-wallet/zipball/79f34401a9dcc558037f2f5182fd7c3c9562cf15",
-                "reference": "79f34401a9dcc558037f2f5182fd7c3c9562cf15",
+                "url": "https://api.github.com/repos/bavix/laravel-wallet/zipball/150f248cb8cc3b28551d6125f7b60e02475ceaf2",
+                "reference": "150f248cb8cc3b28551d6125f7b60e02475ceaf2",
                 "shasum": ""
             },
             "require": {
@@ -86,9 +86,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bavix/laravel-wallet/issues",
-                "source": "https://github.com/bavix/laravel-wallet/tree/9.0.0"
+                "source": "https://github.com/bavix/laravel-wallet/tree/9.0.1"
             },
-            "time": "2022-05-02T07:52:12+00:00"
+            "time": "2022-05-19T16:21:32+00:00"
         },
         {
             "name": "brick/math",
@@ -6607,13 +6607,9 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-
-            "time": "2022-05-16T18:13:03+00:00"
-
             "time": "2022-05-18T15:56:59+00:00"
-
         },
-        {
+        
             "name": "mockery/mockery",
             "version": "1.5.0",
             "source": {
