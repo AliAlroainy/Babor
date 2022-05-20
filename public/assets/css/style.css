@@ -24456,7 +24456,7 @@ dl li {
     top: 60px;
     bottom: 0;
     overflow: auto;
-    right: -257px;
+    right: -292px;
     -webkit-transition: all 0.25s ease-out;
     -o-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
@@ -24715,6 +24715,7 @@ dl li {
   /* right: 0;
   left: auto; */
   top: 60px;
+    width: fit-content;
 }
 
 .rtl .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {

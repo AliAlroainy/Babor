@@ -26,7 +26,7 @@ class PaymentController extends Controller
         $bill = Payment_Bill::where('bid_id', $id)->orderBy('id', 'desc')->first();
         if($bill->payment_status == 0){
             if($bidder->balance >= $money){
-                $bidder->transfer(User::first(), $money);
+                $bidder->transfer(User::first(), $money, ['buy' => $bill->id]);
                 DB::table('payment_bills')->where('bid_id', $id)->update(
                     [
                         'payment_status' => 1, 

@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-body">
                             
-                            <h4 class="card-title">عرض المزايدات</h4>
+                            <h4 class="card-title">عرض  المزايدات</h4>
                             @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     {{ session()->get('errorEdit') }}
