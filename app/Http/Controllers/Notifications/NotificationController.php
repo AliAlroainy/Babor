@@ -53,10 +53,10 @@ class NotificationController extends Controller
 
         $notification = new Notification();
         $auctioneer=User::where('id',$auction->auctioneer_id)->first();
-        $users = User::get();
+        $users = User::all();
+        $car = Car::where('id',$auction->car_id)->first();
         foreach ($users as $user) {
-            $car = Car::where('id',$auction->car_id)->first();
-            if($user->id !=$auctioneer->id){
+            if($user->id != $auctioneer->id){
                 $notification = Notification::create([
                     'message' => "تمت إضافة مزاد جديد",
                     'user_id' => $user->id ,
@@ -72,7 +72,8 @@ class NotificationController extends Controller
                 $series = $auction->car->series->name;
                 $model = $auction->car->model;
                 $info = array('brand'=>$brand,'series'=>$series,'model'=>$model);
-                $data['carSpecs'] = implode("," , $info);
+//                $data['carSpecs'] = implode("," , $info);
+                $data['message'] = $notification->message;
                 $data['link'] = $notification->link;
                 $data['price'] = $notification->price;
                 $data['endDate'] = $notification->closeDate;
@@ -80,7 +81,7 @@ class NotificationController extends Controller
                 $data['type'] = $notification->type;
                 $data['thumbnail'] = $notification->thumbnail;
 
-                if(Auth::id() == $user->id)
+//                if(Auth::id() == $user->id)
                     $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
             }else{
                 $notification = new Notification();
@@ -99,7 +100,8 @@ class NotificationController extends Controller
                 $data['price'] = $auction->openingBid;
                 $data['endDate'] = $auction->closeDate;
                 $data['user_id'] = $user->id;
-
+                $data['type'] = $notification->type;
+//                if($user->id == Auth::id())
                 $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
             }
         }
