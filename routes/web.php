@@ -173,6 +173,7 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/auction/{id}/buy', [PaymentController::class, 'buy'])->name('user.buy.auction');
 
             Route::post('/favorite', [FavoriteController::class, 'store'])->name('auction_favorite');
+            Route::post('/unfavorite', [FavoriteController::class, 'destroy'])->name('auction_unfavorite');
             Route::get('/favorite/auctions', [FavoriteController::class, 'index'])->name('auction_favorite.index');
             Route::get('/wallet', [WalletController::class, 'index'])->name('user.wallet');
 

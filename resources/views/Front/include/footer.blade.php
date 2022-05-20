@@ -178,6 +178,26 @@
              headers: {
                  'X-CSRF-TOKEN': '{!! csrf_token() !!}',
              },
+             //  success: function(data) {
+             //      location.reload();
+             //  }
+         });
+     });
+
+     $(document).on('click', '.removeWishlist', function(e) {
+         e.preventDefault();
+         $.ajax({
+             type: 'POST',
+             data: {
+                 'auction_id': $(this).attr('data-auction-id'),
+             },
+             url: '/user/unfavorite',
+             headers: {
+                 'X-CSRF-TOKEN': '{!! csrf_token() !!}',
+             },
+             //  success: function(data) {
+             //      location.reload();
+             //  }
          });
      });
  </script>
