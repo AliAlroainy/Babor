@@ -25,26 +25,35 @@
 @extends('partials.master')
 @section('body')
 
+{{-- style --}}
+@include('Front.user.style.style')
+
+
     <!-- partial -->
  <!-- Small Stats Blocks -->
  <div class="main-panel">
         <div class="content-wrapper" style="position: relative">
- <div style="display:flex;flex-direction:row">
 
- <div class="row">
+
+
+
+ <div >
+
+ <div class="d-flex row align-items-center justify-content-center"  >
  
-              <div class="col-lg-2 col-md-6 col-sm-6 mb-4  ml-2">
+              <div class="  col-lg-2 col-12 mb-4  ml-2" >
                 <div class="stats-small stats-small--1 card card-small">
                   
-                <div class="card-body p-0 d-flex" style="text-align: center;
-    ">
-                    <div class="d-flex flex-column m-auto pl-5">
-                      <div class="stats-small__data text-center mt-2">
-                        <span class=" text-uppercase " style="color:#f79522;">المزادات</span>
-                        <h2 class="stats-small__value count my-3"style="color:green;font-size:40px">{{$auction}}</h2>
+                <div class="card-body cardp d-flex align-items-center justify-content-center  " >
+                    <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
+                      <div class="stats-small__data text-center d-flex flex-column mt-2">
+                        <i class="mdi mdi-car menu-icon mb-2 " style="font-size:30px"></i>
+
+                        <span class=" text-uppercase  " style="font-size:20px">المزادات</span>
+                        <h2 class="stats-small__value count my-3"style="font-size:40px">{{$auction}}</h2>
                       </div>
                       <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--increase"style="color:red">{{$prec}}%</span>
+                        <span class="stats-small__percentage stats-small__percentage--increase">{{$prec}}%</span>
                       </div>
                       
                     </div>
@@ -54,18 +63,19 @@
                 </div>
               </div>
 
-              <div class="col-lg-2 col-md-6 col-sm-6 mb-4  ml-2">
+              <div class="col-lg-2 col-12 mb-4  ml-2">
                 <div class="stats-small stats-small--1 card card-small">
                   
-                <div class="card-body p-0 d-flex" style="text-align: center;
-    ">
-                    <div class="d-flex flex-column m-auto pl-5">
-                      <div class="stats-small__data text-center mt-2">
-                        <span class=" text-uppercase " style="color:#f79522;">المزايدات</span>
-                        <h2 class="stats-small__value count my-3"style="color:green;font-size:40px">{{$bids}}</h2>
+                <div class=" card-body cardp d-flex align-items-center justify-content-center" >
+                  <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
+                    <div class="stats-small__data text-center d-flex flex-column mt-2">
+                      <i class="bi bi-cash-coin  mb-2 " style="font-size:30px"></i>
+
+                        <span class=" text-uppercase "  style="font-size:20px" >المزايدات</span>
+                        <h2 class="stats-small__value count my-3"style="font-size:30px">{{$bids}}</h2>
                       </div>
                       <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--increase"style="color:red">{{$bidsprs}}%</span>
+                        <span class="stats-small__percentage stats-small__percentage--increase">{{$bidsprs}}%</span>
                       </div>
                       
                     </div>
@@ -76,35 +86,18 @@
               </div>
 
 
-              <div class="col-lg-2 col-md-6 col-sm-6 mb-4 ml-2 mr-2">
+              <div class="col-lg-2 col-12 mb-4 ml-2 mr-2">
                 <div class="stats-small stats-small--1 card card-small">
-                <div class="card-body p-0 d-flex" style="text-align: center;
-    direction: ltr;">
-                    <div class="d-flex flex-column m-auto pl-5">
-                      <div class="stats-small__data text-center mt-2">
-                        <span class="stats-small__label text-uppercase"style="color:#f79522">الخدمات</span>
-                        <h2 class="stats-small__value count my-3" style="color:green;font-size:40px">{{$service}}</h2>
+
+            <div class=" card-body cardp d-flex align-items-center justify-content-center" >
+              <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
+                <div class="stats-small__data text-center mt-2 d-flex flex-column">
+                  <i class="bi bi-inboxes-fill menu-icon  mb-2 " style="font-size:30px"></i>
+                        <span class="stats-small__label text-uppercase"style="font-size:20px">الخدمات</span>
+                        <h2 class="stats-small__value count my-3" style="font-size:30px">{{$service}}</h2>
                       </div>
                       <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--decrease"style="color:red">{{$serviceprec}}%</span>
-                      </div>
-                    </div>
-                 
-                  </div>
-                 
-                </div>
-              </div>
-              <div class="col-lg-2 col-md-6 col-sm-6 mb-4 ml-2 mr-2">
-                <div class="stats-small stats-small--1 card card-small">
-                <div class="card-body p-0 d-flex" style="text-align: center;
-    direction: ltr;">
-                    <div class="d-flex flex-column m-auto pl-5">
-                      <div class="stats-small__data text-center mt-2">
-                        <span class="stats-small__label text-uppercase"style="color:#f79522">التقييمات</span>
-                        <h2 class="stats-small__value count my-3" style="color:green;font-size:40px">{{$stars}}</h2>
-                      </div>
-                      <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--decrease"style="color:red">{{$starper}}%</span>
+                        <span class="stats-small__percentage stats-small__percentage--decrease">{{$serviceprec}}%</span>
                       </div>
                     </div>
                  
@@ -113,36 +106,55 @@
                 </div>
               </div>
 
-              <div class="col-lg-2 col-md-6 col-sm-6 mb-4 ml-2 mr-2">
+              {{-- <div class="col-lg-2 col-12 mb-4 ml-2 mr-2">
                 <div class="stats-small stats-small--1 card card-small">
-                <div class="card-body p-0 d-flex" style="text-align: center;
-    direction: ltr;">
-                    <div class="d-flex flex-column m-auto pl-5">
+           
+                  <div class=" card-body cardp d-flex align-items-center justify-content-center" >
+                    <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
                       <div class="stats-small__data text-center mt-2">
-                        <span class="stats-small__label text-uppercase"style="color:#f79522">رسائل الزوار</span>
-                        <h2 class="stats-small__value count my-3" style="color:green;font-size:40px">{{$messages}}</h2>
+                        <span class="stats-small__label text-uppercase"style="font-size:30px">التقييمات</span>
+                        <h2 class="stats-small__value count my-3" style="font-size:30px">{{$stars}}</h2>
                       </div>
                       <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--decrease"style="color:red">{{$messagesprs}}%</span>
+                        <span class="stats-small__percentage stats-small__percentage--decrease">{{$starper}}%</span>
                       </div>
                     </div>
                  
                   </div>
                  
                 </div>
-              </div>
+              </div> --}}
 
-              <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+              {{-- <div class="col-lg-2 col-12 mb-4 ml-2 mr-2">
                 <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex" style="text-align: center;
-    direction: ltr;">
-                    <div class="d-flex flex-column m-auto pl-5">
-                      <div class="stats-small__data mt-2">
-                        <span class="stats-small__label text-uppercase me-2"style="color:#f79522">المستخدمين</span>
-                        <h6 class="stats-small__value count my-3"style="color:green;font-size:40px">{{$user}}</h6>
+           
+                  <div class=" card-body cardp d-flex align-items-center justify-content-center" >
+                    <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
+                      <div class="stats-small__data text-center mt-2">
+                        <span class="stats-small__label text-uppercase"style="font-size:30px">رسائل الزوار</span>
+                        <h2 class="stats-small__value count my-3" style="font-size:30px">{{$messages}}</h2>
                       </div>
                       <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--increase"style="color:red">{{$userper}}%</span>
+                        <span class="stats-small__percentage stats-small__percentage--decrease">{{$messagesprs}}%</span>
+                      </div>
+                    </div>
+                 
+                  </div>
+                 
+                </div>
+              </div> --}}
+
+              <div class="col-lg-2 col-12 mb-4">
+                <div class="stats-small stats-small--1 card card-small">
+                  <div class=" card-body cardp d-flex align-items-center justify-content-center" >
+                    <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
+                      <div class="stats-small__data mt-2 d-flex flex-column">
+                        <i class="bi bi-person-bounding-box mb-2 text-center" style="font-size:30px"></i>
+                        <span class="stats-small__label text-uppercase " style="font-size:20px">المستخدمين</span>
+                        <h2 class="stats-small__value count my-3 text-center" style="font-size:30px">{{$user}}</h2>
+                      </div>
+                      <div class="stats-small__data">
+                        <span class="stats-small__percentage stats-small__percentage--increase">{{$userper}}%</span>
                       </div>
                     </div>
                   </div>
@@ -150,17 +162,17 @@
                 </div>
               </div>
               
-              <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex" style="text-align: center;
-    direction: ltr;">
-                    <div class="d-flex flex-column m-auto pl-5">
-                      <div class="stats-small__data mt-2">
-                        <span class="stats-small__label text-uppercase " style="color:#f79522">الاقسام</span>
-                        <h6 class="stats-small__value count my-3"style="color:green;font-size:40px">{{$category}}</h6>
+              <div class="col-lg-2 col-12 mb-4">
+                <div class="stats-small stats-small--1 card ">
+                  <div class=" card-body cardp d-flex align-items-center justify-content-center" >
+                    <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
+                      <div class="stats-small__data mt-2 d-flex flex-column">
+                        <i class="fa-solid fa-qrcode menu-icon mb-2 text-center " style="font-size: 30px"></i>
+                        <span class="stats-small__label text-uppercase " style="font-size: 20px">الاقسام</span>
+                        <h6 class="stats-small__value text-center count my-3"style="font-size:30px">{{$category}}</h6>
                       </div>
                       <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--increase"style="color:red">{{$categoryper}}%</span>
+                        <span class="stats-small__percentage stats-small__percentage--increase">{{$categoryper}}%</span>
                       </div>
                     </div>
                    
@@ -169,34 +181,34 @@
                 </div>
               </div>
 
-              <div class="col-lg-2 col-md-4 col-sm-12 mb-4">
+              {{-- <div class="col-lg-2 col-12 mb-4">
                 <div class="stats-small stats-small--1 card card-small">
-                <div class="card-body p-0 d-flex" style="text-align: center;
-    direction: ltr;">
-                    <div class="d-flex flex-column m-auto pl-5">
+                  <div class=" card-body cardp d-flex align-items-center justify-content-center" >
+                    <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
                       <div class="stats-small__data text-center mt-2">
-                        <span class="stats-small__label text-uppercase" style="color:#f79522">الماركات </span>
-                        <h6 class="stats-small__value count my-3" style="color:green;font-size:40px">{{$brands}}</h6>
+                        <span class="stats-small__label text-uppercase" style="font-size: 30px">الماركات </span>
+                        <h6 class="stats-small__value count my-3" style="font-size:30px">{{$brands}}</h6>
                       </div>
                       <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--decrease" style="color:red">{{$brandsper}}%</span>
+                        <span class="stats-small__percentage stats-small__percentage--decrease" >{{$brandsper}}%</span>
                       </div>
                     </div>
                   </div>
                  
                 </div>
               </div>
-              <div class="col-lg-2 col-md-4 col-sm-12 mb-4">
+               --}}
+
+              {{-- <div class="col-lg-2 col-12 mb-4">
                 <div class="stats-small stats-small--1 card card-small">
-                <div class="card-body p-0 d-flex" style="text-align: center;
-    direction: ltr;">
-                    <div class="d-flex flex-column m-auto pl-5">
+                  <div class=" card-body cardp d-flex align-items-center justify-content-center" >
+                    <div class="d-flex flex-column align-items-center justify-content-center m-auto ">
                       <div class="stats-small__data text-center mt-2">
-                        <span class="stats-small__label text-uppercase" style="color:#f79522"> السيارات</span>
-                        <h6 class="stats-small__value count my-3" style="color:green;font-size:40px">{{$seris}}</h6>
+                        <span class="stats-small__label text-uppercase" style="font-size: 30px"> السيارات</span>
+                        <h6 class="stats-small__value count my-3" style="font-size:30px">{{$seris}}</h6>
                       </div>
                       <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--decrease" style="color:red">{{$serisper}}%</span>
+                        <span class="stats-small__percentage stats-small__percentage--decrease" >{{$serisper}}%</span>
                         
                       </div>
                     </div>
@@ -204,14 +216,7 @@
                   
                 </div>
               </div>
-              <div style="display:flex;flex-direction:row;width:90%;">
-              <div style="width:60% ;direction:rtl">
-              <canvas style="width:20px" id="myChart"></canvas>
-</div>
-<div style="width:40%;direction:rtl">
-              <div id="donut-chart"></div>
-</div>
-</div>
+  --}}
               <div>
        
       </div>
@@ -219,7 +224,21 @@
            
   </div>
 <br>
+
+{{-- the graph components--}}
+
+<div class="row " >
+  <div class=" col-12 col-lg-8" style="direction:rtl">
+  <canvas style="width:100px" id="myChart"></canvas>
+</div>
+<div class="col-12 col-lg-4" style="direction:rtl">
+  <div id="donut-chart"></div>
+</div>
+</div>
+
  </div>
+
+
  <script>
     var ctx = document.getElementById("myChart").getContext("2d");
     var myChart = new Chart(ctx, {
@@ -238,12 +257,12 @@
         ],
         datasets: [
           {
-            label: "work load",
+            label: "النشاط ",
             data: [{{$auction}},{{$bids}},{{$user}},{{$service}},{{$category}},{{$brands}},{{$seris}},{{$messages}},{{$stars}}],
             backgroundColor: "#d98a2c",
           },
           {
-            label: "free ",
+            label: "السكون ",
             data: [100-{{$auction}},100-{{$bids}},100-{{$service}},100-{{$category}},100-{{$brands}},100-{{$user}},100-{{$seris}},100-{{$messages}},100-{{$stars}}],
             backgroundColor: "#e9ecef",
           },

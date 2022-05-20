@@ -1,14 +1,36 @@
 @extends('partials.master')
 @section('body')
+{{-- style --}}
+@include('Front.user.style.style')
+
     <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper">
+
+
+            <div class="row ">
+
+                <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
+                    <div class="cardp d-flex align-items-center justify-content-center">
+                        <div class="card-body d-flex align-items-center justify-content-center">
+                            <h1 class="card-title">
+                                <i class="fa-solid fa-user "></i>
+                                المستخدمين</h1>
+
+                         
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
             <div class="row">
 
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                          
 
                             <div class="table-responsive">
                                 <table class="table table-striped table-hover">

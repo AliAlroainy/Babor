@@ -17,7 +17,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.service.index') }}">
-                    <i class="fa-solid fa-cog menu-icon ms-3 "></i>
+                    <i class="bi bi-inboxes-fill menu-icon me-3 ms-3 "></i>
                     <span class="menu-title fw-bold " style="font-family: Tajawal">إدارة الخدمات</span>
                 </a>
             </li>
@@ -36,13 +36,15 @@
                 </a>
                 <div class="collapse" id="ui-basic">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item me-5">
+                        <li class=" me-5">
                             <a class="nav-link" href="{{ route('admin.brand.index') }}" target="_self" style="font-family: Tajawal">
+                                <i class="bi bi-truck ms-2"></i>
                                 الماركات
                             </a>
                         </li>
-                        <li class="nav-item me-5">
+                        <li class=" me-5 ">
                             <a class="nav-link" href="{{ route('admin.series.index') }}" style="font-family: Tajawal">
+                                <i class="bi bi-speedometer2 ms-2"></i>
                                 الانواع
                             </a>
                         </li>
@@ -52,29 +54,62 @@
 
              <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#auction" aria-expanded="false" aria-controls="auction">
-                  
-                    <span class="menu-title fw-bold " style="font-family: Tajawal"> <i class="menu-title fw-bold fa fa-cc-discover menu-icon ms-3 "></i>إدارة المزادات</span>
+                    <i class="bi bi-megaphone-fill menu-icon ms-3 me-3"></i>
+                    <span class="menu-title fw-bold " style="font-family: Tajawal"> 
+                        
+                        إدارة المزادات</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="auction">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item me-5">
+                        <li class=" me-5">
                             <a class="nav-link" href="{{ route('admin.auction.index') }}" style="font-family: Tajawal" target="_self">
+                                <i class="bi bi-truck-flatbed ms-2"></i>
                                 المزادات
                             </a>
                         </li>
-                        <li class="nav-item me-5">
+                        <li class=" me-5">
                             <a class="nav-link" href="{{ route('admin.bid.index') }}" style="font-family: Tajawal">
+                                <i class="bi bi-cash-coin ms-2"></i>
                                 عمليات المزايدة
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
+
+            {{-- wallet link --}}
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#wallet" aria-expanded="false" aria-controls="wallet">
+                    <i class="fa-solid fa-wallet menu-icon me-3 ms-3"></i>
+                    <span class="menu-title fw-bold " style="font-family: Tajawal"> 
+                       
+                        المحفظة </span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="wallet">
+                    <ul class="nav flex-column sub-menu">
+                        <li class=" me-5">
+                            <a class="nav-link" href="/admin/wallet" style="font-family: Tajawal" target="_self">
+                                <i class="bi bi-cash-stack  me-2 ms-2"></i>
+                                الرصيد 
+                            </a>
+                        </li>
+                        <li class=" me-5">
+                            <a class="nav-link" href="/admin/walletAuctions" style="font-family: Tajawal">
+                                <i class="bi bi-people-fill me-2 ms-2"></i>
+                                عمليات المزادات
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.question.index') }}">
-                   
-                    <span class="menu-title fw-bold " style="font-family: Tajawal"> <i class="fa-solid fa-question-circle menu-icon ms-3 "></i>إدارة الاسئلة الشائعة</span>
+                    <i class="fa-solid fa-question-circle menu-icon ms-3 me-3 "></i>
+                    <span class="menu-title fw-bold " style="font-family: Tajawal"> إدارة الاسئلة الشائعة</span>
                 </a>
             </li>
             <li class="nav-item">
