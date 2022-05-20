@@ -42,13 +42,21 @@
                                                          </a>
                                                          <div class="button-head">
                                                              <div class="product-action">
-                                                                 <a data-toggle="modal" data-target="#exampleModal"
-                                                                     title="Quick View" href="#"><i
-                                                                         class=" ti-eye"></i><span>Quick
-                                                                         Shop</span></a>
-                                                                 <a title="Wishlist" href="#"><i
-                                                                         class=" ti-heart "></i><span>اضافة
-                                                                         للتفضيلات</span></a>
+                                                                 <a title="Wishlist" class="addWishlist"
+                                                                     data-auction-id="{{ $auction->id }}">
+                                                                     <i class="ti-heart"></i>
+                                                                 </a>
+                                                                 {{-- <a title="Wishlist" class="addWishlist"
+                                                                     data-auction-id="{{ $auction->id }}"
+                                                                     href="javascript:void(0);"
+                                                                     onclick="document.getElementById('favorite-form-{{ $auction->id }}').submit();">
+                                                                     <i class="ti-heart"></i>
+                                                                 </a>
+                                                                 <form id="favorite-form-{{ $auction->id }}"
+                                                                     method="POST"
+                                                                     action="{{ route('auction_favorite', $auction->id) }}">
+                                                                     @csrf
+                                                                 </form> --}}
                                                                  <a title="Compare" href="#"><i
                                                                          class="ti-bar-chart-alt"></i><span>مشاركة
                                                                          المزاد</span></a>
@@ -97,13 +105,21 @@
                                                          </a>
                                                          <div class="button-head">
                                                              <div class="product-action">
-                                                                 <a data-toggle="modal" data-target="#exampleModal"
-                                                                     title="Quick View" href="#"><i
-                                                                         class=" ti-eye"></i><span>Quick
-                                                                         Shop</span></a>
-                                                                 <a title="Wishlist" href="#"><i
-                                                                         class=" ti-heart "></i><span>اضافة
-                                                                         للتفضيلات</span></a>
+                                                                 <a title="Wishlist" class="addWishlist"
+                                                                     data-auction-id="{{ $auction->id }}">
+                                                                     <i class="ti-heart"></i>
+                                                                 </a>
+                                                                 {{-- <a title="Wishlist" class="addWishlist"
+                                                                     data-auction-id="{{ $auction->id }}"
+                                                                     href="javascript:void(0);"
+                                                                     onclick="document.getElementById('favorite-form-{{ $auction->id }}').submit();">
+                                                                     <i class="ti-heart"></i>
+                                                                 </a> --}}
+                                                                 {{-- <form id="favorite-form-{{ $auction->id }}"
+                                                                     method="POST"
+                                                                     action="{{ route('auction_favorite', $auction->id) }}">
+                                                                     @csrf
+                                                                 </form> --}}
                                                                  <a title="Compare" href="#"><i
                                                                          class="ti-bar-chart-alt"></i><span>مشاركة
                                                                          المزاد</span></a>
@@ -152,13 +168,21 @@
                                                          </a>
                                                          <div class="button-head">
                                                              <div class="product-action">
-                                                                 <a data-toggle="modal" data-target="#exampleModal"
-                                                                     title="Quick View" href="#"><i
-                                                                         class=" ti-eye"></i><span>Quick
-                                                                         Shop</span></a>
-                                                                 <a title="Wishlist" href="#"><i
-                                                                         class=" ti-heart "></i><span>اضافة
-                                                                         للتفضيلات</span></a>
+                                                                 <a title="Wishlist" class="addWishlist"
+                                                                     data-auction-id="{{ $auction->id }}">
+                                                                     <i class="ti-heart"></i>
+                                                                 </a>
+                                                                 {{-- <a title="Wishlist" class="addWishlist"
+                                                                     data-auction-id="{{ $auction->id }}"
+                                                                     href="javascript:void(0);"
+                                                                     onclick="document.getElementById('favorite-form-{{ $auction->id }}').submit();">
+                                                                     <i class="ti-heart"></i>
+                                                                 </a>
+                                                                 <form id="favorite-form-{{ $auction->id }}"
+                                                                     method="POST"
+                                                                     action="{{ route('auction_favorite', $auction->id) }}">
+                                                                     @csrf
+                                                                 </form> --}}
                                                                  <a title="Compare" href="#"><i
                                                                          class="ti-bar-chart-alt"></i><span>مشاركة
                                                                          المزاد</span></a>
@@ -208,13 +232,21 @@
                                                          </a>
                                                          <div class="button-head">
                                                              <div class="product-action">
-                                                                 <a data-toggle="modal" data-target="#exampleModal"
-                                                                     title="Quick View" href="#"><i
-                                                                         class=" ti-eye"></i><span>Quick
-                                                                         Shop</span></a>
-                                                                 <a title="Wishlist" href="#"><i
-                                                                         class=" ti-heart "></i><span>اضافة
-                                                                         للتفضيلات</span></a>
+                                                                 <a title="Wishlist" class="addWishlist"
+                                                                     data-auction-id="{{ $auction->id }}">
+                                                                     <i class="ti-heart"></i>
+                                                                 </a>
+                                                                 {{-- <a title="Wishlist" class="addWishlist"
+                                                                     data-auction-id="{{ $auction->id }}"
+                                                                     href="javascript:void(0);"
+                                                                     onclick="document.getElementById('favorite-form-{{ $auction->id }}').submit();">
+                                                                     <i class="ti-heart"></i>
+                                                                 </a>
+                                                                 <form id="favorite-form-{{ $auction->id }}"
+                                                                     method="POST"
+                                                                     action="{{ route('auction_favorite', $auction->id) }}">
+                                                                     @csrf
+                                                                 </form> --}}
                                                                  <a title="Compare" href="#"><i
                                                                          class="ti-bar-chart-alt"></i><span>مشاركة
                                                                          المزاد</span></a>

@@ -12,6 +12,7 @@
     <title>Babor</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
     </style>
 
     <!-- Favicon -->
@@ -100,24 +101,23 @@
 
 
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
-<!-- search code -->
+    <!-- search code -->
     <script>
         /// JavaScript code
         function search_cars() {
             let input = document.getElementById('searchbar').value
-            input=input.toLowerCase();
+            input = input.toLowerCase();
             let x = document.getElementsByClassName('cars');
-              
-            for (i = 0; i < x.length; i++) { 
+
+            for (i = 0; i < x.length; i++) {
                 if (!x[i].innerHTML.toLowerCase().includes(input)) {
-                    x[i].style.display="none";
-                }
-                else {
-                    x[i].style.display="flex";                 
+                    x[i].style.display = "none";
+                } else {
+                    x[i].style.display = "flex";
                 }
             }
         }
-            </script>
+    </script>
 
     <script>
         (function(i, s, o, g, r, a, m) {
@@ -218,74 +218,88 @@
                             <div class="sinlge-bar shopping">
                                 <a href="#" class="single-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
-                                         class="bi bi-bell" viewBox="0 0 16 16">
+                                        class="bi bi-bell" viewBox="0 0 16 16">
                                         <path
                                             d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
                                     </svg>
-                                    @if(\App\Http\Controllers\Notifications\NotificationController::getNotifications()['count'] > 0)
-                                        <span class="total-count">{{\App\Http\Controllers\Notifications\NotificationController::getNotifications()['count']}}</span>
+                                    @if (\App\Http\Controllers\Notifications\NotificationController::getNotifications()['count'] > 0)
+                                        <span
+                                            class="total-count">{{ \App\Http\Controllers\Notifications\NotificationController::getNotifications()['count'] }}</span>
                                     @endif
-{{--                                    <span class="total-count">2</span>--}}
+                                    {{-- <span class="total-count">2</span> --}}
                                 </a>
 
                                 <!-- notfications Item -->
                                 <div class="shopping-item" dir="rtl">
                                     <div class="dropdown-cart-header">
-                                        <span class="total-count">  {{\App\Http\Controllers\Notifications\NotificationController::getNotifications()['count']}} إشعارات </span>
+                                        <span class="total-count">
+                                            {{ \App\Http\Controllers\Notifications\NotificationController::getNotifications()['count'] }}
+                                            إشعارات </span>
 
                                     </div>
                                     <ul class="shopping-list mb-0" id="shopping-list" style="padding-inline-end: 0">
 
-                                        @foreach( \App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
-
-                                            @if($notification->type == 1)
-
+                                        @foreach (\App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
+                                            @if ($notification->type == 1)
                                                 <li>
-                                                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                    <a href="auction/{{$notification->link}}">
-{{--                                                        <span class="cart-img" ><img src="{{@asset("images/cars/".$notification->thumbnai)}}" alt="#"></span>--}}
-                                                        <span class="cart-img" ><img src="/images/cars/{{$notification->thumbnail}}" alt="#"></span>
+                                                    <a href="#" class="remove" title="Remove this item"><i
+                                                            class="fa fa-remove"></i></a>
+                                                    <a href="auction/{{ $notification->link }}">
+                                                        {{-- <span class="cart-img" ><img src="{{@asset("images/cars/".$notification->thumbnai)}}" alt="#"></span> --}}
+                                                        <span class="cart-img"><img
+                                                                src="/images/cars/{{ $notification->thumbnail }}"
+                                                                alt="#"></span>
                                                         <div class="quantity text-dark">
-                                                            <h4 class="fw-bold"> {{$notification->message}}</h4>
-                                                            <span class="amount">$ {{$notification->price}}</span>
-                                                            <p class="d-block mb-0">ينتهي بتاريخ {{$notification->closeDate}}</p>
+                                                            <h4 class="fw-bold"> {{ $notification->message }}
+                                                            </h4>
+                                                            <span class="amount">$
+                                                                {{ $notification->price }}</span>
+                                                            <p class="d-block mb-0">ينتهي بتاريخ
+                                                                {{ $notification->closeDate }}</p>
                                                         </div>
                                                     </a>
                                                 </li>
                                             @elseif($notification->type == 2)
                                                 <li>
-                                                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                    <a href="user/auction/details/{{$notification->link}}">
+                                                    <a href="#" class="remove" title="Remove this item"><i
+                                                            class="fa fa-remove"></i></a>
+                                                    <a href="user/auction/details/{{ $notification->link }}">
                                                         <div class="quantity text-dark">
-                                                            <h4 class="fw-bold mb-0"> {{$notification->message}}</h4>
+                                                            <h4 class="fw-bold mb-0"> {{ $notification->message }}
+                                                            </h4>
                                                             <p class="m-0"></p>
                                                         </div>
                                                     </a>
                                                 </li>
                                             @elseif($notification->type == 3)
                                                 <li>
-                                                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                    <a href="user/auction/details/{{$notification->link}}">
+                                                    <a href="#" class="remove" title="Remove this item"><i
+                                                            class="fa fa-remove"></i></a>
+                                                    <a href="user/auction/details/{{ $notification->link }}">
                                                         <div class="quantity text-dark">
-                                                            <h4 class="fw-bold mb-0"> {{$notification->message}}</h4>
+                                                            <h4 class="fw-bold mb-0"> {{ $notification->message }}
+                                                            </h4>
                                                             <p class="m-0">إضغط لمعرفة السبب</p>
                                                         </div>
                                                     </a>
                                                 </li>
-                                                @else
+                                            @else
                                                 <li>
-                                                    <a href="/notifications/disable/{{$notification->id}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                    <a href="auction/{{$notification->link}}$">
-        {{--                                                <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span>--}}
+                                                    <a href="/notifications/disable/{{ $notification->id }}"
+                                                        class="remove" title="Remove this item"><i
+                                                            class="fa fa-remove"></i></a>
+                                                    <a href="auction/{{ $notification->link }}$">
+                                                        {{-- <span class="cart-img" ><img src="img/c1.jpg" alt="#"></span> --}}
                                                         <div class="quantity text-dark">
-                                                            <h4 class="fw-bold"> {{$notification->message}}</h4>
+                                                            <h4 class="fw-bold"> {{ $notification->message }}
+                                                            </h4>
                                                         </div>
                                                     </a>
                                                 </li>
                                             @endif
                                         @endforeach
                                     </ul>
-{{--                                    <div class="bottom"><a class="nav-link" href="#">عرض الكل </a> </div>--}}
+                                    {{-- <div class="bottom"><a class="nav-link" href="#">عرض الكل </a> </div> --}}
                                 </div>
                                 <!--/ End notfications Item -->
                             </div>
@@ -293,7 +307,7 @@
 
 
                             <div class="sinlge-bar">
-                                <a href="/favorite" class="single-icon ">
+                                <a href="{{ route('auction_favorite.index') }}" class="single-icon ">
                                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -323,7 +337,8 @@
                             <!-- Search Form -->
                             <div class="search-top" dir="rtl">
                                 <form class="search-form">
-                                    <input type="text" placeholder="ابحث هنا..." name="search" onkeyup="search_cars()" id="searchbar">
+                                    <input type="text" placeholder="ابحث هنا..." name="search" onkeyup="search_cars()"
+                                        id="searchbar">
                                     <button value="" type="submit"><i class="ti-search"></i></button>
                                 </form>
                             </div>
@@ -344,8 +359,8 @@
                                     <option>تكاسي</option>
                                 </select>
                                 <form>
-                                    <input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث"  onkeyup="search_cars()" type="text"
-              name="search" id="searchbar">
+                                    <input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث"
+                                        onkeyup="search_cars()" type="text" name="search" id="searchbar">
                                     <button class="btnn"><i class="ti-search"></i></button>
                                 </form>
                             </div>
@@ -430,9 +445,3 @@
             $(this).addClass('active').siblings('li').removeClass('active');
         });
     </script>
-
-
-
-
-
-

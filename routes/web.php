@@ -15,11 +15,12 @@ use App\Http\Controllers\admin\BidsController;
 use App\Http\Controllers\user\WalletController;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
-use App\Http\Controllers\Admin\AcutionController;
 // use \Illuminate\Support\Facades\URL;
+use App\Http\Controllers\Admin\AcutionController;
 use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\Admin\QustionController;
 use App\Http\Controllers\user\ContractController;
+use App\Http\Controllers\user\FavoriteController;
 use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
@@ -104,7 +105,7 @@ Route::get('/auctions/{status}', [SiteController::class, 'auctionByCarStatus'])-
 Route::view('/soon', 'Front.soon');
 Route::get('/contact', [ContactUsController::class, 'show'])->name('site.show');
 // Route::view('/contact', 'Front.contact');
-Route::view('/favorite', 'Front.favorite');
+// Route::view('/favorite', 'Front.favorite');
 Route::view('/buy', 'Front.buy');
 Route::view('/privacy', 'Front.privcey');
 
@@ -171,6 +172,8 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
             Route::post('/auction/{id}/buy', [PaymentController::class, 'buy'])->name('user.buy.auction');
 
+            Route::post('/favorite', [FavoriteController::class, 'store'])->name('auction_favorite');
+            Route::get('/favorite/auctions', [FavoriteController::class, 'index'])->name('auction_favorite.index');
             Route::get('/wallet', [WalletController::class, 'index'])->name('user.wallet');
 
 
