@@ -1,10 +1,16 @@
 @extends('partials.master')
 @section('body')
+
+
+
     <!-- partial -->
 
     <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper" style="position: relative">
+
+
+
             <div class="row">
 
                 <div class="col-lg-12 grid-margin stretch-card">
