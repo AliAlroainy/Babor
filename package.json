@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "bootstrap-vue": "^2.22.0",
+        "cypress": "^9.6.1",
         "dropify": "^0.2.2",
         "emoji-mart-vue": "^2.6.6",
         "filepond": "^4.30.3",
