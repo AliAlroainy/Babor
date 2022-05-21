@@ -234,7 +234,8 @@
                                                    
 
                                                     <div id="demo" class="carousel slide" data-ride="carousel">
-                                                        <h6 style="direction:rtl;margin-left:20%">عرض المزايد من الصور</h6>
+                                                        <br>
+                                                        <h6 style="direction:rtl;margin-left:20%">عرض المزيد من الصور</h6>
 
                                                         <!-- Indicators -->
                                                         <ul class="carousel-indicators">
@@ -248,7 +249,7 @@
                                                         <div class="carousel-inner"  style="width:400px;">
                                                             <div class="carousel-item active">
                                                                 <img src="/images/cars/{{ $auction->car->thumbnail }}"
-                                                                    style="width:100%;height:50%" alt="Los Angeles"
+                                                                    style="width:100%;height:50%" alt=""
                                                                     width="1100" height="500">
                                                             </div>
                                                             @php
@@ -257,7 +258,7 @@
                                                             @foreach ($images as $img)
                                                                 <div class="carousel-item">
                                                                     <img src="/images/cars/car_images/{{ $img }}"
-                                                                        alt="Chicago" width="1100" height="500"
+                                                                        alt="" width="1100" height="500"
                                                                         style="width:100%">
                                                                 </div>
                                                             @endforeach

@@ -80,9 +80,7 @@ Route::get('/services', function () {
     return view('Front.services');
 });
 
-Route::get('/offer', function () {
-    return view('Front.offer');
-});
+
 
 Route::get('/about', function () {
     return view('Front.about');
@@ -94,6 +92,7 @@ Route::get('/findcar', function () {
 Route::get('/chata', function () {
     return view('chat.chat');
 });
+Route::get('/offer', [SiteController::class, 'availableOffer']);
 Route::get('/services', [SiteController::class, 'ServicesShow']);
 Route::get('/', [SiteController::class, 'home'])->name('/');
 Route::get('/FAQ', [SiteController::class, 'questionShow']);

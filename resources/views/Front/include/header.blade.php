@@ -213,8 +213,6 @@
 
                         <div class="right-bar">
                             <!-- noted Form -->
-
-
                             <div class="sinlge-bar shopping">
                                 <a href="#" class="single-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
@@ -225,21 +223,16 @@
                                     @if(\App\Http\Controllers\Notifications\NotificationController::getNotifications()['count'] > 0)
                                         <span class="total-count">{{\App\Http\Controllers\Notifications\NotificationController::getNotifications()['count']}}</span>
                                     @endif
-{{--                                    <span class="total-count">2</span>--}}
                                 </a>
 
                                 <!-- notfications Item -->
                                 <div class="shopping-item" dir="rtl">
                                     <div class="dropdown-cart-header">
                                         <span class="total-count">  {{\App\Http\Controllers\Notifications\NotificationController::getNotifications()['count']}} إشعارات </span>
-
                                     </div>
                                     <ul class="shopping-list mb-0" id="shopping-list" style="padding-inline-end: 0">
-
                                         @foreach( \App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
-
                                             @if($notification->type == 1)
-
                                                 <li>
                                                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
                                                     <a href="auction/{{$notification->link}}">
@@ -257,7 +250,7 @@
                                                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
                                                     <a href="user/auction/details/{{$notification->link}}">
                                                         <div class="quantity text-dark">
-                                                            <h4 class="fw-bold mb-0"> {{$notification->message}}</h4>
+                                                            <h4 class="fw-bold mb-0">{{$notification->message}}</h4>
                                                             <p class="m-0"></p>
                                                         </div>
                                                     </a>
@@ -337,12 +330,7 @@
                     <div class="col-lg-8 col-md-7 col-12">
                         <div class="search-bar-top">
                             <div class="search-bar">
-                                <select>
-                                    <option selected="selected" style="font-family: Tajawal">كل الانواع</option>
-                                    <option>دايوها</option>
-                                    <option>سنتافي</option>
-                                    <option>تكاسي</option>
-                                </select>
+                               
                                 <form>
                                     <input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث"  onkeyup="search_cars()" type="text"
               name="search" id="searchbar">

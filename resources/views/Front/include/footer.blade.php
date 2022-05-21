@@ -176,13 +176,13 @@
 
      channel.bind('App\\Events\\Notify', function(data) {
          let node = document.createElement('li');
-         {{--if( data.user_id.toString() !="{!! Auth::id() !!}" && data.type == 1 ) {--}}
-         if( data.type == 1 ) {
+         if( data.user_id.toString() =="{!! Auth::id() !!}" && data.type == 1 ) {
+         // if( data.type == 1 ) {
              node.innerHTML =`
         <li>
             <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
             <a href="auction/${data.link}">
-                <span class="cart-img" ><img src="/${data.thumbnail}" alt="#"></span>
+            <span class="cart-img" ><img src="/images/cars/${data.thumbnail}" alt="#"></span>
                 <div class="quantity text-dark">
                     <h4 class="fw-bold"> ${data.message}</h4>
                     <span class="amount">$ ${data.price}</span>
@@ -191,11 +191,11 @@
             </a>
         </li>
 `;
-
+             alert({!! \Illuminate\Support\Facades\Auth::id() !!})
              document.getElementById('shopping-list').prepend(node);
          }
 
-         if( data.type == 2 ) {
+         if( data.user_id.toString() =="{!! Auth::id() !!}" && data.type == 2 ) {
              node.innerHTML =`
                 <li>
                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
@@ -206,7 +206,7 @@
                     </a>
                 </li>
 `;
-             {{--alert("{!! Auth::id() !!}");--}}
+{{--             alert("{!! Auth::id() !!}");--}}
              document.getElementById('shopping-list').prepend(node);
          }
          if( data.type == 3 ) {

@@ -12,6 +12,7 @@ use  App\Http\Requests\ReviewsRequest;
 class SiteController extends Controller
 {
     public function home(){
+        $categories = Category::where('is_active', '1')->get();
         $auctions = Auction::with(['car' => function ($q) {
             $q->select('brand_id', 'series_id', 'model', );
         }]);
@@ -33,6 +34,7 @@ class SiteController extends Controller
             'last_taxis' => $last_taxis,
             'last_babors' => $last_babors,
             'last_buses' => $last_buses,
+            'Categories' => $categories,
         ]);
     }
 
@@ -60,7 +62,7 @@ class SiteController extends Controller
         $avgBeforRound=$total/5;
         }
         else{
-            $total=.001; 
+            $total=.0001; 
             $onePrsent=$oneStar/$total*100;
             $towPrsent=$towStar /$total*100;
             $threePrsent=$threeStar/$total*100;
@@ -134,5 +136,11 @@ class SiteController extends Controller
         return redirect()->back()->  with(['successAdd'=>'تم الاحتفاظ بتقييمك شكرا لك']);
         return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);}
   
-    
-}
+
+
+        public function availableOffer(){
+            // available = not-expired + progress
+            $auctions = Auction::whereDate('closeDate', '>', now())->where('status', '2')->get();
+            return view('Front.offer')->with(['auctions' => $auctions, 'title' => 'المزادات الحالية']);
+        }
+    }

@@ -2,22 +2,22 @@
 
   <v-layout row >
 
-    <v-flex class="online-users" xs2 >
-<h4>اختر شخص من فضلك</h4>
-      <v-list>
+    <v-flex class="online-users " xs2 >
 
-          <v-list-item class="babor"
+      <v-list class="">
+
+          <v-list-item class="babor white--text "
             v-for="friend in friends"
             :color="(friend.id==activeFriend)?'green':''"
             :key="friend.id"
             v-on:click="activeFriend=friend.id"
           >
             <v-list-item-action >
-              <v-icon  :color="(onlineFriends.find(user=>user.id===friend.id))?'green':'red' ">account_circle</v-icon>
+              <v-icon  :color="(onlineFriends.find(user=>user.id===friend.id))?'green':'red' " class="white--text">account_circle</v-icon>
             </v-list-item-action>
 
             <v-list-item-content >
-              <v-list-item-title  >{{friend.name}}</v-list-item-title>
+              <v-list-item-title  class="white--text fontcolor">{{friend.name}}</v-list-item-title>
             </v-list-item-content>
 
             <!-- <v-list-item-avatar>
@@ -31,8 +31,8 @@
     </v-flex>
 
     <v-flex id="privateMessageBox" class="messages mb-5 " xs9>
-        <h4>ادخل رساله</h4>
-        <message-list :user="user" :all-messages="allMessages" class="babor"></message-list>
+       
+        <message-list :user="user" :all-messages="allMessages" class="white--text babor"></message-list>
 
         <div class="float-start">
             <picker v-if="emoStatus" set="emojione" @select="onInput"   title="Pick your emoji…" />
@@ -42,12 +42,13 @@
         <v-footer
                 height="auto"
                 fixed
-                color="grey"
+               class="footer"
+
         >
             <v-layout row >
                 <v-flex class=" text-right mt-1 ml-2" xs1>
-                    <v-btn v-on:click="toggleEmo" fab dark small color="pink">
-                        <v-icon>insert_emoticon </v-icon>
+                    <v-btn v-on:click="toggleEmo" fab dark small color="pink" class="babor">
+                        <v-icon >insert_emoticon </v-icon>
                     </v-btn>
                 </v-flex>
 
@@ -67,7 +68,7 @@
                     <v-text-field
                             rows=2
                             v-model="message"
-                            label="Enter Message"
+                            label="اكتب رسالة"
                             single-line
                             @keyup.enter="sendMessage"
                     ></v-text-field>
@@ -76,7 +77,7 @@
                 <v-flex xs4>
                     <v-btn
                             v-on:click="sendMessage"
-                            dark class="mt-3 ml-2 white--text babor " small color="green">send</v-btn>
+                            dark class="mt-3 ml-2 white--text babor " small color="green">ارسال</v-btn>
 
 
                 </v-flex>
@@ -270,8 +271,31 @@
   overflow-y:scroll;
   height:100vh;
 }
+
 .babor{
-    color: blueviolet;
-    background-color: rgb(247, 201, 123);
+  color: #e3dce9;
+    background-image: linear-gradient(to top right,#a98f71, #f3a547);
+    border-radius: 9px;
+    margin-top: 2%;
+   
+}
+.fontcolor{
+color:#594327;
+margin:2%
+}
+.footer{
+
+ border-radius:2%;
+ direction:rtl;
+padding-right:25%;
+
+}
+.header{
+color:#bf771c;
+font-family:system-ui, -apple-system,
+ "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, 
+"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+font-size:100%;
+
 }
 </style>
