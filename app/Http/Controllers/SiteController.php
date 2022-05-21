@@ -55,6 +55,7 @@ class SiteController extends Controller
         $threeStar = ReviewRating::where('star_rating', 3)->get()->count();
         $fourStar = ReviewRating::where('star_rating',4)->get()->count();
         $fiveStar = ReviewRating::where('star_rating', 5)->get()->count();
+        $auctionAvilabel = Auction::whereDate('closeDate', '>', now())->where('status', '2')->get();
 
         if ($total>0){
             $onePrsent=$oneStar/$total*100;
@@ -105,7 +106,8 @@ class SiteController extends Controller
                         'five' => $fivePrsent ,
                         'fiveStar'=>$fiveStar,
                         'total'=>$avg,
-                        'totalstar'=>$avgBeforRound,     
+                        'totalstar'=>$avgBeforRound,  
+                        'auctionsAvilabel'=>$auctionAvilabel,   
                 ] );
             }
         }
