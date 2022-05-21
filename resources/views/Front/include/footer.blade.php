@@ -153,9 +153,9 @@
  <script src="/assets/js/ui-carousel.js"></script>
 
  <!-- Google Map JS -->
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnhgNBg6jrSuqhTeKKEFDWI0_5fZLx0vM"></script>
- <script src="/js/gmap.min.js"></script>
- <script src="/js/map-script.js"></script>
+ {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnhgNBg6jrSuqhTeKKEFDWI0_5fZLx0vM"></script> --}}
+ {{-- <script src="/js/gmap.min.js"></script> --}}
+ {{-- <script src="/js/map-script.js"></script> --}}
 
  <script src="/js/slick.min.js"></script>
  <script src="/js/nouislider.min.js"></script>
