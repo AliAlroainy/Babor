@@ -129,6 +129,9 @@
                                             <th style="text-align:center">
                                                 تاريخ الانتهاء
                                             </th>
+                                            <th style="text-align:center">
+                                                 المزايد
+                                            </th>
 
                                             <th style="text-align:center">
                                                 الفائز بالمزاد
@@ -158,6 +161,9 @@
                                                     </td>
                                                     <td style="text-align:center">
                                                         <h5> {{ $auction->closeDate }}</h5>
+                                                    </td>
+                                                    <td style="text-align:center">
+                                                        <h5> {{ $auction->user->name }}</h5>
                                                     </td>
                                                     <td style="text-align:center">
                                                         <h5> {{ $auction->winner }}</h5>
