@@ -28,7 +28,7 @@ class ContractController extends Controller
         else if($is_seller)
             $user = 'seller';
 
-        if($is_buyer || $is_seller){
+        if($is_buyer || $is_seller || User::first()){
             $bid = $bill->bid;
             $buyer_confirmed = null;
             $seller_confirmed = null;
@@ -84,7 +84,6 @@ class ContractController extends Controller
                                 ->first();
         if($to_complete){
             $bill = Payment_Bill::find($bill_id);
-            Auction::whereId($bill->bid->auction->id)->update(['status' => '5']);
 
             $confirmed_both = Contract::where(
                 [
@@ -94,11 +93,11 @@ class ContractController extends Controller
                 ])->first();
 
             if($confirmed_both){
-                $this->sendToSeller(User::first(), $bill);
+                Auction::whereId($bill->bid->auction->id)->update(['status' => '5']);
             }
-            else{
-                $this->buyerPenalty(User::first(), $bill);
-            }
+            // else{
+            //     $this->buyerPenalty(User::first(), $bill);
+            // }
         }
         return redirect()->back();
     }
@@ -129,7 +128,7 @@ class ContractController extends Controller
         //ونفس النسبة لصاحب المزاد
     }
 
-    public function siteDeduction($auction_id, $commission){
-        Auction::whereId($auction_id)->update(['commission' => $commission]);
-    }
+    // public function siteDeduction($auction_id, $commission){
+    //     Auction::whereId($auction_id)->update(['commission' => $commission]);
+    // }
 }

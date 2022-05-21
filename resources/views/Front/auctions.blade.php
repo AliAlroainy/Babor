@@ -1,6 +1,6 @@
 @include('Front.include.header')
 <!-- Start Product Area -->
-<div class="product-area section" id="offer">
+<div class="product-area section a-res" id="offer">
     <div class="container">
         <div class="row">
             <div class="col-12">

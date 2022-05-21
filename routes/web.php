@@ -28,6 +28,7 @@ use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\adminIndexController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\user\UserAuctionController;
+use App\Http\Controllers\admin\AdminWalletController;
 use App\Http\Controllers\Authentication\authcontroller;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -140,6 +141,9 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/auction/details/{id}', [AcutionController::class, 'showDetails'])->name('admin.auction.details');
         Route::get('/bids', [BidsController::class, 'index'])->name('admin.bid.index');
 
+        Route::get('/walletAuctions', [AdminWalletController::class, 'manageCompletingAuction'])->name('manage.auction.payment');
+        Route::post('/sendToSeller/{bill_id}', [AdminWalletController::class, 'sendToSeller'])->name('sendToSeller');
+        Route::get('/do-contract/{bill_id}', [ContractController::class, 'doContract'])->name('show.contract');
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
     });
@@ -215,9 +219,9 @@ Route::get('/admin/wallet',function () {
     return view('Admin.wallet.wallet');
 });
 
-Route::get('/admin/walletAuctions',function () {
-    return view('Admin.wallet.usersAuctions');
-});
+// Route::get('/admin/walletAuctions',function () {
+//     return view('Admin.wallet.usersAuctions');
+// });
 
 
 Route::get('/wallet', function (){

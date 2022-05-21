@@ -1,5 +1,5 @@
  <!-- Start Product Area -->
- <div class="product-area section" id="offer">
+ <div class="product-area section a-res" id="offer">
      <div class="container">
          <div class="row">
              <div class="col-12">
@@ -43,18 +43,20 @@
                                                          </a>
                                                          <div class="button-head">
                                                              <div class="product-action">
-                                                                 @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
-                                                                     <a title="Wishlist" class="addWishlist"
-                                                                         data-auction-id="{{ $auction->id }}">
-                                                                         <i class="ti-heart"></i>
-                                                                     </a>
-                                                                 @else
-                                                                     <a title="Wishlist" class="removeWishlist"
-                                                                         data-auction-id="{{ $auction->id }}">
-                                                                         <i class="fa fa-heart"
-                                                                             style="color: #F7941D;"></i>
-                                                                     </a>
-                                                                 @endif
+                                                                 @auth
+                                                                     @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
+                                                                         <a title="Wishlist" class="addWishlist"
+                                                                             data-auction-id="{{ $auction->id }}">
+                                                                             <i class="ti-heart"></i>
+                                                                         </a>
+                                                                     @else
+                                                                         <a title="Wishlist" class="removeWishlist"
+                                                                             data-auction-id="{{ $auction->id }}">
+                                                                             <i class="fa fa-heart"
+                                                                                 style="color: #F7941D;"></i>
+                                                                         </a>
+                                                                     @endif
+                                                                 @endauth
                                                                  {{-- <a title="Wishlist" class="addWishlist"
                                                                      data-auction-id="{{ $auction->id }}"
                                                                      href="javascript:void(0);"
@@ -114,18 +116,20 @@
                                                          </a>
                                                          <div class="button-head">
                                                              <div class="product-action">
-                                                                 @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
-                                                                     <a title="Wishlist" class="addWishlist"
-                                                                         data-auction-id="{{ $auction->id }}">
-                                                                         <i class="ti-heart"></i>
-                                                                     </a>
-                                                                 @else
-                                                                     <a title="Wishlist" class="removeWishlist"
-                                                                         data-auction-id="{{ $auction->id }}">
-                                                                         <i class="fa fa-heart"
-                                                                             style="color: #F7941D;"></i>
-                                                                     </a>
-                                                                 @endif
+                                                                 @auth
+                                                                     @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
+                                                                         <a title="Wishlist" class="addWishlist"
+                                                                             data-auction-id="{{ $auction->id }}">
+                                                                             <i class="ti-heart"></i>
+                                                                         </a>
+                                                                     @else
+                                                                         <a title="Wishlist" class="removeWishlist"
+                                                                             data-auction-id="{{ $auction->id }}">
+                                                                             <i class="fa fa-heart"
+                                                                                 style="color: #F7941D;"></i>
+                                                                         </a>
+                                                                     @endif
+                                                                 @endauth
                                                                  {{-- <a title="Wishlist" class="addWishlist"
                                                                      data-auction-id="{{ $auction->id }}"
                                                                      href="javascript:void(0);"
@@ -185,18 +189,20 @@
                                                          </a>
                                                          <div class="button-head">
                                                              <div class="product-action">
-                                                                 @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
-                                                                     <a title="Wishlist" class="addWishlist"
-                                                                         data-auction-id="{{ $auction->id }}">
-                                                                         <i class="ti-heart"></i>
-                                                                     </a>
-                                                                 @else
-                                                                     <a title="Wishlist" class="removeWishlist"
-                                                                         data-auction-id="{{ $auction->id }}">
-                                                                         <i class="fa fa-heart"
-                                                                             style="color: #F7941D;"></i>
-                                                                     </a>
-                                                                 @endif
+                                                                 @auth
+                                                                     @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
+                                                                         <a title="Wishlist" class="addWishlist"
+                                                                             data-auction-id="{{ $auction->id }}">
+                                                                             <i class="ti-heart"></i>
+                                                                         </a>
+                                                                     @else
+                                                                         <a title="Wishlist" class="removeWishlist"
+                                                                             data-auction-id="{{ $auction->id }}">
+                                                                             <i class="fa fa-heart"
+                                                                                 style="color: #F7941D;"></i>
+                                                                         </a>
+                                                                     @endif
+                                                                 @endauth
                                                                  {{-- <a title="Wishlist" class="addWishlist"
                                                                      data-auction-id="{{ $auction->id }}"
                                                                      href="javascript:void(0);"
@@ -257,18 +263,20 @@
                                                          </a>
                                                          <div class="button-head">
                                                              <div class="product-action">
-                                                                 @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
-                                                                     <a title="Wishlist" class="addWishlist"
-                                                                         data-auction-id="{{ $auction->id }}">
-                                                                         <i class="ti-heart"></i>
-                                                                     </a>
-                                                                 @else
-                                                                     <a title="Wishlist" class="removeWishlist"
-                                                                         data-auction-id="{{ $auction->id }}">
-                                                                         <i class="fa fa-heart"
-                                                                             style="color: #F7941D;"></i>
-                                                                     </a>
-                                                                 @endif
+                                                                 @auth
+                                                                     @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
+                                                                         <a title="Wishlist" class="addWishlist"
+                                                                             data-auction-id="{{ $auction->id }}">
+                                                                             <i class="ti-heart"></i>
+                                                                         </a>
+                                                                     @else
+                                                                         <a title="Wishlist" class="removeWishlist"
+                                                                             data-auction-id="{{ $auction->id }}">
+                                                                             <i class="fa fa-heart"
+                                                                                 style="color: #F7941D;"></i>
+                                                                         </a>
+                                                                     @endif
+                                                                 @endauth
                                                                  {{-- <a title="Wishlist" class="addWishlist"
                                                                      data-auction-id="{{ $auction->id }}"
                                                                      href="javascript:void(0);"

@@ -178,9 +178,9 @@
              headers: {
                  'X-CSRF-TOKEN': '{!! csrf_token() !!}',
              },
-             //  success: function(data) {
-             //      location.reload();
-             //  }
+             success: function(res) {
+                 $('.a-res').html(res);
+             }
          });
      });
 
@@ -195,9 +195,9 @@
              headers: {
                  'X-CSRF-TOKEN': '{!! csrf_token() !!}',
              },
-             //  success: function(data) {
-             //      location.reload();
-             //  }
+             success: function(res) {
+                 $('.a-res').html(res);
+             }
          });
      });
  </script>
