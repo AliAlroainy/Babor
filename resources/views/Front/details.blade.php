@@ -143,11 +143,10 @@
                     </div>
                     <div>
                         <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
+                        @for ($i = 1; $i <= $total; $i++)
+                                                                <i class="fa fa-star"></i>
+                                                            @endfor
+                                                            <i class="fa fa-star-o"></i>
                         </div>
                         <br />
                         <a class="review-link" href="#">10 تقييمات البائع
@@ -250,7 +249,7 @@
                             <div id="product-tab">
                                 <!-- product tab nav -->
                                 <ul class="tab-nav">
-                                    <li class="active"><a data-toggle="tab" href="#tab3">التقييمات (3)</a></li>
+                                    <li class="active"><a data-toggle="tab" href="#tab3">التقييمات ({{  $totalstar  }})</a></li>
 
                                 </ul>
                                 <!-- /product tab nav -->
@@ -476,11 +475,12 @@
             <div class="col-12">
                 <div class="owl-carousel popular-slider">
                     <!-- Start Single Product -->
+                    @foreach($auctionsAvilabel as $auctionAvilabel)
                     <div class="single-product">
                         <div class="product-img">
                             <a href="/details">
-                                <img class="default-img" src="img/c1.jpg" alt="#">
-                                <img class="hover-img" src="img/c1.jpg" alt="#">
+                                <img class="default-img" src="images/cars/{{ $auctionAvilabel->car->thumbnail }}" alt="#">
+                                <img class="hover-img" src="images/cars/{{ $auctionAvilabel->car->thumbnail }}" alt="#">
                                 <span class="out-of-stock">Hot</span>
                             </a>
                             <div class="button-head">
@@ -496,95 +496,16 @@
                             </div>
                         </div>
                         <div class="product-content">
-                            <h3><a href="/details">فورد</a></h3>
+                            <h3><a href="/details">{{ $auctionAvilabel->car->series->name }}</a></h3>
                             <div class="product-price">
-                                <span class="old">$60.00</span>
-                                <span>$50.00</span>
+                                <span class="old">{{ $auctionAvilabel->openingBid}}</span>
+                                <span>{{ $auctionAvilabel->reservePrice}}</span>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                     <!-- End Single Product -->
-                    <!-- Start Single Product -->
-                    <div class="single-product">
-                        <div class="product-img">
-                            <a href="/details">
-                                <img class="default-img" src="img/c1.jpg" alt="#">
-                                <img class="hover-img" src="img/c1.jpg" alt="#">
-                            </a>
-                            <div class="button-head">
-                                <div class="product-action">
-                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
-                                            class=" ti-eye"></i><span>عرض سريع</span></a>
-                                    <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>اضافة
-                                            للمفضلة</span></a>
-                                </div>
-                                <div class="product-action-2">
-                                    <a title="Add to cart" href="#">دخول المزاد</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3><a href="/details">سنتافي</a></h3>
-                            <div class="product-price">
-                                <span>$50.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Product -->
-                    <!-- Start Single Product -->
-                    <div class="single-product">
-                        <div class="product-img">
-                            <a href="/details">
-                                <img class="default-img" src="img/c1.jpg" alt="#">
-                                <img class="hover-img" src="img/c1.jpg" alt="#">
-                                <span class="new">جديد</span>
-                            </a>
-                            <div class="button-head">
-                                <div class="product-action">
-                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
-                                            class=" ti-eye"></i><span>عرض سريع</span></a>
-                                    <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>اضافة
-                                            للمفضلة</span></a>
-                                </div>
-                                <div class="product-action-2">
-                                    <a title="Add to cart" href="/details">دخول في المزاد</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3><a href="/details">فورد</a></h3>
-                            <div class="product-price">
-                                <span>$50.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Product -->
-                    <!-- Start Single Product -->
-                    <div class="single-product">
-                        <div class="product-img">
-                            <a href="/details">
-                                <img class="default-img" src="img/c1.jpg" alt="#">
-                                <img class="hover-img" src="img/c1.jpg" alt="#">
-                            </a>
-                            <div class="button-head">
-                                <div class="product-action">
-                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
-                                            class=" ti-eye"></i><span>عرض سريع</span></a>
-                                    <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>اضافة
-                                            للمفضلة</span></a>
-                                </div>
-                                <div class="product-action-2">
-                                    <a title="Add to cart" href="#">دخول في المزاد</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3><a href="/details">فورد</a></h3>
-                            <div class="product-price">
-                                <span>$50.00</span>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <!-- End Single Product -->
                 </div>
             </div>
