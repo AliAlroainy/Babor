@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable  implements Wallet
 {
@@ -47,6 +48,16 @@ class User extends Authenticatable  implements Wallet
     public function bids(): HasMany
     {
         return $this->hasMany(Bid::class, 'bidder_id');
+    }
+
+    public function favorite(): BelongsToMany
+    {
+        return $this->belongsToMany(Auction::class, 'favorites')->withTimestamps();
+    }
+
+    public function favoriteHas($auction_id)
+    {
+        return self::favorite()->where('auction_id', $auction_id)->exists();
     }
 
     // public const PASSWORD_VALIDATION_RULES  = [
