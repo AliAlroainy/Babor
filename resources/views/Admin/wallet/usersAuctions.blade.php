@@ -118,10 +118,10 @@
                                                 <i class="bi bi-hourglass-split"></i>
                                                 في انتظار توقيع المشتري
                                             </div>
-                                        @else
-                                            <div class="p-2 text-success d-flex ">
-                                                <i class="bi bi-check-all"></i>
-                                                مكتملة
+                                        @elseif($tran->contract->buyer_confirm == '0')
+                                            <div class="p-2 text-danger d-flex">
+                                                <i class="bi bi-info-circle"></i>
+                                                تم التراجع من قبل المشتري
                                             </div>
                                         @endif
                                     @else
@@ -134,38 +134,32 @@
                                 <td>
                                     <div class="p-2 ">
                                         @if ($tran->bid->auction->status == '4')
-                                            @if ($tran->contract->buyer_confirm == '1' && $tran->contract->seller_confirm == '1')
-                                                <form action="{{ route('sendToSeller', $tran->id) }}" method="POST">
+                                            @if ($tran->contract->buyer_confirm == '0')
+                                                <form action="{{ route('buyerPenalty', $tran->id) }}" method="POST">
                                                     @csrf
                                                     <button
                                                         class="btn alert-secondary mt-2 d-flex align-items-center justify-content-center"
                                                         style="width: 150px" type="submit">
-                                                        ارجاع المبلغ للبائع
+                                                        معاقبة المشتري
                                                     </button>
                                                 </form>
-                                            @elseif($tran->contract->seller_confirm == '1')
-                                                @if ($tran->contract->seller_confirm == '0')
-                                                    <form action="{{ route('sendToSeller', $tran->id) }}" method="POST">
-                                                        @csrf
-                                                        <button
-                                                            class="btn alert-secondary mt-2 d-flex align-items-center justify-content-center"
-                                                            style="width: 150px" type="submit">
-                                                            ارجاع المبلغ للبائع
-                                                        </button>
-                                                    </form>
-                                                    <a class="btn alert-secondary  mt-2 d-flex align-items-center justify-content-center "
-                                                        style="width: 150px" href="{{ route('sendToBuyer', $tran->id) }}">
-                                                        ارجاع المبلغ للمشتري </a>
-                                                @else
-                                                    <form action="{{ route('sendToSeller', $tran->id) }}" method="POST">
-                                                        @csrf
-                                                        <button
-                                                            class="btn alert-secondary mt-2 d-flex align-items-center justify-content-center"
-                                                            style="width: 150px" type="submit">
-                                                            تحويل المبلغ للبائع
-                                                        </button>
-                                                    </form>
-                                                @endif
+                                                <form action="{{ route('sellerPenalty', $tran->id) }}" method="POST">
+                                                    @csrf
+                                                    <button
+                                                        class="btn alert-secondary  mt-2 d-flex align-items-center justify-content-center "
+                                                        style="width: 150px" type="submit">
+                                                        معاقبة البائع
+                                                    </button>
+                                                </form>
+                                            @else
+                                                <form action="{{ route('sendToBuyer', $tran->id) }}" method="POST">
+                                                    @csrf
+                                                    <button
+                                                        class="btn alert-secondary mt-2 d-flex align-items-center justify-content-center"
+                                                        style="width: 150px" type="submit">
+                                                        إرجاع المبلغ للمشتري
+                                                    </button>
+                                                </form>
                                             @endif
                                         @else
                                             <div class="p-2 text-success d-flex">
@@ -176,98 +170,58 @@
                                     </div>
                                 </td>
 
-                                <td>
-                                    <a href="{{ route('show.contract', $tran->id) }}" class="p-2 font-warining"
-                                        target="_blank">
-                                        عرض صفحة العقد
-                                        <i class="bi bi-eye"></i>
-                                    </a>
+                                <td class="d-flex flex-column align-items-center justify-content-center">
+                                    @if ($tran->bid->auction->status == '4')
+                                        @if ($tran->contract->buyer_confirm == '0')
+                                            <a href="#rejectReasonModal" class="p-2 font-warining" data-bs-toggle="modal">
+                                                سبب الرفض
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                        @endif
+                                        <a href="{{ route('show.contract', $tran->id) }}" class="p-2 font-warining"
+                                            target="_blank">
+                                            صفحة العقد
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a href="{{ route('site.auction.details', $tran->bid->auction->id) }}"
+                                            class="p-2 font-warining" target="_blank">
+                                            صفحة المزاد
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                    @endif
                                 </td>
-
                             </tr>
                         @empty
                         @endforelse
-
-
-
-                        <tr class="border-bottom">
-                            <td>
-                                <div class="p-2">
-                                    <span class="d-block font-weight-bold">اليوم</span>
-                                    <small>2:30PM</small>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="p-2 d-flex flex-row align-items-center mb-2">
-                                    <img src="/img/ali.jpg" width="40" class="rounded-circle" />
-                                    <div class="d-flex flex-column ml-2">
-                                        <span class="d-block font-weight-bold">علي الرعيني </span>
-                                    </div>
-                                </div>
-
-                            </td>
-                            <td>
-                                <div class="p-2 d-flex flex-row align-items-center mb-2">
-                                    <img src="/img/jihad.jpg" width="40" class="rounded-circle">
-                                    <div class="d-flex flex-column ml-2">
-                                        <span class="d-block font-weight-bold"> ابرار الخرساني </span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="p-2 d-flex flex-column">
-                                    <span> حي المسبح - تعز ,اليمن</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="p-2 ">
-                                    <p class="font-weight-bold"> 345345 <span style="color: #F7941D">$</span> </P>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="p-2 text-success d-flex ">
-                                    <i class="bi bi-check-all"></i>
-                                    مكتملة
-                                </div>
-                            </td>
-                            <td>
-                                <div class="p-2 ">
-                                    <div class="alert alert-success  d-flex align-items-center justify-content-center "
-                                        style="width: 150px">
-                                        <i class="bi bi-check-all"></i>
-                                        تم البيع
-                                    </div>
-                                </div>
-                            </td>
-
-                            <td>
-                                <a href="#" class="p-2 font-warining ">
-                                    عرض التفاصيل
-                                    <i class="bi bi-eye"></i>
-                                </a>
-                            </td>
-
-                        </tr>
-
-
-
-
-
-
-
                     </tbody>
                 </table>
-
-
             </div>
-
-
-
         </div>
     </div>
 
+    <div id="rejectReasonModal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
+                    style="top:-80px;">
+                    <div>
+                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                        <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_rdkrsaca.json"
+                            background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay>
+                        </lottie-player>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h4 class="w-90 m-3" style="font-size: 18px;">{{ $tran->contract->buyer_undoReason }}</h4>
 
-
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"
+                        style="background-color: rgb(205, 205, 205)">إلغاء</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <style>
         .card-1 {
 

@@ -143,6 +143,10 @@ Route::group(['middleware'=>'auth'],function(){
 
         Route::get('/walletAuctions', [AdminWalletController::class, 'manageCompletingAuction'])->name('manage.auction.payment');
         Route::post('/sendToSeller/{bill_id}', [AdminWalletController::class, 'sendToSeller'])->name('sendToSeller');
+        Route::post('/sendToBuyer/{bill_id}', [AdminWalletController::class, 'sendToBuyer'])->name('sendToBuyer');
+        Route::post('/sellerPenalty/{bill_id}', [AdminWalletController::class, 'sellerPenalty'])->name('sellerPenalty');
+        Route::post('/buyerPenalty/{bill_id}', [AdminWalletController::class, 'buyerPenalty'])->name('buyerPenalty');
+
         Route::get('/do-contract/{bill_id}', [ContractController::class, 'doContract'])->name('show.contract');
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
