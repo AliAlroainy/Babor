@@ -324,7 +324,7 @@ class NotificationController extends Controller
     {
         $user_id = Auth::id();
 
-        $notifications = Notification::where(['state'=>'1' , 'user_id' => $user_id])->take(5)->get();
+        $notifications = Notification::where(['state'=>'1' , 'user_id' => $user_id])->take(5)->orderBy('created_at','desc')->get();
         $count = count($notifications);
         $notificationsData = ['count'=>$count, 'notifications' => $notifications];
         return $notificationsData;
