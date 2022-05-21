@@ -94,7 +94,7 @@ class CarSeeder extends Seeder
             'status' => '1',
             'brand_id' => $faker->numberBetween(1,5),
             'series_id' => $faker->numberBetween(1,4),
-            'category_id' => '1',
+            'category_id' => '2',
           ]);
 
           DB::table('cars')->insert([
