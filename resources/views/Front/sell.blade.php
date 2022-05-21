@@ -31,25 +31,9 @@
             <div class="container ">
                 <div class="main-timeline">
 
-                    <!-- start experience section-->
-                    <div class="timeline">
-                        <div class="icon"></div>
-                        <div class="date-content">
-                            <div class="date-outer">
-                                <span class="date">
-                                    <span class="year">اولاً</span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <h5 class="title"> قم بالتسجيل بالموقع</h5>
-                            <p class="description">
-                                من خلال صفحة التسجيل بالموقع ستقوم بخطوات بسيطة
-                            </p>
-                            <img src="img/Reg.png" width="300" height="300" alt="first">
-                        </div>
-                    </div>
-                    <!-- end experience section-->
+                
+
+                  
 
                     <!-- start experience section-->
                     <div class="timeline">
@@ -63,32 +47,11 @@
                             </div>
                         </div>
                         <div class="timeline-content">
-                            <h5 class="title"> قم بالتسجيل بالموقع</h5>
+                            <h5 class="title"> من لوحة التحكم اختر اضف مزاد</h5>
                             <p class="description">
-                                من خلال صفحة التسجيل بالموقع ستقوم بخطوات بسيطة
+                                من خلال لوحة التحكم من المزادات ثم اضافة مزاد وقم بادخال تفاصيل المزاد والسيارة
                             </p>
-                            <img src="img/Reg.png" width="300" height="300" alt="first">
-                        </div>
-                    </div>
-                    <!-- end experience section-->
-
-                    <!-- start experience section-->
-                    <div class="timeline">
-                        <div class="icon"></div>
-                        <div class="date-content">
-                            <div class="date-outer">
-                                <span class="date">
-                                    <span class="month"></span>
-                                    <span class="year">ثالثاً</span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <h5 class="title"> قم بالتسجيل بالموقع</h5>
-                            <p class="description">
-                                من خلال صفحة التسجيل بالموقع ستقوم بخطوات بسيطة
-                            </p>
-                            <img src="img/Reg.png" width="300" height="300" alt="first">
+                            <img src="img/add.png" width="300" height="300" alt="third">
                         </div>
                     </div>
                     <!-- end experience section-->
@@ -121,7 +84,7 @@
         </div>
     </div>
 
-    <section class="section free-version-banner mb-0  ">
+    <section class="  ">
         <div class="container">
             <div class="row align-items-center fixed-bottom" >
                 <div class="col-md-8 offset-md-2 col-xs-12">

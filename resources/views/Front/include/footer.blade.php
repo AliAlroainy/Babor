@@ -98,7 +98,6 @@
  <script src="/js/popper.min.js"></script>
 
  <!-- Color JS -->
- <script src="/js/colors.js"></script>
  <!-- Slicknav JS -->
  <script src="/js/slicknav.min.js"></script>
  <!-- Owl Carousel JS -->
