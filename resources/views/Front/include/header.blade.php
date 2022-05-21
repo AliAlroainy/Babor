@@ -107,13 +107,13 @@
             let input = document.getElementById('searchbar').value
             input=input.toLowerCase();
             let x = document.getElementsByClassName('cars');
-              
-            for (i = 0; i < x.length; i++) { 
+
+            for (i = 0; i < x.length; i++) {
                 if (!x[i].innerHTML.toLowerCase().includes(input)) {
                     x[i].style.display="none";
                 }
                 else {
-                    x[i].style.display="flex";                 
+                    x[i].style.display="flex";
                 }
             }
         }
@@ -235,7 +235,7 @@
                                             @if($notification->type == 1)
                                                 <li>
                                                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                    <a href="auction/{{$notification->link}}">
+                                                    <a href="{{url('auction')}}/{{$notification->link}}">
 {{--                                                        <span class="cart-img" ><img src="{{@asset("images/cars/".$notification->thumbnai)}}" alt="#"></span>--}}
                                                         <span class="cart-img" ><img src="/images/cars/{{$notification->thumbnail}}" alt="#"></span>
                                                         <div class="quantity text-dark">
@@ -248,7 +248,7 @@
                                             @elseif($notification->type == 2)
                                                 <li>
                                                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                    <a href="user/auction/details/{{$notification->link}}">
+                                                    <a href="{{url('user/auction/details')}}/{{$notification->link}}">
                                                         <div class="quantity text-dark">
                                                             <h4 class="fw-bold mb-0">{{$notification->message}}</h4>
                                                             <p class="m-0"></p>
@@ -258,7 +258,7 @@
                                             @elseif($notification->type == 3)
                                                 <li>
                                                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                    <a href="user/auction/details/{{$notification->link}}">
+                                                    <a href="{{url('user/auction/details')}}/{{$notification->link}}">
                                                         <div class="quantity text-dark">
                                                             <h4 class="fw-bold mb-0"> {{$notification->message}}</h4>
                                                             <p class="m-0">إضغط لمعرفة السبب</p>
@@ -330,7 +330,7 @@
                     <div class="col-lg-8 col-md-7 col-12">
                         <div class="search-bar-top">
                             <div class="search-bar">
-                               
+
                                 <form>
                                     <input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث"  onkeyup="search_cars()" type="text"
               name="search" id="searchbar">
