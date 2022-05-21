@@ -65,7 +65,7 @@ class CategoriesController extends Controller
     {
         $category = Category::find($categories_id);
         if(!$category)
-            return abort('404');
+        return response()->view('Front.errors.404', []);
         $category->is_active *= -1;
         if($category->save())
             return back();

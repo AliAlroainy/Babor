@@ -19,7 +19,7 @@ class AccountsController extends Controller
     {
         $user=User::find($user_id);
         if(!$user)
-            return abort('404');     
+            return response()->view('Front.errors.404', []);  
         $user->is_active*=-1;
         if($user->save())
             return back();

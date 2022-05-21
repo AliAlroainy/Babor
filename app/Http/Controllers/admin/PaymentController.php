@@ -39,9 +39,7 @@ class PaymentController extends Controller
         else{
             return view('Front.addtions.failed');
         }   
-        // else
-        //     return redirect()->back()->with('errorPayment','رصيدك غير كافٍ لشراء السيارة، الرجاء تعبئة رصيدك');
-        // return redirect()->back()->with('sendMoney', 'تم إرسال قيمة السيارة إلى الأدمن');
+ 
     }
     public function failed($res){
         return view('Front.addtions.failed');

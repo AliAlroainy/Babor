@@ -43,7 +43,7 @@ class SeriesController extends Controller
     {
         $series = Series::find($series_id);
         if(!$series)
-            return abort('404');
+            return response()->view('Front.errors.404', []);
         $series->is_active *= -1;
         if($series->save())
             return back();
