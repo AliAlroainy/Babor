@@ -435,4 +435,38 @@
 
 
 
+                   {{-- <!-- Search Form -->
+                   <div class="search-top">
+                    <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+                    <!-- Search Form -->
+                    <div class="search-top" dir="rtl">
+                        <form class="search-form">
+                            <input type="text" placeholder="ابحث هنا..." name="search" onkeyup="search_cars()" id="searchbar">
+                            <button value="" type="submit"><i class="ti-search"></i></button>
+                        </form>
+                    </div>
+                    <!--/ End Search Form -->
+                </div>
+                <!--/ End Search Form -->
+
+                <div class="mobile-nav"></div>
+            </div>
+
+            <div class="col-lg-8 col-md-7 col-12">
+                <div class="search-bar-top">
+                    <div class="search-bar">
+                        <select>
+                            <option selected="selected" style="font-family: Tajawal">كل الانواع</option>
+                            <option>دايوها</option>
+                            <option>سنتافي</option>
+                            <option>تكاسي</option>
+                        </select>
+                        <form>
+                            <input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث"  onkeyup="search_cars()" type="text"
+      name="search" id="searchbar">
+                            <button class="btnn"><i class="ti-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div> --}}
 
