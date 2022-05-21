@@ -130,8 +130,7 @@
                                                 تاريخ الانتهاء
                                             </th>
                                             <th style="text-align:center">
-                                                 المزايد
-                                            </th>
+منشيء المزاد                                            </th>
 
                                             <th style="text-align:center">
                                                 الفائز بالمزاد
