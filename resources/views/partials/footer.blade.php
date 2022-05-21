@@ -189,7 +189,7 @@ $('.dropify').dropify({
                     </a>
                 </span>
 `;
-            alert({!! \Illuminate\Support\Facades\Auth::id() !!})
+            // alert({!! \Illuminate\Support\Facades\Auth::id() !!})
             document.getElementById('dropdown-menu').append(node);
         }
 
