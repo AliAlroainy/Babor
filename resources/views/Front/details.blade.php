@@ -132,7 +132,20 @@
                     </p>
 
                     <ul class="product-btns">
-                        <li><a href="#"><i class="fa fa-heart-o"></i> اضافة للمفضلة</a></li>
+                        <li>
+                            @auth
+                                @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
+                                    <a title="Wishlist" class="addWishlist" data-auction-id="{{ $auction->id }}">
+                                        <i class="ti-heart"></i>
+                                    </a>
+                                @else
+                                    <a title="Wishlist" class="removeWishlist" data-auction-id="{{ $auction->id }}">
+                                        <i class="fa fa-heart" style="color: #F7941D;"></i>
+                                    </a>
+                                @endif
+                                إضافة للمفضلة
+                            @endauth
+                        </li>
                     </ul>
 
                     <div class="d-flex align-items-center justify-content-start">
@@ -486,10 +499,19 @@
                                         <span class="out-of-stock">Hot</span>
                                     </a>
                                     <div class="button-head">
-                                        <div class="product-action">
-                                            <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>اضافة
-                                                    للمفضلة</span></a>
-                                        </div>
+                                        @auth
+                                            @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
+                                                <a title="Wishlist" class="addWishlist"
+                                                    data-auction-id="{{ $auction->id }}">
+                                                    <i class="ti-heart"></i>
+                                                </a>
+                                            @else
+                                                <a title="Wishlist" class="removeWishlist"
+                                                    data-auction-id="{{ $auction->id }}">
+                                                    <i class="fa fa-heart" style="color: #F7941D;"></i>
+                                                </a>
+                                            @endif
+                                        @endauth
                                         <div class="product-action-2">
                                             <a title="Add to cart" href="#">دخول المزاد</a>
                                         </div>
