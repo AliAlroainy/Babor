@@ -3,10 +3,10 @@
         <div class="navbar-brand-wrapper d-flex justify-content-center">
             <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
                 <a class="navbar-brand brand-logo" href="{{ route('/') }}">
-                    <img  src="{{ @asset('assets/images/logo.png') }}" style="width: 80px; height: 50px;" alt="logo"  /></a>
+                    <img src="{{ @asset('assets/images/logo.png') }}" style="width: 80px; height: 50px;"
+                        alt="logo" /></a>
                 <a class="navbar-brand brand-logo-mini" href="{{ route('/') }}">
-                    <img
-                        src="{{ @asset('assets/images/logo.png') }}" alt="logo"  class="img-fluid" /></a>
+                    <img src="{{ @asset('assets/images/logo.png') }}" alt="logo" class="img-fluid" /></a>
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     {{-- <span class="mdi mdi-sort-variant"></span> --}}
                     <i class="fa-solid fa-bars fs-5 me-3"></i>
@@ -48,8 +48,7 @@
                         <i class="mdi mdi-bell mx-0"></i>
                         <span class="count"></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right rtl navbar-dropdown"
-                         id="dropdown-menu"
+                    <div class="dropdown-menu dropdown-menu-right rtl navbar-dropdown" id="dropdown-menu"
                         aria-labelledby="notificationDropdown">
                         <p class="mb-0 font-weight-normal  dropdown-header" id="dropdown-menu">الإشعارات</p>
                         @foreach( \App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
@@ -70,15 +69,17 @@
                                 </span>
                             @elseif($notification->type == 3)
                                 <span class="dropdown-item">
-                                    <a class="quantity text-dark" href="{{ url('user/auction/details')}}/{{$notification->link}}">
-                                        <p class="fw-bold m-0"> {{$notification->message}}</p>
+                                    <a class="quantity text-dark"
+                                        href="{{ url('user/auction/details') }}/{{ $notification->link }}">
+                                        <p class="fw-bold m-0"> {{ $notification->message }}</p>
                                         <p class="m-0">إضغط لمعرفة السبب</p>
                                     </a>
                                 </span>
-                                @else
+                            @else
                                 <span class="dropdown-item">
-                                    <a class="quantity text-dark" href="{{ url('user/auction/details')}}/{{$notification->link}}">
-                                        <p class="fw-bold m-0"> {{$notification->message}}</p>
+                                    <a class="quantity text-dark"
+                                        href="{{ url('user/auction/details') }}/{{ $notification->link }}">
+                                        <p class="fw-bold m-0"> {{ $notification->message }}</p>
                                     </a>
                                 </span>
                             @endif
@@ -94,26 +95,30 @@
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle d-flex" href="#" data-bs-toggle="dropdown" id="profileDropdown">
                         <div>
-                            @if (Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))
-                                <img src="/images/profiles/default.png" alt="profile" width="100"
-                                    class="d-block h-auto ms-0 rounded user-profile-img" />
-                            @else
-                                @if (isset(Auth::user()->profile->avatar))
-                                    <img src="/images/profiles/{{ Auth::user()->profile->avatar }}" alt="profile"
-                                        width="100" class="d-block h-auto ms-0 rounded user-profile-img" />
+                            @auth
+                                @if (Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))
+                                    <img src="/images/profiles/default.png" alt="profile" width="100"
+                                        class="d-block h-auto ms-0 rounded user-profile-img" />
                                 @else
-                                    <img src="/images/profiles/default.png" alt="profile"
-                                        class="d-block h-auto ms-0 rounded user-profile-img" width="100" />
+                                    @if (isset(Auth::user()->profile->avatar))
+                                        <img src="/images/profiles/{{ Auth::user()->profile->avatar }}" alt="profile"
+                                            width="100" class="d-block h-auto ms-0 rounded user-profile-img" />
+                                    @else
+                                        <img src="/images/profiles/default.png" alt="profile"
+                                            class="d-block h-auto ms-0 rounded user-profile-img" width="100" />
+                                    @endif
                                 @endif
-                            @endif
+                            @endauth
                         </div>
                         <div>
                             <span class="nav-profile-name">
-                                @if (Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))
-                                    Admin
-                                @else
-                                    {{ Auth::user()->name }}
-                                @endif
+                                @auth
+                                    @if (Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))
+                                        Admin
+                                    @else
+                                        {{ Auth::user()->name }}
+                                    @endif
+                                @endauth
                             </span>
                         </div>
                     </a>

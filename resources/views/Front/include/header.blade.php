@@ -100,24 +100,23 @@
 
 
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
-<!-- search code -->
+    <!-- search code -->
     <script>
         /// JavaScript code
         function search_cars() {
             let input = document.getElementById('searchbar').value
-            input=input.toLowerCase();
+            input = input.toLowerCase();
             let x = document.getElementsByClassName('cars');
 
             for (i = 0; i < x.length; i++) {
                 if (!x[i].innerHTML.toLowerCase().includes(input)) {
-                    x[i].style.display="none";
-                }
-                else {
-                    x[i].style.display="flex";
+                    x[i].style.display = "none";
+                } else {
+                    x[i].style.display = "flex";
                 }
             }
         }
-            </script>
+    </script>
 
     <script>
         (function(i, s, o, g, r, a, m) {
@@ -228,11 +227,13 @@
                                 <!-- notfications Item -->
                                 <div class="shopping-item" dir="rtl">
                                     <div class="dropdown-cart-header">
-                                        <span class="total-count">  {{\App\Http\Controllers\Notifications\NotificationController::getNotifications()['count']}} إشعارات </span>
+                                        <span class="total-count">
+                                            {{ \App\Http\Controllers\Notifications\NotificationController::getNotifications()['count'] }}
+                                            إشعارات </span>
                                     </div>
                                     <ul class="shopping-list mb-0" id="shopping-list" style="padding-inline-end: 0">
-                                        @foreach( \App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
-                                            @if($notification->type == 1)
+                                        @foreach (\App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
+                                            @if ($notification->type == 1)
                                                 <li>
                                                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
                                                     <a href="{{url('auction')}}/{{$notification->link}}">
@@ -310,6 +311,7 @@
                             </div>
                         </div>
 
+
                         <!-- Search Form -->
                         <div class="search-top">
                             <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
@@ -330,10 +332,15 @@
                     <div class="col-lg-8 col-md-7 col-12">
                         <div class="search-bar-top">
                             <div class="search-bar">
-
+                                <select>
+                                    <option selected="selected" style="font-family: Tajawal">كل الانواع</option>
+                                    <option>دايوها</option>
+                                    <option>سنتافي</option>
+                                    <option>تكاسي</option>
+                                </select>
                                 <form>
-                                    <input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث"  onkeyup="search_cars()" type="text"
-              name="search" id="searchbar">
+                                    <input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث"
+                                        onkeyup="search_cars()" type="text" name="search" id="searchbar">
                                     <button class="btnn"><i class="ti-search"></i></button>
                                 </form>
                             </div>

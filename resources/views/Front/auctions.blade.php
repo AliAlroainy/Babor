@@ -1,6 +1,6 @@
 @include('Front.include.header')
 <!-- Start Product Area -->
-<div class="product-area section" id="offer">
+<div class="product-area section a-res" id="offer">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -30,13 +30,18 @@
                                                         </a>
                                                         <div class="button-head">
                                                             <div class="product-action">
-                                                                <a data-toggle="modal" data-target="#exampleModal"
-                                                                    title="Quick View" href="#"><i
-                                                                        class=" ti-eye"></i><span>Quick
-                                                                        Shop</span></a>
-                                                                <a title="Wishlist" href="#"><i
-                                                                        class=" ti-heart "></i><span>اضافة
-                                                                        للتفضيلات</span></a>
+                                                                @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
+                                                                    <a title="Wishlist" class="addWishlist"
+                                                                        data-auction-id="{{ $auction->id }}">
+                                                                        <i class="ti-heart"></i>
+                                                                    </a>
+                                                                @else
+                                                                    <a title="Wishlist" class="removeWishlist"
+                                                                        data-auction-id="{{ $auction->id }}">
+                                                                        <i class="fa fa-heart"
+                                                                            style="color: #F7941D;"></i>
+                                                                    </a>
+                                                                @endif
                                                                 <a title="Compare" href="#"><i
                                                                         class="ti-bar-chart-alt"></i><span>مشاركة
                                                                         المزاد</span></a>

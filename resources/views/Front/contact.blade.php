@@ -94,11 +94,11 @@
 	</section>
 	<!--/ End Contact -->
 	
-	<!-- Map Section -->
+	{{-- <!-- Map Section -->
 	<div class="map-section">
 		<div id="myMap"></div>
 	</div>
-	<!--/ End Map Section -->
+	<!--/ End Map Section --> --}}
 	
 
 @include('Front.include.footer')

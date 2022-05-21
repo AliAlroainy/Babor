@@ -15,11 +15,12 @@ use App\Http\Controllers\admin\BidsController;
 use App\Http\Controllers\user\WalletController;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
-use App\Http\Controllers\Admin\AcutionController;
 // use \Illuminate\Support\Facades\URL;
+use App\Http\Controllers\Admin\AcutionController;
 use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\Admin\QustionController;
 use App\Http\Controllers\user\ContractController;
+use App\Http\Controllers\user\FavoriteController;
 use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
@@ -27,6 +28,7 @@ use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\adminIndexController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\user\UserAuctionController;
+use App\Http\Controllers\admin\AdminWalletController;
 use App\Http\Controllers\Authentication\authcontroller;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -80,9 +82,7 @@ Route::get('/services', function () {
     return view('Front.services');
 });
 
-Route::get('/offer', function () {
-    return view('Front.offer');
-});
+
 
 Route::get('/about', function () {
     return view('Front.about');
@@ -94,6 +94,7 @@ Route::get('/findcar', function () {
 Route::get('/chata', function () {
     return view('chat.chat');
 });
+Route::get('/offer', [SiteController::class, 'availableOffer']);
 Route::get('/services', [SiteController::class, 'ServicesShow']);
 Route::get('/', [SiteController::class, 'home'])->name('/');
 Route::get('/FAQ', [SiteController::class, 'questionShow']);
@@ -104,7 +105,7 @@ Route::get('/auctions/{status}', [SiteController::class, 'auctionByCarStatus'])-
 Route::view('/soon', 'Front.soon');
 Route::get('/contact', [ContactUsController::class, 'show'])->name('site.show');
 // Route::view('/contact', 'Front.contact');
-Route::view('/favorite', 'Front.favorite');
+// Route::view('/favorite', 'Front.favorite');
 Route::view('/buy', 'Front.buy');
 Route::view('/privacy', 'Front.privcey');
 
@@ -140,6 +141,13 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/auction/details/{id}', [AcutionController::class, 'showDetails'])->name('admin.auction.details');
         Route::get('/bids', [BidsController::class, 'index'])->name('admin.bid.index');
 
+        Route::get('/walletAuctions', [AdminWalletController::class, 'manageCompletingAuction'])->name('manage.auction.payment');
+        Route::post('/sendToSeller/{bill_id}', [AdminWalletController::class, 'sendToSeller'])->name('sendToSeller');
+        Route::post('/sendToBuyer/{bill_id}', [AdminWalletController::class, 'sendToBuyer'])->name('sendToBuyer');
+        Route::post('/sellerPenalty/{bill_id}', [AdminWalletController::class, 'sellerPenalty'])->name('sellerPenalty');
+        Route::post('/buyerPenalty/{bill_id}', [AdminWalletController::class, 'buyerPenalty'])->name('buyerPenalty');
+
+        Route::get('/do-contract/{bill_id}', [ContractController::class, 'doContract'])->name('show.contract');
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
     });
@@ -171,6 +179,9 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
             Route::post('/auction/{id}/buy', [PaymentController::class, 'buy'])->name('user.buy.auction');
 
+            Route::post('/favorite', [FavoriteController::class, 'store'])->name('auction_favorite');
+            Route::post('/unfavorite', [FavoriteController::class, 'destroy'])->name('auction_unfavorite');
+            Route::get('/favorite/auctions', [FavoriteController::class, 'index'])->name('auction_favorite.index');
             Route::get('/wallet', [WalletController::class, 'index'])->name('user.wallet');
 
 
@@ -212,9 +223,9 @@ Route::get('/admin/wallet',function () {
     return view('Admin.wallet.wallet');
 });
 
-Route::get('/admin/walletAuctions',function () {
-    return view('Admin.wallet.usersAuctions');
-});
+// Route::get('/admin/walletAuctions',function () {
+//     return view('Admin.wallet.usersAuctions');
+// });
 
 
 Route::get('/wallet', function (){

@@ -178,9 +178,9 @@
                                             <p>
                                                 <i class="bi bi-palette" style="color: #F7941D"></i> 
                                                 اللون:</p>
-                                            <input type="color" class="bg-transparent dark-placeholder form-control input"
+                                            <input type="text" class="bg-transparent dark-placeholder form-control input"
                                                 name="color" value="{{ old('color', $car->color ?? null) }}"
-                                                placeholder="">
+                                                placeholder="احمر">
                                         </div>
                                         <div
                                             class="col-sm-12 col-md-6 mb-4 d-flex flex-column justify-content-center align-items-start">
