@@ -50,25 +50,21 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right rtl navbar-dropdown" id="dropdown-menu"
                         aria-labelledby="notificationDropdown">
-                        <p class="mb-0 font-weight-normal  dropdown-header">الإشعارات</p>
-                        @foreach (\App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
-                            @if ($notification->type == 1)
-                                <span class="dropdown-item">
-                                    <span class="cart-img ms-2"><img
-                                            src="/images/cars/{{ $notification->thumbnail }}" alt="#"></span>
-                                    <a class="quantity text-dark"
-                                        href="{{ url('user/auction/details') }}/{{ $notification->link }}">
-                                        <p class="fw-bold m-0"> {{ $notification->message }}</p>
-                                        <span class="amount">$ {{ $notification->price }}</span>
-                                        <span class="d-block mb-0 date">ينتهي بتاريخ
-                                            {{ $notification->closeDate }}</span>
-                                    </a>
-                                </span>
+                        <p class="mb-0 font-weight-normal  dropdown-header" id="dropdown-menu">الإشعارات</p>
+                        @foreach( \App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
+                            @if($notification->type == 1)
+                        <span class="dropdown-item">
+                            <span class="cart-img ms-2" ><img src="/images/cars/{{$notification->thumbnail}}" alt="#"></span>
+                                <a class="quantity text-dark" href="{{ url('auction')}}/{{$notification->link}}">
+                                <p class="fw-bold m-0"> {{$notification->message}}</p>
+                                <span class="amount">$ {{$notification->price}}</span>
+                                <span class="d-block mb-0 date">ينتهي بتاريخ {{$notification->closeDate}}</span>
+                            </a>
+                        </span>
                             @elseif($notification->type == 2)
                                 <span class="dropdown-item">
-                                    <a class="quantity text-dark"
-                                        href="{{ url('user/auction/details') }}/{{ $notification->link }}">
-                                        <p class="fw-bold m-0"> {{ $notification->message }}</p>
+                                    <a class="quantity text-dark" href="{{ url('user/auction/details')}}/{{$notification->link}}">
+                                        <p class="fw-bold m-0"> {{$notification->message}}</p>
                                     </a>
                                 </span>
                             @elseif($notification->type == 3)

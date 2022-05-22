@@ -265,7 +265,7 @@ class NotificationController extends Controller
             'user_id' => $winner_id ,
             'state' => 1,
             'link' => $auction->id,
-            'type'=> 5,
+            'type'=> 6,
             'price' => $auction->openingBid,
             'closeDate' => $auction->closeDate,
             'thumbnail' => $car->thumbnail
@@ -305,7 +305,7 @@ class NotificationController extends Controller
                 'user_id' =>   $bidders[$i]->user->id,
                 'state' => 1,
                 'link' => $auction->id,
-                'type'=> 6,
+                'type'=> 7,
                 'price' => $auction->openingBid,
                 'closeDate' => $auction->closeDate,
                 'thumbnail' => $car->thumbnail
@@ -324,7 +324,7 @@ class NotificationController extends Controller
     {
         $user_id = Auth::id();
 
-        $notifications = Notification::where(['state'=>'1' , 'user_id' => $user_id])->get();
+        $notifications = Notification::where(['state'=>'1' , 'user_id' => $user_id])->take(5)->orderBy('created_at','desc')->get();
         $count = count($notifications);
         $notificationsData = ['count'=>$count, 'notifications' => $notifications];
         return $notificationsData;
