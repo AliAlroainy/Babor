@@ -19,7 +19,7 @@ class AuctionSeeder extends Seeder
         $date = Carbon::create($year,$month ,$day , 0, 0, 0);
         $unixTimestamp = '1461067200';
         $faker = Faker::create();
-        foreach (range(1,28) as $index) {
+        foreach (range(1,25) as $index) {
           DB::table('auctions')->insert([
               'closeDate' => $date->addWeeks(rand(1, 4))->format('Y-m-d H:i:s'),
               'minInc' => $faker->numberBetween(30000,60170),
@@ -27,7 +27,7 @@ class AuctionSeeder extends Seeder
               'openingBid' =>   $faker->numberBetween(40000,68017),
               'reservePrice' => $faker->numberBetween(40000,68017),
               'auctioneer_id' => $faker->numberBetween(2,10),
-              'car_id' => $faker->numberBetween(1, 28),
+              'car_id' => $index,
               'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
               'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
           ]);

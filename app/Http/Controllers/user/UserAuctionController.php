@@ -200,8 +200,8 @@ class UserAuctionController extends Controller
     public function apiConnect($id, $found, $ref, $product, $total, $meta){
         $apiURL = 'https://waslpayment.com/api/test/merchant/payment_order';
         $headers = [
-            'private-key' => 'rRQ26GcsZzoEhbrP2HZvLYDbn9C9et',
-            'public-key' => 'HGvTMLDssJghr9tlN9gr4DVYt0qyBy',
+            'private-key' => 'F2sIwhqC7QqxOqnmRU6twXGYZRcz3Yf0wIJfDezULTuAlwxgW6',
+            'public-key' => 'PKsqSzlKsNBWsi81ZKhNZq5gp',
             'Content-Type' => 'application/x-www-form-url'
         ];
         $data = [
