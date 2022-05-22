@@ -164,7 +164,8 @@ class UserAuctionController extends Controller
                         $q->update([
                             'status' => '4',
                             'winnerPrice'=> $found->bids->sortDesc()->first()->currentPrice,
-                            'winner_id' => Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->bidder_id]);
+                            'winner_id' => Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->bidder_id
+                        ]);
                         $notify = new NotificationController();
                         $notify->stopAuction($auction->first(),$auction->first()->winner_id);
 

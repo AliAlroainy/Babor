@@ -11,8 +11,9 @@ use App\Http\Controllers\Controller;
 class AdminWalletController extends Controller
 {
     public function manageCompletingAuction(){
-        $trans = Payment_Bill::get();
-        return view('Admin.wallet.usersAuctions')->with(['trans' => $trans]);
+        $bills = Payment_Bill::get();
+        // dd(isset($bills[0]->contract));
+        return view('Admin.wallet.usersAuctions')->with(['bills' => $bills]);
         
     }
 
