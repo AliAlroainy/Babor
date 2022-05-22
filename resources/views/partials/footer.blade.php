@@ -182,21 +182,24 @@ $('.dropify').dropify({
             node.innerHTML =`
                 <span class="dropdown-item">
                     <span class="cart-img ms-2" ><img src="/images/cars/${data.thumbnail}" alt="#"></span>
-                    <a class="quantity text-dark" href="user/auction/details/${data.link}">
+                    <a class="quantity text-dark" href="auction/${data.link}">
                         <p class="fw-bold m-0"> ${data.message}</p>
                         <span class="amount">${data.price}</span>
                         <span class="d-block mb-0 date">ينتهي بتاريخ ${data.endDate} </span>
                     </a>
                 </span>
 `;
-            // alert({!! \Illuminate\Support\Facades\Auth::id() !!})
-            document.getElementById('dropdown-menu').append(node);
+{{--            alert({!! \Illuminate\Support\Facades\Auth::id() !!})--}}
+//             document.getElementById('dropdown-menu').append(node);
+            let menu = document.getElementById('dropdown-menu');
+            insertAfter(node, menu.firstElementChild)
+
         }
 
         if( data.user_id.toString() =="{!! Auth::id() !!}" && data.type == 2 ) {
             node.innerHTML =`
                 <span class="dropdown-item">
-                    <a class="quantity text-dark" href="user/auction/details/${data.link}">
+                    <a class="quantity text-dark" href="{{ url('user/auction/details')}}/${data.link}">
                         <p class="fw-bold m-0"> ${data.message}</p>
                     </a>
                 </span>
@@ -207,7 +210,7 @@ $('.dropify').dropify({
         if( data.type == 3 ) {
             node.innerHTML =`
                 <span class="dropdown-item">
-                    <a class="quantity text-dark" href="user/auction/details/${data.link}">
+                        <a class="quantity text-dark" href="{{ url('user/auction/details')}}/${data.link}">
                         <p class="fw-bold m-0"> ${data.message}</p>
                         <p class="m-0">إضغط لمعرفة السبب</p>
                     </a>
@@ -223,7 +226,7 @@ $('.dropify').dropify({
                 node = document.createElement('li');
             node.innerHTML =`
                 <span class="dropdown-item">
-                    <a class="quantity text-dark" href="user/auction/details/${data.link}">
+                        <a class="quantity text-dark" href="{{ url('user/auction/details')}}/${data.link}">
                         <p class="fw-bold m-0"> ${data.message}</p>
                     </a>
                 </span>
@@ -236,7 +239,7 @@ $('.dropify').dropify({
             node = document.createElement('li');
             node.innerHTML =`
                 <span class="dropdown-item">
-                    <a class="quantity text-dark" href="user/auction/details/${data.link}">
+                        <a class="quantity text-dark" href="{{ url('user/auction/details')}}/${data.link}">
                         <p class="fw-bold m-0"> ${data.message}</p>
                     </a>
                 </span>
@@ -251,19 +254,23 @@ $('.dropify').dropify({
         var node = document.createElement('li');
         node.innerHTML =`
                 <span class="dropdown-item">
-                    <a class="quantity text-dark" href="user/auction/details/${data.link}">
+                    <a class="quantity text-dark" href="{{ url('user/auction/details')}}/${data.link}">
                         <p class="fw-bold m-0"> ${data.message}</p>
                     </a>
                 </span>
 `;
         if( data.user_id.toString() == "{!! Auth::id() !!}") {
             {{--alert("{!! Auth::id() !!}");--}}
-            document.getElementById('dropdown-menu').append(node);
+            // document.getElementById('dropdown-menu').append(node);
+            let menu = document.getElementById('dropdown-menu');
+            insertAfter(node, menu.firstElementChild)
         }
 
     });
 
-
+    function insertAfter(newNode, existingNode) {
+        existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+    }
 </script>
 
 </body>
