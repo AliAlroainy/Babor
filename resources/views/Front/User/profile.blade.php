@@ -37,11 +37,11 @@
                         </div>
                         @if (Auth::user() != $user)
                             <div class="mb-3">
-                                <button class="btn btn-dark d-flex justify-content-center align-items-center"
+                                <a href="/private" class="btn btn-dark d-flex justify-content-center align-items-center"
                                     style="width: 100px; height: 40px;">
                                     <i class="bi bi-chat-dots ms-2"></i>
                                     تواصل
-                                </button>
+                                </a>
                             </div>
                         @endif
                     </div>

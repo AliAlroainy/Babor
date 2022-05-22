@@ -148,16 +148,14 @@ class UserAuctionController extends Controller
         $found = Auction::find($id);
         if(!$found)
             return response()->view('Front.errors.404', []);
-
         $auction = Auction::whereId($id);
         $auction->when($request->has('cancel'), function ($q) use ($id, $auction){
             $q->update(['status' => '3']);
             $q->when($auction->first()->bids->count() > 0, function ($q) use ($id){
                 $this->refundBidders($id);
+                $notify = new NotificationController();
+                $notify->cancelAuction($auction->first(),$id);
             });
-            // $this->refundBidders($id);
-            $notify = new NotificationController();
-            $notify->cancelAuction($auction->first(),$id);
         });
         $auction->when($request->has('timeExtension'), function ($q) use ($auction){
                         $q->update(['closeDate' => Carbon::parse($auction->first()->closeDate)->addDays(2)]);
