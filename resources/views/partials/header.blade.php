@@ -11,37 +11,28 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- indexdash -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
+    <meta name="description"
+        content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-<!--flown chart  -->
+    <!--flown chart  -->
 
 
 
 
-<link
-    rel=
-"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-    type="text/css"
-  />
-  <script src=
-"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script
-    src=
-"https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
-    type="text/javascript"
-  ></script>
-  <script src=
-"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  
-  <script src=
-"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+    <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
 
 
 
@@ -49,11 +40,11 @@
     <title>Babor Admin</title>
     <!-- bootstrap link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
-   <link rel="stylesheet" href="/bootstrap-5.1.3-dist/css/bootstrap.css" />
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/bootstrap-5.1.3-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
 
-      <!-- Favicon -->
-      <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png" />
 
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ @asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
@@ -67,8 +58,8 @@
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/fonts/dropify.svg">
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/fonts/dropify.ttf">
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/fonts/dropify.woff">
-    <!-- inject:css --> 
-    <br/>
+    <!-- inject:css -->
+    <br />
     <link rel="stylesheet" href="{{ @asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ @asset('assets/css/styles.css') }}">
     <link rel="stylesheet" href="{{ @asset('assets/css/multistep-form.css') }}">
@@ -87,8 +78,7 @@
     {{-- tiny editor --}}
     <script type="text/javascript"
         src="https://cdn.tiny.cloud/1/q6t3hc09adutz0zx8yu3y7y69c75wwfeg3ux14tbrxthyd8g/tinymce/5/tinymce.min.js"
-        referrerpolicy="origin">
-    </script>
+        referrerpolicy="origin"></script>
     <script type="text/javascript">
         tinymce.init({
             selector: '.myTextarea',
@@ -119,19 +109,16 @@
         }
 
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!--These jQuery libraries for
    chosen need to be included-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.min.css" />
 
     <!--These jQuery libraries for select2
    need to be included-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" />
     <script>
         $(document).ready(function() {
@@ -150,7 +137,7 @@
 
 <body>
 
-        {{-- <!-- Preloader -->
+    {{-- <!-- Preloader -->
         <div class="preloader">
             <div class="preloader-inner">
                 <div class="preloader-icon">
@@ -160,6 +147,4 @@
             </div>
         </div>
         <!-- End Preloader --> --}}
-        <script src="/js/active.js"></script>
-
-    
+    <script src="/js/active.js"></script>

@@ -1,11 +1,13 @@
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 @extends('partials.master')
 @section('body')
     <div class="main-panel">
         <div class="content-wrapper" style="position: relative">
             <div class="card">
-                <div class="row card-body">
-                    <div class="col-lg-7">
-                        <table class="table-responsive col-lg-10 table table-striped table-hover">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 col-md-12">
+                        <table class="table table-responsive table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>
@@ -154,8 +156,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-lg-4 mt-5">
-                        <img style="direction:ltr ;width:600px;border-raduis:1%" class="col-lg-12 "
+                    <div class="col-lg-4 col-md-12 mt-5">
+                        <img style="direction:ltr ;width:600px;border-raduis:1%" class="img-fluid"
                             src="/images/cars/{{ $auction->car->thumbnail }}" alt="image" />
                         <div id="demo" class="carousel slide" data-ride="carousel">
                             <br>
@@ -170,16 +172,16 @@
                             <!-- The slideshow -->
                             <div class="carousel-inner" style="width:400px;">
                                 <div class="carousel-item active">
-                                    <img src="/images/cars/{{ $auction->car->thumbnail }}" style="width:100%;height:50%"
-                                        alt="" width="1100" height="500">
+                                    <img src="/images/cars/{{ $auction->car->thumbnail }}" class="img-fluid"
+                                        style="width:100%;height:50%" alt="" width="1100" height="500">
                                 </div>
                                 @php
                                     $images = json_decode($auction->car->car_images, true);
                                 @endphp
                                 @foreach ($images as $img)
                                     <div class="carousel-item">
-                                        <img src="/images/cars/car_images/{{ $img }}" alt="" width="1100"
-                                            height="500" style="width:100%">
+                                        <img src="/images/cars/car_images/{{ $img }}" alt="car img"
+                                            class="img-fluid" width="1100" height="500" style="width:100%">
                                     </div>
                                 @endforeach
                             </div>
