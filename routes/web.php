@@ -241,12 +241,6 @@ Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
 
-
-// Route::get('/admin/walletAuctions',function () {
-//     return view('Admin.wallet.usersAuctions');
-// });
-
-
 Route::get('/wallet', function (){
     $admin = User::find(1);
     $auctioneer_abrar = User::find(2);
