@@ -189,7 +189,6 @@ Route::group(['middleware'=>'auth'],function(){
             Route::get('/payment/success/{id}/{res}', [APIController::class, 'success'])->name('payment.success');
             Route::get('/payment/failed/{res}', [APIController::class, 'failed'])->name('payment.failed');
 
-            // Route::get('show-bill/{bill_id}', [WalletController::class, 'show_bill'])->name('show.bill');
             Route::get('/do-contract/{bill_id}', [ContractController::class, 'doContract'])->name('do.contract');
             Route::post('/confirm/{bill_id}', [ContractController::class, 'contract'])->name('confirm');
         });

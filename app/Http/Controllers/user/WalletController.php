@@ -34,24 +34,4 @@ class WalletController extends Controller
             'billPaper'  => $billPaper,       
         ]);
     }
-
-    public function show_bill($bill_id){
-        $user = Auth::id();
-        $balance = DB::table('wallets')->where('holder_id', $user)->first()->balance;
-
-        //To list out different financial operation
-        $trans = Transaction::where('wallet_id', $user)->get();
-        
-        $loses = Transaction::where(['wallet_id' => $user, 'type' => 'withdraw'])->get()->sum('amount');
-        $gains = Transaction::where(['wallet_id' => $user, 'type' => 'deposit'])->get()->sum('amount');
-
-        $bill = Payment_Bill::whereId($bill_id)->first();
-        return view('Front.User.wallet')->with([
-            'balance' => $balance, 
-            'loses' => abs($loses),
-            'gains' => $gains,
-            'operations'  => $trans, 
-            'bill'  => $bill,       
-        ]); 
-    }
 }
