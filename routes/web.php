@@ -15,7 +15,6 @@ use App\Http\Controllers\admin\BidsController;
 use App\Http\Controllers\user\WalletController;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
-// use \Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Admin\AcutionController;
 use App\Http\Controllers\admin\APIController;
 use App\Http\Controllers\Admin\QustionController;
@@ -72,9 +71,6 @@ Route::get('/success', function () {
 Route::get('/chat', function () {
     return view('Front.addtions.chat');
 });
-
-
-
 Route::get('/FAQ', function () {
     return view('Front.FAQ');
 });
