@@ -182,7 +182,7 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/favorite', [FavoriteController::class, 'store'])->name('auction_favorite');
             Route::post('/unfavorite', [FavoriteController::class, 'destroy'])->name('auction_unfavorite');
             Route::get('/favorite/auctions', [FavoriteController::class, 'index'])->name('auction_favorite.index');
-            Route::get('/wallet', [WalletController::class, 'index'])->name('user.wallet');
+            Route::get('/wallet/{id?}', [WalletController::class, 'index'])->name('user.wallet');
 
 
             //API Response

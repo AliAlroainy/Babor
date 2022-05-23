@@ -107,100 +107,6 @@
                                                             العقد
                                                         </a>
                                                     @endif
-
-                                                    {{-- <div id="billshow" class="modal fade">
-                                                        <div class="modal-dialog modal-confirm">
-                                                            <div class="modal-content">
-                                                                <div class="modal-body">
-                                                                    <div class="col-12 col-md-5  ps-md-5 p-0 ">
-                                                                        <div class="box-left">
-                                                                            <div class="d-flex">
-                                                                                <i class="bi bi-receipt"></i>
-                                                                                <p class="text-muted h8 me-3"> الفاتورة
-                                                                                    #3424</p>
-                                                                            </div>
-                                                                            <p class="fw-bold h7">شراء سيارة فيراري</p>
-                                                                            <p class="text-muted h8">البائع : ابرار
-                                                                                الخرساني</p>
-                                                                            <p class="text-muted h8">المشتري : علي الرعيني
-                                                                            </p>
-                                                                            <p class="text-muted h8 mb-2">التاريخ :
-                                                                                23-1-2023</p>
-                                                                            <div class="h8">
-                                                                                <div class="row m-0 border mb-3">
-                                                                                    <div class="col-6 h8 pe-0 ps-2">
-                                                                                        <p class="text-muted py-2">العناصر
-                                                                                        </p>
-                                                                                        <span
-                                                                                            class="d-block py-2 border-bottom">سيارة
-                                                                                            فيراري</span>
-                                                                                        <span class="d-block py-2">سيارة
-                                                                                            هامر</span>
-                                                                                    </div>
-                                                                                    <div class="col-2 text-center p-0">
-                                                                                        <p class="text-muted p-2">الكمية</p>
-                                                                                        <span
-                                                                                            class="d-block p-2 border-bottom">2</span>
-                                                                                        <span
-                                                                                            class="d-block p-2">1</span>
-                                                                                    </div>
-                                                                                    <div
-                                                                                        class="col-2 p-0 text-center h8 border-end">
-                                                                                        <p class="text-muted p-2">السعر</p>
-                                                                                        <span
-                                                                                            class="d-block border-bottom py-2">
-                                                                                            <span
-                                                                                                class="fas fa-dollar-sign"></span>
-                                                                                            500
-                                                                                        </span>
-                                                                                        <span class="d-block py-2 ">
-                                                                                            <span
-                                                                                                class="fas fa-dollar-sign"></span>
-                                                                                            400
-                                                                                        </span>
-                                                                                    </div>
-                                                                                    <div class="col-2 p-0 text-center">
-                                                                                        <p class="text-muted p-2">الاجمالي
-                                                                                        </p>
-                                                                                        <span
-                                                                                            class="d-block py-2 border-bottom">
-                                                                                            <span
-                                                                                                class="fas fa-dollar-sign"></span>
-                                                                                            1000
-                                                                                        </span>
-                                                                                        <span class="d-block py-2">
-                                                                                            <span
-                                                                                                class="fas fa-dollar-sign"></span>
-                                                                                            400
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="d-flex h7 mb-2">
-                                                                                    <p class="ms-5">الاجمالي
-                                                                                        الكلي:</p>
-                                                                                    <p class="ms-auto">
-                                                                                        <span
-                                                                                            class="fas fa-dollar-sign"></span>
-                                                                                        1400
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div class="h8 mb-5">
-                                                                                    <p> التفاصيل </p>
-                                                                                    <p class="text-muted"> وسيلة الدفع
-                                                                                        منصة وصل</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-outline-danger"
-                                                                        data-bs-dismiss="modal"
-                                                                        style="background-color: rgb(205, 205, 205)">إلغاء</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> --}}
                                                 @elseif($bill->bid->auction->status == '5')
                                                     <small class="text-success">
                                                         <i class="fa fa-check"></i>
@@ -211,7 +117,7 @@
                                                         العقد
                                                     </a>
                                                 @endif
-                                                <a href="#billShow" data-bs-toggle="modal"
+                                                <a href="{{ route('user.wallet', $bill->id) }}"
                                                     class="mt-5 px-2 rouned-btn bg-green text-decoration-none">
                                                     الفاتورة
                                                 </a>
@@ -291,7 +197,7 @@
                                                             العقد
                                                         </a>
                                                     </small>
-                                                    <a href="#billShow" data-bs-toggle="modal"
+                                                    <a href="{{ route('user.wallet', $bill->id) }}"
                                                         class="mx-1 mt-5 px-2 rouned-btn bg-green ext-decoration-none">
                                                         الفاتورة
                                                     </a>
@@ -337,6 +243,75 @@
                                             <p class="h6 text-muted">لا يوجد أي عمليات مالية لديك </p>
                                         </div>
                                     @endforelse
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5  ps-md-5 p-0 ">
+                        <div class="box-left">
+                            <div class="d-flex">
+                                <i class="bi bi-receipt"></i>
+                                <p class="text-muted h8 me-3"> الفاتورة
+                                    #{{ $billPaper->invoice_reference ?? '' }}</p>
+                            </div>
+                            <p class="fw-bold h7">شراء {{ $billPaper->bid->auction->car->category->name ?? '' }}
+                                @isset($billPaper)
+                                    {{ $billPaper->bid->auction->type_and_model() }}
+                                @endisset
+                            </p>
+                            <p class="text-muted h8">البائع : {{ $billPaper->bid->auction->user->name ?? '' }} </p>
+                            <p class="text-muted h8">المشتري: {{ $billPaper->bid->user->name ?? '' }}
+                            </p>
+                            <p class="text-muted h8 mb-2">التاريخ :
+                                {{ $billPaper->created_at ?? '' }}</p>
+                            <div class="h8">
+                                <div class="row m-0 border mb-3">
+                                    <div class="col-6 h8 pe-0 ps-2">
+                                        <p class="text-muted py-2">العناصر
+                                        </p>
+                                        <span
+                                            class="d-block py-2 border-bottom">{{ $billPaper->bid->auction->car->category->name ?? '' }}
+                                            @isset($billPaper)
+                                                {{ $billPaper->bid->auction->type_and_model() }}
+                                            @endisset
+                                        </span>
+                                    </div>
+                                    <div class="col-2 text-center p-0">
+                                        <p class="text-muted p-2">الكمية</p>
+                                        <span class="d-block p-2 border-bottom">
+                                            @isset($billPaper)
+                                                {{ $billPaper->count() }}
+                                            @endisset
+                                        </span>
+                                    </div>
+                                    <div class="col-2 p-0 text-center h8 border-end">
+                                        <p class="text-muted p-2">السعر</p>
+                                        <span class="d-block border-bottom py-2">
+                                            <span class="fas fa-dollar-sign"></span>
+                                            {{ $billPaper->bid->currentPrice ?? '' }}
+                                        </span>
+                                    </div>
+                                    <div class="col-2 p-0 text-center">
+                                        <p class="text-muted p-2">الاجمالي
+                                        </p>
+                                        <span class="d-block py-2 border-bottom">
+                                            <span class="fas fa-dollar-sign"></span>
+                                            {{ $billPaper->bid->currentPrice ?? '' }}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="d-flex h7 mb-2">
+                                    <p class="ms-5">الاجمالي
+                                        الكلي:</p>
+                                    <p class="ms-auto">
+                                        <span class="fas fa-dollar-sign"></span>
+                                        {{ $billPaper->bid->currentPrice ?? '' }}
+                                    </p>
+                                </div>
+                                <div class="h8 mb-5">
+                                    <p> التفاصيل </p>
+                                    <p class="text-muted"> وسيلة الدفع
+                                        منصة وصل</p>
                                 </div>
                             </div>
                         </div>
