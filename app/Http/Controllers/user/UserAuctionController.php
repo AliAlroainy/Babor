@@ -68,6 +68,7 @@ class UserAuctionController extends Controller
             'carPosition'     => $request->input('carPosition'),
             'sizOfDamage'     => $request->input('sizOfDamage'),
             'status'          => $request->input('status'),
+            'jear'            => $request->input('jear'),
             'thumbnail'       => $thumbnail,
             'car_images'      => json_encode($data),
         ]);

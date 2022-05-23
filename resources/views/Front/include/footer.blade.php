@@ -168,23 +168,30 @@
  <script type="text/javascript">
      $(document).on('click', '.addWishlist', function(e) {
          e.preventDefault();
+         $element = $(this);
          $.ajax({
              type: 'POST',
              data: {
                  'auction_id': $(this).attr('data-auction-id'),
+
              },
              url: 'user/favorite',
              headers: {
                  'X-CSRF-TOKEN': '{!! csrf_token() !!}',
              },
-             success: function(res) {
-                 $('.a-res').html(res);
-             }
+             context: $(this).html,
+             success: function(data) {
+                 $element.html(`
+                 <i class="fa fa-heart" style="color: #F7941D;"></i>
+                 `);
+             },
+
          });
      });
 
      $(document).on('click', '.removeWishlist', function(e) {
          e.preventDefault();
+         $element = $(this);
          $.ajax({
              type: 'POST',
              data: {
@@ -195,7 +202,9 @@
                  'X-CSRF-TOKEN': '{!! csrf_token() !!}',
              },
              success: function(res) {
-                 $('.a-res').html(res);
+                 $element.html(`
+                 <i class="ti-heart"></i>
+                 `);
              }
          });
      });
