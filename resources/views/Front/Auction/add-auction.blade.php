@@ -219,7 +219,7 @@
                                             </p>
                                             <input type="text" class="bg-transparent dark-placeholder form-control input"
                                                 row="15" name="carPosition" placeholder=" اليمن - تعز - حي المسبح"
-                                                {{ old('carPosition', $car->carPosition ?? null) }}>
+                                                value="{{ old('carPosition', $car->carPosition ?? null) }}">
                                             @error('carPosition')
                                                 <p class="text-danger">{{ $message }}</p>
                                             @enderror
@@ -258,14 +258,14 @@
                                             </p>
                                             <div class="d-flex gap-3 align-items-end alert alert-warning input select mt-0">
                                                 <div class="form-check d-flex justify-content-center align-items-center ">
-                                                    <input type="radio" name="jear" id="normal" value="0">
-                                                    <label class="form-check-label me-2" for="normal">
+                                                    <input type="radio" name="jear" id="auto" value="0">
+                                                    <label class="form-check-label me-2" for="auto">
                                                         {{ App\Models\Car::getJear('0') }}
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex justify-content-center align-items-center">
-                                                    <input type="radio" name="jear" id="auto" value="1">
-                                                    <label class="form-check-label me-2" for="auto">
+                                                    <input type="radio" name="jear" id="normal" value="1">
+                                                    <label class="form-check-label me-2" for="normal">
                                                         {{ App\Models\Car::getJear('1') }}
                                                     </label>
                                                 </div>
@@ -303,7 +303,7 @@
                                         <div class="col-12 w-100  mb-4 d-flex justify-content-center align-items-center">
                                             <textarea type="text" class="bg-transparent dark-placeholder form-control myTextarea" row="20" name="description"
                                                 placeholder="وصف السيارة" dir="rtl"
-                                                {{ old('description', $car->description ?? null) }}></textarea>
+                                                {{ old('description') }}></textarea>
                                             @error('description')
                                                 <p class="text-danger">{{ $message }}</p>
                                             @enderror

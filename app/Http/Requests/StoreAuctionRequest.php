@@ -27,6 +27,7 @@ class StoreAuctionRequest extends FormRequest
             // 'color'         => 'required|regex:/^[\pL\s]+$/u',
             'closeDate'     => 'required|date|after:now',
             'jear'          => 'required|between:0,10',
+            'reservePrice'  => 'required|gt:openingBid'
         ];
     }
 
@@ -66,6 +67,8 @@ class StoreAuctionRequest extends FormRequest
             'closeDate.after'         => 'تاريخ انتهاء المزاد لا يكون تاريخا قديما',
             'jear.required'           => 'نوع الجير مطلوب',
             'jear.between'            => 'نوع الجير إما عادي أو أوتوماتيك',
+            'reservePrice.required'   => 'حقل السعر الاحتياطي مطلوب',
+            'reservePrice.gt'        => 'لا ينبغي أن يكون حقل السعر الاحتياطي أقل من سعر الابتداء',
         ];
     }
 }
