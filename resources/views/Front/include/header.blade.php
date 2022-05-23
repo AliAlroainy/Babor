@@ -100,24 +100,23 @@
 
 
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
-<!-- search code -->
+    <!-- search code -->
     <script>
         /// JavaScript code
         function search_cars() {
             let input = document.getElementById('searchbar').value
-            input=input.toLowerCase();
+            input = input.toLowerCase();
             let x = document.getElementsByClassName('cars');
-              
-            for (i = 0; i < x.length; i++) { 
+
+            for (i = 0; i < x.length; i++) {
                 if (!x[i].innerHTML.toLowerCase().includes(input)) {
-                    x[i].style.display="none";
-                }
-                else {
-                    x[i].style.display="flex";                 
+                    x[i].style.display = "none";
+                } else {
+                    x[i].style.display = "flex";
                 }
             }
         }
-            </script>
+    </script>
 
     <script>
         (function(i, s, o, g, r, a, m) {
@@ -228,14 +227,16 @@
                                 <!-- notfications Item -->
                                 <div class="shopping-item" dir="rtl">
                                     <div class="dropdown-cart-header">
-                                        <span class="total-count">  {{\App\Http\Controllers\Notifications\NotificationController::getNotifications()['count']}} إشعارات </span>
+                                        <span class="total-count">
+                                            {{ \App\Http\Controllers\Notifications\NotificationController::getNotifications()['count'] }}
+                                            إشعارات </span>
                                     </div>
                                     <ul class="shopping-list mb-0" id="shopping-list" style="padding-inline-end: 0">
-                                        @foreach( \App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
-                                            @if($notification->type == 1)
+                                        @foreach (\App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
+                                            @if ($notification->type == 1)
                                                 <li>
                                                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                    <a href="auction/{{$notification->link}}">
+                                                    <a href="{{url('auction')}}/{{$notification->link}}">
 {{--                                                        <span class="cart-img" ><img src="{{@asset("images/cars/".$notification->thumbnai)}}" alt="#"></span>--}}
                                                         <span class="cart-img" ><img src="/images/cars/{{$notification->thumbnail}}" alt="#"></span>
                                                         <div class="quantity text-dark">
@@ -248,7 +249,7 @@
                                             @elseif($notification->type == 2)
                                                 <li>
                                                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                    <a href="user/auction/details/{{$notification->link}}">
+                                                    <a href="{{url('user/auction/details')}}/{{$notification->link}}">
                                                         <div class="quantity text-dark">
                                                             <h4 class="fw-bold mb-0">{{$notification->message}}</h4>
                                                             <p class="m-0"></p>
@@ -258,7 +259,7 @@
                                             @elseif($notification->type == 3)
                                                 <li>
                                                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                    <a href="user/auction/details/{{$notification->link}}">
+                                                    <a href="{{url('user/auction/details')}}/{{$notification->link}}">
                                                         <div class="quantity text-dark">
                                                             <h4 class="fw-bold mb-0"> {{$notification->message}}</h4>
                                                             <p class="m-0">إضغط لمعرفة السبب</p>
@@ -310,6 +311,7 @@
                             </div>
                         </div>
 
+<<<<<<< HEAD
                     <!-- Search Form -->
                    <div class="search-top">
                     <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
@@ -323,10 +325,24 @@
                     <!--/ End Search Form -->
                 </div>
                 <!--/ End Search Form -->
+=======
+>>>>>>> 34041517030e050c647cf294f164132c449ead98
 
-                <div class="mobile-nav"></div>
-            </div>
+                        <!-- Search Form -->
+                        <div class="search-top">
+                            <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+                            <!-- Search Form -->
+                            <div class="search-top" dir="rtl">
+                                <form class="search-form">
+                                    <input type="text" placeholder="ابحث هنا..." name="search" onkeyup="search_cars()" id="searchbar">
+                                    <button value="" type="submit"><i class="ti-search"></i></button>
+                                </form>
+                            </div>
+                            <!--/ End Search Form -->
+                        </div>
+                        <!--/ End Search Form -->
 
+<<<<<<< HEAD
             <div class="col-lg-8 col-md-7 col-12">
                 <div class="search-bar-top">
                     <div class="search-bar " >
@@ -341,9 +357,28 @@
       name="search" id="searchbar">
                             <button class="btnn"><i class="ti-search"></i></button>
                         </form>
+=======
+                        <div class="mobile-nav"></div>
                     </div>
-                </div>
-            </div> 
+
+                    <div class="col-lg-8 col-md-7 col-12">
+                        <div class="search-bar-top">
+                            <div class="search-bar">
+                                <select>
+                                    <option selected="selected" style="font-family: Tajawal">كل الانواع</option>
+                                    <option>دايوها</option>
+                                    <option>سنتافي</option>
+                                    <option>تكاسي</option>
+                                </select>
+                                <form>
+                                    <input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث"
+                                        onkeyup="search_cars()" type="text" name="search" id="searchbar">
+                                    <button class="btnn"><i class="ti-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+>>>>>>> 34041517030e050c647cf294f164132c449ead98
+                    </div>
 
 
                     <div class="col-lg-2 col-md-3 col-12 d-flex justify-content-end align-items-center ">
@@ -428,38 +463,4 @@
 
 
 
-                   {{-- <!-- Search Form -->
-                   <div class="search-top">
-                    <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
-                    <!-- Search Form -->
-                    <div class="search-top" dir="rtl">
-                        <form class="search-form">
-                            <input type="text" placeholder="ابحث هنا..." name="search" onkeyup="search_cars()" id="searchbar">
-                            <button value="" type="submit"><i class="ti-search"></i></button>
-                        </form>
-                    </div>
-                    <!--/ End Search Form -->
-                </div>
-                <!--/ End Search Form -->
-
-                <div class="mobile-nav"></div>
-            </div>
-
-            <div class="col-lg-8 col-md-7 col-12">
-                <div class="search-bar-top">
-                    <div class="search-bar">
-                        <select>
-                            <option selected="selected" style="font-family: Tajawal">كل الانواع</option>
-                            <option>دايوها</option>
-                            <option>سنتافي</option>
-                            <option>تكاسي</option>
-                        </select>
-                        <form>
-                            <input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث"  onkeyup="search_cars()" type="text"
-      name="search" id="searchbar">
-                            <button class="btnn"><i class="ti-search"></i></button>
-                        </form>
-                    </div>
-                </div>
-            </div> --}}
 

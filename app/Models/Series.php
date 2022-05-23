@@ -15,6 +15,7 @@ class Series extends Model
         'name',
         'brand_id'
     ];
+    
     public function brand(): BelongsTo
     {
         return $this->belongsTo(Brand::class, 'brand_id');

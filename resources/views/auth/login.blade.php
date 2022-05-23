@@ -3,7 +3,7 @@
 
 {{-- @include('partials.header') --}}
 
- @include('Front.include.header') 
+ @include('Front.include.header')
 
 <body>
     <div class="container-scroller" dir="rtl">
@@ -35,14 +35,14 @@
                                 @csrf
                                 <div class="form-group mb-2">
                                     <input type="text" name="email" class="dark-placeholder rounded form-control form-control-lg"
-                                        id="exampleInputEmail1" placeholder=" بريدك الالكتروني">
+                                        id="exampleInputEmail1" autofocus placeholder=" بريدك الالكتروني">
                                     @error('email')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <input type="password" name="password" class="dark-placeholder rounded form-control form-control-lg"
-                                        id="exampleInputPassword1" placeholder="كلمة المرور">
+                                        id="exampleInputPassword1"  autofocus placeholder="كلمة المرور">
                                     @error('password')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
@@ -52,7 +52,7 @@
                                         الدخول</button>
                                 </div>
                                 <div class="my-2 d-flex flex-column justify-content-start mb-2 " >
-                                    <div> 
+                                    <div>
                                     <div  >
                                         <input type="checkbox" class="form-check-input " id="rememberMe">
                                         <label class="form-check-label text-muted" style=""

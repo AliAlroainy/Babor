@@ -28,6 +28,8 @@ class Auction extends Model
     {
         return $this->belongsTo(Car::class, 'car_id');
     }
+
+    
     // public function setCommissionAttribute(){
     //     $this->attributes['commission'] = 10;
     // }

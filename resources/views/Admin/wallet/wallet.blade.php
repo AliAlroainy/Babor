@@ -24,41 +24,6 @@
 
             </div>
 
-            {{-- <div class="container">
-                <div class="cardp">
-                    <span class="line-1"></span>
-                    <span class="line-2"></span>
-                    <span class="line-3"></span>
-                    <div class="top-row">
-                        <div class="visa">
-                            <h4>VISA</h4>
-                            <span>علي الرعيني</span>
-                        </div>
-                        <div class="tick">
-                            <i class="fa fa-check"></i>
-                        </div>
-                     
-                    </div>
-                    
-                  
-                    <div class="bottom-row">
-                            <div class="dots">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            
-                            <span class="number">4564</span>
-                    </div>
-                  
-                    
-                </div>
-                
-            </div>
- --}}
-
-        
  <div class="container"> 
     <div class="row">
 

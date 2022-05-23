@@ -69,8 +69,9 @@
                                                         </small>
                                                     @endif
                                                 </p>
-                                                <p class="p-blue bg btn btn-primary h7">
-                                                    <a href="{{ route('site.auction.details', $bid->auction->id) }}">
+                                                <p>
+                                                    <a href="{{ route('site.auction.details', $bid->auction->id) }}"
+                                                        class="ms-3 mt-5 px-2 rouned-btn bg-green text-decoration-none">
                                                         التفاصيل
                                                     </a>
                                                 </p>
@@ -94,29 +95,65 @@
                                                             class="ms-3 mt-5 px-2 rouned-btn bg-main text-decoration-none">
                                                             توقيع العقد
                                                         </a>
-                                                        <a href="{{ route('site.auction.details', $bill->bid->auction->id) }}"
-                                                            class="ms-3 mt-5 px-2 rouned-btn bg-green text-decoration-none">
-                                                            التفاصيل
-                                                        </a>
                                                     @elseif(!isset($bill->contract->seller_confirm))
                                                         <small class="text-danger">
                                                             <i class="fa fa-spinner" aria-hidden="true"></i>
-                                                            <a href="{{ route('do.contract', $bill->id) }}"
-                                                                class="text-danger text-decoration-none">
+                                                            <span class="text-danger text-decoration-none">
                                                                 في انتظار توقيع صاحب السيارة
-                                                            </a>
+                                                            </span>
                                                         </small>
+                                                        <a href="{{ route('do.contract', $bill->id) }}"
+                                                            class="mx-1 mt-5 px-2 rouned-btn bg-green text-decoration-none">
+                                                            العقد
+                                                        </a>
                                                     @endif
                                                 @elseif($bill->bid->auction->status == '5')
                                                     <small class="text-success">
                                                         <i class="fa fa-check"></i>
                                                         تمت العملية بنجاح
-                                                        <a href="{{ route('site.auction.details', $bill->bid->auction->id) }}"
-                                                            class="text-success text-decoration-none">
-                                                            | التفاصيل
-                                                        </a>
                                                     </small>
+                                                    <a href="{{ route('do.contract', $bill->id) }}"
+                                                        class="mx-1 mt-5 px-2 rouned-btn bg-green text-decoration-none">
+                                                        العقد
+                                                    </a>
                                                 @endif
+                                                <a href="{{ route('user.wallet', $bill->id) }}"
+                                                    class="mt-5 px-2 rouned-btn bg-green text-decoration-none">
+                                                    الفاتورة
+                                                </a>
+                                                <a href="{{ route('site.auction.details', $bill->bid->auction->id) }}"
+                                                    class="ms-3 mt-5 px-2 rouned-btn bg-green text-decoration-none">
+                                                    التفاصيل
+                                                </a>
+                                                <div id="billShow" class="modal fade">
+                                                    <div class="modal-dialog modal-confirm">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
+                                                                style="top:-80px;">
+                                                                <div>
+                                                                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                                                                    <lottie-player
+                                                                        src="https://assets9.lottiefiles.com/packages/lf20_rdkrsaca.json"
+                                                                        background="transparent" speed="1"
+                                                                        style="width: 150px; height: 150px;" loop autoplay>
+                                                                    </lottie-player>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <h4 class="w-90 m-3" style="font-size: 18px;">
+                                                                    @isset($bill->contract)
+                                                                        {{ $bill->contract->buyer_undoReason }}
+                                                                    @endisset
+                                                                </h4>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-outline-danger"
+                                                                    data-bs-dismiss="modal"
+                                                                    style="background-color: rgb(205, 205, 205)">إلغاء</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         @elseif(isset($item->meta['sell']))
                                             @php
@@ -155,11 +192,49 @@
                                                     <small class="text-success">
                                                         <i class="fa fa-check"></i>
                                                         تمت العملية بنجاح
-                                                        <a href="{{ route('site.auction.details', $bill->bid->auction->id) }}"
-                                                            class="text-success text-decoration-none">
-                                                            | التفاصيل
+                                                        <a href="{{ route('do.contract', $bill->id) }}"
+                                                            class="mx-1 mt-5 px-2 rouned-btn bg-green text-decoration-none">
+                                                            العقد
                                                         </a>
                                                     </small>
+                                                    <a href="{{ route('user.wallet', $bill->id) }}"
+                                                        class="mx-1 mt-5 px-2 rouned-btn bg-green ext-decoration-none">
+                                                        الفاتورة
+                                                    </a>
+                                                    <a href="{{ route('site.auction.details', $bill->bid->auction->id) }}"
+                                                        class="mt-5 px-2 rouned-btn bg-green text-decoration-none">
+                                                        التفاصيل
+                                                    </a>
+                                                    <div id="billShow" class="modal fade">
+                                                        <div class="modal-dialog modal-confirm">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
+                                                                    style="top:-80px;">
+                                                                    <div>
+                                                                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                                                                        <lottie-player
+                                                                            src="https://assets9.lottiefiles.com/packages/lf20_rdkrsaca.json"
+                                                                            background="transparent" speed="1"
+                                                                            style="width: 150px; height: 150px;" loop
+                                                                            autoplay>
+                                                                        </lottie-player>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <h4 class="w-90 m-3" style="font-size: 18px;">
+                                                                        @isset($bill->contract)
+                                                                            {{ $bill->contract->buyer_undoReason }}
+                                                                        @endisset
+                                                                    </h4>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-outline-danger"
+                                                                        data-bs-dismiss="modal"
+                                                                        style="background-color: rgb(205, 205, 205)">إلغاء</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 @endif
                                             </div>
                                         @endif
@@ -176,57 +251,67 @@
                         <div class="box-left">
                             <div class="d-flex">
                                 <i class="bi bi-receipt"></i>
-                                <p class="text-muted h8 me-3"> الفاتورة #3424</p>
+                                <p class="text-muted h8 me-3"> الفاتورة
+                                    #{{ $billPaper->invoice_reference ?? '' }}</p>
                             </div>
-                            <p class="fw-bold h7">شراء سيارة فيراري</p>
-                            <p class="text-muted h8">البائع : ابرار الخرساني</p>
-                            <p class="text-muted h8">المشتري : علي الرعيني</p>
-                            <p class="text-muted h8 mb-2">التاريخ : 23-1-2023</p>
+                            <p class="fw-bold h7">شراء {{ $billPaper->bid->auction->car->category->name ?? '' }}
+                                @isset($billPaper)
+                                    {{ $billPaper->bid->auction->type_and_model() }}
+                                @endisset
+                            </p>
+                            <p class="text-muted h8">البائع : {{ $billPaper->bid->auction->user->name ?? '' }} </p>
+                            <p class="text-muted h8">المشتري: {{ $billPaper->bid->user->name ?? '' }}
+                            </p>
+                            <p class="text-muted h8 mb-2">التاريخ :
+                                {{ $billPaper->created_at ?? '' }}</p>
                             <div class="h8">
                                 <div class="row m-0 border mb-3">
                                     <div class="col-6 h8 pe-0 ps-2">
-                                        <p class="text-muted py-2">العناصر</p>
-                                        <span class="d-block py-2 border-bottom">سيارة فيراري</span>
-                                        <span class="d-block py-2">سيارة هامر</span>
+                                        <p class="text-muted py-2">العناصر
+                                        </p>
+                                        <span
+                                            class="d-block py-2 border-bottom">{{ $billPaper->bid->auction->car->category->name ?? '' }}
+                                            @isset($billPaper)
+                                                {{ $billPaper->bid->auction->type_and_model() }}
+                                            @endisset
+                                        </span>
                                     </div>
                                     <div class="col-2 text-center p-0">
                                         <p class="text-muted p-2">الكمية</p>
-                                        <span class="d-block p-2 border-bottom">2</span>
-                                        <span class="d-block p-2">1</span>
+                                        <span class="d-block p-2 border-bottom">
+                                            @isset($billPaper)
+                                                {{ $billPaper->count() }}
+                                            @endisset
+                                        </span>
                                     </div>
                                     <div class="col-2 p-0 text-center h8 border-end">
                                         <p class="text-muted p-2">السعر</p>
                                         <span class="d-block border-bottom py-2">
                                             <span class="fas fa-dollar-sign"></span>
-                                            500
-                                        </span>
-                                        <span class="d-block py-2 ">
-                                            <span class="fas fa-dollar-sign"></span>
-                                            400
+                                            {{ $billPaper->bid->currentPrice ?? '' }}
                                         </span>
                                     </div>
                                     <div class="col-2 p-0 text-center">
-                                        <p class="text-muted p-2">الاجمالي</p>
+                                        <p class="text-muted p-2">الاجمالي
+                                        </p>
                                         <span class="d-block py-2 border-bottom">
                                             <span class="fas fa-dollar-sign"></span>
-                                            1000
-                                        </span>
-                                        <span class="d-block py-2">
-                                            <span class="fas fa-dollar-sign"></span>
-                                            400
+                                            {{ $billPaper->bid->currentPrice ?? '' }}
                                         </span>
                                     </div>
                                 </div>
                                 <div class="d-flex h7 mb-2">
-                                    <p class="ms-5">الاجمالي الكلي:</p>
+                                    <p class="ms-5">الاجمالي
+                                        الكلي:</p>
                                     <p class="ms-auto">
                                         <span class="fas fa-dollar-sign"></span>
-                                        1400
+                                        {{ $billPaper->bid->currentPrice ?? '' }}
                                     </p>
                                 </div>
                                 <div class="h8 mb-5">
                                     <p> التفاصيل </p>
-                                    <p class="text-muted"> وسيلة الدفع منصة وصل</p>
+                                    <p class="text-muted"> وسيلة الدفع
+                                        منصة وصل</p>
                                 </div>
                             </div>
                         </div>
@@ -236,8 +321,6 @@
         </div>
     </div>
 
-
-    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;400&display=swap');
 
@@ -433,7 +516,7 @@
         }
 
         .p-blue {
-            font-size: 14px;
+            font-size: 12px;
             color: #1976d2
         }
 

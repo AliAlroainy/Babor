@@ -87,8 +87,8 @@
          </div>
      </div>
 
-</footer>
-<!-- /End Footer Area -->
+ </footer>
+ <!-- /End Footer Area -->
 
  <!-- Jquery -->
  <script src="/js/jquery.min.js"></script>
@@ -163,11 +163,46 @@
  <script src="/js/main.js"></script>
 
  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
-{{-- <script src="/js/Notifications/notifications.js"></script>--}}
- <script>
+ {{-- <script src="/js/Notifications/notifications.js"></script> --}}
 
-     var pusher = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
-         cluster: '{{env("PUSHER_APP_CLUSTER")}}',
+ <script type="text/javascript">
+     $(document).on('click', '.addWishlist', function(e) {
+         e.preventDefault();
+         $.ajax({
+             type: 'POST',
+             data: {
+                 'auction_id': $(this).attr('data-auction-id'),
+             },
+             url: 'user/favorite',
+             headers: {
+                 'X-CSRF-TOKEN': '{!! csrf_token() !!}',
+             },
+             success: function(res) {
+                 $('.a-res').html(res);
+             }
+         });
+     });
+
+     $(document).on('click', '.removeWishlist', function(e) {
+         e.preventDefault();
+         $.ajax({
+             type: 'POST',
+             data: {
+                 'auction_id': $(this).attr('data-auction-id'),
+             },
+             url: '/user/unfavorite',
+             headers: {
+                 'X-CSRF-TOKEN': '{!! csrf_token() !!}',
+             },
+             success: function(res) {
+                 $('.a-res').html(res);
+             }
+         });
+     });
+ </script>
+ <script>
+     var pusher = new Pusher('{{ env('MIX_PUSHER_APP_KEY') }}', {
+         cluster: '{{ env('PUSHER_APP_CLUSTER') }}',
          encrypted: true
      });
 
@@ -176,9 +211,9 @@
 
      channel.bind('App\\Events\\Notify', function(data) {
          let node = document.createElement('li');
-         if( data.user_id.toString() =="{!! Auth::id() !!}" && data.type == 1 ) {
-         // if( data.type == 1 ) {
-             node.innerHTML =`
+         if (data.user_id.toString() == "{!! Auth::id() !!}" && data.type == 1) {
+             // if( data.type == 1 ) {
+             node.innerHTML = `
         <li>
             <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
             <a href="auction/${data.link}">
@@ -195,8 +230,8 @@
              document.getElementById('shopping-list').prepend(node);
          }
 
-         if( data.user_id.toString() =="{!! Auth::id() !!}" && data.type == 2 ) {
-             node.innerHTML =`
+         if (data.user_id.toString() == "{!! Auth::id() !!}" && data.type == 2) {
+             node.innerHTML = `
                 <li>
                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
                     <a href="auction/${data.link}">
@@ -206,11 +241,11 @@
                     </a>
                 </li>
 `;
-{{--             alert("{!! Auth::id() !!}");--}}
+             {{-- alert("{!! Auth::id() !!}"); --}}
              document.getElementById('shopping-list').prepend(node);
          }
-         if( data.type == 3 ) {
-             node.innerHTML =`
+         if (data.type == 3) {
+             node.innerHTML = `
                 <li>
                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
                     <a href="auction/${data.link}">
@@ -221,15 +256,17 @@
                     </a>
                 </li>
 `;
-             {{--alert("{!! Auth::id() !!}");--}}
+             {{-- alert("{!! Auth::id() !!}"); --}}
              document.getElementById('shopping-list').prepend(node);
          }
 
 
-         if( data.user_id.toString() == "{!! Auth::id() !!}" && data.admin_id.toString() != "{!! Auth::id() !!}"  && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "" && data.type == 5) {
-             {{--alert(data.user_id.toString() != "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "");--}}
+         if (data.user_id.toString() == "{!! Auth::id() !!}" && data.admin_id.toString() !=
+             "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" &&
+             "{!! Auth::id() !!}" != "" && data.type == 5) {
+             {{-- alert(data.user_id.toString() != "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != ""); --}}
              node = document.createElement('li');
-             node.innerHTML =`
+             node.innerHTML = `
                 <li>
                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
                     <a href="auction/${data.link}">
@@ -239,13 +276,14 @@
                     </a>
                 </li>
 `;
-             {{--alert("{!! Auth::id() !!}");--}}
+             {{-- alert("{!! Auth::id() !!}"); --}}
              document.getElementById('shopping-list').prepend(node);
          }
 
-         if( data.user_id.toString() == "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != 1 && "{!! Auth::id() !!}" != "" && data.type == 6) {
+         if (data.user_id.toString() == "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != 1 &&
+             "{!! Auth::id() !!}" != "" && data.type == 6) {
              node = document.createElement('li');
-             node.innerHTML =`
+             node.innerHTML = `
                 <li>
                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
                     <a href="auction/${data.link}">
@@ -255,7 +293,7 @@
                     </a>
                 </li>
 `;
-             {{--alert("{!! Auth::id() !!}");--}}
+             {{-- alert("{!! Auth::id() !!}"); --}}
              document.getElementById('shopping-list').prepend(node);
          }
 
@@ -263,7 +301,7 @@
 
      channel2.bind('App\\Events\\Notify', function(data) {
          var node = document.createElement('li');
-         node.innerHTML =`
+         node.innerHTML = `
                 <li>
                     <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
                     <a href="auction/${data.link}">
@@ -273,14 +311,12 @@
                     </a>
                 </li>
 `;
-         if( data.user_id.toString() == "{!! Auth::id() !!}") {
-             {{--alert("{!! Auth::id() !!}");--}}
+         if (data.user_id.toString() == "{!! Auth::id() !!}") {
+             {{-- alert("{!! Auth::id() !!}"); --}}
              document.getElementById('shopping-list').prepend(node);
          }
 
      });
-
-
  </script>
  </body>
 

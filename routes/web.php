@@ -15,11 +15,12 @@ use App\Http\Controllers\admin\BidsController;
 use App\Http\Controllers\user\WalletController;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
-use App\Http\Controllers\Admin\AcutionController;
 // use \Illuminate\Support\Facades\URL;
-use App\Http\Controllers\admin\PaymentController;
+use App\Http\Controllers\Admin\AcutionController;
+use App\Http\Controllers\admin\APIController;
 use App\Http\Controllers\Admin\QustionController;
 use App\Http\Controllers\user\ContractController;
+use App\Http\Controllers\user\FavoriteController;
 use App\Http\Controllers\user\ProfilesController;
 use App\Http\Controllers\admin\AccountsController;
 use App\Http\Controllers\Admin\ServicesController;
@@ -27,6 +28,7 @@ use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\adminIndexController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\user\UserAuctionController;
+use App\Http\Controllers\admin\AdminWalletController;
 use App\Http\Controllers\Authentication\authcontroller;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -92,6 +94,19 @@ Route::get('/findcar', function () {
 Route::get('/chata', function () {
     return view('chat.chat');
 });
+
+//fallback route
+Route::fallback(function () {
+    return view('Front.errors.404');
+});
+
+Route::get('/admin',function () {
+    return view('Admin.index');
+});
+
+Route::get('/admin/wallet',function () {
+    return view('Admin.wallet.wallet');
+});
 Route::get('/offer', [SiteController::class, 'availableOffer']);
 Route::get('/services', [SiteController::class, 'ServicesShow']);
 Route::get('/', [SiteController::class, 'home'])->name('/');
@@ -100,10 +115,15 @@ Route::get('/auctions/available', [SiteController::class, 'availableAuctions'])-
 Route::get('/auction/{id}', [SiteController::class, 'auctionShow'])->name('site.auction.details');
 Route::get('/auctions/{status}', [SiteController::class, 'auctionByCarStatus'])->name('site.auction.by_status');
 
+
+#Manage Review
+Route::post('/review-store',[SiteController::class, 'reviewstore'])->name('review.store');
+
 Route::view('/soon', 'Front.soon');
 Route::get('/contact', [ContactUsController::class, 'show'])->name('site.show');
 // Route::view('/contact', 'Front.contact');
-Route::view('/favorite', 'Front.favorite');
+// Route::view('/favorite', 'Front.favorite');
+
 Route::view('/buy', 'Front.buy');
 Route::view('/privacy', 'Front.privcey');
 
@@ -139,6 +159,13 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/auction/details/{id}', [AcutionController::class, 'showDetails'])->name('admin.auction.details');
         Route::get('/bids', [BidsController::class, 'index'])->name('admin.bid.index');
 
+        Route::get('/walletAuctions', [AdminWalletController::class, 'manageCompletingAuction'])->name('manage.auction.payment');
+        Route::post('/sendToSeller/{bill_id}', [AdminWalletController::class, 'sendToSeller'])->name('sendToSeller');
+        Route::post('/sendToBuyer/{bill_id}', [AdminWalletController::class, 'sendToBuyer'])->name('sendToBuyer');
+        Route::post('/sellerPenalty/{bill_id}', [AdminWalletController::class, 'sellerPenalty'])->name('sellerPenalty');
+        Route::post('/buyerPenalty/{bill_id}', [AdminWalletController::class, 'buyerPenalty'])->name('buyerPenalty');
+
+        Route::get('/do-contract/{bill_id}', [ContractController::class, 'doContract'])->name('show.contract');
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
     });
@@ -168,18 +195,33 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/auctions/in-progress/action/{id}', [UserAuctionController::class, 'action'])->name('user.progress.action.auction');
             Route::get('/bids', [BidController::class, 'index'])->name('user.show.bids');
             Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
-            Route::post('/auction/{id}/buy', [PaymentController::class, 'buy'])->name('user.buy.auction');
+            Route::post('/auction/{id}/buy', [APIController::class, 'buy'])->name('user.buy.auction');
 
-            Route::get('/wallet', [WalletController::class, 'index'])->name('user.wallet');
+            Route::post('/favorite', [FavoriteController::class, 'store'])->name('auction_favorite');
+            Route::post('/unfavorite', [FavoriteController::class, 'destroy'])->name('auction_unfavorite');
+            Route::get('/favorite/auctions', [FavoriteController::class, 'index'])->name('auction_favorite.index');
+            Route::get('/wallet/{id?}', [WalletController::class, 'index'])->name('user.wallet');
 
 
             //API Response
-            Route::get('/payment/success/{id}/{res}', [PaymentController::class, 'success'])->name('payment.success');
-            Route::get('/payment/failed/{res}', [PaymentController::class, 'failed'])->name('payment.failed');
+            Route::get('/payment/success/{id}/{res}', [APIController::class, 'success'])->name('payment.success');
+            Route::get('/payment/failed/{res}', [APIController::class, 'failed'])->name('payment.failed');
 
             Route::get('/do-contract/{bill_id}', [ContractController::class, 'doContract'])->name('do.contract');
             Route::post('/confirm/{bill_id}', [ContractController::class, 'contract'])->name('confirm');
         });
+
+//chat Router
+          Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+          Route::get('/private',[ App\Http\Controllers\HomeController::class, 'private'])->name('private');
+          Route::get('/users', [App\Http\Controllers\HomeController::class, 'users'])->name('users');
+
+          Route::get('messages', [App\Http\Controllers\MessageController::class, 'fetchMessages']);
+          Route::post('messages', [App\Http\Controllers\MessageController::class, 'sendMessage']);
+          Route::get('/private-messages/{user}', [App\Http\Controllers\MessageController::class, 'privateMessages'])->name('privateMessages');
+          Route::post('/private-messages/{user}',  [App\Http\Controllers\MessageController::class, 'sendPrivateMessage'])->name('privateMessages.store');
+
+
         // Route::get('/change-password', [AuthController::class, 'changePasswordUser'])->name('change-password-user');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-user');
 
@@ -198,23 +240,6 @@ Route::get('/reset-password/{token}', [ResetPasswordController::class,'getPasswo
 Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']);
 Route::get('/verify_account/{token}',[AuthController::class,'verifyAccount'])->name('verify_account');
 
-//fallback route
-Route::fallback(function () {
-    return view('Front.errors.404');
-});
-
-Route::get('/admin',function () {
-    return view('Admin.index');
-});
-
-Route::get('/admin/wallet',function () {
-    return view('Admin.wallet.wallet');
-});
-
-Route::get('/admin/walletAuctions',function () {
-    return view('Admin.wallet.usersAuctions');
-});
-
 
 Route::get('/wallet', function (){
     $admin = User::find(1);
@@ -222,7 +247,7 @@ Route::get('/wallet', function (){
     $bidder_ali = User::find(3);
     $auction = Auction::where('id', 1)->get();
     $bid = Bid::where('id', 1)->get();
-    // dd($bid);
+
     $admin->deposit(1200);
     $auctioneer_abrar->deposit(600);
     $bidder_ali->deposit(700);
@@ -240,19 +265,5 @@ Route::get('/wallet', function (){
 //     return $admin->balance;
 
  });
-//chat Router
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/private',[ App\Http\Controllers\HomeController::class, 'private'])->name('private');
-Route::get('/users', [App\Http\Controllers\HomeController::class, 'users'])->name('users');
-
-Route::get('messages', [App\Http\Controllers\MessageController::class, 'fetchMessages']);
-Route::post('messages', [App\Http\Controllers\MessageController::class, 'sendMessage']);
-Route::get('/private-messages/{user}', [App\Http\Controllers\MessageController::class, 'privateMessages'])->name('privateMessages');
-Route::post('/private-messages/{user}',  [App\Http\Controllers\MessageController::class, 'sendPrivateMessage'])->name('privateMessages.store');
 
 
-
-
-
-#Manage Review
-Route::post('/review-store',[SiteController::class, 'reviewstore'])->name('review.store');

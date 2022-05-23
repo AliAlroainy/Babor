@@ -148,16 +148,14 @@ class UserAuctionController extends Controller
         $found = Auction::find($id);
         if(!$found)
             return response()->view('Front.errors.404', []);
-
         $auction = Auction::whereId($id);
         $auction->when($request->has('cancel'), function ($q) use ($id, $auction){
             $q->update(['status' => '3']);
             $q->when($auction->first()->bids->count() > 0, function ($q) use ($id){
                 $this->refundBidders($id);
+                $notify = new NotificationController();
+                $notify->cancelAuction($auction->first(),$id);
             });
-            // $this->refundBidders($id);
-            $notify = new NotificationController();
-            $notify->cancelAuction($auction->first(),$id);
         });
         $auction->when($request->has('timeExtension'), function ($q) use ($auction){
                         $q->update(['closeDate' => Carbon::parse($auction->first()->closeDate)->addDays(2)]);
@@ -166,7 +164,8 @@ class UserAuctionController extends Controller
                         $q->update([
                             'status' => '4',
                             'winnerPrice'=> $found->bids->sortDesc()->first()->currentPrice,
-                            'winner_id' => Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->bidder_id]);
+                            'winner_id' => Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->bidder_id
+                        ]);
                         $notify = new NotificationController();
                         $notify->stopAuction($auction->first(),$auction->first()->winner_id);
 
@@ -202,8 +201,8 @@ class UserAuctionController extends Controller
     public function apiConnect($id, $found, $ref, $product, $total, $meta){
         $apiURL = 'https://waslpayment.com/api/test/merchant/payment_order';
         $headers = [
-            'private-key' => 'rRQ26GcsZzoEhbrP2HZvLYDbn9C9et',
-            'public-key' => 'HGvTMLDssJghr9tlN9gr4DVYt0qyBy',
+            'private-key' => 'F2sIwhqC7QqxOqnmRU6twXGYZRcz3Yf0wIJfDezULTuAlwxgW6',
+            'public-key' => 'PKsqSzlKsNBWsi81ZKhNZq5gp',
             'Content-Type' => 'application/x-www-form-url'
         ];
         $data = [
