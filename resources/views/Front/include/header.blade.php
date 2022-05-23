@@ -161,7 +161,7 @@
         <div class="topbar">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-7 col-md-12 col-12">
+                    <div class="col-lg-7 col-md-5 col-12">
 
                         <!-- Top left -->
                         <div class="top-left">
@@ -190,12 +190,12 @@
                         </div>
                         <!-- End Top left -->
                     </div>
-                    <div class="col-lg-5 col-md-12 col-12">
+                    <div class="col-lg-5 col-md-6 col-12">
 
                         <!-- Top right -->
                         <div class="right-content">
                             <ul class="list-main">
-                                <li> +060 (800) 801-582 <i class="ti-headphone-alt"></i></li>
+                                <li> +967 (773) 739-473 <i class="ti-headphone-alt"></i></li>
                                 <li> support@babor.com <i class="ti-email"></i></li>
                             </ul>
                         </div>
@@ -316,7 +316,7 @@
                     <!-- Search Form -->
                     <div class="search-top" dir="rtl">
                         <form class="search-form">
-                            <input type="text" placeholder="ابحث هنا..." name="search" onkeyup="search_cars()" id="searchbar">
+                            <input  type="text" placeholder="ابحث هنا..." name="search" onkeyup="search_cars()" >
                             <button value="" type="submit"><i class="ti-search"></i></button>
                         </form>
                     </div>
@@ -329,15 +329,15 @@
 
             <div class="col-lg-8 col-md-7 col-12">
                 <div class="search-bar-top">
-                    <div class="search-bar">
-                        <select>
-                            <option selected="selected" style="font-family: Tajawal">كل الانواع</option>
+                    <div class="search-bar " >
+                        <select   >
+                            <option  selected="selected" style="font-family: Tajawal">كل الانواع</option>
                             <option>دايوها</option>
                             <option>سنتافي</option>
                             <option>تكاسي</option>
                         </select>
                         <form>
-                            <input name="search" placeholder="....ابحث هنا عن السيارة الي تناسبك" type="بحث"  onkeyup="search_cars()" type="text"
+                            <input dir="rtl" name="search" placeholder="ابحث هنا عن السيارة الي تناسبك...." type="بحث"  onkeyup="search_cars()" type="text"
       name="search" id="searchbar">
                             <button class="btnn"><i class="ti-search"></i></button>
                         </form>
@@ -346,7 +346,7 @@
             </div> 
 
 
-                    <div class="col-lg-2 col-md-3 col-12 d-flex justify-content-start align-items-center">
+                    <div class="col-lg-2 col-md-3 col-12 d-flex justify-content-end align-items-center ">
 
                         <!-- Logo -->
                         <div>
@@ -377,7 +377,7 @@
                                 <!-- Main Menu -->
                                 <nav class="navbar navbar-expand-lg">
                                     <div class="navbar-collapse">
-                                        <div class="nav-inner">
+                                        <div class="nav-inner float-md-end">
                                             <ul class="nav main-menu menu navbar-nav ">
                                                 <li class="navh active"><a class="nav-link"
                                                         href="/">الرئيسية</a></li>

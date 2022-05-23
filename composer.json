@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "artesaos/seotools": "^0.22.0",
         "bavix/laravel-wallet": "^9.0",
         "guzzlehttp/guzzle": "^7.4",
         "jorenvanhocht/laravel-share": "^4.2",
