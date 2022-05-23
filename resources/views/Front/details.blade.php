@@ -137,13 +137,13 @@
                                 @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
                                     <a title="Wishlist" class="addWishlist" data-auction-id="{{ $auction->id }}">
                                         <i class="ti-heart"></i>
+                                        إضافة للمفضلة
                                     </a>
                                 @else
                                     <a title="Wishlist" class="removeWishlist" data-auction-id="{{ $auction->id }}">
                                         <i class="fa fa-heart" style="color: #F7941D;"></i>
                                     </a>
                                 @endif
-                                إضافة للمفضلة
                             @endauth
                         </li>
                     </ul>

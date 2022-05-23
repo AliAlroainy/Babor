@@ -175,7 +175,7 @@
                  'auction_id': $(this).attr('data-auction-id'),
 
              },
-             url: 'user/favorite',
+             url: '/user/favorite',
              headers: {
                  'X-CSRF-TOKEN': '{!! csrf_token() !!}',
              },
@@ -185,6 +185,9 @@
                  <i class="fa fa-heart" style="color: #F7941D;"></i>
                  `);
              },
+             error: function(data) {
+                 alert('errorFav');
+             }
 
          });
      });
@@ -201,11 +204,16 @@
              headers: {
                  'X-CSRF-TOKEN': '{!! csrf_token() !!}',
              },
+             context: $(this).html,
              success: function(res) {
                  $element.html(`
                  <i class="ti-heart"></i>
                  `);
+             },
+             error: function(data) {
+                 alert('errorUNFav');
              }
+
          });
      });
  </script>
