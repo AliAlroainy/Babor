@@ -93,10 +93,7 @@ class AuthController extends Controller
     }
     public function login(LoginRequest $request){
 
-        // $user=User::where(['email'=>$request->email])->first();
-        // if($user->hasRole('user') && empty($user->email_verified_at))
-        //     return view('user.email.verifyEmail');
-        // else
+       
         $remember = $request->has('remember_me') ? true : false;
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'is_active' => 1], $remember)){
             if(Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))//if he login and has admin role and he is active=1 redirct him to dashboard route
