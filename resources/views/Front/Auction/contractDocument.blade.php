@@ -44,7 +44,8 @@
             </li>
         </ol>
     </div>
-    @if ($user == 'buyer' || $user == 'seller' || Auth::user() == Auth::user()->hasRole('admin'))
+
+    @if ($user == 'buyer' || $user == 'seller' || \App\Models\User::first())
         <div class="container d-flex align-items-center justify-content-center w-75">
             <div class="w-75 alert-light p-3"
                 style="border-right: 3px solid rgba(78, 78, 78, 0.716); border-radius: 6px">
