@@ -14,14 +14,13 @@
             <div class="cardp d-flex align-items-center justify-content-center">
                 <div class="card-body d-flex align-items-center justify-content-center">
                     <div class="p-3 d-flex flex-column align-items-center justify-content-center">
-                        
-
-
                         <div class=" mt-n2 mx-sm-0 mx-auto pt-3 pe-3" style="position: relative">
-                            <button type="button" class="btn" data-bs-toggle="modal"
-                                data-bs-target="#profile_pic" style="position: absolute; bottom:0; left:-35px;">
-                                <i class="fas fa-camera"></i>
-                            </button>
+                            @if (Auth::user() == $user)
+                                <button type="button" class="btn" data-bs-toggle="modal"
+                                    data-bs-target="#profile_pic" style="position: absolute; bottom:0; left:-35px;">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                            @endif
                             @if (isset($user->profile->avatar))
                                 <img src="/images/profiles/{{ $user->profile->avatar }}" alt="profile" width="100"
                                     class="d-block h-auto ms-0 rounded user-profile-img" />
@@ -29,34 +28,27 @@
                                 <img src="/images/profiles/default.png" alt="profile"
                                     class="d-block h-auto ms-0 rounded user-profile-img" width="100" />
                             @endif
-
                         </div>
-
                         <div class="mt-3">
-                       
                             @if (@isset($user->profile->username))
-                              <h1> 
-                                {{ $user->profile->username }}  </h1>  
-                            @endif 
-                        </div>            
-
-                        {{-- <div class="mb-3">
-                            <button class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 100px; height: 40px;">
-                                <i class="bi bi-chat-dots ms-2"></i>  
-                                تواصل
-                            </button>
-
-                        </div> --}}
-                     
-
+                                <h1>
+                                    {{ $user->profile->username }} </h1>
+                            @endif
+                        </div>
+                        @if (Auth::user() != $user)
+                            <div class="mb-3">
+                                <a href="/private" class="btn btn-dark d-flex justify-content-center align-items-center"
+                                    style="width: 100px; height: 40px;">
+                                    <i class="bi bi-chat-dots ms-2"></i>
+                                    تواصل
+                                </a>
+                            </div>
+                        @endif
                     </div>
-          
                 </div>
             </div>
         </div>
     </div>
-
-
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
         <!-- Modal -->
@@ -72,7 +64,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="profile_pic_label">اختر صورة</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form action="{{ route('avatar.change') }}" method="POST" enctype="multipart/form-data"
@@ -226,7 +219,7 @@
                 <!-- Activity Timeline -->
                 <div class="card card-action mb-4 ">
 
-                     
+
                     <div class="card-body">
                         <small class="text-muted text-uppercase  ">
                             <i class="bi bi-activity"></i>

@@ -6,9 +6,7 @@
     <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper">
-
-            <div class="row ">
-
+            <div class="row">
                 <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
                     <div class="cardp d-flex align-items-center justify-content-center">
                         <div class="card-body d-flex align-items-center justify-content-center">
@@ -16,16 +14,11 @@
                                 <i class="bi bi-people-fill"></i>
                                 عمليات المزايدين
                             </h1>
-
-
                         </div>
                     </div>
                 </div>
-
             </div>
-
-            <div class="container ">
-
+            <div class="container">
                 <table class="table table-borderless table-responsive card-1 p-4" dir="rtl">
                     <thead>
                         <tr class="border-bottom">
@@ -67,138 +60,153 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($trans as $tran)
-                            <tr class="border-bottom">
-                                <td>
-                                    <div class="p-2">
-                                        <span class="d-block font-weight-bold">اليوم</span>
-                                        <small>2:30PM</small>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="p-2 d-flex flex-row align-items-center mb-2">
-                                        <img src="/images/profiles/{{ $tran->bid->user->profile->avatar }}" width="40"
-                                            class="rounded-circle" />
-                                        <div class="d-flex flex-column ml-2">
-                                            <span class="d-block font-weight-bold">{{ $tran->bid->user->name }}</span>
+                        @forelse ($bills as $bill)
+                            @if (isset($bill->contract))
+                                <tr class="border-bottom">
+                                    <td>
+                                        <div class="p-2">
+                                            <small>{{ now()->locale('ar')->dayName }}</small>
+                                            <br>
+                                            <small>{{ now()->format('d-m-Y') }}</small>
                                         </div>
-                                    </div>
+                                    </td>
+                                    <td>
+                                        <div class="p-2 d-flex flex-row align-items-center">
+                                            <div class="d-flex flex-column ml-2">
+                                                <span class="d-block font-weight-bold">{{ $bill->bid->user->name }}</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="p-2 d-flex flex-row align-items-center">
+                                            <div class="d-flex flex-column ml-2">
+                                                <span
+                                                    class="d-block font-weight-bold">{{ $bill->bid->auction->user->name }}</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="p-2 ">
+                                            <p class="font-weight-bold">{{ $bill->bid->currentPrice }}<span
+                                                    style="color: #F7941D"></span> </P>
+                                        </div>
+                                    </td>
+                                    <td>
 
-                                </td>
-                                <td>
-                                    <div class="p-2 d-flex flex-row align-items-center mb-2">
-                                        <img src="/images/profiles/{{ $tran->bid->auction->user->profile->avatar }}"
-                                            width="40" class="rounded-circle">
-                                        <div class="d-flex flex-column ml-2">
-                                            <span
-                                                class="d-block font-weight-bold">{{ $tran->bid->auction->user->name }}</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="p-2 ">
-                                        <p class="font-weight-bold">{{ $tran->bid->currentPrice }}<span
-                                                style="color: #F7941D"></span> </P>
-                                    </div>
-                                </td>
-                                <td>
-                                    @if ($tran->bid->auction->status == '4')
-                                        @if (!isset($tran->contract->seller_confirm) && !isset($tran->contract->buyer_confirm))
-                                            <div class="p-2 text-warning d-flex">
-                                                <i class="bi bi-hourglass-split"></i>
-                                                في انتظار توقيع الطرفين
-                                            </div>
-                                        @elseif(!isset($tran->contract->seller_confirm))
-                                            <div class="p-2 text-warning d-flex">
-                                                <i class="bi bi-hourglass-split"></i>
-                                                في انتظار توقيع البائع
-                                            </div>
-                                        @elseif(!isset($tran->contract->buyer_confirm))
-                                            <div class="p-2 text-warning d-flex">
-                                                <i class="bi bi-hourglass-split"></i>
-                                                في انتظار توقيع المشتري
-                                            </div>
-                                        @elseif($tran->contract->buyer_confirm == '0')
-                                            <div class="p-2 text-danger d-flex">
-                                                <i class="bi bi-info-circle"></i>
-                                                تم التراجع من قبل المشتري
-                                            </div>
-                                        @endif
-                                    @else
-                                        <div class="p-2 text-success d-flex">
-                                            <i class="bi bi-check-all"></i>
-                                            مكتملة
-                                        </div>
-                                    @endif
-                                </td>
-                                <td>
-                                    <div class="p-2 ">
-                                        @if ($tran->bid->auction->status == '4')
-                                            @if ($tran->contract->buyer_confirm == '0')
-                                                <form action="{{ route('buyerPenalty', $tran->id) }}" method="POST">
-                                                    @csrf
-                                                    <button
-                                                        class="btn alert-secondary mt-2 d-flex align-items-center justify-content-center"
-                                                        style="width: 150px" type="submit">
-                                                        معاقبة المشتري
-                                                    </button>
-                                                </form>
-                                                <form action="{{ route('sellerPenalty', $tran->id) }}" method="POST">
-                                                    @csrf
-                                                    <button
-                                                        class="btn alert-secondary  mt-2 d-flex align-items-center justify-content-center "
-                                                        style="width: 150px" type="submit">
-                                                        معاقبة البائع
-                                                    </button>
-                                                </form>
-                                            @else
-                                                <form action="{{ route('sendToBuyer', $tran->id) }}" method="POST">
-                                                    @csrf
-                                                    <button
-                                                        class="btn alert-secondary mt-2 d-flex align-items-center justify-content-center"
-                                                        style="width: 150px" type="submit">
-                                                        إرجاع المبلغ للمشتري
-                                                    </button>
-                                                </form>
+                                        @if ($bill->bid->auction->status == '4')
+                                            @if (!isset($bill->contract->seller_confirm) && !isset($bill->contract->buyer_confirm))
+                                                <div class="p-2 text-warning d-flex">
+                                                    <i class="bi bi-hourglass-split"></i>
+                                                    في انتظار توقيع الطرفين
+                                                </div>
+                                            @elseif(!isset($bill->contract->seller_confirm))
+                                                <div class="p-2 text-warning d-flex">
+                                                    <i class="bi bi-hourglass-split"></i>
+                                                    في انتظار توقيع البائع
+                                                </div>
+                                            @elseif(!isset($bill->contract->buyer_confirm))
+                                                <div class="p-2 text-warning d-flex">
+                                                    <i class="bi bi-hourglass-split"></i>
+                                                    في انتظار توقيع المشتري
+                                                </div>
+                                            @elseif($bill->contract->buyer_confirm == '0')
+                                                <div class="p-2 text-danger d-flex">
+                                                    <i class="bi bi-info-circle ps-1"></i>
+                                                    تم التراجع من قبل المشتري
+                                                </div>
                                             @endif
                                         @else
                                             <div class="p-2 text-success d-flex">
-                                                <i class="bi bi-check-all"></i>
-                                                -
+                                                مكتملة
                                             </div>
                                         @endif
-                                    </div>
-                                </td>
-
-                                <td class="d-flex flex-column align-items-center justify-content-center">
-                                    @if ($tran->bid->auction->status == '4')
-                                        @if ($tran->contract->buyer_confirm == '0')
-                                            <a href="#rejectReasonModal" class="p-2 font-warining" data-bs-toggle="modal">
-                                                سبب الرفض
-                                                <i class="bi bi-eye"></i>
-                                            </a>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            @if ($bill->bid->auction->status == '4')
+                                                @if ($bill->contract->buyer_confirm == '0')
+                                                    <form action="{{ route('buyerPenalty', $bill->id) }}" method="POST">
+                                                        @csrf
+                                                        <button
+                                                            class="btn alert-secondary mt-2 d-flex align-items-center justify-content-center"
+                                                            style="width: 150px" type="submit">
+                                                            معاقبة المشتري
+                                                        </button>
+                                                    </form>
+                                                    <form action="{{ route('sellerPenalty', $bill->id) }}" method="POST">
+                                                        @csrf
+                                                        <button
+                                                            class="btn alert-secondary  mt-2 d-flex align-items-center justify-content-center "
+                                                            style="width: 150px" type="submit">
+                                                            معاقبة البائع
+                                                        </button>
+                                                    </form>
+                                                @else
+                                                    <form action="{{ route('sendToSeller', $bill->id) }}" method="POST">
+                                                        @csrf
+                                                        <button
+                                                            class="btn alert-secondary mt-2 d-flex align-items-center justify-content-center"
+                                                            style="width: 150px" type="submit">
+                                                            إرجاع المبلغ للبائع
+                                                        </button>
+                                                    </form>
+                                                @endif
+                                            @else
+                                                @if ($bill->contract->buyer_confirm == '1')
+                                                    @if ($bill->contract->seller_confirm == 1)
+                                                        <div class="alert alert-success p-2 text-success  d-flex">
+                                                            <i class="bi bi-check-all"></i>
+                                                            تم البيع
+                                                        </div>
+                                                    @elseif(!isset($bill->contract->seller_confirm))
+                                                        <div class="alert alert-success p-2 text-success  d-flex">
+                                                            <i class="bi bi-check-all"></i>
+                                                            تم البيع بدون تأكيد البائع
+                                                        </div>
+                                                    @endif
+                                                @endif
+                                            @endif
+                                        </div>
+                                    </td>
+                                    <td class="d-flex flex-column align-items-center justify-content-center">
+                                        @if ($bill->bid->auction->status == '4')
+                                            @if ($bill->contract->buyer_confirm == '0')
+                                                <a href="#rejectReasonModal" class="p-2 font-warining"
+                                                    data-bs-toggle="modal">
+                                                    سبب الرفض
+                                                    <i class="bi bi-eye"></i>
+                                                </a>
+                                            @endif
                                         @endif
-                                        <a href="{{ route('show.contract', $tran->id) }}" class="p-2 font-warining"
+                                        <a href="{{ route('show.contract', $bill->id) }}" class="p-2 font-warining"
                                             target="_blank">
                                             صفحة العقد
                                             <i class="bi bi-eye"></i>
                                         </a>
-                                        <a href="{{ route('site.auction.details', $tran->bid->auction->id) }}"
+                                        <a href="{{ route('site.auction.details', $bill->bid->auction->id) }}"
                                             class="p-2 font-warining" target="_blank">
                                             صفحة المزاد
                                             <i class="bi bi-eye"></i>
                                         </a>
-                                    @endif
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            @else
+                                <tr class="border-bottom">
+                                    <td>
+                                        <div class="p-2">
+                                            <span class="d-block font-weight-bold">لا يوجد بيانات</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endif
                         @empty
                         @endforelse
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
     <div id="rejectReasonModal" class="modal fade">
         <div class="modal-dialog modal-confirm">
             <div class="modal-content">
@@ -212,8 +220,11 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <h4 class="w-90 m-3" style="font-size: 18px;">{{ $tran->contract->buyer_undoReason }}</h4>
-
+                    <h4 class="w-90 m-3" style="font-size: 18px;">
+                        @isset($bill->contract)
+                            {{ $bill->contract->buyer_undoReason }}
+                        @endisset
+                    </h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"

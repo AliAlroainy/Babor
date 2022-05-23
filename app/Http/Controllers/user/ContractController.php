@@ -93,6 +93,7 @@ class ContractController extends Controller
                 ])->first();
 
             if($confirmed_both){
+                $this->sendToSellerFunc($bill_id);
                 Auction::whereId($bill->bid->auction->id)->update(['status' => '5']);
             }
             // else{
@@ -100,17 +101,6 @@ class ContractController extends Controller
             // }
         }
         return redirect()->back();
-    }
-
-    public function sendToSeller($admin, $bill){
-        $auction = $bill->bid->auction;
-        $seller = $auction->user;
-        $money = $bill->bid->currentPrice;
-        $commission = $money/10;
-        $auction_id = $auction->id;
-        $this->siteDeduction($auction_id, $commission);
-        $seller_dues = $money-($commission);
-        $admin->transfer($seller, $seller_dues, ['sell' => $bill->id]);
     }
 
     public function buyerPenalty($admin, $bill){

@@ -1,7 +1,7 @@
 @extends('partials.master')
 @section('body')
-{{-- style --}}
-@include('Front.user.style.style')
+    {{-- style --}}
+    @include('Front.user.style.style')
 
 
     <!-- partial -->
@@ -18,9 +18,10 @@
                         <div class="card-body d-flex align-items-center justify-content-center">
                             <h1 class="card-title">
                                 <i class="bi bi-cash-coin ms-2"></i>
-                                 عمليات المزايدة</h1>
+                                عمليات المزايدة
+                            </h1>
 
-                         
+
                         </div>
                     </div>
                 </div>
@@ -31,7 +32,7 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            
+
                             @if (session()->has('errorEdit'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     {{ session()->get('errorEdit') }}
@@ -81,14 +82,11 @@
                                                 السعر الذي وصل إليه
                                             </th>
                                             <th>
-                                                أعلى مزايد؟
-                                            </th>
-                                            <th>
                                                 وقت المزايدة
                                             </th>
-                                            {{-- <th>
-                                                 رابط  المزاد
-                                            </th> --}}
+                                            <th>
+                                                رابط المزاد
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -108,19 +106,13 @@
                                                         {{ $bid->currentPrice }}
                                                     </td>
                                                     <td>
-                                                        {{-- {{ $bid->currentPrice }} --}}
-                                                    </td>
-                                                    <td>
                                                         {{ $bid->created_at }}
                                                     </td>
-
-                                                    {{-- <td>
-                                                        {{ $auction->bids->user->name }}
-                                                    </td> --}}
-                                                    {{-- <td> --}}
-                                                    {{-- <!-- some update -->
-                                                {{ $auction->link }} --}}
-                                                    {{-- </td> --}}
+                                                    <td>
+                                                        <a href="{{ route('site.auction.details', $bid->auction->id) }}">
+                                                            {{ $bid->auction->type_and_model() }}
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif

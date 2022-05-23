@@ -105,7 +105,7 @@
                                     </span>
                                     <br>
                                 @else
-                                    @if (Auth::user() != $auction->user)
+                                    @if (Auth::user()->profile != $auction->user->profile)
                                         <button class="add-to-cart-btn" data-bs-toggle="modal"
                                             data-bs-target="#bidding"><i class="fa fa-shopping-cart"></i> دخول
                                             بالمزاد</button>
@@ -156,10 +156,10 @@
                     </div>
                     <div>
                         <div class="product-rating">
-                        @for ($i = 1; $i <= $total; $i++)
-                                                                <i class="fa fa-star"></i>
-                                                            @endfor
-                                                            <i class="fa fa-star-o"></i>
+                            @for ($i = 1; $i <= $total; $i++)
+                                <i class="fa fa-star"></i>
+                            @endfor
+                            <i class="fa fa-star-o"></i>
                         </div>
                         <br />
                         <a class="review-link" href="#">10 تقييمات البائع
@@ -262,7 +262,8 @@
                             <div id="product-tab">
                                 <!-- product tab nav -->
                                 <ul class="tab-nav">
-                                    <li class="active"><a data-toggle="tab" href="#tab3">التقييمات ({{  $totalstar  }})</a></li>
+                                    <li class="active"><a data-toggle="tab" href="#tab3">التقييمات
+                                            ({{ $totalstar }})</a></li>
 
                                 </ul>
                                 <!-- /product tab nav -->

@@ -17,7 +17,7 @@ use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
 // use \Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Admin\AcutionController;
-use App\Http\Controllers\admin\PaymentController;
+use App\Http\Controllers\admin\APIController;
 use App\Http\Controllers\Admin\QustionController;
 use App\Http\Controllers\user\ContractController;
 use App\Http\Controllers\user\FavoriteController;
@@ -177,7 +177,7 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/auctions/in-progress/action/{id}', [UserAuctionController::class, 'action'])->name('user.progress.action.auction');
             Route::get('/bids', [BidController::class, 'index'])->name('user.show.bids');
             Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
-            Route::post('/auction/{id}/buy', [PaymentController::class, 'buy'])->name('user.buy.auction');
+            Route::post('/auction/{id}/buy', [APIController::class, 'buy'])->name('user.buy.auction');
 
             Route::post('/favorite', [FavoriteController::class, 'store'])->name('auction_favorite');
             Route::post('/unfavorite', [FavoriteController::class, 'destroy'])->name('auction_unfavorite');
@@ -186,8 +186,8 @@ Route::group(['middleware'=>'auth'],function(){
 
 
             //API Response
-            Route::get('/payment/success/{id}/{res}', [PaymentController::class, 'success'])->name('payment.success');
-            Route::get('/payment/failed/{res}', [PaymentController::class, 'failed'])->name('payment.failed');
+            Route::get('/payment/success/{id}/{res}', [APIController::class, 'success'])->name('payment.success');
+            Route::get('/payment/failed/{res}', [APIController::class, 'failed'])->name('payment.failed');
 
             Route::get('/do-contract/{bill_id}', [ContractController::class, 'doContract'])->name('do.contract');
             Route::post('/confirm/{bill_id}', [ContractController::class, 'contract'])->name('confirm');

@@ -50,8 +50,8 @@
                                     <td width="50%" style="padding: 20px;"><strong
                                             style="color: #333; font-size: 24px;">{{ $bill->bid->currentPrice }}</strong>
                                         تم دفعه</td>
-                                    <td align="right" width="50%" style="padding: 20px;">شكرا لاستخدامكم <span
-                                            class="il">موقع بابور</span></td>
+                                    <td align="right" width="50%" style="padding: 20px;">
+                                        شكرا لاستخدامكم <span class="fw-bold">موقع بابور</span></td>
                                 </tr>
                             </tbody>
                         </table>
