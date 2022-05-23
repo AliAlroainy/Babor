@@ -93,7 +93,7 @@
                     </div>
                 </li>
                 <li class="nav-item nav-profile dropdown">
-                    <a class="nav-link dropdown-toggle d-flex" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown" id="profileDropdown">
                         <div>
                             @auth
                                 @if (Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))
