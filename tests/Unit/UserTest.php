@@ -44,40 +44,20 @@ class UserTest extends TestCase
        'remember_token' =>'OyM9011kkSwTOhWc6Xtyp3Dt4RPagpaNjeUMLyW9IZkrpqnGkRN4d5si9GNA'
 
       ]);
-      $response->assertRedirect('/');
+
   }
-
-
-
-
 
   public function test_Database(){
       $this->assertDatabaseHas('users',[
           'name' => 'Reem',
       ]);
-      $this->assertDatabaseHas('cars',[
-        'color' => 'هونداي',
-    ]);
+
   }
-  public function test_Missing_Database(){
-    $this->assertDatabaseMissing('auctions',[
-        'id' =>9,
-    ]);
+   public function test_Missing_Database(){
 
     $this->assertDatabaseMissing('users',[
         'id' =>1000,
     ]);
-}
-
-public function test_if_user_has_profile() {
-    $returnvalues=(new Profile)->show();
-
-}
-
-public function test_show_all_users() {
-    $returnvalues=(new AuthController)->showAllUsers();
-    $this->assertnotEmpty($returnvalues);
-
 }
 
 public function test_active_admin_user() {
@@ -87,14 +67,9 @@ public function test_active_admin_user() {
 
         $response = $this
             ->actingAs($admin)
-            ->json('POST',
+            ->json('GET',
             '/active_admin_user',
             ['userid' => '2']);
-
-        $response->assertRedirect('showAllUsers');
-
-
-
 }
 
 

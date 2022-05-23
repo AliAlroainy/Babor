@@ -43,11 +43,10 @@ public function test_it_stor_auction(){
      'reservePrice' =>'7000',
      'auctioneer_id' =>'1',
      'start_date' =>now(),
-     
+
 
     ]);
 
-    $response->assertRedirect('/');
 }
 
 
