@@ -88,7 +88,7 @@ class AuthController extends Controller
         if(Auth::user()->hasRole('admin'))
             return 'admin.dashboard';
         else
-            return 'user.dashboard';
+            return 'user.profile';
 
     }
     public function login(LoginRequest $request){
@@ -110,7 +110,7 @@ class AuthController extends Controller
                      'tab' => 'profile',
                  ]);
                      }
-                return redirect()->route('user.dashboard')->with(
+                return redirect()->route('user.profile')->with(
                     [
                         'successRegistration' => ' اهلا بعودتك مره اخرى     ',
                     'tab' => 'profile',
