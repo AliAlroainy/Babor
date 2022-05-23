@@ -88,15 +88,12 @@ class AuthController extends Controller
         if(Auth::user()->hasRole('admin'))
             return 'admin.dashboard';
         else
-            return 'user.dashboard';
+            return 'user.profile';
 
     }
     public function login(LoginRequest $request){
 
-        // $user=User::where(['email'=>$request->email])->first();
-        // if($user->hasRole('user') && empty($user->email_verified_at))
-        //     return view('user.email.verifyEmail');
-        // else
+       
         $remember = $request->has('remember_me') ? true : false;
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'is_active' => 1], $remember)){
             if(Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))//if he login and has admin role and he is active=1 redirct him to dashboard route
@@ -110,7 +107,7 @@ class AuthController extends Controller
                      'tab' => 'profile',
                  ]);
                      }
-                return redirect()->route('user.dashboard')->with(
+                return redirect()->route('user.profile')->with(
                     [
                         'successRegistration' => ' اهلا بعودتك مره اخرى     ',
                     'tab' => 'profile',

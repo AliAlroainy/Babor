@@ -1025,6 +1025,9 @@
 	margin: 0;
 	top: 20px;
 	float: right;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: relative;
 }
 .header.shop .right-bar .sinlge-bar.top-search a {
@@ -2330,9 +2333,9 @@
 .shop.single .product-gallery {
 	margin-top: 30px;
 }
-.shop.single .flexslider-thumbnails {
+/* .shop.single .flexslider-thumbnails {
 	position: relative;
-}
+} */
 .shop.single .product-gallery .slides li{
 	position:relative;
 }
