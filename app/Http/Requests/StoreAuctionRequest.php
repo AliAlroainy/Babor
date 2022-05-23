@@ -26,6 +26,7 @@ class StoreAuctionRequest extends FormRequest
             'carPosition'   => 'required|string|between: 5,100',
             // 'color'         => 'required|regex:/^[\pL\s]+$/u',
             'closeDate'     => 'required|date|after:now',
+            'jear'          => 'required|between:0,10',
         ];
     }
 
@@ -63,6 +64,8 @@ class StoreAuctionRequest extends FormRequest
             'closeDate.required'      => 'تحديد تاريخ انتهاء المزاد مطلوب',
             'closeDate.date'          => 'هذا الحقل يجب أن يكون تاريخا',
             'closeDate.after'         => 'تاريخ انتهاء المزاد لا يكون تاريخا قديما',
+            'jear.required'           => 'نوع الجير مطلوب',
+            'jear.between'            => 'نوع الجير إما عادي أو أوتوماتيك',
         ];
     }
 }

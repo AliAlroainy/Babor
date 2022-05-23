@@ -16,6 +16,7 @@ class Car extends Model
         'category_id',
         'brand_id',
         'series_id',
+        'jear',
         'model',
         'color',
         'numberOfKillos',
@@ -50,6 +51,10 @@ class Car extends Model
 
     public static function getStatus($key){
         return $key ===  '1' ? 'جديدة' : 'مستعملة';
+    }
+
+    public static function getJear($key){
+        return $key ===  '1' ? 'عادي' : 'اوتوماتيك';
     }
 
     public static function getSizOfDamageValues(){

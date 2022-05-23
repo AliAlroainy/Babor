@@ -179,7 +179,7 @@
                                             @enderror
                                         </div>
                                         <div
-                                            class="col-sm-12 col-md-6 mb-4 d-flex flex-column justify-content-center align-items-start">
+                                            class="col-sm-12 col-md-3 mb-4 d-flex flex-column justify-content-center align-items-start">
                                             <p>
                                                 <i class="bi bi-speedometer2" style="color: #F7941D"></i>
                                                 المسافة المقطوعة:
@@ -226,9 +226,9 @@
                                         </div>
 
                                         <br>
-                                        <div class="col-12 col-md-3 mb-4  d-flex flex-column  justify-content-center align-items-start "
+                                        <div class="col-sm-6 col-md-3 mb-4  d-flex flex-column  justify-content-center align-items-start "
                                             style="height: 100px">
-                                            <p class="mb-0">
+                                            <p class="mb-1">
                                                 <i class="bi bi-server" style="color: #F7941D"></i>
                                                 حالة السيارة:
                                             </p>
@@ -245,10 +245,34 @@
                                                         {{ App\Models\Car::getStatus('1') }}
                                                     </label>
                                                 </div>
-                                                @error('status')
-                                                    <p class="text-danger">{{ $message }}</p>
-                                                @enderror
                                             </div>
+                                            @error('status')
+                                                <p class="text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                        <div class="col-sm-6 col-md-3 mb-4  d-flex flex-column  justify-content-center align-items-start "
+                                            style="height: 100px">
+                                            <p class="mb-1">
+                                                <i class="bi bi-server" style="color: #F7941D"></i>
+                                                نوع الجير:
+                                            </p>
+                                            <div class="d-flex gap-3 align-items-end alert alert-warning input select mt-0">
+                                                <div class="form-check d-flex justify-content-center align-items-center ">
+                                                    <input type="radio" name="jear" id="normal" value="0">
+                                                    <label class="form-check-label me-2" for="normal">
+                                                        {{ App\Models\Car::getJear('0') }}
+                                                    </label>
+                                                </div>
+                                                <div class="form-check d-flex justify-content-center align-items-center">
+                                                    <input type="radio" name="jear" id="auto" value="1">
+                                                    <label class="form-check-label me-2" for="auto">
+                                                        {{ App\Models\Car::getJear('1') }}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            @error('jear')
+                                                <p class="text-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                         <div class="w-100 d-flex align-items-end mb-3">
                                             <i class="bi bi-images ms-2" style="color: #F7941D"></i>

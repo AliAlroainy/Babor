@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            // $table->string('name')->nullable();
+            $table->enum('jear', array_keys(['عادي','اوتوماتيك']));   
             $table->integer('model');
             $table->string('color');
             $table->enum('sizOfDamage', array_keys(['لا يوجد', 'سطحي', 'متوسط', 'كبير']))->nullable();
