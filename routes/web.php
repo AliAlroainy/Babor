@@ -40,6 +40,10 @@ Route::get('/bill', function () {
     return view('Front.addtions.bill');
 });
 
+Route::get('/profile', function () {
+    return view('Front.profile');
+});
+
 Route::get('/privcey', function () {
     return view('Front.privcey');
 });

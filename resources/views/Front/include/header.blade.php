@@ -210,7 +210,7 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-2 col-12">
 
-                        <div class="right-bar">
+                        <div class="right-bar ">
                             <!-- noted Form -->
                             <div class="sinlge-bar shopping">
                                 <a href="#" class="single-icon">
@@ -285,14 +285,15 @@
                             </div>
 
 
-
+                            
                             <div class="sinlge-bar">
+                                
                                 <a href="/favorite" class="single-icon ">
                                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                                 </a>
                             </div>
 
-                            <div class="sinlge-bar">
+                            <div class="sinlge-bar ">
                                 @if (Auth::user() && Auth::user()->hasRole('user'))
                                     <a href="{{ route('user.profile') }}" class="single-icon">
                                         @if (isset(Auth::user()->profile->avatar))

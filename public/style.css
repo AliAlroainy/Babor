@@ -1025,6 +1025,9 @@
 	margin: 0;
 	top: 20px;
 	float: right;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: relative;
 }
 .header.shop .right-bar .sinlge-bar.top-search a {
