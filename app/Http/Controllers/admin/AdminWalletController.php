@@ -11,24 +11,8 @@ use App\Http\Controllers\Controller;
 class AdminWalletController extends Controller
 {
     public function manageCompletingAuction(){
-        $bills = Payment_Bill::get();
-        // dd(isset($bills[0]->contract));
-        return view('Admin.wallet.usersAuctions')->with(['bills' => $bills]);
-        
-    }
-
-    public function sendToSeller(Request $request, $bill_id){
-        $bill = Payment_Bill::find($bill_id);
-        $auction = $bill->bid->auction;
-        $seller = $auction->user;
-        $money = $bill->bid->currentPrice;
-        $commission = $money/10;
-        $auction_id = $auction->id;
-        $bill->contract::siteDeduction($auction_id, $commission);
-        $seller_dues = $money-($commission);
-        User::first()->transfer($seller, $seller_dues, ['sell' => $bill->id]);
-        Auction::whereId($bill->bid->auction->id)->update(['status' => '5']);
-        return redirect()->back();
+        $bills = Payment_Bill::where('payment_status', '1')->get();
+        return view('Admin.wallet.usersAuctions')->with(['bills' => $bills]);    
     }
     
     public function sendToBuyer(Request $request, $bill_id){
