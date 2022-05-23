@@ -21,60 +21,57 @@ class adminIndexController extends Controller
      */
     public function index()
     {
-        
-        $Auctions = Auction::get()->count();
-        $auctionPercentage=$Auctions/100;
-
-        $service = service::get()->count();
-        $servicePercentage=$service/100;
-
-        
-        $user= User::get()->count();
-        $userper=$user/100;
-
-        $category= Category::get()->count();
-        $categoryper=$category/100;
-
-        $brands= Brand::get()->count();
-        $brandsper=$brands/100;
-
-        $seris= Series::get()->count();
-        $serisper=$seris/100;
-        $stars= ReviewRating::get()->count();
-        $starper=$stars/100;
-
-        $messages= contactUs::get()->count();
-        $messagesprs=$messages/100;
-
-        $bids= Bid::get()->count();
-       $bidsprs=$bids/100;
-        
-        return view('Admin.index')->with([
-            'auction' => $Auctions ,
-            'prec'=>$auctionPercentage,
-            'service' => $service ,
-            'serviceprec'=>$servicePercentage,
-            'user' => $user ,
-            'userper'=>$userper,
-            'category' => $category ,
-            'categoryper'=>$categoryper,
-            'brands' => $brands ,
-            'brandsper'=>$brandsper,
-            'seris' => $seris,
-            'serisper'=>$serisper,
-            'stars'=>$stars,
-            'starper'=>$starper,
-            'messages'=>$messages,
-            'messagesprs'=>$messagesprs,
-            'bids'=>$bids,
-            'bidsprs'=>$bidsprs,
-
+        try{
+            $Auctions = Auction::get()->count();
+            $auctionPercentage=$Auctions/100;
+    
+            $service = service::get()->count();
+            $servicePercentage=$service/100;
+    
             
-           
-        ]);
-
-
-   
+            $user= User::get()->count();
+            $userper=$user/100;
+    
+            $category= Category::get()->count();
+            $categoryper=$category/100;
+    
+            $brands= Brand::get()->count();
+            $brandsper=$brands/100;
+    
+            $seris= Series::get()->count();
+            $serisper=$seris/100;
+            $stars= ReviewRating::get()->count();
+            $starper=$stars/100;
+    
+            $messages= contactUs::get()->count();
+            $messagesprs=$messages/100;
+    
+            $bids= Bid::get()->count();
+            $bidsprs=$bids/100;
+            return view('Admin.index')->with([
+                'auction' => $Auctions ,
+                'prec'=>$auctionPercentage,
+                'service' => $service ,
+                'serviceprec'=>$servicePercentage,
+                'user' => $user ,
+                'userper'=>$userper,
+                'category' => $category ,
+                'categoryper'=>$categoryper,
+                'brands' => $brands ,
+                'brandsper'=>$brandsper,
+                'seris' => $seris,
+                'serisper'=>$serisper,
+                'stars'=>$stars,
+                'starper'=>$starper,
+                'messages'=>$messages,
+                'messagesprs'=>$messagesprs,
+                'bids'=>$bids,
+                'bidsprs'=>$bidsprs,   
+            ]);
+        }
+        catch(\Throwable $t){
+            return view('Front.errors.403');
+        }
     }
    
 
