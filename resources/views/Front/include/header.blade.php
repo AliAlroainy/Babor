@@ -411,18 +411,18 @@
                                     <div class="navbar-collapse">
                                         <div class="nav-inner float-md-end">
                                             <ul class="nav main-menu menu navbar-nav ">
-                                                <li class="navh active"><a class="nav-link"
+                                                <li class="navh {{ (request()->is('/')) ? 'active' : '' }}"><a class="nav-link"
                                                         href="/">الرئيسية</a></li>
-                                                <li class="navh  "><a class="nav-link"
+                                                <li class="navh {{ (request()->is('offer')) ? 'active' : '' }} "><a class="nav-link"
                                                         href="/offer">العروض</a></li>
-                                                <li class="navh "><a class="nav-link"
+                                                <li class="navh {{ (request()->is('services')) ? 'active' : '' }}"><a class="nav-link"
                                                         href="/services">الخدمات</a></li>
-                                                <li class="navh"><a class="nav-link" href="#">شراء
+                                                <li class="navh "><a class="nav-link" href="#">شراء
                                                         سيارة<i class="ti-angle-down p-2"></i>
                                                         <!--span class="new">جديد</span-->
                                                     </a>
                                                     <ul class="dropdown ">
-                                                        <li><a class="nav-link"
+                                                        <li><a class="nav-link "
                                                                 href="{{ route('site.auction.by_status', 'old') }}">مستعملة</a>
                                                         </li>
                                                         <li><a class="nav-link"
