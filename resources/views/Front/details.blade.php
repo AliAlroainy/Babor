@@ -135,13 +135,15 @@
                         <li>
                             @auth
                                 @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
-                                    <a title="Wishlist" class="addWishlist" data-auction-id="{{ $auction->id }}">
+                                    <a title="Wishlist" class="wishlist cursor-pointer"
+                                        data-auction-id="{{ $auction->id }}" method="add">
                                         <i class="ti-heart"></i>
-                                        إضافة للمفضلة
+                                        أضف إلى المفضلة
                                     </a>
                                 @else
-                                    <a title="Wishlist" class="removeWishlist" data-auction-id="{{ $auction->id }}">
-                                        <i class="fa fa-heart" style="color: #F7941D;"></i>
+                                    <a title="Wishlist" class="wishlist cursor-pointer"
+                                        data-auction-id="{{ $auction->id }}" method="remove">
+                                        <i class="fa fa-heart" style="color: #F7941D;"> في المفضلة </i>
                                     </a>
                                 @endif
                             @endauth
@@ -150,9 +152,12 @@
 
                     <div class="d-flex align-items-center justify-content-start">
                         <span class="fw-bold"> البائع: </span>
-                        <img src="/images/profiles/{{ $auction->user->profile->avatar }}" class="rounded-circle mb-3"
-                            style="width: 40px; margin-left: 10px" alt="Avatar" />
-                        <h6 class="mb-2 text-muted">{{ $auction->user->name }}</h6>
+                        <a href="{{ route('user.visit.profile', $auction->user->id) }}"
+                            class="d-flex  align-items-center">
+                            <img src="/images/profiles/{{ $auction->user->profile->avatar }}"
+                                class="rounded-circle mb-3" style="width: 40px; margin-left: 10px" alt="Avatar" />
+                            <h6 class="mb-2 text-muted">{{ $auction->user->name }}</h6>
+                        </a>
                     </div>
                     <div>
                         <div class="product-rating">

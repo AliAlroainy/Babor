@@ -166,54 +166,26 @@
  {{-- <script src="/js/Notifications/notifications.js"></script> --}}
 
  <script type="text/javascript">
-     $(document).on('click', '.addWishlist', function(e) {
+     $(document).on('click', '.wishlist', function(e) {
          e.preventDefault();
-         $element = $(this);
+         var method = $(this).attr('method');
+         if (method == 'add') {
+             $(this).attr('method', 'remove');
+             $(this).html(`<i class="fa fa-heart" style="color: #F7941D;"></i>`);
+         } else if (method == 'remove') {
+             $(this).attr('method', 'add');
+             $(this).html(`<i class="ti-heart"></i>`);
+         }
          $.ajax({
-             type: 'POST',
+             type: 'GET',
              data: {
                  'auction_id': $(this).attr('data-auction-id'),
+                 'method': method,
+             },
+             url: '{{ url('/user/favorite') }}',
+             success: function($fn) {
 
-             },
-             url: '/user/favorite',
-             headers: {
-                 'X-CSRF-TOKEN': '{!! csrf_token() !!}',
-             },
-             context: $(this).html,
-             success: function(data) {
-                 $element.html(`
-                 <i class="fa fa-heart" style="color: #F7941D;"></i>
-                 `);
-             },
-             error: function(data) {
-                 alert('errorFav');
              }
-
-         });
-     });
-
-     $(document).on('click', '.removeWishlist', function(e) {
-         e.preventDefault();
-         $element = $(this);
-         $.ajax({
-             type: 'POST',
-             data: {
-                 'auction_id': $(this).attr('data-auction-id'),
-             },
-             url: '/user/unfavorite',
-             headers: {
-                 'X-CSRF-TOKEN': '{!! csrf_token() !!}',
-             },
-             context: $(this).html,
-             success: function(res) {
-                 $element.html(`
-                 <i class="ti-heart"></i>
-                 `);
-             },
-             error: function(data) {
-                 alert('errorUNFav');
-             }
-
          });
      });
  </script>
