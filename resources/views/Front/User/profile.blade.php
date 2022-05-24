@@ -236,7 +236,7 @@
                     <div class="card-body">
                         <small class="text-muted text-uppercase  ">
                             <i class="bi bi-activity"></i>
-                            الانشطة</small>
+                            التعليقات</small>
 
 
                         <ul class="list-unstyled mt-3 ms-2">
