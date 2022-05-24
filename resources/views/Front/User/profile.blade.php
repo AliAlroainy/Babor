@@ -33,6 +33,19 @@
                             @if (@isset($user->profile->username))
                                 <h1>
                                     {{ $user->profile->username }} </h1>
+                                    <div class="rating-stars" style="display:flex; flex-direction:row">
+                                    @if (@isset($total))
+                                                            @for ($i = 1; $i <=  $total ; $i++)
+                                                            <h5>
+                                                                <i class="fa fa-star"></i>
+                                                            @endfor
+                                                            @endif
+                                                            <i class="fa fa-star-o" ></i>
+                                                           
+
+</h5>
+
+                                                        </div>
                             @endif
                         </div>
                         @if (Auth::user() != $user)
@@ -229,32 +242,22 @@
                         <ul class="list-unstyled mt-3 ms-2">
                             <li class="timeline-item timeline-item-transparent">
                                 <span class="timeline-point timeline-point-warning"></span>
+                                @forelse ($comments as $comment)
                                 <div class="timeline-event">
                                     <div class="timeline-header mb-1">
-                                        <h6 class="mb-0"> الدخول بمزاد</h6>
-                                        <small class="text-muted">اليوم</small>
+                                   
+                                        <h6 class="mb-0">  {{$comment->name }}</h6>
+                                      
+                                        <small class="text-muted">{{ $comment->created_at->format('jS \\of F Y') }}</small>
                                     </div>
-                                    <p class="mb-2">عقد صفقة بيع الساعة 12:40PM </p>
+                                    <p class="mb-2"> {{$comment->comments }} </p>
+                                  @empty
+                                  <h6 class="mb-0">  لايوجد تعليقات حتى الان</h6>
 
                                 </div>
+                                @endforelse
 
-                                <div class="timeline-event">
-                                    <div class="timeline-header mb-1">
-                                        <h6 class="mb-0"> الدخول بمزاد</h6>
-                                        <small class="text-muted">اليوم</small>
-                                    </div>
-                                    <p class="mb-2">عقد صفقة بيع الساعة 12:40PM </p>
-
-                                </div>
-
-                                <div class="timeline-event">
-                                    <div class="timeline-header mb-1">
-                                        <h6 class="mb-0"> الدخول بمزاد</h6>
-                                        <small class="text-muted">اليوم</small>
-                                    </div>
-                                    <p class="mb-2">عقد صفقة بيع الساعة 12:40PM </p>
-
-                                </div>
+                                
                             </li>
                         </ul>
                     </div>
