@@ -15,6 +15,7 @@ use App\Http\Controllers\Controller;
 use Bavix\Wallet\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Route;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Validator;
 
@@ -27,6 +28,7 @@ class ProfilesController extends Controller
         return view('Front.User.settings', ['user' => $user]);
     }
     public function show(){
+        $route = Route::current()->getName();
         $comments= ReviewRating::where('user_id',Auth::user()->id)->get();
         $total= ReviewRating::where('user_id',Auth::user()->id)->get()->count();
         $avg=round($total/5);
@@ -67,7 +69,9 @@ class ProfilesController extends Controller
             $user->deposit(100000000);
         }
         $user = Auth::user();
-        return view('Front.User.profile')->with(['user' => $user,
+        return view('Front.User.profile')->with([
+            'route'          => $route,
+            'user'           => $user,
             'total'          => $avg,
             'comments'       => $comments,
             'countPurchases' => $countPurchases, 
@@ -76,16 +80,41 @@ class ProfilesController extends Controller
     }
 
     public function visit($id){
+        $route = Route::current()->getName();
         $comments= ReviewRating::where('user_id',$id)->get();
         
+        // To compute number of purchase that current user carried out
+        $countPurchases = Payment_Bill::where('payment_status', 1)
+        ->with(['bid' => function($q){
+            return $q->where('bidder_id', Auth::id());
+        }])
+        ->with(['contract' => function($q){
+            return $q->where(['seller_confirm' => 1, 'buyer_confirm' => 1])->get();
+        }])->get();
+
+        $countPurchases = $countPurchases->where('bid', '<>', null)->where('contract', '<>', null)->count();
+
+        // To compute number of sales that current user carried out
+        $countSales = Payment_Bill::where('payment_status', 1)
+        ->with('bid.auction', function($q){
+            return $q->where('auctioneer_id', Auth::id());
+        })
+        ->with('contract', function($q){
+                return $q->where(['seller_confirm' => 1, 'buyer_confirm' => 1]);
+        })
+        ->get();
+        $countSales = $countSales->where('auction', '<>', null)->where('contract', '<>', null)->count();
         
         $total= ReviewRating::where('user_id',$id)->get()->count();
         $avg=round($total/5);
         $user = User::whereId($id)->with('profile')->first();
-        return view('Front.User.profile')->with(['user' => $user,
-        'total' => $avg,
-        'comments' =>$comments
-    
+        return view('Front.profile')->with([
+            'route'          => $route,
+            'user'           => $user,
+            'total'          => $avg,
+            'comments'       => $comments,
+            'countPurchases' => $countPurchases, 
+            'countSales'     => $countSales,
     ]);
     }
 
