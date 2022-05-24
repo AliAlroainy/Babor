@@ -268,7 +268,11 @@
                                 <!-- product tab nav -->
                                 <ul class="tab-nav">
                                     <li class="active"><a data-toggle="tab" href="#tab3">التقييمات
-                                            ({{ $totalstar }})</a></li>
+                                    @if ($totalstar == 0.02)
+                                                        <span>0</span>
+                                                        @else
+                                                        <span>{{$totalstar}}</span>
+                                                        @endif</a></li>
 
                                 </ul>
                                 <!-- /product tab nav -->
@@ -286,7 +290,11 @@
                                             <div class="col-md-3">
                                                 <div id="rating">
                                                     <div class="rating-avg">
-                                                        <span>{{ $totalstar }}</span>
+                                                        @if ($totalstar == 0.02)
+                                                        <span>0</span>
+                                                        @else
+                                                        <span>{{$totalstar}}</span>
+                                                        @endif
                                                         <div class="rating-stars">
                                                             @for ($i = 1; $i <= $total; $i++)
                                                                 <i class="fa fa-star"></i>

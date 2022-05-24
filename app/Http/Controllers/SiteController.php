@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Auction;
 use Illuminate\Http\Request;
 use App\Models\service;
@@ -49,12 +49,13 @@ class SiteController extends Controller
         /**
          * Preparing the reviews in that auction
          */
-        $total= ReviewRating::get()->count();
-        $oneStar = ReviewRating::where('star_rating', 1)->get()->count();
-        $towStar = ReviewRating::where('star_rating', 2)->get()->count();
-        $threeStar = ReviewRating::where('star_rating', 3)->get()->count();
-        $fourStar = ReviewRating::where('star_rating',4)->get()->count();
-        $fiveStar = ReviewRating::where('star_rating', 5)->get()->count();
+        $found = Auction::find($id);
+        $total= ReviewRating::where('user_id',$found->user->id)->get()->count();
+        $oneStar = ReviewRating::where('star_rating', 1)->where('user_id', $found->user->id)->get()->count();
+        $towStar = ReviewRating::where('star_rating', 2)->where('user_id',$found->user->id)->get()->count();
+        $threeStar = ReviewRating::where('star_rating', 3)->where('user_id',$found->user->id)->get()->count();
+        $fourStar = ReviewRating::where('star_rating',4)->where('user_id',$found->user->id)->get()->count();
+        $fiveStar = ReviewRating::where('star_rating', 5)->where('user_id',$found->user->id)->get()->count();
         $auctionAvilabel = Auction::whereDate('closeDate', '>', now())->where('status', '2')->get();
 
         if ($total>0){
@@ -67,7 +68,7 @@ class SiteController extends Controller
             $avgBeforRound=$total/5;
         }
         else{
-            $total=.0001; 
+            $total=.1; 
             $onePrsent=$oneStar/$total*100;
             $towPrsent=$towStar /$total*100;
             $threePrsent=$threeStar/$total*100;
@@ -79,7 +80,6 @@ class SiteController extends Controller
         /**
          * Preparing the auction details
          */
-        $found = Auction::find($id);
         if($found){
             $auction = Auction::whereId($id)
                                 ->whereNotIn('status', ['0','1'])
