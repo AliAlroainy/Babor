@@ -47,14 +47,17 @@ class ProfilesController extends Controller
 
     public function visit($id){
         $comments= ReviewRating::where('user_id',$id)->get();
-        
-        
-        $total= ReviewRating::where('user_id',$id)->get()->count();
-        $avg=round($total/5);
+        $count= ReviewRating::where('user_id',$id)->get()->count();
+        $total= ReviewRating::where('user_id',$id)->get()->sum('star_rating');
+        if($count > 0)
+        $avg=round($total/$count);
+        else
+        $avg=round($total/.1);
         $user = User::whereId($id)->with('profile')->first();
         return view('Front.User.profile')->with(['user' => $user,
         'total' => $avg,
-        'comments' =>$comments
+        'comments' =>$comments,
+        
     
     ]);
     }

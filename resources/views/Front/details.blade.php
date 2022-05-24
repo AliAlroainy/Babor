@@ -268,10 +268,10 @@
                                 <!-- product tab nav -->
                                 <ul class="tab-nav">
                                     <li class="active"><a data-toggle="tab" href="#tab3">التقييمات
-                                    @if ($totalstar == 0.02)
+                                    @if ($count == 0.02)
                                                         <span>0</span>
                                                         @else
-                                                        <span>{{$totalstar}}</span>
+                                                        <span>{{$count}}</span>
                                                         @endif</a></li>
 
                                 </ul>
