@@ -190,6 +190,39 @@
      });
  </script>
  <script>
+     $(document).ready(function() {
+         $('#search').on('keyup', function() {
+             $value = $(this).val();
+             getAuctions(1);
+         });
+         //  $('#brand').on('change', function() {
+         //      getAuctions();
+         //  });
+     });
+
+     function getAuctions(page) {
+         var search = $('#search').val();
+         // Search on based of country
+         //  var selectedBrand = $("#brand option:selected").val();
+         $.ajax({
+             type: "POST",
+             data: {
+                 'search_query': search,
+             },
+             headers: {
+                 'X-CSRF-TOKEN': '{!! csrf_token() !!}',
+             },
+             url: "/user/auction/filter",
+             success: function(data) {
+                 $('#filterAuction').html(data);
+             },
+             error: function(data) {
+                 alert(data);
+             }
+         });
+     }
+ </script>
+ <script>
      var pusher = new Pusher('{{ env('MIX_PUSHER_APP_KEY') }}', {
          cluster: '{{ env('PUSHER_APP_CLUSTER') }}',
          encrypted: true

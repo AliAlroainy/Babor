@@ -330,7 +330,7 @@
                             <!-- Search Form -->
                             <div class="search-top" dir="rtl">
                                 <form class="search-form">
-                                    <input type="text" placeholder="ابحث هنا..." name="search" onkeyup="search_cars()">
+                                    <input type="text" id="search" placeholder="ابحث هنا..." name="search">
                                     <button value="" type="submit"><i class="ti-search"></i></button>
                                 </form>
                             </div>
@@ -359,11 +359,13 @@
                     <div class="col-lg-8 col-md-7 col-12">
                         <div class="search-bar-top">
                             <div class="search-bar">
-                                <select>
-                                    <option selected="selected" style="font-family: Tajawal">كل الانواع</option>
-                                    <option>دايوها</option>
-                                    <option>سنتافي</option>
-                                    <option>تكاسي</option>
+                                <select name="brandFilter">
+                                    <option selected="selected" value="All" style="font-family: Tajawal">كل الأنواع
+                                    </option>
+                                    @foreach (\App\Models\Brand::where('is_active', 1)->get() as $brand)
+                                        <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+                                    @endforeach
+
                                 </select>
                                 <form>
                                     <input name="search" class="text-end"
@@ -446,7 +448,28 @@
     </header>
     <!--/ End Header -->
 
-
+    {{-- <div class="sinlge-bar">
+        <a href="{{ route('auction_favorite.index') }}" class="single-icon ">
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="sinlge-bar ">
+        @if (Auth::user() && Auth::user()->hasRole('user'))
+            <a href="{{ route('user.profile') }}" class="single-icon">
+                @if (isset(Auth::user()->profile->avatar))
+                    <img src="/images/profiles/{{ Auth::user()->profile->avatar }}"
+                        alt="profile" width="25"
+                        class="d-block h-auto ms-0 rounded-circle user-profile-img" />
+                @else
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                @endif
+            </a>
+        @else
+            <a href="{{ route('admin.dashboard') }}" class="single-icon">
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            </a>
+        @endif
+    </div> --}}
     <script>
         // add activetion links
         $('.navh').on('click', function() {
