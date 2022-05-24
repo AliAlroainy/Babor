@@ -217,7 +217,9 @@
                 <!-- Profile Overview -->
                 <div class="card mb-4">
                     <div class="card-body">
-                        <small class="text-muted text-uppercase">الانجازات</small>
+                        <small class="text-muted text-uppercase">
+                            <i class="bi bi-trophy"></i>
+                            الانجازات</small>
                         <ul class="list-unstyled mt-3 mb-0">
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-check"></i><span
                                     class="fw-semibold mx-2">عملية شراء:</span> <span>13.5k</span></li>
