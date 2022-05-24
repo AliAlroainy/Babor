@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -63,23 +64,35 @@ class Auction extends Model
         return $this->hasMany(Bid::class, 'auction_id');
     }
 
-    public static function getAuctions($status) {
+    public static function getAuctions($search_keyword) {
         $auctions = DB::table('auctions');
+        if($search_keyword && !empty($search_keyword)) {
+            $auctions->where(function($q) use ($search_keyword) {
+                // $q->where('auction.car.brand.name', 'like', "%{$search_keyword}%")
+                return $q->with(['car' => function($q){
+                    $q->with(['brand' => function($q){
+                        return $q->where('name', 'like', "%{$search_keyword}%");
+                    }]);
+                   return $q->where('description', 'like', "%{$search_keyword}%");
+                }]);
+            });
+        }
+        // //Filter By Brand
         // Filter By Brand
-        // if($brand) {
+        // if($brand && $brand != 'ALL') {
         //     $auctions = $auctions->where('auctions.car.brand', $brand);
         // }
-
+     
         // // Filter By Series
         // if($series_item) {
         //     $auctions = $auctions->where('auctions.car.series', $series_item);
         // }
 
-        // Filter By status
-        if ($status && $status != 'All') {
-            $auctions = $auctions->where('auctions.status', $status);
-        }
-        
+        // // Filter By status
+        // if ($status && $status != 'All') {
+        //     $auctions = $auctions->where('auctions.status', $status);
+        // }
+        // dd($auctions);
         return $auctions->get();
     }
 
