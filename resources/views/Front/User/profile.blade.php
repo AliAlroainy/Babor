@@ -63,7 +63,7 @@
         </div>
     </div>
     <!-- Content -->
-    <div class="container-xxl flex-grow-1 container-p-y">
+    <div class=" w-100 ms-0 me-0">
         <!-- Modal -->
         @if (session()->has('Emailverfication'))
             <div class="alert alert-dismissible alert-danger fade show" role="alert">

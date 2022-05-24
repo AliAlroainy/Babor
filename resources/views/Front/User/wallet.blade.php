@@ -15,12 +15,12 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="row">
+
+            <div class="row">
                     <div class="col-md-7 col-12">
                         <div class="">
                             <div class="col-12 mb-4">
-                                <div class="row box-right">
+                                <div class="row box-right me-0 ms-0 w-100">
                                     <div class="col-md-8 ps-0 ">
                                         <p class="ps-3 text-muted fw-bold h6 mb-0">اجمالي الرصيد</p>
                                         <p class="h1 fw-bold d-flex"> <span
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="col-12 px-0 mb-4">
-                                <div class="box-right">
+                                <div class="box-right me-3">
                                     <div class="d-flex pb-2">
                                         <p class="fw-bold h7">
                                             <i class="bi bi-clock-history"></i>
@@ -257,7 +257,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-5  ps-md-5 p-0 ">
+                    <div class="col-12 col-md-5  ">
                         <div class="box-left">
                             <div class="d-flex">
                                 <i class="bi bi-receipt"></i>
@@ -499,7 +499,7 @@
             padding: 30px 25px;
             background-color: white;
             border-radius: 10px;
-            margin-left: 6px;
+            margin-left: 16px;
         }
 
         .box-left {
