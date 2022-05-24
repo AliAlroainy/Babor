@@ -236,8 +236,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-dark">تاكيد</button>
-                                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">الغاء الامر
+                                <button type="submit" class="btn " style="background-color: #F7941D;">تاكيد</button>
+                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">الغاء الامر
                                 </button>
                             </div>
                         </div>

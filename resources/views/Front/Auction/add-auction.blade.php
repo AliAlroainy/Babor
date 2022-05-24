@@ -274,7 +274,7 @@
                                     </div>
 
                                     <div class="d-flex">
-                                    <input type="submit" class="btn btn-warning w-75 fw-bold ms-2" value="اضافة الى المزاد" />
+                                    <input type="submit" class="btn  w-75 fw-bold ms-2" style="background-color: #F7941D;" value="اضافة الى المزاد" />
                                     <input type="reset" class="btn btn-dark w-25 fw-bold" value="الغاء" />
                                     </div>
                                 </div>
