@@ -48,8 +48,10 @@
                                     @enderror
                                 </div>
                                 <div class="mt-3">
-                                    <button type="submit" class="btn btn-warning text-nowrap btn-fw btn-rounded fs-5 fw-bold">تسجيل
-                                        الدخول</button>
+                                    <button type="submit" class="btn  text-nowrap btn-fw btn-rounded fs-8 fw-bold" style="background-color: #F7941D;" >
+                                        <i class="bi bi-box-arrow-in-right"></i>
+                                        تسجيل الدخول
+                                    </button>
                                 </div>
                                 <div class="my-2 d-flex flex-column justify-content-start mb-2 " >
                                     <div>
@@ -66,14 +68,14 @@
                                         مرورك ؟</a>
                                 </div>
                                 <div class="mb-2 ">
-                                    <button type="button"
+                                    {{-- <button type="button"
                                         class=" d-flex align-items-center py-1 btn btn-light btn-facebook auth-form-btn">
                                         <i class="mdi mdi-facebook ms-2"></i>تسجيل الدخول باستخدام فيسبوك
-                                    </button>
+                                    </button> --}}
                                 </div>
                                 <div class="text-center mt-4 font-weight-light">
                                     ليس لديك حساب ؟
-                                    <a href="{{ route('register') }}" class=" text-warning">انشئ حسابك</a>
+                                    <a href="{{ route('register') }}" style="color: #F7941D;">انشئ حسابك</a>
                                 </div>
                             </form>
                         </div>

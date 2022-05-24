@@ -227,6 +227,7 @@
                                 <h5 class="modal-title" id="exampleModalLabel1">مزايدة</h5>
                             </div>
                             <div class="mt-4 modal-body">
+                                
                                 <div class="qty-label">
                                     سعر المزايدة
                                     <div class="input-n">
