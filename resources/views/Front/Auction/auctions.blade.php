@@ -752,7 +752,7 @@
                                                 </div>
                                             </div>
                                         @empty
-                                            <h4 class="text-center">لا يوجد مزادات مرفوظة من قبل مشرفي الموقع</h4>
+                                            <h4 class="">لا يوجد مزادات مرفوضة من قبل المشرف </h4>
                                         @endforelse
                                     </div>
                                 </div>

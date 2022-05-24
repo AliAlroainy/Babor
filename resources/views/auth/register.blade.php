@@ -64,11 +64,13 @@
                                 </div> --}}
                                 <div class="mt-3">
 
-                                    <button type="submit" class="btn btn-warning text-nowrap btn-fw btn-rounded fs-5 fw-bold">انشاء حساب
+                                    <button type="submit" class="btn btn-warning text-nowrap btn-fw btn-rounded fs-8 fw-bold" style="background-color: #F7941D;">
+                                        
+                                        انشاء حساب
                                         </button>
                                 </div>
                                 <div class="text-center mt-4 font-weight-light">
-                                    لديك حساب بالفعل ؟ <a href="{{ route('login') }}" class="text-warning"> سجل
+                                    لديك حساب بالفعل ؟ <a href="{{ route('login') }}" style="color: #F7941D;"> سجل
                                         الدخول </a>
                                 </div>
                             </form>
