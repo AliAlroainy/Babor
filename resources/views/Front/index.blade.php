@@ -32,9 +32,10 @@
                 <!-- Start Single Service -->
 
                 <div class="single-service">
-                    <div> <i class="ti-rocket"></i> </div>
+                  
 
-                    <div>
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                        <i class="ti-rocket"></i>
                         <h4>خدمة سريعة</h4>
                         <p>نوفر عليك مجهود البحث</p>
                     </div>

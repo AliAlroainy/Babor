@@ -3786,13 +3786,13 @@
    Start Shop Services CSS
 ========================================*/
 .shop-services.section {
-	padding: 80px 0 0px 0;
+	padding: 14px 0 43px 88px;
 	background: #fff;
 	display: flex;
 	flex-direction: column;
 }
 .shop-services.home{
-	padding:60px 0;
+	padding:100px 0;
 	background:#F6F7FB;
 	display: flex;
 	flex-direction: column;
@@ -3813,8 +3813,8 @@
 	display: block;
 	font-size: 32px;
 	position: absolute;
-	right: 0;
-	top: 0;
+	right: 99px;
+    top: -48px;
 }
 .shop-services .single-service h4 {
 	font-size: 14px;
