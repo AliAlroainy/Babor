@@ -197,8 +197,8 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
             Route::post('/auction/{id}/buy', [APIController::class, 'buy'])->name('user.buy.auction');
 
-            Route::post('/favorite', [FavoriteController::class, 'store'])->name('auction_favorite');
-            Route::post('/unfavorite', [FavoriteController::class, 'destroy'])->name('auction_unfavorite');
+            Route::get('/favorite', [FavoriteController::class, 'store'])->name('auction_favorite');
+            Route::get('/unfavorite', [FavoriteController::class, 'destroy'])->name('auction_unfavorite');
             Route::get('/favorite/auctions', [FavoriteController::class, 'index'])->name('auction_favorite.index');
             Route::get('/wallet/{id?}', [WalletController::class, 'index'])->name('user.wallet');
 

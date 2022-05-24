@@ -152,7 +152,7 @@ class UserAuctionController extends Controller
         $auction = Auction::whereId($id);
         $auction->when($request->has('cancel'), function ($q) use ($id, $auction){
             $q->update(['status' => '3']);
-            $q->when($auction->first()->bids->count() > 0, function ($q) use ($id){
+            $q->when($auction->first()->bids->count() > 0, function ($q) use ($id, $auction){
                 $this->refundBidders($id);
                 $notify = new NotificationController();
                 $notify->cancelAuction($auction->first(),$id);

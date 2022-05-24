@@ -15,15 +15,12 @@ class FavoriteController extends Controller
     }
 
     public function store(Request $request){
-        if(!auth()->user()->favoriteHas(request('auction_id'))){
+        if(request('method') == 'add')
+            // if(!auth()->user()->favoriteHas(request('auction_id'))){
             auth()->user()->favorite()->attach(request('auction_id'));
+        elseif(request('method') == 'remove'){
+            auth()->user()->favorite()->detach(request('auction_id'));
         }
         return response()->json();
-    }
-
-    public function destroy(Request $request){
-        auth()->user()->favorite()->detach(request('auction_id'));
-        return response()->json();
-    }
-    
+    }    
 }
