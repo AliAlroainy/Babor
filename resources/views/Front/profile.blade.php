@@ -1,8 +1,6 @@
 @include('Front.include.header')
-
 {{-- style --}}
 @include('Front.user.style.style')
-
 <!-- Content wrapper -->
 <div class="container mt-3" dir="rtl">
     <div class="row mb-3 ">
@@ -161,24 +159,6 @@
         </div>
     </div>
     <!--/ User Profile Content -->
-
-
-
-
-
-
-
-
 </div>
 <!--/ User Profile Content -->
-
-
-
-
-
-
-
-
-
-
 @include('Front.include.footer')

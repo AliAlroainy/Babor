@@ -13,9 +13,9 @@
                                     @if (Auth::user() == $user)
                                         <button type="button" class="  d-flex align-items-center justify-content-center "
                                             data-bs-toggle="modal" data-bs-target="#profile_pic"
-                                            style="position: absolute; bottom:0; right:0px; width: 40px ;height: 40px ; border-radius:50%; border: none ; background-color: rgba(0, 0, 0, 0.225)">
+                                            style="position: absolute; bottom:0; right:0px; width: 40px; height: 40px; border-radius:50%; border: none; background-color: rgba(0, 0, 0, 0.225)">
                                             <i class="fas fa-camera"
-                                                style="color: rgba(255, 255, 255, 0.867); width: 20px; height: 20px;"></i>
+                                                style="color: rgba(255, 255, 255, 0.867); width: 20px; height: 20px; line-height:20px;"></i>
                                         </button>
                                     @endif
                                     @if (isset($user->profile->avatar))
