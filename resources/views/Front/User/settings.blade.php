@@ -17,12 +17,12 @@
                         <i class=" mdi mdi-settings menu-icon  me-3 ms-3"></i>
                         الاعدادات
                     </h1>
-    
-                 
+
+
                 </div>
             </div>
         </div>
-    
+
     </div>
     <div class="content-wrapper">
         @if (session()->has('successRegistration'))
@@ -147,13 +147,13 @@
                                     <div class="d-flex">
                                         <i class="bi bi-award ms-1" style="color: #F7941D"></i>
 
-                                        <label  class="text-muted ">
+                                        <label class="text-muted ">
                                             نبذة عني:</label>
                                     </div>
-                                <div class="form-group">
-                                        <label for="bio" class="text-muted myTextarea">
-                                            نبذة عني:</label>
-                                        <textarea class="form-control" rows="4" name="bio">{{ old('bio') }} {{ $user->profile->bio ?? '' }}</textarea>
+                                    <div class="form-group">
+                                        <label for="bio" class="text-muted"></label>
+                                        <textarea class="form-control myTextarea" rows="4"
+                                            name="bio">{{ old('bio') }} {{ $user->profile->bio ?? '' }}</textarea>
                                         @error('bio')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
@@ -169,8 +169,9 @@
                                         @enderror
                                     </div>
                                     <div class="d-flex gap-1">
-                                    <button type="submit" class="btn  text-white me-2" style="background-color: #F7941D">حفظ</button>
-                                    <button type="reset" class="btn btn-dark text-white me-2">الغاء</button>
+                                        <button type="submit" class="btn  text-white me-2"
+                                            style="background-color: #F7941D">حفظ</button>
+                                        <button type="reset" class="btn btn-dark text-white me-2">الغاء</button>
                                     </div>
                                 </form>
                             </div>
@@ -235,9 +236,8 @@
                                                 <p class="text-danger">
                                                     {{ $message }}</p>
                                             @enderror
-                                            <input name="recover-submit mt-3"
-                                                class="btn btn-sm px-5 py-2  text-white " style="background-color: #F7941D"
-                                                value="تغيير " type="submit">
+                                            <input name="recover-submit mt-3" class="btn btn-sm px-5 py-2  text-white "
+                                                style="background-color: #F7941D" value="تغيير " type="submit">
                                         </form>
 
                                     </div>
@@ -251,5 +251,5 @@
         </div>
     </div>
 
-    
+
     @include('partials.footer')

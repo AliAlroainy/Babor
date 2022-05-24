@@ -76,11 +76,9 @@
 <!-- End Shop Services Area -->
 
 
-
-@include('Front.include.produacts')
-
-
-
+<div id="filterAuction">
+    @include('Front.include.produacts')
+</div>
 
 
 <div class="section-title mb-1">

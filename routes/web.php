@@ -154,7 +154,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('/category', CategoriesController::class, ['names' => 'admin.category']);
         Route::get('/auction', [AcutionController::class, 'index'])->name('admin.auction.index');
         Route::get('/statistic', [adminIndexController::class, 'index'])->name('admin.index');
-        Route::post('/auction/filter', [AcutionController::class, 'indexWithFilter'])->name('admin.auction.indexFilter');
+
         Route::post('/auction/action/{id}', [AcutionController::class, 'action'])->name('admin.auction.action');
         Route::get('/auction/details/{id}', [AcutionController::class, 'showDetails'])->name('admin.auction.details');
         Route::get('/bids', [BidsController::class, 'index'])->name('admin.bid.index');
@@ -179,6 +179,8 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/dashboard/settings/info-update', [ProfilesController::class, 'info_save'])->name('info.save');
             Route::post('/dashboard/settings/avatar-update', [ProfilesController::class, 'avatar_change'])->name('avatar.change');
 
+            Route::post('/auction/filter', [AcutionController::class, 'indexWithFilter'])->name('auction.filter');
+
             Route::get('/dashboard/settings/info',[ProfilesController::class,'index'])->name('user.dashboard');
             // Route::get('/auctions', [UserAuctionController::class, 'index'])->name('user.auctions');
             Route::get('/auctions/add_auction', [UserAuctionController::class, 'create'])->name('user.add.auction');
@@ -197,8 +199,8 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/bid/{id}', [BidController::class, 'create'])->name('user.place.bid');
             Route::post('/auction/{id}/buy', [APIController::class, 'buy'])->name('user.buy.auction');
 
-            Route::post('/favorite', [FavoriteController::class, 'store'])->name('auction_favorite');
-            Route::post('/unfavorite', [FavoriteController::class, 'destroy'])->name('auction_unfavorite');
+            Route::get('/favorite', [FavoriteController::class, 'store'])->name('auction_favorite');
+            Route::get('/unfavorite', [FavoriteController::class, 'destroy'])->name('auction_unfavorite');
             Route::get('/favorite/auctions', [FavoriteController::class, 'index'])->name('auction_favorite.index');
             Route::get('/wallet/{id?}', [WalletController::class, 'index'])->name('user.wallet');
 

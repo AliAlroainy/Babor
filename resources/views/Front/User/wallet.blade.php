@@ -69,12 +69,22 @@
                                                         </small>
                                                     @endif
                                                 </p>
-                                                <p>
-                                                    <a href="{{ route('site.auction.details', $bid->auction->id) }}"
-                                                        class="ms-3 mt-5 px-2 rouned-btn bg-green text-decoration-none">
-                                                        التفاصيل
-                                                    </a>
-                                                </p>
+                                                <div class="d-flex">
+                                                    @if ($bid->auction->status == '4')
+                                                        @if (isset($bid->payment_bill) && $bid->payment_bill->payment_status == 0)
+                                                            <p>
+                                                                <a href="{{ $bid->auction->next_url }}" target="_blank"
+                                                                    class="ms-3  px-2 rouned-btn bg-main border-none text-decoration-none">شراء</a>
+                                                            </p>
+                                                        @endif
+                                                    @endif
+                                                    <p>
+                                                        <a href="{{ route('site.auction.details', $bid->auction->id) }}"
+                                                            class="ms-3 mt-5 px-2 rouned-btn bg-green text-decoration-none">
+                                                            التفاصيل
+                                                        </a>
+                                                    </p>
+                                                </div>
                                             </div>
                                         @elseif(isset($item->meta['buy']))
                                             @php

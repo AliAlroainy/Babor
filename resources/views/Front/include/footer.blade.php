@@ -166,39 +166,61 @@
  {{-- <script src="/js/Notifications/notifications.js"></script> --}}
 
  <script type="text/javascript">
-     $(document).on('click', '.addWishlist', function(e) {
+     $(document).on('click', '.wishlist', function(e) {
          e.preventDefault();
+         var method = $(this).attr('method');
+         if (method == 'add') {
+             $(this).attr('method', 'remove');
+             $(this).html(`<i class="fa fa-heart" style="color: #F7941D;"></i>`);
+         } else if (method == 'remove') {
+             $(this).attr('method', 'add');
+             $(this).html(`<i class="ti-heart"></i>`);
+         }
          $.ajax({
-             type: 'POST',
+             type: 'GET',
              data: {
                  'auction_id': $(this).attr('data-auction-id'),
+                 'method': method,
              },
-             url: 'user/favorite',
-             headers: {
-                 'X-CSRF-TOKEN': '{!! csrf_token() !!}',
-             },
-             success: function(res) {
-                 $('.a-res').html(res);
+             url: '{{ url('/user/favorite') }}',
+             success: function($fn) {
+
              }
          });
+     });
+ </script>
+ <script>
+     $(document).ready(function() {
+         $('#search').on('keyup', function() {
+             $value = $(this).val();
+             getAuctions(1);
+         });
+         //  $('#brand').on('change', function() {
+         //      getAuctions();
+         //  });
      });
 
-     $(document).on('click', '.removeWishlist', function(e) {
-         e.preventDefault();
+     function getAuctions(page) {
+         var search = $('#search').val();
+         // Search on based of country
+         //  var selectedBrand = $("#brand option:selected").val();
          $.ajax({
-             type: 'POST',
+             type: "POST",
              data: {
-                 'auction_id': $(this).attr('data-auction-id'),
+                 'search_query': search,
              },
-             url: '/user/unfavorite',
              headers: {
                  'X-CSRF-TOKEN': '{!! csrf_token() !!}',
              },
-             success: function(res) {
-                 $('.a-res').html(res);
+             url: "/user/auction/filter",
+             success: function(data) {
+                 $('#filterAuction').html(data);
+             },
+             error: function(data) {
+                 alert(data);
              }
          });
-     });
+     }
  </script>
  <script>
      var pusher = new Pusher('{{ env('MIX_PUSHER_APP_KEY') }}', {

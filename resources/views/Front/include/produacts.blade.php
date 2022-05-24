@@ -29,8 +29,7 @@
                          <!-- Start cars Single Tab -->
                          <div class="tab-pane fade show active" id="cars" role="tabpanel">
                              <div class="tab-single">
-
-                                 <div class="row " id="list" class="">
+                                 <div class="row" id="list" class="">
                                      @foreach ($last_cars as $auction)
                                          @if ($auction->car != null)
                                              <div class="cars col-xl-3 col-lg-4 col-md-4 col-12 ">
@@ -45,29 +44,20 @@
                                                              <div class="product-action">
                                                                  @auth
                                                                      @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
-                                                                         <a title="Wishlist" class="addWishlist"
-                                                                             data-auction-id="{{ $auction->id }}">
+                                                                         <a title="Wishlist" class="wishlist"
+                                                                             data-auction-id="{{ $auction->id }}"
+                                                                             method="add">
                                                                              <i class="ti-heart"></i>
                                                                          </a>
                                                                      @else
-                                                                         <a title="Wishlist" class="removeWishlist"
-                                                                             data-auction-id="{{ $auction->id }}">
+                                                                         <a title="Wishlist" class="wishlist"
+                                                                             data-auction-id="{{ $auction->id }}"
+                                                                             method="remove">
                                                                              <i class="fa fa-heart"
                                                                                  style="color: #F7941D;"></i>
                                                                          </a>
                                                                      @endif
                                                                  @endauth
-                                                                 {{-- <a title="Wishlist" class="addWishlist"
-                                                                     data-auction-id="{{ $auction->id }}"
-                                                                     href="javascript:void(0);"
-                                                                     onclick="document.getElementById('favorite-form-{{ $auction->id }}').submit();">
-                                                                     <i class="ti-heart"></i>
-                                                                 </a>
-                                                                 <form id="favorite-form-{{ $auction->id }}"
-                                                                     method="POST"
-                                                                     action="{{ route('auction_favorite', $auction->id) }}">
-                                                                     @csrf
-                                                                 </form> --}}
                                                                  <a title="Compare" href="#"><i
                                                                          class="ti-bar-chart-alt"></i><span>مشاركة
                                                                          المزاد</span></a>
@@ -118,29 +108,20 @@
                                                              <div class="product-action">
                                                                  @auth
                                                                      @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
-                                                                         <a title="Wishlist" class="addWishlist"
-                                                                             data-auction-id="{{ $auction->id }}">
+                                                                         <a title="Wishlist" class="wishlist"
+                                                                             data-auction-id="{{ $auction->id }}"
+                                                                             method="add">
                                                                              <i class="ti-heart"></i>
                                                                          </a>
                                                                      @else
-                                                                         <a title="Wishlist" class="removeWishlist"
-                                                                             data-auction-id="{{ $auction->id }}">
+                                                                         <a title="Wishlist" class="wishlist"
+                                                                             data-auction-id="{{ $auction->id }}"
+                                                                             method="remove">
                                                                              <i class="fa fa-heart"
                                                                                  style="color: #F7941D;"></i>
                                                                          </a>
                                                                      @endif
                                                                  @endauth
-                                                                 {{-- <a title="Wishlist" class="addWishlist"
-                                                                     data-auction-id="{{ $auction->id }}"
-                                                                     href="javascript:void(0);"
-                                                                     onclick="document.getElementById('favorite-form-{{ $auction->id }}').submit();">
-                                                                     <i class="ti-heart"></i>
-                                                                 </a> --}}
-                                                                 {{-- <form id="favorite-form-{{ $auction->id }}"
-                                                                     method="POST"
-                                                                     action="{{ route('auction_favorite', $auction->id) }}">
-                                                                     @csrf
-                                                                 </form> --}}
                                                                  <a title="Compare" href="#"><i
                                                                          class="ti-bar-chart-alt"></i><span>مشاركة
                                                                          المزاد</span></a>
@@ -191,29 +172,20 @@
                                                              <div class="product-action">
                                                                  @auth
                                                                      @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
-                                                                         <a title="Wishlist" class="addWishlist"
-                                                                             data-auction-id="{{ $auction->id }}">
+                                                                         <a title="Wishlist" class="wishlist"
+                                                                             data-auction-id="{{ $auction->id }}"
+                                                                             method="add">
                                                                              <i class="ti-heart"></i>
                                                                          </a>
                                                                      @else
-                                                                         <a title="Wishlist" class="removeWishlist"
-                                                                             data-auction-id="{{ $auction->id }}">
+                                                                         <a title="Wishlist" class="wishlist"
+                                                                             data-auction-id="{{ $auction->id }}"
+                                                                             method="remove">
                                                                              <i class="fa fa-heart"
                                                                                  style="color: #F7941D;"></i>
                                                                          </a>
                                                                      @endif
                                                                  @endauth
-                                                                 {{-- <a title="Wishlist" class="addWishlist"
-                                                                     data-auction-id="{{ $auction->id }}"
-                                                                     href="javascript:void(0);"
-                                                                     onclick="document.getElementById('favorite-form-{{ $auction->id }}').submit();">
-                                                                     <i class="ti-heart"></i>
-                                                                 </a>
-                                                                 <form id="favorite-form-{{ $auction->id }}"
-                                                                     method="POST"
-                                                                     action="{{ route('auction_favorite', $auction->id) }}">
-                                                                     @csrf
-                                                                 </form> --}}
                                                                  <a title="Compare" href="#"><i
                                                                          class="ti-bar-chart-alt"></i><span>مشاركة
                                                                          المزاد</span></a>
@@ -265,29 +237,20 @@
                                                              <div class="product-action">
                                                                  @auth
                                                                      @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
-                                                                         <a title="Wishlist" class="addWishlist"
-                                                                             data-auction-id="{{ $auction->id }}">
+                                                                         <a title="Wishlist" class="wishlist"
+                                                                             data-auction-id="{{ $auction->id }}"
+                                                                             method="add">
                                                                              <i class="ti-heart"></i>
                                                                          </a>
                                                                      @else
-                                                                         <a title="Wishlist" class="removeWishlist"
-                                                                             data-auction-id="{{ $auction->id }}">
+                                                                         <a title="Wishlist" class="wishlist"
+                                                                             data-auction-id="{{ $auction->id }}"
+                                                                             method="remove">
                                                                              <i class="fa fa-heart"
                                                                                  style="color: #F7941D;"></i>
                                                                          </a>
                                                                      @endif
                                                                  @endauth
-                                                                 {{-- <a title="Wishlist" class="addWishlist"
-                                                                     data-auction-id="{{ $auction->id }}"
-                                                                     href="javascript:void(0);"
-                                                                     onclick="document.getElementById('favorite-form-{{ $auction->id }}').submit();">
-                                                                     <i class="ti-heart"></i>
-                                                                 </a>
-                                                                 <form id="favorite-form-{{ $auction->id }}"
-                                                                     method="POST"
-                                                                     action="{{ route('auction_favorite', $auction->id) }}">
-                                                                     @csrf
-                                                                 </form> --}}
                                                                  <a title="Compare" href="#"><i
                                                                          class="ti-bar-chart-alt"></i><span>مشاركة
                                                                          المزاد</span></a>

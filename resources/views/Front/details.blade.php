@@ -135,24 +135,29 @@
                         <li>
                             @auth
                                 @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
-                                    <a title="Wishlist" class="addWishlist" data-auction-id="{{ $auction->id }}">
+                                    <a title="Wishlist" class="wishlist cursor-pointer"
+                                        data-auction-id="{{ $auction->id }}" method="add">
                                         <i class="ti-heart"></i>
+                                        أضف إلى المفضلة
                                     </a>
                                 @else
-                                    <a title="Wishlist" class="removeWishlist" data-auction-id="{{ $auction->id }}">
-                                        <i class="fa fa-heart" style="color: #F7941D;"></i>
+                                    <a title="Wishlist" class="wishlist cursor-pointer"
+                                        data-auction-id="{{ $auction->id }}" method="remove">
+                                        <i class="fa fa-heart" style="color: #F7941D;"> في المفضلة </i>
                                     </a>
                                 @endif
-                                إضافة للمفضلة
                             @endauth
                         </li>
                     </ul>
 
                     <div class="d-flex align-items-center justify-content-start">
                         <span class="fw-bold"> البائع: </span>
-                        <img src="/images/profiles/{{ $auction->user->profile->avatar }}" class="rounded-circle mb-3"
-                            style="width: 40px; margin-left: 10px" alt="Avatar" />
-                        <h6 class="mb-2 text-muted">{{ $auction->user->name }}</h6>
+                        <a href="{{ route('user.visit.profile', $auction->user->id) }}"
+                            class="d-flex  align-items-center">
+                            <img src="/images/profiles/{{ $auction->user->profile->avatar }}"
+                                class="rounded-circle mb-3" style="width: 40px; margin-left: 10px" alt="Avatar" />
+                            <h6 class="mb-2 text-muted">{{ $auction->user->name }}</h6>
+                        </a>
                     </div>
                     <div>
                         <div class="product-rating">
@@ -263,7 +268,11 @@
                                 <!-- product tab nav -->
                                 <ul class="tab-nav">
                                     <li class="active"><a data-toggle="tab" href="#tab3">التقييمات
-                                            ({{ $totalstar }})</a></li>
+                                    @if ($totalstar == 0.02)
+                                                        <span>0</span>
+                                                        @else
+                                                        <span>{{$totalstar}}</span>
+                                                        @endif</a></li>
 
                                 </ul>
                                 <!-- /product tab nav -->
@@ -281,7 +290,11 @@
                                             <div class="col-md-3">
                                                 <div id="rating">
                                                     <div class="rating-avg">
-                                                        <span>{{ $totalstar }}</span>
+                                                        @if ($totalstar == 0.02)
+                                                        <span>0</span>
+                                                        @else
+                                                        <span>{{$totalstar}}</span>
+                                                        @endif
                                                         <div class="rating-stars">
                                                             @for ($i = 1; $i <= $total; $i++)
                                                                 <i class="fa fa-star"></i>

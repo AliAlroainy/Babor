@@ -14,16 +14,13 @@ class FavoriteController extends Controller
         return view('Front.auctions')->with(['auctions' => $auctions, 'title' => $title]);
     }
 
-    public function store(){
-        if(!auth()->user()->favoriteHas(request('auction_id'))){
+    public function store(Request $request){
+        if(request('method') == 'add')
+            // if(!auth()->user()->favoriteHas(request('auction_id'))){
             auth()->user()->favorite()->attach(request('auction_id'));
+        elseif(request('method') == 'remove'){
+            auth()->user()->favorite()->detach(request('auction_id'));
         }
-        return redirect()->back();
-    }
-
-    public function destroy(){
-        auth()->user()->favorite()->detach(request('auction_id'));
-        return redirect()->back();
-    }
-    
+        return response()->json();
+    }    
 }
