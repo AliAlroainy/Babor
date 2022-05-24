@@ -71,13 +71,11 @@
                                                 </p>
                                                 <div class="d-flex">
                                                     @if ($bid->auction->status == '4')
-                                                        @if ($bid->auction->winner_id == Auth::id())
-                                                            @if (isset($bid->payment_bill) && $bid->payment_bill->payment_status == 0)
-                                                                <p>
-                                                                    <a href="{{ $bid->auction->next_url }}"
-                                                                        class="ms-3  px-2 rouned-btn bg-main border-none text-decoration-none">شراء</a>
-                                                                </p>
-                                                            @endif
+                                                        @if (isset($bid->payment_bill) && $bid->payment_bill->payment_status == 0)
+                                                            <p>
+                                                                <a href="{{ $bid->auction->next_url }}" target="_blank"
+                                                                    class="ms-3  px-2 rouned-btn bg-main border-none text-decoration-none">شراء</a>
+                                                            </p>
                                                         @endif
                                                     @endif
                                                     <p>
