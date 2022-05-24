@@ -205,7 +205,8 @@ $('.dropify').dropify({
                 </span>
 `;
             {{--             alert("{!! Auth::id() !!}");--}}
-            document.getElementById('dropdown-menu').append(node);
+            let menu = document.getElementById('dropdown-menu');
+            insertAfter(node, menu.firstElementChild)
         }
         if( data.type == 3 ) {
             node.innerHTML =`
@@ -217,13 +218,14 @@ $('.dropify').dropify({
                 </span>
 `;
             {{--alert("{!! Auth::id() !!}");--}}
-            document.getElementById('dropdown-menu').append(node);
+            let menu = document.getElementById('dropdown-menu');
+            insertAfter(node, menu.firstElementChild)
         }
 
 
-        if( data.user_id.toString() == "{!! Auth::id() !!}" && data.admin_id.toString() != "{!! Auth::id() !!}"  && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "" && data.type == 5) {
+        if(  data.user_id.toString() == "{!! Auth::id() !!}" && (data.type == 5 || data.type == 6)  ) {
             {{--alert(data.user_id.toString() != "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "");--}}
-                node = document.createElement('li');
+            node = document.createElement('li');
             node.innerHTML =`
                 <span class="dropdown-item">
                         <a class="quantity text-dark" href="{{ url('user/auction/details')}}/${data.link}">
@@ -231,11 +233,25 @@ $('.dropify').dropify({
                     </a>
                 </span>
 `;
-            {{--alert("{!! Auth::id() !!}");--}}
-            document.getElementById('dropdown-menu').append(node);
+            alert("{!! Auth::id() !!}");
+            let menu = document.getElementById('dropdown-menu');
+            insertAfter(node, menu.firstElementChild)
         }
+{{--        if( data.user_id.toString() === "{!! Auth::id() !!}" &&  && data.winner_id.toString() != "{!! Auth::id() !!}" && data.type == 6) {--}}
+{{--            --}}{{--alert(data.user_id.toString() != "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "");--}}
+{{--            node = document.createElement('li');--}}
+{{--            node.innerHTML =`--}}
+{{--                <span class="dropdown-item">--}}
+{{--                        <a class="quantity text-dark" href="{{ url('user/auction/details')}}/${data.link}">--}}
+{{--                        <p class="fw-bold m-0"> ${data.message}</p>--}}
+{{--                    </a>--}}
+{{--                </span>--}}
+{{--`;--}}
+{{--            let menu = document.getElementById('dropdown-menu');--}}
+{{--            insertAfter(node, menu.firstElementChild)--}}
+{{--        }--}}
 
-        if( data.user_id.toString() == "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != 1 && "{!! Auth::id() !!}" != "" && data.type == 6) {
+        if( data.user_id.toString() == "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != 1 && "{!! Auth::id() !!}" != "" && data.type == 7) {
             node = document.createElement('li');
             node.innerHTML =`
                 <span class="dropdown-item">
@@ -245,7 +261,8 @@ $('.dropify').dropify({
                 </span>
 `;
             {{--alert("{!! Auth::id() !!}");--}}
-            document.getElementById('dropdown-menu').append(node);
+            let menu = document.getElementById('dropdown-menu');
+            insertAfter(node, menu.firstElementChild)
         }
 
     });

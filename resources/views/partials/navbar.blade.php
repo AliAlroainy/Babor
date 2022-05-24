@@ -87,7 +87,7 @@
 
 
                         <span class="all">
-                            <a href="#" class="removeAll text-center w-100 d-inline-block mt-2">حذف الكل</a>
+                            <a href="{{url('user/notifications/remove-all')}}" class="removeAll text-center w-100 d-inline-block mt-2">حذف الكل</a>
                             <a href="#" class="showAll text-center w-100 d-inline-block mt-2">عرض الكل</a>
                         </span>
                     </div>
