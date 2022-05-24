@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers\user;
 
+use App\Models\Bid;
 use App\Models\User;
 use App\Models\Wallet;
 use App\Models\Profile;
 use App\Trait\ImageTrait;
+use App\Models\Payment_Bill;
+use App\Models\ReviewRating;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Bavix\Wallet\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Validator;
-use App\Models\ReviewRating;
+
 class ProfilesController extends Controller
 {
     use ImageTrait;
@@ -25,8 +30,33 @@ class ProfilesController extends Controller
         $comments= ReviewRating::where('user_id',Auth::user()->id)->get();
         $total= ReviewRating::where('user_id',Auth::user()->id)->get()->count();
         $avg=round($total/5);
+
         $userProfile = Profile::where('user_id', Auth::user()->id)->first();
         $userWallet = Wallet::where('holder_id', Auth::user()->id)->first();
+
+        // To compute number of purchase that current user carried out
+        $countPurchases = Payment_Bill::where('payment_status', 1)
+        ->with(['bid' => function($q){
+            return $q->where('bidder_id', Auth::id());
+        }])
+        ->with(['contract' => function($q){
+            return $q->where(['seller_confirm' => 1, 'buyer_confirm' => 1])->get();
+        }])->get();
+
+        $countPurchases = $countPurchases->where('bid', '<>', null)->where('contract', '<>', null)->count();
+
+        // To compute number of sales that current user carried out
+        $countSales = Payment_Bill::where('payment_status', 1)
+        ->with('bid.auction', function($q){
+            return $q->where('auctioneer_id', Auth::id());
+        })
+        ->with('contract', function($q){
+                return $q->where(['seller_confirm' => 1, 'buyer_confirm' => 1]);
+        })
+        ->get();
+        $countSales = $countSales->where('auction', '<>', null)->where('contract', '<>', null)->count();
+       
+        //! Create profile and charge user wallet with money once being registered
         if(!$userProfile){
             $profile = new Profile();
             $profile->user_id = Auth::user()->id;
@@ -38,11 +68,11 @@ class ProfilesController extends Controller
         }
         $user = Auth::user();
         return view('Front.User.profile')->with(['user' => $user,
-        'total' => $avg,
-        'comments' =>$comments
-        
-    
-    ]);
+            'total'          => $avg,
+            'comments'       => $comments,
+            'countPurchases' => $countPurchases, 
+            'countSales'     => $countSales,
+        ]);
     }
 
     public function visit($id){

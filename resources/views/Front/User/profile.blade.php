@@ -7,8 +7,6 @@
 
 <!-- Content wrapper -->
 <div class="content-wrapper" dir="rtl">
-
-
     <div class="row ">
         <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
             <div class="cardp d-flex align-items-center justify-content-center">
@@ -33,19 +31,16 @@
                             @if (@isset($user->profile->username))
                                 <h1>
                                     {{ $user->profile->username }} </h1>
-                                    <div class="rating-stars" style="display:flex; flex-direction:row">
+                                <div class="rating-stars" style="display:flex; flex-direction:row">
                                     @if (@isset($total))
-                                                            @for ($i = 1; $i <=  $total ; $i++)
-                                                            <h5>
-                                                                <i class="fa fa-star"></i>
-                                                            @endfor
-                                                            @endif
-                                                            <i class="fa fa-star-o" ></i>
-                                                           
-
-</h5>
-
-                                                        </div>
+                                        @for ($i = 1; $i <= $total; $i++)
+                                            <h5>
+                                                <i class="fa fa-star"></i>
+                                        @endfor
+                                    @endif
+                                    <i class="fa fa-star-o"></i>
+                                    </h5>
+                                </div>
                             @endif
                         </div>
                         @if (Auth::user() != $user)
@@ -220,9 +215,10 @@
                         <small class="text-muted text-uppercase">الانجازات</small>
                         <ul class="list-unstyled mt-3 mb-0">
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-check"></i><span
-                                    class="fw-semibold mx-2">عملية شراء:</span> <span>13.5k</span></li>
+                                    class="fw-semibold mx-2">عملية شراء:</span> <span>{{ $countPurchases }}</span>
+                            </li>
                             <li class="d-flex align-items-center mb-3"><i class='bx bx-customize'></i><span
-                                    class="fw-semibold mx-2">عملية بيع:</span> <span>146</span></li>
+                                    class="fw-semibold mx-2">عملية بيع:</span> <span>{{ $countSales }}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -236,28 +232,29 @@
                     <div class="card-body">
                         <small class="text-muted text-uppercase  ">
                             <i class="bi bi-activity"></i>
-                            الانشطة</small>
+                            آراء العملاء</small>
 
 
                         <ul class="list-unstyled mt-3 ms-2">
                             <li class="timeline-item timeline-item-transparent">
                                 <span class="timeline-point timeline-point-warning"></span>
                                 @forelse ($comments as $comment)
-                                <div class="timeline-event">
-                                    <div class="timeline-header mb-1">
-                                   
-                                        <h6 class="mb-0">  {{$comment->name }}</h6>
-                                      
-                                        <small class="text-muted">{{ $comment->created_at->format('jS \\of F Y') }}</small>
-                                    </div>
-                                    <p class="mb-2"> {{$comment->comments }} </p>
-                                  @empty
-                                  <h6 class="mb-0">  لايوجد تعليقات حتى الان</h6>
+                                    <div class="timeline-event">
+                                        <div class="timeline-header mb-1">
 
-                                </div>
+                                            <h6 class="mb-0"> {{ $comment->name }}</h6>
+
+                                            <small
+                                                class="text-muted">{{ $comment->created_at->format('jS \\of F Y') }}</small>
+                                        </div>
+                                        <p class="mb-2"> {{ $comment->comments }} </p>
+                                    @empty
+                                        <h6 class="mb-0"> لايوجد تعليقات حتى الان</h6>
+
+                                    </div>
                                 @endforelse
 
-                                
+
                             </li>
                         </ul>
                     </div>
