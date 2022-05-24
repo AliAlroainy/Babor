@@ -324,19 +324,19 @@
                             </div>
                         </div>
 
-                    <!-- Search Form -->
-                   <div class="search-top">
-                    <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
-                    <!-- Search Form -->
-                    <div class="search-top " dir="rtl">
-                        <form class="search-form ">
-                            <input  type="text" placeholder="ابحث هنا..." name="search" onkeyup="search_cars()" >
-                            <button  value="" type="submit"><i class="ti-search"></i></button>
-                        </form>
-                    </div>
-                    <!--/ End Search Form -->
-                </div>
-                <!--/ End Search Form -->
+                        <!-- Search Form -->
+                        <div class="search-top">
+                            <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+                            <!-- Search Form -->
+                            <div class="search-top " dir="rtl">
+                                <form class="search-form ">
+                                    <input type="text" placeholder="ابحث هنا..." name="search" onkeyup="search_cars()">
+                                    <button value="" type="submit"><i class="ti-search"></i></button>
+                                </form>
+                            </div>
+                            <!--/ End Search Form -->
+                        </div>
+                        <!--/ End Search Form -->
 
                         <!-- Search Form -->
                         <div class="search-top">
@@ -376,8 +376,6 @@
                             </div>
                         </div>
                     </div>
-
-
                     <div class="col-lg-2 col-md-3 col-12 d-flex justify-content-end align-items-center ">
 
                         <!-- Logo -->
@@ -411,12 +409,12 @@
                                     <div class="navbar-collapse">
                                         <div class="nav-inner float-md-end">
                                             <ul class="nav main-menu menu navbar-nav ">
-                                                <li class="navh {{ (request()->is('/')) ? 'active' : '' }}"><a class="nav-link"
-                                                        href="/">الرئيسية</a></li>
-                                                <li class="navh {{ (request()->is('offer')) ? 'active' : '' }} "><a class="nav-link"
-                                                        href="/offer">العروض</a></li>
-                                                <li class="navh {{ (request()->is('services')) ? 'active' : '' }}"><a class="nav-link"
-                                                        href="/services">الخدمات</a></li>
+                                                <li class="navh {{ request()->is('/') ? 'active' : '' }}"><a
+                                                        class="nav-link" href="/">الرئيسية</a></li>
+                                                <li class="navh {{ request()->is('offer') ? 'active' : '' }} "><a
+                                                        class="nav-link" href="/offer">العروض</a></li>
+                                                <li class="navh {{ request()->is('services') ? 'active' : '' }}"><a
+                                                        class="nav-link" href="/services">الخدمات</a></li>
                                                 <li class="navh "><a class="nav-link" href="#">شراء
                                                         سيارة<i class="ti-angle-down p-2"></i>
                                                         <!--span class="new">جديد</span-->

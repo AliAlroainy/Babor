@@ -42,7 +42,8 @@ class AcutionController extends Controller
         // $brand = $request->brand;=
         if($request->ajax()){
             $auctions = Auction::getAuctions($query);
-        return response($auctions);// view('Front.auctions')->with(['auctions' => $auctions, 'title' => 'نتائج الفلترة'])->render();
+        // return response($auctions);// 
+        view('Front.auctions')->with(['auctions' => $auctions, 'title' => 'نتائج الفلترة'])->render();
         }
     }
     public function action(Request $request, $id)

@@ -202,6 +202,7 @@
 
      function getAuctions(page) {
          var search = $('#search').val();
+         alert(search);
          // Search on based of country
          //  var selectedBrand = $("#brand option:selected").val();
          $.ajax({

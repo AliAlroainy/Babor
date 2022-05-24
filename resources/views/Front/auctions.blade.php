@@ -71,8 +71,6 @@
                             </div>
                         </div>
                         <!--/ End cars Single Tab -->
-
-
                     </div>
                 </div>
             </div>
