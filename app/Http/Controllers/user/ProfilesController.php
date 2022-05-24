@@ -85,10 +85,10 @@ class ProfilesController extends Controller
         
         // To compute number of purchase that current user carried out
         $countPurchases = Payment_Bill::where('payment_status', 1)
-        ->with(['bid' => function($q){
-            return $q->where('bidder_id', Auth::id());
+        ->with(['bid' => function($q) use ($id){
+            return $q->where('bidder_id', $id);
         }])
-        ->with(['contract' => function($q){
+        ->with(['contract' => function($q) use ($id){
             return $q->where(['seller_confirm' => 1, 'buyer_confirm' => 1])->get();
         }])->get();
 
@@ -96,8 +96,8 @@ class ProfilesController extends Controller
 
         // To compute number of sales that current user carried out
         $countSales = Payment_Bill::where('payment_status', 1)
-        ->with('bid.auction', function($q){
-            return $q->where('auctioneer_id', Auth::id());
+        ->with('bid.auction', function($q) use ($id){
+            return $q->where('auctioneer_id', $id);
         })
         ->with('contract', function($q){
                 return $q->where(['seller_confirm' => 1, 'buyer_confirm' => 1]);
