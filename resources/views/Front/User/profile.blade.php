@@ -9,9 +9,9 @@
                     <div class="cardp d-flex align-items-center justify-content-center">
                         <div class="card-body d-flex align-items-center justify-content-center">
                             <div class="p-3 d-flex flex-column align-items-center justify-content-center">
-                                <div class=" mt-n2 mx-sm-0 mx-auto pt-3 pe-3" style="position: relative">
+                                <div class="mt-n2 mx-sm-0 mx-auto pt-3 pe-3" style="position: relative">
                                     @if (Auth::user() == $user)
-                                        <button type="button" class="  d-flex align-items-center justify-content-center "
+                                        <button type="button" class="d-flex align-items-center justify-content-center"
                                             data-bs-toggle="modal" data-bs-target="#profile_pic"
                                             style="position: absolute; bottom:0; right:0px; width: 40px; height: 40px; border-radius:50%; border: none; background-color: rgba(0, 0, 0, 0.225)">
                                             <i class="fas fa-camera"
@@ -29,7 +29,8 @@
                                 <div class="mt-3">
                                     @if (@isset($user->profile->username))
                                         <h1>
-                                            {{ $user->profile->username }} </h1>
+                                            {{ $user->profile->username }}
+                                        </h1>
                                         <div class="rating-stars" style="display:flex; flex-direction:row">
                                             @if (@isset($total))
                                                 @for ($i = 1; $i <= $total; $i++)
@@ -116,7 +117,8 @@
                                             class="fw-semibold mx-2"><i class="fa-solid fa-location-dot"></i> العنوان:
                                         </span>
                                         <span>{{ $user->profile->city }} -
-                                            {{ $user->profile->address }}</span>
+                                            {{ $user->profile->address }}
+                                        </span>
                                     </li>
                                 </ul>
                                 <small class="text-muted text-uppercase">معلومات التواصل</small>
