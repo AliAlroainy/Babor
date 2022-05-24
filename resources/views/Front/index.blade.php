@@ -76,9 +76,10 @@
 
 
 <div id="filterAuction">
-    @include('Front.include.produacts')
+    @include('Front.include.produacts');
 </div>
 
+{{-- @include('Front.include.produacts') --}}
 
 <div class="section-title mb-1">
     <h2>اشهر العلامات التجارية</h2>
