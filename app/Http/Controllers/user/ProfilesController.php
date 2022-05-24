@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Validator;
-
+use App\Models\ReviewRating;
 class ProfilesController extends Controller
 {
     use ImageTrait;
@@ -22,6 +22,9 @@ class ProfilesController extends Controller
         return view('Front.User.settings', ['user' => $user]);
     }
     public function show(){
+        $comments= ReviewRating::where('user_id',Auth::user()->id)->get();
+        $total= ReviewRating::where('user_id',Auth::user()->id)->get()->count();
+        $avg=round($total/5);
         $userProfile = Profile::where('user_id', Auth::user()->id)->first();
         $userWallet = Wallet::where('holder_id', Auth::user()->id)->first();
         if(!$userProfile){
@@ -34,12 +37,26 @@ class ProfilesController extends Controller
             $user->deposit(100000000);
         }
         $user = Auth::user();
-        return view('Front.User.profile')->with('user', $user);
+        return view('Front.User.profile')->with(['user' => $user,
+        'total' => $avg,
+        'comments' =>$comments
+        
+    
+    ]);
     }
 
     public function visit($id){
+        $comments= ReviewRating::where('user_id',$id)->get();
+        
+        
+        $total= ReviewRating::where('user_id',$id)->get()->count();
+        $avg=round($total/5);
         $user = User::whereId($id)->with('profile')->first();
-        return view('Front.User.profile')->with(['user' => $user]);
+        return view('Front.User.profile')->with(['user' => $user,
+        'total' => $avg,
+        'comments' =>$comments
+    
+    ]);
     }
 
     public function info_save(ProfileRequest $request){
