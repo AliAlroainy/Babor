@@ -80,32 +80,18 @@
             <div class="box-left"> 
                 <div class="d-flex"> 
                 <i class="bi bi-receipt"></i>
-                <p class="textmuted h8 me-3">  الفاتورة #3424</p> 
+                <p class="textmuted h8 me-3">  العملية رقم : #3424</p> 
             </div>
-                <p class="fw-bold h7">شراء سيارة فيراري</p> 
-                <p class="textmuted h8">البائع : ابرار الخرساني</p> 
-                <p class="textmuted h8">المشتري : علي الرعيني</p> 
+                <p class="fw-bold h7">
+                    عملية ايداع </p> 
+                <p class="textmuted h8">من : ابرار الخرساني</p> 
+                <p class="textmuted h8">الى : علي الرعيني</p> 
 
                 <p class="textmuted h8 mb-2">التاريخ : 23-1-2023</p> 
-                <div class="h8"> <div class="row m-0 border mb-3"> 
-                    <div class="col-6 h8 pe-0 ps-2"> <p class="textmuted py-2">العناصر</p> 
-                        <span class="d-block py-2 border-bottom">سيارة فيراري</span> 
-                        <span class="d-block py-2">سيارة هامر</span> </div> 
-                        <div class="col-2 text-center p-0"> <p class="textmuted p-2">الكمية</p> 
-                            <span class="d-block p-2 border-bottom">2</span> 
-                            <span class="d-block p-2">1</span> </div> 
-                            <div class="col-2 p-0 text-center h8 border-end"> <p class="textmuted p-2">السعر</p> 
-                                <span class="d-block border-bottom py-2"><span class="fas fa-dollar-sign"></span>500</span>
-                                    <span class="d-block py-2 "><span class="fas fa-dollar-sign"></span>400</span> 
-                                </div> <div class="col-2 p-0 text-center">
-                                        <p class="textmuted p-2">الاجمالي</p> <span class="d-block py-2 border-bottom">
-                                            <span class="fas fa-dollar-sign"></span>1000</span> 
-                                            <span class="d-block py-2">
-                                                <span class="fas fa-dollar-sign"></span>400</span>
-                                                </div> 
-                                            </div> 
+                <div class="h8"> 
+              
                                             <div class="d-flex h7 mb-2"> 
-                                                <p class="ms-5">الاجمالي الكلي:</p> 
+                                                <p class="ms-3">المبلغ :</p> 
                                                 <p class="ms-auto">
                                                     <span class="fas fa-dollar-sign"></span>1400</p> 
                                                 </div> 
