@@ -37,7 +37,7 @@
                             <h3><a href="/details">{{ $auction->car->series->name }}</a></h3>
                             <div class="product-price">
                                 <span class="old"> {{ $auction->openingBid}}</span>
-                                <span>	{{ $auction->reservePrice}}</span>
+                                <span> {{ $auction->reservePrice}}</span>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
 
                     <!-- End Single Product -->
                     <!-- Start Single Product -->
-                   
+
                     <!-- End Single Product -->
                 </div>
             </div>
@@ -54,203 +54,100 @@
 </div>
 <!-- End Most Popular Area -->
 
-<!-- Start Shop Home List  -->
-<section class="shop-home-list section">
-    <div class="container" dir="rtl">
+
+<!-- Start Product Area -->
+<div class="product-area section a-res" id="offer">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="shop-section-title">
-                            <h1>المزادات الحالية</h1>
-                        </div>
-                    </div>
+            <div class="col-12">
+                <div class="section-title">
+                    <h2>آخر العروض</h2>
                 </div>
-                <!-- Start Single List  -->
-                
-                <div class="single-list">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="list-image overlay">
-                                <img src="img/c1.jpg" alt="#">
-                                <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 no-padding">
-                            <div class="content">
-                                <h4 class="title"><a href="#">شفرليه 2020</a></h4>
-                                <p class="price with-discount">$59</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single List  -->
-                <!-- Start Single List  -->
-                <div class="single-list">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="list-image overlay">
-                                <img src="img/c1.jpg" alt="#">
-                                <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 no-padding">
-                            <div class="content">
-                                <h5 class="title"><a href="#">شفرليه 2020</a></h5>
-                                <p class="price with-discount">$44</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single List  -->
-                <!-- Start Single List  -->
-                <div class="single-list">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="list-image overlay">
-                                <img src="img/c1.jpg" alt="#">
-                                <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 no-padding">
-                            <div class="content">
-                                <h5 class="title"><a href="#">شفرليه 2020</a></h5>
-                                <p class="price with-discount">$89</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single List  -->
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="shop-section-title">
-                            <h1>الاكثر مبيعاً</h1>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="product-info">
+                    <div class="nav-main">
+                        <!-- Tab Nav -->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#buses"
+                                    role="tab">الاكثر تفضيل</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#taxis"
+                                    role="tab">الاكثر مبيعاً</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#now"
+                                    role="tab">المزادات الحالية</a></li>
+                            
+                        </ul>
+                        <!--/ End Tab Nav -->
+                    </div>
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Start cars Single Tab -->
+                        <div class="tab-pane fade show" id="taxis" role="tabpanel">
+                            <div class="tab-single">
+                                <div class="row" id="list">
+                                    <section class="shop-home-list section">
+                                        <div class="container" dir="rtl">
+                                          
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
                         </div>
+                        <!--/ End cars Single Tab -->
+                         <!-- Start cars Single Tab -->
+                         <div class="tab-pane fade show" id="now" role="tabpanel">
+                            <div class="tab-single">
+                                <div class="row" id="list">
+                                    <section class="shop-home-list section">
+                                        <div class="container" dir="rtl">
+                                            <div class="row">
+                                           
+
+
+                                               
+
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ End cars Single Tab -->
+
+                        <!-- Start taxis Single Tab -->
+                        
+                        <!--/ End babor Single Tab -->
+
+                        <!-- Start salon Single Tab -->
+
+                        <!--/ End salon Single Tab -->
+
+
+                        <!-- Start buses Single Tab -->
+
+
+
+                        <!--/ End buses Single Tab -->
                     </div>
                 </div>
-                <!-- Start Single List  -->
-                <div class="single-list">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="list-image overlay">
-                                <img src="img/c1.jpg" alt="#">
-                                <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 no-padding">
-                            <div class="content">
-                                <h5 class="title"><a href="#">شفرليه 2020</a></h5>
-                                <p class="price with-discount">$65</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single List  -->
-                <!-- Start Single List  -->
-                <div class="single-list">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="list-image overlay">
-                                <img src="img/c1.jpg" alt="#">
-                                <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 no-padding">
-                            <div class="content">
-                                <h5 class="title"><a href="#">شفرليه 2020</a></h5>
-                                <p class="price with-discount">$33</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single List  -->
-                <!-- Start Single List  -->
-                <div class="single-list">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="list-image overlay">
-                                <img src="img/c1.jpg" alt="#">
-                                <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 no-padding">
-                            <div class="content">
-                                <h5 class="title"><a href="#">شفرليه 2020</a></h5>
-                                <p class="price with-discount">$77</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single List  -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="shop-section-title">
-                            <h1>الاكثر تفضيل</h1>
-                        </div>
-                    </div>
-                </div>
-                <!-- Start Single List  -->
-                <div class="single-list">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="list-image overlay">
-                                <img src="img/c1.jpg" alt="#">
-                                <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 no-padding">
-                            <div class="content">
-                                <h5 class="title"><a href="#">شفرليه 2020</a></h5>
-                                <p class="price with-discount">$22</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single List  -->
-                <!-- Start Single List  -->
-                <div class="single-list">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="list-image overlay">
-                                <img src="img/c1.jpg" alt="#">
-                                <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 no-padding">
-                            <div class="content">
-                                <h5 class="title"><a href="#">شفرليه 2020</a></h5>
-                                <p class="price with-discount">$35</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single List  -->
-                <!-- Start Single List  -->
-                <div class="single-list">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="list-image overlay">
-                                <img src="img/c1.jpg" alt="#">
-                                <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 no-padding">
-                            <div class="content">
-                                <h5 class="title"><a href="#">شفرليه 2020</a></h5>
-                                <p class="price with-discount">$99</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single List  -->
             </div>
         </div>
     </div>
-</section>
+</div>
+<!-- End Product Area -->
+
+
+
+
+
+
+
+
+
+
+<!-- Start Shop Home List  -->
+
 <!-- End Shop Home List  -->
 
 {{-- <section class="section free-version-banner">
