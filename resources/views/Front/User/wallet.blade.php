@@ -21,12 +21,12 @@
                     <div class="">
                         <div class="col-12 mb-4">
                             <div class="row box-right me-0 ms-0 w-100">
-                                <div class="col-md-8 ps-0 ">
+                                <div class="col-md-8 ps-0">
                                     <p class="ps-3 text-muted fw-bold h6 mb-0">اجمالي الرصيد</p>
-                                    <p class="h1 fw-bold d-flex"> <span
-                                            class=" fas fa-dollar-sign text-muted pe-1 h6 align-text-top mt-1"></span>
+                                    <p class="fw-bold d-flex">
                                         {{-- <span class="text-muted">58.</span> --}}
-                                        {{ $balance }}
+                                        <span class="h1">{{ $balance }}</span>
+                                        <small class="text-muted h7"> ر.ي </small>
                                     </p>
                                     <p class="ms-3 mt-5 px-2 rouned-btn bg-green">غذي حسابك</p>
                                 </div>
@@ -34,12 +34,13 @@
                                     <p class="p-blue"><span class="fas fa-circle pe-2"></span> الداخل </p>
                                     <p class="fw-bold mb-3">
                                         {{-- <span class="text-muted">.{{ $gains - intval($gains) }}</span> --}}
-                                        <span class="fas fa-dollar-sign pe-1"></span>{{ $gains }}
+                                        {{ $gains }}
+                                        <span class="text-muted h8">ر.ي</span>
                                     </p>
                                     <p class="p-org"><span class="fas fa-circle pe-2"></span> الخارج </p>
                                     <p class="fw-bold">
-                                        {{-- <span class="text-muted">.{{ $loses - intval($loses) }}</span> --}}
-                                        <span class="fas fa-dollar-sign pe-1"></span>{{ $loses }}
+                                        {{ $loses }}
+                                        <span class="text-muted h8">ر.ي</span>
                                     </p>
                                 </div>
                             </div>
@@ -61,7 +62,7 @@
                                         <div class="bg-blue p-3 mb-3">
                                             <p class="h6 text-muted"> مزايدة على
                                                 {{ $bid->auction->type_and_model() }} بتكلفة
-                                                {{ $bid->getDeduction() }}
+                                                (<span class="text-danger">{{ $bid->getDeduction() }}</span> ر.ي)
                                                 @if ($bid->refund == '1')
                                                     <small class="text-danger">
                                                         <i class="fas fa-undo"></i>

@@ -23,17 +23,18 @@
                     <div class="row box-right me-0 ms-0 w-100">
                         <div class="col-md-8 ps-0 ">
                             <p class="ps-3 text-muted fw-bold h6 mb-0">اجمالي الرصيد</p>
-                            <p class="h1 fw-bold d-flex"> <span
-                                    class=" fas fa-dollar-sign text-muted pe-1 h6 align-text-top mt-1"></span>
-
-                                {{-- {{ $balance }} --}}
+                            <p class="fw-bold d-flex">
+                                {{-- <span class="text-muted">58.</span> --}}
+                                <span class="h1">{{ $balance }}</span>
+                                <small class="text-muted h7"> ر.ي </small>
                             </p>
                             <p class="ms-3 mt-5 px-2 rouned-btn bg-green">غذي حسابك</p>
                         </div>
                         <div class="col-md-4">
                             <p class="p-blue"><span class="fas fa-circle pe-2"></span> الداخل </p>
                             <p class="fw-bold mb-3">
-                                {{-- <span class="fas fa-dollar-sign pe-1"></span>{{ $gains }} --}}
+                                {{ $gains }}
+                                <span class="text-muted h8">ر.ي</span>
                             </p>
                             <p class="p-org"><span class="fas fa-circle pe-2"></span> الخارج </p>
                             <p class="fw-bold">
@@ -52,9 +53,7 @@
                             </p>
                             <p class="ms-auto p-blue"> </p>
                         </div>
-
                         {{-- table --}}
-
                         <table class="table align-middle mb-0 bg-white">
                             <thead class="bg-light">
                                 <tr>
@@ -65,50 +64,51 @@
                                     <th>السبب</th>
                                     <th>التاريخ</th>
                                     <th>تفاصيل</th>
-
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        123
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center justify-content-center">
-                                            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-                                                style="width: 45px; height: 45px" class="rounded-circle" />
-                                            <div class="ms-3">
-                                                <p class="fw-bold mb-1">John Doe</p>
-                                                <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                @forelse ($operations as $tran)
+                                    <tr>
+                                        <td>
+                                            {{ $loop->index }}
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                                    style="width: 45px; height: 45px" class="rounded-circle" />
+                                                <div class="ms-3">
+                                                    <p class="fw-bold mb-1">John Doe</p>
+                                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        231531 $
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center justify-content-center">
-                                            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-                                                style="width: 45px; height: 45px" class="rounded-circle" />
-                                            <div class="ms-3">
-                                                <p class="fw-bold mb-1">John Doe</p>
-                                                <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                        </td>
+                                        <td>
+                                            231531 $
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                                    style="width: 45px; height: 45px" class="rounded-circle" />
+                                                <div class="ms-3">
+                                                    <p class="fw-bold mb-1">John Doe</p>
+                                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>Senior</td>
-                                    <td>
+                                        </td>
+                                        <td>Senior</td>
+                                        <td>
 
-                                        22-5-2020
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-link btn-sm btn-rounded">
-                                            المزاد
-                                        </button>
+                                            22-5-2020
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-link btn-sm btn-rounded">
+                                                المزاد
+                                            </button>
 
-                                    </td>
-                                </tr>
-
+                                        </td>
+                                    </tr>
+                                @empty
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -187,18 +187,18 @@
         }
 
         /* @keyframes anim{
-                                                             from{
-                                                                 opacity:0.3;
-                                                              transform:rotate(0deg);
-                                                               
-                                                             }
-                                                             
-                                                             to{
-                                                                 opacity:0.8;
-                                                                 transform:rotate(180deg);
-                                                                 
-                                                             }
-                                                         } */
+                                                                                                                                             from{
+                                                                                                                                                 opacity:0.3;
+                                                                                                                                              transform:rotate(0deg);
+                                                                                                                                               
+                                                                                                                                             }
+                                                                                                                                             
+                                                                                                                                             to{
+                                                                                                                                                 opacity:0.8;
+                                                                                                                                                 transform:rotate(180deg);
+                                                                                                                                                 
+                                                                                                                                             }
+                                                                                                                                         } */
         .visa h4 {
             font-size: 40px;
             font-family: 'Rokkitt', serif;
