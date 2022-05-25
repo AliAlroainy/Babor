@@ -21,15 +21,15 @@ class SeriesSeeder extends Seeder
         $unixTimestamp = '1461067200';
 
           DB::table('series')->insert([
-              'name' => 'نافارا',
-              'brand_id' => $faker->numberBetween(1,2),
+              'name' => 'صني',
+              'brand_id' => '5',
               'is_active' => '1',
               'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
               'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
 
           ]);
           DB::table('series')->insert([
-            'name' => 'تورس',
+            'name' => 'تاهو',
             'brand_id' => $faker->numberBetween(2,3),
             'is_active' => '1',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
@@ -37,7 +37,7 @@ class SeriesSeeder extends Seeder
 
         ]);
         DB::table('series')->insert([
-            'name' => 'النترا',
+            'name' => 'تورس',
             'brand_id' => $faker->numberBetween(3,4),
             'is_active' => '1',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
@@ -45,7 +45,60 @@ class SeriesSeeder extends Seeder
         ]);
         DB::table('series')->insert([
             'name' => 'باترول',//النوع
-            'brand_id' => $faker->numberBetween(3,5),
+            'brand_id' => '5',
+            'is_active' => '1',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+        DB::table('series')->insert([
+            'name' => 'فيتو',//النوع
+            'brand_id' => '6',
+            'is_active' => '1',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+        DB::table('series')->insert([
+            'name' => '        باص سياحي
+            ',//النوع
+            'brand_id' => '4',
+            'is_active' => '1',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+        DB::table('series')->insert([
+            'name' => '          اشوك لاند
+            ',//النوع
+            'brand_id' => '4',
+            'is_active' => '1',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+        DB::table('series')->insert([
+            'name' => '           اتيكو
+            ',//النوع
+            'brand_id' => '4',
+            'is_active' => '1',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+        DB::table('series')->insert([
+            'name' => '           صهريج - تنك
+            ',//النوع
+            'brand_id' => '4',
+            'is_active' => '1',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+        DB::table('series')->insert([
+            'name' => '  ديانة
+            ',//النوع
+            'brand_id' => '4',
             'is_active' => '1',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),

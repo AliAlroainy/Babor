@@ -20,64 +20,84 @@ class reviewRattingseeder extends Seeder
         $faker = Faker::create();
 
         DB::table('review_ratings')->insert([
-            'user_id' => '1',
-            'name'=> 'hadeel',
-            'comments' => 'رائع',
-            'star_rating' => '1',
-        ]);
-        DB::table('review_ratings')->insert([
             'user_id' => '2',
-            'name'=> 'hadeel',
+            'name'=> 'جهاد المليكي',
             'comments' => 'رائع',
             'star_rating' => '1',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '3',
-            'name'=> 'hadeel',
-            'comments' => 'رائع',
-            'star_rating' => '1',
+            'name'=> 'ابرار الخرساني',
+            'comments' => 'ممتاز ،انصح بشراء من هذا البائع',
+            'star_rating' => '4',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '4',
-            'name'=> 'hadeel',
-            'comments' => 'رائع',
-            'star_rating' => '1',
+            'name'=> 'علي الرعيني',
+            'comments' => 'كنت اتمني المزايده بهذه السياره ،لكن لتوي انهيت احدى المزادات',
+            'star_rating' => '3',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '5',
-            'name'=> 'hadeel',
-            'comments' => 'رائع',
+            'name'=> 'حمد البكيل',
+            'comments' => 'جيد، لاباس بها',
             'star_rating' => '1',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+        ]);
+        DB::table('review_ratings')->insert([
+            'user_id' => '5',
+            'name'=> 'هيثم المقطري ',
+            'comments' => 'موقع بابور موقع امن دائما يوفر افضل العروض',
+            'star_rating' => '5',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '6',
-            'name'=> 'hadeel',
-            'comments' => 'رائع',
-            'star_rating' => '1',
+            'name'=> 'اراده الفقي',
+            'comments' => 'سياره واو ،والسعر مناسب جدا للمزايده عليها',
+            'star_rating' => '3',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '7',
-            'name'=> 'hadeel',
-            'comments' => 'رائع',
-            'star_rating' => '1',
+            'name'=> 'مختار غالب',
+            'comments' => 'احدى اضخم العروض السيارات بالشرق الاوسط',
+            'star_rating' => '5',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '8',
-            'name'=> 'hadeel',
-            'comments' => 'رائع',
-            'star_rating' => '1',
+            'name'=> 'نشوان ',
+            'comments' => 'يااارب تكون من نصيبي',
+            'star_rating' => '4',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
         ]);
         DB::table('review_ratings')->insert([
-            'user_id' => '9',
-            'name'=> 'hadeel',
-            'comments' => 'رائع',
-            'star_rating' => '1',
+            'user_id' => '3',
+            'name'=> 'هيفاء نبيل ',
+            'comments' => 'ابهرتني العروض ، فعلا تستحق المزايده',
+            'star_rating' => '2',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
         ]);
          DB::table('review_ratings')->insert([
-            'user_id' => '10',
-            'name'=> 'hadeel',
-            'comments' => 'رائع',
+            'user_id' => '4',
+            'name'=> 'رقيه عبده',
+            'comments' => 'لاباس ',
             'star_rating' => '1',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
         ]);
     }
 }

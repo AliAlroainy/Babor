@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         $admin->name        = "admin";
         $admin->email       = "admin@gmail.com";
         $admin->email_verified_at=now();
-        $admin->password    = Hash::make('123');
+        $admin->password    = Hash::make('123456');
         $admin->is_active   = 1;
         $admin->created_at  = now();
         $admin->updated_at  = now();
@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
         $Jehad->name        = "Jehad";
         $Jehad->email       = "deeppp901@gmail.com";
         $Jehad->email_verified_at=now();
-        $Jehad->password    = Hash::make('123');
+        $Jehad->password    =Hash::make('123456');
         $Jehad->is_active   = 1;
         $Jehad->created_at  = now();
         $Jehad->updated_at  = now();
@@ -46,7 +46,7 @@ class UserSeeder extends Seeder
         $Abrar->name        = "Abrar";
         $Abrar->email       = "abrar.abdulwahed@gmail.com";
         $Abrar->email_verified_at=now();
-        $Abrar->password    = Hash::make('123');
+        $Abrar->password    =Hash::make('123456');
         $Abrar->is_active   = 1;
         $Abrar->created_at  = now();
         $Abrar->updated_at  = now();
@@ -58,7 +58,7 @@ class UserSeeder extends Seeder
         $Reem->name        = "Reem";
         $Reem->email       = "Reem@gmail.com";
         $Reem->email_verified_at=now();
-        $Reem->password    = Hash::make('123');
+        $Reem->password    =Hash::make('123456');
         $Reem->is_active   = 1;
         $Reem->created_at  = now();
         $Reem->updated_at  = now();
@@ -70,7 +70,7 @@ class UserSeeder extends Seeder
         $Ali->name        = "Ali";
         $Ali->email       = "Ali@gmail.com";
         $Ali->email_verified_at=now();
-        $Ali->password    = Hash::make('123');
+        $Ali->password    =Hash::make('123456');
         $Ali->is_active   = 1;
         $Ali->created_at  = now();
         $Ali->updated_at  = now();
@@ -82,7 +82,7 @@ class UserSeeder extends Seeder
         $Hamad->name        = "Hamad";
         $Hamad->email       = "Hamad@gmail.com";
         $Hamad->email_verified_at=now();
-        $Hamad->password    = Hash::make('123');
+        $Hamad->password    =Hash::make('123456');
         $Hamad->is_active   = 1;
         $Hamad->created_at  = now();
         $Hamad->updated_at  = now();
@@ -94,7 +94,7 @@ class UserSeeder extends Seeder
         $Erada->name        = "Erada";
         $Erada->email       = "Erada@gmail.com";
         $Erada->email_verified_at=now();
-        $Erada->password    = Hash::make('123');
+        $Erada->password    =Hash::make('123456');
         $Erada->is_active   = 1;
         $Erada->created_at  = now();
         $Erada->updated_at  = now();
@@ -106,7 +106,7 @@ class UserSeeder extends Seeder
         $Nashwan->name        = "Nashwan";
         $Nashwan->email       = "Nashwan@gmail.com";
         $Nashwan->email_verified_at=now();
-        $Nashwan->password    = Hash::make('123');
+        $Nashwan->password    =Hash::make('123456');
         $Nashwan->is_active   = 1;
         $Nashwan->created_at  = now();
         $Nashwan->updated_at  = now();
@@ -118,7 +118,7 @@ class UserSeeder extends Seeder
         $Mokhtar->name        = "Mokhtar";
         $Mokhtar->email       = "Mokhtar@gmail.com";
         $Mokhtar->email_verified_at=now();
-        $Mokhtar->password    = Hash::make('123');
+        $Mokhtar->password    =Hash::make('123456');
         $Mokhtar->is_active   = 1;
         $Mokhtar->created_at  = now();
         $Mokhtar->updated_at  = now();
@@ -130,7 +130,7 @@ class UserSeeder extends Seeder
         $Haitham->name        = "Haitham";
         $Haitham->email       = "Haitham@gmail.com";
         $Haitham->email_verified_at=now();
-        $Haitham->password    = Hash::make('123');
+        $Haitham->password    =Hash::make('123456');
         $Haitham->is_active   = 1;
         $Haitham->created_at  = now();
         $Haitham->updated_at  = now();
