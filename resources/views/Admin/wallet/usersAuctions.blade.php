@@ -65,9 +65,9 @@
                                 <tr class="border-bottom">
                                     <td>
                                         <div class="p-2">
-                                            <small>{{ now()->locale('ar')->dayName }}</small>
+                                            <small>{{ $bill->contract->created_at->locale('ar')->dayName }}</small>
                                             <br>
-                                            <small>{{ now()->format('d-m-Y') }}</small>
+                                            <small>{{ $bill->contract->created_at->format('d-m-Y') }}</small>
                                         </div>
                                     </td>
                                     <td>

@@ -106,30 +106,48 @@
                                                         @elseif($bid->auction->status == '3')
                                                             <span class="text-success">أُلغي المزاد</span>
                                                         @elseif ($bid->auction->status == '4' || $bid->auction->status == '5')
-                                                            <div class="d-flex justify-content-center">
-                                                                @if (!isset($bid->payment_bill))
-                                                                    <span class="text-success">نعم</span>
-                                                                @else
-                                                                    @if (isset($bid->payment_bill) && $bid->payment_bill->payment_status == 0)
-                                                                        <form
-                                                                            action="{{ route('user.buy.auction', $bid->auction->id) }}"
-                                                                            method="POST">
-                                                                            @csrf
-                                                                            <input type="hidden" name="next_url"
-                                                                                value="{{ $bid->auction->next_url }}">
-                                                                            <span class="text-success">نعم، </span>
-                                                                            <input type="submit"
-                                                                                class="btn bg-main-color text-white"
-                                                                                value="شراء">
-                                                                        </form>
+                                                            @if ($bid->auction->winner_id == Auth::id())
+                                                                <div class="d-flex justify-content-center">
+                                                                    @if (!isset($bid->payment_bill))
+                                                                        <span class="text-success">نعم</span>
                                                                     @else
-                                                                        <a href="{{ route('do.contract', $bid->payment_bill->id) }}"
-                                                                            class="btn bg-main-color text-white">
-                                                                            توقيع العقد
-                                                                        </a>
+                                                                        <span class="text-success">نعم، </span>
+                                                                        @if ($bid->payment_bill->payment_status == 0)
+                                                                            {{-- <form
+                                                                                action="{{ route('user.buy.auction', $bid->auction->id) }}"
+                                                                                method="POST">
+                                                                                @csrf
+                                                                                <input type="hidden" name="next_url"
+                                                                                    value="{{ $bid->auction->next_url }}">
+                                                                                <input type="submit"
+                                                                                    class="ms-3 px-2 rouned-btn bg-main border-none"
+                                                                                    value="شراء">
+                                                                            </form> --}}
+                                                                            <a href="{{ $bid->auction->next_url }}"
+                                                                                target="_blank"
+                                                                                class="me-1 py-1 px-2 rouned-btn bg-main border-none text-decoration-none shadow">
+                                                                                شراء </a>
+                                                                        @elseif(!isset($bid->payment_bill->contract->buyer_confirm))
+                                                                            <a href="{{ route('do.contract', $bid->payment_bill->id) }}"
+                                                                                class="me-1 py-1 px-2 rouned-btn bg-main border-none text-decoration-none shadow">
+                                                                                توقيع العقد
+                                                                            </a>
+                                                                        @elseif($bid->payment_bill->contract->buyer_confirm == '0')
+                                                                            <span
+                                                                                class="me-1 py-1 px-2 rouned-btn bg-danger text-white border-none text-decoration-none">وتم
+                                                                                التراجع عن
+                                                                                الشراء من قبلك </span>
+                                                                        @elseif($bid->payment_bill->contract->buyer_confirm == '1')
+                                                                            <span
+                                                                                class="me-1 py-1 px-2 rouned-btn bg-success text-white border-none text-decoration-none">
+                                                                                وتمت البيعة
+                                                                            </span>
+                                                                        @endif
                                                                     @endif
-                                                                @endif
-                                                            </div>
+                                                                </div>
+                                                            @else
+                                                                <span class="text-danger">لا</span>
+                                                            @endif
                                                         @endif
                                                     </td>
                                                     <td>
@@ -149,12 +167,32 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
         <!-- Modal -->
-
-
         <!-- container-scroller -->
     @endsection
+    <style>
+        .rouned-btn {
+            padding: 3px 0;
+            display: inline;
+            border-radius: 25px;
+            font-size: 11px
+        }
+
+        .bg-green {
+            background-color: #d4f8f2;
+            color: #02b05c;
+        }
+
+        .bg-main {
+            background-color: #f79522;
+            color: white;
+        }
+
+        .p-blue {
+            font-size: 12px;
+            color: #1976d2
+        }
+
+    </style>

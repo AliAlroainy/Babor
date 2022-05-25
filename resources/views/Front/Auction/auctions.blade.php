@@ -528,7 +528,7 @@
                                                                     style="font-size: 12px ;"></i>
                                                             </a>
                                                         @else
-                                                            <span class="bg-success"> في انتظار دفع المزايد
+                                                            <span class="my-1 alert alert-warning"> في انتظار دفع المزايد
                                                                 الفائز</span>
                                                         @endif
                                                     @endif
