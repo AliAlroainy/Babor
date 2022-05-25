@@ -211,6 +211,8 @@ Route::group(['middleware'=>'auth'],function(){
 
             Route::get('/do-contract/{bill_id}', [ContractController::class, 'doContract'])->name('do.contract');
             Route::post('/confirm/{bill_id}', [ContractController::class, 'contract'])->name('confirm');
+            Route::get('/notifications/remove-all',[\App\Http\Controllers\Notifications\NotificationController::class,'removeAll']);
+
         });
 
 //chat Router

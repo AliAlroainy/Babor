@@ -280,6 +280,18 @@
                                                         </div>
                                                     </a>
                                                 </li>
+                                            @elseif($notification->type == 4)
+                                                <li>
+                                                    <a href="#" class="remove" title="Remove this item"><i
+                                                            class="fa fa-remove"></i></a>
+                                                    <a
+                                                        href="{{ url('user/auction/details') }}/{{ $notification->link }}">
+                                                        <div class="quantity text-dark">
+                                                            <h4 class="fw-bold mb-0"> {{ $notification->message }}
+                                                            </h4>
+                                                        </div>
+                                                    </a>
+                                                </li>
                                             @else
                                                 <li>
                                                     <a href="/notifications/disable/{{ $notification->id }}"
