@@ -88,7 +88,38 @@
                                 <div class="row" id="list">
                                     <section class="shop-home-list section">
                                         <div class="container" dir="rtl">
-                                          
+                                            <div class="row">
+                                            @foreach($auctionmore as $auction)
+                                                <div class="col-lg-4 col-md-6 col-12">
+
+                                                    <!-- Start Single List  -->
+
+                                                    <div class="single-list">
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-12">
+                                                                <div class="list-image overlay">
+                                                                    <img src="images/cars/{{ $auction->car->thumbnail }}" alt="#">
+                                                                    <a href="#" class="buy"><i
+                                                                            class="fa fa-shopping-bag"></i></a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-12 no-padding">
+                                                                <div class="content">
+                                                                    <h4 class="title"><a href="#">{{ $auction->car->series->name }} {{ $auction->car->model }}</a></h4>
+                                                                    <p class="price with-discount">{{ $auction->reservePrice}}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Single List  -->
+
+                                                </div>
+                                                @endforeach
+
+                                                
+                                                
+
+                                            </div>
                                         </div>
                                     </section>
                                 </div>
