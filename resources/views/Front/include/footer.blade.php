@@ -23,9 +23,9 @@
                      <div class="single-footer links text-end">
                          <h4>معلومات</h4>
                          <ul>
-                             <li><a class="nav-link" href="/about">عننا</a></li>
-                             <li><a class="nav-link" href="/FAQ">ابرز اسئلة</a></li>
-                             <li><a class="nav-link" href="/privcey">الخصوصية</a></li>
+                             <li style="margin-bottom: -7px"><a class="nav-link" href="/about">عننا</a></li>
+                             <li style="margin-bottom: -7px"><a class="nav-link" href="/FAQ">ابرز اسئلة</a></li>
+                             <li style="margin-bottom: -7px"><a class="nav-link" href="/privcey">الخصوصية</a></li>
                          </ul>
                      </div>
                      <!-- End Single Widget -->
@@ -35,9 +35,9 @@
                      <div class="single-footer links text-end">
                          <h4>خدمة العلاء</h4>
                          <ul>
-                             <li><a class="nav-link" href="/contact">تواصل معنا</a></li>
-                             <li><a class="nav-link" href="/soon">طرق الدفع</a></li>
-                             <li><a class="nav-link" href="/soon">الشحن</a></li>
+                             <li style="margin-bottom: -7px"><a class="nav-link" href="/contact">تواصل معنا</a></li>
+                             <li style="margin-bottom: -7px"><a class="nav-link" href="/soon">طرق الدفع</a></li>
+                             <li style="margin-bottom: -7px"><a class="nav-link" href="/soon">الشحن</a></li>
                          </ul>
                      </div>
                      <!-- End Single Widget -->
@@ -202,6 +202,7 @@
 
      function getAuctions(page) {
          var search = $('#search').val();
+         alert(search);
          // Search on based of country
          //  var selectedBrand = $("#brand option:selected").val();
          $.ajax({

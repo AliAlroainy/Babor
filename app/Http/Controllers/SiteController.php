@@ -151,7 +151,7 @@ class SiteController extends Controller
         $review->comments= $request->comment;
         $review->star_rating = $request->rating;
         $review->save();
-        return redirect()->back()->  with(['successAdd'=>'تم الاحتفاظ بتقييمك شكرا لك']);
+        return redirect()->back()->with(['successAdd'=>'تم الاحتفاظ بتقييمك شكرا لك']);
         return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);}
   
 

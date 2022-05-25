@@ -32,9 +32,10 @@
                 <!-- Start Single Service -->
 
                 <div class="single-service">
-                    <div> <i class="ti-rocket"></i> </div>
+                  
 
-                    <div>
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                        <i class="ti-rocket"></i>
                         <h4>خدمة سريعة</h4>
                         <p>نوفر عليك مجهود البحث</p>
                     </div>
@@ -76,9 +77,10 @@
 
 
 <div id="filterAuction">
-    @include('Front.include.produacts')
+    @include('Front.include.produacts');
 </div>
 
+{{-- @include('Front.include.produacts') --}}
 
 <div class="section-title mb-1">
     <h2>اشهر العلامات التجارية</h2>
@@ -389,11 +391,35 @@
 
         <div class="swiper-container" id="swiper-3d-coverflow-effect">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image:url(img/c1.jpg)"> لاندكروسر 2020</div>
-                <div class="swiper-slide" style="background-image:url(img/c2.webp)">كيا</div>
-                <div class="swiper-slide" style="background-image:url(img/c3.jpg)"> سوناتا</div>
-                <div class="swiper-slide" style="background-image:url(img/c4.jpg)">هونداي</div>
-                <div class="swiper-slide" style="background-image:url(img/c5.jpg)">فورد</div>
+                <div class="swiper-slide" style="background-image:url(img/c1.jpg)"> 
+                    <a href="#" >
+                    <p style="background-color: rgba(0, 0, 0, 0.561); height: 50px; color: aliceblue" class="m-3 d-flex align-items-center justify-content-center"> لاندكروسر 2020 </p>
+                    </a>
+                </div>
+                <div class="swiper-slide" style="background-image:url(img/c2.webp)">
+                    <a href="#" >
+                    <p style="background-color: rgba(0, 0, 0, 0.561); height: 50px; color: aliceblue" class="m-3 d-flex align-items-center justify-content-center"> كيا 2020 </p>
+                </a>
+                </div>
+                <div class="swiper-slide" style="background-image:url(img/c3.jpg)">
+                    <a href="#" >
+                    <p style="background-color: rgba(0, 0, 0, 0.561); height: 50px; color: aliceblue" class="m-3 d-flex align-items-center justify-content-center"> سوناتا </p>
+                </a>
+
+                </div>
+                <div class="swiper-slide" style="background-image:url(img/c4.jpg)">
+                    <a href="#" >
+                    <p style="background-color: rgba(0, 0, 0, 0.561); height: 50px; color: aliceblue" class="m-3 d-flex align-items-center justify-content-center"> هونداي  </p>
+                </a>
+
+                </div>
+                <div class="swiper-slide" style="background-image:url(img/c5.jpg)">
+                    <a href="#" >
+
+                    <p style="background-color: rgba(0, 0, 0, 0.561); height: 50px; color: aliceblue" class="m-3 d-flex align-items-center justify-content-center"> فورد  </p>
+                </a>
+
+                </div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
