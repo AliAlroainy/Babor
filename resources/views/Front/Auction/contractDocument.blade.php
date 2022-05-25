@@ -1,20 +1,26 @@
 @include('Front.include.header')
 <div class="container mb-5" dir="rtl">
     <div class="d-flex justify-content-center">
-        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_cyn8dgwy.json" background="transparent"
-            speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
-        {{-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1dlnyjbb.json" background="transparent"
-            speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player> --}}
+        @if ($buyer_confirmed == '1' && $seller_confirmed == '1')
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1dlnyjbb.json" background="transparent"
+                speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+        @else
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_cyn8dgwy.json" background="transparent"
+                speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+        @endif
+
     </div>
     <div class="text-center">
         <div class="">
             <div class="col-12">
                 <div class="section-title mt-4">
-                    <h2> تاكيد عملية الشراء </h2>
-                    {{-- <h2 > تم تاكيد عملية الشراء  </h2> --}}
-
+                    @if ($buyer_confirmed == '1' && $seller_confirmed == '1')
+                        <h2> تم تاكيد عملية الشراء </h2>
+                    @else
+                        <h2> تاكيد عملية الشراء </h2>
+                    @endif
                 </div>
             </div>
         </div>
