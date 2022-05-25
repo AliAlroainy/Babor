@@ -63,7 +63,7 @@
                 <strong>{{ $bid->auction->type_and_model() }}</strong>
                 بمواصفات كما ذكر في التفاصيل بدون اي اضرار زائدة
                 <br />
-                في المزاد رقم <strong>{{ $bid->id }}</strong> وبسعر فوز المزاد المقدر
+                في المزاد رقم <strong>{{ $bid->auction->id }}</strong> وبسعر فوز المزاد المقدر
                 <strong>{{ $bid->currentPrice }}</strong>
                 الذي تم نشره بتاريخ
                 <strong>{{ $bid->auction->startDate }}

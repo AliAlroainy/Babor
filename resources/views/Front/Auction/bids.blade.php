@@ -1,8 +1,8 @@
 @extends('partials.usermaster')
 @section('body')
 
-{{-- style --}}
-@include('Front.user.style.style')
+    {{-- style --}}
+    @include('Front.user.style.style')
 
     <div class="main-panel">
         <div class="content-wrapper" style="position: relative">
@@ -12,17 +12,17 @@
                 <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
                     <div class="cardp d-flex align-items-center justify-content-center">
                         <div class="card-body d-flex  align-items-center justify-content-center">
-    
+
                             <h1 style="margin-top:-40px">
                                 <i class="fas fa-money-bill-alt  me-3 ms-3"></i>
                                 مزايداتي
                             </h1>
-            
-                         
+
+
                         </div>
                     </div>
                 </div>
-            
+
             </div>
 
 
@@ -32,7 +32,7 @@
                         <div class="card-body">
                             <div class="col-lg-12 col-md-7 col-12 " style="direction:ltr ;margin: right 0px;">
                                 <div class="search-bar-top">
-                                   
+
                                 </div>
                             </div>
                             @if (session()->has('notFound'))
@@ -106,34 +106,30 @@
                                                         @elseif($bid->auction->status == '3')
                                                             <span class="text-success">أُلغي المزاد</span>
                                                         @elseif ($bid->auction->status == '4' || $bid->auction->status == '5')
-                                                            @if ($bid->auction->winner_id == Auth::id())
-                                                                <div class="d-flex justify-content-center">
-                                                                    @if (!isset($bid->payment_bill))
-                                                                        <span class="text-success">نعم</span>
+                                                            <div class="d-flex justify-content-center">
+                                                                @if (!isset($bid->payment_bill))
+                                                                    <span class="text-success">نعم</span>
+                                                                @else
+                                                                    @if (isset($bid->payment_bill) && $bid->payment_bill->payment_status == 0)
+                                                                        <form
+                                                                            action="{{ route('user.buy.auction', $bid->auction->id) }}"
+                                                                            method="POST">
+                                                                            @csrf
+                                                                            <input type="hidden" name="next_url"
+                                                                                value="{{ $bid->auction->next_url }}">
+                                                                            <span class="text-success">نعم، </span>
+                                                                            <input type="submit"
+                                                                                class="btn bg-main-color text-white"
+                                                                                value="شراء">
+                                                                        </form>
                                                                     @else
-                                                                        @if (isset($bid->payment_bill) && $bid->payment_bill->payment_status == 0)
-                                                                            <form
-                                                                                action="{{ route('user.buy.auction', $bid->auction->id) }}"
-                                                                                method="POST">
-                                                                                @csrf
-                                                                                <input type="hidden" name="next_url"
-                                                                                    value="{{ $bid->auction->next_url }}">
-                                                                                <span class="text-success">نعم، </span>
-                                                                                <input type="submit"
-                                                                                    class="btn bg-main-color text-white"
-                                                                                    value="شراء">
-                                                                            </form>
-                                                                        @else
-                                                                            <a href="{{ route('do.contract', $bid->payment_bill->id) }}"
-                                                                                class="btn bg-main-color text-white">
-                                                                                توقيع العقد
-                                                                            </a>
-                                                                        @endif
+                                                                        <a href="{{ route('do.contract', $bid->payment_bill->id) }}"
+                                                                            class="btn bg-main-color text-white">
+                                                                            توقيع العقد
+                                                                        </a>
                                                                     @endif
-                                                                </div>
-                                                            @else
-                                                                <span class="text-success">لا</span>
-                                                            @endif
+                                                                @endif
+                                                            </div>
                                                         @endif
                                                     </td>
                                                     <td>
