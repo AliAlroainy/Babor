@@ -54,7 +54,9 @@
 										</div>
 										<div class="col-12">
 											<div class="form-group button">
-												<button type="submit" class="btn btn-warning text-white ">ارسال الرسالة </button>
+												<button type="submit" class="btn  text-white mt-3 d-flex align-items-center justify-content-center " style="background-color: #F7941D;">
+													<i class="bi bi-send ms-2"></i>
+													ارسال الرسالة </button>
 											</div>
 										</div>
 									</div>

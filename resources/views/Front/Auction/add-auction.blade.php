@@ -226,7 +226,7 @@
                                         </div>
 
                                         <br>
-                                        <div class="col-sm-6 col-md-3 mb-4  d-flex flex-column  justify-content-center align-items-start "
+                                        <div class="col-sm-6 col-md-6 col-lg-3 mb-4  d-flex flex-column  justify-content-center align-items-start "
                                             style="height: 100px">
                                             <p class="mb-1">
                                                 <i class="bi bi-server" style="color: #F7941D"></i>
@@ -250,7 +250,7 @@
                                                 <p class="text-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
-                                        <div class="col-sm-6 col-md-3 mb-4  d-flex flex-column  justify-content-center align-items-start "
+                                        <div class="col-sm-6 col-md-6 col-lg-3 mb-4 d-flex flex-column  justify-content-center align-items-start "
                                             style="height: 100px">
                                             <p class="mb-1">
                                                 <i class="bi bi-server" style="color: #F7941D"></i>
@@ -301,7 +301,7 @@
                                             تفاصيل اضافية عن السيارة:
                                         </div>
                                         <div class="col-12 w-100  mb-4 d-flex justify-content-center align-items-center">
-                                            <textarea type="text" class="bg-transparent dark-placeholder form-control myTextarea" row="20" name="description"
+                                            <textarea type="text" class="w-100 bg-transparent dark-placeholder form-control myTextarea" row="20" name="description"
                                                 placeholder="وصف السيارة" dir="rtl"
                                                 {{ old('description') }}></textarea>
                                             @error('description')
@@ -310,9 +310,8 @@
                                         </div>
                                     </div>
                                     <div class="d-flex">
-                                        <input type="submit" class="btn btn-warning w-75 fw-bold ms-2"
-                                            value="اضافة الى المزاد" />
-                                        <input type="reset" class="btn btn-dark w-25 fw-bold" value="الغاء" />
+                                    <input type="submit" class="btn  w-75 fw-bold ms-2" style="background-color: #F7941D;" value="اضافة الى المزاد" />
+                                    <input type="reset" class="btn btn-dark w-25 fw-bold" value="الغاء" />
                                     </div>
                                 </div>
                             </form>

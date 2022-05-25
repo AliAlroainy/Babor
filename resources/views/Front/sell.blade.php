@@ -19,11 +19,18 @@
                     </div>
                 </div>
                 <div class="timeline-content">
-                    <h5 class="title"> قم بالتسجيل بالموقع</h5>
-                    <p class="description">
-                        من خلال صفحة التسجيل بالموقع ستقوم بخطوات بسيطة
-                    </p>
-                    <img src="img/Reg.png" width="300" height="300" alt="first">
+                    @if (Auth::user())
+                        <h5 class="title">لقد قمت بأول خطوة</h5>
+                        <p class="description">
+                            أول خطوة هي التسجيل بالموقع وتسجيل الدخول
+                        </p>
+                    @else
+                        <h5 class="title"> قم بالتسجيل بالموقع</h5>
+                        <p class="description">
+                            من خلال صفحة التسجيل بالموقع ستقوم بخطوات بسيطة
+                        </p>
+                        <img src="img/Reg.png" width="300" height="300" alt="first">
+                    @endif
                 </div>
             </div>
             <!-- end experience section-->
@@ -31,9 +38,9 @@
             <div class="container ">
                 <div class="main-timeline">
 
-                
 
-                  
+
+
 
                     <!-- start experience section-->
                     <div class="timeline">
@@ -80,20 +87,19 @@
                 </div>
             </div>
 
-   
+
         </div>
     </div>
 
     <section class="  ">
         <div class="container">
-            <div class="row align-items-center fixed-bottom" >
+            <div class="row align-items-center fixed-bottom">
                 <div class="col-md-8 offset-md-2 col-xs-12">
                     <div class="section-title mb-60">
                         @if (!Auth::user())
-                            <div class="col-12 d-inline-flex justify-content-center my-3" >
+                            <div class="col-12 d-inline-flex justify-content-center my-3">
                                 <div class="form-group" style="background-color: #F7941D;">
-                                    <a  href="{{ route('login') }}" class="btn p-3 "
-
+                                    <a href="{{ route('login') }}" class="btn p-3 "
                                         style="background-color: #1a1a19; color: #F7941D; box-shadow: 0px 0px 15px #F7941D">
                                         <h6 class="text-white wow fadeInUp" data-wow-delay=".4s"
                                             style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
@@ -105,9 +111,10 @@
                             </div>
                         @else
                             <div class="col-12 d-inline-flex justify-content-center fixed-bottom">
-                                <div class="form-group" style="background-color: #F7941D;  box-shadow: 0px 0px 15px #F7941D">
+                                <div class="form-group"
+                                    style="background-color: #F7941D;  box-shadow: 0px 0px 15px #F7941D">
                                     <a href="{{ route('user.add.auction') }}" class="btn p-3"
-                                    style="background-color: #1a1a19; color: #F7941D;">ابدأ الآن</a>
+                                        style="background-color: #1a1a19; color: #F7941D;">ابدأ الآن</a>
                                 </div>
                             </div>
                         @endif

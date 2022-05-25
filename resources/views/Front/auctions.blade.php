@@ -67,13 +67,10 @@
                                             </div>
                                         @endif
                                     @endforeach
-
                                 </div>
                             </div>
                         </div>
                         <!--/ End cars Single Tab -->
-
-
                     </div>
                 </div>
             </div>

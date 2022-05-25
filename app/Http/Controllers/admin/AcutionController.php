@@ -38,25 +38,13 @@ class AcutionController extends Controller
     }
 
     public function indexWithFilter(Request $request){
-        $brands = Brand::where('is_active', 1)->select('id', 'name')->get();
-        $series = Series::where('is_active', 1)->select('id', 'name')->get();
-
-        $q = DB::table('auctions');
-        if($request->has('status'))
-             $q->where('status', $request->status);
-
-        if($request->has('brand'))
-             $q->where('id', $request->brand);
-
-        if($request->has('series'))
-            $q->where('id', $request->series);
-        $auctions = $q->get();
-        return view('Admin.auctions.auctions')->with([
-            'auctions'=> $auctions,
-            'brands'  => $brands,
-            'series'  => $series
-            ]
-        );
+        $query = $request->search_query;
+        // $brand = $request->brand;=
+        if($request->ajax()){
+            $auctions = Auction::getAuctions($query);
+        // return response($auctions);// 
+        view('Front.auctions')->with(['auctions' => $auctions, 'title' => 'نتائج الفلترة'])->render();
+        }
     }
     public function action(Request $request, $id)
     {

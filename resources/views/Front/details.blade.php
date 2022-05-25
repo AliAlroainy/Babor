@@ -227,6 +227,7 @@
                                 <h5 class="modal-title" id="exampleModalLabel1">مزايدة</h5>
                             </div>
                             <div class="mt-4 modal-body">
+                                
                                 <div class="qty-label">
                                     سعر المزايدة
                                     <div class="input-n">
@@ -241,8 +242,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-dark">تاكيد</button>
-                                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">الغاء الامر
+                                <button type="submit" class="btn " style="background-color: #F7941D;">تاكيد</button>
+                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">الغاء الامر
                                 </button>
                             </div>
                         </div>
@@ -268,7 +269,11 @@
                                 <!-- product tab nav -->
                                 <ul class="tab-nav">
                                     <li class="active"><a data-toggle="tab" href="#tab3">التقييمات
-                                            ({{ $totalstar }})</a></li>
+                                    @if ($count == 0.02)
+                                                        <span>0</span>
+                                                        @else
+                                                        <span>{{$count}}</span>
+                                                        @endif</a></li>
 
                                 </ul>
                                 <!-- /product tab nav -->
@@ -286,7 +291,11 @@
                                             <div class="col-md-3">
                                                 <div id="rating">
                                                     <div class="rating-avg">
-                                                        <span>{{ $totalstar }}</span>
+                                                        @if ($totalstar == 0.02)
+                                                        <span>0</span>
+                                                        @else
+                                                        <span>{{$totalstar}}</span>
+                                                        @endif
                                                         <div class="rating-stars">
                                                             @for ($i = 1; $i <= $total; $i++)
                                                                 <i class="fa fa-star"></i>

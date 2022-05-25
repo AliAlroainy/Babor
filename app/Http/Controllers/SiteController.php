@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Auction;
 use Illuminate\Http\Request;
 use App\Models\service;
@@ -49,12 +49,14 @@ class SiteController extends Controller
         /**
          * Preparing the reviews in that auction
          */
-        $total= ReviewRating::get()->count();
-        $oneStar = ReviewRating::where('star_rating', 1)->get()->count();
-        $towStar = ReviewRating::where('star_rating', 2)->get()->count();
-        $threeStar = ReviewRating::where('star_rating', 3)->get()->count();
-        $fourStar = ReviewRating::where('star_rating',4)->get()->count();
-        $fiveStar = ReviewRating::where('star_rating', 5)->get()->count();
+        $found = Auction::find($id);
+        $count= ReviewRating::where('user_id',$found->user->id)->get()->count();
+        $total= ReviewRating::where('user_id',$found->user->id)->get()->sum('star_rating');
+        $oneStar = ReviewRating::where('star_rating', 1)->where('user_id', $found->user->id)->get()->count();
+        $towStar = ReviewRating::where('star_rating', 2)->where('user_id',$found->user->id)->get()->count();
+        $threeStar = ReviewRating::where('star_rating', 3)->where('user_id',$found->user->id)->get()->count();
+        $fourStar = ReviewRating::where('star_rating',4)->where('user_id',$found->user->id)->get()->count();
+        $fiveStar = ReviewRating::where('star_rating', 5)->where('user_id',$found->user->id)->get()->count();
         $auctionAvilabel = Auction::whereDate('closeDate', '>', now())->where('status', '2')->get();
 
         if ($total>0){
@@ -63,11 +65,11 @@ class SiteController extends Controller
             $threePrsent=$threeStar/$total*100;
             $fourPrsent=$fourStar/$total*100;
             $fivePrsent=$fiveStar/$total*100;
-            $avg=round($total/5);
-            $avgBeforRound=$total/5;
+            $avg=round($total/$count);
+            $avgBeforRound=$total/$count;
         }
         else{
-            $total=.0001; 
+            $total=.1; 
             $onePrsent=$oneStar/$total*100;
             $towPrsent=$towStar /$total*100;
             $threePrsent=$threeStar/$total*100;
@@ -79,7 +81,6 @@ class SiteController extends Controller
         /**
          * Preparing the auction details
          */
-        $found = Auction::find($id);
         if($found){
             $auction = Auction::whereId($id)
                                 ->whereNotIn('status', ['0','1'])
@@ -107,7 +108,8 @@ class SiteController extends Controller
                         'fiveStar'=>$fiveStar,
                         'total'=>$avg,
                         'totalstar'=>$avgBeforRound,  
-                        'auctionsAvilabel'=>$auctionAvilabel,   
+                        'auctionsAvilabel'=>$auctionAvilabel,
+                        'count'=>$count,   
                 ] );
             }
         }
@@ -149,7 +151,7 @@ class SiteController extends Controller
         $review->comments= $request->comment;
         $review->star_rating = $request->rating;
         $review->save();
-        return redirect()->back()->  with(['successAdd'=>'تم الاحتفاظ بتقييمك شكرا لك']);
+        return redirect()->back()->with(['successAdd'=>'تم الاحتفاظ بتقييمك شكرا لك']);
         return back()->with(['errorAdd'=>'حدث خطأ، حاول مرة أخرى']);}
   
 
@@ -157,6 +159,7 @@ class SiteController extends Controller
         public function availableOffer(){
             // available = not-expired + progress
             $auctions = Auction::whereDate('closeDate', '>', now())->where('status', '2')->get();
-            return view('Front.offer')->with(['auctions' => $auctions, 'title' => 'المزادات الحالية']);
+            $auctionmore = Auction::whereDate('closeDate', '>', now())->where('status', '2')->get()->take('3');
+            return view('Front.offer')->with(['auctions' => $auctions, 'title' => 'المزادات الحالية','auctionmore'=>$auctionmore]);
         }
     }

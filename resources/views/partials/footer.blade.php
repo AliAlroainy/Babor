@@ -82,7 +82,7 @@
             }
         });
         $.ajax({
-            url: "{{ route('admin.auction.indexFilter') }}",
+            url: "{{ route('auction.filter') }}",
             type: "GET",
             data: {
                 _token: $('meta[name="csrf-token"]').attr('content'),
@@ -110,65 +110,64 @@
 <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
 <script src="https://unpkg.com/filepond/dist/filepond.js"></script> --}}
 <script>
-//     // register the plugins with FilePond
-// FilePond.registerPlugin(
-//   FilePondPluginImagePreview,
-//   FilePondPluginImageResize,
-//   FilePondPluginImageTransform,
+    //     // register the plugins with FilePond
+    // FilePond.registerPlugin(
+    //   FilePondPluginImagePreview,
+    //   FilePondPluginImageResize,
+    //   FilePondPluginImageTransform,
 
-// );
+    // );
 
 
 
-                // Basic
-                $('.dropify').dropify();
+    // Basic
+    $('.dropify').dropify();
 
-                // Translated
+    // Translated
 
-$('.dropify').dropify({
-    messages: {
-        'default': 'قم بسحب وإسقاط ملف هنا أو انقر',
-        'replace': 'قم بسحب وإسقاط ملف هنا أو انقر لاستبداله',
-        'remove':  'احذف',
-        'error':   'خطا، حاول مره اخري'
-    }
+    $('.dropify').dropify({
+        messages: {
+            'default': 'قم بسحب وإسقاط ملف هنا أو انقر',
+            'replace': 'قم بسحب وإسقاط ملف هنا أو انقر لاستبداله',
+            'remove': 'احذف',
+            'error': 'خطا، حاول مره اخري'
+        }
 
-});
+    });
 
-// // const inputElement = document.querySelector('input[type="file"]');
-// // const pond = FilePond.create(inputElement);
+    // // const inputElement = document.querySelector('input[type="file"]');
+    // // const pond = FilePond.create(inputElement);
 
-//     const inputElement = document.querySelector('input[type="file"]');
-//     const pond = FilePond.create(inputElement, {
-//   imageResizeTargetWidth:256,
-//   // set contain resize mode
-// //   imageResizeMode: 'contain',
+    //     const inputElement = document.querySelector('input[type="file"]');
+    //     const pond = FilePond.create(inputElement, {
+    //   imageResizeTargetWidth:256,
+    //   // set contain resize mode
+    // //   imageResizeMode: 'contain',
 
-//   // add onaddfile callback
-//   onaddfile: (err, fileItem) => {
-//     console.log(err, fileItem.getMetadata('resize'));
-//   },
+    //   // add onaddfile callback
+    //   onaddfile: (err, fileItem) => {
+    //     console.log(err, fileItem.getMetadata('resize'));
+    //   },
 
-//   // add onpreparefile callback
-//   onpreparefile: (fileItem, output) => {
-//     // create a new image object
-//     const img = new Image();
+    //   // add onpreparefile callback
+    //   onpreparefile: (fileItem, output) => {
+    //     // create a new image object
+    //     const img = new Image();
 
-//     // set the image source to the output of the Image Transform plugin
-//     img.src = URL.createObjectURL(output);
+    //     // set the image source to the output of the Image Transform plugin
+    //     img.src = URL.createObjectURL(output);
 
-//     // add it to the DOM so we can see the result
-//     document.body.appendChild(img);
-//   }
+    //     // add it to the DOM so we can see the result
+    //     document.body.appendChild(img);
+    //   }
 
-// });
-     </script>
+    // });
+</script>
 <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
-{{-- <script src="/js/Notifications/notifications.js"></script>--}}
+{{-- <script src="/js/Notifications/notifications.js"></script> --}}
 <script>
-
-    var pusher = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
-        cluster: '{{env("PUSHER_APP_CLUSTER")}}',
+    var pusher = new Pusher('{{ env('MIX_PUSHER_APP_KEY') }}', {
+        cluster: '{{ env('PUSHER_APP_CLUSTER') }}',
         encrypted: true
     });
 
@@ -177,9 +176,9 @@ $('.dropify').dropify({
 
     channel.bind('App\\Events\\Notify', function(data) {
         let node = document.createElement('li');
-        if( data.user_id.toString() =="{!! Auth::id() !!}" && data.type == 1 ) {
+        if (data.user_id.toString() == "{!! Auth::id() !!}" && data.type == 1) {
             // if( data.type == 1 ) {
-            node.innerHTML =`
+            node.innerHTML = `
                 <span class="dropdown-item">
                     <span class="cart-img ms-2" ><img src="/images/cars/${data.thumbnail}" alt="#"></span>
                     <a class="quantity text-dark" href="auction/${data.link}">
@@ -189,17 +188,17 @@ $('.dropify').dropify({
                     </a>
                 </span>
 `;
-{{--            alert({!! \Illuminate\Support\Facades\Auth::id() !!})--}}
-//             document.getElementById('dropdown-menu').append(node);
+            {{-- alert({!! \Illuminate\Support\Facades\Auth::id() !!}) --}}
+            //             document.getElementById('dropdown-menu').append(node);
             let menu = document.getElementById('dropdown-menu');
             insertAfter(node, menu.firstElementChild)
 
         }
 
-        if( data.user_id.toString() =="{!! Auth::id() !!}" && data.type == 2 ) {
-            node.innerHTML =`
+        if (data.user_id.toString() == "{!! Auth::id() !!}" && data.type == 2) {
+            node.innerHTML = `
                 <span class="dropdown-item">
-                    <a class="quantity text-dark" href="{{ url('user/auction/details')}}/${data.link}">
+                    <a class="quantity text-dark" href="{{ url('user/auction/details') }}/${data.link}">
                         <p class="fw-bold m-0"> ${data.message}</p>
                     </a>
                 </span>
@@ -208,10 +207,10 @@ $('.dropify').dropify({
             let menu = document.getElementById('dropdown-menu');
             insertAfter(node, menu.firstElementChild)
         }
-        if( data.type == 3 ) {
-            node.innerHTML =`
+        if (data.type == 3) {
+            node.innerHTML = `
                 <span class="dropdown-item">
-                        <a class="quantity text-dark" href="{{ url('user/auction/details')}}/${data.link}">
+                        <a class="quantity text-dark" href="{{ url('user/auction/details') }}/${data.link}">
                         <p class="fw-bold m-0"> ${data.message}</p>
                         <p class="m-0">إضغط لمعرفة السبب</p>
                     </a>
@@ -228,7 +227,7 @@ $('.dropify').dropify({
             node = document.createElement('li');
             node.innerHTML =`
                 <span class="dropdown-item">
-                        <a class="quantity text-dark" href="{{ url('user/auction/details')}}/${data.link}">
+                        <a class="quantity text-dark" href="{{ url('user/auction/details') }}/${data.link}">
                         <p class="fw-bold m-0"> ${data.message}</p>
                     </a>
                 </span>
@@ -237,25 +236,12 @@ $('.dropify').dropify({
             let menu = document.getElementById('dropdown-menu');
             insertAfter(node, menu.firstElementChild)
         }
-{{--        if( data.user_id.toString() === "{!! Auth::id() !!}" &&  && data.winner_id.toString() != "{!! Auth::id() !!}" && data.type == 6) {--}}
-{{--            --}}{{--alert(data.user_id.toString() != "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "");--}}
-{{--            node = document.createElement('li');--}}
-{{--            node.innerHTML =`--}}
-{{--                <span class="dropdown-item">--}}
-{{--                        <a class="quantity text-dark" href="{{ url('user/auction/details')}}/${data.link}">--}}
-{{--                        <p class="fw-bold m-0"> ${data.message}</p>--}}
-{{--                    </a>--}}
-{{--                </span>--}}
-{{--`;--}}
-{{--            let menu = document.getElementById('dropdown-menu');--}}
-{{--            insertAfter(node, menu.firstElementChild)--}}
-{{--        }--}}
 
         if( data.user_id.toString() == "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != 1 && "{!! Auth::id() !!}" != "" && data.type == 7) {
             node = document.createElement('li');
-            node.innerHTML =`
+            node.innerHTML = `
                 <span class="dropdown-item">
-                        <a class="quantity text-dark" href="{{ url('user/auction/details')}}/${data.link}">
+                        <a class="quantity text-dark" href="{{ url('user/auction/details') }}/${data.link}">
                         <p class="fw-bold m-0"> ${data.message}</p>
                     </a>
                 </span>
@@ -269,15 +255,15 @@ $('.dropify').dropify({
 
     channel2.bind('App\\Events\\Notify', function(data) {
         var node = document.createElement('li');
-        node.innerHTML =`
+        node.innerHTML = `
                 <span class="dropdown-item">
-                    <a class="quantity text-dark" href="{{ url('user/auction/details')}}/${data.link}">
+                    <a class="quantity text-dark" href="{{ url('user/auction/details') }}/${data.link}">
                         <p class="fw-bold m-0"> ${data.message}</p>
                     </a>
                 </span>
 `;
-        if( data.user_id.toString() == "{!! Auth::id() !!}") {
-            {{--alert("{!! Auth::id() !!}");--}}
+        if (data.user_id.toString() == "{!! Auth::id() !!}") {
+            {{-- alert("{!! Auth::id() !!}"); --}}
             // document.getElementById('dropdown-menu').append(node);
             let menu = document.getElementById('dropdown-menu');
             insertAfter(node, menu.firstElementChild)
