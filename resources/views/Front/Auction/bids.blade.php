@@ -1,8 +1,8 @@
 @extends('partials.usermaster')
 @section('body')
 
-{{-- style --}}
-@include('Front.user.style.style')
+    {{-- style --}}
+    @include('Front.user.style.style')
 
     <div class="main-panel">
         <div class="content-wrapper" style="position: relative">
@@ -12,17 +12,17 @@
                 <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
                     <div class="cardp d-flex align-items-center justify-content-center">
                         <div class="card-body d-flex  align-items-center justify-content-center">
-    
+
                             <h1 style="margin-top:-40px">
                                 <i class="fas fa-money-bill-alt  me-3 ms-3"></i>
                                 مزايداتي
                             </h1>
-            
-                         
+
+
                         </div>
                     </div>
                 </div>
-            
+
             </div>
 
 
@@ -32,7 +32,7 @@
                         <div class="card-body">
                             <div class="col-lg-12 col-md-7 col-12 " style="direction:ltr ;margin: right 0px;">
                                 <div class="search-bar-top">
-                                   
+
                                 </div>
                             </div>
                             @if (session()->has('notFound'))
@@ -111,28 +111,42 @@
                                                                     @if (!isset($bid->payment_bill))
                                                                         <span class="text-success">نعم</span>
                                                                     @else
-                                                                        @if (isset($bid->payment_bill) && $bid->payment_bill->payment_status == 0)
-                                                                            <form
+                                                                        <span class="text-success">نعم، </span>
+                                                                        @if ($bid->payment_bill->payment_status == 0)
+                                                                            {{-- <form
                                                                                 action="{{ route('user.buy.auction', $bid->auction->id) }}"
                                                                                 method="POST">
                                                                                 @csrf
                                                                                 <input type="hidden" name="next_url"
                                                                                     value="{{ $bid->auction->next_url }}">
-                                                                                <span class="text-success">نعم، </span>
                                                                                 <input type="submit"
-                                                                                    class="btn bg-main-color text-white"
+                                                                                    class="ms-3 px-2 rouned-btn bg-main border-none"
                                                                                     value="شراء">
-                                                                            </form>
-                                                                        @else
+                                                                            </form> --}}
+                                                                            <a href="{{ $bid->auction->next_url }}"
+                                                                                target="_blank"
+                                                                                class="me-1 py-1 px-2 rouned-btn bg-main border-none text-decoration-none shadow">
+                                                                                شراء </a>
+                                                                        @elseif(!isset($bid->payment_bill->contract->buyer_confirm))
                                                                             <a href="{{ route('do.contract', $bid->payment_bill->id) }}"
-                                                                                class="btn bg-main-color text-white">
+                                                                                class="me-1 py-1 px-2 rouned-btn bg-main border-none text-decoration-none shadow">
                                                                                 توقيع العقد
                                                                             </a>
+                                                                        @elseif($bid->payment_bill->contract->buyer_confirm == '0')
+                                                                            <span
+                                                                                class="me-1 py-1 px-2 rouned-btn bg-danger text-white border-none text-decoration-none">وتم
+                                                                                التراجع عن
+                                                                                الشراء من قبلك </span>
+                                                                        @elseif($bid->payment_bill->contract->buyer_confirm == '1')
+                                                                            <span
+                                                                                class="me-1 py-1 px-2 rouned-btn bg-success text-white border-none text-decoration-none">
+                                                                                وتمت البيعة
+                                                                            </span>
                                                                         @endif
                                                                     @endif
                                                                 </div>
                                                             @else
-                                                                <span class="text-success">لا</span>
+                                                                <span class="text-danger">لا</span>
                                                             @endif
                                                         @endif
                                                     </td>
@@ -153,12 +167,32 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
         <!-- Modal -->
-
-
         <!-- container-scroller -->
     @endsection
+    <style>
+        .rouned-btn {
+            padding: 3px 0;
+            display: inline;
+            border-radius: 25px;
+            font-size: 11px
+        }
+
+        .bg-green {
+            background-color: #d4f8f2;
+            color: #02b05c;
+        }
+
+        .bg-main {
+            background-color: #f79522;
+            color: white;
+        }
+
+        .p-blue {
+            font-size: 12px;
+            color: #1976d2
+        }
+
+    </style>

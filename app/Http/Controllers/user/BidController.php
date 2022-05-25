@@ -15,7 +15,7 @@ class BidController extends Controller
 {
     public function index(){
         try{
-            $bids = Bid::where('bidder_id', Auth::id())->with('auction')->get();
+            $bids = Bid::where('bidder_id', Auth::id())->with('auction')->orderBy('id', 'desc')->get();
             return view('Front.Auction.bids')->with('bids',$bids);
         }
         catch (Throwable $th) {

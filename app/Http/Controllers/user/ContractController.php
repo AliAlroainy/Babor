@@ -28,7 +28,7 @@ class ContractController extends Controller
         else if($is_seller)
             $user = 'seller';
 
-        if($is_buyer || $is_seller || User::first()){
+        if($is_buyer || $is_seller || Auth::user() == User::first()){
             $bid = $bill->bid;
             $buyer_confirmed = null;
             $seller_confirmed = null;

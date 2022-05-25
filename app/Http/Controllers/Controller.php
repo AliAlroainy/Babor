@@ -21,10 +21,11 @@ class Controller extends BaseController
         $auction = $bill->bid->auction;
         $seller = $auction->user;
         $money = $bill->bid->currentPrice;
-        $commission = $money/10;
+        $commission = $money/10.0;
         $auction_id = $auction->id;
         $bill->contract::siteDeduction($auction_id, $commission);
         $seller_dues = $money-($commission);
+        User::first()->transfer(User::first(), $commission, ['commission' => $bill->id]); 
         User::first()->transfer($seller, $seller_dues, ['sell' => $bill->id]);
         Auction::whereId($bill->bid->auction->id)->update(['status' => '5']);
         return redirect()->back();
@@ -35,10 +36,11 @@ class Controller extends BaseController
         $auction = $bill->bid->auction;
         $seller = $auction->user;
         $money = $bill->bid->currentPrice;
-        $commission = $money/10;
+        $commission = $money/10.0;
         $auction_id = $auction->id;
         $bill->contract::siteDeduction($auction_id, $commission);
         $seller_dues = $money-($commission);
+        User::first()->transfer(User::first(), $commission, ['commission' => $bill->id]); 
         User::first()->transfer($seller, $seller_dues, ['sell' => $bill->id]);
         Auction::whereId($bill->bid->auction->id)->update(['status' => '5']);
         return redirect()->back();
