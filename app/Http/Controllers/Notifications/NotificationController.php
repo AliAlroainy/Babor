@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Pusher\Pusher;
 use App\Models\Notification;
+use function Symfony\Component\String\u;
+
 class NotificationController extends Controller
 {
     public function notification(Auction $auction)
@@ -228,7 +230,7 @@ class NotificationController extends Controller
         $car = Car::where('id',$auction->car_id)->first();
         $user=User::where('id',)->first();
         $notification = Notification::create([
-            'message' => "لقد فزت بمزاد سيارة",
+            'message' => "لقد فزت بمزاد سيارة 🥳",
             'user_id' => $winner_id ,
             'state' => 1,
             'link' => $auction->id,
@@ -243,7 +245,7 @@ class NotificationController extends Controller
         $data['type'] = $notification->type;
 
 
-        $pusher->trigger('notify-channel2', 'App\\Events\\Notify', $data);
+        $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
     }
     public function refundBidders(Auction $auction, $winner_id,$id){
         $options = array(
@@ -260,27 +262,33 @@ class NotificationController extends Controller
         $notification = new Notification();
         $car = Car::where('id',$auction->car_id)->first();
         $user=User::where('id',)->first();
-        $notification = Notification::create([
-            'message' => "تم إرساء مزاد اشتركت فيه, لم تفز 😥",
-            'user_id' => $winner_id ,
-            'state' => 1,
-            'link' => $auction->id,
-            'type'=> 6,
-            'price' => $auction->openingBid,
-            'closeDate' => $auction->closeDate,
-            'thumbnail' => $car->thumbnail
-        ]);
 
-        $data['message'] = $notification->message;
-        $data['link'] = $auction->id;
-        $data['admin_id'] = 1;
-        $data['winner_id'] = $winner_id;
-        $data['type'] = $notification->type;
+
 
         $bidders = Auction::find($id)->bids;
         foreach(range (0, count($bidders)-1) as $i){
-            $data['user_id'] = $bidders[$i]->user->id;
-        $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
+            if($bidders[$i]->user->id != $winner_id && $bidders[$i]->user->id != 1 ) {
+
+
+                $notification = Notification::create([
+                    'message' => "تم إرساء مزاد اشتركت فيه, لم تفز 😥",
+                    'user_id' => $bidders[$i]->user->id,
+                    'state' => 1,
+                    'link' => $auction->id,
+                    'type'=> 6,
+                    'price' => $auction->openingBid,
+                    'closeDate' => $auction->closeDate,
+                    'thumbnail' => $car->thumbnail
+                ]);
+
+                $data['user_id'] = $bidders[$i]->user->id;
+                $data['message'] = $notification->message;
+                $data['link'] = $auction->id;
+                $data['type'] = $notification->type;
+                $pusher->trigger('notify-channel', 'App\\Events\\Notify', $data);
+
+
+            }
         }
 
     }
@@ -328,6 +336,21 @@ class NotificationController extends Controller
         $count = count($notifications);
         $notificationsData = ['count'=>$count, 'notifications' => $notifications];
         return $notificationsData;
+    }
+
+    public function removeAll()
+    {
+        $user_id = Auth::id();
+//        Notification::where('user_id',$user_id)
+//                    ->where('state',1)
+//                    ->update(['state' => 0]);
+        $notifications = Notification::where('user_id', $user_id)->where('state',1)->get();
+        foreach ($notifications as $notification) {
+            $notification->update(['state' => 0]);
+            $notification->save();
+        }
+        return redirect()->back();
+//        Notification::where('id',$user_id)->update()
     }
 
 
