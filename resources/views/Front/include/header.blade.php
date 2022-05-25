@@ -196,7 +196,7 @@
                         <div class="right-content">
                             <ul class="list-main">
                                 <li> +967 (773) 739-473 <i class="ti-headphone-alt"></i></li>
-                                <li> support@babor.com <i class="ti-email"></i></li>
+                                <li> baborproject2022@gmail.com <i class="ti-email"></i></li>
                             </ul>
                         </div>
                         <!--/ End Top right -->
@@ -427,7 +427,7 @@
                                                         class="nav-link" href="/offer">العروض</a></li>
                                                 <li class="navh {{ request()->is('services') ? 'active' : '' }}"><a
                                                         class="nav-link" href="/services">الخدمات</a></li>
-                                                <li class="navh "><a class="nav-link" href="#">شراء
+                                                <li class="navh "><a  class="nav-link" style="cursor: default" href="#">شراء
                                                         سيارة<i class="ti-angle-down p-2"></i>
                                                         <!--span class="new">جديد</span-->
                                                     </a>

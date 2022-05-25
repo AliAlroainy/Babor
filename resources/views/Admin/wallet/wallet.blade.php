@@ -27,7 +27,7 @@
  <div class="container"> 
     <div class="row">
 
-    <div class="col-md-7 col-12"> 
+    <div class="col-md-12 col-12"> 
         <div class=""> 
                 <div class="col-12 mb-4"> 
                     <div class="row box-right">
@@ -50,55 +50,80 @@
                                                      <span class="textmuted">المحفظة/</span>العمليات المالية</p>
                                                       <p class="ms-auto p-blue">  </p> 
                                                     </div> 
-                                                    <div class="bg-blue p-2 mb-3"> 
-                                                        <P class="h6 textmuted">شراء سيارة فيراري بقيمة 23421$ 
-                                                            <p class="p-blue bg btn btn-primary h7">التفاصيل</p>
-                                                         </P> 
-                                                        </div>
-                                                                                                     
-                                                        <div class="bg-blue p-2 mb-3"> 
-                                                            <P class="h6 textmuted">شراء سيارة فيراري بقيمة 23421$ 
-                                                                <p class="p-blue bg btn btn-primary h7">التفاصيل</p>
-                                                             </P> 
-                                                            </div>
-                                                               
-                                                            <div class="bg-blue p-2  mb-3"> 
-                                                                <P class="h7 textmuted">شراء سيارة فيراري بقيمة 23421$ 
-                                                                    <p class="p-blue bg btn btn-primary h6">التفاصيل</p>
-                                                                 </P> 
+
+                                                    {{-- table --}}
+
+                                                    <table class="table align-middle mb-0 bg-white">
+                                                        <thead class="bg-light">
+                                                          <tr>
+                                                            <th>#</th>
+                                                            <th>المرسل</th>
+                                                            <th>المبلغ</th>
+                                                            <th>المستفيد</th>
+                                                            <th>السبب</th>
+                                                            <th>التاريخ</th>
+                                                            <th>تفاصيل</th>
+
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                          <tr>
+                                                              <td>
+                                                                  123
+                                                              </td>
+                                                            <td>
+                                                              <div class="d-flex align-items-center justify-content-center">
+                                                                <img
+                                                                    src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                                                                    alt=""
+                                                                    style="width: 45px; height: 45px"
+                                                                    class="rounded-circle"
+                                                                    />
+                                                                <div class="ms-3">
+                                                                  <p class="fw-bold mb-1">John Doe</p>
+                                                                  <p class="text-muted mb-0">john.doe@gmail.com</p>
                                                                 </div>
-                                                                       
+                                                              </div>
+                                                            </td>
+                                                            <td>
+                                                             231531 $
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                  <img
+                                                                      src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                                                                      alt=""
+                                                                      style="width: 45px; height: 45px"
+                                                                      class="rounded-circle"
+                                                                      />
+                                                                  <div class="ms-3">
+                                                                    <p class="fw-bold mb-1">John Doe</p>
+                                                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                                                  </div>
+                                                                </div>
+                                                              </td>
+                                                            <td>Senior</td>
+                                                            <td>
+                                                           
+                                                               22-5-2020
+                                                            </td>
+                                                            <td>
+                                                                   <button type="button" class="btn btn-link btn-sm btn-rounded">
+                                                                المزاد
+                                                              </button>
+                                                               
+                                                            </td>
+                                                          </tr>
+                                                 
+                                                        </tbody>
+                                                      </table>
+                                                        
+                                                           
                                                     
                                                     </div> 
                                                 </div> 
                                                 <div class="col-12 px-0 "> 
                                                     </div> </div> </div> 
-
-
-
-        <div class="col-12 col-md-5  ps-md-5 p-0 "> 
-            <div class="box-left"> 
-                <div class="d-flex"> 
-                <i class="bi bi-receipt"></i>
-                <p class="textmuted h8 me-3">  العملية رقم : #3424</p> 
-            </div>
-                <p class="fw-bold h7">
-                    عملية ايداع </p> 
-                <p class="textmuted h8">من : ابرار الخرساني</p> 
-                <p class="textmuted h8">الى : علي الرعيني</p> 
-
-                <p class="textmuted h8 mb-2">التاريخ : 23-1-2023</p> 
-                <div class="h8"> 
-              
-                                            <div class="d-flex h7 mb-2"> 
-                                                <p class="ms-3">المبلغ :</p> 
-                                                <p class="ms-auto">
-                                                    <span class="fas fa-dollar-sign"></span>1400</p> 
-                                                </div> 
-                                                <div class="h8 mb-5"> 
-                                                    <p> التفاصيل </p>
-                                                    <p class="textmuted"> وسيلة الدفع منصة وصل  </p> 
-                                                </div> </div> 
                                                                                                                    
                                                                                                                                </div>
                                                                                                                             </div>
@@ -128,6 +153,7 @@
         
     </div>
     </div>
+
 
 
     <style>

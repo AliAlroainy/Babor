@@ -93,7 +93,7 @@
                         <li class=" me-5">
                             <a class="nav-link" href="/admin/wallet" style="font-family: Tajawal" target="_self">
                                 <i class="bi bi-cash-stack  me-2 ms-2"></i>
-                                الرصيد 
+                                الرصيد والعمليات المالية
                             </a>
                         </li>
                         <li class=" me-5">
