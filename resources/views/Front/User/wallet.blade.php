@@ -98,7 +98,7 @@
                                                 {{ $bill->bid->auction->type_and_model() }}
                                                 بقيمة
                                                 (<span class="text-danger">{{ $bill->bid->currentPrice }}</span> ر.ي)
-                                                @if ($bill->contract->buyer_confirm == '0')
+                                                @if (isset($bill->contract) && $bill->contract->buyer_confirm == '0')
                                                     <small class="text-danger">
                                                         <i class="fas fa-undo"></i>
                                                         تم التراجع
