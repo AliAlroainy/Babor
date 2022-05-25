@@ -18,8 +18,8 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <table class="table table-borderless table-responsive card-1 p-4" dir="rtl">
+            <div class="container ">
+                <table class="table table-borderless table-responsive card-1  p-4 w-100 text-center" dir="rtl">
                     <thead>
                         <tr class="border-bottom">
                             <th>
