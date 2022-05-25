@@ -159,6 +159,7 @@ class SiteController extends Controller
         public function availableOffer(){
             // available = not-expired + progress
             $auctions = Auction::whereDate('closeDate', '>', now())->where('status', '2')->get();
+            $auctionmore = Auction::whereDate('closeDate', '>', now())->where('status', '2')->get()->take('3');
             return view('Front.offer')->with(['auctions' => $auctions, 'title' => 'المزادات الحالية','auctionmore'=>$auctionmore]);
         }
     }
