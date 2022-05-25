@@ -27,7 +27,7 @@ use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\adminIndexController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\user\UserAuctionController;
-use App\Http\Controllers\admin\AdminWalletController;
+use App\Http\Controllers\admin\AdminDecision;
 use App\Http\Controllers\Authentication\authcontroller;
 use App\Http\Controllers\Admin\CarCharacteristicsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -159,11 +159,12 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/auction/details/{id}', [AcutionController::class, 'showDetails'])->name('admin.auction.details');
         Route::get('/bids', [BidsController::class, 'index'])->name('admin.bid.index');
 
-        Route::get('/walletAuctions', [AdminWalletController::class, 'manageCompletingAuction'])->name('manage.auction.payment');
-        Route::post('/sendToSeller/{bill_id}', [AdminWalletController::class, 'sendToSeller'])->name('sendToSeller');
-        Route::post('/sendToBuyer/{bill_id}', [AdminWalletController::class, 'sendToBuyer'])->name('sendToBuyer');
-        Route::post('/sellerPenalty/{bill_id}', [AdminWalletController::class, 'sellerPenalty'])->name('sellerPenalty');
-        Route::post('/buyerPenalty/{bill_id}', [AdminWalletController::class, 'buyerPenalty'])->name('buyerPenalty');
+        Route::get('/walletAuctions', [AdminDecision::class, 'manageCompletingAuction'])->name('manage.auction.payment');
+        Route::post('/sendToSeller/{bill_id}', [AdminDecision::class, 'sendToSeller'])->name('sendToSeller');
+        Route::post('/sendToBuyer/{bill_id}', [AdminDecision::class, 'sendToBuyer'])->name('sendToBuyer');
+        Route::post('/sellerPenalty/{bill_id}', [AdminDecision::class, 'sellerPenalty'])->name('sellerPenalty');
+        Route::post('/buyerPenalty/{bill_id}', [AdminDecision::class, 'buyerPenalty'])->name('buyerPenalty');
+        Route::get('/wallet/{id?}', [AdminWalletController::class, 'index'])->name('admin.wallet');
 
         Route::get('/do-contract/{bill_id}', [ContractController::class, 'doContract'])->name('show.contract');
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
