@@ -103,36 +103,31 @@
             <div class="col-xl-8 col-lg-7 col-md-7">
                 <!-- Activity Timeline -->
                 <div class="card w-100 card-action mb-4 ">
-                    <div class="card-body">
+                <div class="card-body">
                         <small class="text-muted text-uppercase  ">
                             <i class="bi bi-activity"></i>
-                            الانشطة</small>
+                            التعليقات</small>
+
+
                         <ul class="list-unstyled mt-3 ms-2">
                             <li class="timeline-item timeline-item-transparent">
                                 <span class="timeline-point timeline-point-warning"></span>
+                                @forelse ($comments as $comment)
                                 <div class="timeline-event">
                                     <div class="timeline-header mb-1">
-                                        <h6 class="mb-0"> الدخول بمزاد</h6>
-                                        <small class="text-muted">اليوم</small>
+                                   
+                                        <h6 class="mb-0">  {{$comment->name }}</h6>
+                                      
+                                        <small class="text-muted">{{ $comment->created_at->format('jS \\of F Y') }}</small>
                                     </div>
-                                    <p class="mb-2">عقد صفقة بيع الساعة 12:40PM </p>
-                                </div>
-                                <div class="timeline-event">
-                                    <div class="timeline-header mb-1">
-                                        <h6 class="mb-0"> الدخول بمزاد</h6>
-                                        <small class="text-muted">اليوم</small>
-                                    </div>
-                                    <p class="mb-2">عقد صفقة بيع الساعة 12:40PM </p>
+                                    <p class="mb-2"> {{$comment->comments }} </p>
+                                  @empty
+                                  <h6 class="mb-0">  لايوجد تعليقات حتى الان</h6>
 
                                 </div>
-                                <div class="timeline-event">
-                                    <div class="timeline-header mb-1">
-                                        <h6 class="mb-0"> الدخول بمزاد</h6>
-                                        <small class="text-muted">اليوم</small>
-                                    </div>
-                                    <p class="mb-2">عقد صفقة بيع الساعة 12:40PM </p>
+                                @endforelse
 
-                                </div>
+                                
                             </li>
                         </ul>
                     </div>

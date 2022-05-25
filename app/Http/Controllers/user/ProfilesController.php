@@ -30,8 +30,12 @@ class ProfilesController extends Controller
     public function show(){
         $route = Route::current()->getName();
         $comments= ReviewRating::where('user_id',Auth::user()->id)->get();
-        $total= ReviewRating::where('user_id',Auth::user()->id)->get()->count();
-        $avg=round($total/5);
+        $total= ReviewRating::where('user_id',Auth::user()->id)->get()->sum('star_rating');
+        $count= ReviewRating::where('user_id',Auth::user()->id)->get()->count();
+        if($count > 0)
+        $avg=round($total/$count);
+        else
+        $avg=round($total/.1);
 
         $userProfile = Profile::where('user_id', Auth::user()->id)->first();
         $userWallet = Wallet::where('holder_id', Auth::user()->id)->first();
@@ -82,6 +86,15 @@ class ProfilesController extends Controller
     public function visit($id){
         $route = Route::current()->getName();
         $comments= ReviewRating::where('user_id',$id)->get();
+        $count= ReviewRating::where('user_id',$id)->get()->count();
+        $total= ReviewRating::where('user_id',$id)->get()->sum('star_rating');
+        if($count > 0)
+        $avg=round($total/$count);
+        else
+        $avg=round($total/.1);
+       
+        
+        
         
         // To compute number of purchase that current user carried out
         $countPurchases = Payment_Bill::where('payment_status', 1)
@@ -115,6 +128,7 @@ class ProfilesController extends Controller
             'comments'       => $comments,
             'countPurchases' => $countPurchases, 
             'countSales'     => $countSales,
+            
     ]);
     }
 
