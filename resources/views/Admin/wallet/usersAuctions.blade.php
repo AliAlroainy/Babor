@@ -92,7 +92,6 @@
                                         </div>
                                     </td>
                                     <td>
-
                                         @if ($bill->bid->auction->status == '4')
                                             @if (!isset($bill->contract->seller_confirm) && !isset($bill->contract->buyer_confirm))
                                                 <div class="p-2 text-warning d-flex">
@@ -154,29 +153,64 @@
                                             @else
                                                 @if ($bill->contract->buyer_confirm == '1')
                                                     @if ($bill->contract->seller_confirm == 1)
-                                                        <div class="alert alert-success p-2 text-success  d-flex">
-                                                            <i class="bi bi-check-all"></i>
-                                                            تم البيع
+                                                        <div class="alert alert-success p-2 text-success d-flex">
+                                                            <span>
+                                                                <i class="bi bi-check-all"></i>
+                                                                تم البيع
+                                                            </span>
                                                         </div>
                                                     @elseif(!isset($bill->contract->seller_confirm))
-                                                        <div class="alert alert-success p-2 text-success  d-flex">
+                                                        <div
+                                                            class="alert alert-success p-2 text-success text-center d-flex">
                                                             <i class="bi bi-check-all"></i>
                                                             تم البيع بدون تأكيد البائع
                                                         </div>
                                                     @endif
+                                                @elseif ($bill->contract->buyer_confirm == '0')
+                                                    <div class="alert alert-danger p-2 text-danger text-center d-flex">
+                                                        <i class="bi bi-info-circle ps-1"></i>
+                                                        تم التراجع من قبل المشتري
+                                                    </div>
                                                 @endif
                                             @endif
                                         </div>
                                     </td>
                                     <td class="d-flex flex-column align-items-center justify-content-center">
-                                        @if ($bill->bid->auction->status == '4')
-                                            @if ($bill->contract->buyer_confirm == '0')
-                                                <a href="#rejectReasonModal" class="p-2 font-warining"
-                                                    data-bs-toggle="modal">
-                                                    سبب الرفض
-                                                    <i class="bi bi-eye"></i>
-                                                </a>
-                                            @endif
+                                        @if ($bill->contract->buyer_confirm == '0')
+                                            <a href="#rejectReasonModal-{{ $bill->id }}" class="p-2 font-warining"
+                                                data-bs-toggle="modal">
+                                                سبب الرفض
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                            <div id="rejectReasonModal-{{ $bill->id }}" class="modal fade">
+                                                <div class="modal-dialog modal-confirm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
+                                                            style="top:-80px;">
+                                                            <div>
+                                                                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                                                                <lottie-player
+                                                                    src="https://assets9.lottiefiles.com/packages/lf20_rdkrsaca.json"
+                                                                    background="transparent" speed="1"
+                                                                    style="width: 150px; height: 150px;" loop autoplay>
+                                                                </lottie-player>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h4 class="w-90 m-3" style="font-size: 18px;">
+                                                                @isset($bill->contract)
+                                                                    {{ $bill->contract->buyer_undoReason }}
+                                                                @endisset
+                                                            </h4>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-danger"
+                                                                data-bs-dismiss="modal"
+                                                                style="background-color: rgb(205, 205, 205)">إلغاء</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         @endif
                                         <a href="{{ route('show.contract', $bill->id) }}" class="p-2 font-warining"
                                             target="_blank">
@@ -204,32 +238,6 @@
 
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
-    <div id="rejectReasonModal" class="modal fade">
-        <div class="modal-dialog modal-confirm">
-            <div class="modal-content">
-                <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
-                    style="top:-80px;">
-                    <div>
-                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                        <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_rdkrsaca.json"
-                            background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay>
-                        </lottie-player>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <h4 class="w-90 m-3" style="font-size: 18px;">
-                        @isset($bill->contract)
-                            {{ $bill->contract->buyer_undoReason }}
-                        @endisset
-                    </h4>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"
-                        style="background-color: rgb(205, 205, 205)">إلغاء</button>
-                </div>
             </div>
         </div>
     </div>

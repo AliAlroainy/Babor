@@ -367,11 +367,13 @@
                                         <div class="bg-blue p-3 mb-3">
                                             <p class="h6 text-muted">
                                                 تعويض مبلغ وقدره(<span
-                                                    class="text-danger">{{ $bill->bid->auction->commission }}ر.ي</span>)
+                                                    class="text-danger">{{ $bill->bid->auction->commission }}</span>
+                                                ر.ي)
                                                 عن مزاد
                                                 {{ $bill->bid->auction->car->category->name }} -
                                                 {{ $bill->bid->auction->type_and_model() }}
-                                                تم التراجع عنه
+                                                تم التراجع عنه من قبل <a
+                                                    href="{{ route('user.visit.profile', $bill->bid->user->id) }}">{{ $bill->bid->user->name }}</a>
                                             </p>
                                             <a href="{{ route('do.contract', $bill->id) }}"
                                                 class="mx-1 mt-5 px-2 rouned-btn bg-green text-decoration-none">
