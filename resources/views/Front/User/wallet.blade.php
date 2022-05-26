@@ -142,100 +142,170 @@
                                                     @php
                                                         $tran = \Bavix\Wallet\Models\Transaction::where(['type' => 'deposit', 'wallet_id' => $bill->bid->user->id])
                                                             ->where('meta->unbuy', $bill->id)
+                                                            ->orWhere('meta->unsell', $bill->id)
                                                             ->first();
                                                     @endphp
                                                     <!-- Button trigger modal -->
-                                                    <a class="mx-1 mt-5 px-2 rouned-btn bg-red text-white text-decoration-none cursor-pointer"
-                                                        data-bs-toggle="modal" href="#"
-                                                        data-bs-target="#unbbuyReason-{{ $bill->id }}">
-                                                        <small>
-                                                            <i class="fa fa-check"></i>
-                                                            تم استرداد المبلغ
-                                                        </small>
-                                                    </a>
-                                                    <!-- Modal -->
-                                                    <div id="unbbuyReason-{{ $bill->id }}" class="modal fade">
-                                                        <div class="modal-dialog modal-confirm">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
-                                                                    style="top:-80px;">
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <p class="fw-bold h2">
-                                                                        إرجاع المبلغ إلى المشتري
-                                                                    </p>
-                                                                    <p class="mt-5 h7 text-center"> العملية رقم :
-                                                                        <i class="bi bi-receipt"></i>
-                                                                        #{{ $tran->uuid }}
-                                                                    </p>
-                                                                    <p class="h7">سبب التراجع :
-                                                                        {{ $bill->contract->buyer_undoReason }}</p>
-                                                                    <p class="h7">اسم المستحق:
-                                                                        {{ $bill->bid->user->name }}</p>
-                                                                    <p class="h7 mb-2">المبلغ المستحق :
-                                                                        <span>{{ $tran->amount }} ريال
-                                                                            يمني
-                                                                        </span>
-                                                                    </p>
-                                                                    <p class="textmuted h7 mb-2">تاريخ الاستحقاق :
-                                                                        <small>{{ $tran->created_at->locale('ar')->dayName }}</small>
-                                                                        -
-                                                                        <small>{{ $tran->created_at->format('d/m/Y') }}</small>
-                                                                    </p>
-                                                                    <p class="text-danger h7 mb-2">الخصومات :
-                                                                    <div class="row m-0 border mb-3">
-                                                                        <div class="col-2 h8 pe-0 ps-2">
-                                                                            <p class="text-muted py-2">العناصر</p>
-                                                                            <span class="d-block py-2 border-bottom h8">
-                                                                                أرباح الموقع
-                                                                            </span>
-                                                                            <span class="d-block py-2 border-bottom h8">
-                                                                                تعويض البائع
-                                                                            </span>
-                                                                        </div>
-                                                                        <div class="col-6 text-center p-0">
-                                                                            <p class="text-muted p-2">الاسم</p>
-                                                                            <span class="d-block p-2 border-bottom h8">موقع
-                                                                                بابور</span>
-                                                                            <span
-                                                                                class="d-block p-2 border-bottom h8">{{ $bill->bid->auction->user->name }}</span>
-                                                                        </div>
-                                                                        <div class="col-2 p-0 text-center h8 border-end">
-                                                                            <p class="text-muted p-2">المبلغ</p>
-                                                                            <span class="d-block border-bottom h8 py-2">
-                                                                                {{ $bill->bid->auction->commission }}
-                                                                            </span>
-                                                                            <span class="d-block border-bottom h8 py-2">
-                                                                                {{ $bill->bid->auction->commission }}
-                                                                            </span>
-                                                                        </div>
-                                                                        <div class="col-2 p-0 text-center">
-                                                                            <p class="text-muted p-2">العملة</p>
-                                                                            <span class="d-block py-2 border-bottom h8">
-                                                                                ر.ي
-                                                                            </span>
-                                                                            <span class="d-block py-2 border-bottom h8">
-                                                                                ر.ي
-                                                                            </span>
-                                                                        </div>
+                                                    @if (isset($tran->meta['unbuy']))
+                                                        <a class="mx-1 mt-5 px-2 rouned-btn bg-red text-white text-decoration-none cursor-pointer"
+                                                            data-bs-toggle="modal" href="#"
+                                                            data-bs-target="#unbuyReason-{{ $bill->id }}">
+                                                            <small>
+                                                                <i class="fa fa-check"></i>
+                                                                تم استرداد المبلغ مع الخصم
+                                                            </small>
+                                                        </a>
+                                                        <!-- Modal -->
+                                                        <div id="unbuyReason-{{ $bill->id }}" class="modal fade">
+                                                            <div class="modal-dialog modal-confirm">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
+                                                                        style="top:-80px;">
                                                                     </div>
-                                                                    <div class="d-flex h7 mb-2">
-                                                                        <p class="ms-5">الاجمالي الكلي للخصومات
+                                                                    <div class="modal-body">
+                                                                        <p class="fw-bold h2">
+                                                                            إرجاع المبلغ إلى المشتري
                                                                         </p>
-                                                                        <p class="ms-auto">
-                                                                            <span>{{ $bill->bid->auction->commission * 2 }}</span>
+                                                                        <p class="mt-5 h7 text-center"> العملية رقم :
+                                                                            <i class="bi bi-receipt"></i>
+                                                                            #{{ $tran->uuid }}
+                                                                        </p>
+                                                                        <p class="h7">سبب التراجع :
+                                                                            {{ $bill->contract->buyer_undoReason }}</p>
+                                                                        <p class="h7">اسم المستحق:
+                                                                            {{ $bill->bid->user->name }}</p>
+                                                                        <p class="h7 mb-2">المبلغ المستحق :
+                                                                            <span>{{ $tran->amount }} ريال
+                                                                                يمني
+                                                                            </span>
+                                                                        </p>
+                                                                        <p class="textmuted h7 mb-2">تاريخ الاستحقاق :
+                                                                            <small>{{ $tran->created_at->locale('ar')->dayName }}</small>
+                                                                            -
+                                                                            <small>{{ $tran->created_at->format('d/m/Y') }}</small>
+                                                                        </p>
+                                                                        <p class="text-danger h7 mb-2">الخصومات :
+                                                                        <div class="row m-0 border mb-3">
+                                                                            <div class="col-2 h8 pe-0 ps-2">
+                                                                                <p class="text-muted py-2">العناصر</p>
+                                                                                <span class="d-block py-2 border-bottom h8">
+                                                                                    أرباح الموقع
+                                                                                </span>
+                                                                                <span class="d-block py-2 border-bottom h8">
+                                                                                    تعويض البائع
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="col-6 text-center p-0">
+                                                                                <p class="text-muted p-2">الاسم</p>
+                                                                                <span
+                                                                                    class="d-block p-2 border-bottom h8">موقع
+                                                                                    بابور</span>
+                                                                                <span
+                                                                                    class="d-block p-2 border-bottom h8">{{ $bill->bid->auction->user->name }}</span>
+                                                                            </div>
+                                                                            <div
+                                                                                class="col-2 p-0 text-center h8 border-end">
+                                                                                <p class="text-muted p-2">المبلغ</p>
+                                                                                <span class="d-block border-bottom h8 py-2">
+                                                                                    {{ $bill->bid->auction->commission }}
+                                                                                </span>
+                                                                                <span class="d-block border-bottom h8 py-2">
+                                                                                    {{ $bill->bid->auction->commission }}
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="col-2 p-0 text-center">
+                                                                                <p class="text-muted p-2">العملة</p>
+                                                                                <span class="d-block py-2 border-bottom h8">
+                                                                                    ر.ي
+                                                                                </span>
+                                                                                <span class="d-block py-2 border-bottom h8">
+                                                                                    ر.ي
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="d-flex h7 mb-2">
+                                                                            <p class="ms-5">الاجمالي الكلي
+                                                                                للخصومات
+                                                                            </p>
+                                                                            <p class="ms-auto">
+                                                                                <span>{{ $bill->bid->auction->commission * 2 }}
+                                                                                    <small class="text-muted"> ر.ي
+                                                                                    </small>
+                                                                                </span>
+                                                                            </p>
+                                                                        </div>
                                                                         </p>
                                                                     </div>
-                                                                    </p>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-outline-danger"
-                                                                        data-bs-dismiss="modal"
-                                                                        style="background-color: rgb(205, 205, 205)">إلغاء</button>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-outline-danger"
+                                                                            data-bs-dismiss="modal"
+                                                                            style="background-color: rgb(205, 205, 205)">إغلاق</button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    @elseif(isset($tran->meta['unsell']))
+                                                        <a class="mx-1 mt-5 px-2 rouned-btn bg-red text-white text-decoration-none cursor-pointer"
+                                                            data-bs-toggle="modal" href="#"
+                                                            data-bs-target="#unsellReason-{{ $bill->id }}">
+                                                            <small>
+                                                                <i class="fa fa-check"></i>
+                                                                تم استرداد المبلغ كاملا
+                                                            </small>
+                                                        </a>
+                                                        <!-- Modal -->
+                                                        <div id="unsellReason-{{ $bill->id }}" class="modal fade">
+                                                            <div class="modal-dialog modal-confirm">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
+                                                                        style="top:-80px;">
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <p class="fw-bold h2">
+                                                                            إرجاع المبلغ إلى المشتري
+                                                                        </p>
+                                                                        <p class="mt-5 h7 text-center"> العملية رقم :
+                                                                            <i class="bi bi-receipt"></i>
+                                                                            #{{ $tran->uuid }}
+                                                                        </p>
+                                                                        <p class="h7">سبب التراجع :
+                                                                            {{ $bill->contract->buyer_undoReason }}</p>
+                                                                        <p class="h7">اسم المستحق:
+                                                                            {{ $bill->bid->user->name }}</p>
+                                                                        <p class="h7 mb-2">المبلغ المستحق :
+                                                                            <span>{{ abs($tran->amount) }} ريال
+                                                                                يمني
+                                                                            </span>
+                                                                        </p>
+                                                                        <p class="textmuted h7 mb-2">تاريخ الاستحقاق :
+                                                                            <small>{{ $tran->created_at->locale('ar')->dayName }}</small>
+                                                                            -
+                                                                            <small>{{ $tran->created_at->format('d/m/Y') }}</small>
+                                                                        </p>
+                                                                        <p class="text-danger h7 mb-2">الخصومات :
+                                                                        <div class="d-flex h7 mb-2">
+                                                                            <p class="ms-5">الاجمالي الكلي
+                                                                                للخصومات
+                                                                            </p>
+                                                                            <p class="ms-auto">
+                                                                                <span>0
+                                                                                    <small class="text-muted">
+                                                                                        ر.ي</small>
+                                                                                </span>
+                                                                            </p>
+                                                                        </div>
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-outline-danger"
+                                                                            data-bs-dismiss="modal"
+                                                                            style="background-color: rgb(205, 205, 205)">إغلاق</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
                                                 @endif
                                                 <a href="{{ route('do.contract', $bill->id) }}"
                                                     class="mx-1 mt-5 px-2 rouned-btn bg-green text-decoration-none">
@@ -250,7 +320,7 @@
                                                 class="ms-3 mt-5 px-2 rouned-btn bg-green text-decoration-none">
                                                 التفاصيل
                                             </a>
-                                            <div id="billShow" class="modal fade">
+                                            {{-- <div id="billShow" class="modal fade">
                                                 <div class="modal-dialog modal-confirm">
                                                     <div class="modal-content">
                                                         <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
@@ -274,11 +344,11 @@
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-outline-danger"
                                                                 data-bs-dismiss="modal"
-                                                                style="background-color: rgb(205, 205, 205)">إلغاء</button>
+                                                                style="background-color: rgb(205, 205, 205)">إغلاق</button>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     @elseif(isset($item->meta['sell']))
                                         @php
@@ -328,7 +398,7 @@
                                                     class="mt-5 px-2 rouned-btn bg-green text-decoration-none">
                                                     التفاصيل
                                                 </a>
-                                                <div id="billShow" class="modal fade">
+                                                {{-- <div id="billShow" class="modal fade">
                                                     <div class="modal-dialog modal-confirm">
                                                         <div class="modal-content">
                                                             <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
@@ -352,11 +422,11 @@
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-outline-danger"
                                                                     data-bs-dismiss="modal"
-                                                                    style="background-color: rgb(205, 205, 205)">إلغاء</button>
+                                                                    style="background-color: rgb(205, 205, 205)">إغلاق</button>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                             @endif
                                         </div>
                                     @elseif(isset($item->meta['compensation']))
@@ -370,12 +440,67 @@
                                                 تعويض مبلغ وقدره(<span
                                                     class="text-danger">{{ $bill->bid->auction->commission }}</span>
                                                 ر.ي)
-                                                عن مزاد
+                                                في مزاد
                                                 {{ $bill->bid->auction->car->category->name }} -
                                                 {{ $bill->bid->auction->type_and_model() }}
                                                 تم التراجع عنه من قبل <a
                                                     href="{{ route('user.visit.profile', $bill->bid->user->id) }}">{{ $bill->bid->user->name }}</a>
                                             </p>
+                                            <a href="{{ route('do.contract', $bill->id) }}"
+                                                class="mx-1 mt-5 px-2 rouned-btn bg-green text-decoration-none">
+                                                العقد
+                                            </a>
+                                            <a href="{{ route('site.auction.details', $bill->bid->auction->id) }}"
+                                                class="ms-3 mt-5 px-2 rouned-btn bg-green text-decoration-none">
+                                                التفاصيل
+                                            </a>
+                                        </div>
+                                    @elseif(isset($item->meta['penalty-commission']))
+                                        @php
+                                            $bill = \App\Models\Payment_Bill::with('contract')
+                                                ->where('id', $item->meta['penalty-commission'])
+                                                ->first();
+                                        @endphp
+                                        <div class="bg-blue p-3 mb-3">
+                                            <p class="h6 text-muted">
+                                                خصم مبلغ وقدره(<span
+                                                    class="text-danger">{{ $bill->bid->auction->commission }}</span>
+                                                ر.ي) من حسابك
+                                                في مزاد
+                                                {{ $bill->bid->auction->car->category->name }} -
+                                                {{ $bill->bid->auction->type_and_model() }}
+                                                تم التراجع عنه من قبل <a
+                                                    href="{{ route('user.visit.profile', $bill->bid->user->id) }}">{{ $bill->bid->user->name }}</a>
+                                            </p>
+                                            <a class="mx-1 mt-5 px-2 rouned-btn bg-red text-white text-decoration-none cursor-pointer"
+                                                data-bs-toggle="modal" href="#"
+                                                data-bs-target="#penalty-commission-reason-{{ $bill->id }}">
+                                                <small>
+                                                    <i class="fa fa-info-circle"></i>
+                                                    السبب
+                                                </small>
+                                            </a>
+                                            <!-- Modal -->
+                                            <div id="penalty-commission-reason-{{ $bill->id }}"
+                                                class="modal fade">
+                                                <div class="modal-dialog modal-confirm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header w-100 d-flex align-items-center justify-content-center text-center"
+                                                            style="top:-80px;">
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p class="h7">سبب التراجع :
+                                                                {{ $bill->contract->buyer_undoReason }}
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-danger"
+                                                                data-bs-dismiss="modal"
+                                                                style="background-color: rgb(205, 205, 205)">إغلاق</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <a href="{{ route('do.contract', $bill->id) }}"
                                                 class="mx-1 mt-5 px-2 rouned-btn bg-green text-decoration-none">
                                                 العقد
