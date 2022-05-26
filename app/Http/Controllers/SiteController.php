@@ -91,7 +91,7 @@ class SiteController extends Controller
                 $similars = Auction::with(['car' => function($q) use ($auction){
                         $q->where('category_id', $auction->car->category_id)->get();
                             }])->with('bids', function($q){
-                                $q->orderBy('id', 'desc')->first();
+                                $q->orderBy('id', 'desc')->get();
                             })->get();
                 return view('Front.details')->with([
                         'auction'=>$auction,

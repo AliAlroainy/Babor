@@ -70,7 +70,7 @@ class ProfilesController extends Controller
         }
         if(!$userWallet){
             $user = User::find(Auth::user()->id);
-            $user->deposit(1000000);
+            $user->deposit(100000);
         }
         $user = Auth::user();
         return view('Front.User.profile')->with([
