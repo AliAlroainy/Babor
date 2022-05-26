@@ -544,35 +544,38 @@
                                             alt="car img">
                                         <span class="out-of-stock">Hot</span>
                                     </a>
-                                    <div class="button-head">
+                                    <div class="button-head d-flex justify-content-center">
                                         @auth
-                                            @if (Auth::user()->favorite->where('pivot.auction_id', $auction->id)->count() == 0)
-                                                <a title="Wishlist" class="addWishlist"
-                                                    data-auction-id="{{ $auction->id }}">
+                                            @if (Auth::user()->favorite->where('pivot.auction_id', $item->id)->count() == 0)
+                                                <a title="Wishlist" class="wishlist cursor-pointer"
+                                                    data-auction-id="{{ $item->id }}" method="add">
                                                     <i class="ti-heart"></i>
+                                                    أضف إلى المفضلة
                                                 </a>
                                             @else
-                                                <a title="Wishlist" class="removeWishlist"
-                                                    data-auction-id="{{ $auction->id }}">
-                                                    <i class="fa fa-heart" style="color: #F7941D;"></i>
+                                                <a title="Wishlist" class="wishlist cursor-pointer"
+                                                    data-auction-id="{{ $item->id }}" method="remove">
+                                                    <i class="fa fa-heart" style="color: #F7941D;"> في المفضلة </i>
                                                 </a>
                                             @endif
                                         @endauth
-                                        <div class="product-action-2">
-                                            <a title="Add to cart" href="#">دخول المزاد</a>
+                                        <div class="product-action-2 ">
+                                            <a title="Add to cart"
+                                                href="{{ route('site.auction.details', $item->id) }}">دخول
+                                                المزاد</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="product-content">
                                     <h3><a
-                                            href="{{ route('site.auction.details', $item->id) }}">{{ $auction->type_and_model() }}</a>
+                                            href="{{ route('site.auction.details', $item->id) }}">{{ $item->type_and_model() }}</a>
                                     </h3>
                                     <div class="product-price">
                                         <span>
-                                            @if ($auction->bids->count() > 0)
-                                                {{ $auction->bids->first()->currentPrice }}
+                                            @if ($item->bids->count() > 0)
+                                                {{ $item->bids->first()->currentPrice }}
                                             @else
-                                                {{ $auction->openingBid }}
+                                                {{ $item->openingBid }}
                                             @endif
                                         </span>
                                     </div>
