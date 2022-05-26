@@ -11,12 +11,13 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\user\BidController;
+use App\Http\Controllers\admin\AdminDecision;
+use App\Http\Controllers\admin\APIController;
 use App\Http\Controllers\admin\BidsController;
 use App\Http\Controllers\user\WalletController;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\SeriesController;
 use App\Http\Controllers\Admin\AcutionController;
-use App\Http\Controllers\admin\APIController;
 use App\Http\Controllers\Admin\QustionController;
 use App\Http\Controllers\user\ContractController;
 use App\Http\Controllers\user\FavoriteController;
@@ -159,11 +160,12 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/auction/details/{id}', [AcutionController::class, 'showDetails'])->name('admin.auction.details');
         Route::get('/bids', [BidsController::class, 'index'])->name('admin.bid.index');
 
-        Route::get('/walletAuctions', [AdminWalletController::class, 'manageCompletingAuction'])->name('manage.auction.payment');
-        Route::post('/sendToSeller/{bill_id}', [AdminWalletController::class, 'sendToSeller'])->name('sendToSeller');
-        Route::post('/sendToBuyer/{bill_id}', [AdminWalletController::class, 'sendToBuyer'])->name('sendToBuyer');
-        Route::post('/sellerPenalty/{bill_id}', [AdminWalletController::class, 'sellerPenalty'])->name('sellerPenalty');
-        Route::post('/buyerPenalty/{bill_id}', [AdminWalletController::class, 'buyerPenalty'])->name('buyerPenalty');
+        Route::get('/walletAuctions', [AdminDecision::class, 'manageCompletingAuction'])->name('manage.auction.payment');
+        Route::post('/sendToSeller/{bill_id}', [AdminDecision::class, 'sendToSeller'])->name('sendToSeller');
+        Route::post('/sendToBuyer/{bill_id}', [AdminDecision::class, 'sendToBuyer'])->name('sendToBuyer');
+        Route::post('/sellerPenalty/{bill_id}', [AdminDecision::class, 'sellerPenalty'])->name('sellerPenalty');
+        Route::post('/buyerPenalty/{bill_id}', [AdminDecision::class, 'buyerPenalty'])->name('buyerPenalty');
+        Route::get('/wallet', [AdminWalletController::class, 'index'])->name('admin.wallet');
 
         Route::get('/do-contract/{bill_id}', [ContractController::class, 'doContract'])->name('show.contract');
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
