@@ -15,7 +15,7 @@ class AdminWalletController extends Controller
         $balance = DB::table('wallets')->where('holder_id', $user)->first()->balance;
 
         //To list out different financial operation
-        $trans = Transaction::where('wallet_id', $user)->get();
+        $trans = Transaction::get();
         
         $gains = Transaction::where('wallet_id', $user)
                 ->where('type', 'withdraw')->get()->sum('amount');

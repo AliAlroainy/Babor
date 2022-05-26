@@ -67,17 +67,87 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($operations as $tran)
+                                @for ($tran = 0; $tran < $operations->count(); $tran++)
+                                    @php
+                                        $users = \App\Models\User::get(); //::table('users');
+                                    @endphp
                                     <tr>
                                         <td>
-                                            {{ $loop->index }}
+                                            {{ $tran + 1 }}
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <div class="ms-3">
+                                                        <p class="fw-bold mb-1">
+                                                            @if ($operations[$tran]->type == 'withdraw')
+                                                                {{ $users->where('id', $operations[$tran]->wallet_id)->first()->name }}
+                                                            @else
+                                                                {{-- {{ $users->where('id', $operations[$tran + 1]->wallet_id)->first()->name }} --}}
+                                                            @endif
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {{ abs($operations[$tran]->amount) }}
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <div class="ms-3">
+                                                        <p class="fw-bold mb-1">
+                                                            @if ($operations[$tran]->type == 'deposit')
+                                                                {{ $users->where('id', $operations[$tran]->wallet_id)->first()->name }}
+                                                            @else
+                                                                @if ($tran != $operations->count() - 1)
+                                                                    {{ $users->where('id', $operations[$tran + 1]->wallet_id)->first()->name }}
+                                                                @endif
+                                                            @endif
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        @if (isset($operations[$tran]->meta['bid']))
+                                            <td>مزايدة</td>
+                                        @elseif (isset($operations[$tran]->meta['unbid']))
+                                            <td>إرجاع قيمة المزايدة</td>
+                                        @elseif (isset($operations[$tran]->meta['buy']))
+                                            <td>شراء مزاد </td>
+                                        @elseif (isset($operations[$tran]->meta['unbuy']))
+                                            <td>تراجع عن شراء مزاد من قبل المشتري</td>
+                                        @elseif (isset($operations[$tran]->meta['unsell']))
+                                            <td>تراجع عن شراء مزاد من قبل المشتري</td>
+                                        @elseif (isset($operations[$tran]->meta['commission']))
+                                            <td>ارباح الموقع</td>
+                                        @elseif (isset($operations[$tran]->meta['compensation']))
+                                            <td>تعويض صاحب المزاد</td>
+                                        @endif
+                                        <td>
+                                            {{ $operations[$tran]->created_at }}
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-link btn-sm btn-rounded">
+                                                المزاد
+                                            </button>
+                                        </td>
+                                        @php
+                                            $tran += 1;
+                                        @endphp
+                                    </tr>
+
+                                    {{-- <tr>
+                                        <td>
+                                            {{ $loop->iteration }}
                                         </td>
                                         <td>
                                             <div class="d-flex align-items-center justify-content-center">
                                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
                                                     style="width: 45px; height: 45px" class="rounded-circle" />
                                                 <div class="ms-3">
-                                                    <p class="fw-bold mb-1">John Doe</p>
+                                                    <p class="fw-bold mb-1">jone</p>
                                                     <p class="text-muted mb-0">john.doe@gmail.com</p>
                                                 </div>
                                             </div>
@@ -106,9 +176,8 @@
                                             </button>
 
                                         </td>
-                                    </tr>
-                                @empty
-                                @endforelse
+                                    </tr> --}}
+                                @endfor
                             </tbody>
                         </table>
                     </div>
@@ -187,18 +256,18 @@
         }
 
         /* @keyframes anim{
-                                                                                                                                             from{
-                                                                                                                                                 opacity:0.3;
-                                                                                                                                              transform:rotate(0deg);
-                                                                                                                                               
-                                                                                                                                             }
-                                                                                                                                             
-                                                                                                                                             to{
-                                                                                                                                                 opacity:0.8;
-                                                                                                                                                 transform:rotate(180deg);
-                                                                                                                                                 
-                                                                                                                                             }
-                                                                                                                                         } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         from{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             opacity:0.3;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          transform:rotate(0deg);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         to{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             opacity:0.8;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             transform:rotate(180deg);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     } */
         .visa h4 {
             font-size: 40px;
             font-family: 'Rokkitt', serif;

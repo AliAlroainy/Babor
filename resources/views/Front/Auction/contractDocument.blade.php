@@ -6,9 +6,6 @@
             <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1dlnyjbb.json" background="transparent"
                 speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
         @elseif ($buyer_confirmed == '0')
-            {{-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1dlnyjbb.json" background="transparent"
-            speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player> --}}
             <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
             <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_wgupl2ia.json" background="transparent"
                 speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
@@ -25,6 +22,8 @@
                 <div class="section-title mt-4">
                     @if ($buyer_confirmed == '1' && $seller_confirmed == '1')
                         <h2> تم تاكيد عملية الشراء </h2>
+                    @elseif ($buyer_confirmed == '0')
+                        <h2> تم التراجع </h2>
                     @else
                         <h2> تاكيد عملية الشراء </h2>
                     @endif
