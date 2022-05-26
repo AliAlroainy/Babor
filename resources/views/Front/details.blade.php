@@ -227,7 +227,16 @@
                                 <h5 class="modal-title" id="exampleModalLabel1">مزايدة</h5>
                             </div>
                             <div class="mt-4 modal-body">
-                                
+                                <div class="d-flex mb-3">
+                                    السعر الحالي :
+                                    <span style="color:#F7941D">
+                                        @if ($auction->bids->count() > 0)
+                                            {{ $auction->bids->first()->currentPrice }}
+                                        @else
+                                            {{ $auction->openingBid }}
+                                        @endif
+                                    </span>
+                                </div>
                                 <div class="qty-label">
                                     سعر المزايدة
                                     <div class="input-n">

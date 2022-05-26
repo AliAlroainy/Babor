@@ -70,19 +70,62 @@
                             <div class="date-outer">
                                 <span class="date">
                                     <span class="month"></span>
-                                    <span class="year">رابعاً</span>
+                                    <span class="year">ثالثا</span>
                                 </span>
                             </div>
                         </div>
                         <div class="timeline-content">
-                            <h5 class="title"> قم بالتسجيل بالموقع</h5>
+                            <h5 class="title">   المزادات الجارية</h5>
                             <p class="description">
-                                من خلال صفحة التسجيل بالموقع ستقوم بخطوات بسيطة
+                                بعد موافقة الادمن على المزاد سيتم اضافة المزاد الى المزادات الجادية
                             </p>
-                            <img src="img/Reg.png" width="300" height="300" alt="first">
+                            <img src="img/1m.png" width="300" height="300" alt="first">
                         </div>
                     </div>
                     <!-- end experience section-->
+
+                                        <!-- start experience section-->
+                                        <div class="timeline">
+                                            <div class="icon"></div>
+                                            <div class="date-content">
+                                                <div class="date-outer">
+                                                    <span class="date">
+                                                        <span class="month"></span>
+                                                        <span class="year">رابعاً</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <h5 class="title">   بانتظار اتمام البيع </h5>
+                                                <p class="description">
+                                                    بعد تحديد احد الفائزين بالمزاد سيتم انتقالة الى اتمام البيع
+                                                </p>
+                                                <img src="img/2m.png" width="300" height="300" alt="first">
+                                            </div>
+                                        </div>
+                                        <!-- end experience section-->
+
+                                        <!-- start experience section-->
+                                        <div class="timeline">
+                                            <div class="icon"></div>
+                                            <div class="date-content">
+                                                <div class="date-outer">
+                                                    <span class="date">
+                                                        <span class="month"></span>
+                                                        <span class="year">خامساً</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <h5 class="title">     توقيع العقد </h5>
+                                                <p class="description">
+                                                    الخطوة الاخيرة بعد عملية الدفع هي عملية توقيع العقد بين الطرفين لتاكيد البيع
+                                                </p>
+                                                <img src="/img/3m.png" width="300" height="300" alt="first">
+                                            </div>
+                                        </div>
+                                        <!-- end experience section-->
+
 
                 </div>
             </div>
