@@ -67,7 +67,7 @@ class ProfileSeeder extends Seeder
         ]);
 
         DB::table('profiles')->insert([
-            'username' => 'Hamae',
+            'username' => 'Hamad',
             'city' => 'Taiz City',
             'address' => 'شارع التحرير، جوار فندق الشريف',
             'avatar' => 'hamad.jpg',
@@ -80,12 +80,12 @@ class ProfileSeeder extends Seeder
         ]);
 
         DB::table('profiles')->insert([
-            'username' => 'Erada',
+            'username' => 'اراده الفقي',
             'city' => 'Sanaa',
-            'address' => $faker->sentence(4),
+            'address' => 'صنعاء، شارع حده',
             'avatar' => 'erada.jpg',
             'phone' => $faker->numerify('###-###-###'),
-            'bio'=> $faker->sentence(10),
+            'bio'=> 'مهتمه بتصميم وبرمجة مواقع الويب',
             'job' => 'Supervisor',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
@@ -93,12 +93,12 @@ class ProfileSeeder extends Seeder
         ]);
 
         DB::table('profiles')->insert([
-            'username' => 'Nashwan',
+            'username' => 'نشوان',
             'city' => 'Sanaa',
-            'address' => $faker->sentence(4),
+            'address' => 'صنعاء، شارع حده',
             'avatar' => 'nashwan.jpg',
             'phone' => $faker->numerify('###-###-###'),
-            'bio'=> $faker->sentence(10),
+            'bio'=> 'مهتم بتصميم وبرمجة مواقع الويب',
             'job' => 'Projet Manager',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
@@ -106,12 +106,12 @@ class ProfileSeeder extends Seeder
         ]);
 
         DB::table('profiles')->insert([
-            'username' => 'Mokhtar',
+            'username' => 'مختار غالب',
             'city' => 'Sanaa',
-            'address' => $faker->sentence(4),
+            'address' => 'صنعاء، شارع حده',
             'avatar' => 'mokhtar.png',
             'phone' => $faker->numerify('###-###-###'),
-            'bio'=> $faker->sentence(10),
+            'bio'=> 'مهتم بتصميم وبرمجة مواقع الويب',
             'job' => 'Product Manager',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
@@ -120,12 +120,12 @@ class ProfileSeeder extends Seeder
 
 
         DB::table('profiles')->insert([
-            'username' => 'Haitham',
+            'username' => 'هيثم المقطري',
             'city' => 'Sanaa',
-            'address' => $faker->sentence(4),
+            'address' => 'صنعاء، شارع حده',
             'avatar' => 'haitham.png',
             'phone' => $faker->numerify('###-###-###'),
-            'bio'=> $faker->sentence(10),
+            'bio'=> 'مهتم بتصميم وبرمجة مواقع الويب',
             'job' => 'Super Sponsor',
             'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
