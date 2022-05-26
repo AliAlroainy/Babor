@@ -153,9 +153,7 @@ class CarSeeder extends Seeder
             'thumbnail' =>    'bus4.jpg',
             'car_images' =>  json_encode(['bus41.jpg',
                                           'bus42.jpg',
-                                          'bus43.jpg',
-
-
+                                          'bus43.png',
                                             ]),
             'description' => 'اشوك لاند موديل ٢٠١٥ موديل ٢٠١٧ موديل ٢٠١٨ يوجد عدد ٥٦ راكب ويوجد عدد ٦٠ راكب مع الساق',
             'carPosition'=> 'تعز ، شارع  العقبه',

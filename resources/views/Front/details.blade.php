@@ -133,17 +133,12 @@
                         <p class="ms-3">
                             <i class="bi bi-gear" style="color: #F7941D"></i>
                             نوع الجير :
-                            رباعي
+                            {{ \App\Models\Car::getJear($auction->car->jear) }}
                         </p>
                         <p class="ms-3">
                             <i class="bi bi-speedometer2" style="color: #F7941D"></i>
                             المسافة المقطوعة :
-                            232km
-                        </p>
-                        <p class="ms-3">
-                            <i class="bi bi-wrench-adjustable-circle" style="color: #F7941D"></i>
-                            حجم الضرر :
-                            سطحي
+                            {{ $auction->car->numberOfKillos }}
                         </p>
 
                         <div class="d-flex flex-column">
