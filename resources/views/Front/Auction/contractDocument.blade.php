@@ -72,7 +72,7 @@
                 في المزاد رقم <strong>{{ $bid->auction->id }}</strong> وبسعر فوز المزاد المقدر
                 <strong>{{ $bid->currentPrice }}</strong>
                 <small class="text-muted">
-                    ريال يمني</small>
+                    دولار</small>
                 والذي تم نشره بتاريخ
                 <strong>{{ $bid->auction->startDate }}
                 </strong>

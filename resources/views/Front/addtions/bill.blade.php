@@ -49,9 +49,16 @@
                                 <tr>
                                     <td width="50%" style="padding: 20px;"><strong
                                             style="color: #333; font-size: 24px;">{{ $bill->bid->currentPrice }}</strong>
+                                        دولار
                                         تم دفعه</td>
                                     <td align="right" width="50%" style="padding: 20px;">
                                         شكرا لاستخدامكم <span class="fw-bold">موقع بابور</span></td>
+                                </tr>
+                                <tr>
+                                    <td width="50%" style="padding: 20px;"><strong
+                                            style="color: #333; font-size: 20px;">{{ $bill->bid->user->name }}</strong>
+                                        اسم المشتري
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -101,7 +108,15 @@
                                                 <tr>
                                                     <td style="padding: 5px 0;">كم كيلو تم قطفعه</td>
                                                     <td align="right" style="padding: 5px 0;">
-                                                        {{ $bill->bid->auction->car->numberOfKillos }}</td>
+                                                        {{ $bill->bid->auction->car->numberOfKillos }}
+                                                        كيلو
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding: 5px 0;">نوع الجير</td>
+                                                    <td align="right" style="padding: 5px 0;">
+                                                        {{ $bill->bid->auction->car->jear }}
+                                                    </td>
                                                 </tr>
                                                 {{-- <tr>
                                                     <td
