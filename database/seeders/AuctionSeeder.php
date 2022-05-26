@@ -12,20 +12,20 @@ class AuctionSeeder extends Seeder
     public function run()
     {
 
-        $year = rand(2022, 2023);
+        $year = rand(2022, 2022);
         $month = rand(5, 12);
         $day = rand(9, 28);
 
         $date = Carbon::create($year,$month ,$day , 0, 0, 0);
         $unixTimestamp = '1461067200';
         $faker = Faker::create();
-        foreach (range(1,25) as $index) {
+        foreach (range(1,23) as $index) {
           DB::table('auctions')->insert([
               'closeDate' => $date->addWeeks(rand(1, 4))->format('Y-m-d H:i:s'),
               'minInc' => $faker->numberBetween(30000,60170),
               'startDate' => $date->format('Y-m-d H:i:s'),
-              'openingBid' =>   $faker->numberBetween(40000,68017),
-              'reservePrice' => $faker->numberBetween(40000,68017),
+              'openingBid' =>   $faker->numberBetween(200,3800),
+              'reservePrice' => $faker->numberBetween(4000,6800),
               'auctioneer_id' => $faker->numberBetween(2,10),
               'car_id' => $index,
               'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
