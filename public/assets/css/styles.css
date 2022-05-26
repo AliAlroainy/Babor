@@ -1,0 +1,374 @@
+:root {
+    --babor: #f79522;
+}
+
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999999;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+  }
+  .preloader-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+  }
+  .preloader-icon {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    padding: 0px;
+  }
+  .preloader-icon span {
+    position: absolute;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background:#a30606;
+    -webkit-animation: preloader-fx 1.6s linear infinite;
+    animation: preloader-fx 1.6s linear infinite;
+  }
+  .preloader-icon span:last-child {
+    animation-delay: -0.8s;
+    -webkit-animation-delay: -0.8s;
+  }
+  @keyframes preloader-fx {
+    0% {transform: scale(0, 0); opacity:0.5;}
+    100% {transform: scale(1, 1); opacity:0;}
+  }
+  @-webkit-keyframes preloader-fx {
+    0% {-webkit-transform: scale(0, 0); opacity:0.5;}
+    100% {-webkit-transform: scale(1, 1); opacity:0;}
+  }
+  /* End Preloader */
+  
+
+a {
+    text-decoration: none;
+}
+
+body {
+    direction: rtl !important;
+    font-family: 'Tajawal', sans-serif !important;
+}
+
+.bg-main-color {
+    background-color: var(--babor);
+}
+
+.main-color {
+    color: var(--babor);
+}
+
+.fs-12px {
+    font-size: 12px;
+}
+
+.fs-25px {
+    font-size: 25px;
+}
+
+button.add {
+    position: absolute;
+    top: 45px;
+    left: 30px;
+}
+
+.nav-link {
+    padding-inline-start: 10px !important;
+}
+
+.setting {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+
+/*==========================================*/
+/*VERIFY EMIAL PAGE STYLE START*/
+/*==========================================*/
+
+@media screen {
+    @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+    }
+
+    @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+    }
+
+    @font-face {
+        font-family: 'Lato';
+        font-style: italic;
+        font-weight: 400;
+        src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v11/RYyZNoeFgb0l7W3Vu1aSWOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+    }
+
+    @font-face {
+        font-family: 'Lato';
+        font-style: italic;
+        font-weight: 700;
+        src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v11/HkF_qI1x_noxlxhrhMQYELO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+    }
+}
+
+/* CLIENT-SPECIFIC STYLES */
+body,
+table,
+td,
+a {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+table,
+td {
+    mso-table-lspace: 0pt;
+    mso-table-rspace: 0pt;
+}
+
+img {
+    -ms-interpolation-mode: bicubic;
+}
+
+/* RESET STYLES */
+img {
+    border: 0;
+    height: auto;
+    line-height: 100%;
+    outline: none;
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse !important;
+    width: 100%;
+}
+
+body {
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    background-color: #f4f4f4;
+}
+
+th {
+    font-weight: 600 !important;
+}
+
+th, td {
+    text-align: center;
+}
+
+/* iOS BLUE LINKS */
+a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+}
+
+/* MOBILE STYLES */
+@media screen and (max-width:600px) {
+    h1 {
+        font-size: 32px !important;
+        line-height: 32px !important;
+    }
+}
+
+/* ANDROID CENTER FIX */
+div[style*="margin: 16px 0;"] {
+    margin: 0 !important;
+}
+
+.bg-secondary-color {
+    background-color: #4D83FF;
+}
+
+
+/*==========================================*/
+/*VERIFY EMIAL PAGE STYLE END*/
+/*==========================================*/
+
+
+
+.dark-placeholder::placeholder {
+    color: #666e76;
+}
+
+.dark-placeholder {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.nav-item:hover .menu-title, .nav-item:hover i {
+    color: var(--babor) !important;
+}
+
+.nav-item.active>.nav-link>span {
+    color: var(--babor) !important;
+}
+
+.nav-item.active>.nav-link>i {
+    color: black !important;
+}
+
+.nav-item i {
+    color: black !important;
+}
+
+.add_auction {
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+}
+
+/*.select {*/
+/*    background-color: transparent;*/
+/*    padding-block: .7rem;*/
+/*}*/
+
+.py-13 {
+    padding-block: 13px;
+}
+
+.py-10 {
+    padding-block: 10px;
+}
+
+.carForm {
+    column-gap: 10px;
+}
+
+.select {
+    background-color: transparent;
+    padding-block: 8px;
+}
+
+.input {
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+.label {
+    background-image: linear-gradient(to top right, #121312, #575654);
+    padding: 10px 6px;
+    border-bottom-right-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+    width: 60%;
+    color: white
+}
+
+.label.image {
+    border-radius: 0 !important;
+}
+
+.label.long {
+    font-size: .8rem !important;
+    padding-block: 12px;
+}
+
+.sidebar .nav.sub-menu {
+    padding: 0.25rem 0 0.6rem 0rem !important;
+}
+
+.auction-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    flex-direction: row;
+    gap: 30px;
+}
+
+
+
+/*=======================================*/
+/*user auction view*/
+
+.auctions {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
+
+a.auction {
+    text-decoration: none;
+    color: black;
+
+}
+
+a.auction>div {
+    border: 1px solid #ccc;
+    padding-inline-start: 10px;
+    /*width: 48%*/
+
+}
+
+.img-container {
+    max-width: 250px;
+}
+
+.img-container img {
+    max-width: 100%;
+}
+
+.auction_brief_info {
+    /*min-width: 40%;*/
+
+}
+
+@media screen and (max-width: 600px) {
+    .auction>div {
+        flex-direction: column-reverse;
+        width: 100%;
+        padding: 0 !important;
+    }
+
+    .auctions {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .auction {
+        width: fit-content;
+    }
+
+    .img-container {
+        max-width: 300px;
+    }
+
+    .auction_brief_info {
+        gap: 30px;
+        /*padding-inline-end: 0px !important;*/
+        padding: 0 !important;
+    }
+
+    .prices, .info {
+        flex-direction: column;
+    }
+
+    .group {
+        flex-direction: row !important;
+        justify-content: flex-start;
+        gap: 50px;
+    }
+
+}

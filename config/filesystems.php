@@ -44,6 +44,46 @@ return [
             'throw' => false,
         ],
 
+        'profiles' => [
+            'driver' => 'local',
+            'root' => base_path() . 'public/images/profiles',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+            // 'throw' => false,
+        ],
+
+        'services' => [
+            'driver' => 'local',
+            'root' => base_path() . 'public/images/services',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+            // 'throw' => false,
+        ],
+
+        'brands' => [
+            'driver' => 'local',
+            'root' => base_path() . 'public/images/brands',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+            // 'throw' => false,
+        ],
+
+        'cars' => [
+            'driver' => 'local',
+            'root' => base_path() . 'public/images/cars',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+            // 'throw' => false,
+        ],
+
+        'categories' => [
+            'driver' => 'local',
+            'root' => base_path() . 'public/images/categories',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+            // 'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
