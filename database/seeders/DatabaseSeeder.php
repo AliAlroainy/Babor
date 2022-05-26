@@ -28,7 +28,8 @@ class DatabaseSeeder extends Seeder
             CarSeeder::class,
             AuctionSeeder::class,
             QuestionSeeder::class,
-            // reviewRattingseeder::class,
+
+            reviewRattingseeder::class,
         ]);
 
     }
