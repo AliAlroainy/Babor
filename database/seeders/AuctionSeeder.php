@@ -22,7 +22,7 @@ class AuctionSeeder extends Seeder
         foreach (range(1,23) as $index) {
           DB::table('auctions')->insert([
               'closeDate' => $date->addWeeks(rand(1, 4))->format('Y-m-d H:i:s'),
-              'minInc' => $faker->numberBetween(30000,60170),
+              'minInc' => $faker->numberBetween(300,600),
               'startDate' => $date->format('Y-m-d H:i:s'),
               'openingBid' =>   $faker->numberBetween(200,3800),
               'reservePrice' => $faker->numberBetween(4000,6800),
