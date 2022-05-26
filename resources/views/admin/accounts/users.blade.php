@@ -17,7 +17,7 @@
                                 <i class="fa-solid fa-user "></i>
                                 المستخدمين</h1>
 
-                         
+
                         </div>
                     </div>
                 </div>
@@ -83,20 +83,20 @@
                                                             method="POST">
                                                             @csrf
                                                             @if ($user->is_active == 1)
-                                                                <button 
+                                                                <button
                                                                     class=" btn d-flex align-items-center
                                                                     font-weight-inverse-success
-                                                              btn-rounded  fa-solid fa-trash pe-2
+                                                              btn-rounded  fa-solid  fa-user-large pe-2
                                                            " style="color:#71c016;font-size:18px ;">
-                                                                   
+
                                                                 </button>
-                                                               
+
                                                             @else
                                                                 <button style="color:#ff4747;font-size: 18px ;"
                                                                     class="
-                                                            btn d-flex align-items-center fas fa-trash-restore pe-2
+                                                            btn d-flex align-items-center fas  fa-user-large-slash pe-2
                                                              ">
-                                                                
+
                                                                 </button>
                                                             @endif
                                                         </form>

@@ -16,9 +16,9 @@
                     <div class="p-3 d-flex flex-column align-items-center justify-content-center">
                         <div class=" mt-n2 mx-sm-0 mx-auto pt-3 pe-3" style="position: relative">
                             @if (Auth::user() == $user)
-                                <button type="button" class="btn" data-bs-toggle="modal"
-                                    data-bs-target="#profile_pic" style="position: absolute; bottom:0; left:-35px;">
-                                    <i class="fas fa-camera"></i>
+                                <button type="button" class=" d-flex align-items-center justify-content-center" data-bs-toggle="modal"
+                                    data-bs-target="#profile_pic" style="position: absolute; bottom:0; left:-25px; background-color: rgba(0, 0, 0, 0.35) ; border-radius: 50%; width: 40px; height: 40px; border: none">
+                                    <i class="fas fa-camera" style="color: rgba(240, 248, 255, 0.714)"></i>
                                 </button>
                             @endif
                             @if (isset($user->profile->avatar))
@@ -63,7 +63,7 @@
         </div>
     </div>
     <!-- Content -->
-    <div class="container-xxl flex-grow-1 container-p-y">
+    <div class="w-100">
         <!-- Modal -->
         @if (session()->has('Emailverfication'))
             <div class="alert alert-dismissible alert-danger fade show" role="alert">
@@ -217,7 +217,9 @@
                 <!-- Profile Overview -->
                 <div class="card mb-4">
                     <div class="card-body">
-                        <small class="text-muted text-uppercase">الانجازات</small>
+                        <small class="text-muted text-uppercase">
+                            <i class="bi bi-trophy"></i>
+                            الانجازات</small>
                         <ul class="list-unstyled mt-3 mb-0">
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-check"></i><span
                                     class="fw-semibold mx-2">عملية شراء:</span> <span>13.5k</span></li>

@@ -59,6 +59,40 @@ class BrandSeeder extends Seeder
             'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
 
         ]);
+        DB::table('brands')->insert([
+            'name' =>'مرسيدس',
+            'logo' => $faker->image('public/images/brands',640,480, null, false),
+            'is_active' => '1',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+        DB::table('brands')->insert([
+            'name' =>'شفروليه',
+            'logo' => $faker->image('public/images/brands',640,480, null, false),
+            'is_active' => '1',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+
+
+        DB::table('brands')->insert([
+            'name' =>'كينج لونج',
+            'logo' => $faker->image('public/images/brands',640,480, null, false),
+            'is_active' => '1',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
+        DB::table('brands')->insert([
+            'name' =>'ايسوزو',
+            'logo' => $faker->image('public/images/brands',640,480, null, false),
+            'is_active' => '1',
+            'created_at'=> $faker->date('Y-m-d', $unixTimestamp),
+            'updated_at' => $faker->date('Y-m-d', $unixTimestamp),
+
+        ]);
 
     }
 }
