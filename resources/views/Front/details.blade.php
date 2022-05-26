@@ -127,8 +127,29 @@
                             </div>
                         @endif
                     </div>
-                    <p>
-                        {!! $auction->car->description !!}
+                    <p class="d-flex flex-column">
+
+                    <div class="d-flex flex-column">
+                        <p class="ms-3">
+                            <i class="bi bi-gear" style="color: #F7941D"></i>
+                            نوع الجير :
+                            {{ \App\Models\Car::getJear($auction->car->jear) }}
+                        </p>
+                        <p class="ms-3">
+                            <i class="bi bi-speedometer2" style="color: #F7941D"></i>
+                            المسافة المقطوعة :
+                            {{ $auction->car->numberOfKillos }}
+                        </p>
+
+                        <div class="d-flex flex-column">
+                            <p class="ms-3">
+                                <i class="bi bi-card-text"></i>
+                                تفاصيل اضافية :
+                            </p>
+                            {!! $auction->car->description !!}
+                        </div>
+                    </div>
+
                     </p>
 
                     <ul class="product-btns">
@@ -251,7 +272,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn " style="background-color: #F7941D;">تاكيد</button>
+                                <button type="submit" class="btn "
+                                    style="background-color: #F7941D;">تاكيد</button>
                                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">الغاء الامر
                                 </button>
                             </div>
@@ -278,11 +300,12 @@
                                 <!-- product tab nav -->
                                 <ul class="tab-nav">
                                     <li class="active"><a data-toggle="tab" href="#tab3">التقييمات
-                                    @if ($count == 0.02)
-                                                        <span>0</span>
-                                                        @else
-                                                        <span>{{$count}}</span>
-                                                        @endif</a></li>
+                                            @if ($count == 0.02)
+                                                <span>0</span>
+                                            @else
+                                                <span>{{ $count }}</span>
+                                            @endif
+                                        </a></li>
 
                                 </ul>
                                 <!-- /product tab nav -->
@@ -301,9 +324,9 @@
                                                 <div id="rating">
                                                     <div class="rating-avg">
                                                         @if ($totalstar == 0.02)
-                                                        <span>0</span>
+                                                            <span>0</span>
                                                         @else
-                                                        <span>{{$totalstar}}</span>
+                                                            <span>{{ $totalstar }}</span>
                                                         @endif
                                                         <div class="rating-stars">
                                                             @for ($i = 1; $i <= $total; $i++)

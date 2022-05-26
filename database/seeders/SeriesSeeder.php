@@ -96,7 +96,7 @@ class SeriesSeeder extends Seeder
 
         ]);
         DB::table('series')->insert([
-            'name' => '  ديانة
+            'name' => '  دينة
             ',//النوع
             'brand_id' => '4',
             'is_active' => '1',
