@@ -138,7 +138,7 @@
                         <p class="ms-3">
                             <i class="bi bi-speedometer2" style="color: #F7941D"></i>
                             المسافة المقطوعة :
-                            {{ $auction->car->numberOfKillos }}
+                            {{ $auction->car->numberOfKillos }} كيلو
                         </p>
 
                         <div class="d-flex flex-column">
