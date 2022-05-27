@@ -179,15 +179,14 @@
                 </g>
             </svg>
         </div>
-        <!--?lit$0964416842$-->
     </div>
     <h2> لايوجد اتصال بالانترنت</h2>
 
     <h4 class="text-muted mb-3"> يرجى التاكد من اتصالك بشبكة الانترنت </h4>
 
-    <a href="{{ url(Request::url()) }}" class="btn btn-warning">
+    <a href="{{ url($url) }}" class="btn btn-warning">
         <i class="bi bi-arrow-clockwise"></i>
-        تحديث</a>
+        عودة للصفحة السابقة</a>
 
 </div>
 

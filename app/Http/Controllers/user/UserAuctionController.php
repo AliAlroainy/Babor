@@ -190,8 +190,8 @@ class UserAuctionController extends Controller
                         });
             return redirect()->back();
         }
-        catch (\Throwable $th) {
-            return view('Front.errors.noconnection');
+        catch (\Illuminate\Http\Client\ConnectionException $e) {
+            return view('Front.errors.noconnection', ['url' => url()->previous()]);
         }
     }
 
