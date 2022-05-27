@@ -497,7 +497,7 @@
                                                         tabindex="-1" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <form
-                                                                action="{{ route('user.progress.action.auction', 10000) }}"
+                                                                action="{{ route('user.progress.action.auction', $auction->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 <div class="modal-content">
