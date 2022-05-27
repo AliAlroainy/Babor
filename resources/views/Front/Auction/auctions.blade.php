@@ -96,9 +96,9 @@
                                                             <br>
                                                             <span class="ps-1 pe-3">
                                                                 @if ($auction->bids->count() > 0)
-                                                                    {{ $auction->bids->first()->currentPrice }}
+                                                                    {{ $auction->bids->first()->currentPrice }}$
                                                                 @else
-                                                                    {{ $auction->openingBid }}
+                                                                    {{ $auction->openingBid }}$
                                                                 @endif
                                                             </span>
                                                         </p>
@@ -341,9 +341,9 @@
                                                             <br>
                                                             <span class="ps-1 pe-3">
                                                                 @if ($auction->bids->count() > 0)
-                                                                    {{ $auction->bids->first()->currentPrice }}
+                                                                    {{ $auction->bids->first()->currentPrice }}$
                                                                 @else
-                                                                    {{ $auction->openingBid }}
+                                                                    {{ $auction->openingBid }}$
                                                                 @endif
                                                             </span>
                                                         </p>
@@ -462,9 +462,9 @@
                                                             <br>
                                                             <span class="ps-1 pe-3">
                                                                 @if ($auction->bids->count() > 0)
-                                                                    {{ $auction->bids->first()->currentPrice }}
+                                                                    {{ $auction->bids->first()->currentPrice }}$
                                                                 @else
-                                                                    {{ $auction->openingBid }}
+                                                                    {{ $auction->openingBid }}$
                                                                 @endif
                                                             </span>
                                                         </p>
@@ -833,9 +833,9 @@
                                                             <br>
                                                             <span class="ps-1 pe-3">
                                                                 @if ($auction->bids->count() > 0)
-                                                                    {{ $auction->bids->first()->currentPrice }}
+                                                                    {{ $auction->bids->first()->currentPrice }}$
                                                                 @else
-                                                                    {{ $auction->openingBid }}
+                                                                    {{ $auction->openingBid }}$
                                                                 @endif
                                                             </span>
                                                         </p>

@@ -66,9 +66,9 @@
                     <div>
                         <h3 class="product-price">
                             @if ($auction->bids->count() > 0)
-                                {{ $auction->bids->first()->currentPrice }}
+                                {{ $auction->bids->first()->currentPrice }}$
                             @else
-                                {{ $auction->openingBid }}
+                                {{ $auction->openingBid }}$
                             @endif
                         </h3>
                     </div>
@@ -114,7 +114,7 @@
                                 <span class="text-muted" style="font-size: 12px; vertical-align: bottom;"> أقل
                                     سعر
                                     للمزايدة به هو:
-                                    <span class="text-danger"> {{ $auction->minInc }} </span>
+                                    <span class="text-danger"> ${{ $auction->minInc }} </span>
                                 </span>
                             </div>
                         @else
@@ -252,9 +252,9 @@
                                     السعر الحالي :
                                     <span style="color:#F7941D">
                                         @if ($auction->bids->count() > 0)
-                                            {{ $auction->bids->first()->currentPrice }}
+                                            {{ $auction->bids->first()->currentPrice }}$
                                         @else
-                                            {{ $auction->openingBid }}
+                                            {{ $auction->openingBid }}$
                                         @endif
                                     </span>
                                 </div>
@@ -573,9 +573,9 @@
                                     <div class="product-price">
                                         <span>
                                             @if ($item->bids->count() > 0)
-                                                {{ $item->bids->first()->currentPrice }}
+                                                {{ $item->bids->first()->currentPrice }}$
                                             @else
-                                                {{ $item->openingBid }}
+                                                {{ $item->openingBid }}$
                                             @endif
                                         </span>
                                     </div>

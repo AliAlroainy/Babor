@@ -188,7 +188,6 @@
                     </a>
                 </span>
 `;
-            {{-- alert({!! \Illuminate\Support\Facades\Auth::id() !!}) --}}
             //             document.getElementById('dropdown-menu').append(node);
             let menu = document.getElementById('dropdown-menu');
             insertAfter(node, menu.firstElementChild)
@@ -203,7 +202,6 @@
                     </a>
                 </span>
 `;
-            {{--             alert("{!! Auth::id() !!}");--}}
             let menu = document.getElementById('dropdown-menu');
             insertAfter(node, menu.firstElementChild)
         }
@@ -216,28 +214,12 @@
                     </a>
                 </span>
 `;
-            {{--alert("{!! Auth::id() !!}");--}}
             let menu = document.getElementById('dropdown-menu');
             insertAfter(node, menu.firstElementChild)
         }
 
 
-        if(  data.user_id.toString() == "{!! Auth::id() !!}" && (data.type == 5 || data.type == 6)  ) {
-            {{--alert(data.user_id.toString() != "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != "");--}}
-            node = document.createElement('li');
-            node.innerHTML =`
-                <span class="dropdown-item">
-                        <a class="quantity text-dark" href="{{ url('user/auction/details') }}/${data.link}">
-                        <p class="fw-bold m-0"> ${data.message}</p>
-                    </a>
-                </span>
-`;
-            alert("{!! Auth::id() !!}");
-            let menu = document.getElementById('dropdown-menu');
-            insertAfter(node, menu.firstElementChild)
-        }
-
-        if( data.user_id.toString() == "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != 1 && "{!! Auth::id() !!}" != "" && data.type == 7) {
+        if (data.user_id.toString() == "{!! Auth::id() !!}" && (data.type == 5 || data.type == 6)) {
             node = document.createElement('li');
             node.innerHTML = `
                 <span class="dropdown-item">
@@ -246,7 +228,20 @@
                     </a>
                 </span>
 `;
-            {{--alert("{!! Auth::id() !!}");--}}
+            let menu = document.getElementById('dropdown-menu');
+            insertAfter(node, menu.firstElementChild)
+        }
+
+        if (data.user_id.toString() == "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != 1 &&
+            "{!! Auth::id() !!}" != "" && data.type == 7) {
+            node = document.createElement('li');
+            node.innerHTML = `
+                <span class="dropdown-item">
+                        <a class="quantity text-dark" href="{{ url('user/auction/details') }}/${data.link}">
+                        <p class="fw-bold m-0"> ${data.message}</p>
+                    </a>
+                </span>
+`;
             let menu = document.getElementById('dropdown-menu');
             insertAfter(node, menu.firstElementChild)
         }
@@ -263,7 +258,6 @@
                 </span>
 `;
         if (data.user_id.toString() == "{!! Auth::id() !!}") {
-            {{-- alert("{!! Auth::id() !!}"); --}}
             // document.getElementById('dropdown-menu').append(node);
             let menu = document.getElementById('dropdown-menu');
             insertAfter(node, menu.firstElementChild)

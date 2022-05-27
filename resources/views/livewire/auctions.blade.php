@@ -66,9 +66,9 @@
                                                         <div class="product-price">
                                                             <span>
                                                                 @if ($auction->bids->count() > 0)
-                                                                    {{ $auction->bids->first()->currentPrice }}
+                                                                    {{ $auction->bids->first()->currentPrice }}$
                                                                 @else
-                                                                    {{ $auction->openingBid }}
+                                                                    {{ $auction->openingBid }}$
                                                                 @endif
                                                             </span>
                                                         </div>

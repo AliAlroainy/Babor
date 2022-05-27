@@ -63,9 +63,9 @@
                                     </td>
                                     <td>
                                         @if ($auction->bids->count() > 0)
-                                            {{ $auction->bids->first()->currentPrice }}
+                                            {{ $auction->bids->first()->currentPrice }}$
                                         @else
-                                            {{ $auction->openingBid }}
+                                            {{ $auction->openingBid }}$
                                         @endif
                                     </td>
                                 </tr>
@@ -96,7 +96,7 @@
                                         </h4>
                                     </td>
                                     <td>
-                                        {{ $auction->minInc }}
+                                        {{ $auction->minInc }}$
                                     </td>
                                 </tr>
                                 <tr>
