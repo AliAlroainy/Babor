@@ -89,7 +89,7 @@
                                                         {{ $bid->auction->user->name }}
                                                     </td>
                                                     <td>
-                                                        {{ $bid->bidPrice }}
+                                                        {{ $bid->bidPrice }}$
                                                     </td>
                                                     <td>
                                                         @if ($bid->auction->status == '2')

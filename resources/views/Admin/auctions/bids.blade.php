@@ -100,10 +100,10 @@
                                                         {{ $bid->user->name }}
                                                     </td>
                                                     <td>
-                                                        {{ $bid->bidPrice }}
+                                                        {{ $bid->bidPrice }}$
                                                     </td>
                                                     <td>
-                                                        {{ $bid->currentPrice }}
+                                                        {{ $bid->currentPrice }}$
                                                     </td>
                                                     <td>
                                                         {{ $bid->created_at }}

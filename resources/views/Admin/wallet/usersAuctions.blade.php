@@ -87,7 +87,7 @@
                                     </td>
                                     <td>
                                         <div class="p-2 ">
-                                            <p class="font-weight-bold">{{ $bill->bid->currentPrice }}<span
+                                            <p class="font-weight-bold">{{ $bill->bid->currentPrice }}$<span
                                                     style="color: #F7941D"></span> </P>
                                         </div>
                                     </td>

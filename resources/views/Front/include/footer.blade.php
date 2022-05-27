@@ -35,7 +35,8 @@
                      <div class="single-footer links text-end">
                          <h4>خدمة العلاء</h4>
                          <ul>
-                             <li style="margin-bottom: -7px"><a class="nav-link" href="/contact">تواصل معنا</a></li>
+                             <li style="margin-bottom: -7px"><a class="nav-link" href="/contact">تواصل معنا</a>
+                             </li>
                              <li style="margin-bottom: -7px"><a class="nav-link" href="/soon">طرق الدفع</a></li>
                              <li style="margin-bottom: -7px"><a class="nav-link" href="/soon">الشحن</a></li>
                          </ul>
@@ -249,7 +250,6 @@
             </a>
         </li>
 `;
-{{--             alert({!! \Illuminate\Support\Facades\Auth::id() !!})--}}
              document.getElementById('shopping-list').prepend(node);
          }
 
@@ -264,7 +264,6 @@
                     </a>
                 </li>
 `;
-             {{-- alert("{!! Auth::id() !!}"); --}}
              document.getElementById('shopping-list').prepend(node);
          }
          if (data.type == 3) {
@@ -279,7 +278,6 @@
                     </a>
                 </li>
 `;
-             {{-- alert("{!! Auth::id() !!}"); --}}
              document.getElementById('shopping-list').prepend(node);
          }
 
@@ -287,7 +285,6 @@
          if (data.user_id.toString() == "{!! Auth::id() !!}" && data.admin_id.toString() !=
              "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" &&
              "{!! Auth::id() !!}" != "" && data.type == 5) {
-             {{-- alert(data.user_id.toString() != "{!! Auth::id() !!}" && data.winner_id.toString() != "{!! Auth::id() !!}" && "{!! Auth::id() !!}" != ""); --}}
              node = document.createElement('li');
              node.innerHTML = `
                 <li>
@@ -299,7 +296,6 @@
                     </a>
                 </li>
 `;
-             {{-- alert("{!! Auth::id() !!}"); --}}
              document.getElementById('shopping-list').prepend(node);
          }
 
@@ -316,7 +312,6 @@
                     </a>
                 </li>
 `;
-             {{-- alert("{!! Auth::id() !!}"); --}}
              document.getElementById('shopping-list').prepend(node);
          }
 
@@ -335,7 +330,6 @@
                 </li>
 `;
          if (data.user_id.toString() == "{!! Auth::id() !!}") {
-             {{-- alert("{!! Auth::id() !!}"); --}}
              document.getElementById('shopping-list').prepend(node);
          }
 
