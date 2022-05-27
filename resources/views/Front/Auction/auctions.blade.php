@@ -5,32 +5,47 @@
     @include('Front.user.style.style')
 
     <div class="container mt-2 ">
-
-
-
-
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body dashboard-tabs p-0">
                         <div class="tab-content py-0 px-0">
+                            @if (session()->has('message'))
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {{ session()->get('message') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @elseif (session()->has('successDelete'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ session()->get('successDelete') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @elseif (session()->has('errorDelete'))
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {{ session()->get('errorDelete') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @elseif (session()->has('notFound'))
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {{ session()->get('notFound') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
                             <div class="tab-pane fade {{ request()->is('user/auctions/in-progress') ? 'show active' : null }}"
                                 id="{{ route('user.show.progress.auction') }}" role="tabpanel"
                                 aria-labelledby="{{ route('user.show.progress.auction') }}-tab">
-
                                 <div class="row  ">
-
                                     <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
                                         <div class="cardp d-flex align-items-center justify-content-center">
                                             <div class="card-body d-flex  align-items-center justify-content-center">
-
                                                 <h1 style="margin-top:-40px">
                                                     <i class="bi bi-activity ms-2"></i>
-
                                                     مزادات جارية
                                                 </h1>
-
-
                                             </div>
                                         </div>
                                     </div>
@@ -473,16 +488,16 @@
                                                 <div class="mt-auto row align-items-baseline justify-content-evenly">
                                                     <button style="width: fit-content"
                                                         class="mt-3 btn btn-inverse-danger btn-rounded"
-                                                        data-bs-target="#cancel-{{ $auction->id }}"
+                                                        data-bs-target="#cancelUncomplete-{{ $auction->id }}"
                                                         data-bs-toggle="modal">
                                                         إلغاء المزاد
                                                         <i class="fa-solid fa-times pe-2" style="font-size: 12px ;"></i>
                                                     </button>
-                                                    <div class="modal fade" id="cancel-{{ $auction->id }}"
+                                                    <div class="modal fade" id="cancelUncomplete-{{ $auction->id }}"
                                                         tabindex="-1" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <form
-                                                                action="{{ route('user.progress.action.auction', $auction->id) }}"
+                                                                action="{{ route('user.progress.action.auction', 10000) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 <div class="modal-content">
@@ -555,25 +570,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                @if (session()->has('successDelete'))
-                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        {{ session()->get('successDelete') }}
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                            aria-label="Close"></button>
-                                    </div>
-                                @elseif (session()->has('errorDelete'))
-                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                        {{ session()->get('errorDelete') }}
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                            aria-label="Close"></button>
-                                    </div>
-                                @elseif (session()->has('notFound'))
-                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                        {{ session()->get('notFound') }}
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                            aria-label="Close"></button>
-                                    </div>
-                                @endif
                                 <div class="container my-5">
                                     <div class="row auction-list">
                                         @if (isset($auctions) && $auctions->count() > 0)

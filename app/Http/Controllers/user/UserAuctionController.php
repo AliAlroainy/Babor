@@ -149,8 +149,6 @@ class UserAuctionController extends Controller
         try{
             // '3': canceled, '4': uncomplete
             $found = Auction::find($id);
-            if(!$found)
-                return response()->view('Front.errors.404', []);
             $auction = Auction::whereId($id);
             $auction->when($request->has('cancel'), function ($q) use ($id, $auction){
                 $q->update(['status' => '3']);
@@ -192,6 +190,9 @@ class UserAuctionController extends Controller
         }
         catch (\Illuminate\Http\Client\ConnectionException $e) {
             return view('Front.errors.noconnection', ['url' => url()->previous()]);
+        }
+        catch (\Exception $th) {
+            return redirect()->back()->with('message', 'حدث خطأ ما، حاول مرة أخرى');
         }
     }
 
