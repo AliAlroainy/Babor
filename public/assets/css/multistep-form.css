@@ -1,0 +1,254 @@
+:root {
+    --babor: #f79522;
+}
+
+.msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px
+}
+
+.msform fieldset .form-card {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    /*box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);*/
+    padding: 20px 40px 30px 40px;
+    box-sizing: border-box;
+    width: 94%;
+    margin: 0 3% 20px 3%;
+    position: relative;
+}
+
+.msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative
+}
+
+.msform fieldset:not(:first-of-type) {
+    display: none
+}
+
+.msform fieldset .form-card {
+    text-align: left;
+    color: #9E9E9E
+}
+
+.msform input:not(type=radio),
+.msform textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: Tajawal;
+}
+
+.msform input.form-control:not([type=file]) {
+    padding-block: 0.65rem;
+    
+}
+
+.msform input:focus{
+    border: none;
+    border-bottom: #f79522 solid 1px;
+}
+.msform textarea:focus {
+    /*-moz-box-shadow: none !important;*/
+    /*-webkit-box-shadow: none !important;*/
+    /*box-shadow: none !important;*/
+    /*border: none;*/
+    /*font-weight: bold;*/
+    /*border-bottom: 2px solid var(--babor);*/
+    /*outline-width: 0*/
+}
+
+.msform .action-button {
+    /*width: 100px;*/
+    /*background: var(--babor);*/
+    /*font-weight: bold;*/
+    /*color: white;*/
+    /*border: 0 none;*/
+    /*border-radius: 0px;*/
+    /*cursor: pointer;*/
+    /*padding: 10px 5px;*/
+    /*margin: 10px 5px;*/
+    /*transition: .5s ;*/
+    /*border-radius: 5px;*/
+}
+
+.msform .action-button:hover,
+.msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px var(--babor);
+
+}
+
+/*.msform .action-button-previous {*/
+/*    width: 100px;*/
+/*    background: #616161;*/
+/*    font-weight: bold;*/
+/*    color: white;*/
+/*    border: 0 none;*/
+/*    border-radius: 0px;*/
+/*    cursor: pointer;*/
+/*    padding: 10px 5px;*/
+/*    margin: 10px 5px*/
+/*}*/
+
+.msform .action-button-previous:hover,
+.msform .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+}
+
+select.list-dt {
+    border: none;
+    outline: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 2px 5px 3px 5px;
+    margin: 2px
+}
+
+select.list-dt:focus {
+    border-bottom: 2px solid var(--babor)
+}
+
+.card {
+    z-index: 0;
+    border: none;
+    border-radius: 0.5rem;
+    position: relative
+}
+
+.fs-title {
+    font-size: 1.3rem;
+    color: #2C3E50;
+    margin-bottom: 33px;
+    font-weight: bold;
+    text-align: left
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #c4c4c4;
+    margin-bottom: 2rem;
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey
+}
+
+#progressbar .active {
+    color: #000000
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 12px;
+    width: 25%;
+    float: left;
+    position: relative
+}
+
+#progressbar #auction:before {
+    font-family: FontAwesome;
+    content: "\e0d5"
+}
+
+#progressbar #car:before {
+    font-family: FontAwesome;
+    content: "\f1b9"
+}
+
+#progressbar #ensure:before {
+    font-family: FontAwesome;
+    content: "\e0d5"
+}
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 18px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: var(--babor);
+}
+
+.radio-group {
+    position: relative;
+    margin-bottom: 25px
+}
+
+.radio {
+    display: inline-block;
+    /*width: 204;*/
+    /*height: 104;*/
+    border-radius: 0;
+    background: lightblue;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 8px 2px
+}
+
+.radio:hover {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+}
+
+.radio.selected {
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+
+
+.end-date {
+    position: relative;
+    /* width: 100% */
+}
+
+.end-date>input {
+    padding-inline-start: 140px;
+}
+
+.end-date:after {
+    content: 'تاريخ إنتهاء المزاد';
+    /*font-weight: bold;*/
+    color: #ccc;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+
+}

@@ -2,43 +2,74 @@
 
 namespace App\Models;
 
+use Laravel\Sanctum\HasApiTokens;
+use Bavix\Wallet\Traits\HasWallet;
+use Bavix\Wallet\Interfaces\Wallet;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
+use Laratrust\Traits\LaratrustUserTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class User extends Authenticatable
+class User extends Authenticatable  implements Wallet
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use LaratrustUserTrait;
+    use HasApiTokens, HasFactory, Notifiable, HasWallet;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
         'email',
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profile(): HasOne
+    {
+        return $this->hasOne(Profile::class, 'user_id');
+    }
+
+    public function auctions(): HasMany
+    {
+        return $this->hasMany(Auction::class, 'auctioneer_id');
+    }
+
+    public function bids(): HasMany
+    {
+        return $this->hasMany(Bid::class, 'bidder_id');
+    }
+
+    public function favorite(): BelongsToMany
+    {
+        return $this->belongsToMany(Auction::class, 'favorites')->withTimestamps();
+    }
+
+    public function favoriteHas($auction_id)
+    {
+        return self::favorite()->where('auction_id', $auction_id)->exists();
+    }
+
+    // public const PASSWORD_VALIDATION_RULES  = [
+    //     'password'        => 'required|min:5',
+    //     'confirm_password'=> 'same:password'
+    // ];
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+    public function ReviewData()
+    {
+    return $this->hasMany('App\Models\ReviewRating','user_id');
+    }
 }
