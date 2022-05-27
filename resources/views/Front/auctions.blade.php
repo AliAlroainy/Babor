@@ -60,7 +60,11 @@
                                                                 href="{{ route('site.auction.details', $auction->id) }}">{{ $auction->type_and_model() }}
                                                             </a></h3>
                                                         <div class="product-price">
-                                                            <span>{{ $auction->openingBid }}</span>
+                                                            @if ($auction->bids->count() > 0)
+                                                                <span>{{ $auction->bids->first()->currentPrice }}$</span>
+                                                            @else
+                                                                <span>{{ $auction->openingBid }}$</span>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>

@@ -114,7 +114,7 @@
                                 <span class="text-muted" style="font-size: 12px; vertical-align: bottom;"> أقل
                                     سعر
                                     للمزايدة به هو:
-                                    <span class="text-danger"> {{ $auction->minInc }}$ </span>
+                                    <span class="text-danger"> ${{ $auction->minInc }} </span>
                                 </span>
                             </div>
                         @else
