@@ -86,63 +86,79 @@ class UserAuctionController extends Controller
     }
 
     public function showMyAuctions(Request $request, $id=null){
-        $route = Route::current()->getName();
-        $current_user = Auth::id();
+        try{
+            $route = Route::current()->getName();
+            $current_user = Auth::id();
 
-        //Delete by user his/her auction before approved by admin
-        if($route == 'user.delete.pending.auction'){
-            $found = Auction::find($id);
-            if(!$found)
-                return redirect()->back()->with('notFound', 'هذا العنصر غير موجود');
-            $is_deleted = Auction::whereId($id)->delete();
-            if($is_deleted){
-                return redirect()->back()->with('successDelete', 'تم الحذف بنجاح');
+            //! Delete by user his/her auction before approved by admin
+            if($route == 'user.delete.pending.auction'){
+                $found = Auction::find($id);
+                if(!$found)
+                    return redirect()->back()->with('notFound', 'هذا العنصر غير موجود');
+                $is_deleted = Auction::whereId($id)->delete();
+                if($is_deleted){
+                    return redirect()->back()->with('successDelete', 'تم الحذف بنجاح');
+                }
+                return redirect()->back()->with('errorDelete', 'حدث خطأ!');
             }
-            return redirect()->back()->with('errorDelete', 'حدث خطأ!');
-        }
-        else{
-            if($route == 'user.show.pending.auction'){
-                $status='0';
+            else{
+                if($route == 'user.show.pending.auction'){
+                    $status='0';
+                }
+                elseif($route == 'user.show.disapproved.auction'){
+                    $status='1';
+                }
+                elseif($route == 'user.show.progress.auction'){
+                    $status='2';
+                }
+                elseif($route == 'user.show.canceled.auction'){
+                    $status='3';
+                }
+                elseif($route == 'user.show.uncompleted.auction'){
+                    $status='4';
+                }
+                elseif($route == 'user.show.completed.auction'){
+                    $status='5';
+                }
             }
-            elseif($route == 'user.show.disapproved.auction'){
-                $status='1';
-            }
-            elseif($route == 'user.show.progress.auction'){
-                $status='2';
-            }
-            elseif($route == 'user.show.canceled.auction'){
-                $status='3';
-            }
-            elseif($route == 'user.show.uncompleted.auction'){
-                $status='4';
-            }
-            elseif($route == 'user.show.completed.auction'){
-                $status='5';
-            }
-        }
 
-        $auctions = Auction::where(['auctioneer_id' => $current_user, 'status' => $status])
-                    ->when($status == '2', function ($s){
-                            return $s->whereDate('closeDate', '>', now());
-                    })
-                    ->with('bids', function ($q){ $q->orderBy('id', 'desc')->get();})->get();
-        if($auctions)
-            return view('Front.Auction.auctions')->with('auctions',$auctions);
+            $auctions = Auction::where(['auctioneer_id' => $current_user, 'status' => $status])
+                        ->when($status == '2', function ($s){
+                                return $s->whereDate('closeDate', '>', now());
+                        })
+                        ->with('bids', function ($q){ $q->orderBy('id', 'desc')->get();})->get();
+            if($auctions)
+                return view('Front.Auction.auctions')->with('auctions',$auctions);
+        }     
+        catch (\Illuminate\Http\Client\ConnectionException $e) {
+            return view('Front.errors.noconnection', ['url' => url()->previous()]);
+        }
+        catch (\Exception $th) {
+            return redirect()->back()->with('message', 'حدث خطأ ما، حاول مرة أخرى');
+        }
     }
 
     public function showDetails(Request $request, $id)
     {
-        $found = Auction::find($id);
-        if($found){
-            $auction = Auction::whereId($id)->with('bids', function ($q){
-                //get last bid of this auction
-                $q -> orderBy('id', 'desc')->first();
-            })->first();
-            if($auction){
-                return view('Front.Auction.auctionDetails')->with('auction', $auction);
+        try{
+            $found = Auction::find($id);
+            if($found){
+                $auction = Auction::whereId($id)->with('bids', function ($q){
+                    //get last bid of this auction
+                    $q -> orderBy('id', 'desc')->first();
+                })->first();
+                if($auction){
+                    return view('Front.Auction.auctionDetails')->with('auction', $auction);
+                }
             }
+            return response()->view('Front.errors.404', []);
         }
-        return response()->view('Front.404', []);
+        catch (\Illuminate\Http\Client\ConnectionException $e) {
+            return view('Front.errors.noconnection', ['url' => url()->previous()]);
+        }
+        catch (\Exception $th) {
+            return redirect()->back()->with('message', 'حدث خطأ ما، حاول مرة أخرى');
+        }
     }
 
     public function action(Request $request, $id){

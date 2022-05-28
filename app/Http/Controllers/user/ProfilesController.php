@@ -84,52 +84,62 @@ class ProfilesController extends Controller
     }
 
     public function visit($id){
-        $route = Route::current()->getName();
-        $comments= ReviewRating::where('user_id',$id)->get();
-        $count= ReviewRating::where('user_id',$id)->get()->count();
-        $total= ReviewRating::where('user_id',$id)->get()->sum('star_rating');
-        if($count > 0)
-        $avg=round($total/$count);
-        else
-        $avg=round($total/.1);
-       
+        try{
+            $route = Route::current()->getName();
+            $comments= ReviewRating::where('user_id',$id)->get();
+            $count= ReviewRating::where('user_id',$id)->get()->count();
+            $total= ReviewRating::where('user_id',$id)->get()->sum('star_rating');
+            if($count > 0)
+            $avg=round($total/$count);
+            else
+            $avg=round($total/.1);
         
-        
-        
-        // To compute number of purchase that current user carried out
-        $countPurchases = Payment_Bill::where('payment_status', 1)
-        ->with(['bid' => function($q) use ($id){
-            return $q->where('bidder_id', $id);
-        }])
-        ->with(['contract' => function($q) use ($id){
-            return $q->where(['seller_confirm' => 1, 'buyer_confirm' => 1])->get();
-        }])->get();
+            // To compute number of purchase that current user carried out
+            $countPurchases = Payment_Bill::where('payment_status', 1)
+            ->with(['bid' => function($q) use ($id){
+                return $q->where('bidder_id', $id);
+            }])
+            ->with(['contract' => function($q) use ($id){
+                return $q->where(['seller_confirm' => 1, 'buyer_confirm' => 1])->get();
+            }])->get();
 
-        $countPurchases = $countPurchases->where('bid', '<>', null)->where('contract', '<>', null)->count();
+            $countPurchases = $countPurchases->where('bid', '<>', null)->where('contract', '<>', null)->count();
 
-        // To compute number of sales that current user carried out
-        $countSales = Payment_Bill::where('payment_status', 1)
-        ->with('bid.auction', function($q) use ($id){
-            return $q->where('auctioneer_id', $id);
-        })
-        ->with('contract', function($q){
-                return $q->where(['seller_confirm' => 1, 'buyer_confirm' => 1]);
-        })
-        ->get();
-        $countSales = $countSales->where('auction', '<>', null)->where('contract', '<>', null)->count();
-        
-        $total= ReviewRating::where('user_id',$id)->get()->count();
-        $avg=round($total/5);
-        $user = User::whereId($id)->with('profile')->first();
-        return view('Front.profile')->with([
-            'route'          => $route,
-            'user'           => $user,
-            'total'          => $avg,
-            'comments'       => $comments,
-            'countPurchases' => $countPurchases, 
-            'countSales'     => $countSales,
+            // To compute number of sales that current user carried out
+            $countSales = Payment_Bill::where('payment_status', 1)
+            ->with('bid.auction', function($q) use ($id){
+                return $q->where('auctioneer_id', $id);
+            })
+            ->with('contract', function($q){
+                    return $q->where(['seller_confirm' => 1, 'buyer_confirm' => 1]);
+            })
+            ->get();
+            $countSales = $countSales->where('auction', '<>', null)->where('contract', '<>', null)->count();
             
-    ]);
+            $total= ReviewRating::where('user_id', $id)->get()->sum('star_rating');
+            $count= ReviewRating::where('user_id', $id)->get()->count();
+            if($count > 0)
+                $avg=round($total/$count);
+            else
+                $avg=round($total/.1);
+
+            $user = User::whereId($id)->with('profile')->first();
+            return view('Front.profile')->with([
+                'route'          => $route,
+                'user'           => $user,
+                'total'          => $avg,
+                'comments'       => $comments,
+                'countPurchases' => $countPurchases, 
+                'countSales'     => $countSales,        
+            ]);
+        }
+        catch (\Illuminate\Http\Client\ConnectionException $e) {
+            return view('Front.errors.noconnection', ['url' => $request->url()]);
+        }
+        catch (\Exception $th) {
+            return redirect()->back()->with('message', 'حدث خطأ ما، حاول مرة أخرى');
+        }
+        
     }
 
     public function info_save(ProfileRequest $request){

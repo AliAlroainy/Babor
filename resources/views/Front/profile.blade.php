@@ -18,21 +18,31 @@
                             @endif
                         </div>
                         <div class="mt-3">
-                            @if (@isset($user->profile->username))
-                                <h3>
-                                    {{ $user->profile->username }}
-                                </h3>
-                                <div class="rating-stars" style="display:flex; flex-direction:row">
-                                    @if (@isset($total))
+                            <h3>
+                                {{ $user->profile->username }}
+                            </h3>
+                            <div class="rating-stars d-flex justify-content-center">
+                                <h5>
+                                    @if ($total > 0)
+                                        @php
+                                            $remain = 5 - $total;
+                                        @endphp
                                         @for ($i = 1; $i <= $total; $i++)
-                                            <h5>
-                                                <i class="fa fa-star"></i>
+                                            <i class="fa fa-star" style="color: #f79522;"></i>
+                                        @endfor
+
+                                        @if ($remain > 0)
+                                            @for ($i = 1; $i <= $remain; $i++)
+                                                <i class="fa fa-star-o" style="color: #f79522;"></i>
+                                            @endfor
+                                        @endif
+                                    @else
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <i class="fa fa-star-o" style="color: #f79522;"></i>
                                         @endfor
                                     @endif
-                                    <i class="fa fa-star-o"></i>
-                                    </h5>
-                                </div>
-                            @endif
+                                </h5>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <a href="/private" class="btn btn-dark d-flex justify-content-center align-items-center"
@@ -103,8 +113,8 @@
             <div class="col-xl-8 col-lg-7 col-md-7">
                 <!-- Activity Timeline -->
                 <div class="card w-100 card-action mb-4 ">
-                <div class="card-body">
-                        <small class="text-muted text-uppercase  ">
+                    <div class="card-body">
+                        <small class="text-muted text-uppercase fw-bold">
                             <i class="bi bi-activity"></i>
                             التعليقات</small>
 
@@ -113,21 +123,19 @@
                             <li class="timeline-item timeline-item-transparent">
                                 <span class="timeline-point timeline-point-warning"></span>
                                 @forelse ($comments as $comment)
-                                <div class="timeline-event">
-                                    <div class="timeline-header mb-1">
-                                   
-                                        <h6 class="mb-0">  {{$comment->name }}</h6>
-                                      
-                                        <small class="text-muted">{{ $comment->created_at->format('jS \\of F Y') }}</small>
+                                    <div class="timeline-event">
+                                        <div class="timeline-header mb-1">
+
+                                            <h6 class="mb-0"> {{ $comment->name }}</h6>
+
+                                            <small
+                                                class="text-muted">{{ $comment->created_at->format('jS \\of F Y') }}</small>
+                                        </div>
+                                        <p class="mb-4"> {{ $comment->comments }} </p>
+                                    @empty
+                                        <h6 class="mb-0"> لايوجد تعليقات حتى الان</h6>
                                     </div>
-                                    <p class="mb-2"> {{$comment->comments }} </p>
-                                  @empty
-                                  <h6 class="mb-0">  لايوجد تعليقات حتى الان</h6>
-
-                                </div>
                                 @endforelse
-
-                                
                             </li>
                         </ul>
                     </div>

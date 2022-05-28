@@ -16,8 +16,9 @@
                     <div class="p-3 d-flex flex-column align-items-center justify-content-center">
                         <div class=" mt-n2 mx-sm-0 mx-auto pt-3 pe-3" style="position: relative">
                             @if (Auth::user() == $user)
-                                <button type="button" class=" d-flex align-items-center justify-content-center" data-bs-toggle="modal"
-                                    data-bs-target="#profile_pic" style="position: absolute; bottom:0; left:-25px; background-color: rgba(0, 0, 0, 0.35) ; border-radius: 50%; width: 40px; height: 40px; border: none">
+                                <button type="button" class=" d-flex align-items-center justify-content-center"
+                                    data-bs-toggle="modal" data-bs-target="#profile_pic"
+                                    style="position: absolute; bottom:0; left:-25px; background-color: rgba(0, 0, 0, 0.35) ; border-radius: 50%; width: 40px; height: 40px; border: none">
                                     <i class="fas fa-camera" style="color: rgba(240, 248, 255, 0.714)"></i>
                                 </button>
                             @endif
@@ -33,19 +34,28 @@
                             @if (@isset($user->profile->username))
                                 <h1>
                                     {{ $user->profile->username }} </h1>
-                                    <div class="rating-stars" style="display:flex; flex-direction:row">
-                                    @if (@isset($total))
-                                                            @for ($i = 1; $i <=  $total ; $i++)
-                                                            <h5>
-                                                                <i class="fa fa-star"></i>
-                                                            @endfor
-                                                            @endif
-                                                            <i class="fa fa-star-o" ></i>
-                                                           
+                                <div class="rating-stars d-flex justify-content-center">
+                                    <h5>
+                                        @if ($total > 0)
+                                            @php
+                                                $remain = 5 - $total;
+                                            @endphp
+                                            @for ($i = 1; $i <= $total; $i++)
+                                                <i class="fa fa-star" style="color: #f79522;"></i>
+                                            @endfor
 
-</h5>
-
-                                                        </div>
+                                            @if ($remain > 0)
+                                                @for ($i = 1; $i <= $remain; $i++)
+                                                    <i class="fa fa-star-o" style="color: #f79522;"></i>
+                                                @endfor
+                                            @endif
+                                        @else
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                <i class="fa fa-star-o" style="color: #f79522;"></i>
+                                            @endfor
+                                        @endif
+                                    </h5>
+                                </div>
                             @endif
                         </div>
                         @if (Auth::user() != $user)
@@ -222,9 +232,10 @@
                             الانجازات</small>
                         <ul class="list-unstyled mt-3 mb-0">
                             <li class="d-flex align-items-center mb-3"><i class="bx bx-check"></i><span
-                                    class="fw-semibold mx-2">عملية شراء:</span> <span>13.5k</span></li>
+                                    class="fw-semibold mx-2">عملية شراء:</span> <span>{{ $countPurchases }}</span>
+                            </li>
                             <li class="d-flex align-items-center mb-3"><i class='bx bx-customize'></i><span
-                                    class="fw-semibold mx-2">عملية بيع:</span> <span>146</span></li>
+                                    class="fw-semibold mx-2">عملية بيع:</span> <span>{{ $countSales }}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -236,7 +247,7 @@
 
 
                     <div class="card-body">
-                        <small class="text-muted text-uppercase  ">
+                        <small class="text-muted text-uppercase fw-bold">
                             <i class="bi bi-activity"></i>
                             التعليقات</small>
 
@@ -245,21 +256,20 @@
                             <li class="timeline-item timeline-item-transparent">
                                 <span class="timeline-point timeline-point-warning"></span>
                                 @forelse ($comments as $comment)
-                                <div class="timeline-event">
-                                    <div class="timeline-header mb-1">
-                                   
-                                        <h6 class="mb-0">  {{$comment->name }}</h6>
-                                      
-                                        <small class="text-muted">{{ $comment->created_at->format('jS \\of F Y') }}</small>
-                                    </div>
-                                    <p class="mb-2"> {{$comment->comments }} </p>
-                                  @empty
-                                  <h6 class="mb-0">  لايوجد تعليقات حتى الان</h6>
+                                    <div class="timeline-event">
+                                        <div class="timeline-header mb-1">
+                                            <h6 class="mb-0"> {{ $comment->name }}</h6>
+                                            <small
+                                                class="text-muted">{{ $comment->created_at->format('jS \\of F Y') }}</small>
+                                        </div>
+                                        <p class="mb-4">{{ $comment->comments }}</p>
+                                    @empty
+                                        <h6 class="mb-0"> لايوجد تعليقات حتى الان</h6>
 
-                                </div>
+                                    </div>
                                 @endforelse
 
-                                
+
                             </li>
                         </ul>
                     </div>

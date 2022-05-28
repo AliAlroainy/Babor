@@ -21,27 +21,34 @@ class APIController extends Controller
     }
 
     public function success($id, $res){ 
-        $bid = Bid::find($id);
-        $money = $bid->currentPrice;
-        $bidder = $bid->user;
-        $bill = Payment_Bill::where('bid_id', $id)->orderBy('id', 'desc')->first();
-        if($bill->payment_status == 0){
-            if($bidder->balance >= $money){
-                $bidder->transfer(User::first(), $money, ['buy' => $bill->id]);
-                DB::table('payment_bills')->where('bid_id', $id)->update(
-                    [
-                        'payment_status' => 1, 
-                        'created_at'     => now(),
-                    ]
-                );
+        try{
+            $bid = Bid::find($id);
+            $money = $bid->currentPrice;
+            $bidder = $bid->user;
+            $bill = Payment_Bill::where('bid_id', $id)->orderBy('id', 'desc')->first();
+            if($bill->payment_status == 0){
+                if($bidder->balance >= $money){
+                    $bidder->transfer(User::first(), $money, ['buy' => $bill->id]);
+                    DB::table('payment_bills')->where('bid_id', $id)->update(
+                        [
+                            'payment_status' => 1, 
+                            'created_at'     => now(),
+                        ]
+                    );
+                }
+                return view('Front.addtions.bill', ['bill' => $bill]);
             }
-            return view('Front.addtions.bill', ['bill' => $bill]);
+            else{
+                $balance = Wallet::whereId(auth()->user()->id)->first()->balance;
+                return view('Front.addtions.nomoney', ['balance' => $balance]);
+            } 
+        }  
+        catch (\Illuminate\Http\Client\ConnectionException $e) {
+            return view('Front.errors.noconnection', ['url' => url()->previous()]);
         }
-        else{
-            $balance = Wallet::whereId(auth()->user()->id)->first()->balance;
-            return view('Front.addtions.nomoney', ['balance' => $balance]);
-        }   
- 
+        catch (\Exception $th) {
+            return redirect()->back()->with('message', 'حدث خطأ ما، حاول مرة أخرى');
+        }
     }
     public function failed($res){
         return view('Front.addtions.failed');
