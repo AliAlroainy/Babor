@@ -178,7 +178,7 @@
                                                             class="mt-3 btn btn-inverse-info btn-rounded"
                                                             data-bs-target="#stop-{{ $auction->id }}"
                                                             data-bs-toggle="modal">
-                                                            توقيف
+                                                           ارساء المزاد
                                                             <i class="fad fa-solid fa-stop pe-2"
                                                                 style="font-size: 12px ;"></i>
                                                         </button>
