@@ -21,7 +21,7 @@ class reviewRattingseeder extends Seeder
 
         DB::table('review_ratings')->insert([
             'user_id' => '2',
-            'name'=> 'جهاد المليكي',
+            'name'=> 'ناديه المليكي',
             'comments' => 'رائع',
             'star_rating' => '1',
             'created_at' => now(),
@@ -30,7 +30,7 @@ class reviewRattingseeder extends Seeder
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '3',
-            'name'=> 'ابرار الخرساني',
+            'name'=> 'احمد الخرساني',
             'comments' => 'ممتاز ،انصح بشراء من هذا البائع',
             'star_rating' => '4',
             'created_at' => now(),
@@ -38,7 +38,7 @@ class reviewRattingseeder extends Seeder
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '4',
-            'name'=> 'علي الرعيني',
+            'name'=> 'هاني الرعيني',
             'comments' => 'كنت اتمني المزايده بهذه السياره ،لكن لتوي انهيت احدى المزادات',
             'star_rating' => '3',
             'created_at' => now(),
@@ -46,7 +46,7 @@ class reviewRattingseeder extends Seeder
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '5',
-            'name'=> 'حمد البكيل',
+            'name'=> 'نهى البكيل',
             'comments' => 'جيد، لاباس بها',
             'star_rating' => '1',
             'created_at' => now(),
@@ -62,7 +62,7 @@ class reviewRattingseeder extends Seeder
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '6',
-            'name'=> 'اراده الفقي',
+            'name'=> 'ممحمد الفقي',
             'comments' => 'سياره واو ،والسعر مناسب جدا للمزايده عليها',
             'star_rating' => '3',
             'created_at' => now(),
@@ -78,7 +78,7 @@ class reviewRattingseeder extends Seeder
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '8',
-            'name'=> 'نشوان ',
+            'name'=> 'نشوان حسان',
             'comments' => 'يااارب تكون من نصيبي',
             'star_rating' => '4',
             'created_at' => now(),
@@ -86,7 +86,7 @@ class reviewRattingseeder extends Seeder
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '3',
-            'name'=> 'هيفاء نبيل ',
+            'name'=> 'هيفاء قاسم ',
             'comments' => 'ابهرتني العروض ، فعلا تستحق المزايده',
             'star_rating' => '2',
             'created_at' => now(),
