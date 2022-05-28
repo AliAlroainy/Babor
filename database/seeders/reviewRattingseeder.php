@@ -21,8 +21,8 @@ class reviewRattingseeder extends Seeder
 
         DB::table('review_ratings')->insert([
             'user_id' => '2',
-            'name'=> 'ناديه المليكي',
-            'comments' => 'رائع',
+            'name'=> 'أبرار الخراساني',
+            'comments' => 'شخص ثقة',
             'star_rating' => '1',
             'created_at' => now(),
             'updated_at' => now()
@@ -30,40 +30,40 @@ class reviewRattingseeder extends Seeder
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '3',
-            'name'=> 'احمد الخرساني',
-            'comments' => 'ممتاز ،انصح بشراء من هذا البائع',
+            'name'=> 'جهاد المليكي',
+            'comments' => 'ممتاز ،انصح بالتعامل مع هذا البائع',
             'star_rating' => '4',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '4',
-            'name'=> 'هاني الرعيني',
-            'comments' => 'كنت اتمني المزايده بهذه السياره ،لكن لتوي انهيت احدى المزادات',
+            'name'=> 'علي الرعيني',
+            'comments' => 'شخص ثقة لكنه يتأخر قليلا في تسليم المتفق عليه',
             'star_rating' => '3',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '5',
-            'name'=> 'نهى البكيل',
-            'comments' => 'جيد، لاباس بها',
+            'name'=> 'حمد البكيل',
+            'comments' => 'التعامل معه جيد لا بأس به',
             'star_rating' => '1',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '5',
-            'name'=> 'هيثم المقطري ',
-            'comments' => 'موقع بابور موقع امن دائما يوفر افضل العروض',
+            'name'=> 'هيثم المقطري',
+            'comments' => 'موقع بابور موقع امن دائما يوفر افضل مقدمي العروض',
             'star_rating' => '5',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '6',
-            'name'=> 'ممحمد الفقي',
-            'comments' => 'سياره واو ،والسعر مناسب جدا للمزايده عليها',
+            'name'=> 'اراده الفقي',
+            'comments' => 'هذا الشخص ثقة، سأكرر معه المعاملة مرة أخرى',
             'star_rating' => '3',
             'created_at' => now(),
             'updated_at' => now()
@@ -71,23 +71,23 @@ class reviewRattingseeder extends Seeder
         DB::table('review_ratings')->insert([
             'user_id' => '7',
             'name'=> 'مختار غالب',
-            'comments' => 'احدى اضخم العروض السيارات بالشرق الاوسط',
+            'comments' => 'دائما يقدم اضخم العروض للسيارات بالشرق الاوسط',
             'star_rating' => '5',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '8',
-            'name'=> 'نشوان حسان',
-            'comments' => 'يااارب تكون من نصيبي',
+            'name'=> 'أبرار الخراساني',
+            'comments' => 'أكثر شخص أحب التعامل معه',
             'star_rating' => '4',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('review_ratings')->insert([
             'user_id' => '3',
-            'name'=> 'هيفاء قاسم ',
-            'comments' => 'ابهرتني العروض ، فعلا تستحق المزايده',
+            'name'=> 'هيفاء نبيل',
+            'comments' => 'عروضه دائما تبهرني، فعلا يستحق التشجيع ',
             'star_rating' => '2',
             'created_at' => now(),
             'updated_at' => now()
@@ -95,7 +95,7 @@ class reviewRattingseeder extends Seeder
          DB::table('review_ratings')->insert([
             'user_id' => '4',
             'name'=> 'رقيه عبده',
-            'comments' => 'لاباس ',
+            'comments' => 'التعامل معه لا بأس به، أراه شخص عصبي',
             'star_rating' => '1',
             'created_at' => now(),
             'updated_at' => now()

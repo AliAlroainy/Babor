@@ -26,8 +26,6 @@ class AcutionController extends Controller
     public function index()
     {
         $auctions = Auction::orderBy('id', 'desc')->get();
-        // return response($auctions);
-        // return response($auctions);
         $brands = Brand::where('is_active', 1)->select('id', 'name')->get();
         $series = Series::where('is_active', 1)->select('id', 'name')->get();
         return view('Admin.auctions.auctions')->with([
@@ -39,45 +37,50 @@ class AcutionController extends Controller
 
     public function indexWithFilter(Request $request){
         $query = $request->search_query;
-        // $brand = $request->brand;=
         if($request->ajax()){
             $auctions = Auction::getAuctions($query);
-        // return response($auctions);// 
         view('Front.auctions')->with(['auctions' => $auctions, 'title' => 'نتائج الفلترة'])->render();
         }
     }
     public function action(Request $request, $id)
     {
-        $notify = new NotificationController();
-        $found = Auction::find($id);
-        $admin = User::whereId(1)->first();
-        if(!$found)
-            return abort('404');
-        $auction = Auction::whereId($id);
-        if($request->has('approve')){
-            $auction->update(['status' => '2', 'startDate' => now()]);
-
-        $notify->newAuctionNotification($found);
-//        $notify->auctionApproved($found);
-
+        try{
+            $notify = new NotificationController();
+            $found = Auction::find($id);
+            $admin = User::whereId(1)->first();
+            if(!$found)
+                return abort('404');
+            $auction = Auction::whereId($id);
+            if($request->has('approve')){
+                $notify->newAuctionNotification($found);
+                //$notify->auctionApproved($found);
+                $auction->update(['status' => '2', 'startDate' => now()]);
+            }
+            if($request->has('disapprove')){
+                Validator::validate($request->all(), [
+                    'reject_reason' => 'required|string',
+                ], [
+                    'reject_reason.required' => 'حقل السبب مطلوب',
+                    'reject_reason.string'   => 'هذاالحقل يجب أن يكون نصا',
+                ]);
+                $notify->auctionDisapproved($found);
+                $auction->update(['status' => '1']);
+                $auc = Auction::find($id);
+                $auc->rejectReason = $request->reject_reason;
+                $auc->save();
+            }
+            return redirect()->back();
         }
-
-        if($request->has('disapprove')){
-            Validator::validate($request->all(), [
-                'reject_reason' => 'required|string',
-            ], [
-                'reject_reason.required' => 'حقل السبب مطلوب',
-                'reject_reason.string'   => 'هذاالحقل يجب أن يكون نصا',
-            ]);
-            $auction->update(['status' => '1']);
-
-            $auc = Auction::find($id);
-            $auc->rejectReason = $request->reject_reason;
-            $notify->auctionDisapproved($found);
-            $auc->save();
+        catch (\Illuminate\Broadcasting\BroadcastException $e) {
+            return view('Front.errors.noconnection');
         }
-
-        return redirect()->back();
+        catch (\Illuminate\Http\Client\ConnectionException $e) {
+            throw new ApiErrorException($e->getMessage());
+            return view('Front.errors.noconnection');
+        } catch (\Throwable $th) {
+            throw $th;
+            return back()->with(['messageFailed' => 'فشلت العملية، الرجاء المحاولة مرة أخرى']);
+        }
     }
 
     public function showDetails(Request $request, $id)

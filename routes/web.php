@@ -54,7 +54,7 @@ Route::get('/test', function () {
 
 
 Route::get('/noConnection', function () {
-    return view('Front.noconnection');
+    return view('Front.errors.noconnection');
 });
 
 Route::get('/failed', function () {

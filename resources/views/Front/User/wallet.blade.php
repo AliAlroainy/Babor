@@ -25,8 +25,8 @@
                                     <p class="ps-3 text-muted fw-bold h6 mb-0">اجمالي الرصيد</p>
                                     <p class="fw-bold d-flex">
                                         {{-- <span class="text-muted">58.</span> --}}
-                                        <span class="h1">{{ $balance }}</span>
                                         <small class="text-muted h7"> $ </small>
+                                        <span class="h1">{{ $balance }}</span>
                                     </p>
                                     <p class="ms-3 mt-5 px-2 rouned-btn bg-green">غذي حسابك</p>
                                 </div>
@@ -34,13 +34,13 @@
                                     <p class="p-blue"><span class="fas fa-circle pe-2"></span> الداخل </p>
                                     <p class="fw-bold mb-3">
                                         {{-- <span class="text-muted">.{{ $gains - intval($gains) }}</span> --}}
-                                        {{ $gains }}
                                         <span class="text-muted h8">$</span>
+                                        {{ $gains }}
                                     </p>
                                     <p class="p-org"><span class="fas fa-circle pe-2"></span> الخارج </p>
                                     <p class="fw-bold">
-                                        {{ $loses }}
                                         <span class="text-muted h8">$</span>
+                                        {{ $loses }}
                                     </p>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                         <div class="bg-blue p-3 mb-3">
                                             <p class="h6 text-muted"> مزايدة على
                                                 {{ $bid->auction->type_and_model() }} بتكلفة
-                                                (<span class="text-danger">{{ $bid->getDeduction() }}</span> $)
+                                                ($<span class="text-danger">{{ $bid->getDeduction() }}</span>)
                                                 @if ($bid->refund == '1')
                                                     <small class="text-danger">
                                                         <i class="fas fa-undo"></i>
@@ -98,7 +98,7 @@
                                                 {{ $bill->bid->auction->car->category->name }} -
                                                 {{ $bill->bid->auction->type_and_model() }}
                                                 بقيمة
-                                                (<span class="text-danger">{{ $bill->bid->currentPrice }}</span> $)
+                                                ($<span class="text-danger">{{ $bill->bid->currentPrice }}</span>)
                                                 @if (isset($bill->contract) && $bill->contract->buyer_confirm == '0')
                                                     <small class="text-danger">
                                                         <i class="fas fa-undo"></i>
@@ -175,8 +175,7 @@
                                                                         <p class="h7">اسم المستحق:
                                                                             {{ $bill->bid->user->name }}</p>
                                                                         <p class="h7 mb-2">المبلغ المستحق :
-                                                                            <span>{{ $tran->amount }} ريال
-                                                                                يمني
+                                                                            <span>{{ $tran->amount }} دولار
                                                                             </span>
                                                                         </p>
                                                                         <p class="textmuted h7 mb-2">تاريخ الاستحقاق :
@@ -228,9 +227,8 @@
                                                                                 للخصومات
                                                                             </p>
                                                                             <p class="ms-auto">
+                                                                                <small class="text-muted">$</small>
                                                                                 <span>{{ $bill->bid->auction->commission * 2 }}
-                                                                                    <small class="text-muted"> $
-                                                                                    </small>
                                                                                 </span>
                                                                             </p>
                                                                         </div>
@@ -273,8 +271,8 @@
                                                                         <p class="h7">اسم المستحق:
                                                                             {{ $bill->bid->user->name }}</p>
                                                                         <p class="h7 mb-2">المبلغ المستحق :
-                                                                            <span>{{ abs($tran->amount) }} ريال
-                                                                                يمني
+                                                                            <span>{{ abs($tran->amount) }} دولار
+
                                                                             </span>
                                                                         </p>
                                                                         <p class="textmuted h7 mb-2">تاريخ الاستحقاق :
@@ -288,9 +286,9 @@
                                                                                 للخصومات
                                                                             </p>
                                                                             <p class="ms-auto">
+                                                                                <small class="text-muted">
+                                                                                    $</small>
                                                                                 <span>0
-                                                                                    <small class="text-muted">
-                                                                                        $</small>
                                                                                 </span>
                                                                             </p>
                                                                         </div>
@@ -363,8 +361,8 @@
                                                 {{ $bill->bid->auction->type_and_model() }}
                                                 بقيمة
                                                 (<span
-                                                    class="text-danger">{{ $bill->bid->currentPrice - $bill->bid->auction->commission }}</span>
-                                                $)
+                                                    class="text-danger">${{ $bill->bid->currentPrice - $bill->bid->auction->commission }}</span>
+                                                )
                                             </p>
                                             @if ($bill->bid->auction->status == '4')
                                                 @if (!isset($bill->contract->seller_confirm))
@@ -437,9 +435,9 @@
                                         @endphp
                                         <div class="bg-blue p-3 mb-3">
                                             <p class="h6 text-muted">
-                                                تعويض مبلغ وقدره(<span
+                                                تعويض مبلغ وقدره($<span
                                                     class="text-danger">{{ $bill->bid->auction->commission }}</span>
-                                                $)
+                                                )
                                                 في مزاد
                                                 {{ $bill->bid->auction->car->category->name }} -
                                                 {{ $bill->bid->auction->type_and_model() }}
@@ -463,9 +461,9 @@
                                         @endphp
                                         <div class="bg-blue p-3 mb-3">
                                             <p class="h6 text-muted">
-                                                خصم مبلغ وقدره(<span
+                                                خصم مبلغ وقدره($<span
                                                     class="text-danger">{{ $bill->bid->auction->commission }}</span>
-                                                $) من حسابك
+                                                ) من حسابك
                                                 في مزاد
                                                 {{ $bill->bid->auction->car->category->name }} -
                                                 {{ $bill->bid->auction->type_and_model() }}

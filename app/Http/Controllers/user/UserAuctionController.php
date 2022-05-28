@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\user;
-use App\Http\Controllers\Notifications\NotificationController;
 use Carbon\Carbon;
 use App\Models\Bid;
 use App\Models\Car;
@@ -18,6 +17,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Requests\StoreAuctionRequest;
+use GuzzleHttp\Exception\ConnectException;
+use App\Http\Controllers\Notifications\NotificationController;
 
 class UserAuctionController extends Controller
 {
@@ -85,108 +86,130 @@ class UserAuctionController extends Controller
     }
 
     public function showMyAuctions(Request $request, $id=null){
-        $route = Route::current()->getName();
-        $current_user = Auth::id();
+        try{
+            $route = Route::current()->getName();
+            $current_user = Auth::id();
 
-        //Delete by user his/her auction before approved by admin
-        if($route == 'user.delete.pending.auction'){
-            $found = Auction::find($id);
-            if(!$found)
-                return redirect()->back()->with('notFound', 'هذا العنصر غير موجود');
-            $is_deleted = Auction::whereId($id)->delete();
-            if($is_deleted){
-                return redirect()->back()->with('successDelete', 'تم الحذف بنجاح');
+            //! Delete by user his/her auction before approved by admin
+            if($route == 'user.delete.pending.auction'){
+                $found = Auction::find($id);
+                if(!$found)
+                    return redirect()->back()->with('notFound', 'هذا العنصر غير موجود');
+                $is_deleted = Auction::whereId($id)->delete();
+                if($is_deleted){
+                    return redirect()->back()->with('successDelete', 'تم الحذف بنجاح');
+                }
+                return redirect()->back()->with('errorDelete', 'حدث خطأ!');
             }
-            return redirect()->back()->with('errorDelete', 'حدث خطأ!');
-        }
-        else{
-            if($route == 'user.show.pending.auction'){
-                $status='0';
+            else{
+                if($route == 'user.show.pending.auction'){
+                    $status='0';
+                }
+                elseif($route == 'user.show.disapproved.auction'){
+                    $status='1';
+                }
+                elseif($route == 'user.show.progress.auction'){
+                    $status='2';
+                }
+                elseif($route == 'user.show.canceled.auction'){
+                    $status='3';
+                }
+                elseif($route == 'user.show.uncompleted.auction'){
+                    $status='4';
+                }
+                elseif($route == 'user.show.completed.auction'){
+                    $status='5';
+                }
             }
-            elseif($route == 'user.show.disapproved.auction'){
-                $status='1';
-            }
-            elseif($route == 'user.show.progress.auction'){
-                $status='2';
-            }
-            elseif($route == 'user.show.canceled.auction'){
-                $status='3';
-            }
-            elseif($route == 'user.show.uncompleted.auction'){
-                $status='4';
-            }
-            elseif($route == 'user.show.completed.auction'){
-                $status='5';
-            }
-        }
 
-        $auctions = Auction::where(['auctioneer_id' => $current_user, 'status' => $status])
-                    ->when($status == '2', function ($s){
-                            return $s->whereDate('closeDate', '>', now());
-                    })
-                    ->with('bids', function ($q){ $q->orderBy('id', 'desc')->get();})->get();
-        if($auctions)
-            return view('Front.Auction.auctions')->with('auctions',$auctions);
+            $auctions = Auction::where(['auctioneer_id' => $current_user, 'status' => $status])
+                        ->when($status == '2', function ($s){
+                                return $s->whereDate('closeDate', '>', now());
+                        })
+                        ->with('bids', function ($q){ $q->orderBy('id', 'desc')->get();})->get();
+            if($auctions)
+                return view('Front.Auction.auctions')->with('auctions',$auctions);
+        }     
+        catch (\Illuminate\Http\Client\ConnectionException $e) {
+            return view('Front.errors.noconnection', ['url' => url()->previous()]);
+        }
+        catch (\Exception $th) {
+            return redirect()->back()->with('message', 'حدث خطأ ما، حاول مرة أخرى');
+        }
     }
 
     public function showDetails(Request $request, $id)
     {
-        $found = Auction::find($id);
-        if($found){
-            $auction = Auction::whereId($id)->with('bids', function ($q){
-                //get last bid of this auction
-                $q -> orderBy('id', 'desc')->first();
-            })->first();
-            if($auction){
-                return view('Front.Auction.auctionDetails')->with('auction', $auction);
+        try{
+            $found = Auction::find($id);
+            if($found){
+                $auction = Auction::whereId($id)->with('bids', function ($q){
+                    //get last bid of this auction
+                    $q -> orderBy('id', 'desc')->first();
+                })->first();
+                if($auction){
+                    return view('Front.Auction.auctionDetails')->with('auction', $auction);
+                }
             }
+            return response()->view('Front.errors.404', []);
         }
-        return response()->view('Front.404', []);
+        catch (\Illuminate\Http\Client\ConnectionException $e) {
+            return view('Front.errors.noconnection', ['url' => url()->previous()]);
+        }
+        catch (\Exception $th) {
+            return redirect()->back()->with('message', 'حدث خطأ ما، حاول مرة أخرى');
+        }
     }
 
     public function action(Request $request, $id){
-        // '3': canceled, '4': uncomplete
-        $found = Auction::find($id);
-        if(!$found)
-            return response()->view('Front.errors.404', []);
-        $auction = Auction::whereId($id);
-        $auction->when($request->has('cancel'), function ($q) use ($id, $auction){
-            $q->update(['status' => '3']);
-            $q->when($auction->first()->bids->count() > 0, function ($q) use ($id, $auction){
-                $this->refundBidders($id);
-                $notify = new NotificationController();
-                $notify->cancelAuction($auction->first(),$id);
+        try{
+            // '3': canceled, '4': uncomplete
+            $found = Auction::find($id);
+            $auction = Auction::whereId($id);
+            $auction->when($request->has('cancel'), function ($q) use ($id, $auction){
+                $q->update(['status' => '3']);
+                $q->when($auction->first()->bids->count() > 0, function ($q) use ($id, $auction){
+                    $this->refundBidders($id);
+                    $notify = new NotificationController();
+                    $notify->cancelAuction($auction->first(),$id);
+                });
             });
-        });
-        $auction->when($request->has('timeExtension'), function ($q) use ($auction){
-                        $q->update(['closeDate' => Carbon::parse($auction->first()->closeDate)->addDays(2)]);
-                    });
-        $auction->when($request->has('stop'), function ($q) use ($id, $found, $auction){
-                        $q->update([
-                            'status' => '4',
-                            'winnerPrice'=> $found->bids->sortDesc()->first()->currentPrice,
-                            'winner_id' => Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->bidder_id
-                        ]);
-                        $notify = new NotificationController();
-                        $notify->stopAuction($auction->first(),$auction->first()->winner_id);
+            $auction->when($request->has('timeExtension'), function ($q) use ($auction){
+                            $q->update(['closeDate' => Carbon::parse($auction->first()->closeDate)->addDays(2)]);
+                        });
+            $auction->when($request->has('stop'), function ($q) use ($id, $found, $auction){
+                            $this->apiConnect(
+                                $id,
+                                $found,
+                                $found->bids->sortDesc()->first()->id,
+                                [
+                                    'id'    => $found->car->id,
+                                    'product_name'  => $found->type_and_model(),
+                                    'quantity' => 1,
+                                    'unit_amount' => $found->openingBid,
+                                ],
+                                $found->bids->sortDesc()->first()->currentPrice,
+                                []
+                            );
+                            $q->update([
+                                'status' => '4',
+                                'winnerPrice'=> $found->bids->sortDesc()->first()->currentPrice,
+                                'winner_id' => Bid::where('auction_id', $id)->orderBy('id', 'desc')->first()->bidder_id
+                            ]);
+                            $notify = new NotificationController();
+                            $notify->stopAuction($auction->first(),$auction->first()->winner_id);
 
-                        $this->refundBidders($id);
-                        $notify->refundBidders($auction->first(),$auction->first()->winner_id,$id);
-                        $this->apiConnect(
-                            $id,
-                            $found,
-                            $found->bids->sortDesc()->first()->id,
-                            [
-                                'id'    => $found->car->id,
-                                'product_name'  => $found->type_and_model(),
-                                'quantity' => 1,
-                                'unit_amount' => $found->openingBid,
-                            ],
-                            $found->bids->sortDesc()->first()->currentPrice,
-                            []
-                        );
-                    });
-        return redirect()->back();
+                            $this->refundBidders($id);
+                            $notify->refundBidders($auction->first(),$auction->first()->winner_id,$id);
+                        });
+            return redirect()->back();
+        }
+        catch (\Illuminate\Http\Client\ConnectionException $e) {
+            return view('Front.errors.noconnection', ['url' => url()->previous()]);
+        }
+        catch (\Exception $th) {
+            return redirect()->back()->with('message', 'حدث خطأ ما، حاول مرة أخرى');
+        }
     }
 
     //Refunds to previous bidders
@@ -215,7 +238,7 @@ class UserAuctionController extends Controller
             "cancel_url"=> "http://localhost:8000/user/payment/failed",
             "metadata"=> (object)$meta,
         ];
-        $response = Http::withHeaders($headers)->post($apiURL, $data);
+        $response = Http::withHeaders($headers)->post($apiURL, $data);  
         Auction::whereId($id)->update([
             'next_url' => url($response['invoice']['next_url']),
         ]);
