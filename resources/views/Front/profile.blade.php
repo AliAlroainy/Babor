@@ -3,12 +3,12 @@
 @include('Front.user.style.style')
 <!-- Content wrapper -->
 <div class="container mt-3" dir="rtl">
-    <div class="row mb-3">
+    <div class="row mb-3 py-2">
         <div class="col-lg-12 grid-margin stretch-card" style="width: 100%">
             <div class="cardp d-flex align-items-center justify-content-center">
                 <div class="card-body d-flex align-items-center justify-content-center">
                     <div class="p-3 d-flex flex-column align-items-center justify-content-center">
-                        <div class=" mt-n2 mx-sm-0 mx-auto pt-3 pe-3" style="position: relative">
+                        <div class="mt-n2 mx-sm-0 mx-auto pt-3" style="position: relative">
                             @if (isset($user->profile->avatar))
                                 <img src="/images/profiles/{{ $user->profile->avatar }}" alt="profile" width="100"
                                     class="d-block h-auto ms-0 rounded user-profile-img" />
@@ -17,7 +17,7 @@
                                     class="d-block h-auto ms-0 rounded user-profile-img" width="100" />
                             @endif
                         </div>
-                        <div class="mt-3">
+                        <div class="mt-3 text-center">
                             <h3>
                                 {{ $user->profile->username }}
                             </h3>
