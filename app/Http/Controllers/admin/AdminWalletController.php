@@ -29,7 +29,7 @@ class AdminWalletController extends Controller
 
         $bidding_money = Transaction::where('wallet_id', $user)
         ->where(function($q) use ($bills){
-            $q ->where('type', 'deposit')->whereIn('meta->bid', $bills);
+            $q->whereIn('meta->bid', $bills);
         })
         ->get()->sum('amount');
 
