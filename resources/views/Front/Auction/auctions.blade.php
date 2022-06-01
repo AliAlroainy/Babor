@@ -67,7 +67,7 @@
                                                     </span>
                                                     <a href="{{ route('user.auction.details', $auction->id) }}"
                                                         class="main-color p-2">
-                                                        <span> المزيد ..<i class="fa-solid fa-angles-left"></i>
+                                                        <span> المزيد ...
                                                         </span>
                                                     </a>
                                                 </div>
@@ -312,7 +312,7 @@
                                                     </span>
                                                     <a href="{{ route('user.auction.details', $auction->id) }}"
                                                         class="main-color p-2">
-                                                        <span> المزيد ..<i class="fa-solid fa-angles-left"></i>
+                                                        <span> المزيد ...
                                                         </span>
                                                     </a>
                                                 </div>
@@ -433,7 +433,7 @@
                                                     </span>
                                                     <a href="{{ route('user.auction.details', $auction->id) }}"
                                                         class="main-color p-2">
-                                                        <span> المزيد ..<i class="fa-solid fa-angles-left"></i>
+                                                        <span> المزيد ...
                                                         </span>
                                                     </a>
                                                 </div>
@@ -588,7 +588,7 @@
                                                         </span>
                                                         <a href="{{ route('user.auction.details', $auction->id) }}"
                                                             class="main-color p-2">
-                                                            <span> المزيد ..<i class="fa-solid fa-angles-left"></i>
+                                                            <span> المزيد ...
                                                             </span>
                                                         </a>
                                                     </div>
@@ -708,7 +708,7 @@
                                                     </span>
                                                     <a href="{{ route('user.auction.details', $auction->id) }}"
                                                         class="main-color p-2">
-                                                        <span> المزيد ..<i class="fa-solid fa-angles-left"></i>
+                                                        <span> المزيد ...
                                                         </span>
                                                     </a>
                                                 </div>
@@ -785,7 +785,7 @@
                                                     </span>
                                                     <a href="{{ route('user.auction.details', $auction->id) }}"
                                                         class="main-color p-2">
-                                                        <span> المزيد ..<i class="fa-solid fa-angles-left"></i>
+                                                        <span> المزيد ...
                                                         </span>
                                                     </a>
                                                 </div>

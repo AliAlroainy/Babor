@@ -22,7 +22,7 @@ class reviewRattingseeder extends Seeder
         DB::table('review_ratings')->insert([
             'user_id' => '2',
             'name'=> 'أبرار الخراساني',
-            'comments' => 'شخص ثقة',
+            'comments' => 'تأخر عني في تسليم سيارتي ويتحجج بالظروف',
             'star_rating' => '1',
             'created_at' => now(),
             'updated_at' => now()
@@ -47,7 +47,7 @@ class reviewRattingseeder extends Seeder
         DB::table('review_ratings')->insert([
             'user_id' => '5',
             'name'=> 'حمد البكيل',
-            'comments' => 'التعامل معه جيد لا بأس به',
+            'comments' => 'التعامل معه غير جيد',
             'star_rating' => '1',
             'created_at' => now(),
             'updated_at' => now()
@@ -63,7 +63,7 @@ class reviewRattingseeder extends Seeder
         DB::table('review_ratings')->insert([
             'user_id' => '6',
             'name'=> 'اراده الفقي',
-            'comments' => 'هذا الشخص ثقة، سأكرر معه المعاملة مرة أخرى',
+            'comments' => 'للأمانة الصور قليلا مغايرة للواقع',
             'star_rating' => '3',
             'created_at' => now(),
             'updated_at' => now()
@@ -87,7 +87,7 @@ class reviewRattingseeder extends Seeder
         DB::table('review_ratings')->insert([
             'user_id' => '3',
             'name'=> 'هيفاء نبيل',
-            'comments' => 'عروضه دائما تبهرني، فعلا يستحق التشجيع ',
+            'comments' => 'شخص عصبي ولم أحب التعامل معه لكنه سلم العرض',
             'star_rating' => '2',
             'created_at' => now(),
             'updated_at' => now()
@@ -95,7 +95,7 @@ class reviewRattingseeder extends Seeder
          DB::table('review_ratings')->insert([
             'user_id' => '4',
             'name'=> 'رقيه عبده',
-            'comments' => 'التعامل معه لا بأس به، أراه شخص عصبي',
+            'comments' => 'لن أكرر التعامل معه البتة',
             'star_rating' => '1',
             'created_at' => now(),
             'updated_at' => now()

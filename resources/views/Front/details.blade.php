@@ -182,13 +182,27 @@
                     </div>
                     <div>
                         <div class="product-rating">
-                            @for ($i = 1; $i <= $total; $i++)
-                                <i class="fa fa-star"></i>
-                            @endfor
-                            <i class="fa fa-star-o"></i>
+                            @if ($total > 0)
+                                @php
+                                    $remain = 5 - $total;
+                                @endphp
+                                @for ($i = 1; $i <= $total; $i++)
+                                    <i class="fa fa-star" style="color: #f79522;"></i>
+                                @endfor
+
+                                @if ($remain > 0)
+                                    @for ($i = 1; $i <= $remain; $i++)
+                                        <i class="fa fa-star-o" style="color: #f79522;"></i>
+                                    @endfor
+                                @endif
+                            @else
+                                @for ($i = 1; $i <= 5; $i++)
+                                    <i class="fa fa-star-o" style="color: #f79522;"></i>
+                                @endfor
+                            @endif
                         </div>
                         <br />
-                        <a class="review-link" href="#">10 تقييمات البائع
+                        <a class="review-link" href="#">{{ $total }} تقييمات للبائع
                             @if (!Auth::user() == $auction->user)
                                 | ضيف تقييمك
                             @endif
@@ -209,21 +223,6 @@
 
                     <ul class="product-links">
                         <li>مشاركة :</li>
-                        <!--
-                    <div class="likeShareBtnmt-3">
-                        <div id="fb-root"></div>
-                        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0"
-                                                nonce="ccaa4s"></script>
-                        <div
-                            class="fb-like"
-                            data-layout="standard"
-                            data-action="like"
-                            data-size="large"
-                            data-show-faces="true"
-                            data-href="https://developers.facebook.com/docs/plugins/"
-                            data-share="true">c,.jkhf
-                        </div>
-                    </div> -->
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -329,11 +328,27 @@
                                                             <span>{{ $totalstar }}</span>
                                                         @endif
                                                         <div class="rating-stars">
-                                                            @for ($i = 1; $i <= $total; $i++)
-                                                                <i class="fa fa-star"></i>
-                                                            @endfor
-                                                            <i class="fa fa-star-o"></i>
+                                                            @if ($total > 0)
+                                                                @php
+                                                                    $remain = 5 - $total;
+                                                                @endphp
+                                                                @for ($i = 1; $i <= $total; $i++)
+                                                                    <i class="fa fa-star"
+                                                                        style="color: #f79522;"></i>
+                                                                @endfor
 
+                                                                @if ($remain > 0)
+                                                                    @for ($i = 1; $i <= $remain; $i++)
+                                                                        <i class="fa fa-star-o"
+                                                                            style="color: #f79522;"></i>
+                                                                    @endfor
+                                                                @endif
+                                                            @else
+                                                                @for ($i = 1; $i <= 5; $i++)
+                                                                    <i class="fa fa-star-o"
+                                                                        style="color: #f79522;"></i>
+                                                                @endfor
+                                                            @endif
                                                         </div>
                                                     </div>
                                                     <ul class="rating">

@@ -223,10 +223,10 @@ class UserAuctionController extends Controller
     }
 
     public function apiConnect($id, $found, $ref, $product, $total, $meta){
-        $apiURL = 'https://waslpayment.com/api/test/merchant/payment_order';
+        $apiURL = 'https://waslpayment.com/api/v1/merchant/payment_order';
         $headers = [
-            'private-key' => 'F2sIwhqC7QqxOqnmRU6twXGYZRcz3Yf0wIJfDezULTuAlwxgW6',
-            'public-key' => 'PKsqSzlKsNBWsi81ZKhNZq5gp',
+            'private-key' => 'XkAk4TDBg2V3PC5wpakv3D0YJy3z2d5jzox8y2VKNhOrIcQOKb',
+            'public-key' => 'xckcJsiB6wBakHlM0VHDuuJVw',
             'Content-Type' => 'application/x-www-form-url'
         ];
         $data = [
