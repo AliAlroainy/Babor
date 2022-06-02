@@ -37,7 +37,7 @@
 
 
 
-    <title>Babor Admin</title>
+    <title>Babor</title>
     <!-- bootstrap link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/bootstrap-5.1.3-dist/css/bootstrap.css" />
