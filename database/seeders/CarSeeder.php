@@ -94,7 +94,7 @@ class CarSeeder extends Seeder
           DB::table('cars')->insert([
             'color' => 'أخضر',
             'model' => '2006',
-            'numberOfKillos' => '0',
+            'numberOfKillos' => '10000',
             'thumbnail' =>    'bus12.png',
             'car_images' =>  json_encode(['bus1.png',
                                           'bus13.png',
@@ -103,7 +103,7 @@ class CarSeeder extends Seeder
                                             ]),
             'description' => 'ميني باص',
             'carPosition'=> 'صنعاء ، شارع جمال ',
-            'status' => '1',
+            'status' => '0',
             'jear'   => '0',
             'brand_id' => '6',
             'series_id' => '5',

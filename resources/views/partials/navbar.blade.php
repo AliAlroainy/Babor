@@ -33,14 +33,12 @@
                         <i class="fa-solid fa-home btn-light fs-5 mb-2 ms-3"></i>
                     </a>
                 </li>
-
                 <li class="nav-item dropdown me-1">
                     <a class="nav-link count-indicator  d-flex justify-content-center align-items-center"
                         id="messageDropdown" href="{{ route('private') }}">
                         <i class="mdi mdi-message-text mx-0"></i>
                         <span class="count"></span>
                     </a>
-
                 </li>
                 <li class="nav-item dropdown me-4">
                     <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown"
@@ -51,20 +49,24 @@
                     <div class="dropdown-menu dropdown-menu-right rtl navbar-dropdown" id="dropdown-menu"
                         aria-labelledby="notificationDropdown">
                         <p class="mb-0 font-weight-normal  dropdown-header" id="dropdown-menu">الإشعارات</p>
-                        @foreach( \App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
-                            @if($notification->type == 1)
-                        <span class="dropdown-item">
-                            <span class="cart-img ms-2" ><img src="/images/cars/{{$notification->thumbnail}}" alt="#"></span>
-                                <a class="quantity text-dark" href="{{ url('auction')}}/{{$notification->link}}">
-                                <p class="fw-bold m-0"> {{$notification->message}}</p>
-                                <span class="amount">$ {{$notification->price}}</span>
-                                <span class="d-block mb-0 date">ينتهي بتاريخ {{$notification->closeDate}}</span>
-                            </a>
-                        </span>
+                        @foreach (\App\Http\Controllers\Notifications\NotificationController::getNotifications()['notifications'] as $notification)
+                            @if ($notification->type == 1)
+                                <span class="dropdown-item">
+                                    <span class="cart-img ms-2"><img
+                                            src="/images/cars/{{ $notification->thumbnail }}" alt="#"></span>
+                                    <a class="quantity text-dark"
+                                        href="{{ url('auction') }}/{{ $notification->link }}">
+                                        <p class="fw-bold m-0"> {{ $notification->message }}</p>
+                                        <span class="amount">$ {{ $notification->price }}</span>
+                                        <span class="d-block mb-0 date">ينتهي بتاريخ
+                                            {{ $notification->closeDate }}</span>
+                                    </a>
+                                </span>
                             @elseif($notification->type == 2)
                                 <span class="dropdown-item">
-                                    <a class="quantity text-dark" href="{{ url('user/auction/details')}}/{{$notification->link}}">
-                                        <p class="fw-bold m-0"> {{$notification->message}}</p>
+                                    <a class="quantity text-dark"
+                                        href="{{ url('user/auction/details') }}/{{ $notification->link }}">
+                                        <p class="fw-bold m-0"> {{ $notification->message }}</p>
                                     </a>
                                 </span>
                             @elseif($notification->type == 3)
@@ -84,16 +86,16 @@
                                 </span>
                             @endif
                         @endforeach
-
-
                         <span class="all">
-                            <a href="{{url('user/notifications/remove-all')}}" class="removeAll text-center w-100 d-inline-block mt-2">حذف الكل</a>
+                            <a href="{{ url('user/notifications/remove-all') }}"
+                                class="removeAll text-center w-100 d-inline-block mt-2">حذف الكل</a>
                             <a href="#" class="showAll text-center w-100 d-inline-block mt-2">عرض الكل</a>
                         </span>
                     </div>
                 </li>
                 <li class="nav-item nav-profile dropdown">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown"
+                        id="profileDropdown">
                         <div>
                             @auth
                                 @if (Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('admin'))
