@@ -115,8 +115,8 @@
                                                 </div>
                                             @endif
                                         @else
-                                            <div class="p-2 text-success d-flex">
-                                                مكتملة
+                                            <div class="p-2 text-success text-center">
+                                                منتهية
                                             </div>
                                         @endif
                                     </td>
@@ -224,16 +224,15 @@
                                         </a>
                                     </td>
                                 </tr>
-                            @else
-                                <tr class="border-bottom">
-                                    <td>
-                                        <div class="p-2">
-                                            <span class="d-block font-weight-bold">لا يوجد بيانات</span>
-                                        </div>
-                                    </td>
-                                </tr>
                             @endif
                         @empty
+                            <tr class="border-bottom">
+                                <td>
+                                    <div class="p-2">
+                                        <span class="d-block font-weight-bold">لا يوجد بيانات</span>
+                                    </div>
+                                </td>
+                            </tr>
                         @endforelse
 
                     </tbody>

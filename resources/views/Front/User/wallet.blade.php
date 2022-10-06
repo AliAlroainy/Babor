@@ -551,7 +551,7 @@
                                     <p class="text-muted p-2">الكمية</p>
                                     <span class="d-block p-2 border-bottom">
                                         @isset($billPaper)
-                                            {{ $billPaper->count() }}
+                                            1
                                         @endisset
                                     </span>
                                 </div>
@@ -570,10 +570,16 @@
                                 </div>
                             </div>
                             <div class="d-flex h7 mb-2">
-                                <p class="ms-5">الاجمالي
+                                <p class="ms-1">الاجمالي
                                     الكلي:</p>
                                 <p class="ms-auto">
                                     {{ $billPaper->bid->currentPrice ?? '' }}
+                                </p>
+                                <p class="ms-1">العملة: </p>
+                                <p class="ms-auto">
+                                    @if ($billPaper)
+                                        $
+                                    @endif
                                 </p>
                             </div>
                             <div class="h8 mb-5">

@@ -427,7 +427,8 @@
                                                         class="nav-link" href="/offer">العروض</a></li>
                                                 <li class="navh {{ request()->is('services') ? 'active' : '' }}"><a
                                                         class="nav-link" href="/services">الخدمات</a></li>
-                                                <li class="navh "><a  class="nav-link" style="cursor: default" href="#">شراء
+                                                <li class="navh "><a class="nav-link"
+                                                        style="cursor: default" href="#">شراء
                                                         سيارة<i class="ti-angle-down p-2"></i>
                                                         <!--span class="new">جديد</span-->
                                                     </a>
