@@ -22,7 +22,7 @@ class ContractController extends Controller
         $is_buyer = $bill->bid->user == Auth::user();
         $is_seller = $bill->bid->auction->user == Auth::user();
         $user = '';
-    
+
         if($is_buyer)
             $user = 'buyer';
         else if($is_seller)
@@ -34,19 +34,19 @@ class ContractController extends Controller
             $seller_confirmed = null;
             if(Contract::where(['payment_bill_id' => $bill_id, 'buyer_confirm' => 1])->first() != null)
                 $buyer_confirmed = true;
-                
+
             if(Contract::where(['payment_bill_id' => $bill_id, 'seller_confirm' => 1])->first() != null)
                 $seller_confirmed = true;
 
             if(Contract::where(['payment_bill_id' => $bill_id, 'buyer_confirm' => 0])->first() != null)
                 $buyer_confirmed = false;
-                
+
             if(Contract::where(['payment_bill_id' => $bill_id, 'seller_confirm' => 0])->first() != null)
                 $seller_confirmed = false;
 
             return view('Front.Auction.contractDocument', [
-                'user' => $user, 
-                'bid' => $bid, 
+                'user' => $user,
+                'bid' => $bid,
                 'buyer_confirmed' => $buyer_confirmed,
                 'seller_confirmed'=> $seller_confirmed,
             ]);
@@ -87,8 +87,8 @@ class ContractController extends Controller
 
             $confirmed_both = Contract::where(
                 [
-                    'payment_bill_id' => $bill_id, 
-                    'buyer_confirm' => '1', 
+                    'payment_bill_id' => $bill_id,
+                    'buyer_confirm' => '1',
                     'seller_confirm' => '1'
                 ])->first();
 
@@ -113,12 +113,10 @@ class ContractController extends Controller
         $auction_id = $auction->id;
         $this->siteDeduction($auction_id, $commission); // مستحقات الموقع
         $admin->transfer($auctioneer, $commission);   // تسليم البائع نسبة من المزاد
-        $admin->transfer($bidder, $money_left);  
+        $admin->transfer($bidder, $money_left);
         // تسليم باقي المبلغ إلى المزايد بعد الخصم منه النسبة للموقع
         //ونفس النسبة لصاحب المزاد
     }
 
-    // public function siteDeduction($auction_id, $commission){
-    //     Auction::whereId($auction_id)->update(['commission' => $commission]);
-    // }
+    
 }

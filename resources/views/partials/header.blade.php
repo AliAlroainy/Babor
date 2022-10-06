@@ -37,7 +37,11 @@
 
 
 
+<<<<<<< HEAD
+    <title>Babor user</title>
+=======
     <title>Babor</title>
+>>>>>>> ed88ab308e57a00e3ad2130d667c86fcd6e881b2
     <!-- bootstrap link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/bootstrap-5.1.3-dist/css/bootstrap.css" />

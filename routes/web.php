@@ -171,7 +171,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/change-password', [AuthController::class, 'changePasswordAdmin'])->name('change-password-admin');
         Route::post('/change-password', [AuthController::class, 'updatePassword'])->name('update-password-admin');
     });
-    Route::group(['prefix' => 'user', 'middleware'=>'role:user'],function(){
+      Route::group(['prefix' => 'user', 'middleware'=>'role:user'],function(){
 
         Route::get('/dashboard/profile', [ProfilesController::class,'show'])->name('user.profile') ;
         Route::get('/dashboard/profile/{id}', [ProfilesController::class,'visit'])->name('user.visit.profile') ;
@@ -217,7 +217,7 @@ Route::group(['middleware'=>'auth'],function(){
 
         });
 
-//chat Router
+         //chat Router
           Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
           Route::get('/private',[ App\Http\Controllers\HomeController::class, 'private'])->name('private');
           Route::get('/users', [App\Http\Controllers\HomeController::class, 'users'])->name('users');
