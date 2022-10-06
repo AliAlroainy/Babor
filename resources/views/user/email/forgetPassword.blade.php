@@ -5,7 +5,7 @@
         <div class="col-sm-6 border m-auto mt-5">
             <div class="text-center">
                 <h3><i class="fa fa-lock fa-2x my-3"></i></h3>
-                <h2 class="text-center">هل نسيت كلمة المرور ؟</h2>
+                <h2 class="text-center">هل نسيت كلمة المرور? ؟</h2>
                 <div class="panel-body my-5">
                     <form method="POST" action="/forget-password">
                       @csrf
