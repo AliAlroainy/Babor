@@ -1,64 +1,38 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Project Idea 
+is based on vehicle auctions So that the user who has an account adds a car to bid on and sets a minimum bid price, and then any other user who has an account on the site can enter the auction and bid at any price he wants .
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+In the event that the bidder wins, a sales contract is created to complete the sale, and the car is handed over to the winning user, and the amount due is deducted from the buyer’s wallet.
 
-## About Laravel
+## About Babor
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+is an online platform that serves individuals and car showrooms by buying by auction for those who need to buy used cars or want to sell their cars in Yemen .
+Babor’s website will help them manage their offerings or purchases and act as an intermediary that facilitates the process of receiving, delivering and bidding online, and it competes with Copart in terms of advantages.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Team Work mechnanism
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<img width="1088" alt="‏لقطة الشاشة ٢٠٢٣-٠٦-٢٠ في ٩ ٢٤ ٤٣ م" src="https://github.com/Jehadalmaliki/Babor/assets/49036484/a4c6c094-394b-4875-ac66-e622624ac1cb">
 
-## Learning Laravel
+## Home 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<img width="1374" alt="‏لقطة الشاشة ٢٠٢٣-٠٦-٢٠ في ٩ ٢٦ ٢٣ م" src="https://github.com/Jehadalmaliki/Babor/assets/49036484/a7bb1340-e6d0-461e-bf3b-a37a00b0d4c1">
+<img width="1374" alt="‏لقطة الشاشة ٢٠٢٣-٠٦-٢٠ في ٩ ٢٩ ١١ م" src="https://github.com/Jehadalmaliki/Babor/assets/49036484/38d5b588-b7e7-4c8f-84ba-63c1f2b5aa27">
+<img width="1374" alt="‏لقطة الشاشة ٢٠٢٣-٠٦-٢٠ في ٩ ٢٩ ١٨ م" src="https://github.com/Jehadalmaliki/Babor/assets/49036484/0749a2b3-d128-4912-ac8f-c6efebef909e">
+![screencapture-localhost-8000-user-auctions-uncompleted-2022-05-26-10_43_58](https://github.com/Jehadalmaliki/Babor/assets/49036484/4191ce85-c012-4eeb-b6e0-3d8558e81196)<img width="1091" alt="‏لقطة الشاشة ٢٠٢٣-٠٦-٢٠ في ٩ ٣٠ ٥٤ م" src="https://github.com/Jehadalmaliki/Babor/assets/49036484/bb862635-cc13-4e86-b3f8-c27bf4101015">
+<img width="1091" alt="‏لقطة الشاشة ٢٠٢٣-٠٦-٢٠ في ٩ ٣٠ ١٢ م" src="https://github.com/Jehadalmaliki/Babor/assets/49036484/2db6cdb0-0473-49da-841b-1270b21a3caa">
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<img width="1091" alt="‏لقطة الشاشة ٢٠٢٣-٠٦-٢٠ في ٩ ٢٩ ٥٦ م" src="https://github.com/Jehadalmaliki/Babor/assets/49036484/7a98eb87-25d5-4c8c-8b40-a7ad98d7e4bc">
+<img width="1374" alt="‏لقطة الشاشة ٢٠٢٣-٠٦-٢٠ في ٩ ٢٨ ٢٦ م" src="https://github.com/Jehadalmaliki/Babor/assets/49036484/1f8f750b-2bb8-43e7-9532-d929ba6bb7bd">
 
-## Laravel Sponsors
+![screencapture-localhost-8000-user-auctions-uncompleted-2022-05-26-10_43_58](https://github.com/Jehadalmaliki/Babor/assets/49036484/a0fa7eb0-3bb7-4a2d-9afa-fae3d85d835f)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<img width="1374" alt="‏لقطة الشاشة ٢٠٢٣-٠٦-٢٠ في ٩ ٢٨ ١٠ م" src="https://github.com/Jehadalmaliki/Babor/assets/49036484/b6c2668c-04cc-4da1-8bbf-aa9f2a48d94a">
+<img width="1374" alt="‏لقطة الشاشة ٢٠٢٣-٠٦-٢٠ في ٩ ٢٦ ٥٢ م" src="https://github.com/Jehadalmaliki/Babor/assets/49036484/8325d67b-0467-477c-8982-4e001f41defd">
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
