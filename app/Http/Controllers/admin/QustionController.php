@@ -78,7 +78,7 @@ class QustionController extends Controller
             return redirect()->back()->with(['errorEdit'=>'لا تستطيع التعديل']);
         }else{
             $qes->update($request->except(['_token']));
-            return redirect()->route('admin.questions.index')->with(['successEdit'=>'تم التعديل بنجاح']);
+            return redirect()->route('admin.question.index')->with(['successEdit'=>'تم التعديل بنجاح']);
         }
     }
 

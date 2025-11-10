@@ -9,29 +9,37 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Bavix\Wallet\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Collection;
-
 class WalletController extends Controller
 {
     public function index($bill_id=null){
-        $user = Auth::id();
-        $balance = DB::table('wallets')->where('holder_id', $user)->first()->balance;
-        $billPaper = null;
-        //To list out different financial operation
-        $trans = Transaction::where('wallet_id', $user)->get();
-        
-        $loses = Transaction::where(['wallet_id' => $user, 'type' => 'withdraw'])->get()->sum('amount');
-        $gains = Transaction::where(['wallet_id' => $user, 'type' => 'deposit'])->get()->sum('amount');
+        $user       = Auth::id();
+        $billPaper  = null;
+        $walletData = DB::table('wallets')->where('holder_id', $user)->first();
+        $walletId   = $walletData?->id;
+        $balance    = $walletData?->balance ?? 0;
 
-        if($bill_id) 
+        $operations = $walletId
+            ? Transaction::where('wallet_id', $walletId)->get()
+            : collect();
+
+        $withdrawSum = $walletId
+            ? Transaction::where(['wallet_id' => $walletId, 'type' => 'withdraw'])->sum('amount')
+            : 0;
+
+        $depositSum = $walletId
+            ? Transaction::where(['wallet_id' => $walletId, 'type' => 'deposit'])->sum('amount')
+            : 0;
+
+        if ($bill_id) {
             $billPaper = Payment_Bill::whereId($bill_id)->first();
-        
+        }
+
         return view('Front.User.wallet')->with([
-            'balance' => $balance, 
-            'loses' => abs($loses),
-            'gains' => $gains,
-            'operations'  => $trans,  
-            'billPaper'  => $billPaper,       
+            'balance'    => $balance,
+            'loses'      => abs((float) $withdrawSum),
+            'gains'      => (float) $depositSum,
+            'operations' => $operations,
+            'billPaper'  => $billPaper,
         ]);
     }
 }
