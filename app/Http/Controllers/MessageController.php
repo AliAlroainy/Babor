@@ -35,25 +35,29 @@ class MessageController extends Controller
 
     public function sendMessage(Request $request)
     {
+        $validated = $request->validate([
+            'receiver_id' => ['required', 'exists:users,id'],
+            'message'     => ['nullable', 'string', 'required_without:file'],
+            'file'        => ['nullable', 'file'],
+        ]);
 
-
-        if(request()->has('file')){
-            $filename = request('file')->store('chat');
-            $message=Message::create([
-                'user_id' => request()->user()->id,
-                'image' => $filename,
-                'receiver_id' => request('receiver_id')
+        if ($request->hasFile('file')) {
+            $filename = $request->file('file')->store('chat');
+            $message  = Message::create([
+                'user_id'     => $request->user()->id,
+                'image'       => $filename,
+                'receiver_id' => $validated['receiver_id'],
             ]);
-        }else{
-            $message = auth()->user()->messages()->create(['message' => $request->message]);
-
+        } else {
+            $message = auth()->user()->messages()->create([
+                'message'     => $validated['message'],
+                'receiver_id' => $validated['receiver_id'],
+            ]);
         }
 
+        broadcast(new MessageSent(auth()->user(), $message->load('user')))->toOthers();
 
-        broadcast(new MessageSent(auth()->user(),$message->load('user')))->toOthers();
-
-        return response(['status'=>'Message sent successfully','message'=>$message]);
-
+        return response(['status' => 'Message sent successfully', 'message' => $message]);
     }
 
     public function sendPrivateMessage(Request $request,User $user)
